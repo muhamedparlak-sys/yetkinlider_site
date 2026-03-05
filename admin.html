@@ -18,6 +18,7 @@
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<script src="/config.js"></script>
 <style>
 :root {
   --bg: #0f1520;
@@ -764,7 +765,8 @@ function quickPlan(compId, diff, compTitle) {
 }
 
 // ── SCENARIOS LIST ────────────────────────────────────────────────────────────
-const MANIFEST_URL = 'data/scenarios/manifest.json';
+// Supabase Storage varsa oradan, yoksa lokal JSON'dan manifest çek
+const MANIFEST_URL = window.__sbManifestUrl || 'data/scenarios/manifest.json';
 
 async function buildScenariosList() {
   const el = document.getElementById('scenario-list-container');
@@ -1228,14 +1230,27 @@ async function saveToFsApi(jsonStrOrEncoded, encoded) {
   const jsonStr = encoded ? decodeURIComponent(jsonStrOrEncoded) : jsonStrOrEncoded;
   const scenario = JSON.parse(jsonStr);
 
+  // ── 1. Supabase Storage (birincil — anlık canlı) ─────────────────────────
+  if (typeof window.sbUpload === 'function') {
+    showToast('⏳ Supabase\'e yükleniyor…');
+    try {
+      await window.sbUpload(scenario);
+      showToast(`✓ "${scenario.title}" yüklendi — anında canlı!`);
+      buildScenariosList();
+    } catch (e) {
+      console.error('[Storage] upload hatası:', e);
+      showToast('✗ Yükleme hatası: ' + (e.message || e));
+    }
+    return;
+  }
+
+  // ── 2. File System Access API (Supabase yoksa yerel klasöre yaz) ─────────
   if (_fsHandle) {
     try {
       const fileHandle = await _fsHandle.getFileHandle(`${scenario.id}.json`, { create: true });
       const writable = await fileHandle.createWritable();
       await writable.write(JSON.stringify(scenario, null, 2));
       await writable.close();
-
-      // Update manifest
       await updateManifestFile(scenario);
       showToast(`${scenario.id}.json kaydedildi`);
       buildScenariosList();
@@ -1245,7 +1260,7 @@ async function saveToFsApi(jsonStrOrEncoded, encoded) {
     }
   }
 
-  // Fallback: download
+  // ── 3. İndirme fallback ───────────────────────────────────────────────────
   downloadGeneratedJson(jsonStrOrEncoded, encoded);
   showToast('Klasör seçilmedi — JSON indirildi. data/scenarios/ klasörüne kopyalayın.');
 }
@@ -1304,6 +1319,20 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
 }
+</script>
+
+<!-- ── Supabase Storage entegrasyonu ───────────────────────────────────── -->
+<script type="module">
+import { uploadScenario, manifestUrl } from '/js/storage.js';
+
+// saveToFsApi() tarafından kullanılır (1. öncelik)
+window.sbUpload = uploadScenario;
+
+// buildScenariosList() dinamik olarak Supabase manifest URL'sini kullanır
+window.__sbManifestUrl = manifestUrl();
+
+// Senaryo listesini Supabase'den yeniden yükle (sayfa açılışında)
+if (typeof buildScenariosList === 'function') buildScenariosList();
 </script>
 </body>
 </html>
