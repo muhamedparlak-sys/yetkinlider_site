@@ -4,6 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>PMP® Practice Exam — YetkinLider</title>
+  <!-- ── Session guard: giriş yoksa login'e yönlendir ── -->
+  <script>
+  (function(){
+    try {
+      var s = JSON.parse(localStorage.getItem('pmSim_session'));
+      if (!s || !s.email) throw new Error('no session');
+    } catch(_) {
+      window.location.replace('index.html?auth=1&return=' + encodeURIComponent(location.pathname + location.search));
+    }
+  })();
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{

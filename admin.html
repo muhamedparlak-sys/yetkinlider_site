@@ -5,6 +5,17 @@
 <link rel="icon" href="favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin Paneli — YetkinLider</title>
+<!-- ── Session guard: giriş yoksa login'e yönlendir ── -->
+<script>
+(function(){
+  try {
+    var s = JSON.parse(localStorage.getItem('pmSim_session'));
+    if (!s || !s.email) throw new Error('no session');
+  } catch(_) {
+    window.location.replace('index.html?auth=1&return=' + encodeURIComponent(location.pathname + location.search));
+  }
+})();
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 <style>
