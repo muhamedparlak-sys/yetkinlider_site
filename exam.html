@@ -15,6 +15,7 @@
     }
   })();
   </script>
+  <script src="/config.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -899,6 +900,48 @@ function showResults() {
   }
 
   document.getElementById('resultsScreen').classList.add('open');
+
+  // ── Sonucu kaydet ────────────────────────────────────────────────────────
+  const totalTime = mode === 'full' ? 240 * 60 : questions.length * 2 * 60;
+  const resultPayload = {
+    mode           : mode,
+    categoryFilter : mode === 'category' ? (activeCat || 'Mixed') : null,
+    score          : pct,
+    correct        : correctCount,
+    incorrect      : answeredCount - correctCount,
+    unanswered     : total - answeredCount,
+    total          : total,
+    timeUsed       : totalTime - remaining,
+    timeTotal      : totalTime,
+    categoryStats  : catStats,                   // { cat: { correct, total } }
+  };
+
+  // localStorage'a yaz (result.html uyumluluğu)
+  try {
+    const lsPayload = {
+      score     : pct,
+      correct   : correctCount,
+      incorrect : answeredCount - correctCount,
+      unanswered: total - answeredCount,
+      total     : total,
+      timeUsed  : totalTime - remaining,
+      timeTotal : totalTime,
+      date      : new Date().toISOString(),
+      domains   : {
+        people  : { score: catStats['People']?.correct   != null ? Math.round(catStats['People'].correct   / catStats['People'].total   * 100) : pct, label: 'People',               weight: '42%' },
+        process : { score: catStats['Process']?.correct  != null ? Math.round(catStats['Process'].correct  / catStats['Process'].total  * 100) : pct, label: 'Process',              weight: '50%' },
+        business: { score: catStats['Business']?.correct != null ? Math.round(catStats['Business'].correct / catStats['Business'].total * 100) : pct, label: 'Business Environment', weight: '8%'  },
+      },
+    };
+    localStorage.setItem('pmpResult', JSON.stringify(lsPayload));
+  } catch(e) {}
+
+  // Supabase'e kaydet (fire-and-forget)
+  if (typeof window.__sbSaveExamResult === 'function') {
+    window.__sbSaveExamResult(resultPayload).catch(e =>
+      console.warn('[DB] Sınav kaydı başarısız:', e.message)
+    );
+  }
 }
 
 function restartExam() {
@@ -1016,6 +1059,12 @@ document.getElementById('endReviewBtn').addEventListener("click",closeReview);
 document.getElementById('reviewAllBtn').addEventListener("click",()=>{reviewFilter="all";renderReview();});
 document.getElementById('reviewIncompleteBtn').addEventListener("click",()=>{reviewFilter="incomplete";renderReview();});
 document.getElementById('reviewFlaggedBtn').addEventListener("click",()=>{reviewFilter="flagged";renderReview();});
+</script>
+
+<!-- ── Supabase DB entegrasyonu ─────────────────────────────────────────── -->
+<script type="module">
+import { insertExamResult } from '/js/db.js';
+window.__sbSaveExamResult = insertExamResult;
 </script>
 </body>
 </html>
