@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PM Liderlik Simülasyonu — YetkinLider</title>
+<script src="/config.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -1228,11 +1229,20 @@ var Game; Game = (() => {
     // PM name input updates career ready state
     document.getElementById('inp-pm-name')?.addEventListener('input', checkCareerReady);
 
-    // Manifest yükle → sektör dropdown'ı doldur
-    fetch('data/scenarios/manifest.json').then(r => r.json()).then(m => {
+    // Manifest yükle → sektör dropdown'ı doldur (Supabase önce, lokal fallback)
+    const _manifestSrc = window.__sbManifestUrl || 'data/scenarios/manifest.json';
+    fetch(_manifestSrc + '?t=' + Date.now()).then(r => r.json()).then(m => {
       S.manifest = m;
       buildSectorDropdown();
-    }).catch(() => {});
+    }).catch(() => {
+      // Supabase başarısız olursa lokal'den dene
+      if (window.__sbManifestUrl) {
+        fetch('data/scenarios/manifest.json').then(r => r.json()).then(m => {
+          S.manifest = m;
+          buildSectorDropdown();
+        }).catch(() => {});
+      }
+    });
 
     // Compose pane: option selection + send (event delegation — no inline onclick needed)
     document.getElementById('notif-compose').addEventListener('click', e => {
@@ -1566,6 +1576,17 @@ var Game; Game = (() => {
 
   async function loadScenario(id) {
     try {
+      // ── 1. Supabase Storage (admin'in yüklediği son versiyon) ────────────
+      if (window.__sbFetchScenario) {
+        try {
+          S.scenario = await window.__sbFetchScenario(id);
+          beginPlay();
+          return;
+        } catch (sbErr) {
+          console.warn('[Storage] Supabase düştü, lokalden denenecek:', sbErr.message);
+        }
+      }
+      // ── 2. Yerel JSON fallback ────────────────────────────────────────────
       const r = await fetch(`data/scenarios/${id}.json`);
       if(!r.ok) throw new Error('HTTP '+r.status);
       S.scenario = await r.json();
@@ -2280,6 +2301,17 @@ var Game; Game = (() => {
   };
 })();
 window.Game = Game;
+</script>
+
+<!-- ── Supabase Storage entegrasyonu ───────────────────────────────────── -->
+<script type="module">
+import { fetchScenario, manifestUrl } from '/js/storage.js';
+
+// loadScenario() Supabase'den çeker (1. öncelik, yerel JSON fallback)
+window.__sbFetchScenario = fetchScenario;
+
+// Manifest URL'sini global'e bağla (manifest fetch zaten bunu kullanıyor)
+window.__sbManifestUrl = manifestUrl();
 </script>
 </body>
 </html>
