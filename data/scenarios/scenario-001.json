@@ -1,0 +1,859 @@
+{
+  "id": "scenario-001",
+  "title": "The Startup Sprint",
+  "description": "TechFlow has hired you as Project Manager to deliver a customer-facing mobile app in 12 weeks. The startup just closed a seed round and the CEO wants to demo the product to investors by Week 12. Budget: $300,000. The team is small but motivated — for now.",
+  "domain": "Software Development",
+  "difficulty": "Beginner",
+  "totalWeeks": 12,
+  "budget": 300000,
+  "startDate": "2026-01-05",
+  "objective": "Deliver the TechFlow mobile app within budget and on schedule before the investor demo.",
+  "roleDescription": "You are the PM for TechFlow's first major product. You report directly to the CEO. Your decisions will shape team morale, stakeholder confidence, and the project's financial health.",
+
+  "initialState": {
+    "ev": 0,
+    "pv": 0,
+    "ac": 0,
+    "stakeholderSatisfaction": 75,
+    "teamMorale": 80,
+    "scopeCreep": 0,
+    "qualityDebt": 0,
+    "activeRisks": [
+      {
+        "id": "risk-001",
+        "title": "Unclear Requirements",
+        "probability": 0.3,
+        "impact": 8,
+        "type": "threat"
+      },
+      {
+        "id": "risk-002",
+        "title": "Third-Party API Dependency",
+        "probability": 0.2,
+        "impact": 6,
+        "type": "threat"
+      }
+    ]
+  },
+
+  "weeks": [
+    {
+      "week": 1,
+      "plannedValue": 25000,
+      "narrative": "Week 1 of 12. The project kicks off. Your team of 4 developers and 1 designer gathers for the first time. The CEO drops in and changes two key requirements mid-meeting, citing 'what the investors actually want to see.' The scope document you spent two weeks preparing is now partially obsolete.",
+      "decisions": [
+        {
+          "id": "d-w1-01",
+          "text": "The CEO has changed key requirements. How do you respond?",
+          "options": [
+            {
+              "id": "opt-w1-a",
+              "text": "Accept the changes immediately and update the plan to reflect the new scope.",
+              "effects": {
+                "ev": 10000,
+                "ac": 8000,
+                "stakeholderSatisfaction": 10,
+                "teamMorale": -5,
+                "scopeCreep": 8
+              },
+              "feedback": "The CEO is satisfied — for now. But the team feels the ground shifting beneath them. Scope creep has begun. Morale dips slightly as the team wonders if the plan will keep changing.",
+              "pmpConcept": "Scope Management / Change Control Process"
+            },
+            {
+              "id": "opt-w1-b",
+              "text": "Negotiate: document the changes formally and update the WBS, schedule, and budget before accepting.",
+              "effects": {
+                "ev": 12000,
+                "ac": 9000,
+                "stakeholderSatisfaction": 5,
+                "teamMorale": 5,
+                "scopeCreep": 2
+              },
+              "feedback": "The CEO is mildly frustrated by the process overhead but respects your professionalism. The team feels protected by clear scope boundaries. A small scope adjustment is made with minimal drift.",
+              "pmpConcept": "Integrated Change Control / Scope Baseline"
+            },
+            {
+              "id": "opt-w1-c",
+              "text": "Defer the changes: complete Week 1 as planned, then formally evaluate the changes next week.",
+              "effects": {
+                "ev": 14000,
+                "ac": 8500,
+                "stakeholderSatisfaction": -5,
+                "teamMorale": 8,
+                "scopeCreep": 0
+              },
+              "feedback": "The CEO is unhappy with the delay but accepts it. The team delivers Week 1 at full velocity with no confusion. Scope stays clean, but the stakeholder relationship needs repair.",
+              "pmpConcept": "Perform Integrated Change Control / PMBOK Change Management"
+            },
+            {
+              "id": "opt-w1-d",
+              "text": "Ask the team to vote on which requirements to keep — let them own the decision.",
+              "effects": {
+                "ev": 8000,
+                "ac": 7000,
+                "stakeholderSatisfaction": -10,
+                "teamMorale": -8,
+                "scopeCreep": 5
+              },
+              "feedback": "Well-intentioned but counterproductive. Scope decisions belong with the PM and sponsor — not the delivery team. The team is confused, the CEO is annoyed, and Week 1 ends with low delivery.",
+              "pmpConcept": "Roles & Responsibilities / Sponsor Authority"
+            }
+          ]
+        }
+      ],
+      "events": []
+    },
+
+    {
+      "week": 2,
+      "plannedValue": 25000,
+      "narrative": "Week 2. The lead developer reports that the third-party payment API you're integrating has major documentation gaps. Estimated rework: 3-4 days of extra work. Meanwhile, the designer delivers outstanding UI mockups — ahead of schedule.",
+      "decisions": [
+        {
+          "id": "d-w2-01",
+          "text": "The payment API integration is riskier than estimated. How do you handle it?",
+          "options": [
+            {
+              "id": "opt-w2-a",
+              "text": "Assign two developers to the API problem immediately and pull them from other tasks.",
+              "effects": {
+                "ev": 18000,
+                "ac": 22000,
+                "stakeholderSatisfaction": 0,
+                "teamMorale": -5,
+                "qualityDebt": 5,
+                "removeRisk": "risk-002"
+              },
+              "feedback": "The API issue is resolved quickly, but the extra developer cost pushes AC above PV this week. Some other features are now behind schedule. CPI begins to slip below 1.0.",
+              "pmpConcept": "Risk Response: Mitigate / Resource Reallocation"
+            },
+            {
+              "id": "opt-w2-b",
+              "text": "Explore alternative payment APIs — if a better-documented option exists, switch now before more code is written.",
+              "effects": {
+                "ev": 20000,
+                "ac": 18000,
+                "stakeholderSatisfaction": 0,
+                "teamMorale": 5,
+                "removeRisk": "risk-002"
+              },
+              "feedback": "You find a well-documented alternative with similar pricing. The switch takes a day but saves significant integration time. CPI stays healthy and the risk is closed.",
+              "pmpConcept": "Risk Response: Avoid / Procurement Alternatives"
+            },
+            {
+              "id": "opt-w2-c",
+              "text": "Log it as an accepted risk and continue — the team will work through it as they go.",
+              "effects": {
+                "ev": 15000,
+                "ac": 16000,
+                "stakeholderSatisfaction": 0,
+                "teamMorale": -3,
+                "addRisk": {
+                  "id": "risk-003",
+                  "title": "API Integration Debt",
+                  "probability": 0.4,
+                  "impact": 7,
+                  "type": "threat"
+                }
+              },
+              "feedback": "The team pushes forward but the undocumented API creates ongoing friction. A new technical risk is added to the register. This could escalate in a future week.",
+              "pmpConcept": "Risk Response: Accept (Active/Passive) / Risk Register"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "id": "evt-w2-01",
+          "title": "Designer Delivers Early",
+          "description": "The UI designer completed all mockups three days ahead of schedule. Development can start the frontend earlier than planned.",
+          "probability": 0.7,
+          "condition": "teamMorale >= 70",
+          "effects": {
+            "ev": 5000,
+            "teamMorale": 5
+          },
+          "notification": "success"
+        }
+      ]
+    },
+
+    {
+      "week": 3,
+      "plannedValue": 25000,
+      "narrative": "Week 3. One of your developers comes to you privately and says another team member has been dismissive and condescending in code reviews. It's affecting their confidence. Separately, the CEO asks for a progress update and wants to see 'something working' by end of week.",
+      "decisions": [
+        {
+          "id": "d-w3-01",
+          "text": "A team conflict is affecting morale. As a servant leader, how do you respond?",
+          "options": [
+            {
+              "id": "opt-w3-a",
+              "text": "Have a private, direct conversation with the developer accused of being dismissive — coaching, not punishment.",
+              "effects": {
+                "ev": 22000,
+                "ac": 20000,
+                "teamMorale": 12,
+                "stakeholderSatisfaction": 0
+              },
+              "feedback": "Handled with professionalism. The behaviour improves. The team feels the PM has their back. Servant leadership in action — remove obstacles and protect the team's psychological safety.",
+              "pmpConcept": "Servant Leadership / Conflict Resolution / Psychological Safety"
+            },
+            {
+              "id": "opt-w3-b",
+              "text": "Call a team meeting and address the issue publicly to set expectations for everyone.",
+              "effects": {
+                "ev": 18000,
+                "ac": 19000,
+                "teamMorale": -8,
+                "stakeholderSatisfaction": 0
+              },
+              "feedback": "The affected developer is embarrassed by the public confrontation. The accused feels singled out unfairly. Morale drops. Public confrontation rarely solves interpersonal conflict — private dialogue is more effective.",
+              "pmpConcept": "Conflict Management Techniques / Team Development"
+            },
+            {
+              "id": "opt-w3-c",
+              "text": "Tell the developer to 'toughen up' — this is a fast-paced startup and thick skin is required.",
+              "effects": {
+                "ev": 16000,
+                "ac": 18000,
+                "teamMorale": -15,
+                "stakeholderSatisfaction": 0
+              },
+              "feedback": "A serious misstep. Dismissing team concerns destroys psychological safety. Morale drops significantly. In PMP terms: this is the opposite of servant leadership.",
+              "pmpConcept": "Team Management / Servant Leadership (What NOT to do)"
+            },
+            {
+              "id": "opt-w3-d",
+              "text": "Escalate immediately to HR even though this is a small startup with no formal HR.",
+              "effects": {
+                "ev": 19000,
+                "ac": 21000,
+                "teamMorale": -5,
+                "stakeholderSatisfaction": -5,
+                "ac": 20500
+              },
+              "feedback": "Over-escalation for a coaching situation. It creates formality that damages trust. The conflict remains unresolved and the CEO is puzzled by the interruption.",
+              "pmpConcept": "Conflict Resolution Methods / Escalation Thresholds"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "id": "evt-w3-ceo",
+          "title": "CEO Asks for a Demo",
+          "description": "The CEO drops by and asks for a working prototype. If you have something to show, stakeholder confidence increases.",
+          "probability": 0.85,
+          "condition": null,
+          "effects": {
+            "stakeholderSatisfaction": 8
+          },
+          "notification": "info"
+        }
+      ]
+    },
+
+    {
+      "week": 4,
+      "plannedValue": 25000,
+      "narrative": "Week 4. You're one-third through the project. Your CPI is being watched closely. A junior developer suggests using an unvetted open-source library that could cut development time by 30% — but it hasn't been security-reviewed and the license is ambiguous.",
+      "decisions": [
+        {
+          "id": "d-w4-01",
+          "text": "Should you adopt the unvetted open-source library to save time?",
+          "options": [
+            {
+              "id": "opt-w4-a",
+              "text": "Use it immediately — speed matters and you can do a security review later.",
+              "effects": {
+                "ev": 28000,
+                "ac": 18000,
+                "teamMorale": 5,
+                "qualityDebt": 15,
+                "addRisk": {
+                  "id": "risk-004",
+                  "title": "Open-Source License & Security Risk",
+                  "probability": 0.45,
+                  "impact": 9,
+                  "type": "threat"
+                }
+              },
+              "feedback": "Velocity shoots up but quality debt accumulates rapidly. The unreviewed library introduces a latent security risk that could surface at any time. EVM looks great now — but this could unravel.",
+              "pmpConcept": "Quality Management / Technical Risk / Procurement (licensing)"
+            },
+            {
+              "id": "opt-w4-b",
+              "text": "Spend 2 days doing a proper security and license review before adopting it.",
+              "effects": {
+                "ev": 22000,
+                "ac": 20000,
+                "teamMorale": 3,
+                "qualityDebt": 0,
+                "removeRisk": "risk-004"
+              },
+              "feedback": "The review confirms the library is safe and the license is permissive. You adopt it with confidence. The 2-day cost is a small price for risk elimination. Quality stays clean.",
+              "pmpConcept": "Quality Assurance / Risk Identification / Due Diligence"
+            },
+            {
+              "id": "opt-w4-c",
+              "text": "Decline the library entirely — build the functionality in-house to stay fully in control.",
+              "effects": {
+                "ev": 18000,
+                "ac": 23000,
+                "teamMorale": -3,
+                "qualityDebt": 0
+              },
+              "feedback": "Safe choice, but expensive. Building in-house takes longer and costs more. CPI dips. The team is slightly frustrated at not being able to use modern tooling.",
+              "pmpConcept": "Make-or-Buy Analysis / Risk Avoidance"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "id": "evt-w4-server",
+          "title": "Dev Server Outage",
+          "description": "The shared development server goes down for 6 hours, halting the entire team.",
+          "probability": 0.25,
+          "condition": null,
+          "effects": {
+            "ev": -4000,
+            "ac": 2000,
+            "teamMorale": -5
+          },
+          "notification": "warning"
+        }
+      ]
+    },
+
+    {
+      "week": 5,
+      "plannedValue": 25000,
+      "narrative": "Week 5. The midpoint is approaching. A competitor just launched a similar app. The CEO is now asking to add a 'social sharing' feature that wasn't in the original scope. The development team estimates it as 2 weeks of extra work. Your schedule has no buffer.",
+      "decisions": [
+        {
+          "id": "d-w5-01",
+          "text": "The CEO wants to add a major feature mid-project. Your response?",
+          "options": [
+            {
+              "id": "opt-w5-a",
+              "text": "Accept the feature and extend the deadline by 2 weeks, updating all baselines.",
+              "effects": {
+                "ev": 15000,
+                "ac": 16000,
+                "stakeholderSatisfaction": 5,
+                "teamMorale": -5,
+                "scopeCreep": 12
+              },
+              "feedback": "The CEO gets the feature but now expects 14 weeks instead of 12. The team's energy dips knowing the finish line moved. Scope creep is now significant. Formal re-baselining has been done — which is the correct process step.",
+              "pmpConcept": "Scope Change Control / Schedule Re-baselining"
+            },
+            {
+              "id": "opt-w5-b",
+              "text": "Negotiate: offer to deliver the social feature in Phase 2 after the investor demo. Protect the current scope.",
+              "effects": {
+                "ev": 24000,
+                "ac": 20000,
+                "stakeholderSatisfaction": 3,
+                "teamMorale": 8,
+                "scopeCreep": 0
+              },
+              "feedback": "Smart negotiation. The CEO agrees — investors want a clean demo, not a half-finished feature. The team maintains velocity. This is classic scope protection via stakeholder alignment.",
+              "pmpConcept": "Scope Management / Stakeholder Communication / Phased Delivery"
+            },
+            {
+              "id": "opt-w5-c",
+              "text": "Accept the feature but absorb it without extending the timeline — the team will work overtime.",
+              "effects": {
+                "ev": 20000,
+                "ac": 28000,
+                "stakeholderSatisfaction": 8,
+                "teamMorale": -18,
+                "scopeCreep": 10,
+                "qualityDebt": 8
+              },
+              "feedback": "The CEO is happy. The team is exhausted. Forced crashing inflates costs and destroys morale. Quality debt rises sharply. EAC is now well above BAC.",
+              "pmpConcept": "Schedule Compression: Crashing / Cost of Burnout"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "id": "evt-w5-investor",
+          "title": "Investor Visit Announced",
+          "description": "The CEO confirms the investor demo date — exactly Week 12. Pressure is now real and visible to everyone.",
+          "probability": 1.0,
+          "condition": null,
+          "effects": {
+            "teamMorale": -5,
+            "stakeholderSatisfaction": 5
+          },
+          "notification": "warning"
+        }
+      ]
+    },
+
+    {
+      "week": 6,
+      "plannedValue": 25000,
+      "narrative": "Week 6. Halfway point. A senior developer — your best performer — receives a competing job offer with a 40% salary increase. She tells you privately she's considering leaving. Losing her would delay the project by at least 3 weeks.",
+      "decisions": [
+        {
+          "id": "d-w6-01",
+          "text": "Your top developer may leave. How do you handle this retention risk?",
+          "options": [
+            {
+              "id": "opt-w6-a",
+              "text": "Go to the CEO immediately and request a counter-offer (salary match or bonus).",
+              "effects": {
+                "ev": 22000,
+                "ac": 26000,
+                "stakeholderSatisfaction": 0,
+                "teamMorale": 10
+              },
+              "feedback": "The CEO agrees to a bonus for delivery. The developer stays. The additional cost hits AC but the alternative (3-week delay) would be far worse. Retention cost is often less than replacement cost.",
+              "pmpConcept": "Resource Management / Retention Strategy / Cost-Benefit Analysis"
+            },
+            {
+              "id": "opt-w6-b",
+              "text": "Have a genuine conversation about what she values — maybe it's not just money.",
+              "effects": {
+                "ev": 22000,
+                "ac": 20000,
+                "teamMorale": 12,
+                "stakeholderSatisfaction": 0
+              },
+              "feedback": "She reveals she wants more technical ownership. You restructure her role slightly to give her that. She stays — motivated and appreciated. Low-cost, high-impact servant leadership outcome.",
+              "pmpConcept": "Motivation Theories (Herzberg / Maslow) / Servant Leadership"
+            },
+            {
+              "id": "opt-w6-c",
+              "text": "Wish her well and immediately begin recruiting a replacement contractor.",
+              "effects": {
+                "ev": 14000,
+                "ac": 22000,
+                "teamMorale": -15,
+                "stakeholderSatisfaction": -10,
+                "addRisk": {
+                  "id": "risk-005",
+                  "title": "Key Resource Departure",
+                  "probability": 0.6,
+                  "impact": 10,
+                  "type": "threat"
+                }
+              },
+              "feedback": "She leaves. Recruiting a contractor takes 2 weeks. Knowledge transfer is incomplete. Morale craters — the team sees that top performers aren't valued. SPI begins to slide significantly.",
+              "pmpConcept": "Resource Risk / Knowledge Transfer / Team Dynamics"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "id": "evt-w6-bug",
+          "title": "Critical Bug Found in Production Build",
+          "description": "QA discovers a critical crash bug in the login flow. Fixing it is urgent.",
+          "probability": 0.3,
+          "condition": "qualityDebt >= 10",
+          "effects": {
+            "ev": -5000,
+            "ac": 4000,
+            "teamMorale": -8
+          },
+          "notification": "danger"
+        }
+      ]
+    },
+
+    {
+      "week": 7,
+      "plannedValue": 25000,
+      "narrative": "Week 7. You receive a vendor invoice that's 20% higher than quoted. The vendor claims the original quote excluded 'integration configuration costs' which weren't mentioned in the contract. Your procurement documentation is thin.",
+      "decisions": [
+        {
+          "id": "d-w7-01",
+          "text": "The vendor is billing 20% more than agreed. How do you respond?",
+          "options": [
+            {
+              "id": "opt-w7-a",
+              "text": "Pay the invoice — it's not worth a dispute at this stage of the project.",
+              "effects": {
+                "ev": 22000,
+                "ac": 30000,
+                "stakeholderSatisfaction": -5,
+                "teamMorale": 0
+              },
+              "feedback": "Convenient but costly. AC jumps and CPI takes a hit. The CEO is unhappy about the unplanned spend. Weak procurement documentation gave the vendor leverage.",
+              "pmpConcept": "Procurement Management / Contract Administration"
+            },
+            {
+              "id": "opt-w7-b",
+              "text": "Dispute the charge formally — the contract doesn't mention integration costs.",
+              "effects": {
+                "ev": 20000,
+                "ac": 22000,
+                "stakeholderSatisfaction": 0,
+                "teamMorale": 3
+              },
+              "feedback": "You review the contract carefully and find no mention of integration surcharges. The vendor backs down after seeing your documentation. CPI holds steady. This is why written contracts matter.",
+              "pmpConcept": "Contract Claims / Procurement Disputes / Scope of Work"
+            },
+            {
+              "id": "opt-w7-c",
+              "text": "Negotiate a compromise — pay 10% extra in exchange for extended support terms.",
+              "effects": {
+                "ev": 22000,
+                "ac": 25000,
+                "stakeholderSatisfaction": 3,
+                "teamMorale": 0
+              },
+              "feedback": "A pragmatic middle ground. You convert a dispute into added value. The additional cost is modest and the extended support mitigates future risk. Stakeholders appreciate the calm resolution.",
+              "pmpConcept": "Negotiation Skills / Procurement Relationship Management"
+            }
+          ]
+        }
+      ],
+      "events": []
+    },
+
+    {
+      "week": 8,
+      "plannedValue": 25000,
+      "narrative": "Week 8. Three-quarters of the way through. The CEO shares new investor feedback: they want to see analytics dashboards in the demo. This wasn't planned. The team is starting to show signs of fatigue — two developers have flagged they're working unsustainable hours.",
+      "decisions": [
+        {
+          "id": "d-w8-01",
+          "text": "The team is fatigued AND there's a new feature request. What do you prioritise?",
+          "options": [
+            {
+              "id": "opt-w8-a",
+              "text": "Protect the team — reduce weekly hours and push back on the analytics feature.",
+              "effects": {
+                "ev": 20000,
+                "ac": 18000,
+                "stakeholderSatisfaction": -8,
+                "teamMorale": 15
+              },
+              "feedback": "The CEO is frustrated but respects the professional rationale. The team recovers energy. A well-rested team will deliver better quality in the final 4 weeks. Sustainable pace is a core Agile principle.",
+              "pmpConcept": "Sustainable Pace (Agile Principle) / Servant Leadership / Wellbeing"
+            },
+            {
+              "id": "opt-w8-b",
+              "text": "Accept the analytics feature and hire a contract UI developer for the final 4 weeks.",
+              "effects": {
+                "ev": 26000,
+                "ac": 32000,
+                "stakeholderSatisfaction": 10,
+                "teamMorale": 5,
+                "addRisk": {
+                  "id": "risk-006",
+                  "title": "Contractor Onboarding Delay",
+                  "probability": 0.3,
+                  "impact": 5,
+                  "type": "threat"
+                }
+              },
+              "feedback": "The CEO is delighted. The contractor adds capacity without overloading the core team. AC goes up but EV follows. There's a small risk of onboarding friction.",
+              "pmpConcept": "Resource Acquisition / Staff Augmentation / Procurement"
+            },
+            {
+              "id": "opt-w8-c",
+              "text": "Push through — remind the team that this is a critical phase and ask for two more weeks of extra effort.",
+              "effects": {
+                "ev": 24000,
+                "ac": 28000,
+                "stakeholderSatisfaction": 5,
+                "teamMorale": -20,
+                "qualityDebt": 10
+              },
+              "feedback": "Short-term gain, long-term pain. Morale collapses. One developer calls in sick for three days. Quality debt climbs. This is the pattern that leads to project failure in the final stretch.",
+              "pmpConcept": "Burnout Risk / Crashing Consequences / Team Sustainability"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "id": "evt-w8-positive",
+          "title": "Early User Testing Success",
+          "description": "Beta testers gave overwhelmingly positive feedback on the app's UX. Stakeholder confidence rises.",
+          "probability": 0.5,
+          "condition": "qualityDebt <= 15",
+          "effects": {
+            "stakeholderSatisfaction": 12,
+            "teamMorale": 8
+          },
+          "notification": "success"
+        }
+      ]
+    },
+
+    {
+      "week": 9,
+      "plannedValue": 25000,
+      "narrative": "Week 9. A quality audit flags that 15% of the codebase has no test coverage. The lead developer argues this is fine — 'we'll add tests after launch.' The CEO hasn't noticed, but the tech lead is worried about demo-day crashes.",
+      "decisions": [
+        {
+          "id": "d-w9-01",
+          "text": "Inadequate test coverage could cause demo failures. How do you respond?",
+          "options": [
+            {
+              "id": "opt-w9-a",
+              "text": "Allocate 3 days specifically to writing tests for the critical user flows.",
+              "effects": {
+                "ev": 20000,
+                "ac": 22000,
+                "teamMorale": 3,
+                "qualityDebt": -15
+              },
+              "feedback": "A smart investment. The critical flows are now covered. Quality debt drops. Demo-day confidence rises. Cost of testing is always less than cost of failure.",
+              "pmpConcept": "Quality Management / Cost of Quality / Prevention vs. Inspection"
+            },
+            {
+              "id": "opt-w9-b",
+              "text": "Accept the risk — schedule more manual QA time in Week 11 to catch issues before demo day.",
+              "effects": {
+                "ev": 24000,
+                "ac": 20000,
+                "teamMorale": 0,
+                "qualityDebt": 5,
+                "addRisk": {
+                  "id": "risk-007",
+                  "title": "Demo-Day Crash Risk",
+                  "probability": 0.35,
+                  "impact": 8,
+                  "type": "threat"
+                }
+              },
+              "feedback": "Deferred quality work always carries risk. You've added a demo-day crash risk to the register. Manual QA in Week 11 will cost more than automated tests now — but at least the risk is acknowledged.",
+              "pmpConcept": "Risk Acceptance / Cost of Quality (Appraisal vs Prevention)"
+            },
+            {
+              "id": "opt-w9-c",
+              "text": "Tell the developer to add tests after launch as planned — this is an agile project, not a waterfall.",
+              "effects": {
+                "ev": 26000,
+                "ac": 18000,
+                "teamMorale": 0,
+                "qualityDebt": 12,
+                "addRisk": {
+                  "id": "risk-008",
+                  "title": "Post-Launch Technical Debt",
+                  "probability": 0.6,
+                  "impact": 7,
+                  "type": "threat"
+                }
+              },
+              "feedback": "Agile doesn't mean skipping quality — it means building quality in continuously. Deferring tests is technical debt accumulation. The 'add after launch' promise rarely happens in practice.",
+              "pmpConcept": "Agile Quality Practices / Definition of Done / Technical Debt"
+            }
+          ]
+        }
+      ],
+      "events": []
+    },
+
+    {
+      "week": 10,
+      "plannedValue": 25000,
+      "narrative": "Week 10. Two weeks to go. A critical integration between the app and the client's CRM system is failing in the test environment. The CRM vendor hasn't been responsive. This is on the critical path — delay here means the demo fails.",
+      "decisions": [
+        {
+          "id": "d-w10-01",
+          "text": "Critical path integration is blocked by an unresponsive vendor. What's your move?",
+          "options": [
+            {
+              "id": "opt-w10-a",
+              "text": "Escalate directly to the CRM vendor's account manager — bypass the support queue.",
+              "effects": {
+                "ev": 22000,
+                "ac": 21000,
+                "stakeholderSatisfaction": 5,
+                "teamMorale": 5
+              },
+              "feedback": "Escalation works. The account manager prioritises your ticket and the integration issue is resolved within 48 hours. Proactive escalation on critical path items is a PM responsibility.",
+              "pmpConcept": "Escalation Management / Critical Path Method / Vendor Management"
+            },
+            {
+              "id": "opt-w10-b",
+              "text": "Build a mock CRM integration for the demo — show simulated data, real integration to follow post-launch.",
+              "effects": {
+                "ev": 24000,
+                "ac": 23000,
+                "stakeholderSatisfaction": -5,
+                "teamMorale": 3,
+                "addRisk": {
+                  "id": "risk-009",
+                  "title": "Mock Integration Disclosure Risk",
+                  "probability": 0.4,
+                  "impact": 6,
+                  "type": "threat"
+                }
+              },
+              "feedback": "Clever workaround but risky if investors ask for a live demo with real data. Stakeholder satisfaction dips because the CEO learns the integration isn't real yet.",
+              "pmpConcept": "Scope Management / Stakeholder Expectations / Prototype vs. Production"
+            },
+            {
+              "id": "opt-w10-c",
+              "text": "Bring in a specialist contractor who knows the CRM API to fix it over the weekend.",
+              "effects": {
+                "ev": 23000,
+                "ac": 29000,
+                "stakeholderSatisfaction": 8,
+                "teamMorale": 0
+              },
+              "feedback": "The contractor solves the problem in 2 days. The CEO is impressed by the initiative. AC takes a hit but the critical path is cleared. Sometimes you buy your way off the critical path.",
+              "pmpConcept": "Crashing the Schedule / Critical Path / Resource Procurement"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "id": "evt-w10-morale-check",
+          "title": "Team Morale Survey Results",
+          "description": "An informal team check-in reveals rising stress levels as the deadline approaches.",
+          "probability": 0.6,
+          "condition": "week >= 10",
+          "effects": {
+            "teamMorale": -5
+          },
+          "notification": "warning"
+        }
+      ]
+    },
+
+    {
+      "week": 11,
+      "plannedValue": 25000,
+      "narrative": "Week 11 — final stretch. The app is functionally complete but QA is finding cosmetic bugs and one medium-severity issue in the data export feature. The team wants to fix everything before demo day. The CEO wants to spend this week 'polishing the story' rather than testing.",
+      "decisions": [
+        {
+          "id": "d-w11-01",
+          "text": "Final week before the demo. Where do you focus quality efforts?",
+          "options": [
+            {
+              "id": "opt-w11-a",
+              "text": "Fix the medium-severity bug first, then cosmetic polish — in that order.",
+              "effects": {
+                "ev": 22000,
+                "ac": 21000,
+                "stakeholderSatisfaction": 5,
+                "teamMorale": 5,
+                "qualityDebt": -10,
+                "removeRisk": "risk-007"
+              },
+              "feedback": "Correct priority. Functional correctness before cosmetics. The demo-day crash risk is closed. The CEO is satisfied with the visible polish progress.",
+              "pmpConcept": "Quality Planning / Priority Management / Risk Closure"
+            },
+            {
+              "id": "opt-w11-b",
+              "text": "Focus entirely on cosmetics — investors judge by appearance, not edge cases.",
+              "effects": {
+                "ev": 20000,
+                "ac": 19000,
+                "stakeholderSatisfaction": 8,
+                "teamMorale": 3,
+                "qualityDebt": 8
+              },
+              "feedback": "The app looks great. But the unresolved medium bug is still there. If investors probe data export during the demo, the session could turn awkward.",
+              "pmpConcept": "Quality vs. Grade / Stakeholder Perception Management"
+            },
+            {
+              "id": "opt-w11-c",
+              "text": "Try to fix all bugs simultaneously by splitting the team across both tasks.",
+              "effects": {
+                "ev": 18000,
+                "ac": 22000,
+                "stakeholderSatisfaction": 0,
+                "teamMorale": -5,
+                "qualityDebt": 3
+              },
+              "feedback": "Context switching between cosmetics and bug fixes slows everyone down. Neither task gets done well. This close to the deadline, focused effort beats parallel multitasking.",
+              "pmpConcept": "Focus vs. Multitasking / Team Productivity / WIP Limits"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "id": "evt-w11-press",
+          "title": "Tech Blog Mentions TechFlow",
+          "description": "A popular tech newsletter mentions the upcoming TechFlow launch. Investors are now more aware of the project.",
+          "probability": 0.4,
+          "condition": "stakeholderSatisfaction >= 60",
+          "effects": {
+            "stakeholderSatisfaction": 10
+          },
+          "notification": "success"
+        }
+      ]
+    },
+
+    {
+      "week": 12,
+      "plannedValue": 25000,
+      "narrative": "Week 12 — Demo Day. The investors arrive. The app is loaded on an iPad and ready to go. After 12 weeks of decisions — some great, some costly — this is the moment of truth. Your job now is to deliver a clean handover and close the project professionally.",
+      "decisions": [
+        {
+          "id": "d-w12-01",
+          "text": "The investors are asking about the project's budget and schedule performance. How do you present it?",
+          "options": [
+            {
+              "id": "opt-w12-a",
+              "text": "Show the full EVM dashboard — CPI, SPI, actual vs planned — complete transparency.",
+              "effects": {
+                "ev": 25000,
+                "ac": 20000,
+                "stakeholderSatisfaction": 12,
+                "teamMorale": 8
+              },
+              "feedback": "Investors respect the data-driven transparency. Even if your numbers aren't perfect, showing command of EVM signals project management maturity. The team is proud of what they delivered.",
+              "pmpConcept": "EVM Reporting / Stakeholder Communication / Transparency"
+            },
+            {
+              "id": "opt-w12-b",
+              "text": "Present only the highlights — delivery on time, team committed, product working.",
+              "effects": {
+                "ev": 23000,
+                "ac": 20000,
+                "stakeholderSatisfaction": 8,
+                "teamMorale": 5
+              },
+              "feedback": "A safe presentation. Investors are satisfied. Not maximum impact, but clean and professional. You close the project with a positive tone.",
+              "pmpConcept": "Communication Management / Stakeholder Presentations"
+            },
+            {
+              "id": "opt-w12-c",
+              "text": "Let the CEO present — the PM's job is done once the product is delivered.",
+              "effects": {
+                "ev": 20000,
+                "ac": 20000,
+                "stakeholderSatisfaction": 0,
+                "teamMorale": -5
+              },
+              "feedback": "The CEO presents well, but the team feels the PM disappeared at the finish line. Closing processes include lessons learned, formal acceptance, and stakeholder sign-off — all of which the PM should lead.",
+              "pmpConcept": "Project Closure / Lessons Learned / Formal Acceptance"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "id": "evt-w12-final",
+          "title": "Project Complete",
+          "description": "The TechFlow mobile app is officially delivered. The investor demo is done. The project is closing.",
+          "probability": 1.0,
+          "condition": null,
+          "effects": {
+            "stakeholderSatisfaction": 5,
+            "teamMorale": 10
+          },
+          "notification": "success"
+        }
+      ]
+    }
+  ]
+}

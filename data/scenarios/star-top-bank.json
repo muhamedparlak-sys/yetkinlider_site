@@ -1,0 +1,794 @@
+{
+  "id": "star-top-bank",
+  "title": "Star Top Bank",
+  "subtitle": "Dijital Cüzdan Projesi",
+  "sector": "Fintech / Bankacılık",
+  "difficulty": "intermediate",
+  "playerRole": "Dijital Cüzdan Projesi Lideri",
+  "company": "Star Top Bank",
+  "dChoiceLimit": 3,
+  "totalDecisions": 40,
+  "maxXP": 1200,
+  "sections": [
+    {"id":1,"title":"BÖLÜM 1: ZAMAN DARALIYOR","iteration":"İterasyon 1"},
+    {"id":2,"title":"BÖLÜM 2: TAHMİNLERİN ÇARPIŞMASI","iteration":"İterasyon 2"},
+    {"id":3,"title":"BÖLÜM 3: AKIŞIN GÜCÜ","iteration":"İterasyon 3"},
+    {"id":4,"title":"BÖLÜM 4: KALİTENİN BEDELİ","iteration":"İterasyon 4"},
+    {"id":5,"title":"BÖLÜM 5: MÜŞTERİ GERÇEĞİ","iteration":"İterasyon 5"},
+    {"id":6,"title":"BÖLÜM 6: FIRTINA VE ÇATIŞMA","iteration":"İterasyon 6"},
+    {"id":7,"title":"BÖLÜM 7: GERÇEKLER VE METRİKLER","iteration":"İterasyon 7"},
+    {"id":8,"title":"BÖLÜM 8: BÜYÜK KAPANIŞ VE MİRAS","iteration":"İterasyon 8"}
+  ],
+  "competencies": [
+    {"id":"value","label":"Değer Odaklılık","decisionIds":[2,6,40,43,66]},
+    {"id":"agile","label":"Çevik Liderlik","decisionIds":[4,8,14,22,24,48]},
+    {"id":"ethics","label":"Etik Yönetim","decisionIds":[2,6,11,31,65]},
+    {"id":"comms","label":"Paydaş İletişimi","decisionIds":[20,25,28,55,58]},
+    {"id":"tech","label":"Teknik Yeterlilik","decisionIds":[18,31,34,36,59]}
+  ],
+  "notifications": [
+    {
+      "id":1,"type":"story","section":1,
+      "from":"İnsan Kaynakları Sistemi","fromRole":"Sistem",
+      "subject":"Star Top Bank'a Hoş Geldiniz!",
+      "body":"Şirketimize hoş geldiniz.\n\n%100 uzaktan (remote) çalışıyoruz. Yeni dijital cüzdan projesinin lideri sizsiniz. Tüm iletişim bu e-posta sistemi üzerinden yürüyecektir.\n\nBaşarılar dileriz.",
+      "time":"08:00"
+    },
+    {
+      "id":2,"type":"decision","section":1,
+      "from":"Haluk Dinçer","fromRole":"CEO",
+      "subject":"ACİL: Lansman Tarihi",
+      "body":"Rakiplerimiz harekete geçti. 120 günlük vaktimiz yok, ürünü 80. günde canlıda görmek istiyorum.\n\nBana hemen baştan sona tüm detayları içeren kusursuz proje planınızı atın.",
+      "time":"09:15",
+      "options":[
+        {"key":"A","text":"Haluk Bey, henüz detaylar net değilken 80 günlük kesin bir plan çizmek imkansızdır. Müşterinin en çok işine yarayacak temel özellikleri seçip, 80. günde sadece bu çekirdek yapıyı kusursuz çalışacak şekilde yayına alalım.","feedback":"Değer Odaklılık ve MVP ilkesini korudunuz.","xp":30,"isEthical":true},
+        {"key":"B","text":"Normalde sırayla yapılacak işleri aynı anda yapması için ekibi zorlayıp süreyi sıkıştırabiliriz. Ancak bu riskleri artırır.","feedback":"Hızlı İzleme (Fast Tracking) önerdiniz ama belirsizlikte çok risklidir.","xp":10,"isEthical":true},
+        {"key":"C","text":"Haklısınız, hemen bugün 80 gün boyunca kimin ne yapacağını gösteren o değişmez planı hazırlıyorum.","feedback":"Çaylak Hatası! Kapsam belirsizken geleneksel planlama projenin çökmesine neden olur.","xp":5,"isEthical":true},
+        {"key":"D","text":"Mesaj alınmıştır Haluk Bey. Yönetim Kuruluna projenin 80 günde biteceğinin taahhüdünü sunuyorum. Ekibi yavaşlatan bazı testleri askıya alıp, lansman günü ekranda kusursuz görünen bir 'vitrin' hazırlatarak yatırımcıları memnun edeceğim. Arka planı sonra toparlarız.","feedback":"Etik İhlali! Sponsoru kandırarak 'Karpuz Proje' sözü verdiniz, Şeffaflık ilkesini çiğnediniz.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":3,"type":"story","section":1,
+      "from":"Emre Can","fromRole":"Kıdemli Yazılımcı",
+      "subject":"RE: 80 Gün Baskısı",
+      "body":"Arkadaşlar CEO'nun mailini gördünüz mü? Uzaktan çalışarak bunu nasıl yetiştireceğiz?\n\nEski şirketimde tükenmişlik yaşamıştık. Umarım yeni yöneticimiz bizi ezip geçmez.",
+      "time":"10:30"
+    },
+    {
+      "id":4,"type":"decision","section":1,
+      "from":"Zeynep Aydın","fromRole":"İK Direktörü",
+      "subject":"Proje Ekibi Atamaları",
+      "body":"Harika bir takım kurdum ancak diğer departmanlarda da işleri var. Size haftada sadece 2 gün destek olabilecekler.",
+      "time":"11:00",
+      "options":[
+        {"key":"A","text":"Zeynep Hanım, 80 günde bunu başarmamız için ekibin sadece bu işe odaklanması şart. İnsanların sürekli farklı projelere bölünmesi odak kaybı yaratır. Ekibin %100 bana atanmasını talep ediyorum.","feedback":"Adanmış Takım ilkesini korudunuz.","xp":30,"isEthical":true},
+        {"key":"B","text":"Durumu kabul ediyorum ancak risk listeme 'kaynak yetersizliğinden gecikme' notunu düşüyorum.","feedback":"Geleneksel müzakere, riski kayıt altına aldınız ama sorunu çözmediniz.","xp":10,"isEthical":true},
+        {"key":"C","text":"Sorun değil, motive edici konuşmalarla haftada 2 gün çalışarak 5 günlük iş üretmelerini sağlarım.","feedback":"Çoklu görev yanılgısı. Bölünmüş dikkat üretkenliği düşürür.","xp":5,"isEthical":true},
+        {"key":"D","text":"Resmiyette kabul edelim. Ancak projenin kritik önemini kullanarak, onlara 'CEO'nun özel ricası' diyeceğim ve zamanlarının %80'ini gayriresmi olarak kendi projeme harcamaları için baskı yapacağım.","feedback":"Etik İhlali! Kurumsal yönetişimi ve diğer yöneticilerin yetki alanını hiçe saydınız.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":5,"type":"story","section":1,
+      "from":"Mert Akın","fromRole":"Veritabanı Uzmanı",
+      "subject":"RE: Yetişmez!",
+      "body":"Emre boş ver itiraz etmeyi. Kalite incelemelerini hızlı geçersek 80 günden önce bitirir primleri kaparız. Basıp geçelim!",
+      "time":"11:45"
+    },
+    {
+      "id":6,"type":"decision","section":1,
+      "from":"Pazarlama Direktörü","fromRole":"Pazarlama",
+      "subject":"Küçük Bir Eklenti",
+      "body":"Uygulamaya acil bir sosyal medya eklentisi lazım. Yazılımcıya sordum kolay dedi. Süreci uzatmayalım, bunu hemen araya sıkıştırın kimsenin haberi olmaz.",
+      "time":"13:20",
+      "options":[
+        {"key":"A","text":"Fikriniz harika ancak ekibin iş akışını bozamayız. Bu talebi Ürün Sahibine iletiyorum, müşteriye katacağı değeri analiz edip iş listesinde uygun sıraya alacaktır.","feedback":"İş Listesi disiplinini savundunuz.","xp":30,"isEthical":true},
+        {"key":"B","text":"Lütfen resmi bir değişiklik formu doldurup kurula gönderin. İmzasız iş yapamayız.","feedback":"Aşırı bürokrasi hızı düşürür ama süreci korudu.","xp":10,"isEthical":true},
+        {"key":"C","text":"Madem kolaymış, bu haftaki işlere ekliyorum. Bir kereden bir şey olmaz.","feedback":"Kapsam Kayması tuzağına düştünüz.","xp":5,"isEthical":true},
+        {"key":"D","text":"Süreci bürokrasiyle boğmayalım. Bu özelliği sizin için hemen çözerim; ancak karşılığında yıl sonu bütçe aktarımlarında departmanınızın bize ekstra 'operasyonel destek fonu' kaydırmasını bekliyorum.","feedback":"Etik İhlali! Çıkar çatışması yaratarak rüşvet pazarlığı yaptınız.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":7,"type":"story","section":1,
+      "from":"PMO","fromRole":"Proje Yönetim Ofisi",
+      "subject":"Bilgi: Kapsam Kayması",
+      "body":"Ekibin dış baskılardan korunması Proje Yöneticisinin görevidir. İzinsiz eklentiler projeyi batırır.",
+      "time":"14:00"
+    },
+    {
+      "id":8,"type":"decision","section":1,
+      "from":"Emre Can","fromRole":"Kıdemli Yazılımcı",
+      "subject":"Sabah Toplantıları",
+      "body":"Her sabah 15 dakika sadece size dönüp ne yaptığımı raporlamak beni strese sokuyor, patrona hesap veriyor gibiyim.",
+      "time":"15:00",
+      "options":[
+        {"key":"A","text":"Haklısın. Bu toplantının amacı bana rapor vermeniz değil, takım olarak sizin günü planlamanızdır. Yarından itibaren toplantıyı kendi aranızda yönetin, ben sadece çözmemi istediğiniz bir engel varsa dinleyeceğim.","feedback":"Hizmetkar Liderlik doğrulaması. Daily Scrum'ın özünü kavradınız.","xp":30,"isEthical":true},
+        {"key":"B","text":"Toplantılar şart ama madem geriliyorsunuz, haftada iki güne indirelim.","feedback":"İletişim kopukluğu yaratır, takım uyumunu riske atar.","xp":10,"isEthical":true},
+        {"key":"C","text":"Yönetici benim, herkes bana ne yaptığını toplantıdan önce yazılı olarak mail atacak.","feedback":"Mikro-yönetim tuzağı. Takımın özerkliğini ve güvenini zedeler.","xp":5,"isEthical":true},
+        {"key":"D","text":"Emre, profesyonel dünyada raporlamalar işin parçasıdır. Eğer uyum sağlayamıyorsan, bunu yıl sonu performans değerlendirmende 'kurumsal uyum eksikliği' olarak not etmek zorunda kalırım. İşine odaklan.","feedback":"Etik İhlali! Psikolojik güvenliği yıktınız ve tehdit kullandınız.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":9,"type":"decision","section":1,
+      "from":"Leyla Demir","fromRole":"Test Uzmanı",
+      "subject":"VPN Çöktü",
+      "body":"Test sunucusuna bağlanamıyorum. IT departmanı \"3 gün sonra bakarız\" diyor. Boşta bekliyorum.",
+      "time":"15:30",
+      "options":[
+        {"key":"A","text":"Görevim takımın önündeki engelleri kaldırmaktır. IT Müdürü ile bizzat görüşüp bu operasyonel sorunu derhal çözeceğim.","feedback":"Engel (Impediment) çözme. Hizmetkar liderlik örneği.","xp":30,"isEthical":true},
+        {"key":"B","text":"Süreç böyledir. Bu durumu risk kayıtlarına ekleyip takvim uzatması talep edeceğim.","feedback":"Sorunu çözmediniz, sadece raporladınız. Takım hâlâ bekliyor.","xp":10,"isEthical":true},
+        {"key":"C","text":"Madem VPN yok, o kodları test etmeden geçirelim zaman kazanırız.","feedback":"Kaliteden büyük taviz verdiniz.","xp":5,"isEthical":true},
+        {"key":"D","text":"IT departmanındaki o arkadaşa ulaşın. Şirket bütçesinden küçük bir 'ekstra yemek fişi' veya hediye ayarlayalım ki bizim talebi öne alsın, işler yürüsün.","feedback":"Etik İhlali! Haksız menfaat sağlama ve rüşvet.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":10,"type":"decision","section":1,
+      "from":"Mert Akın","fromRole":"Veritabanı Uzmanı",
+      "subject":"İşim bitti, yeni iş!",
+      "body":"Ben kodlamayı bitirdim ama Leyla'nın test sütunu ağzına kadar dolmuş. Boş durmamak için hemen yeni bir özelliğe başlayayım mı?",
+      "time":"16:00",
+      "options":[
+        {"key":"A","text":"Hayır! Test sütununda bir darboğaz var. Yeni iş başlarsa değeri yoktur. Git ve testleri bitirmesi için Leyla'ya yardım et.","feedback":"Devam Eden İş (WIP) limitlerini korudunuz ve darboğazı doğru tespit ettiniz.","xp":30,"isEthical":true},
+        {"key":"B","text":"Boş durma, acil olmayan dokümanları yaz.","feedback":"Sistemi tıkamadınız ama takımdaşlık yaratmadınız, darboğaz devam ediyor.","xp":10,"isEthical":true},
+        {"key":"C","text":"Haklısın, sen hızla yeni koda gir, testleri Leyla haftasonu çözer.","feedback":"Darboğazı patlattınız. Sistem kilitlenecek.","xp":5,"isEthical":true},
+        {"key":"D","text":"Leyla sürekli bizi yavaşlatıyor. Toplantıda onun verimsizliğini vurgulayarak utandıralım ki baskı altında hızlanmayı öğrensin.","feedback":"Etik İhlali! Mobbing ve iş arkadaşına saygısızlık.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":11,"type":"decision","section":1,
+      "from":"Ayşe Yılmaz","fromRole":"Kalite Lideri",
+      "subject":"Sürüm Kararı",
+      "body":"İterasyon sonu geldi. Arayüz şık ama güvenlik testleri bitmedi. CEO yarınki demoda bunu görmek istiyor. 'Tamamlandı' diyelim mi?",
+      "time":"17:00",
+      "options":[
+        {"key":"A","text":"Hayır. Kalite onayından geçmeyen iş bitmemiştir. CEO'ya dürüstçe işin tasarımının bittiğini ama güvenlik testinde olduğunu söyleyeceğiz.","feedback":"Bitti Tanımı (DoD) kuralına uydunuz. Şeffaflık ilkesi korundu.","xp":30,"isEthical":true},
+        {"key":"B","text":"Demoda gösterelim ama arkada kusur kaydı açıp sonraki yamalarda gizlice çözelim.","feedback":"Teknik Borç yarattınız. Geçici çözüm ileride pahalıya patlar.","xp":10,"isEthical":true},
+        {"key":"C","text":"Müşteri ekrana bakar, butonlara basıp çalışıyor diyelim.","feedback":"Karpuz Proje tuzağı. Dışarısı yeşil içi kırmızı.","xp":5,"isEthical":true},
+        {"key":"D","text":"Yönetimi detaylarla yorup paniğe sürüklemeyelim. Demoda çalışan kısmı gösterin, test raporlarında o kısmı 'kapsam dışı' işaretleyin ki denetimde başımız ağrımasın.","feedback":"Etik İhlali! Bilgi güvenliğini ihlal edip rapor tahrif ettiniz.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":12,"type":"decision","section":1,
+      "from":"Selin Öz","fromRole":"Ürün Sahibi",
+      "subject":"Retrospektif İptali",
+      "body":"İterasyon bitti, herkes çok yorgun. Değerlendirme toplantısını (Retrospektif) iptal edelim mi?",
+      "time":"17:45",
+      "options":[
+        {"key":"A","text":"Asla. Sürekli iyileştirme için nerede tıkandığımızı konuşmalıyız. Toplantıyı yapacağız.","feedback":"Sürekli Öğrenme ilkesi. Retrospektif, Scrum'ın kalbidir.","xp":30,"isEthical":true},
+        {"key":"B","text":"Toplantı yapmayalım ama herkese maille anket göndereyim.","feedback":"Ekip etkileşimini kestiniz. Anket, retrospektifin yerini tutmaz.","xp":10,"isEthical":true},
+        {"key":"C","text":"Vakit nakittir. Hemen yeni kodlara geçelim.","feedback":"Hata! Öğrenme fırsatını kaçırdınız. Aynı hatalar tekrarlanacak.","xp":5,"isEthical":true},
+        {"key":"D","text":"Toplantıyı yapalım ama sadece başarısız işleri öne çıkarıp, günah keçisi olarak test ekibini gösterelim ki yönetim karşısında benim liderliğim sorgulanmasın.","feedback":"Etik İhlali! Hesap verebilirlikten kaçma ve başkasına suç yükleme.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":13,"type":"story","section":2,
+      "from":"PMO","fromRole":"Proje Yönetim Ofisi",
+      "subject":"Tahminleme",
+      "body":"Çevik projelerde yöneticiler iş atamaz; takım kendi işini seçer ve tahminler kesin saatlerle değil, efor büyüklüğüyle (Göreceli) yapılır.",
+      "time":"09:00"
+    },
+    {
+      "id":14,"type":"decision","section":2,
+      "from":"Selin Öz","fromRole":"Ürün Sahibi",
+      "subject":"Yeni İşlerin Atanması",
+      "body":"İş listesinde 15 görev var ama takım sessiz. Yönetici olarak bu işleri kişilere sen mi atarsın?",
+      "time":"09:30",
+      "options":[
+        {"key":"A","text":"Hayır. Çevik takımlarda iş atanmaz, takım kapasitesine göre işi kendisi çeker (Pull System). Birlikte karar vermelerini sağlayacağım.","feedback":"Kendi Kendini Organize Eden Takım ilkesi korundu.","xp":30,"isEthical":true},
+        {"key":"B","text":"Geçen haftaki hıza bakarak ben adilce dağıtayım.","feedback":"Kısmen doğru ama takımın özerkliğini ve sahiplenmeyi zedeler.","xp":10,"isEthical":true},
+        {"key":"C","text":"Tüm 15 işi de hemen almaları için baskı yapalım.","feedback":"Aşırı yüklenme. Kapasite hesabı yapılmadı.","xp":5,"isEthical":true},
+        {"key":"D","text":"Verimliliği yüksek tutmak adına, performansını yetersiz bulduğum Emre'ye en zor işleri kitleyelim. İtiraz ederse 'kurumsal rotasyon' deriz.","feedback":"Etik İhlali! Ayrımcılık ve adaletsizlik.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":15,"type":"story","section":2,
+      "from":"Mert Akın","fromRole":"Veritabanı Uzmanı",
+      "subject":"Tahmin Saçmalığı",
+      "body":"Bizden net saat istiyorlar ama kod yazarken sürprizler çıkıyor. Net saat veremem!",
+      "time":"10:00"
+    },
+    {
+      "id":16,"type":"decision","section":2,
+      "from":"Haluk Dinçer","fromRole":"CEO",
+      "subject":"Kesin Saatler İstiyorum",
+      "body":"Bütçe için bana her işin net kaç saat süreceğini bildiren kesin bir tahmin tablosu iletin!",
+      "time":"10:15",
+      "options":[
+        {"key":"A","text":"Karmaşık işlerde kesin saat yanıltıcıdır. Takımın efora göre kıyas yaptığı Göreceli Tahmin yöntemini kullanıyoruz. Size Hikaye Puanı (Story Point) olarak raporlayacağım.","feedback":"Doğru beklenti yönetimi. CEO'ya gerçeği söylediniz.","xp":30,"isEthical":true},
+        {"key":"B","text":"Eski projelere bakarak kaba bir tahmin tablosu hazırlayacağım.","feedback":"Yanıltıcı geleneksel rapor. Tarihsel verilerle yapılmış ama bağlam farklı.","xp":10,"isEthical":true},
+        {"key":"C","text":"Biz çeviğiz, tahmin yapmıyoruz sadece kodluyoruz.","feedback":"Çeviklik plansızlık değildir. CEO ile iletişimi kopardınız.","xp":5,"isEthical":true},
+        {"key":"D","text":"Sizi ve kurumu rahatlatmak adına, takımın bana verdiği süreleri kafama göre ikiyle çarpıp (şişirip) raporlayacağım. Böylece işler hep 'erken' bitmiş görünecek.","feedback":"Etik İhlali! Gösteriş Metriği ve yalan rapor.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":17,"type":"decision","section":2,
+      "from":"Emre Can","fromRole":"Kıdemli Yazılımcı",
+      "subject":"Bu İş Yapılamaz!",
+      "body":"Yeni ödeme altyapısı görevinde hiçbir detay yok. Kodu yazarsam kesin yanlış olacak.",
+      "time":"11:00",
+      "options":[
+        {"key":"A","text":"Haklısın. Bir iş 'Hazır Tanımını' karşılamadan koda başlanmaz. Kodu durdur, Selin ile bu işi küçük ve net parçalara bölelim.","feedback":"İş Listesi İyileştirme (Refinement). Hazır Tanımı (DoR) uygulandı.","xp":30,"isEthical":true},
+        {"key":"B","text":"Kendi varsayımlarınla kodla, yanlış olursa yamalarız.","feedback":"Yeniden çalışma (rework) maliyeti yüksek. Belirsizlikle başlamak verim kaybı.","xp":10,"isEthical":true},
+        {"key":"C","text":"Google'dan araştır bir şekilde hallet.","feedback":"Kalite düşüşü. Rastgele araştırmayla kritik altyapı yazılmaz.","xp":5,"isEthical":true},
+        {"key":"D","text":"Bu durum Selin'in işini eksik yapmasından kaynaklanıyor. Kodu eksik yaz, patladığında e-posta zincirini yönetime sızdırarak Selin'in yetersizliğini kanıtlayalım ki sorumluluk bizden çıksın.","feedback":"Etik İhlali! Profesyonel saygı ve takımdaşlık ihlali.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":18,"type":"decision","section":2,
+      "from":"Mert Akın","fromRole":"Veritabanı Uzmanı",
+      "subject":"Bilinmeyen Teknoloji Riski",
+      "body":"Yeni bulut teknolojisini hiç bilmiyoruz. Mimari çökerse tüm iterasyon patlar.",
+      "time":"14:00",
+      "options":[
+        {"key":"A","text":"Bunu öğrenmek için zaman kutulu bir Spike (Araştırma) açalım. 2 gün sadece prototip yapıp riski anlayın.","feedback":"Teknik riski yönetme. Spike, belirsizliği azaltmanın doğru yolu.","xp":30,"isEthical":true},
+        {"key":"B","text":"Koda başlayın, bütçeden danışman kiralayıp destek alalım.","feedback":"Bütçe israfı. Önce riskin boyutunu anlamadan kaynak harcandı.","xp":10,"isEthical":true},
+        {"key":"C","text":"Lansman yaklaşıyor, gözünüzü karartın ve koda girin.","feedback":"Görmezden gelinen risk. 'Karanlıkta koşmak' projeyi patlatır.","xp":5,"isEthical":true},
+        {"key":"D","text":"Teknik altyapının riskli olduğunu kimseye söyleme. Yönetim risk kelimesini sevmez. Resmi risk kayıtlarında bunu 'Düşük İhtimal' olarak işaretle ki radarımızda görünmesin.","feedback":"Etik İhlali! Risk gizleme ve dürüstlük ihlali.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":19,"type":"story","section":2,
+      "from":"Leyla Demir","fromRole":"Test Uzmanı",
+      "subject":"Spike Çalıştı!",
+      "body":"Mert'in 2 günlük araştırması sayesinde sorunu önceden gördük ve sistemi kurtardık!",
+      "time":"15:00"
+    },
+    {
+      "id":20,"type":"decision","section":2,
+      "from":"Haluk Dinçer","fromRole":"CEO",
+      "subject":"Rapor Nerede?",
+      "body":"İterasyon bitti. Bana kaç satır kod yazdığınızı gösteren Word raporu atın, toplantıya vaktim yok.",
+      "time":"16:30",
+      "options":[
+        {"key":"A","text":"Haluk Bey, satır sayısı değeri yansıtmaz. Sizi sadece 30 dakikalık demoya davet ediyorum. Size kağıt değil, çalışan yazılım göstereceğiz.","feedback":"Çalışan Yazılım odaklılık. Gereksiz raporu reddedip değeri sundunuz.","xp":30,"isEthical":true},
+        {"key":"B","text":"Size bütçe verilerini içeren detaylı bir pdf gönderiyorum.","feedback":"Eksik fayda. Rakamlar yerine sonuçları göstermek daha değerliydi.","xp":10,"isEthical":true},
+        {"key":"C","text":"Rapor hazırlamıyoruz, ürün hazır olunca ararız.","feedback":"Yanlış iletişim. Yöneticiyle kopukluk yarattınız.","xp":5,"isEthical":true},
+        {"key":"D","text":"Kurul toplantısında iyi görünmeniz için, aslında çalışmayan ama tasarımları bitmiş sayfaların arasına sahte veriler gömerek sistemi %100 bitmiş gibi raporlayacağım.","feedback":"Etik İhlali! Bilgi tahrifatı.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":21,"type":"story","section":3,
+      "from":"PMO","fromRole":"Proje Yönetim Ofisi",
+      "subject":"Akış Verimliliği",
+      "body":"Önemli olan herkesin çok meşgul olması değil, işlerin sistemden su gibi akıp bitmesidir (Flow).",
+      "time":"09:00"
+    },
+    {
+      "id":22,"type":"decision","section":3,
+      "from":"Emre Can","fromRole":"Kıdemli Yazılımcı",
+      "subject":"5 İşe Birden Başladım",
+      "body":"Hızlanmak için aynı anda 5 farklı işi kodluyorum. Harika değil mi?",
+      "time":"09:30",
+      "options":[
+        {"key":"A","text":"Hayır Emre. Bölünmek (Context switching) seni yavaşlatır. Kanban panosundaki iş sınırlarına (WIP Limits) uy ve 4 işi dondurup 1'ine odaklan.","feedback":"Devam Eden İş (WIP) sınırlarını uyguladınız.","xp":30,"isEthical":true},
+        {"key":"B","text":"Motivasyonun harika ama hepsini teste aynı anda atma.","feedback":"Sorunu sadece ertelediniz. WIP sorununu çözmediniz.","xp":10,"isEthical":true},
+        {"key":"C","text":"Mükemmel! Herkes senin gibi çok iş almalı.","feedback":"Sistem kilitlenecek. Darboğaz kaçınılmaz.","xp":5,"isEthical":true},
+        {"key":"D","text":"Harika bir çaba. Bunu CEO'ya sunarken, senin bu olağanüstü performansını 'benim kriz yönetimi stratejim' olarak raporlayacağım, böylece ikimiz de kazanırız.","feedback":"Etik İhlali! Başkasının emeğini çalma.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":23,"type":"story","section":3,
+      "from":"Leyla Demir","fromRole":"Test Uzmanı",
+      "subject":"YETİŞEMİYORUM!",
+      "body":"Herkes kod yazıp benim önüme yığıyor. Pano tıkandı, çıldıracağım!",
+      "time":"10:00"
+    },
+    {
+      "id":24,"type":"decision","section":3,
+      "from":"Mert Akın","fromRole":"Veritabanı Uzmanı",
+      "subject":"Leyla'nın İsyanı",
+      "body":"O yavaş diye ben duramam. Kendi işime devam edeceğim.",
+      "time":"10:30",
+      "options":[
+        {"key":"A","text":"Durmalısın! Büyük bir darboğaz var. Takım olarak Leyla'ya yardım etmeliyiz (Swarming).","feedback":"Darboğazı takımca çözme. Çapraz fonksiyonlu takım anlayışı.","xp":30,"isEthical":true},
+        {"key":"B","text":"Sen kodlamayı bırak, teknik doküman yaz.","feedback":"Yardımlaşmayı sağlayamadınız. Darboğaz çözülmedi.","xp":10,"isEthical":true},
+        {"key":"C","text":"Haklısın Mert, sen yazmaya devam et.","feedback":"Tıkanıklık büyüdü. Sistem durdu.","xp":5,"isEthical":true},
+        {"key":"D","text":"Leyla belli ki bu strese dayanamıyor. Onun performansını düşük göstererek İK'dan yeni ve ucuz bir testçi talep edelim, eskisinden kurtulalım.","feedback":"Etik İhlali! Adil davranma ihlali.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":25,"type":"decision","section":3,
+      "from":"PMO","fromRole":"Proje Yönetim Ofisi",
+      "subject":"İş Birikmesi",
+      "body":"İşlerin nerede biriktiğini yönetime nasıl raporlayacaksınız?",
+      "time":"11:00",
+      "options":[
+        {"key":"A","text":"Projenin akışını ve yığılmaları anlık gösteren Kümülatif Akış Diyagramı (CFD) sunacağım.","feedback":"Şeffaf metrik kullanımı. CFD, darboğazları görünür kılar.","xp":30,"isEthical":true},
+        {"key":"B","text":"Sadece ne kadar bütçe harcandığına dair statik bir tablo vereceğim.","feedback":"Geleneksel rapor. Akış sorununu göstermiyor.","xp":10,"isEthical":true},
+        {"key":"C","text":"Rapor veremem, sadece kimin kaç saat online olduğunu bilirim.","feedback":"Kontrol kaybı. Yönetimle iletişim koptu.","xp":5,"isEthical":true},
+        {"key":"D","text":"Grafikteki darboğazı gösteren o büyük kırmızı yığılma bandını sistemden manipüle edip silerek, işlerin tıkır tıkır ilerlediğini gösteren pürüzsüz bir grafik sunacağım.","feedback":"Etik İhlali! Veri sahteciliği.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":26,"type":"story","section":3,
+      "from":"Haluk Dinçer","fromRole":"CEO",
+      "subject":"Fikrimi Ne Zaman Göreceğim?",
+      "body":"Bir fikri size söyledikten sonra müşteri ekranına düşene kadar geçen süre sizde kaç gün?",
+      "time":"13:00"
+    },
+    {
+      "id":27,"type":"decision","section":3,
+      "from":"Selin Öz","fromRole":"Ürün Sahibi",
+      "subject":"CEO'ya Hangi Süreyi Verelim?",
+      "body":"CEO'ya sadece fiili kodlama süresini mi, yoksa baştan sona tüm süreyi mi verelim?",
+      "time":"13:30",
+      "options":[
+        {"key":"A","text":"Müşteriyi işin başından sonuna kadar geçen Kurşun Süresi (Lead Time) ilgilendirir. Doğruyu vereceğiz.","feedback":"Gerçekçi Lead Time raporlaması. Şeffaflık.","xp":30,"isEthical":true},
+        {"key":"B","text":"Sadece fiili çalışma olan Çevrim Süresini (Cycle Time) verelim, kısa görünsün.","feedback":"Yarı gerçek. CEO yanılıyor ama siz doğruyu biliyorsunuz.","xp":10,"isEthical":true},
+        {"key":"C","text":"Bizde süre tutulmaz diyelim.","feedback":"Hata. Bir proje yöneticisi süre ölçmek zorundadır.","xp":5,"isEthical":true},
+        {"key":"D","text":"Kısa ve uydurma bir süre verin. Günü geldiğinde sözümüzü tutamazsak, üçüncü parti sunucu şirketlerinin hata yaptığını iddia eden teknik bir mail yazar suçu onlara atarız.","feedback":"Etik İhlali! Yalan beyan ve iftira.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":28,"type":"decision","section":3,
+      "from":"Pazarlama Direktörü","fromRole":"Pazarlama",
+      "subject":"Sürekli Sormak!",
+      "body":"Durumu öğrenmek için her gün mail atmaktan bıktım. Uzun özetler atın bana.",
+      "time":"14:00",
+      "options":[
+        {"key":"A","text":"Size her an canlı görebileceğiniz bir Bilgi Radyatörü (Dashboard) erişimi açıyorum.","feedback":"Şeffaf İletişim. Bilgi Radyatörü, paydaşları sürekli güncel tutar.","xp":30,"isEthical":true},
+        {"key":"B","text":"Haftalık pdf göndereceğim.","feedback":"Kısmi iletişim. Haftalık rapor gecikmeli bilgi verir.","xp":10,"isEthical":true},
+        {"key":"C","text":"Sizi raporlamak benim işim değil.","feedback":"Paydaş yönetimi zafiyeti.","xp":5,"isEthical":true},
+        {"key":"D","text":"Eğer bana bu baskıcı tonda mailler atmaya devam ederseniz, pazarlama departmanından gelen tüm talepleri 'teknik olarak imkansız' diyerek reddetmek için yazılımcıları ayarlarım.","feedback":"Etik İhlali! Şantaj ve misilleme.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":29,"type":"decision","section":3,
+      "from":"Emre Can","fromRole":"Kıdemli Yazılımcı",
+      "subject":"Çok yorulduk az iş çıktı",
+      "body":"İterasyon bitti, panoda sadece 2 iş tamamlanmış. Retrospektifte kimi yargılayacağız?",
+      "time":"17:00",
+      "options":[
+        {"key":"A","text":"Kimseyi. Retrospektifte takım içi beklemeleri ve test darboğazını nasıl çözeceğimizi, sürdürülebilir tempoyu konuşacağız.","feedback":"Süreç odaklılık. Retrospektif kişi yargılamak için değildir.","xp":30,"isEthical":true},
+        {"key":"B","text":"Sorun testin yavaş olması. Yeni birini kiralayalım.","feedback":"Kök nedeni çözmediniz. Darboğazın nedeni araştırılmadan kaynak eklendi.","xp":10,"isEthical":true},
+        {"key":"C","text":"Agile böyle, haftaya daha çok kahve içip hızlanırız.","feedback":"Mantıksız çaba. Sorun sistemik, bireysel değil.","xp":5,"isEthical":true},
+        {"key":"D","text":"Bu başarısızlık için mutlaka bir kelle vermeliyiz. Toplantıda soruları öyle manipüle edeceğim ki, tüm takım başarısızlığın tek sorumlusu olarak Leyla'yı görecek ve onu şikayet edecekler.","feedback":"Etik İhlali! Toksik liderlik.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":30,"type":"story","section":4,
+      "from":"PMO","fromRole":"Proje Yönetim Ofisi",
+      "subject":"Kalite",
+      "body":"Kalite sadece en sonda kontrol edilmez, en baştan süreçlere gömülmelidir (Embed Quality).",
+      "time":"09:00"
+    },
+    {
+      "id":31,"type":"decision","section":4,
+      "from":"Emre Can","fromRole":"Kıdemli Yazılımcı",
+      "subject":"Benim İşim Bitti!",
+      "body":"Kodum lokal bilgisayarımda kusursuz çalışıyor ama testte hata veriyor. Ben işimi yaptım, 'Bitti' diyorum, gerisi testin sorunu.",
+      "time":"10:00",
+      "options":[
+        {"key":"A","text":"Hayır Emre. Takımın ortak Bitti Tanımına (DoD) uymayan, testten geçmeyen iş bitmemiştir. Geri al ve Leyla ile çöz.","feedback":"Bitti Tanımı (DoD) disiplini. 'Bende çalışıyor' geçerli bir teslim değildir.","xp":30,"isEthical":true},
+        {"key":"B","text":"Kodu 'Geliştirme Bitti' diye yeni bir sütuna alalım.","feedback":"İş akışını karmaşıklaştırdınız. Sorun çözülmedi.","xp":10,"isEthical":true},
+        {"key":"C","text":"Haklısın Emre, sende çalışıyorsa bitmiştir.","feedback":"'Bende çalışıyor' tuzağına düştünüz. Üretimde de çalışması gerekir.","xp":5,"isEthical":true},
+        {"key":"D","text":"Emre, işi bitirmiş görünüp sprint hedefini tutturmamız için Leyla'nın test ortamındaki hata loglarını sil. Biz kodumuzu 'başarılı' olarak kaydedelim, sistem çökerse 'altyapısal' deriz.","feedback":"Etik İhlali! Kayıtları tahrif etme.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":32,"type":"story","section":4,
+      "from":"Mert Akın","fromRole":"Veritabanı Uzmanı",
+      "subject":"Spagetti Kodlar",
+      "body":"Sürekli hızlı gitmekten kodlar çöplüğe döndü. Teknik Borç dağı biriktirdik!",
+      "time":"11:00"
+    },
+    {
+      "id":33,"type":"decision","section":4,
+      "from":"Selin Öz","fromRole":"Ürün Sahibi",
+      "subject":"Teknik Borç vs Yeni Özellik",
+      "body":"Geliştiriciler kodu temizlemek (Refactoring) istiyor ama CEO yeni özellik bekliyor.",
+      "time":"13:00",
+      "options":[
+        {"key":"A","text":"Görünmeyen kalite sorunları hızı sıfıra indirir. CEO'ya durumu anlatıp sprintin bir kısmını Refactoring'e ayıracağız.","feedback":"Teknik Borç yönetimi. Görünmez olmak onu yok etmez.","xp":30,"isEthical":true},
+        {"key":"B","text":"Çocuklar haftasonu gizlice temizlesin.","feedback":"Sürdürülebilir tempoyu bozdunuz. Mesai sömürüsü.","xp":10,"isEthical":true},
+        {"key":"C","text":"Teknik borcu boşverin, yeni özelliği yazın.","feedback":"Sistem çökecek. Teknik borç bileşik faizle büyür.","xp":5,"isEthical":true},
+        {"key":"D","text":"Gereksiz panik yaratmayalım. Yeni özelliği yapmışız gibi CEO'ya önceden kaydedilmiş sahte bir video izletelim. O sırada ekip arkada gizlice kodları temizlesin.","feedback":"Etik İhlali! Sponsoru doğrudan yanılttınız.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":34,"type":"decision","section":4,
+      "from":"Ayşe Yılmaz","fromRole":"Kalite Lideri",
+      "subject":"Hataları Geç Buluyoruz",
+      "body":"Kod yazıldıktan günler sonra hata çıkıyor. Kaliteyi sürecin başına nasıl alırız?",
+      "time":"14:00",
+      "options":[
+        {"key":"A","text":"Ekipten önce testi sonra kodu yazmalarını (TDD) ve Eşli Programlama (Pair Programming) yapmalarını isteyeceğim.","feedback":"Kaliteyi sürece gömdünüz. TDD ve Pair, hataları kaynağında keser.","xp":30,"isEthical":true},
+        {"key":"B","text":"Sona 2 testçi daha işe alalım.","feedback":"Kök nedeni çözmediniz. Sona kalite eklemek masraflı ve geç.","xp":10,"isEthical":true},
+        {"key":"C","text":"Yazılımcıları daha dikkatli olmaları için uyaralım.","feedback":"Geleneksel anlamsız uyarı. Sözle kalite oluşturulmaz.","xp":5,"isEthical":true},
+        {"key":"D","text":"Ayşe, bu hataların faturasını yönetime hesap verirken senin ekibine keseceğim. Kendini korumak istiyorsan hataların raporunu bana 'Kritik Değil' olarak değiştirip gönder.","feedback":"Etik İhlali! Veri gizleme ve baskı.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":35,"type":"story","section":4,
+      "from":"Haluk Dinçer","fromRole":"CEO",
+      "subject":"CANLI SİSTEMDE HATA!",
+      "body":"Ne yapıyorsunuz siz! Cüzdanda param kayboldu! Derhal düzeltin.",
+      "time":"15:30"
+    },
+    {
+      "id":36,"type":"decision","section":4,
+      "from":"Mert Akın","fromRole":"Veritabanı Uzmanı",
+      "subject":"Hatayı çözdük",
+      "body":"Hatayı yamadık ve kurtardık. Hemen sıradaki yeni işlere dönelim mi?",
+      "time":"16:00",
+      "options":[
+        {"key":"A","text":"Hayır, hatanın sistemden nasıl sızdığını bulmak için Kök Neden Analizi (Root Cause Analysis) yapacağız.","feedback":"Süreç iyileştirme. Yamadan sonra köke inmek zorunludur.","xp":30,"isEthical":true},
+        {"key":"B","text":"Dönelim ama sen bunu Öğrenilen Dersler defterine yaz.","feedback":"Kısmi doğru. Kayıt iyi ama neden analizi yapılmadı.","xp":10,"isEthical":true},
+        {"key":"C","text":"Evet hemen yeni koda geçin.","feedback":"Aynı hata tekrar edecek. Kök neden bilinmiyor.","xp":5,"isEthical":true},
+        {"key":"D","text":"Hatanın var olduğunu gösteren sistem loglarını kalıcı olarak silin. Denetçiler sorarsa 'Kullanıcının kendi cihazından kaynaklı bir bağlantı kopması' diyerek bankanın sorumluluğunu ortadan kaldıralım.","feedback":"Etik İhlali! Yalan beyan ve tahrifat.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":37,"type":"decision","section":4,
+      "from":"Selin Öz","fromRole":"Ürün Sahibi",
+      "subject":"Sürüm Onayı",
+      "body":"İşi bitirdik. Resmi olarak kapanması için ne yapalım?",
+      "time":"17:00",
+      "options":[
+        {"key":"A","text":"Sponsorlarla Gözden Geçirme (Review) yapıp resmi onay (Validate Scope) alalım.","feedback":"Kapsam onayı. Resmi kabul olmadan proje kapanmaz.","xp":30,"isEthical":true},
+        {"key":"B","text":"Mail atayım, 3 gün itiraz etmezse onaylandı sayarız.","feedback":"İletişim zafiyeti. Sessiz onay geçerli değildir.","xp":10,"isEthical":true},
+        {"key":"C","text":"Testten geçtiyse onay beklemeden canlıya alalım.","feedback":"Riskli hamle. Sponsor onayı olmadan yayına alma hata.","xp":5,"isEthical":true},
+        {"key":"D","text":"Onay toplantısıyla CEO'yu yormayalım. Sisteme CEO'nun kullanıcı adıyla giriş yapıp onun adına 'Kabul Edildi' butonuna basarak süreci arkadan kapatalım.","feedback":"Etik İhlali! Ağır yetki gaspı ve sahtecilik.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":38,"type":"conditional","section":4,
+      "from":"Murat Tekin","fromRole":"PMO",
+      "subject":"GİZLİ: 1. Faz Karneniz",
+      "conditionType":"xp-threshold",
+      "conditionThreshold":270,
+      "variants":{
+        "positive":{
+          "subject":"GİZLİ: 1. Faz Karneniz — Olumlu",
+          "body":"İlk 4 iterasyondaki kararlarınız incelendi.\n\nMVP odaklılık, takımınıza hizmetkar liderlik ve engel çözmedeki başarılarınız kayıt altına alındı. Kapsam kaymasını ve etik riskleri yönetme konusunda güçlü bir profil çizdiniz.\n\nDevam edin, 2. Faz beklentilerden yüksek."
+        },
+        "negative":{
+          "subject":"GİZLİ: 1. Faz Karneniz — Dikkat Edilmeli",
+          "body":"İlk 4 iterasyondaki kararlarınız incelendi.\n\nBazı kararlarınızda Çevik ilkelerden sapma gözlemlendi. Geleneksel planlama yöntemlerine eğilim ve kaynak yönetimi eksiklikleri not edildi.\n\n2. Fazda bu alanlara odaklanmanızı öneririz. PMO izlemeye devam ediyor."
+        }
+      }
+    },
+    {
+      "id":39,"type":"story","section":5,
+      "from":"PMO","fromRole":"Proje Yönetim Ofisi",
+      "subject":"Sadelik",
+      "body":"Sadelik, yapılmayan iş miktarını maksimize etme sanatıdır. Müşterinin kullanmayacağı süslemelerden kaçının.",
+      "time":"09:00"
+    },
+    {
+      "id":40,"type":"decision","section":5,
+      "from":"Pazarlama Direktörü","fromRole":"Pazarlama",
+      "subject":"Kripto Butonu!",
+      "body":"Rakipler kripto eklemiş, bizim de bu sprinte acil eklememiz lazım.",
+      "time":"09:30",
+      "options":[
+        {"key":"A","text":"Mevcut akışı bozamayız. Ürün Sahibine yönlendiriyorum, iş değerine göre İş Listesine alacaktır.","feedback":"Değer odaklılık. İş Listesi disiplini savunuldu.","xp":30,"isEthical":true},
+        {"key":"B","text":"Resmi değişiklik talebi doldurun.","feedback":"Geleneksel yaklaşım. Süreci korudu ama hızı kesti.","xp":10,"isEthical":true},
+        {"key":"C","text":"Hemen ekliyorum.","feedback":"Kapsam kayması. Panik özelliği hiç analiz edilmeden eklendi.","xp":5,"isEthical":true},
+        {"key":"D","text":"Bu çok büyük bir özellik. Piyasaya erken çıkıp sükse yapmak istiyorsanız, kalite güvenlik testlerini devre dışı bırakarak bu butonu sisteme arka kapıdan eklerim, gerisini canlıda test ederiz.","feedback":"Etik İhlali! Müşteri güvenliğini riske atma.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":41,"type":"story","section":5,
+      "from":"Emre Can","fromRole":"Kıdemli Yazılımcı",
+      "subject":"Müşteri Ne İstediğini Bilmiyor",
+      "body":"Sürekli fikir değiştiriyorlar, mavi dediler şimdi yeşil diyorlar. Neden baştan imzalamadılar?",
+      "time":"10:30"
+    },
+    {
+      "id":42,"type":"decision","section":5,
+      "from":"Selin Öz","fromRole":"Ürün Sahibi",
+      "subject":"Emre'nin İsyanı",
+      "body":"Müşteri tasarımı değiştirmek istiyor, Emre reddediyor. Ne yapalım?",
+      "time":"11:00",
+      "options":[
+        {"key":"A","text":"Emre'ye değişimi kucaklamamız gerektiğini anlat. Bu geri bildirimi sonraki iterasyona planlayalım.","feedback":"Değişime Yanıt Verme. Çevikliğin özü, geç gelen geribildirim dahil, müşteri geri bildirimlerine açık olmaktır.","xp":30,"isEthical":true},
+        {"key":"B","text":"Müşteriye ekstra maliyet çıkar, Emre'ye mesai yazalım.","feedback":"Sözleşme odaklılık. Değişim değil maliyet odağı yanlış öncelik.","xp":10,"isEthical":true},
+        {"key":"C","text":"Emre haklı, değiştirmeyelim.","feedback":"Müşteri memnuniyetsizliği. İş değeri göz ardı edildi.","xp":5,"isEthical":true},
+        {"key":"D","text":"Tasarım değişimini yapmak bize vakit kaybettirir. Müşterinin geri bildirim mailini sistemden silip, yönetim sorduğunda 'Bize hiç geri dönüş yapmadılar, mecburen böyle çıktık' diyerek yalan söyleyelim.","feedback":"Etik İhlali! Doğruluk ihlali.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":43,"type":"decision","section":5,
+      "from":"Mert Akın","fromRole":"Veritabanı Uzmanı",
+      "subject":"Yapay Zeka Sürprizi!",
+      "body":"İnisiyatif kullanıp sisteme YZ ekliyorum. Müşteri istemedi ama bayılacak! 2 gün geciktirir ama değer.",
+      "time":"13:00",
+      "options":[
+        {"key":"A","text":"Hayır. Amacımız sadece temel değeri (MVP) teslim etmektir. İstenmeyen eklentiler (Altın Kaplama) israftır.","feedback":"Altın Kaplamayı engellediniz. Sadelik ve MVP odağı korundu.","xp":30,"isEthical":true},
+        {"key":"B","text":"Fikir güzel ama iş listesine at, ileride bakarız.","feedback":"Kısmi doğru. Fikri öldürmediniz ama öncelik sıralaması doğru.","xp":10,"isEthical":true},
+        {"key":"C","text":"Müşteriyi şaşırtmak iyidir, ekle gitsin.","feedback":"Kontrolsüz kapsam büyümesi. 'Müşteri beğenir' varsayımı tehlikeli.","xp":5,"isEthical":true},
+        {"key":"D","text":"Mükemmel fikir Mert. Bu YZ kodunu ekle, ancak lansman toplantısında bu fikrin benim ileri görüşlülüğüm sayesinde projeye dahil edildiğini söyleyeceğim. Sesini çıkarma.","feedback":"Etik İhlali! Emeğe saygısızlık. Fikir hırsızlığı.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":44,"type":"story","section":5,
+      "from":"Haluk Dinçer","fromRole":"CEO",
+      "subject":"Demo Hazırlığı",
+      "body":"Yarınki sunumda PowerPoint değil, çalışan yazılım (Working Software) görmek istiyorum.",
+      "time":"16:00"
+    },
+    {
+      "id":45,"type":"decision","section":5,
+      "from":"Ayşe Yılmaz","fromRole":"Kalite Lideri",
+      "subject":"Şifreleme Hazır Değil",
+      "body":"Şifreleme modülü hata veriyor, demoda manuel mi atlatalım?",
+      "time":"16:30",
+      "options":[
+        {"key":"A","text":"Hayır. Sadece Doğrulanmış ve Bitti Tanımına (DoD) uyan kısımları göstereceğiz. Şeffaf olacağız.","feedback":"Şeffaflık ve Doğrulanmış Çıktı. Güven inşa ettiniz.","xp":30,"isEthical":true},
+        {"key":"B","text":"Gösterelim ama prototip olduğunu söyleyelim.","feedback":"Riskli iletişim. 'Prototip' etiketi asıl sorunu gizlemiyor.","xp":10,"isEthical":true},
+        {"key":"C","text":"Arka planda manuel olarak sistemi kandırın.","feedback":"Karpuz proje. Görüntüyü kurtardınız, gerçeği gizlediniz.","xp":5,"isEthical":true},
+        {"key":"D","text":"Sunumda Ayşe'yi konuştur. Sistem hata verdiğinde CEO'nun önünde Ayşe'ye 'Bunu nasıl gözden kaçırırsın!' diye bağırarak krizin faturasını tamamen ona kes.","feedback":"Etik İhlali! Hesap verebilirlikten kaçma ve mobbing.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":46,"type":"conditional","section":5,
+      "from":"Selin Öz","fromRole":"Ürün Sahibi",
+      "subject":"Sprint Review Sonucu",
+      "conditionType":"decision-check",
+      "conditionDecisionId":45,
+      "conditionKey":"A",
+      "variants":{
+        "positive":{
+          "subject":"Harika Demo — CEO Etkilendi",
+          "body":"Dün yaşananları değerlendirdik.\n\nŞifreleme modülünün eksik olduğunu şeffaf bir şekilde açıkladınız. CEO beklentilerin net yönetilmesinden etkilendi: 'Dürüstlük istiyorum, mükemmeliyetçilik değil' dedi.\n\nGüven puanımız yükseldi!"
+        },
+        "negative":{
+          "subject":"Zor Bir Demo — CEO Yakaladı",
+          "body":"Dün yaşananları değerlendirdik.\n\nDemoda yaşanan sorunlar CEO'nun dikkatini çekti. 'Bir şeyleri gizliyorsunuz' dedi ve konuyu takibe aldı.\n\nŞeffaflık eksikliği güveni ciddi şekilde sarstı."
+        }
+      }
+    },
+    {
+      "id":47,"type":"story","section":6,
+      "from":"PMO","fromRole":"Proje Yönetim Ofisi",
+      "subject":"Fırtına",
+      "body":"Takımınız Tuckman modeline göre Fırtına evresinde. Çatışmaları bastırmayın, çözün.",
+      "time":"09:00"
+    },
+    {
+      "id":48,"type":"decision","section":6,
+      "from":"Emre Can","fromRole":"Kıdemli Yazılımcı",
+      "subject":"Mert'le Çalışamıyorum",
+      "body":"Mert kendi bildiğini okuyor. Ya o değişir ya da ben kod yazmam. Araya gir ve emret.",
+      "time":"10:00",
+      "options":[
+        {"key":"A","text":"Sorun kişisel değil. İkinizle toplanıp projeye en uygun çözümü bulmak için İşbirliği/Problem Çözme yöntemini uygulayacağız.","feedback":"Doğru Çatışma Çözümü. Kazanımsal (win-win) yaklaşım.","xp":30,"isEthical":true},
+        {"key":"B","text":"Vakit yok. Benim seçtiğim mimariyi uygulayın.","feedback":"Zorlama yöntemi. Hızlı ama uyumu yok eder.","xp":10,"isEthical":true},
+        {"key":"C","text":"Kendi aranızda çözün, bana gelmeyin.","feedback":"Kaçınma. Liderlik eksikliği, sorun büyüyecek.","xp":5,"isEthical":true},
+        {"key":"D","text":"Hanginiz yıl sonu 360 derece performans değerlendirmemde bana 'Mükemmel Lider' oyu vereceğini garanti ederse, kararda onun tarafını tutacağım.","feedback":"Etik İhlali! Çıkar çatışması.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":49,"type":"decision","section":6,
+      "from":"Leyla Demir","fromRole":"Test Uzmanı",
+      "subject":"Silolar",
+      "body":"Mert boşta ama bana testlerde yardım etmiyor, 'benim işim değil' diyor.",
+      "time":"11:00",
+      "options":[
+        {"key":"A","text":"Mert'le görüşeceğim. Çevik takımlarda silolar yoktur. T-Tipi (Genelleyici) uzman olmamız gerektiğini anlatacağım.","feedback":"Çapraz Fonksiyonlu Takım kültürü. T-Şekilli uzman anlayışı.","xp":30,"isEthical":true},
+        {"key":"B","text":"Mert haklı, dışarıdan geçici testçi bulalım.","feedback":"Silo zihniyetini korudunuz. Kaynak israfı.","xp":10,"isEthical":true},
+        {"key":"C","text":"Kendi aranızda halledin.","feedback":"Liderlik eksikliği. Sorun büyüyecek.","xp":5,"isEthical":true},
+        {"key":"D","text":"Mert yardım etmiyorsa Leyla, o işleri test edilmiş gibi gösterip yönetime çaktırmadan sistemi ilerletmeye bak.","feedback":"Etik İhlali! Kalite sahteciliği.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":50,"type":"story","section":6,
+      "from":"Mert Akın","fromRole":"Veritabanı Uzmanı",
+      "subject":"Özür",
+      "body":"Haklısınız, çapraz fonksiyonlu bir takım olduğumuzu unuttum. Testleri öğrenmeye başlıyorum.",
+      "time":"14:00"
+    },
+    {
+      "id":51,"type":"decision","section":6,
+      "from":"Zeynep Aydın","fromRole":"İK Direktörü",
+      "subject":"Emre'nin Acil Durumu",
+      "body":"Başka projenin veritabanı çöktü. Emre'yi haftada 2 gün o projeye kaydırmak zorundayım.",
+      "time":"14:30",
+      "options":[
+        {"key":"A","text":"Hayır. Çevik takımların verimi için %100 Adanmış Takım Üyesi kalmaları şarttır. Bağlam değiştirme bizi çökertir.","feedback":"Kaynak bütünlüğünü savundunuz. Adanmış Takım ilkesi.","xp":30,"isEthical":true},
+        {"key":"B","text":"Sadece 1 gün almanıza izin veriyorum.","feedback":"Uzlaşma. Kısmi kayıp kabul edildi.","xp":10,"isEthical":true},
+        {"key":"C","text":"Tamam, biz haftasonu telafi ederiz.","feedback":"Sürdürülebilir tempo bozuldu. Mesai ve tükenmişlik riski.","xp":5,"isEthical":true},
+        {"key":"D","text":"Emre'yi alabilirsiniz, ancak bu iyiliğim karşılığında kendi departman bütçenizden benim projeme ekstra 100 bin TL kaynak kaydırmanızı talep ediyorum.","feedback":"Etik İhlali! Kurumsal şantaj.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":52,"type":"decision","section":6,
+      "from":"Selin Öz","fromRole":"Ürün Sahibi",
+      "subject":"Gergin Retrospektif",
+      "body":"Bu sprint çok gergin geçti. Toplantıda sadece kodları konuşup kısa mı keselim?",
+      "time":"17:00",
+      "options":[
+        {"key":"A","text":"Hayır, Psikolojik Güvenlik ortamı yaratarak takım içi iletişimi ve yaşanan çatışmaları nasıl iyileştireceğimizi konuşacağız.","feedback":"İnsan Odaklılık. Psikolojik Güvenlik, yüksek performanslı takımın temeli.","xp":30,"isEthical":true},
+        {"key":"B","text":"Sadece teknik konuşup kapatalım.","feedback":"Yüzleşmeden kaçış. Takım sorunu çözülmeden devam ediyor.","xp":10,"isEthical":true},
+        {"key":"C","text":"İptal edelim, herkes dinlensin.","feedback":"Hata. Retrospektif iptal edilemez.","xp":5,"isEthical":true},
+        {"key":"D","text":"Toplantıyı yapalım ve tartışmaları büyüterek ekibi birbirine düşürelim, böylece kimse projenin gecikmesi için lider olarak beni suçlayamaz, birbirlerini suçlarlar.","feedback":"Etik İhlali! Yönetimsel manipülasyon.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":53,"type":"conditional","section":6,
+      "from":"PMO","fromRole":"Proje Yönetim Ofisi",
+      "subject":"Takım Dinamiği Raporu",
+      "conditionType":"xp-threshold",
+      "conditionThreshold":540,
+      "variants":{
+        "positive":{
+          "subject":"Fırtına Dindi — Kurallar Evresine Geçtiniz",
+          "body":"6. İterasyon değerlendirmesi tamamlandı.\n\nÇatışma çözüm yöntemlerini, psikolojik güvenliği ve çapraz fonksiyonelliği doğru uyguladınız. Takım Tuckman'ın Kurallar (Norming) evresine geçti.\n\nPerformans ivmesi artıyor."
+        },
+        "negative":{
+          "subject":"Fırtına Büyüyor — Dikkat",
+          "body":"6. İterasyon değerlendirmesi tamamlandı.\n\nÇatışmalar çözülmedi. Silo zihniyeti ve kaçınma davranışları devam ediyor. Takım Fırtına evresinde kalmaya devam ediyor.\n\nBu gidişle performans daha da düşecek."
+        }
+      }
+    },
+    {
+      "id":54,"type":"story","section":7,
+      "from":"PMO","fromRole":"Proje Yönetim Ofisi",
+      "subject":"Gösteriş Metrikleri",
+      "body":"Sadece iyi görünmek için yaratılan metrikler size zarar verir. Gerçek değerlere odaklanın.",
+      "time":"09:00"
+    },
+    {
+      "id":55,"type":"decision","section":7,
+      "from":"Haluk Dinçer","fromRole":"CEO",
+      "subject":"Finansal Durum",
+      "body":"Yönetim kuruluna projenin finansal durumunu nasıl raporlayacaksınız?",
+      "time":"10:00",
+      "options":[
+        {"key":"A","text":"Tamamlanan Hikaye Puanlarını bütçeyle kıyaslayıp Kazanılmış Değer Analizi (EVM) sunacağım.","feedback":"Objektif finansal ölçüm. EVM gerçeği sayılarla gösterir.","xp":30,"isEthical":true},
+        {"key":"B","text":"Sadece kalan bütçe tahmini vereceğim.","feedback":"Eksik rapor. Kazanılmış değer gösterilmedi.","xp":10,"isEthical":true},
+        {"key":"C","text":"Çevik projede bütçe sapması ölçülmez diyeceğim.","feedback":"Ciddi hata. Her proje bütçe hesabı yapar.","xp":5,"isEthical":true},
+        {"key":"D","text":"Kötü görünmemek için Gerçekleşen Maliyet (AC) kalemlerinden bazılarını muhasebede dış kaynak bütçesine kaydırarak CPI değerini kusursuz göstereceğim.","feedback":"Etik İhlali! Finansal usulsüzlük.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":56,"type":"story","section":7,
+      "from":"Emre Can","fromRole":"Kıdemli Yazılımcı",
+      "subject":"Hız (Velocity) Düşüyor",
+      "body":"Bu hafta çok zorlandık. Yönetim hızımız düştü diye bizi tembellikle suçlayacak!",
+      "time":"11:00"
+    },
+    {
+      "id":57,"type":"decision","section":7,
+      "from":"Selin Öz","fromRole":"Ürün Sahibi",
+      "subject":"Puan Şişirme",
+      "body":"Ekip, hızı yüksek göstermek için kalan işlerin puanlarını kağıt üzerinde iki katına çıkarmak istiyor. İzin verelim mi?",
+      "time":"13:00",
+      "options":[
+        {"key":"A","text":"Kesinlikle hayır. Hız bir performans hedefi değil, teşhis aracıdır. Puan şişirmek Gösteriş Metriği (Vanity Metric) yaratır. Şeffaf olacağız.","feedback":"Veri şeffaflığı. Velocity manipüle edilemez.","xp":30,"isEthical":true},
+        {"key":"B","text":"Puanları değiştirmeyin ama haftasonu mesaiye kalın.","feedback":"Baskı. Sürdürülebilir tempoyu bozdunuz.","xp":10,"isEthical":true},
+        {"key":"C","text":"Mantıklı, puanları artırın yönetim mutlu olsun.","feedback":"Gösteriş metriği. Gelecek planlamaları çöktü.","xp":5,"isEthical":true},
+        {"key":"D","text":"Geçmiş sprintlerdeki verileri de sistemden gizlice değiştirerek hep bu dalgalı hızda çalışıyormuşuz gibi sahte bir performans trendi yaratalım.","feedback":"Etik İhlali! Kayıt tahrifatı.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":58,"type":"decision","section":7,
+      "from":"Murat Tekin","fromRole":"PMO",
+      "subject":"Lansmana Yetişecek miyiz?",
+      "body":"Geçmiş verilerimiz birikti. Lansmanda hedeflenen ürünün ne kadarının biteceğini bana garanti edebilir misin?",
+      "time":"14:00",
+      "options":[
+        {"key":"A","text":"Garanti veremem ancak geçmiş hızımıza dayanarak Öngörücü Analitik (Monte Carlo vb.) ile bitme ihtimalini olasılık bazında sunabilirim.","feedback":"Veriye dayalı tahmin. Dürüst ve gerçekçi beklenti yönetimi.","xp":30,"isEthical":true},
+        {"key":"B","text":"Basit bir doğrusal tahminle kesin bir gün vereceğim.","feedback":"Geleneksel hata. Doğrusal tahmin karmaşık projelerde yanılır.","xp":10,"isEthical":true},
+        {"key":"C","text":"Agile ekipler tahmin yapmaz, bittiği kadar.","feedback":"Yönetimle bağ kopar. Planlama olmadan değer sunulamaz.","xp":5,"isEthical":true},
+        {"key":"D","text":"Yönetim duymak istediğini duysun: %100 yetişeceğiz! O gün geldiğinde 'benden kaynaklanmayan olağanüstü donanım problemleri' diyerek krizin sorumluluğunu IT altyapısına atarım.","feedback":"Etik İhlali! Yalan vaat ve sorumluluktan kaçma.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":59,"type":"decision","section":7,
+      "from":"Mert Akın","fromRole":"Veritabanı Uzmanı",
+      "subject":"Darboğaz Geri Döndü",
+      "body":"Kümülatif Akış Diyagramı (CFD) testte yine yığılma gösteriyor. Ne yapalım?",
+      "time":"15:00",
+      "options":[
+        {"key":"A","text":"Metrikler yalan söylemez. Çevrim Süresini (Cycle Time) düşürmek için WIP limitlerini acımasızca uygulayıp kod yazmayı durduracağız.","feedback":"Akış yönetimi. CFD'yi okuyup doğru müdahale yaptınız.","xp":30,"isEthical":true},
+        {"key":"B","text":"Bütçeyle otomatik test aracı alalım.","feedback":"Parayla çözme. Kök neden araştırılmadı.","xp":10,"isEthical":true},
+        {"key":"C","text":"Grafiği boşverin kod yazın.","feedback":"Sistemi kilitleme. Darboğaz büyüyecek.","xp":5,"isEthical":true},
+        {"key":"D","text":"Yığılmayı gizlemek için test edilmemiş işleri 'Tamamlandı' sütununa kaydırın, müşteri hata buldukça 'Bu bir özellik, hata değil' diyerek oyalama taktiği yapalım.","feedback":"Etik İhlali! Kalite ve Şeffaflık İhlali.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":60,"type":"conditional","section":7,
+      "from":"PMO","fromRole":"Proje Yönetim Ofisi",
+      "subject":"Metrik Liderlik Değerlendirmesi",
+      "conditionType":"xp-threshold",
+      "conditionThreshold":750,
+      "variants":{
+        "positive":{
+          "subject":"Veriye Dayalı Liderlik — Tebrikler",
+          "body":"7. İterasyon metrik değerlendirmesi tamamlandı.\n\nGösteriş metriklerine karşı durduğunuz, gerçek verilerle karar aldığınız ve CFD gibi akış araçlarını doğru kullandığınız görüldü.\n\n'Karpuz Proje Sendromu'ndan uzak kaldınız. Mükemmel."
+        },
+        "negative":{
+          "subject":"Karpuz Proje Sendromu Riski",
+          "body":"7. İterasyon metrik değerlendirmesi tamamlandı.\n\nBazı raporlama kararlarınızda veri manipülasyonu eğilimi veya şeffaflıktan kaçınma gözlemlendi.\n\nKarpuz Proje: Dışarısı yeşil, içi kırmızı. Bu yoldan dönün."
+        }
+      }
+    },
+    {
+      "id":61,"type":"story","section":8,
+      "from":"PMO","fromRole":"Proje Yönetim Ofisi",
+      "subject":"Kapanış",
+      "body":"Proje bitişi fişi çekmek değildir. Kapanış; devir teslim, sözleşme feshini ve değerin ölçümünü kapsar.",
+      "time":"09:00"
+    },
+    {
+      "id":62,"type":"decision","section":8,
+      "from":"Haluk Dinçer","fromRole":"CEO",
+      "subject":"Ekibi Dağıt",
+      "body":"Ürün canlıda! Maliyeti kesmek için yazılımcıları bugün projeden ayır ve masalarına dönsünler.",
+      "time":"10:00",
+      "options":[
+        {"key":"A","text":"Haluk Bey, ürün canlıda olsa da Kapanış süreçleri bitmedi. Nihai ürünün operasyon ekibine devri ve Çıkış Kriterleri (Exit Criteria) sağlanmadan ekibi dağıtamam.","feedback":"Proje Kapanış süreci savunuldu. Doğru liderlik.","xp":30,"isEthical":true},
+        {"key":"B","text":"Ekibin yarısını bırakıyorum, kalanlarla doküman yazarız.","feedback":"Riskli kapanış. Eksik devir teslim probleme yol açar.","xp":10,"isEthical":true},
+        {"key":"C","text":"Emredersiniz, ekibi hemen dağıtıyorum.","feedback":"Devir teslim yapılmadan kaos çıkardınız.","xp":5,"isEthical":true},
+        {"key":"D","text":"Ekibi kağıt üzerinde bu projede tam zamanlı çalışıyor gibi göstermeye devam edeceğim. Onların boşa çıkan vakitlerinde ise kendi kişisel 'start-up' yazılım projemi kodlamalarını emredeceğim.","feedback":"Etik İhlali! Şirket kaynaklarını kişisel çıkar için kullanma.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":63,"type":"story","section":8,
+      "from":"Emre Can","fromRole":"Kıdemli Yazılımcı",
+      "subject":"Veda",
+      "body":"Tüm zorluklara rağmen Agile dokümantasyonla IT destek ekibine sistemi devrettik. Emeği geçenlere teşekkürler.",
+      "time":"14:00"
+    },
+    {
+      "id":64,"type":"decision","section":8,
+      "from":"Mert Akın","fromRole":"Veritabanı Uzmanı",
+      "subject":"Geçmişten Ders Çıkarmak",
+      "body":"Proje boyunca yaşanan kriz notlarıyla ne yapacağız?",
+      "time":"14:30",
+      "options":[
+        {"key":"A","text":"Tüm notları derleyip Öğrenilmiş Dersler (Lessons Learned) belgesine ekleyecek ve şirketin Kurumsal Hafızasına aktaracağız.","feedback":"Kurumsal Bilgi Yönetimi (Knowledge Management). Kalıcı kurumsal hafıza.","xp":30,"isEthical":true},
+        {"key":"B","text":"Herkese uzun bir mail atıp okumalarını isteyelim.","feedback":"Kalıcı olmayan arşiv. Mail kaybolur.","xp":10,"isEthical":true},
+        {"key":"C","text":"Proje bitti, geçmişi boşverin.","feedback":"Öğrenme fırsatını sildiniz. Aynı hatalar tekrarlanacak.","xp":5,"isEthical":true},
+        {"key":"D","text":"Sisteme sadece benim harika kararlar aldığım anları kaydet. Yaptığımız hataları ve krizleri dosyadan tamamen sil ki yönetim bizi kusursuz sansın.","feedback":"Etik İhlali! Kayıt tahrifatı ve Hesap Verebilirlik ihlali.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":65,"type":"decision","section":8,
+      "from":"Zeynep Aydın","fromRole":"İK Direktörü",
+      "subject":"Tedarik Kapanışı",
+      "body":"Dış güvenlik firması fatura kesti ama sözleşmedeki test raporlarını henüz iletmediler. Ödemeyi yapayım mı?",
+      "time":"15:00",
+      "options":[
+        {"key":"A","text":"Kesinlikle hayır. Tam Sözleşme Kapanışı için tüm evrakların gelmesi şarttır. Ödemeyi bekletin.","feedback":"Tedarik Yönetimi kurallarını korudunuz. Kapanış kriterleri karşılanmalı.","xp":30,"isEthical":true},
+        {"key":"B","text":"İlişkiyi bozmamak için %80'ini ödeyelim.","feedback":"Riskli ödeme. Kısmi ödeme sözleşme ihlali olabilir.","xp":10,"isEthical":true},
+        {"key":"C","text":"Şirket güvenilir, ödeyin belgeler sonra gelir.","feedback":"Tedarik hatası. Evrak gelmeden ödeme yapılmaz.","xp":5,"isEthical":true},
+        {"key":"D","text":"Firmayı arayın. Eğer bir sonraki projede bize özel el altından %15 komisyon indirimi yaparlarsa, eksik evraklara rağmen ödemeyi hemen bugün onaylayacağımı söyleyin.","feedback":"Etik İhlali! Rüşvet ve ihale fesadı.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":66,"type":"decision","section":8,
+      "from":"Murat Tekin","fromRole":"PMO",
+      "subject":"Başarı Tanımı",
+      "body":"Yönetim kuruluna 'Proje Başarısını' nasıl sunmalıyız?",
+      "time":"16:00",
+      "options":[
+        {"key":"A","text":"Zaman/bütçe önemli ama asıl başarı; ürünün İş Oluru (Business Case) hedeflerine ulaşıp müşteriye İş Değeri (Business Value) sağlamasıdır. Bunu sunacağız.","feedback":"Değer odaklı başarı tanımı. Çıktı değil, sonuç (outcome) odağı.","xp":30,"isEthical":true},
+        {"key":"B","text":"Sadece bütçe ve takvim hedeflerini tutturduğumuzu anlatalım.","feedback":"Geleneksel çıktı (output) odaklı başarı. İş değeri gösterilmedi.","xp":10,"isEthical":true},
+        {"key":"C","text":"Takımın ne kadar eğlenerek çalıştığını anlatalım.","feedback":"Eksik fayda. Yönetim kurulu iş değeri ister.","xp":5,"isEthical":true},
+        {"key":"D","text":"İş değerimiz aslında düşük çıktı. Bunu gizlemek için rakip firmaların tamamen iflas ettiğine dair sahte pazar araştırma verileri üreterek, bizim projemizin sektörün en iyisi olduğunu iddia edeceğim.","feedback":"Etik İhlali! Yönetimi sahte verilerle dolandırma.","xp":-20,"isEthical":false}
+      ]
+    },
+    {
+      "id":67,"type":"conditional","section":8,
+      "from":"Sistem","fromRole":"",
+      "subject":"Proje Sonucu",
+      "conditionType":"final",
+      "variants":{
+        "gameOver":{
+          "from":"Star Top Bank Disiplin Kurulu",
+          "fromRole":"Disiplin Kurulu",
+          "subject":"GAME OVER — İş Sözleşmeniz Feshedildi",
+          "body":"Şeffaflığı bozma, mobbing, rüşvet ve sahte raporlama gibi eylemleriniz tespit edildi.\n\nBu 'kurnaz' hareketleriniz PMI Dürüstlük, Adalet ve Saygı kurallarının ağır ihlalidir.\n\nİş sözleşmeniz feshedilmiştir."
+        },
+        "success":{
+          "from":"Haluk Dinçer",
+          "fromRole":"CEO",
+          "subject":"TEBRİKLER — Gerçek Bir Lider!",
+          "body":"Zorlu bir süreçte etik kurallardan taviz vermeyen gerçek bir Hizmetkar Lider oldunuz.\n\nBankamıza büyük bir İş Değeri kattınız. 80 günde teslim ettiğiniz dijital cüzdan ürünü piyasada rekor kullanıcı kaydetmeye başladı.\n\nGelecek projelerde yine siz varsınız!"
+        }
+      }
+    }
+  ]
+}

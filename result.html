@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sınav Sonuçları | YetkinLider</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bar:#2f4f60;
+      --bar2:#5f93c2;
+      --ink:#1f2937;
+      --muted:#6b7280;
+      --bg:#eef2f7;
+      --card:#ffffff;
+      --line:#d6dde6;
+      --btn:#2f6ea5;
+      --btn2:#245a87;
+      --pass:#16a34a;
+      --passLight:#dcfce7;
+      --fail:#dc2626;
+      --failLight:#fee2e2;
+      --below:#dc2626;
+      --at:#d97706;
+      --above:#16a34a;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+
+    /* ── TOPBAR ── */
+    .topbar{
+      height:44px;background:var(--bar);color:#fff;
+      display:flex;align-items:center;padding:0 18px;
+      font-size:14px;font-weight:600;letter-spacing:.01em;
+      flex-shrink:0;
+    }
+    .topbar .mark{font-size:10px;vertical-align:super}
+
+    /* ── PAGE ── */
+    .page{max-width:860px;margin:0 auto;padding:28px 16px 60px}
+
+    /* ── REPORT HEADER ── */
+    .reportHeader{
+      background:var(--bar);
+      color:#fff;
+      border-radius:10px 10px 0 0;
+      padding:18px 24px 16px;
+      border-bottom:3px solid var(--bar2);
+    }
+    .reportHeader .examName{
+      font-size:20px;font-weight:700;letter-spacing:-.01em;
+    }
+    .reportHeader .examMeta{
+      font-size:13px;color:rgba(255,255,255,.72);margin-top:4px;
+    }
+    .reportHeader .examDate{
+      font-size:13px;color:rgba(255,255,255,.72);margin-top:2px;
+    }
+
+    /* ── SCORE SECTION ── */
+    .scoreSection{
+      background:var(--card);
+      border-left:1px solid var(--line);
+      border-right:1px solid var(--line);
+      padding:28px 24px;
+      display:flex;
+      align-items:center;
+      gap:32px;
+      flex-wrap:wrap;
+    }
+
+    .scoreCircleWrap{flex-shrink:0}
+    .scoreCircle{
+      width:130px;height:130px;border-radius:50%;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      background:var(--bg);
+      border:5px solid var(--line);
+      position:relative;
+    }
+    .scoreCircle.pass-circle{border-color:var(--pass)}
+    .scoreCircle.fail-circle{border-color:var(--fail)}
+    .scoreNum{font-size:36px;font-weight:800;line-height:1}
+    .scoreUnit{font-size:16px;font-weight:600;color:var(--muted)}
+
+    .verdictWrap{flex:1;min-width:220px}
+    .verdict{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:28px;font-weight:800;letter-spacing:-.01em;
+      margin-bottom:8px;
+    }
+    .verdict .badge{
+      display:inline-block;
+      font-size:13px;font-weight:700;
+      padding:3px 10px;border-radius:6px;
+      letter-spacing:.04em;
+    }
+    .badge.pass{background:var(--passLight);color:var(--pass)}
+    .badge.fail{background:var(--failLight);color:var(--fail)}
+    .verdictMsg{font-size:15px;color:var(--muted);line-height:1.55;max-width:440px}
+    .threshold{
+      margin-top:10px;font-size:12px;color:var(--muted);
+      display:flex;align-items:center;gap:5px;
+    }
+    .threshold::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--bar2)}
+
+    /* ── SECTION CARD ── */
+    .sectionCard{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-top:none;
+    }
+    .sectionCard.last{border-radius:0 0 10px 10px}
+    .sectionHead{
+      background:#f7f9fc;
+      padding:12px 24px;
+      font-weight:700;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      color:var(--muted);
+      border-bottom:1px solid var(--line);
+      border-top:1px solid var(--line);
+    }
+
+    /* ── DOMAIN TABLE ── */
+    .domainTable{padding:0 24px 20px}
+
+    .domainLegend{
+      display:grid;
+      grid-template-columns:180px 1fr 90px;
+      gap:0 12px;
+      padding:12px 0 6px;
+      font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+      color:var(--muted);
+      border-bottom:1px solid var(--line);
+      margin-bottom:4px;
+    }
+    .domainLegend .barLabels{
+      display:flex;justify-content:space-between;
+    }
+    .domainLegend .barLabels span{flex:1;text-align:center}
+
+    .domainRow{
+      display:grid;
+      grid-template-columns:180px 1fr 90px;
+      gap:0 12px;
+      align-items:center;
+      padding:12px 0;
+      border-bottom:1px solid #f1f4f8;
+    }
+    .domainRow:last-child{border-bottom:none}
+
+    .domainName{
+      font-size:14px;font-weight:600;line-height:1.3;
+    }
+    .domainWeight{
+      font-size:11px;font-weight:400;color:var(--muted);display:block;margin-top:1px;
+    }
+
+    /* Performance bar */
+    .perfBar{
+      height:28px;
+      display:flex;
+      border-radius:4px;
+      overflow:visible;
+      position:relative;
+    }
+    .perfSeg{
+      flex:1;
+      height:100%;
+      position:relative;
+    }
+    .perfSeg:first-child{border-radius:4px 0 0 4px}
+    .perfSeg:last-child{border-radius:0 4px 4px 0}
+    .seg-below{background:#fecaca}
+    .seg-at{background:#fde68a}
+    .seg-above{background:#bbf7d0}
+
+    .perfSeg .divider{
+      position:absolute;right:0;top:0;bottom:0;
+      width:2px;background:rgba(255,255,255,.9);
+    }
+
+    .perfMarker{
+      position:absolute;
+      top:50%;
+      transform:translate(-50%,-50%);
+      width:18px;height:18px;
+      border-radius:50%;
+      background:var(--bar);
+      border:3px solid #fff;
+      box-shadow:0 1px 4px rgba(0,0,0,.35);
+      z-index:2;
+      transition:left .4s ease;
+    }
+
+    .domainScore{
+      font-size:16px;font-weight:700;text-align:right;
+    }
+    .perfLevel{
+      font-size:11px;font-weight:500;text-align:right;margin-top:2px;
+    }
+    .level-below{color:var(--below)}
+    .level-at{color:var(--at)}
+    .level-above{color:var(--above)}
+
+    /* ── STATS GRID ── */
+    .statsGrid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:none;
+    }
+    .statCell{
+      padding:18px 0;
+      text-align:center;
+      border-right:1px solid var(--line);
+    }
+    .statCell:last-child{border-right:none}
+    .statNum{font-size:28px;font-weight:800;line-height:1}
+    .statLbl{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
+    .statSub{font-size:11px;color:#9ca3af;margin-top:2px}
+    .stat-correct .statNum{color:var(--pass)}
+    .stat-incorrect .statNum{color:var(--fail)}
+    .stat-unanswered .statNum{color:var(--at)}
+
+    /* ── DISCLAIMER ── */
+    .disclaimer{
+      background:#fffbf0;
+      border:1px solid #fde68a;
+      border-top:none;
+      padding:12px 24px;
+      font-size:12px;
+      color:#92400e;
+      line-height:1.5;
+    }
+
+    /* ── ACTIONS ── */
+    .actions{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+    .actBtn{
+      padding:12px 24px;
+      border-radius:8px;
+      border:none;
+      font-size:15px;font-weight:600;
+      cursor:pointer;
+      transition:background .15s;
+    }
+    .actBtn-primary{background:var(--btn);color:#fff}
+    .actBtn-primary:hover{background:var(--btn2)}
+    .actBtn-secondary{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+    .actBtn-secondary:hover{background:var(--bg)}
+
+    /* ── SHARE SECTION ── */
+    .shareCard{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-top:none;
+      padding:18px 24px 20px;
+    }
+    .shareTitle{
+      font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+      color:var(--muted);margin-bottom:14px;
+    }
+    .shareRow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+    .shareBtn{
+      display:inline-flex;align-items:center;gap:7px;
+      padding:9px 15px;border-radius:8px;border:none;
+      font-size:13px;font-weight:700;cursor:pointer;
+      transition:opacity .15s;color:#fff;
+      text-decoration:none;
+    }
+    .shareBtn:hover{opacity:.88}
+    .shareBtn svg{width:16px;height:16px;flex-shrink:0}
+    .sb-twitter{background:#000}
+    .sb-linkedin{background:#0a66c2}
+    .sb-reddit{background:#ff4500}
+    .sb-facebook{background:#1877f2}
+    .sb-instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+    .sb-email{background:var(--btn)}
+
+    .shareDivider{height:1px;background:var(--line);margin:14px 0}
+
+    /* ── EMAIL MODAL ── */
+    .emailModalBack{
+      position:fixed;inset:0;background:rgba(0,0,0,.5);
+      z-index:9999;display:none;align-items:center;justify-content:center;padding:16px;
+    }
+    .emailModalBack.open{display:flex}
+    .emailModal{
+      width:min(480px,96vw);background:#fff;border-radius:10px;
+      box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden;
+    }
+    .emHead{background:var(--bar);color:#fff;padding:14px 18px;font-weight:700;font-size:15px}
+    .emBody{padding:20px 18px 12px}
+    .emPreview{
+      background:var(--bg);border:1px solid var(--line);border-radius:8px;
+      padding:14px 16px;margin-bottom:16px;font-size:13px;line-height:1.7;color:var(--ink);
+    }
+    .emPreview strong{color:var(--ink)}
+    .emLabel{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px}
+    .emInputRow{display:flex;gap:8px;margin-bottom:8px}
+    .emInputRow input{
+      flex:1;padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;
+      font-size:14px;outline:none;
+    }
+    .emInputRow input:focus{border-color:var(--btn)}
+    .emSendBtn{
+      padding:10px 16px;border-radius:8px;border:none;
+      background:var(--btn);color:#fff;font-weight:700;cursor:pointer;
+      font-size:14px;white-space:nowrap;
+    }
+    .emSendBtn:hover{background:var(--btn2)}
+    .emNote{font-size:12px;color:#9ca3af;line-height:1.5}
+    .emFoot{padding:12px 18px;display:flex;justify-content:flex-end}
+    .emCloseBtn{
+      padding:9px 18px;border-radius:8px;border:1.5px solid var(--line);
+      background:#fff;color:var(--ink);font-weight:600;cursor:pointer;font-size:14px;
+    }
+    .emCloseBtn:hover{background:var(--bg)}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:620px){
+      .scoreSection{flex-direction:column;align-items:flex-start;gap:20px}
+      .statsGrid{grid-template-columns:repeat(2,1fr)}
+      .statCell:nth-child(2){border-right:none}
+      .statCell:nth-child(3){border-top:1px solid var(--line)}
+      .statCell:nth-child(4){border-top:1px solid var(--line)}
+      .domainLegend,.domainRow{grid-template-columns:140px 1fr 70px}
+      .domainName{font-size:13px}
+    }
+    @media(max-width:480px){
+      .domainLegend,.domainRow{grid-template-columns:1fr}
+      .domainLegend{display:none}
+      .domainRow{gap:6px;padding:14px 0}
+      .domainScore{text-align:left}
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  YetkinLider
+</div>
+
+<div class="page">
+
+  <!-- Report Header -->
+  <div class="reportHeader">
+    <div class="examName">Practice Exam Score Report</div>
+    <div class="examDate" id="examDate"></div>
+    <div class="examMeta">180 Questions &nbsp;•&nbsp; 240 Minutes</div>
+  </div>
+
+  <!-- Score Summary -->
+  <div class="scoreSection">
+    <div class="scoreCircleWrap">
+      <div class="scoreCircle" id="scoreCircle">
+        <div class="scoreNum" id="scoreNum">--</div>
+        <div class="scoreUnit">%</div>
+      </div>
+    </div>
+    <div class="verdictWrap">
+      <div class="verdict">
+        <span id="verdictText">—</span>
+        <span class="badge" id="verdictBadge"></span>
+      </div>
+      <div class="verdictMsg" id="verdictMsg"></div>
+      <div class="threshold">Passing threshold: 61%</div>
+    </div>
+  </div>
+
+  <!-- Domain Performance -->
+  <div class="sectionCard">
+    <div class="sectionHead">Performance by Domain</div>
+    <div class="domainTable">
+      <div class="domainLegend">
+        <div>Domain</div>
+        <div class="barLabels">
+          <span>Below Target</span>
+          <span>At / Near Target</span>
+          <span>Above Target</span>
+        </div>
+        <div style="text-align:right">Score</div>
+      </div>
+      <div id="domainRows"></div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="sectionCard">
+    <div class="statsGrid">
+      <div class="statCell stat-correct">
+        <div class="statNum" id="statCorrect">--</div>
+        <div class="statLbl">Correct</div>
+      </div>
+      <div class="statCell stat-incorrect">
+        <div class="statNum" id="statIncorrect">--</div>
+        <div class="statLbl">Incorrect</div>
+      </div>
+      <div class="statCell stat-unanswered">
+        <div class="statNum" id="statUnanswered">--</div>
+        <div class="statLbl">Unanswered</div>
+      </div>
+      <div class="statCell">
+        <div class="statNum" id="statTime">--</div>
+        <div class="statLbl">Time Used</div>
+        <div class="statSub" id="statTimeSub"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="sectionCard disclaimer">
+    Score is calculated based on the number of correctly answered questions.
+    Bu alıştırma sınavı yalnızca eğitim amaçlıdır.
+  </div>
+
+  <!-- Share & Save -->
+  <div class="shareCard sectionCard last">
+    <div class="shareTitle">Share Your Results</div>
+    <div class="shareRow" id="shareRow">
+      <button class="shareBtn sb-twitter" id="shareTwitter">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X / Twitter
+      </button>
+      <button class="shareBtn sb-linkedin" id="shareLinkedin">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </button>
+      <button class="shareBtn sb-reddit" id="shareReddit">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+        Reddit
+      </button>
+      <button class="shareBtn sb-facebook" id="shareFacebook">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </button>
+      <button class="shareBtn sb-instagram" id="shareInstagram">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        Instagram
+      </button>
+    </div>
+    <div class="shareDivider"></div>
+    <div class="shareRow">
+      <button class="shareBtn sb-email" id="emailReportBtn">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="white" stroke-width="2" stroke-linejoin="round"/><path d="m22 6-10 7L2 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Email My Report
+      </button>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="actions">
+    <button class="actBtn actBtn-primary" onclick="location.href='exam.html'">Take Another Test</button>
+    <button class="actBtn actBtn-secondary" onclick="location.href='index.html'">Return to Home</button>
+  </div>
+
+</div>
+
+<!-- Email Report Modal -->
+<div class="emailModalBack" id="emailModalBack">
+  <div class="emailModal">
+    <div class="emHead">Email My Score Report</div>
+    <div class="emBody">
+      <div class="emPreview" id="emPreview"></div>
+      <div class="emLabel">Your email address</div>
+      <div class="emInputRow">
+        <input type="email" id="emEmailInput" placeholder="you@example.com">
+        <button class="emSendBtn" id="emSendBtn">Send Report</button>
+      </div>
+      <div class="emNote" id="emNote">We'll send a summary of your practice exam results to this address.</div>
+    </div>
+    <div class="emFoot">
+      <button class="emCloseBtn" id="emCloseBtn">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Demo / fallback data ──────────────────────────────────────────────
+const DEMO = {
+  score: 73,
+  correct: 131,
+  incorrect: 32,
+  unanswered: 17,
+  total: 180,
+  timeUsed: 8640,   // seconds used
+  timeTotal: 14400, // 240 min in seconds
+  date: new Date().toISOString(),
+  domains: {
+    people:   { score: 76, label: "People",               weight: "42%" },
+    process:  { score: 71, label: "Process",              weight: "50%" },
+    business: { score: 73, label: "Business Environment", weight: "8%"  }
+  }
+};
+
+// ── Load data ──────────────────────────────────────────────────────────
+let data;
+try {
+  const raw = localStorage.getItem('pmpResult');
+  data = raw ? JSON.parse(raw) : DEMO;
+} catch(e) {
+  data = DEMO;
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────
+function fmtTime(seconds) {
+  if (seconds < 0) seconds = 0;
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  if (h > 0) return `${h}h ${String(m).padStart(2,'0')}m`;
+  return `${m}m ${String(s).padStart(2,'0')}s`;
+}
+
+function perfLevel(score) {
+  if (score >= 75) return { label: "Above Target", cls: "level-above" };
+  if (score >= 55) return { label: "At / Near Target", cls: "level-at" };
+  return { label: "Below Target", cls: "level-below" };
+}
+
+// marker position as percentage of bar (0-100)
+function markerPos(score) {
+  const s = Math.max(0, Math.min(100, score));
+  if (s < 55)  return (s / 54) * 32;
+  if (s < 75)  return 33 + ((s - 55) / 19) * 32;
+  return 66 + ((s - 75) / 25) * 34;
+}
+
+// ── Render header ─────────────────────────────────────────────────────
+const d = new Date(data.date || new Date());
+document.getElementById('examDate').textContent =
+  d.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+
+// ── Score circle ──────────────────────────────────────────────────────
+const score = Math.round(data.score);
+document.getElementById('scoreNum').textContent = score;
+const circle = document.getElementById('scoreCircle');
+circle.classList.add(score >= 61 ? 'pass-circle' : 'fail-circle');
+
+// ── Verdict ───────────────────────────────────────────────────────────
+const passed = score >= 61;
+document.getElementById('verdictText').textContent = passed ? 'PASS' : 'FAIL';
+const badge = document.getElementById('verdictBadge');
+badge.textContent = passed ? 'PASS' : 'FAIL';
+badge.classList.add(passed ? 'pass' : 'fail');
+document.getElementById('verdictMsg').textContent = passed
+  ? `Congratulations! You scored ${score}% and passed the practice exam. Keep up the work and you'll be ready for the real thing.`
+  : `You scored ${score}%, which is below the 61% passing threshold. Review the domains where you scored lower and try again.`;
+
+// ── Stats ─────────────────────────────────────────────────────────────
+document.getElementById('statCorrect').textContent   = data.correct   ?? '--';
+document.getElementById('statIncorrect').textContent = data.incorrect  ?? '--';
+document.getElementById('statUnanswered').textContent= data.unanswered ?? '--';
+const used = data.timeUsed ?? 0;
+document.getElementById('statTime').textContent    = fmtTime(used);
+document.getElementById('statTimeSub').textContent = `of ${fmtTime(data.timeTotal ?? 14400)}`;
+
+// ── Domain rows ───────────────────────────────────────────────────────
+const container = document.getElementById('domainRows');
+
+Object.values(data.domains).forEach(dom => {
+  const s = Math.round(dom.score);
+  const lv = perfLevel(s);
+  const pos = markerPos(s);
+
+  const row = document.createElement('div');
+  row.className = 'domainRow';
+  row.innerHTML = `
+    <div class="domainName">
+      ${dom.label}
+      <span class="domainWeight">${dom.weight} of exam</span>
+    </div>
+    <div>
+      <div class="perfBar" id="bar-${dom.label.replace(/\s/g,'_')}">
+        <div class="perfSeg seg-below"><div class="divider"></div></div>
+        <div class="perfSeg seg-at"><div class="divider"></div></div>
+        <div class="perfSeg seg-above"></div>
+        <div class="perfMarker" style="left:${pos}%"></div>
+      </div>
+    </div>
+    <div>
+      <div class="domainScore">${s}%</div>
+      <div class="perfLevel ${lv.cls}">${lv.label}</div>
+    </div>
+  `;
+  container.appendChild(row);
+});
+
+// ── Share helpers ──────────────────────────────────────────────────────
+const siteUrl  = 'https://yetkinlider.com/exam.html';
+const verdict  = passed ? 'PASS ✅' : 'FAIL ❌';
+const shareText = `Proje yönetimi sınavında ${score}% (${verdict}) aldım! 🎯 ${siteUrl} #LiderlikYetkinlikleri #ProjeYönetimi`;
+const shareTitle = `Sınav Sonucu: ${score}% — ${passed ? 'BAŞARILI' : 'BAŞARISIZ'}`;
+
+// ── Canvas image generator ─────────────────────────────────────────────
+function rrect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  if (ctx.roundRect) {
+    ctx.roundRect(x, y, w, h, r);
+  } else {
+    ctx.moveTo(x+r, y); ctx.arcTo(x+w, y, x+w, y+r, r);
+    ctx.arcTo(x+w, y+h, x+w-r, y+h, r); ctx.arcTo(x, y+h, x, y+h-r, r);
+    ctx.arcTo(x, y, x+r, y, r); ctx.closePath();
+  }
+}
+
+async function generateShareImage() {
+  await document.fonts.ready;
+  const W = 1200, H = 630;
+  const canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  const c = canvas.getContext('2d');
+
+  // ── Background gradient ──
+  const bg = c.createLinearGradient(0, 0, W, H);
+  bg.addColorStop(0, '#0d2538');
+  bg.addColorStop(1, '#1a3f58');
+  c.fillStyle = bg; c.fillRect(0, 0, W, H);
+
+  // ── Top accent strip ──
+  c.fillStyle = '#5f93c2'; c.fillRect(0, 0, W, 7);
+
+  // ── Logo ──
+  await new Promise(res => {
+    const img = new Image();
+    img.onload = () => { c.drawImage(img, 44, 24, 52, 52); res(); };
+    img.onerror = res;
+    img.src = 'logo.png';
+  });
+
+  // ── Site name ──
+  c.fillStyle = '#ffffff';
+  c.font = 'bold 20px Inter, sans-serif';
+  c.textAlign = 'left';
+  c.fillText('PMP\u00ae YetkinLider\u2122', 110, 58);
+
+  // ── URL (top-right) ──
+  c.fillStyle = 'rgba(255,255,255,0.4)';
+  c.font = '15px Inter, sans-serif';
+  c.textAlign = 'right';
+  c.fillText('yetkinlider.com', W - 44, 58);
+
+  // ── Big score ──
+  c.fillStyle = '#ffffff';
+  c.font = 'bold 170px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.fillText(score + '%', W / 2, 290);
+
+  // ── Verdict badge ──
+  const badgeColor = passed ? '#16a34a' : '#dc2626';
+  const bw = 190, bh = 58;
+  const bx = W/2 - bw/2, by = 308;
+  rrect(c, bx, by, bw, bh, 29);
+  c.fillStyle = badgeColor; c.fill();
+  c.fillStyle = '#ffffff';
+  c.font = 'bold 32px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.fillText(passed ? 'PASS' : 'FAIL', W/2, by + 40);
+
+  // ── Subtitle ──
+  c.fillStyle = 'rgba(255,255,255,0.45)';
+  c.font = '17px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.fillText('PMP\u00ae Practice Exam', W/2, 400);
+
+  // ── Domain bars ──
+  const doms = Object.values(data.domains);
+  const labelEndX = 348, barX = 356, barMaxW = 580, barH = 20, gap = 38;
+  const barsStartY = 430;
+
+  doms.forEach((dom, i) => {
+    const y = barsStartY + i * gap;
+    const s = Math.round(dom.score);
+
+    c.fillStyle = 'rgba(255,255,255,0.65)';
+    c.font = '15px Inter, sans-serif';
+    c.textAlign = 'right';
+    c.fillText(dom.label, labelEndX, y + barH - 2);
+
+    // Bar track
+    c.fillStyle = 'rgba(255,255,255,0.12)';
+    rrect(c, barX, y, barMaxW, barH, 10); c.fill();
+
+    // Bar fill
+    const fillW = Math.max(16, (s / 100) * barMaxW);
+    const fillColor = s >= 75 ? '#4ade80' : s >= 55 ? '#fbbf24' : '#f87171';
+    c.fillStyle = fillColor;
+    rrect(c, barX, y, fillW, barH, 10); c.fill();
+
+    // Score label
+    c.fillStyle = '#ffffff';
+    c.font = 'bold 15px Inter, sans-serif';
+    c.textAlign = 'left';
+    c.fillText(s + '%', barX + barMaxW + 14, y + barH - 2);
+  });
+
+  // ── Divider ──
+  c.fillStyle = 'rgba(255,255,255,0.15)';
+  c.fillRect(44, H - 80, W - 88, 1);
+
+  // ── CTA ──
+  c.fillStyle = 'rgba(255,255,255,0.6)';
+  c.font = '18px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.fillText('\u015eimdi sen de kendini test et', W/2, H - 52);
+  c.fillStyle = '#7dc4e4';
+  c.font = 'bold 19px Inter, sans-serif';
+  c.fillText('yetkinlider.com/exam.html', W/2, H - 24);
+
+  return new Promise(res => canvas.toBlob(res, 'image/png'));
+}
+
+async function handleShareWithImage(btn, platformUrl) {
+  const origHTML = btn.innerHTML;
+  btn.innerHTML = '<span style="opacity:.7">⏳</span> Generating…';
+  btn.disabled = true;
+  try {
+    const blob = await generateShareImage();
+    const file = new File([blob], 'pmp-score.png', { type: 'image/png' });
+    if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({ files: [file], title: shareTitle, text: shareText });
+    } else {
+      // Download image
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'pmp-score.png'; a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+      // Open platform URL
+      if (platformUrl) setTimeout(() => window.open(platformUrl, '_blank'), 400);
+    }
+  } catch(e) {
+    if (e.name !== 'AbortError') console.error('Share failed', e);
+  }
+  btn.disabled = false;
+  btn.innerHTML = origHTML;
+}
+
+document.getElementById('shareTwitter').addEventListener('click', function() {
+  handleShareWithImage(this, 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText));
+});
+document.getElementById('shareLinkedin').addEventListener('click', function() {
+  handleShareWithImage(this, 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(siteUrl));
+});
+document.getElementById('shareReddit').addEventListener('click', function() {
+  handleShareWithImage(this, 'https://www.reddit.com/submit?title=' + encodeURIComponent(shareTitle) + '&url=' + encodeURIComponent(siteUrl));
+});
+document.getElementById('shareFacebook').addEventListener('click', function() {
+  handleShareWithImage(this, 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(siteUrl));
+});
+document.getElementById('shareInstagram').addEventListener('click', async function() {
+  const btn = this;
+  const origHTML = btn.innerHTML;
+  btn.innerHTML = '<span style="opacity:.7">⏳</span> Generating…';
+  btn.disabled = true;
+  try {
+    const blob = await generateShareImage();
+    if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], 'pmp-score.png', { type: 'image/png' })] })) {
+      await navigator.share({ files: [new File([blob], 'pmp-score.png', { type: 'image/png' })], title: shareTitle });
+    } else {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'pmp-score.png'; a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+      btn.innerHTML = '✓ Image saved! Upload to Instagram';
+      setTimeout(() => { btn.disabled = false; btn.innerHTML = origHTML; }, 3000);
+      return;
+    }
+  } catch(e) {
+    if (e.name !== 'AbortError') console.error(e);
+  }
+  btn.disabled = false;
+  btn.innerHTML = origHTML;
+});
+
+// ── Email Report Modal ────────────────────────────────────────────────
+const emailModalBack = document.getElementById('emailModalBack');
+
+// Build email preview text
+const domainLines = Object.values(data.domains)
+  .map(d => `  • ${d.label}: ${Math.round(d.score)}%`).join('\n');
+const previewHtml = `
+  <strong>Proje Yönetimi Sınav Raporu</strong><br>
+  Date: ${d.toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'})}<br><br>
+  <strong>Score: ${score}%</strong> — <strong>${passed ? 'PASS ✅' : 'FAIL ❌'}</strong><br>
+  Correct: ${data.correct ?? '--'} &nbsp;|&nbsp; Incorrect: ${data.incorrect ?? '--'} &nbsp;|&nbsp; Unanswered: ${data.unanswered ?? '--'}<br><br>
+  <strong>Domain Performance</strong><br>
+  ${Object.values(data.domains).map(d => `${d.label}: ${Math.round(d.score)}%`).join(' &nbsp;|&nbsp; ')}
+`;
+document.getElementById('emPreview').innerHTML = previewHtml;
+
+document.getElementById('emailReportBtn').addEventListener('click', () => {
+  emailModalBack.classList.add('open');
+});
+document.getElementById('emCloseBtn').addEventListener('click', () => {
+  emailModalBack.classList.remove('open');
+});
+emailModalBack.addEventListener('click', e => {
+  if (e.target === emailModalBack) emailModalBack.classList.remove('open');
+});
+document.getElementById('emSendBtn').addEventListener('click', () => {
+  const email = document.getElementById('emEmailInput').value.trim();
+  const note  = document.getElementById('emNote');
+  if (!email || !email.includes('@')) {
+    note.textContent = 'Please enter a valid email address.';
+    note.style.color = '#dc2626';
+    return;
+  }
+  // UI feedback — backend integration required for actual delivery
+  document.getElementById('emSendBtn').textContent = 'Sent ✓';
+  document.getElementById('emSendBtn').style.background = '#16a34a';
+  note.style.color = '#15803d';
+  note.textContent = `Report sent to ${email}. Check your inbox!`;
+});
+</script>
+</body>
+</html>

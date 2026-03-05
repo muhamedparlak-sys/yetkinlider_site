@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Paneli — YetkinLider</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<style>
+:root {
+  --bg: #0f1520;
+  --surface: rgba(255,255,255,.04);
+  --border: rgba(255,255,255,.1);
+  --accent: #3b82f6;
+  --text: #e2e8f0;
+  --dim: rgba(255,255,255,.45);
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --purple: #8b5cf6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, system-ui, sans-serif; color: var(--text); background: var(--bg); min-height: 100vh; }
+
+/* TOPBAR */
+.topbar { background: rgba(15,21,32,.95); border-bottom: 1px solid var(--border); height: 52px; display: flex; align-items: center; padding: 0 20px; gap: 14px; position: sticky; top: 0; z-index: 100; }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; color: #fff; text-decoration: none; }
+.brand-logo { width: 26px; height: 26px; border-radius: 5px; flex-shrink: 0; filter: brightness(0) invert(1); }
+.brand sup { font-size: .55em; vertical-align: super; opacity: .8; }
+.admin-badge { background: rgba(139,92,246,.2); border: 1px solid rgba(139,92,246,.4); color: #c4b5fd; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 3px 10px; border-radius: 20px; }
+.topbar-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.topbar-user { font-size: 12px; color: var(--dim); }
+
+/* LAYOUT */
+.admin-layout { display: grid; grid-template-columns: 200px 1fr; min-height: calc(100vh - 52px); }
+
+/* SIDEBAR */
+.sidebar { background: rgba(255,255,255,.02); border-right: 1px solid var(--border); padding: 20px 0; }
+.sidebar-section { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.25); padding: 0 16px 8px; margin-top: 12px; }
+.sidebar-section:first-child { margin-top: 0; }
+.sidebar-link { display: flex; align-items: center; gap: 10px; padding: 9px 16px; font-size: 13px; color: rgba(255,255,255,.55); cursor: pointer; transition: all .12s; border-left: 2px solid transparent; text-decoration: none; }
+.sidebar-link:hover { background: rgba(255,255,255,.04); color: #fff; }
+.sidebar-link.active { background: rgba(59,130,246,.1); color: #93c5fd; border-left-color: var(--accent); }
+.sidebar-icon { width: 16px; height: 16px; flex-shrink: 0; opacity: .7; transition: opacity .12s; }
+.sidebar-link:hover .sidebar-icon, .sidebar-link.active .sidebar-icon { opacity: 1; }
+
+/* CONTENT */
+.admin-content { padding: 28px 32px; overflow-y: auto; }
+.page { display: none; }
+.page.active { display: block; }
+
+/* PAGE HEADER */
+.page-header { margin-bottom: 24px; }
+.page-header h1 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+.page-header p { font-size: 13px; color: var(--dim); }
+
+/* MATRIX TABLE */
+.matrix-wrap { overflow-x: auto; }
+.matrix-table { border-collapse: collapse; width: 100%; font-size: 13px; }
+.matrix-table th { background: rgba(255,255,255,.06); padding: 10px 14px; text-align: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.45); border: 1px solid var(--border); white-space: nowrap; }
+.matrix-table th.row-head { text-align: left; width: 200px; }
+.matrix-table td { padding: 9px 12px; border: 1px solid rgba(255,255,255,.06); text-align: center; vertical-align: middle; }
+.matrix-table td.row-label { text-align: left; font-size: 12px; color: var(--dim); }
+.matrix-table td.domain-sep { background: rgba(255,255,255,.03); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.3); padding: 8px 14px; }
+.cell-count { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 13px; font-weight: 700; }
+.cell-count.has { background: rgba(16,185,129,.15); color: #6ee7b7; border: 1px solid rgba(16,185,129,.3); }
+.cell-count.none { background: rgba(255,255,255,.05); color: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.07); }
+.btn-add-cell { background: rgba(59,130,246,.12); border: 1px dashed rgba(59,130,246,.3); color: #60a5fa; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 5px; cursor: pointer; transition: all .15s; white-space: nowrap; }
+.btn-add-cell:hover { background: rgba(59,130,246,.22); border-color: var(--accent); }
+
+/* DOMAIN GROUP HEADER in table */
+.domain-group-header { background: rgba(255,255,255,.03); }
+.domain-group-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: rgba(255,255,255,.4); display: flex; align-items: center; gap: 8px; }
+
+/* STATS ROW */
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+.stat-value { font-size: 26px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+.stat-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); }
+.stat-card.accent .stat-value { color: #93c5fd; }
+.stat-card.success .stat-value { color: #6ee7b7; }
+.stat-card.warning .stat-value { color: #fcd34d; }
+
+/* FORM */
+.form-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 24px; max-width: 600px; }
+.form-card h2 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.form-card > p { font-size: 12px; color: var(--dim); margin-bottom: 20px; }
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); margin-bottom: 5px; }
+.field input, .field textarea, .field select { width: 100%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 6px; padding: 9px 12px; color: var(--text); font-size: 13px; font-family: inherit; outline: none; transition: border .15s; }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent); }
+.field textarea { min-height: 70px; resize: vertical; }
+.field select option { background: #1e293b; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.btn-submit { background: var(--accent); color: #fff; border: none; border-radius: 7px; padding: 10px 22px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background .15s; font-family: inherit; }
+.btn-submit:hover { background: #2563eb; }
+.form-msg { font-size: 12px; margin-top: 10px; padding: 8px 12px; border-radius: 6px; display: none; }
+.form-msg.ok { background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.3); color: #6ee7b7; display: block; }
+.form-msg.err { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.3); color: #fca5a5; display: block; }
+
+/* GLOSSARY LIST */
+.glossary-list { margin-top: 18px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; max-height: 340px; overflow-y: auto; }
+.glossary-list::-webkit-scrollbar { width: 4px; }
+.glossary-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 2px; }
+.gl-item { display: grid; grid-template-columns: 1fr 1fr auto; align-items: center; gap: 12px; padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,.05); font-size: 12px; }
+.gl-item:last-child { border-bottom: none; }
+.gl-en { font-weight: 600; color: var(--text); }
+.gl-tr { color: var(--dim); }
+.btn-del { background: none; border: none; color: rgba(239,68,68,.5); cursor: pointer; font-size: 14px; padding: 2px 6px; border-radius: 4px; transition: color .15s; }
+.btn-del:hover { color: #f87171; }
+
+/* ACCESS DENIED */
+#access-denied { display: none; position: fixed; inset: 0; background: var(--bg); align-items: center; justify-content: center; flex-direction: column; gap: 12px; }
+#access-denied.show { display: flex; }
+#access-denied h2 { font-size: 20px; font-weight: 800; color: #f87171; }
+#access-denied p { font-size: 13px; color: var(--dim); }
+
+/* TOAST */
+.toast { position: fixed; bottom: 24px; right: 24px; background: #1e293b; border: 1px solid rgba(255,255,255,.15); border-radius: 8px; padding: 12px 18px; font-size: 13px; color: var(--text); transform: translateY(80px); opacity: 0; transition: all .3s; z-index: 999; }
+.toast.show { transform: none; opacity: 1; }
+
+/* UPLOAD */
+.upload-drop { border: 2px dashed rgba(255,255,255,.15); border-radius: 10px; padding: 32px; text-align: center; cursor: pointer; transition: all .2s; font-size: 13px; color: var(--dim); }
+.upload-drop:hover, .upload-drop.drag-over { border-color: var(--accent); background: rgba(59,130,246,.06); color: var(--text); }
+.upload-icon { width: 36px; height: 36px; margin: 0 auto 10px; opacity: .5; }
+.upload-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.upload-tab { padding: 9px 16px; font-size: 13px; font-weight: 600; color: var(--dim); cursor: pointer; border-bottom: 2px solid transparent; transition: all .15s; margin-bottom: -1px; }
+.upload-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.upload-tab-panel { display: none; }
+.upload-tab-panel.active { display: block; }
+.preview-box { background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-top: 14px; }
+.preview-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: #fff; }
+.preview-row { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px; font-size: 12px; }
+.preview-label { color: var(--dim); min-width: 140px; flex-shrink: 0; }
+.preview-val { color: var(--text); }
+.badge-ok { background: rgba(16,185,129,.15); color: #6ee7b7; border: 1px solid rgba(16,185,129,.3); font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+.badge-warn { background: rgba(245,158,11,.12); color: #fcd34d; border: 1px solid rgba(245,158,11,.3); font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+.badge-err { background: rgba(239,68,68,.1); color: #fca5a5; border: 1px solid rgba(239,68,68,.3); font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+.validation-list { margin-top: 8px; }
+.validation-item { display: flex; align-items: center; gap: 8px; font-size: 12px; padding: 4px 0; }
+.validation-item.ok { color: #6ee7b7; }
+.validation-item.err { color: #fca5a5; }
+.validation-item.warn { color: #fcd34d; }
+.btn-action { background: var(--success); color: #fff; border: none; border-radius: 7px; padding: 10px 22px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background .15s; font-family: inherit; margin-right: 8px; }
+.btn-action:hover { filter: brightness(1.1); }
+.btn-action.purple { background: var(--purple); }
+.btn-action.warn { background: var(--warning); color: #000; }
+.btn-secondary { background: rgba(255,255,255,.07); color: var(--text); border: 1px solid var(--border); border-radius: 7px; padding: 10px 22px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .15s; font-family: inherit; }
+.btn-secondary:hover { background: rgba(255,255,255,.12); }
+.scenario-list-item { background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.scenario-item-info { flex: 1; }
+.scenario-item-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 3px; }
+.scenario-item-meta { font-size: 11px; color: var(--dim); }
+.diff-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: .05em; }
+.diff-beginner { background: rgba(16,185,129,.15); color: #6ee7b7; }
+.diff-intermediate { background: rgba(59,130,246,.15); color: #93c5fd; }
+.diff-advanced { background: rgba(239,68,68,.12); color: #fca5a5; }
+</style>
+</head>
+<body>
+
+<div id="access-denied">
+  <h2>Erişim Reddedildi</h2>
+  <p>Bu sayfaya erişmek için yönetici yetkisi gereklidir.</p>
+  <a href="index.html" style="color:#93c5fd;font-size:13px">← Ana Sayfaya Dön</a>
+</div>
+
+<div id="admin-app" style="display:none">
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="logo.png" class="brand-logo" alt="YetkinLider">YetkinLider<sup>&#8482;</sup>
+  </a>
+  <span class="admin-badge">Admin</span>
+  <div class="topbar-right">
+    <span class="topbar-user" id="admin-user-label"></span>
+    <a href="index.html" style="color:var(--dim);font-size:12px;text-decoration:none">Çıkış</a>
+  </div>
+</header>
+
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-section">İçerik</div>
+    <a class="sidebar-link active" data-page="dashboard" onclick="switchPage('dashboard')">
+      <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="8"/><rect x="10" y="7" width="4" height="13"/><rect x="17" y="3" width="4" height="17"/></svg> Genel Bakış
+    </a>
+    <a class="sidebar-link" data-page="matrix" onclick="switchPage('matrix')">
+      <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Senaryo Matrisi
+    </a>
+    <div class="sidebar-section">Yönetim</div>
+    <a class="sidebar-link" data-page="scenarios" onclick="switchPage('scenarios')">
+      <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="14" y2="18"/></svg> Senaryolar
+    </a>
+    <a class="sidebar-link" data-page="upload" onclick="switchPage('upload')">
+      <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg> Senaryo Yükle
+    </a>
+    <a class="sidebar-link" data-page="glossary" onclick="switchPage('glossary')">
+      <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Sözlük Ekle
+    </a>
+    <a class="sidebar-link" data-page="add-scenario" onclick="switchPage('add-scenario')">
+      <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg> Senaryo Planla
+    </a>
+    <div class="sidebar-section">Sistem</div>
+    <a class="sidebar-link" href="game.html">
+      <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg> Simülasyona Git
+    </a>
+  </nav>
+
+  <!-- Content -->
+  <main class="admin-content">
+
+    <!-- DASHBOARD -->
+    <div id="page-dashboard" class="page active">
+      <div class="page-header">
+        <h1>Genel Bakış</h1>
+        <p>YetkinLider içerik durumu ve özet istatistikler</p>
+      </div>
+      <div class="stat-row">
+        <div class="stat-card accent">
+          <div class="stat-value" id="stat-scenarios">2</div>
+          <div class="stat-label">Mevcut Senaryo</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-decisions">220</div>
+          <div class="stat-label">Toplam Karar</div>
+        </div>
+        <div class="stat-card success">
+          <div class="stat-value" id="stat-glossary">262</div>
+          <div class="stat-label">Sözlük Terimi</div>
+        </div>
+        <div class="stat-card warning">
+          <div class="stat-value" id="stat-missing">0</div>
+          <div class="stat-label">Eksik Senaryo</div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h2>Özet</h2>
+        <p>Senaryo matrisinde kaç yetkinlik için içerik var, kaçı eksik.</p>
+        <div id="dashboard-summary" style="margin-top:14px;font-size:13px;line-height:1.8;color:var(--dim)">
+          Yükleniyor...
+        </div>
+      </div>
+    </div>
+
+    <!-- MATRIX -->
+    <div id="page-matrix" class="page">
+      <div class="page-header">
+        <h1>Senaryo Matrisi</h1>
+        <p>Her yetkinlik × seviye kombinasyonu için mevcut senaryo sayısı. 0 = içerik yok, eklenmesi gerekiyor.</p>
+      </div>
+      <div class="matrix-wrap">
+        <table class="matrix-table" id="matrix-table">
+          <thead>
+            <tr>
+              <th class="row-head">Yetkinlik</th>
+              <th>Aday<br><small style="font-size:9px;opacity:.6;font-weight:400">Temel</small></th>
+              <th>Yetkin<br><small style="font-size:9px;opacity:.6;font-weight:400">Orta</small></th>
+              <th>Lider<br><small style="font-size:9px;opacity:.6;font-weight:400">İleri</small></th>
+              <th style="width:80px">Toplam</th>
+            </tr>
+          </thead>
+          <tbody id="matrix-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- GLOSSARY -->
+    <div id="page-glossary" class="page">
+      <div class="page-header">
+        <h1>Sözlük Ekle</h1>
+        <p>Yeni PM terimi ekleyin. Eklenen terimler simülasyon içinde kalın olarak vurgulanır.</p>
+      </div>
+      <div class="form-card">
+        <h2>Yeni Terim</h2>
+        <p>Terim hem İngilizce hem Türkçe olarak eklenmelidir.</p>
+        <div class="field-row">
+          <div class="field">
+            <label>İngilizce Terim</label>
+            <input id="gl-en" type="text" placeholder="agile">
+          </div>
+          <div class="field">
+            <label>Türkçe Karşılık</label>
+            <input id="gl-tr" type="text" placeholder="çevik">
+          </div>
+        </div>
+        <div class="field">
+          <label>Tanım (Türkçe)</label>
+          <textarea id="gl-def" placeholder="Kısa ve net bir tanım..."></textarea>
+        </div>
+        <div class="field">
+          <label>Kategori</label>
+          <select id="gl-cat">
+            <option value="Genel">Genel</option>
+            <option value="Planlama">Planlama</option>
+            <option value="Çevik">Çevik</option>
+            <option value="Risk">Risk</option>
+            <option value="İnsan Yönetimi">İnsan Yönetimi</option>
+            <option value="Ölçüm">Ölçüm</option>
+            <option value="Teslimat">Teslimat</option>
+          </select>
+        </div>
+        <button class="btn-submit" onclick="addGlossaryTerm()">Terimi Ekle</button>
+        <div class="form-msg" id="gl-msg"></div>
+      </div>
+
+      <div class="form-card" style="margin-top:20px">
+        <h2>Eklenmiş Terimler (Bu Oturum)</h2>
+        <p>localStorage'a kaydedilen geçici terimler. Kalıcı ekleme için glossary.json dosyasını güncelleyin.</p>
+        <div class="glossary-list" id="gl-list"></div>
+      </div>
+    </div>
+
+    <!-- SCENARIOS LIST -->
+    <div id="page-scenarios" class="page">
+      <div class="page-header">
+        <h1>Senaryolar</h1>
+        <p>Sistemde kayıtlı tüm senaryolar. manifest.json'dan okunur.</p>
+      </div>
+      <div id="scenario-list-container">
+        <p style="font-size:13px;color:var(--dim)">Yükleniyor...</p>
+      </div>
+    </div>
+
+    <!-- UPLOAD -->
+    <div id="page-upload" class="page">
+      <div class="page-header">
+        <h1>Senaryo Yükle</h1>
+        <p>Excel şablonundan senaryo oluşturun veya hazır JSON dosyası yükleyin.</p>
+      </div>
+
+      <!-- Step 1: Template -->
+      <div class="form-card" style="margin-bottom:20px">
+        <h2>1. Boş Şablon İndir</h2>
+        <p>Excel şablonunu indirin, Google Sheets'e aktarın, doldurun — ardından aşağıdan yükleyin.</p>
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn-submit" onclick="downloadExcelTemplate()">Excel Şablonu İndir (.xlsx)</button>
+          <button class="btn-secondary" onclick="downloadJsonTemplate()">JSON Şablonu İndir</button>
+        </div>
+        <div style="margin-top:12px;padding:10px 14px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:7px;font-size:12px;color:#93c5fd;line-height:1.7">
+          <strong>Nasıl kullanılır:</strong><br>
+          1. Excel şablonunu indirin<br>
+          2. Google Sheets'e aktarın (Dosya → İçe Aktar)<br>
+          3. "Senaryo" ve "Kararlar" sayfalarını doldurun<br>
+          4. Dosya → İndir → .xlsx olarak dışa aktarın<br>
+          5. Aşağıdan yükleyin → JSON oluşturulur → kaydedin
+        </div>
+      </div>
+
+      <!-- Step 2: Upload tabs -->
+      <div class="form-card">
+        <h2>2. Senaryo Yükle</h2>
+        <p style="margin-bottom:16px">Doldurulmuş Excel veya hazır JSON dosyasını yükleyin.</p>
+
+        <div class="upload-tabs">
+          <div class="upload-tab active" onclick="switchUploadTab('excel')">Excel / Google Sheets</div>
+          <div class="upload-tab" onclick="switchUploadTab('json')">JSON Dosyası</div>
+        </div>
+
+        <!-- Excel tab -->
+        <div class="upload-tab-panel active" id="upload-tab-excel">
+          <div class="upload-drop" id="excel-drop"
+               onclick="document.getElementById('excel-input').click()"
+               ondragover="event.preventDefault();this.classList.add('drag-over')"
+               ondragleave="this.classList.remove('drag-over')"
+               ondrop="handleExcelDrop(event)">
+            <input type="file" id="excel-input" accept=".xlsx,.xls,.csv" style="display:none" onchange="handleExcelFile(this.files[0])">
+            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/><line x1="15" y1="9" x2="15" y2="21"/></svg>
+            <div style="font-weight:600;margin-bottom:4px">Excel dosyasını seçin veya sürükleyin</div>
+            <div style="font-size:11px">.xlsx · .xls · .csv</div>
+          </div>
+          <div id="excel-result" style="display:none"></div>
+        </div>
+
+        <!-- JSON tab -->
+        <div class="upload-tab-panel" id="upload-tab-json">
+          <div class="upload-drop" id="json-drop"
+               onclick="document.getElementById('json-input').click()"
+               ondragover="event.preventDefault();this.classList.add('drag-over')"
+               ondragleave="this.classList.remove('drag-over')"
+               ondrop="handleJsonDrop(event)">
+            <input type="file" id="json-input" accept=".json" style="display:none" onchange="handleJsonFile(this.files[0])">
+            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/></svg>
+            <div style="font-weight:600;margin-bottom:4px">JSON dosyasını seçin veya sürükleyin</div>
+            <div style="font-size:11px">.json</div>
+          </div>
+          <div id="json-result" style="display:none"></div>
+        </div>
+      </div>
+
+      <!-- Step 3: File system access (optional) -->
+      <div class="form-card" style="margin-top:20px">
+        <h2>3. Klasör Bağlantısı (İsteğe Bağlı)</h2>
+        <p>Tarayıcı üzerinden doğrudan <code>data/scenarios/</code> klasörüne yazın. Chrome/Edge'de çalışır.</p>
+        <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <button class="btn-action purple" onclick="openScenariosFolder()">Klasörü Seç</button>
+          <span id="folder-status" style="font-size:12px;color:var(--dim)">Klasör seçilmedi</span>
+        </div>
+        <div id="folder-hint" style="display:none;margin-top:10px;padding:10px 14px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:7px;font-size:12px;color:#6ee7b7">
+          Klasör bağlandı. Artık yüklenen senaryolar otomatik olarak klasöre kaydedilir.
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD SCENARIO -->
+    <div id="page-add-scenario" class="page">
+      <div class="page-header">
+        <h1>Senaryo Planla</h1>
+        <p>Planlanan senaryoları kaydedin. Senaryo JSON hazırlandığında geliştiriciye iletin.</p>
+      </div>
+      <div class="form-card">
+        <h2>Yeni Senaryo Kaydı</h2>
+        <p>Hangi yetkinlik ve seviye için senaryo üretilecek?</p>
+        <div class="field-row">
+          <div class="field">
+            <label>Yetkinlik Alanı</label>
+            <select id="sc-domain">
+              <option value="people">İnsan</option>
+              <option value="process">Süreç</option>
+              <option value="business">İş Çevresi</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Yetkinlik</label>
+            <select id="sc-comp"></select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Seviye</label>
+            <select id="sc-diff">
+              <option value="beginner">Aday</option>
+              <option value="intermediate">Yetkin</option>
+              <option value="advanced">Lider</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Tahmini Karar Sayısı</label>
+            <input id="sc-count" type="number" value="20" min="5" max="100">
+          </div>
+        </div>
+        <div class="field">
+          <label>Senaryo Başlığı</label>
+          <input id="sc-title" type="text" placeholder="örn: Kriz Anında Liderlik">
+        </div>
+        <div class="field">
+          <label>Notlar</label>
+          <textarea id="sc-notes" placeholder="Senaryo bağlamı, özel gereksinimler..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="saveScenarioPlan()">Planı Kaydet</button>
+        <div class="form-msg" id="sc-msg"></div>
+      </div>
+
+      <div class="form-card" style="margin-top:20px">
+        <h2>Planlanan Senaryolar</h2>
+        <p>Kaydedilmiş plan kayıtları. Bu liste yönetici için bir ödev listesi işlevi görür.</p>
+        <div id="sc-plan-list" style="margin-top:12px"></div>
+      </div>
+    </div>
+
+  </main>
+</div><!-- admin-layout -->
+</div><!-- admin-app -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── AUTH ─────────────────────────────────────────────────────────────────────
+const SESSION_KEY = 'pmSim_session';
+const USERS_KEY   = 'pmSim_users';
+function getSession() { try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch { return null; } }
+function getUsers()   { try { return JSON.parse(localStorage.getItem(USERS_KEY)   || '[]');   } catch { return []; } }
+
+function isAdmin(session) {
+  if (!session) return false;
+  // Admin: devMode flag OR username === 'admin'
+  return session.devMode === true || session.username === 'admin';
+}
+
+// ── CONSTANTS ────────────────────────────────────────────────────────────────
+const COMP_DOMAINS = {
+  people: {
+    title: 'İnsan', icon: '',
+    comps: [
+      { id:'catisma',        title:'Çatışma Yönetimi',  decisions:10 },
+      { id:'liderlik',       title:'Liderlik',           decisions:5  },
+      { id:'takim_gelisimi', title:'Takım Gelişimi',     decisions:10 },
+      { id:'eq',             title:'Duygusal Zeka',      decisions:6  },
+    ]
+  },
+  process: {
+    title: 'Süreç', icon: '',
+    comps: [
+      { id:'entegrasyon', title:'Entegrasyon Yönetimi', decisions:23 },
+      { id:'kapsam',      title:'Kapsam Yönetimi',      decisions:17 },
+      { id:'zaman',       title:'Zaman Yönetimi',       decisions:16 },
+      { id:'maliyet',     title:'Maliyet Yönetimi',     decisions:11 },
+      { id:'kalite',      title:'Kalite Yönetimi',      decisions:12 },
+      { id:'risk',        title:'Risk Yönetimi',        decisions:9  },
+      { id:'tedarik',     title:'Tedarik Yönetimi',     decisions:19 },
+      { id:'kapanis',     title:'Kapanış Süreçleri',    decisions:14 },
+    ]
+  },
+  business: {
+    title: 'İş Çevresi', icon: '',
+    comps: [
+      { id:'uyumluluk',        title:'Uyumluluk & Etik',  decisions:15 },
+      { id:'fayda_deger',      title:'Fayda & Değer',      decisions:4  },
+      { id:'kurumsal_degisim', title:'Kurumsal Değişim',   decisions:3  },
+      { id:'dis_cevre',        title:'Dış Çevre',          decisions:6  },
+    ]
+  }
+};
+
+const DIFF_LABELS = { beginner:'Aday', intermediate:'Yetkin', advanced:'Lider' };
+const PLAN_KEY = 'pmSim_admin_plans';
+const GL_EXTRA_KEY = 'pmSim_admin_glossary';
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const session = getSession();
+  if (!isAdmin(session)) {
+    document.getElementById('access-denied').classList.add('show');
+    return;
+  }
+  document.getElementById('admin-app').style.display = '';
+  document.getElementById('admin-user-label').textContent = session.displayName || session.username;
+  buildMatrix();
+  buildDashboard();
+  buildScenarioCompSelect();
+  renderPlanList();
+  renderGlossaryList();
+  buildScenariosList();
+});
+
+// ── NAVIGATION ───────────────────────────────────────────────────────────────
+function switchPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+  document.getElementById('page-' + id)?.classList.add('active');
+  document.querySelector(`[data-page="${id}"]`)?.classList.add('active');
+}
+
+// ── MATRIX ───────────────────────────────────────────────────────────────────
+function getScenarioCount(compId, diff) {
+  // ebabil.json covers all competencies at "intermediate" level (as base)
+  // Plans from localStorage count as additional
+  const plans = JSON.parse(localStorage.getItem(PLAN_KEY) || '[]');
+  const planned = plans.filter(p => p.compId === compId && p.diff === diff && p.status === 'done').length;
+  // ebabil.json provides all competencies at intermediate level
+  const hasBase = diff === 'intermediate' ? 1 : 0;
+  return hasBase + planned;
+}
+
+function buildMatrix() {
+  const tbody = document.getElementById('matrix-body');
+  if (!tbody) return;
+  let html = '';
+  let totalMissing = 0;
+
+  Object.entries(COMP_DOMAINS).forEach(([domKey, dom]) => {
+    html += `<tr class="domain-group-header">
+      <td colspan="5" class="domain-sep">${dom.icon} ${dom.title}</td>
+    </tr>`;
+    dom.comps.forEach(comp => {
+      const counts = ['beginner','intermediate','advanced'].map(d => getScenarioCount(comp.id, d));
+      const total = counts.reduce((a,b) => a+b, 0);
+      totalMissing += counts.filter(c => c === 0).length;
+      html += `<tr>
+        <td class="row-label">${comp.title}<br><span style="font-size:10px;color:rgba(255,255,255,.25)">${comp.decisions} karar (ebabil)</span></td>
+        ${counts.map((c, i) => {
+          const diff = ['beginner','intermediate','advanced'][i];
+          return `<td>
+            ${c > 0
+              ? `<span class="cell-count has">${c}</span>`
+              : `<button class="btn-add-cell" onclick="quickPlan('${comp.id}','${diff}','${comp.title}')">+ Ekle</button>`
+            }
+          </td>`;
+        }).join('')}
+        <td><span class="cell-count ${total > 0 ? 'has' : 'none'}">${total}</span></td>
+      </tr>`;
+    });
+  });
+
+  tbody.innerHTML = html;
+  // Update missing stat
+  const el = document.getElementById('stat-missing');
+  if (el) el.textContent = totalMissing;
+}
+
+// ── DASHBOARD ────────────────────────────────────────────────────────────────
+function buildDashboard() {
+  let filled = 0, total = 0;
+  Object.values(COMP_DOMAINS).forEach(dom => {
+    dom.comps.forEach(comp => {
+      ['beginner','intermediate','advanced'].forEach(d => {
+        total++;
+        if (getScenarioCount(comp.id, d) > 0) filled++;
+      });
+    });
+  });
+  const pct = Math.round((filled / total) * 100);
+  const el = document.getElementById('dashboard-summary');
+  if (el) {
+    el.innerHTML = `
+      <div style="margin-bottom:8px"><strong style="color:#fff">${filled} / ${total}</strong> kombinasyon için içerik mevcut <span style="color:var(--accent)">(${pct}%)</span></div>
+      <div style="background:rgba(255,255,255,.06);border-radius:6px;height:8px;overflow:hidden;margin-bottom:12px">
+        <div style="background:var(--accent);height:100%;width:${pct}%;border-radius:6px;transition:width .5s"></div>
+      </div>
+      <div>• <strong style="color:#fff">${total - filled}</strong> kombinasyon için senaryo planlanmalı</div>
+      <div>• Orta (Yetkin) seviye tüm yetkinlikler için ebabil.json'dan karşılanıyor</div>
+      <div>• Aday ve Lider seviyeleri için yetkinlik başına ayrı senaryo gerekli</div>`;
+  }
+}
+
+// ── GLOSSARY ─────────────────────────────────────────────────────────────────
+function addGlossaryTerm() {
+  const en  = (document.getElementById('gl-en')?.value  || '').trim();
+  const tr  = (document.getElementById('gl-tr')?.value  || '').trim();
+  const def = (document.getElementById('gl-def')?.value || '').trim();
+  const cat = document.getElementById('gl-cat')?.value  || 'Genel';
+  const msg = document.getElementById('gl-msg');
+
+  if (!en || !tr) { showMsg('gl-msg', 'İngilizce ve Türkçe terim gerekli.', 'err'); return; }
+
+  const extras = JSON.parse(localStorage.getItem(GL_EXTRA_KEY) || '[]');
+  if (extras.find(t => t.term.toLowerCase() === en.toLowerCase())) {
+    showMsg('gl-msg', 'Bu terim zaten eklenmiş.', 'err'); return;
+  }
+  extras.push({ term: en, termTR: tr, definitionTR: def, category: cat, addedAt: new Date().toISOString() });
+  localStorage.setItem(GL_EXTRA_KEY, JSON.stringify(extras));
+  document.getElementById('gl-en').value = '';
+  document.getElementById('gl-tr').value = '';
+  document.getElementById('gl-def').value = '';
+  showMsg('gl-msg', `"${en}" terimi eklendi. Kalıcı hale getirmek için glossary.json dosyasına ekleyin.`, 'ok');
+  renderGlossaryList();
+  showToast('Terim eklendi');
+}
+
+function renderGlossaryList() {
+  const list = document.getElementById('gl-list');
+  if (!list) return;
+  const extras = JSON.parse(localStorage.getItem(GL_EXTRA_KEY) || '[]');
+  if (!extras.length) { list.innerHTML = '<div style="padding:14px;font-size:12px;color:var(--dim);text-align:center">Henüz eklenen terim yok.</div>'; return; }
+  list.innerHTML = extras.map((t, i) => `
+    <div class="gl-item">
+      <span class="gl-en">${t.term}</span>
+      <span class="gl-tr">${t.termTR}</span>
+      <button class="btn-del" onclick="delGlossary(${i})">✕</button>
+    </div>`).join('');
+}
+
+function delGlossary(idx) {
+  const extras = JSON.parse(localStorage.getItem(GL_EXTRA_KEY) || '[]');
+  extras.splice(idx, 1);
+  localStorage.setItem(GL_EXTRA_KEY, JSON.stringify(extras));
+  renderGlossaryList();
+}
+
+// ── SCENARIO PLANS ───────────────────────────────────────────────────────────
+function buildScenarioCompSelect() {
+  const domSel = document.getElementById('sc-domain');
+  const compSel = document.getElementById('sc-comp');
+  if (!domSel || !compSel) return;
+  const updateComps = () => {
+    const dom = COMP_DOMAINS[domSel.value];
+    compSel.innerHTML = dom.comps.map(c => `<option value="${c.id}">${c.title}</option>`).join('');
+  };
+  domSel.addEventListener('change', updateComps);
+  updateComps();
+}
+
+function saveScenarioPlan() {
+  const domain  = document.getElementById('sc-domain')?.value;
+  const compId  = document.getElementById('sc-comp')?.value;
+  const diff    = document.getElementById('sc-diff')?.value;
+  const count   = document.getElementById('sc-count')?.value;
+  const title   = (document.getElementById('sc-title')?.value  || '').trim();
+  const notes   = (document.getElementById('sc-notes')?.value  || '').trim();
+
+  if (!title) { showMsg('sc-msg', 'Senaryo başlığı gerekli.', 'err'); return; }
+
+  const dom = COMP_DOMAINS[domain];
+  const comp = dom?.comps.find(c => c.id === compId);
+  const plans = JSON.parse(localStorage.getItem(PLAN_KEY) || '[]');
+  plans.push({
+    id: Date.now(), domain, domainTitle: dom?.title,
+    compId, compTitle: comp?.title,
+    diff, diffLabel: DIFF_LABELS[diff],
+    title, notes, count: +count,
+    status: 'planned', createdAt: new Date().toISOString()
+  });
+  localStorage.setItem(PLAN_KEY, JSON.stringify(plans));
+  document.getElementById('sc-title').value = '';
+  document.getElementById('sc-notes').value = '';
+  showMsg('sc-msg', 'Plan kaydedildi.', 'ok');
+  renderPlanList();
+  buildMatrix();
+  buildDashboard();
+  showToast('Plan kaydedildi');
+}
+
+function renderPlanList() {
+  const el = document.getElementById('sc-plan-list');
+  if (!el) return;
+  const plans = JSON.parse(localStorage.getItem(PLAN_KEY) || '[]');
+  if (!plans.length) { el.innerHTML = '<p style="font-size:12px;color:var(--dim)">Henüz kayıtlı plan yok.</p>'; return; }
+  el.innerHTML = plans.map((p, i) => `
+    <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:8px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:3px">${p.title}</div>
+        <div style="font-size:11px;color:var(--dim)">${p.domainTitle} › ${p.compTitle} › ${p.diffLabel} · ${p.count} karar</div>
+        ${p.notes ? `<div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:4px">${p.notes}</div>` : ''}
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;flex-shrink:0">
+        <button onclick="markPlanDone(${i})" style="background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);color:#6ee7b7;font-size:11px;font-weight:600;padding:4px 10px;border-radius:5px;cursor:pointer" ${p.status==='done'?'disabled':''}>
+          ${p.status==='done' ? '✓ Hazır' : 'Tamamlandı'}
+        </button>
+        <button class="btn-del" onclick="delPlan(${i})">✕</button>
+      </div>
+    </div>`).join('');
+}
+
+function markPlanDone(idx) {
+  const plans = JSON.parse(localStorage.getItem(PLAN_KEY) || '[]');
+  if (plans[idx]) { plans[idx].status = 'done'; localStorage.setItem(PLAN_KEY, JSON.stringify(plans)); }
+  renderPlanList(); buildMatrix(); buildDashboard();
+}
+
+function delPlan(idx) {
+  const plans = JSON.parse(localStorage.getItem(PLAN_KEY) || '[]');
+  plans.splice(idx, 1);
+  localStorage.setItem(PLAN_KEY, JSON.stringify(plans));
+  renderPlanList(); buildMatrix(); buildDashboard();
+}
+
+function quickPlan(compId, diff, compTitle) {
+  switchPage('add-scenario');
+  // Pre-fill comp + diff
+  setTimeout(() => {
+    const domKey = Object.keys(COMP_DOMAINS).find(k => COMP_DOMAINS[k].comps.find(c => c.id === compId));
+    if (domKey) {
+      document.getElementById('sc-domain').value = domKey;
+      document.getElementById('sc-domain').dispatchEvent(new Event('change'));
+      setTimeout(() => {
+        document.getElementById('sc-comp').value = compId;
+        document.getElementById('sc-diff').value = diff;
+        document.getElementById('sc-title').focus();
+      }, 50);
+    }
+  }, 50);
+}
+
+// ── SCENARIOS LIST ────────────────────────────────────────────────────────────
+const MANIFEST_URL = 'data/scenarios/manifest.json';
+
+async function buildScenariosList() {
+  const el = document.getElementById('scenario-list-container');
+  if (!el) return;
+  try {
+    const res = await fetch(MANIFEST_URL + '?t=' + Date.now());
+    const data = await res.json();
+    const scenarios = data.scenarios || [];
+
+    // Update dashboard stat
+    const statEl = document.getElementById('stat-scenarios');
+    if (statEl) statEl.textContent = scenarios.length;
+
+    if (!scenarios.length) {
+      el.innerHTML = '<p style="font-size:13px;color:var(--dim)">Henüz kayıtlı senaryo yok.</p>';
+      return;
+    }
+
+    const diffMap = { beginner: 'Aday', intermediate: 'Yetkin', advanced: 'Lider' };
+    const diffClass = { beginner: 'beginner', intermediate: 'intermediate', advanced: 'advanced' };
+
+    el.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div style="font-size:13px;color:var(--dim)">${scenarios.length} senaryo kayıtlı</div>
+        <button class="btn-action" onclick="switchPage('upload')" style="font-size:12px;padding:7px 16px">+ Yeni Senaryo Yükle</button>
+      </div>
+      ${scenarios.map(s => `
+        <div class="scenario-list-item">
+          <div class="scenario-item-info">
+            <div class="scenario-item-title">${s.title}</div>
+            <div class="scenario-item-meta">
+              <span class="diff-badge diff-${diffClass[s.difficulty] || 'intermediate'}">${diffMap[s.difficulty] || s.difficulty}</span>
+              &nbsp;·&nbsp;${s.sector || ''}
+              &nbsp;·&nbsp;${s.decisions || '?'} karar
+              &nbsp;·&nbsp;<code style="font-size:10px;opacity:.6">${s.id}</code>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px">
+            <button class="btn-secondary" style="font-size:11px;padding:6px 12px" onclick="previewScenario('${s.id}')">Önizle</button>
+          </div>
+        </div>`).join('')}`;
+  } catch (e) {
+    el.innerHTML = '<p style="font-size:13px;color:var(--dim)">manifest.json yüklenemedi.</p>';
+  }
+}
+
+async function previewScenario(id) {
+  try {
+    const res = await fetch(`data/scenarios/${id}.json?t=` + Date.now());
+    const data = await res.json();
+    const weeks = data.weeks?.length || 0;
+    const decisions = data.weeks?.reduce((a, w) => a + (w.decisions?.length || 0), 0) || 0;
+    const opts = data.weeks?.reduce((a, w) => a + w.decisions?.reduce((b, d) => b + (d.options?.length || 0), 0), 0) || 0;
+    alert(`${data.title}\n\nHafta: ${weeks}\nKarar: ${decisions}\nSeçenek: ${opts}\nZorluk: ${data.difficulty}\nBütçe: ${(data.budget||0).toLocaleString('tr-TR')} ₺`);
+  } catch { alert('Senaryo dosyası yüklenemedi.'); }
+}
+
+// ── UPLOAD TAB ─────────────────────────────────────────────────────────────────
+function switchUploadTab(tab) {
+  document.querySelectorAll('.upload-tab').forEach((t, i) => {
+    t.classList.toggle('active', (i === 0 && tab === 'excel') || (i === 1 && tab === 'json'));
+  });
+  document.getElementById('upload-tab-excel').classList.toggle('active', tab === 'excel');
+  document.getElementById('upload-tab-json').classList.toggle('active', tab === 'json');
+}
+
+// ── TEMPLATE ──────────────────────────────────────────────────────────────────
+function downloadExcelTemplate() {
+  if (typeof XLSX === 'undefined') { alert('SheetJS yüklenmedi. Lütfen sayfayı yenileyin.'); return; }
+
+  const wb = XLSX.utils.book_new();
+
+  // Sheet 1: Senaryo (key-value)
+  const scenSheet = [
+    ['Alan', 'Değer', 'Açıklama'],
+    ['id', 'benim-senaryom', 'URL-uyumlu, tire ile, benzersiz'],
+    ['title', 'Senaryo Başlığı', 'Oyuncuya gösterilen isim'],
+    ['description', 'Senaryo açıklaması...', 'Kısa bağlam metni'],
+    ['domain', 'Software Development', 'Sektör / Alan'],
+    ['difficulty', 'beginner', 'beginner | intermediate | advanced'],
+    ['totalWeeks', '8', 'Toplam hafta sayısı (integer)'],
+    ['budget', '200000', 'Başlangıç bütçesi (sayı)'],
+    ['startDate', '2026-01-01', 'YYYY-MM-DD formatı'],
+    ['objective', 'Proje hedefi...', 'Oyuncunun amacı'],
+    ['roleDescription', 'PM rolü...', 'Oyuncunun kimliği'],
+    ['initialState_stakeholderSatisfaction', '75', '0-100 arası'],
+    ['initialState_teamMorale', '80', '0-100 arası'],
+    ['initialState_scopeCreep', '0', 'Başlangıç kapsam kayması'],
+    ['initialState_qualityDebt', '0', 'Başlangıç kalite borcu'],
+  ];
+  const ws1 = XLSX.utils.aoa_to_sheet(scenSheet);
+  ws1['!cols'] = [{wch:40},{wch:40},{wch:50}];
+  XLSX.utils.book_append_sheet(wb, ws1, 'Senaryo');
+
+  // Sheet 2: Kararlar (tabular)
+  const headers = [
+    'hafta','plannedValue','hafta_anlatimi',
+    'karar_id','karar_metni',
+    'secenek_id','secenek_metni',
+    'ev','ac','stakeholderSatisfaction','teamMorale','scopeCreep','qualityDebt',
+    'pmpKavrami','geribildirim'
+  ];
+  const rows = [
+    headers,
+    [1,25000,'Hafta 1 başladı. Proje kick-off toplantısı yapıldı...',
+     'd-w1-01','CEO gereksinimleri değiştirdi. Ne yaparsınız?',
+     'opt-w1-a','Değişiklikleri hemen kabul edin.',
+     12000,10000,10,-5,5,0,'Kapsam Yönetimi','Kısa vadede iyi, uzun vadede riskli.'],
+    [1,'','',
+     'd-w1-01','',
+     'opt-w1-b','Değişiklikleri belgeleyin ve müzakere edin.',
+     15000,11000,5,5,1,0,'Değişim Kontrolü','Profesyonel yaklaşım.'],
+    [1,'','',
+     'd-w1-01','',
+     'opt-w1-c','Değişiklikleri haftaya değerlendirin.',
+     14000,10500,-5,8,0,0,'Entegre Değişim Kontrolü','Hız kaybı ama kapsam korunur.'],
+    [2,25000,'Hafta 2. Üçüncü taraf API entegrasyonunda sorun çıktı...',
+     'd-w2-01','API riski nasıl yönetilir?',
+     'opt-w2-a','İki geliştirici atayın, sorunu hemen çözün.',
+     18000,22000,0,-5,0,5,'Risk Yanıtı: Azalt','Hızlı çözüm ama maliyetli.'],
+    [2,'','',
+     'd-w2-01','',
+     'opt-w2-b','Alternatif API arayın.',
+     20000,18000,0,5,0,0,'Risk Yanıtı: Kaçın','En verimli çözüm.'],
+  ];
+  const ws2 = XLSX.utils.aoa_to_sheet(rows);
+  ws2['!cols'] = headers.map((h,i) => ({wch: i < 3 ? 30 : i < 6 ? 15 : i < 13 ? 10 : 35}));
+  XLSX.utils.book_append_sheet(wb, ws2, 'Kararlar');
+
+  // Sheet 3: Talimatlar
+  const instrSheet = [
+    ['YetkinLider Senaryo Şablonu — Kullanım Talimatları'],
+    [''],
+    ['Senaryo Sayfası:'],
+    ['  • Her satır bir Alan=Değer çiftidir'],
+    ['  • id: küçük harf, tire ile ayırın (örn: startup-projesi)'],
+    ['  • difficulty: beginner | intermediate | advanced'],
+    [''],
+    ['Kararlar Sayfası:'],
+    ['  • Her satır bir SEÇENEK temsil eder'],
+    ['  • hafta ve plannedValue: aynı hafta için sadece ilk satıra yazın'],
+    ['  • hafta_anlatimi: haftanın bağlam metni, ilk satıra yazın'],
+    ['  • karar_id: aynı kararın seçenekleri aynı karar_id paylaşır'],
+    ['  • Bir hafta birden fazla karar içerebilir (farklı karar_id kullanın)'],
+    ['  • ev, ac: o haftadaki kazanılan/harcanan değer (sayı)'],
+    ['  • stakeholderSatisfaction, teamMorale: delta değer (+/-)'],
+    [''],
+    ['Yükleme:'],
+    ['  • Google Sheets → Dosya → İndir → .xlsx'],
+    ['  • Admin panel → Senaryo Yükle → Excel sekmesi'],
+  ];
+  const ws3 = XLSX.utils.aoa_to_sheet(instrSheet);
+  ws3['!cols'] = [{wch:80}];
+  XLSX.utils.book_append_sheet(wb, ws3, 'Talimatlar');
+
+  XLSX.writeFile(wb, 'yetkinlider-senaryo-sablonu.xlsx');
+  showToast('Excel şablonu indirildi');
+}
+
+function downloadJsonTemplate() {
+  const template = {
+    id: 'benim-senaryom',
+    title: 'Senaryo Başlığı',
+    description: 'Kısa açıklama...',
+    domain: 'Software Development',
+    difficulty: 'beginner',
+    totalWeeks: 4,
+    budget: 200000,
+    startDate: '2026-01-01',
+    objective: 'Proje hedefi...',
+    roleDescription: 'PM rolü...',
+    initialState: {
+      ev: 0, pv: 0, ac: 0,
+      stakeholderSatisfaction: 75,
+      teamMorale: 80,
+      scopeCreep: 0,
+      qualityDebt: 0,
+      activeRisks: []
+    },
+    weeks: [
+      {
+        week: 1,
+        plannedValue: 50000,
+        narrative: 'Hafta 1 bağlamı...',
+        decisions: [
+          {
+            id: 'd-w1-01',
+            text: 'Karar sorusu?',
+            options: [
+              { id: 'opt-w1-a', text: 'Seçenek A', effects: { ev: 12000, ac: 10000, stakeholderSatisfaction: 5, teamMorale: -2 }, feedback: 'Geribildirim...', pmpConcept: 'PMP Kavramı' },
+              { id: 'opt-w1-b', text: 'Seçenek B', effects: { ev: 15000, ac: 11000, stakeholderSatisfaction: -3, teamMorale: 5 }, feedback: 'Geribildirim...', pmpConcept: 'PMP Kavramı B' }
+            ]
+          }
+        ],
+        events: []
+      }
+    ]
+  };
+  const blob = new Blob([JSON.stringify(template, null, 2)], {type:'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = 'senaryo-sablonu.json'; a.click();
+  showToast('JSON şablonu indirildi');
+}
+
+// ── EXCEL UPLOAD ──────────────────────────────────────────────────────────────
+function handleExcelDrop(e) {
+  e.preventDefault();
+  document.getElementById('excel-drop').classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) handleExcelFile(file);
+}
+
+function handleExcelFile(file) {
+  if (!file) return;
+  if (typeof XLSX === 'undefined') { alert('SheetJS yüklenmedi.'); return; }
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const wb = XLSX.read(e.target.result, {type:'binary'});
+      const scenario = parseExcelToScenario(wb);
+      showExcelResult(scenario);
+    } catch(err) {
+      document.getElementById('excel-result').style.display = 'block';
+      document.getElementById('excel-result').innerHTML = `<div class="preview-box"><p style="color:#fca5a5;font-size:13px">Dosya okunamadı: ${err.message}</p></div>`;
+    }
+  };
+  reader.readAsBinaryString(file);
+}
+
+function parseExcelToScenario(wb) {
+  // Parse "Senaryo" sheet
+  const scenSheetName = wb.SheetNames.find(n => n.toLowerCase().includes('senar')) || wb.SheetNames[0];
+  const scenSheet = wb.Sheets[scenSheetName];
+  const scenRows = XLSX.utils.sheet_to_json(scenSheet, {header:1, defval:''});
+
+  const meta = {};
+  scenRows.forEach(row => {
+    if (row[0] && row[1] !== undefined && row[1] !== '') meta[String(row[0]).trim()] = row[1];
+  });
+
+  const scenario = {
+    id: String(meta.id || 'senaryo-' + Date.now()),
+    title: String(meta.title || 'İsimsiz Senaryo'),
+    description: String(meta.description || ''),
+    domain: String(meta.domain || 'Genel'),
+    difficulty: String(meta.difficulty || 'beginner'),
+    totalWeeks: parseInt(meta.totalWeeks) || 4,
+    budget: parseFloat(meta.budget) || 100000,
+    startDate: String(meta.startDate || new Date().toISOString().split('T')[0]),
+    objective: String(meta.objective || ''),
+    roleDescription: String(meta.roleDescription || ''),
+    initialState: {
+      ev: 0, pv: 0, ac: 0,
+      stakeholderSatisfaction: parseInt(meta.initialState_stakeholderSatisfaction) || 75,
+      teamMorale: parseInt(meta.initialState_teamMorale) || 80,
+      scopeCreep: parseInt(meta.initialState_scopeCreep) || 0,
+      qualityDebt: parseInt(meta.initialState_qualityDebt) || 0,
+      activeRisks: []
+    },
+    weeks: []
+  };
+
+  // Parse "Kararlar" sheet
+  const kararSheetName = wb.SheetNames.find(n => /karar|decision|week|hafta/i.test(n)) || wb.SheetNames[1];
+  if (!kararSheetName || !wb.Sheets[kararSheetName]) return scenario;
+
+  const kararSheet = wb.Sheets[kararSheetName];
+  const kararRows = XLSX.utils.sheet_to_json(kararSheet, {header:1, defval:''});
+  if (kararRows.length < 2) return scenario;
+
+  // Header row
+  const hdrs = kararRows[0].map(h => String(h).trim().toLowerCase());
+  const col = name => hdrs.indexOf(name);
+
+  const colHafta  = col('hafta');
+  const colPV     = col('plannedvalue');
+  const colNarr   = col('hafta_anlatimi');
+  const colDId    = col('karar_id');
+  const colDText  = col('karar_metni');
+  const colOId    = col('secenek_id');
+  const colOText  = col('secenek_metni');
+  const colEV     = col('ev');
+  const colAC     = col('ac');
+  const colSS     = col('stakeholderSatisfaction'.toLowerCase());
+  const colTM     = col('teammorale');
+  const colSC     = col('scopecreep');
+  const colQD     = col('qualitydebt');
+  const colPMP    = col('pmpkavrami');
+  const colFB     = col('geribildirim');
+
+  const weeksMap = {};
+  let lastWeek = null, lastPV = null, lastNarr = null;
+
+  for (let i = 1; i < kararRows.length; i++) {
+    const r = kararRows[i];
+    const wNum = r[colHafta] !== '' ? parseInt(r[colHafta]) : lastWeek;
+    if (!wNum || isNaN(wNum)) continue;
+
+    if (r[colHafta] !== '') {
+      lastWeek = wNum;
+      lastPV = parseFloat(r[colPV]) || 0;
+      lastNarr = String(r[colNarr] || '');
+    }
+
+    if (!weeksMap[wNum]) weeksMap[wNum] = { week: wNum, plannedValue: lastPV, narrative: lastNarr, decisions: {}, events: [] };
+    const wk = weeksMap[wNum];
+    if (r[colPV] !== '') wk.plannedValue = parseFloat(r[colPV]) || wk.plannedValue;
+    if (r[colNarr] !== '') wk.narrative = String(r[colNarr]);
+
+    const dId = String(r[colDId] || '').trim();
+    if (!dId) continue;
+    if (!wk.decisions[dId]) wk.decisions[dId] = { id: dId, text: String(r[colDText] || ''), options: [] };
+    const dec = wk.decisions[dId];
+    if (r[colDText] !== '') dec.text = String(r[colDText]);
+
+    const oId = String(r[colOId] || '').trim();
+    if (!oId) continue;
+
+    const effects = {};
+    const addNum = (k, v) => { const n = parseFloat(v); if (!isNaN(n) && n !== 0) effects[k] = n; };
+    addNum('ev', r[colEV]); addNum('ac', r[colAC]);
+    addNum('stakeholderSatisfaction', r[colSS]); addNum('teamMorale', r[colTM]);
+    addNum('scopeCreep', r[colSC]); addNum('qualityDebt', r[colQD]);
+
+    dec.options.push({
+      id: oId,
+      text: String(r[colOText] || ''),
+      effects,
+      feedback: String(r[colFB] || ''),
+      pmpConcept: String(r[colPMP] || '')
+    });
+  }
+
+  scenario.weeks = Object.values(weeksMap)
+    .sort((a,b) => a.week - b.week)
+    .map(w => ({ ...w, decisions: Object.values(w.decisions) }));
+
+  return scenario;
+}
+
+function showExcelResult(scenario) {
+  const el = document.getElementById('excel-result');
+  el.style.display = 'block';
+  const validation = validateScenario(scenario);
+  const totalDecisions = scenario.weeks.reduce((a,w) => a + (w.decisions?.length||0), 0);
+  const totalOptions = scenario.weeks.reduce((a,w) => a + w.decisions.reduce((b,d) => b + (d.options?.length||0), 0), 0);
+
+  el.innerHTML = `
+    <div class="preview-box">
+      <h3>Önizleme: ${scenario.title}</h3>
+      <div class="preview-row"><span class="preview-label">ID</span><span class="preview-val"><code>${scenario.id}</code></span></div>
+      <div class="preview-row"><span class="preview-label">Zorluk</span><span class="preview-val">${scenario.difficulty}</span></div>
+      <div class="preview-row"><span class="preview-label">Toplam Hafta</span><span class="preview-val">${scenario.weeks.length} / ${scenario.totalWeeks}</span></div>
+      <div class="preview-row"><span class="preview-label">Toplam Karar</span><span class="preview-val">${totalDecisions}</span></div>
+      <div class="preview-row"><span class="preview-label">Toplam Seçenek</span><span class="preview-val">${totalOptions}</span></div>
+      <div class="preview-row"><span class="preview-label">Bütçe</span><span class="preview-val">${(scenario.budget||0).toLocaleString('tr-TR')}</span></div>
+    </div>
+    <div class="preview-box" style="margin-top:10px">
+      <h3>Doğrulama</h3>
+      <div class="validation-list">
+        ${validation.map(v => `<div class="validation-item ${v.ok?'ok':'err'}">${v.ok?'✓':'✗'} ${v.msg}</div>`).join('')}
+      </div>
+    </div>
+    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn-action" onclick="downloadGeneratedJson(${JSON.stringify(JSON.stringify(scenario)).replace(/</g,'\\u003c')})">JSON İndir</button>
+      <button class="btn-action purple" onclick="saveToFsApi(${JSON.stringify(JSON.stringify(scenario)).replace(/</g,'\\u003c')})">Klasöre Kaydet</button>
+      <button class="btn-secondary" onclick="copyToClipboard(${JSON.stringify(JSON.stringify(scenario)).replace(/</g,'\\u003c')})">Panoya Kopyala</button>
+    </div>`;
+
+  window._lastGeneratedScenario = scenario;
+}
+
+// ── JSON UPLOAD ───────────────────────────────────────────────────────────────
+function handleJsonDrop(e) {
+  e.preventDefault();
+  document.getElementById('json-drop').classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) handleJsonFile(file);
+}
+
+function handleJsonFile(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const scenario = JSON.parse(e.target.result);
+      showJsonResult(scenario);
+    } catch(err) {
+      document.getElementById('json-result').style.display = 'block';
+      document.getElementById('json-result').innerHTML = `<div class="preview-box"><p style="color:#fca5a5;font-size:13px">Geçersiz JSON: ${err.message}</p></div>`;
+    }
+  };
+  reader.readAsText(file, 'UTF-8');
+}
+
+function showJsonResult(scenario) {
+  const el = document.getElementById('json-result');
+  el.style.display = 'block';
+  const validation = validateScenario(scenario);
+  const totalDecisions = (scenario.weeks||[]).reduce((a,w) => a + (w.decisions?.length||0), 0);
+  const totalOptions = (scenario.weeks||[]).reduce((a,w) => a + (w.decisions||[]).reduce((b,d) => b + (d.options?.length||0), 0), 0);
+  const allOk = validation.every(v => v.ok);
+
+  el.innerHTML = `
+    <div class="preview-box">
+      <h3>Önizleme: ${scenario.title || '(başlık yok)'}</h3>
+      <div class="preview-row"><span class="preview-label">ID</span><span class="preview-val"><code>${scenario.id || '?'}</code></span></div>
+      <div class="preview-row"><span class="preview-label">Zorluk</span><span class="preview-val">${scenario.difficulty || '?'}</span></div>
+      <div class="preview-row"><span class="preview-label">Hafta</span><span class="preview-val">${(scenario.weeks||[]).length}</span></div>
+      <div class="preview-row"><span class="preview-label">Karar</span><span class="preview-val">${totalDecisions}</span></div>
+      <div class="preview-row"><span class="preview-label">Seçenek</span><span class="preview-val">${totalOptions}</span></div>
+    </div>
+    <div class="preview-box" style="margin-top:10px">
+      <h3>Doğrulama</h3>
+      <div class="validation-list">
+        ${validation.map(v => `<div class="validation-item ${v.ok?'ok':'err'}">${v.ok?'✓':'✗'} ${v.msg}</div>`).join('')}
+      </div>
+    </div>
+    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+      ${allOk ? `<button class="btn-action purple" onclick="saveToFsApi('${encodeURIComponent(JSON.stringify(scenario))}', true)">Klasöre Kaydet</button>` : ''}
+      <button class="btn-secondary" onclick="copyToClipboard('${encodeURIComponent(JSON.stringify(scenario))}', true)">Panoya Kopyala</button>
+    </div>`;
+
+  window._lastGeneratedScenario = scenario;
+}
+
+// ── VALIDATE ──────────────────────────────────────────────────────────────────
+function validateScenario(s) {
+  const checks = [];
+  checks.push({ ok: !!s.id && /^[a-z0-9-]+$/.test(s.id), msg: `id geçerli (küçük harf, tire): "${s.id||'YOK'}"` });
+  checks.push({ ok: !!s.title, msg: 'title mevcut' });
+  checks.push({ ok: ['beginner','intermediate','advanced'].includes((s.difficulty||'').toLowerCase()), msg: `difficulty geçerli: "${s.difficulty||'YOK'}"` });
+  checks.push({ ok: Array.isArray(s.weeks) && s.weeks.length > 0, msg: `weeks dizisi: ${(s.weeks||[]).length} hafta` });
+  const hasDecisions = (s.weeks||[]).every(w => Array.isArray(w.decisions) && w.decisions.length > 0);
+  checks.push({ ok: hasDecisions, msg: 'Her hafta en az 1 karar içeriyor' });
+  const hasOptions = (s.weeks||[]).every(w => (w.decisions||[]).every(d => Array.isArray(d.options) && d.options.length >= 2));
+  checks.push({ ok: hasOptions, msg: 'Her karar en az 2 seçenek içeriyor' });
+  checks.push({ ok: !!s.initialState, msg: 'initialState mevcut' });
+  return checks;
+}
+
+// ── FILE SYSTEM ACCESS ───────────────────────────────────────────────────────
+let _fsHandle = null;
+
+async function openScenariosFolder() {
+  if (!window.showDirectoryPicker) {
+    alert('Bu özellik yalnızca Chrome/Edge tarayıcılarında çalışır.');
+    return;
+  }
+  try {
+    _fsHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
+    document.getElementById('folder-status').textContent = `"${_fsHandle.name}" klasörü bağlandı`;
+    document.getElementById('folder-hint').style.display = 'block';
+    showToast('Klasör bağlandı');
+  } catch(e) {
+    if (e.name !== 'AbortError') showToast('Klasör seçilemedi');
+  }
+}
+
+async function saveToFsApi(jsonStrOrEncoded, encoded) {
+  const jsonStr = encoded ? decodeURIComponent(jsonStrOrEncoded) : jsonStrOrEncoded;
+  const scenario = JSON.parse(jsonStr);
+
+  if (_fsHandle) {
+    try {
+      const fileHandle = await _fsHandle.getFileHandle(`${scenario.id}.json`, { create: true });
+      const writable = await fileHandle.createWritable();
+      await writable.write(JSON.stringify(scenario, null, 2));
+      await writable.close();
+
+      // Update manifest
+      await updateManifestFile(scenario);
+      showToast(`${scenario.id}.json kaydedildi`);
+      buildScenariosList();
+      return;
+    } catch(e) {
+      console.error(e);
+    }
+  }
+
+  // Fallback: download
+  downloadGeneratedJson(jsonStrOrEncoded, encoded);
+  showToast('Klasör seçilmedi — JSON indirildi. data/scenarios/ klasörüne kopyalayın.');
+}
+
+async function updateManifestFile(scenario) {
+  if (!_fsHandle) return;
+  try {
+    const mHandle = await _fsHandle.getFileHandle('manifest.json', { create: false });
+    const file = await mHandle.getFile();
+    const text = await file.text();
+    const manifest = JSON.parse(text);
+    const idx = manifest.scenarios.findIndex(s => s.id === scenario.id);
+    const entry = {
+      id: scenario.id,
+      title: scenario.title,
+      decisions: (scenario.weeks||[]).reduce((a,w) => a + (w.decisions?.length||0), 0),
+      difficulty: scenario.difficulty,
+      sector: scenario.domain || ''
+    };
+    if (idx >= 0) manifest.scenarios[idx] = entry;
+    else manifest.scenarios.push(entry);
+    manifest.updatedAt = new Date().toISOString().split('T')[0];
+    const writable = await mHandle.createWritable();
+    await writable.write(JSON.stringify(manifest, null, 2));
+    await writable.close();
+    showToast('manifest.json güncellendi');
+  } catch(e) { console.warn('manifest güncellenemedi', e); }
+}
+
+function downloadGeneratedJson(jsonStrOrEncoded, encoded) {
+  const jsonStr = encoded ? decodeURIComponent(jsonStrOrEncoded) : jsonStrOrEncoded;
+  const scenario = JSON.parse(jsonStr);
+  const blob = new Blob([JSON.stringify(scenario, null, 2)], {type:'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = `${scenario.id || 'senaryo'}.json`; a.click();
+  showToast(`${scenario.id}.json indirildi`);
+}
+
+function copyToClipboard(jsonStrOrEncoded, encoded) {
+  const jsonStr = encoded ? decodeURIComponent(jsonStrOrEncoded) : jsonStrOrEncoded;
+  navigator.clipboard.writeText(jsonStr).then(() => showToast('Panoya kopyalandı'));
+}
+
+// ── HELPERS ──────────────────────────────────────────────────────────────────
+function showMsg(id, text, type) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.textContent = text;
+  el.className = `form-msg ${type}`;
+  setTimeout(() => { el.className = 'form-msg'; }, 4000);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+</body>
+</html>

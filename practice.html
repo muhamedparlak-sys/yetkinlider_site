@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PMP Practice Mode - Instant Feedback | PMP YetkinLider</title>
+  <meta name="description" content="Practice PMP exam questions with instant feedback. Get explanations for correct and incorrect answers to reinforce your learning.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bar: #2f4f60;
+      --text: #0b1220;
+      --muted: #334155;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --btn: #2f4f60;
+      --btnHover: #1f3b49;
+      --accent: #5f93c2;
+      --success: #10b981;
+      --error: #ef4444;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    .topbar {
+      height: 44px;
+      background: var(--bar);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      font-size: 14px;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .topbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      transition: opacity 0.2s;
+    }
+
+    .topbar a:hover {
+      opacity: 0.8;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      color: var(--text);
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin: 0 0 32px 0;
+      font-size: 14px;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 32px;
+      padding: 16px;
+      background: var(--card);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .progress-bar {
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .question-card {
+      background: var(--card);
+      padding: 28px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .question-number {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .question-text {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option {
+      padding: 14px 16px;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .option:hover:not(.disabled) {
+      border-color: var(--accent);
+      background: #f0f7ff;
+    }
+
+    .option.selected {
+      border-color: var(--accent);
+      background: #e3f2fd;
+    }
+
+    .option.correct {
+      border-color: var(--success);
+      background: #f0fdf4;
+      color: #065f46;
+    }
+
+    .option.incorrect {
+      border-color: var(--error);
+      background: #fef2f2;
+      color: #991b1b;
+    }
+
+    .option.disabled {
+      cursor: default;
+      opacity: 0.6;
+    }
+
+    .option-label {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--border);
+      text-align: center;
+      line-height: 28px;
+      margin-right: 12px;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .option.correct .option-label {
+      background: var(--success);
+      color: white;
+    }
+
+    .option.incorrect .option-label {
+      background: var(--error);
+      color: white;
+    }
+
+    .feedback-box {
+      padding: 16px;
+      border-radius: 6px;
+      margin-top: 20px;
+      display: none;
+      border-left: 4px solid;
+    }
+
+    .feedback-box.correct {
+      display: block;
+      background: #f0fdf4;
+      border-color: var(--success);
+    }
+
+    .feedback-box.incorrect {
+      display: block;
+      background: #fef2f2;
+      border-color: var(--error);
+    }
+
+    .feedback-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .feedback-text {
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .next-button {
+      margin-top: 24px;
+      padding: 12px 28px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+    }
+
+    .next-button:hover {
+      background: #2980b9;
+    }
+
+    .next-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .summary-card {
+      background: var(--card);
+      padding: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .summary-card h2 {
+      font-size: 32px;
+      margin: 0 0 16px 0;
+      color: var(--text);
+    }
+
+    .summary-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 24px 0;
+    }
+
+    .summary-card button {
+      padding: 12px 28px;
+      background: var(--btn);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .summary-card button:hover {
+      background: var(--btnHover);
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      .question-card {
+        padding: 20px;
+      }
+
+      .question-text {
+        font-size: 15px;
+      }
+
+      .stats-bar {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <a href="index.html">← Back</a>
+  <span style="flex:1"></span>
+  <a href="dictionary.html">Dictionary</a>
+  <a href="flashcard.html">Öğrenme Kartları</a>
+</div>
+
+<div class="container">
+
+  <h1>Practice Mode</h1>
+  <p class="subtitle">Answer questions and get instant feedback. Learn from explanations to reinforce your knowledge.</p>
+
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-label">Correct</span>
+      <span class="stat-value" id="correctCount">0</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Incorrect</span>
+      <span class="stat-value" id="incorrectCount">0</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Score</span>
+      <span class="stat-value" id="scorePercent">0%</span>
+    </div>
+  </div>
+
+  <div id="quizContainer"></div>
+
+</div>
+
+<script>
+  let allQuestions = [];
+  let currentIndex = 0;
+  let correct = 0;
+  let incorrect = 0;
+  let answered = false;
+
+  // Sample explanations (in production, these would come from the questions JSON)
+  const explanations = {
+    default: "This question tests your understanding of PMP concepts. Review the PMBOK Guide for more details."
+  };
+
+  async function loadQuestions() {
+    try {
+      const response = await fetch('./data/pmp_questions.json');
+      allQuestions = await response.json();
+      displayQuestion();
+    } catch (error) {
+      console.error('Error loading questions:', error);
+    }
+  }
+
+  function displayQuestion() {
+    const container = document.getElementById('quizContainer');
+
+    if (currentIndex >= allQuestions.length) {
+      showSummary();
+      return;
+    }
+
+    const q = allQuestions[currentIndex];
+    answered = false;
+
+    const optionsHtml = q.answers.map((ans, idx) => `
+      <div class="option" data-index="${idx}" onclick="selectAnswer(${idx})">
+        <span class="option-label">${String.fromCharCode(65 + idx)}</span>
+        ${ans}
+      </div>
+    `).join('');
+
+    container.innerHTML = `
+      <div class="question-card">
+        <div class="question-number">Question ${currentIndex + 1} of ${allQuestions.length}</div>
+        <div class="question-text">${q.text}</div>
+        <div class="options">${optionsHtml}</div>
+        <div class="feedback-box" id="feedbackBox">
+          <div class="feedback-title" id="feedbackTitle"></div>
+          <p class="feedback-text" id="feedbackText"></p>
+        </div>
+        <button class="next-button" id="nextBtn" disabled onclick="nextQuestion()">
+          Next Question →
+        </button>
+      </div>
+    `;
+
+    updateStats();
+  }
+
+  function selectAnswer(index) {
+    if (answered) return;
+
+    answered = true;
+    const options = document.querySelectorAll('.option');
+    const correctIndex = 0; // Assuming first answer is always correct (modify as needed)
+
+    // Mark selected option
+    options[index].classList.add('selected');
+
+    // Mark correct/incorrect
+    if (index === correctIndex) {
+      options[index].classList.add('correct');
+      correct++;
+      showFeedback(true, "Correct! Great job.");
+    } else {
+      options[index].classList.add('incorrect');
+      options[correctIndex].classList.add('correct');
+      incorrect++;
+      showFeedback(false, `Incorrect. The correct answer is ${String.fromCharCode(65 + correctIndex)}.`);
+    }
+
+    // Disable all options
+    options.forEach(opt => opt.classList.add('disabled'));
+
+    // Enable next button
+    document.getElementById('nextBtn').disabled = false;
+  }
+
+  function showFeedback(isCorrect, message) {
+    const box = document.getElementById('feedbackBox');
+    const title = document.getElementById('feedbackTitle');
+    const text = document.getElementById('feedbackText');
+
+    box.className = `feedback-box ${isCorrect ? 'correct' : 'incorrect'}`;
+    title.textContent = isCorrect ? '✓ Correct' : '✗ Incorrect';
+    text.textContent = message + ' ' + (explanations.default || '');
+  }
+
+  function nextQuestion() {
+    currentIndex++;
+    displayQuestion();
+  }
+
+  function updateStats() {
+    const total = currentIndex;
+    const percent = total === 0 ? 0 : Math.round((correct / total) * 100);
+
+    document.getElementById('correctCount').textContent = correct;
+    document.getElementById('incorrectCount').textContent = incorrect;
+    document.getElementById('scorePercent').textContent = percent + '%';
+    document.getElementById('progressFill').style.width = ((currentIndex / allQuestions.length) * 100) + '%';
+  }
+
+  function showSummary() {
+    const percent = Math.round((correct / allQuestions.length) * 100);
+    const passed = percent >= 60;
+
+    document.getElementById('quizContainer').innerHTML = `
+      <div class="summary-card">
+        <h2>${passed ? '✓ Well Done!' : '✓ Quiz Complete'}</h2>
+        <p style="font-size: 18px; margin-bottom: 24px;">
+          You scored <strong>${correct} out of ${allQuestions.length}</strong> (${percent}%)
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+          <div>
+            <div style="font-size: 28px; color: var(--success); font-weight: 700;">${correct}</div>
+            <div style="font-size: 12px; color: var(--muted); text-transform: uppercase;">Correct</div>
+          </div>
+          <div>
+            <div style="font-size: 28px; color: var(--error); font-weight: 700;">${incorrect}</div>
+            <div style="font-size: 12px; color: var(--muted); text-transform: uppercase;">Incorrect</div>
+          </div>
+        </div>
+        <button onclick="restartPractice()">Try Again</button>
+      </div>
+    `;
+  }
+
+  function restartPractice() {
+    currentIndex = 0;
+    correct = 0;
+    incorrect = 0;
+    answered = false;
+    displayQuestion();
+  }
+
+  loadQuestions();
+</script>
+
+</body>
+</html>

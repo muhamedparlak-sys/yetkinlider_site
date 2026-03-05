@@ -1,0 +1,906 @@
+[
+  {
+    "id": "acceptance-criteria",
+    "term": "Acceptance Criteria",
+    "definition": "The conditions that a product, service, or result must satisfy to be accepted by the stakeholder or customer.",
+    "knowledgeArea": "Scope Management",
+    "example": "The software must load within 2 seconds and support 10,000 concurrent users.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "approved-change-request",
+    "term": "Approved Change Request",
+    "definition": "A change request that has been reviewed and authorized for implementation.",
+    "knowledgeArea": "Integration Management",
+    "example": "The project manager approved a change request to add new features after stakeholder feedback.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "assumptions",
+    "term": "Assumptions",
+    "definition": "Conditions or facts that are accepted as true in the absence of proof.",
+    "knowledgeArea": "Integration Management",
+    "example": "We assume that all team members will have access to the required software licenses.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "baseline",
+    "term": "Baseline",
+    "definition": "A fixed reference point that represents the approved version of a deliverable or plan.",
+    "knowledgeArea": "Integration Management",
+    "example": "The project baseline includes the scope, schedule, and budget approved by stakeholders.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "change-control-system",
+    "term": "Change Control System",
+    "definition": "A set of procedures and systems to document, approve, and implement changes to the project.",
+    "knowledgeArea": "Integration Management",
+    "example": "The change control system requires all changes to be submitted in writing and approved by the CCB.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "configuration-management",
+    "term": "Configuration Management",
+    "definition": "The process of identifying, documenting, and controlling versions of project components.",
+    "knowledgeArea": "Integration Management",
+    "example": "Configuration management ensures that all software versions are tracked and compatible.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "constraints",
+    "term": "Constraints",
+    "definition": "Limitations or restrictions that affect the project's execution or results.",
+    "knowledgeArea": "Integration Management",
+    "example": "The project has a budget constraint of $500,000 and a time constraint of 12 months.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "corrective-action",
+    "term": "Corrective Action",
+    "definition": "An action taken to address a performance deviation and bring the project back into compliance.",
+    "knowledgeArea": "Integration Management",
+    "example": "A corrective action was implemented to reduce the schedule variance by reassigning resources.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "deliverable",
+    "term": "Deliverable",
+    "definition": "A product, service, or result that must be produced to complete a project or process.",
+    "knowledgeArea": "Scope Management",
+    "example": "The first deliverable is a detailed project plan due at the end of month one.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "preventive-action",
+    "term": "Preventive Action",
+    "definition": "An action taken to reduce the probability of a negative project event.",
+    "knowledgeArea": "Integration Management",
+    "example": "Preventive actions included staff training to reduce the risk of quality defects.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "project-charter",
+    "term": "Project Charter",
+    "definition": "A document that formally authorizes the project and gives the project manager authority to allocate resources.",
+    "knowledgeArea": "Integration Management",
+    "example": "The project charter was signed by the sponsor and distributed to all stakeholders.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "project-lifecycle",
+    "term": "Project Lifecycle",
+    "definition": "The series of phases that a project passes through from initiation to closure.",
+    "knowledgeArea": "Integration Management",
+    "example": "The project lifecycle included planning, execution, monitoring, and closure phases.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "project-management-plan",
+    "term": "Project Management Plan",
+    "definition": "The document that describes how the project will be executed, monitored, and controlled.",
+    "knowledgeArea": "Integration Management",
+    "example": "The project management plan includes scope, schedule, budget, quality, and risk management plans.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "project-performance-baseline",
+    "term": "Project Performance Baseline",
+    "definition": "The approved version of the project's scope, schedule, and cost baselines.",
+    "knowledgeArea": "Integration Management",
+    "example": "The performance baseline was used to measure project progress and identify variances.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "project-statement-of-work",
+    "term": "Project Statement of Work",
+    "definition": "A document that describes the products, services, or results to be delivered by the project.",
+    "knowledgeArea": "Integration Management",
+    "example": "The SOW specified that the software must include user authentication and data encryption.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "requirements",
+    "term": "Requirements",
+    "definition": "A condition or capability that must be met or possessed by a product, service, or result.",
+    "knowledgeArea": "Scope Management",
+    "example": "A key requirement is that the system must be accessible to users with disabilities.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "scope",
+    "term": "Scope",
+    "definition": "The sum of all products, services, and results to be provided by a project.",
+    "knowledgeArea": "Scope Management",
+    "example": "The project scope includes building a mobile app with five core features.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "scope-baseline",
+    "term": "Scope Baseline",
+    "definition": "The approved project scope statement and all approved and authorized change requests.",
+    "knowledgeArea": "Scope Management",
+    "example": "The scope baseline serves as the reference for controlling scope changes.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "scope-creep",
+    "term": "Scope Creep",
+    "definition": "The unauthorized expansion of the project scope beyond what was originally approved.",
+    "knowledgeArea": "Scope Management",
+    "example": "Scope creep occurred when the client requested additional features without formal change approval.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "scope-management-plan",
+    "term": "Scope Management Plan",
+    "definition": "The document that describes how project scope will be defined, validated, and controlled.",
+    "knowledgeArea": "Scope Management",
+    "example": "The scope management plan outlined the process for reviewing and approving scope changes.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "scope-statement",
+    "term": "Scope Statement",
+    "definition": "A narrative description of the project's products, services, and results.",
+    "knowledgeArea": "Scope Management",
+    "example": "The scope statement defined what the project would and would not include.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "stakeholder",
+    "term": "Stakeholder",
+    "definition": "An individual, group, or organization that has an interest in or may be affected by the project.",
+    "knowledgeArea": "Stakeholder Management",
+    "example": "Key stakeholders include the project sponsor, team members, and end users.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "work-breakdown-structure",
+    "term": "Work Breakdown Structure (WBS)",
+    "definition": "A hierarchical decomposition of the project scope into smaller, manageable components.",
+    "knowledgeArea": "Scope Management",
+    "example": "The WBS divided the project into phases, then into deliverables, then into work packages.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "activity",
+    "term": "Activity",
+    "definition": "A specific task or work that must be performed as part of the project.",
+    "knowledgeArea": "Schedule Management",
+    "example": "Building the database schema is an activity with a duration of 5 days.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "activity-duration",
+    "term": "Activity Duration",
+    "definition": "The estimated amount of time required to complete an activity.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The activity duration for testing was estimated at 2 weeks.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "activity-sequencing",
+    "term": "Activity Sequencing",
+    "definition": "The process of identifying dependencies and sequencing project activities.",
+    "knowledgeArea": "Schedule Management",
+    "example": "Activity sequencing determined that testing must occur after development.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "backward-pass",
+    "term": "Backward Pass",
+    "definition": "The process of calculating the late finish and late start dates for project activities.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The backward pass determined when each task must start to finish on time.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "critical-path",
+    "term": "Critical Path",
+    "definition": "The longest sequence of dependent activities that determines the project's completion date.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The critical path included design, development, and deployment with zero slack.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "critical-path-method",
+    "term": "Critical Path Method (CPM)",
+    "definition": "A schedule network analysis technique to identify the critical path and calculate float.",
+    "knowledgeArea": "Schedule Management",
+    "example": "CPM analysis revealed that shortening design by 2 days would reduce the project timeline.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "dependency",
+    "term": "Dependency",
+    "definition": "A relationship between two activities where one is dependent on the completion of the other.",
+    "knowledgeArea": "Schedule Management",
+    "example": "There is a finish-to-start dependency between design and development.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "early-finish",
+    "term": "Early Finish (EF)",
+    "definition": "The earliest date when an activity can be completed.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The early finish for the design phase was calculated to be March 15.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "early-start",
+    "term": "Early Start (ES)",
+    "definition": "The earliest date when an activity can begin.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The early start for development was set to April 1 after design completion.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "float",
+    "term": "Float (Slack)",
+    "definition": "The amount of time an activity can be delayed without delaying the project end date.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The testing activity had 3 days of float and could be delayed without impacting the deadline.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "forward-pass",
+    "term": "Forward Pass",
+    "definition": "The process of calculating the early start and early finish dates for activities.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The forward pass determined the earliest possible start and finish for each task.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "gantt-chart",
+    "term": "Gantt Chart",
+    "definition": "A bar chart that displays project activities on a timeline showing their duration and sequence.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The Gantt chart visually showed all activities, dependencies, and the critical path.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "late-finish",
+    "term": "Late Finish (LF)",
+    "definition": "The latest date when an activity can be completed without delaying the project.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The late finish for the design phase was May 10 to maintain the project schedule.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "late-start",
+    "term": "Late Start (LS)",
+    "definition": "The latest date when an activity can begin without delaying the project.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The late start for development was April 15, after which the project would be delayed.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "lag",
+    "term": "Lag",
+    "definition": "A delay between two dependent activities.",
+    "knowledgeArea": "Schedule Management",
+    "example": "A 2-day lag was added between the end of development and the start of testing.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "lead",
+    "term": "Lead",
+    "definition": "An advance on a successor activity that can occur before the predecessor is complete.",
+    "knowledgeArea": "Schedule Management",
+    "example": "Testing could start 1 day before development finished due to a lead relationship.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "milestone",
+    "term": "Milestone",
+    "definition": "A significant point or event in the project schedule with zero duration.",
+    "knowledgeArea": "Schedule Management",
+    "example": "Project kickoff and the completion of design are key milestones.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "network-diagram",
+    "term": "Network Diagram",
+    "definition": "A graphical representation of the project schedule showing activities and dependencies.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The network diagram showed how each activity depended on others.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "program-evaluation-review-technique",
+    "term": "Program Evaluation and Review Technique (PERT)",
+    "definition": "A statistical technique that uses optimistic, pessimistic, and most likely estimates.",
+    "knowledgeArea": "Schedule Management",
+    "example": "PERT estimated the design duration as 15 days (optimistic: 10, pessimistic: 20, likely: 15).",
+    "category": "PMBOK"
+  },
+  {
+    "id": "resource-leveling",
+    "term": "Resource Leveling",
+    "definition": "A technique to resolve resource conflicts by adjusting the schedule.",
+    "knowledgeArea": "Schedule Management",
+    "example": "Resource leveling delayed non-critical activities to avoid overallocating the senior developer.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "schedule-baseline",
+    "term": "Schedule Baseline",
+    "definition": "The approved schedule for the project, used to measure performance.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The schedule baseline showed the project would be completed on June 30.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "schedule-compression",
+    "term": "Schedule Compression",
+    "definition": "A technique to reduce the schedule duration without reducing project scope.",
+    "knowledgeArea": "Schedule Management",
+    "example": "Schedule compression was achieved by crashing critical path activities and adding resources.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "schedule-management-plan",
+    "term": "Schedule Management Plan",
+    "definition": "The document that describes how the project schedule will be managed.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The schedule management plan specified that all schedule changes require sponsor approval.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "schedule-variance",
+    "term": "Schedule Variance (SV)",
+    "definition": "The difference between earned value and planned value, indicating schedule performance.",
+    "knowledgeArea": "Schedule Management",
+    "example": "A negative schedule variance of -$10,000 indicated the project was behind schedule.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "three-point-estimate",
+    "term": "Three-Point Estimate",
+    "definition": "An estimation technique using optimistic, pessimistic, and most likely scenarios.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The three-point estimate for testing was 8 days (optimistic), 12 days (likely), and 18 days (pessimistic).",
+    "category": "PMBOK"
+  },
+  {
+    "id": "budget",
+    "term": "Budget",
+    "definition": "The total amount of money approved to execute the project.",
+    "knowledgeArea": "Cost Management",
+    "example": "The project budget is $500,000 spread across 12 months.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "budget-baseline",
+    "term": "Budget Baseline",
+    "definition": "The approved budget for the project, used as the basis for cost control.",
+    "knowledgeArea": "Cost Management",
+    "example": "The budget baseline included all planned costs with a contingency reserve.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "cost-baseline",
+    "term": "Cost Baseline",
+    "definition": "The sum of approved budgets for scheduled project work.",
+    "knowledgeArea": "Cost Management",
+    "example": "The cost baseline was used to measure earned value and cost performance.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "cost-performance-index",
+    "term": "Cost Performance Index (CPI)",
+    "definition": "A ratio of earned value to actual cost indicating cost efficiency.",
+    "knowledgeArea": "Cost Management",
+    "example": "A CPI of 1.2 means the project is spending $0.83 for every dollar of work completed.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "cost-variance",
+    "term": "Cost Variance (CV)",
+    "definition": "The difference between earned value and actual cost, showing cost performance.",
+    "knowledgeArea": "Cost Management",
+    "example": "A positive cost variance of $5,000 indicated the project was under budget.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "earned-value",
+    "term": "Earned Value (EV)",
+    "definition": "The value of work actually completed at a given point in time.",
+    "knowledgeArea": "Cost Management",
+    "example": "If 50% of the project is complete, the earned value is 50% of the total budget.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "estimate-at-completion",
+    "term": "Estimate at Completion (EAC)",
+    "definition": "The projected total cost of the project at completion.",
+    "knowledgeArea": "Cost Management",
+    "example": "The EAC indicated the project would cost $550,000 due to current cost performance.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "estimate-to-complete",
+    "term": "Estimate to Complete (ETC)",
+    "definition": "The estimated cost to complete remaining project work.",
+    "knowledgeArea": "Cost Management",
+    "example": "The ETC was calculated as $50,000 based on current burn rate.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "cost-management-plan",
+    "term": "Cost Management Plan",
+    "definition": "The document that describes how project costs will be estimated, budgeted, and controlled.",
+    "knowledgeArea": "Cost Management",
+    "example": "The cost management plan specified that all expenses over $5,000 require approval.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "quality-management-plan",
+    "term": "Quality Management Plan",
+    "definition": "The document that describes how the organization will implement its quality policy.",
+    "knowledgeArea": "Quality Management",
+    "example": "The quality management plan defined quality standards and inspection procedures.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "quality-assurance",
+    "term": "Quality Assurance (QA)",
+    "definition": "The process of auditing and monitoring project activities to ensure quality standards.",
+    "knowledgeArea": "Quality Management",
+    "example": "Quality assurance reviews identified process improvements to prevent defects.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "quality-control",
+    "term": "Quality Control (QC)",
+    "definition": "The process of monitoring specific project results to verify they meet quality standards.",
+    "knowledgeArea": "Quality Management",
+    "example": "Quality control testing ensured that each software module met acceptance criteria.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "defect",
+    "term": "Defect",
+    "definition": "An imperfection or lack of conformance to specifications in a deliverable.",
+    "knowledgeArea": "Quality Management",
+    "example": "A critical defect was discovered in the authentication module and fixed immediately.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "rework",
+    "term": "Rework",
+    "definition": "Action taken to correct a defect or bring a nonconforming product into compliance.",
+    "knowledgeArea": "Quality Management",
+    "example": "Rework was required on 15% of components due to defects found during inspection.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "process-improvement",
+    "term": "Process Improvement",
+    "definition": "Incremental or breakthrough changes to enhance project processes.",
+    "knowledgeArea": "Quality Management",
+    "example": "Process improvement initiatives reduced defect rates by 40%.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "statistical-sampling",
+    "term": "Statistical Sampling",
+    "definition": "A technique to examine a portion of items within a population to make conclusions.",
+    "knowledgeArea": "Quality Management",
+    "example": "Statistical sampling was used to inspect 10% of products for quality assurance.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "variance",
+    "term": "Variance",
+    "definition": "The difference between planned and actual results in cost, schedule, or scope.",
+    "knowledgeArea": "Quality Management",
+    "example": "A schedule variance of 2 weeks indicated the project was behind its baseline.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "resource-management-plan",
+    "term": "Resource Management Plan",
+    "definition": "The document that describes how project resources will be acquired and managed.",
+    "knowledgeArea": "Resource Management",
+    "example": "The resource management plan identified staffing needs and acquisition strategies.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "resource-allocation",
+    "term": "Resource Allocation",
+    "definition": "The process of assigning project resources to activities and work packages.",
+    "knowledgeArea": "Resource Management",
+    "example": "Resource allocation assigned the senior developer to critical path activities.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "resource-leveling",
+    "term": "Resource Leveling",
+    "definition": "A technique to balance resource usage and demand across the project.",
+    "knowledgeArea": "Resource Management",
+    "example": "Resource leveling adjusted the schedule to avoid overloading any single team member.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "project-team",
+    "term": "Project Team",
+    "definition": "The group of individuals performing project work under the direction of the PM.",
+    "knowledgeArea": "Resource Management",
+    "example": "The project team consisted of developers, QA engineers, and business analysts.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "resource-histogram",
+    "term": "Resource Histogram",
+    "definition": "A graphical representation of resource usage over time.",
+    "knowledgeArea": "Resource Management",
+    "example": "The resource histogram showed peak staffing needs in months 3 and 4.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "staffing-plan",
+    "term": "Staffing Plan",
+    "definition": "The document describing how and when human resources will be acquired.",
+    "knowledgeArea": "Resource Management",
+    "example": "The staffing plan indicated that senior developers would be needed starting month 2.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "communications-management-plan",
+    "term": "Communications Management Plan",
+    "definition": "The document that describes communication methods, frequency, and responsible parties.",
+    "knowledgeArea": "Communications Management",
+    "example": "The communications plan specified weekly status meetings with stakeholders.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "status-report",
+    "term": "Status Report",
+    "definition": "A document that communicates project progress against the baseline.",
+    "knowledgeArea": "Communications Management",
+    "example": "The weekly status report included schedule, budget, and risk updates.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "kick-off-meeting",
+    "term": "Kick-Off Meeting",
+    "definition": "A meeting that officially starts the project and aligns all parties on objectives.",
+    "knowledgeArea": "Communications Management",
+    "example": "The kick-off meeting introduced the team and reviewed the project charter.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "stakeholder-communication",
+    "term": "Stakeholder Communication",
+    "definition": "The process of providing information to stakeholders in a timely manner.",
+    "knowledgeArea": "Communications Management",
+    "example": "Regular stakeholder communication ensured alignment and buy-in throughout the project.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "risk-management-plan",
+    "term": "Risk Management Plan",
+    "definition": "The document that describes how project risks will be identified and managed.",
+    "knowledgeArea": "Risk Management",
+    "example": "The risk management plan outlined the process for identifying, analyzing, and responding to risks.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "risk",
+    "term": "Risk",
+    "definition": "An uncertain event or condition that could affect project objectives.",
+    "knowledgeArea": "Risk Management",
+    "example": "Key risks included resource unavailability and technology changes.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "risk-register",
+    "term": "Risk Register",
+    "definition": "A document that records identified risks and their characteristics.",
+    "knowledgeArea": "Risk Management",
+    "example": "The risk register included 25 identified risks with probability and impact ratings.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "probability-and-impact-matrix",
+    "term": "Probability and Impact Matrix",
+    "definition": "A tool to assess and prioritize risks based on probability and impact.",
+    "knowledgeArea": "Risk Management",
+    "example": "The matrix classified risks as high, medium, or low based on their probability and impact.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "risk-response-plan",
+    "term": "Risk Response Plan",
+    "definition": "The strategies and actions to address identified risks.",
+    "knowledgeArea": "Risk Management",
+    "example": "The risk response plan included mitigation, avoidance, and contingency strategies.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "mitigation",
+    "term": "Mitigation",
+    "definition": "A risk response strategy to reduce the probability or impact of a risk.",
+    "knowledgeArea": "Risk Management",
+    "example": "Risk mitigation included redundant servers to reduce downtime probability.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "contingency-plan",
+    "term": "Contingency Plan",
+    "definition": "A predetermined action plan for responding to a risk event.",
+    "knowledgeArea": "Risk Management",
+    "example": "The contingency plan outlined steps to take if the lead developer became unavailable.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "contingency-reserve",
+    "term": "Contingency Reserve",
+    "definition": "Time or cost buffer allocated for identified risks.",
+    "knowledgeArea": "Risk Management",
+    "example": "A 10% contingency reserve was included in the budget for identified risks.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "management-reserve",
+    "term": "Management Reserve",
+    "definition": "Time or cost reserved for unknown risks and management decisions.",
+    "knowledgeArea": "Risk Management",
+    "example": "A 5% management reserve was set aside for unforeseen circumstances.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "procurement-management-plan",
+    "term": "Procurement Management Plan",
+    "definition": "The document that describes how project procurements will be managed.",
+    "knowledgeArea": "Procurement Management",
+    "example": "The procurement plan identified vendor selection criteria and contract types.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "procurement",
+    "term": "Procurement",
+    "definition": "The process of acquiring goods or services from external sources.",
+    "knowledgeArea": "Procurement Management",
+    "example": "Procurement of software licenses required competitive bidding.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "vendor-selection",
+    "term": "Vendor Selection",
+    "definition": "The process of evaluating and selecting suppliers or vendors.",
+    "knowledgeArea": "Procurement Management",
+    "example": "Vendor selection was based on cost, quality, and delivery timeframes.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "request-for-proposal",
+    "term": "Request for Proposal (RFP)",
+    "definition": "A document soliciting proposals from potential vendors.",
+    "knowledgeArea": "Procurement Management",
+    "example": "The RFP detailed requirements and requested pricing from three vendors.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "purchase-order",
+    "term": "Purchase Order (PO)",
+    "definition": "A formal document ordering goods or services from a vendor.",
+    "knowledgeArea": "Procurement Management",
+    "example": "The purchase order specified quantity, price, and delivery date.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "contract",
+    "term": "Contract",
+    "definition": "A legally binding agreement between the buyer and seller.",
+    "knowledgeArea": "Procurement Management",
+    "example": "The contract outlined deliverables, payment terms, and penalty clauses.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "stakeholder-management",
+    "term": "Stakeholder Management",
+    "definition": "The process of managing stakeholder engagement to satisfy their needs and resolve issues.",
+    "knowledgeArea": "Stakeholder Management",
+    "example": "Stakeholder management included regular meetings with key sponsors.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "stakeholder-analysis",
+    "term": "Stakeholder Analysis",
+    "definition": "The process of identifying and analyzing stakeholder characteristics and interests.",
+    "knowledgeArea": "Stakeholder Management",
+    "example": "Stakeholder analysis revealed that users had concerns about data privacy.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "stakeholder-engagement-plan",
+    "term": "Stakeholder Engagement Plan",
+    "definition": "A strategy for engaging stakeholders at appropriate times and levels.",
+    "knowledgeArea": "Stakeholder Management",
+    "example": "The engagement plan specified communication frequency with different stakeholder groups.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "power-interest-grid",
+    "term": "Power/Interest Grid",
+    "definition": "A tool to classify stakeholders by their power and interest in the project.",
+    "knowledgeArea": "Stakeholder Management",
+    "example": "The power/interest grid helped identify which stakeholders needed close management.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "earned-value-management",
+    "term": "Earned Value Management (EVM)",
+    "definition": "A technique to measure project performance using cost and schedule indicators.",
+    "knowledgeArea": "Monitoring and Controlling",
+    "example": "EVM analysis showed the project was 10% over budget but on schedule.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "issue-log",
+    "term": "Issue Log",
+    "definition": "A document tracking issues, owners, and resolution dates.",
+    "knowledgeArea": "Monitoring and Controlling",
+    "example": "The issue log contained 8 open issues with priorities and assigned owners.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "change-request",
+    "term": "Change Request",
+    "definition": "A formal request to modify project scope, schedule, budget, or quality.",
+    "knowledgeArea": "Integration Management",
+    "example": "A change request was submitted to add new features to the software.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "change-control-board",
+    "term": "Change Control Board (CCB)",
+    "definition": "A committee that reviews and approves or rejects change requests.",
+    "knowledgeArea": "Integration Management",
+    "example": "The CCB met weekly to review proposed changes and their impacts.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "close-project",
+    "term": "Close Project",
+    "definition": "The process of finalizing all project activities and transferring deliverables.",
+    "knowledgeArea": "Project Closure",
+    "example": "Project closure included final documentation and knowledge transfer to the client.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "lessons-learned",
+    "term": "Lessons Learned",
+    "definition": "Knowledge gained during the project that can improve future initiatives.",
+    "knowledgeArea": "Project Closure",
+    "example": "Lessons learned included the importance of early stakeholder communication.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "project-success",
+    "term": "Project Success",
+    "definition": "Meeting project objectives within scope, schedule, budget, and quality constraints.",
+    "knowledgeArea": "Integration Management",
+    "example": "Project success was achieved when all deliverables were completed on time and within budget.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "project-sponsor",
+    "term": "Project Sponsor",
+    "definition": "The person or organization who provides resources and authorizes the project.",
+    "knowledgeArea": "Stakeholder Management",
+    "example": "The project sponsor approved the budget and provided executive support.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "project-manager",
+    "term": "Project Manager",
+    "definition": "The person responsible for planning, executing, and controlling the project.",
+    "knowledgeArea": "Integration Management",
+    "example": "The project manager coordinated all activities and reported progress to the sponsor.",
+    "category": "PMBOK"
+  },
+  {
+    "id": "scrum-master",
+    "term": "Scrum Master",
+    "definition": "In agile, the facilitator who removes impediments and supports the team.",
+    "knowledgeArea": "Resource Management",
+    "example": "The scrum master helped the team resolve daily impediments.",
+    "category": "Agile"
+  },
+  {
+    "id": "product-owner",
+    "term": "Product Owner",
+    "definition": "In agile, the person responsible for managing the product backlog.",
+    "knowledgeArea": "Stakeholder Management",
+    "example": "The product owner prioritized features based on customer feedback.",
+    "category": "Agile"
+  },
+  {
+    "id": "agile",
+    "term": "Agile",
+    "definition": "An iterative project management approach emphasizing flexibility and customer feedback.",
+    "knowledgeArea": "Integration Management",
+    "example": "The agile approach allowed the team to respond quickly to changing requirements.",
+    "category": "Agile"
+  },
+  {
+    "id": "sprint",
+    "term": "Sprint",
+    "definition": "In agile, a fixed time period (usually 2-4 weeks) for completing work.",
+    "knowledgeArea": "Schedule Management",
+    "example": "Each sprint included planning, execution, and review meetings.",
+    "category": "Agile"
+  },
+  {
+    "id": "backlog",
+    "term": "Backlog",
+    "definition": "In agile, a prioritized list of work items and features.",
+    "knowledgeArea": "Scope Management",
+    "example": "The product backlog contained 150 features prioritized by business value.",
+    "category": "Agile"
+  },
+  {
+    "id": "retrospective",
+    "term": "Retrospective",
+    "definition": "In agile, a meeting where the team reflects on what went well and what can improve.",
+    "knowledgeArea": "Quality Management",
+    "example": "The retrospective identified that better communication would improve velocity.",
+    "category": "Agile"
+  },
+  {
+    "id": "daily-standup",
+    "term": "Daily Standup",
+    "definition": "In agile, a brief daily meeting where team members share progress and impediments.",
+    "knowledgeArea": "Communications Management",
+    "example": "The daily standup ensured the team stayed aligned on priorities.",
+    "category": "Agile"
+  },
+  {
+    "id": "user-story",
+    "term": "User Story",
+    "definition": "In agile, a simple description of a feature from a user's perspective.",
+    "knowledgeArea": "Scope Management",
+    "example": "A user story read: 'As a user, I want to reset my password so I can regain access.'",
+    "category": "Agile"
+  },
+  {
+    "id": "definition-of-done",
+    "term": "Definition of Done",
+    "definition": "In agile, the criteria that work must meet to be considered complete.",
+    "knowledgeArea": "Quality Management",
+    "example": "Definition of done included testing, code review, and documentation.",
+    "category": "Agile"
+  },
+  {
+    "id": "velocity",
+    "term": "Velocity",
+    "definition": "In agile, the amount of work a team can complete in a sprint.",
+    "knowledgeArea": "Schedule Management",
+    "example": "The team's velocity was 40 story points per sprint.",
+    "category": "Agile"
+  }
+]

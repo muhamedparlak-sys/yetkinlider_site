@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+  <link rel="icon" href="favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiyatlandırma — YetkinLider</title>
+<meta name="description" content="YetkinLider fiyatlandırma planları. Bireysel, KOBİ ve Kurumsal seçenekler.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2f4f60;
+  --primary-dark: #1f3b49;
+  --primary-light: #5f93c2;
+  --accent: #3b7bc8;
+  --accent-dark: #2563a8;
+  --text: #0b1220;
+  --muted: #334155;
+  --light: #64748b;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --radius: 14px;
+  --green: #059669;
+  --green-bg: #d1fae5;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, system-ui, sans-serif; color: var(--text); background: var(--bg); }
+
+/* ── NAV ── */
+.navbar { background: var(--primary); height: 52px; display: flex; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 6px rgba(0,0,0,.18); }
+  .brand-logo { width: 26px; height: 26px; border-radius: 5px; flex-shrink: 0; filter: brightness(0) invert(1); }
+  .brand { color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; white-space: nowrap; }
+.brand sup { font-size: 9px; vertical-align: super; }
+.nav-spacer { flex: 1; }
+.nav-user { display: flex; align-items: center; gap: 8px; margin-right: 10px; }
+.nav-av { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; overflow: hidden; flex-shrink: 0; }
+.nav-av img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.nav-username { color: rgba(255,255,255,.9); font-size: 13px; font-weight: 600; max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; background: transparent; border: 1px solid rgba(255,255,255,.25); border-radius: 7px; cursor: pointer; padding: 7px 8px; flex-shrink: 0; transition: border-color .15s; }
+.hamburger:hover { border-color: rgba(255,255,255,.45); }
+.hamburger span { display: block; width: 18px; height: 2px; background: #fff; border-radius: 2px; transition: all .2s; }
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu-panel { position: fixed; top: 52px; left: 0; right: 0; background: var(--primary-dark); z-index: 999; max-height: 0; overflow: hidden; transition: max-height .28s ease; box-shadow: 0 8px 24px rgba(0,0,0,.3); }
+.menu-panel.open { max-height: 600px; }
+.menu-inner { padding: 6px 0 12px; }
+.menu-item { display: flex; align-items: center; gap: 13px; padding: 11px 22px; color: rgba(255,255,255,.8); text-decoration: none; font-size: 14px; font-weight: 500; transition: background .12s, color .12s; }
+.menu-item:hover { background: rgba(255,255,255,.07); color: #fff; }
+.menu-item.active { background: rgba(255,255,255,.07); color: #fff; }
+.menu-item.primary { color: #fff; font-weight: 700; font-size: 14.5px; background: rgba(59,123,200,.15); border-left: 3px solid var(--accent); padding-left: 19px; }
+.menu-item.primary:hover { background: rgba(59,123,200,.25); }
+.menu-icon { width: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; opacity: .72; }
+.menu-item.primary .menu-icon, .menu-item:hover .menu-icon, .menu-item.active .menu-icon { opacity: 1; }
+.menu-div { border-top: 1px solid rgba(255,255,255,.1); margin: 6px 0; }
+.menu-auth-area { padding: 8px 22px 4px; }
+.menu-auth-row { display: flex; align-items: center; gap: 10px; }
+.menu-auth-name { color: rgba(255,255,255,.85); font-size: 13px; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btn-menu-login { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #fff; font-size: 13px; font-weight: 600; border-radius: 8px; cursor: pointer; font-family: inherit; transition: background .15s; text-decoration: none; }
+.btn-menu-login:hover { background: rgba(255,255,255,.18); }
+.btn-menu-logout { background: transparent; border: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.5); font-size: 12px; padding: 5px 11px; border-radius: 6px; cursor: pointer; font-family: inherit; transition: all .15s; display: flex; align-items: center; gap: 6px; }
+.btn-menu-logout:hover { border-color: rgba(239,68,68,.4); color: #fca5a5; }
+
+/* ── HEADER ── */
+.page-header {
+  background: linear-gradient(135deg, var(--primary) 0%, #1a3a4e 100%);
+  color: #fff; padding: 40px 24px 36px; text-align: center;
+}
+.page-header h1 { font-size: clamp(22px, 4vw, 34px); font-weight: 800; margin-bottom: 8px; }
+.page-header p { font-size: 15px; color: rgba(255,255,255,.72); max-width: 500px; margin: 0 auto; }
+
+/* ── BILLING TOGGLE ── */
+.toggle-section {
+  display: flex; align-items: center; justify-content: center;
+  gap: 12px; padding: 32px 24px 8px;
+}
+.toggle-label { font-size: 14px; font-weight: 600; color: var(--muted); }
+.toggle-label.active { color: var(--text); }
+
+.switch {
+  position: relative; display: inline-block; width: 48px; height: 26px; cursor: pointer;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute; inset: 0;
+  background: var(--border); border-radius: 999px;
+  transition: background .25s;
+}
+.slider::before {
+  content: '';
+  position: absolute; width: 20px; height: 20px; border-radius: 50%;
+  background: #fff; top: 3px; left: 3px;
+  transition: transform .25s; box-shadow: 0 1px 4px rgba(0,0,0,.18);
+}
+.switch input:checked + .slider { background: var(--accent); }
+.switch input:checked + .slider::before { transform: translateX(22px); }
+
+.save-badge {
+  display: inline-block; background: var(--green-bg); color: var(--green);
+  font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+  margin-left: 5px; vertical-align: middle;
+}
+
+/* ── PLANS GRID ── */
+.plans-section {
+  max-width: 1080px; margin: 0 auto; padding: 28px 24px 64px;
+}
+.plans-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start;
+}
+
+.plan-card {
+  background: var(--card); border: 1.5px solid var(--border);
+  border-radius: var(--radius); padding: 28px 24px 24px;
+  position: relative; transition: box-shadow .2s, border-color .2s;
+}
+.plan-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.08); border-color: var(--primary-light); }
+.plan-card.featured {
+  border-color: var(--accent); border-width: 2px;
+  box-shadow: 0 4px 24px rgba(59,123,200,.18);
+  padding-top: 40px;
+}
+
+.popular-badge {
+  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: #fff;
+  font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 0 0 8px 8px;
+  white-space: nowrap; letter-spacing: .03em;
+}
+
+.plan-name {
+  font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--light); margin-bottom: 10px;
+}
+.plan-card.featured .plan-name { color: var(--accent); }
+
+.plan-title {
+  font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 6px;
+}
+
+.plan-desc {
+  font-size: 13px; color: var(--light); margin-bottom: 20px; line-height: 1.5;
+  min-height: 38px;
+}
+
+.plan-price {
+  display: flex; align-items: flex-end; gap: 4px; margin-bottom: 4px;
+}
+.price-amount {
+  font-size: 40px; font-weight: 800; color: var(--text); line-height: 1;
+}
+.price-unit {
+  font-size: 14px; font-weight: 600; color: var(--light); padding-bottom: 4px;
+}
+.price-old {
+  font-size: 14px; color: var(--light); text-decoration: line-through;
+  margin-left: 6px; padding-bottom: 4px;
+}
+
+.price-period {
+  font-size: 12px; color: var(--light); margin-bottom: 20px; min-height: 18px;
+}
+.yearly-note { display: none; }
+.yearly .yearly-note { display: block; }
+.yearly .monthly-note { display: none; }
+.monthly-note { display: block; }
+
+.cta-btn {
+  display: block; width: 100%;
+  background: var(--accent); color: #fff;
+  text-align: center; padding: 11px 0;
+  border-radius: 9px; font-size: 14px; font-weight: 700;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: background .15s, transform .1s;
+  margin-bottom: 22px;
+}
+.cta-btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.cta-btn.outline {
+  background: transparent; color: var(--accent);
+  border: 2px solid var(--accent);
+}
+.cta-btn.outline:hover { background: #eff6ff; transform: translateY(-1px); }
+.cta-btn.ghost {
+  background: transparent; color: var(--muted);
+  border: 2px solid var(--border);
+}
+.cta-btn.ghost:hover { background: var(--bg); border-color: var(--light); }
+
+.divider { border: none; border-top: 1px solid var(--border); margin-bottom: 18px; }
+
+.features { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.features li {
+  display: flex; align-items: flex-start; gap: 9px;
+  font-size: 13.5px; color: var(--muted); line-height: 1.45;
+}
+.features li .icon { flex-shrink: 0; margin-top: 1px; }
+.features li .icon.yes { color: var(--green); }
+.features li .icon.no { color: #cbd5e1; }
+.features li.dim { color: var(--light); }
+
+.plan-users {
+  font-size: 12px; font-weight: 600; color: var(--light);
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 6px; padding: 4px 10px; display: inline-block; margin-bottom: 16px;
+}
+
+/* ── GUARANTEE ── */
+.guarantee {
+  text-align: center; padding: 0 24px 24px;
+  color: var(--light); font-size: 13.5px;
+}
+.guarantee svg { vertical-align: middle; margin-right: 6px; }
+
+/* ── FAQ ── */
+.faq-section {
+  max-width: 680px; margin: 0 auto; padding: 0 24px 64px;
+}
+.faq-section h2 {
+  font-size: 20px; font-weight: 800; text-align: center; margin-bottom: 24px;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border); padding: 16px 0;
+}
+.faq-item summary {
+  font-size: 14px; font-weight: 600; cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between; align-items: center;
+  color: var(--text);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+'; font-size: 18px; font-weight: 400; color: var(--light);
+  flex-shrink: 0; margin-left: 12px;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p {
+  font-size: 13.5px; color: var(--muted); line-height: 1.65;
+  padding-top: 10px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .plans-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .plan-card.featured { order: -1; }
+}
+@media (max-width: 640px) {
+
+  .nav-username { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="brand" href="index.html"><img src="logo.png" class="brand-logo" alt="YetkinLider">YetkinLider<sup style="font-size:.55em;vertical-align:super;opacity:.8">&#8482;</sup></a>
+  <div class="nav-spacer"></div>
+  <div class="nav-user" id="navUser"></div>
+  <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-inner">
+    <a class="menu-item primary" href="game.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+      Liderlik Simülasyonu
+    </a>
+    <a class="menu-item" href="exam.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="m9 12 2 2 4-4"/></svg></span>
+      Sınav Simülatörü
+    </a>
+    <a class="menu-item" href="glossary.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+      Liderlik Sözlüğü
+    </a>
+    <a class="menu-item" href="flashcards.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="13" rx="2"/><path d="M4 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2"/></svg></span>
+      Öğrenme Kartları
+    </a>
+    <a class="menu-item" href="blog.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+      Blog
+    </a>
+    <a class="menu-item" href="pricing.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+      Fiyatlar
+    </a>
+    <div class="menu-div"></div>
+    <div class="menu-auth-area" id="menuAuth"></div>
+  </div>
+</div>
+
+<div class="page-header">
+  <h1>Yetkinliklerini Geliştirmek için Doğru Planı Seç</h1>
+  <p>İlk 7 gün ücretsiz dene. Kredi kartı gerekmez.</p>
+</div>
+
+<!-- Billing Toggle -->
+<div class="toggle-section" id="toggleSection">
+  <span class="toggle-label active" id="lblMonthly">Aylık</span>
+  <label class="switch">
+    <input type="checkbox" id="billingToggle">
+    <span class="slider"></span>
+  </label>
+  <span class="toggle-label" id="lblYearly">
+    Yıllık<span class="save-badge">%20 Tasarruf</span>
+  </span>
+</div>
+
+<!-- Plans -->
+<div class="plans-section">
+  <div class="plans-grid" id="plansGrid">
+
+    <!-- Bireysel -->
+    <div class="plan-card">
+      <div class="plan-name">Bireysel</div>
+      <div class="plan-title">Tek Kişilik</div>
+      <div class="plan-desc">Liderlik yetkinliklerini bireysel geliştirmek isteyenler için.</div>
+      <div class="plan-price">
+        <span class="price-amount">4.500</span>
+        <span class="price-unit">₺</span>
+      </div>
+      <div class="price-period">
+        <span>3 aylık paket · tek seferlik ödeme</span>
+      </div>
+      <a class="cta-btn ghost" href="story-mode.html">Ücretsiz Dene</a>
+      <hr class="divider">
+      <ul class="features">
+        <li><span class="icon yes">✓</span> Practice Exam — sınırsız soru</li>
+        <li><span class="icon yes">✓</span> PM Simülasyon — tüm senaryolar</li>
+        <li><span class="icon yes">✓</span> Flashcard setleri</li>
+        <li><span class="icon yes">✓</span> Türkçe / İngilizce Sözlük</li>
+        <li><span class="icon yes">✓</span> Detaylı karne & analitik</li>
+        <li><span class="icon yes">✓</span> İlerleme kaydı</li>
+        <li class="dim"><span class="icon no">✗</span> Takım yönetimi</li>
+        <li class="dim"><span class="icon no">✗</span> Eğitmen paneli</li>
+      </ul>
+    </div>
+
+    <!-- KOBİ — Featured -->
+    <div class="plan-card featured">
+      <div class="popular-badge">⭐ En Popüler</div>
+      <div class="plan-name">KOBİ</div>
+      <div class="plan-title">Takım Lisansı</div>
+      <div class="plan-desc">Şirket içi liderlik yetkinlik programları için.</div>
+      <div class="plan-users">2 – 50 kullanıcı</div>
+      <div class="plan-price">
+        <span class="price-amount">2.500</span>
+        <span class="price-unit">₺/kişi</span>
+      </div>
+      <div class="price-period">
+        <span>3 aylık paket · kullanıcı başına</span>
+      </div>
+      <a class="cta-btn" href="story-mode.html">Ücretsiz Dene</a>
+      <hr class="divider">
+      <ul class="features">
+        <li><span class="icon yes">✓</span> Bireysel'in tüm özellikleri</li>
+        <li><span class="icon yes">✓</span> Takım yönetimi paneli</li>
+        <li><span class="icon yes">✓</span> Grup ilerleme raporları</li>
+        <li><span class="icon yes">✓</span> Eğitmen hesabı</li>
+        <li><span class="icon yes">✓</span> Toplu lisans yönetimi</li>
+        <li><span class="icon yes">✓</span> Öncelikli e-posta desteği</li>
+        <li class="dim"><span class="icon no">✗</span> Kuruma özel uyarlanmış senaryolar</li>
+        <li class="dim"><span class="icon no">✗</span> API / LMS entegrasyonu</li>
+      </ul>
+    </div>
+
+    <!-- Kurumsal -->
+    <div class="plan-card">
+      <div class="plan-name">Kurumsal</div>
+      <div class="plan-title">Kurumsal Çözüm</div>
+      <div class="plan-desc">50+ çalışan ve özel içerik gerektiren kurumlar için.</div>
+      <div class="plan-price">
+        <span class="price-amount" style="font-size:28px; padding-bottom:5px;">Teklif Al</span>
+      </div>
+      <div class="price-period" style="min-height:18px">&nbsp;</div>
+      <a class="cta-btn outline" href="mailto:info@yetkinlider.com?subject=Kurumsal%20Teklif">İletişime Geç</a>
+      <hr class="divider">
+      <ul class="features">
+        <li><span class="icon yes">✓</span> KOBİ'nin tüm özellikleri</li>
+        <li><span class="icon yes">✓</span> Sınırsız kullanıcı</li>
+        <li><span class="icon yes">✓</span> Kuruma özel uyarlanmış senaryolar</li>
+        <li><span class="icon yes">✓</span> LMS / API entegrasyonu</li>
+        <li><span class="icon yes">✓</span> Kurumsal fatura & sözleşme</li>
+        <li><span class="icon yes">✓</span> SLA garantisi</li>
+        <li><span class="icon yes">✓</span> Özel onboarding</li>
+        <li><span class="icon yes">✓</span> 7/24 öncelikli destek</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- Guarantee -->
+<div class="guarantee">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+  7 gün içinde memnun kalmazsanız ücretin tamamını iade ediyoruz.
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2>Sık Sorulan Sorular</h2>
+
+  <details class="faq-item">
+    <summary>Ücretsiz deneme nasıl çalışır?</summary>
+    <p>Kredi kartı girmeden 7 gün boyunca tüm özellikleri kullanabilirsiniz. Deneme süresi dolduğunda ödeme yapmazsanız hesabınız otomatik olarak ücretsiz plana geçer.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>İstediğim zaman iptal edebilir miyim?</summary>
+    <p>Evet, dilediğiniz zaman iptal edebilirsiniz. İptal ettiğinizde mevcut dönem sonuna kadar erişiminiz devam eder.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Yıllık plana geçersem ne olur?</summary>
+    <p>Yıllık plana geçtiğinizde kalan aylık ödemeniz yıllık ücrete mahsup edilir. %20 indirim uygulanır ve tek seferde yıllık tutar ödenir.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>KOBİ planında kullanıcı sayısını artırabilir miyim?</summary>
+    <p>Evet, istediğiniz zaman ek lisans ekleyebilirsiniz. Fark tutarı kalan dönem için orantılı olarak hesaplanır.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary>Fatura kesiliyor mu?</summary>
+    <p>Tüm planlarda e-fatura/e-arşiv fatura düzenlenmektedir. Kurumsal planda ek olarak özel ödeme koşulları ve sözleşme yapılabilir.</p>
+  </details>
+</div>
+
+<script>
+const toggle = document.getElementById('billingToggle');
+const grid   = document.getElementById('plansGrid');
+const lblM   = document.getElementById('lblMonthly');
+const lblY   = document.getElementById('lblYearly');
+
+toggle.addEventListener('change', () => {
+  const yearly = toggle.checked;
+  grid.classList.toggle('yearly', yearly);
+  lblM.classList.toggle('active', !yearly);
+  lblY.classList.toggle('active', yearly);
+
+  document.querySelectorAll('[data-monthly][data-yearly]').forEach(el => {
+    el.textContent = yearly ? el.dataset.yearly : el.dataset.monthly;
+  });
+});
+
+// ── NAV ─────────────────────────────────────────────────────────────────────────────────
+(function() {
+  const hamburger = document.getElementById('hamburger');
+  const menuPanel  = document.getElementById('menuPanel');
+  hamburger.addEventListener('click', () => {
+    const open = menuPanel.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(open));
+  });
+  document.addEventListener('click', e => {
+    if (!hamburger.contains(e.target) && !menuPanel.contains(e.target)) {
+      menuPanel.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  menuPanel.querySelectorAll('.menu-item').forEach(a => {
+    a.addEventListener('click', () => { menuPanel.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); });
+  });
+  const page = location.pathname.split('/').pop() || 'index.html';
+  menuPanel.querySelectorAll('.menu-item[href]').forEach(a => { if (a.getAttribute('href') === page) a.classList.add('active'); });
+  const SESSION_KEY = 'pmSim_session';
+  function getSession() { try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch { return null; } }
+  const session  = getSession();
+  const navUser  = document.getElementById('navUser');
+  const menuAuth = document.getElementById('menuAuth');
+  const uSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+  const lSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>';
+  if (session) {
+    const photo = localStorage.getItem('pmSim_profile_photo');
+    const av = photo ? '<img src="' + photo + '" alt="">' : (session.displayName || '?')[0].toUpperCase();
+    navUser.innerHTML = '<div class="nav-av">' + av + '</div><span class="nav-username">' + session.displayName + '</span>';
+    menuAuth.innerHTML = '<div class="menu-auth-row"><div class="nav-av">' + av + '</div><span class="menu-auth-name">' + session.displayName + '</span><button class="btn-menu-logout" onclick="localStorage.removeItem(\'pmSim_session\');location.reload()">' + lSvg + ' Çıkış</button></div>';
+  } else {
+    const ret = encodeURIComponent(location.href);
+    menuAuth.innerHTML = '<div class="menu-auth-row"><a class="btn-menu-login" href="index.html?auth=1&return=' + ret + '">' + uSvg + ' Giriş Yap / Kayıt Ol</a></div>';
+  }
+})();
+</script>
+</body>
+</html>

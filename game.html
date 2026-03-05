@@ -1,0 +1,2285 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PM Liderlik Simülasyonu — YetkinLider</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f1520;--surface:#141d2e;--surface2:#1a2540;
+  --nav-bg:#0d1220;--nav-border:rgba(255,255,255,.07);
+  --list-bg:#111827;--list-border:rgba(255,255,255,.08);
+  --detail-bg:#f8fafc;
+  --accent:#3b82f6;--accent-dark:#2563eb;
+  --green:#22c55e;--red:#ef4444;--amber:#f59e0b;--purple:#8b5cf6;
+  --text:#1e293b;--text-inv:#f1f5f9;--muted:#64748b;--dim:#94a3b8;
+  --nav-w:0px;--list-w:360px;--topbar-h:52px;
+  --r:10px;--r-sm:6px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text-inv);min-height:100vh;overflow:hidden}
+button{border:none;cursor:pointer;font-family:inherit;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+
+/* TOPBAR */
+#topbar{position:fixed;top:0;left:0;right:0;height:var(--topbar-h);background:var(--nav-bg);border-bottom:1px solid var(--nav-border);display:flex;align-items:center;gap:10px;padding:0 14px;z-index:100}
+  .brand-logo { width: 26px; height: 26px; border-radius: 5px; flex-shrink: 0; filter: brightness(0) invert(1); }
+  .brand{font-weight:700;font-size:15px}
+.brand sup{font-size:.55em;vertical-align:super;opacity:.8}
+.topbar-right{display:flex;align-items:center;gap:8px;margin-left:auto}
+.btn-hamburger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;padding:6px;background:transparent;border:none;cursor:pointer;border-radius:6px;transition:background .15s;flex-shrink:0}
+.btn-hamburger:hover{background:rgba(255,255,255,.1)}
+.btn-hamburger span{display:block;width:18px;height:2px;background:rgba(255,255,255,.75);border-radius:2px;transition:all .2s}
+.topbar-menu{position:absolute;top:calc(var(--topbar-h) + 6px);left:10px;background:#1b2539;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:6px;min-width:230px;z-index:300;box-shadow:0 10px 32px rgba(0,0,0,.5)}
+.topbar-menu.hidden{display:none}
+.menu-user{display:flex;align-items:center;gap:10px;padding:10px 8px 12px;cursor:default}
+.menu-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#6366f1);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0;color:#fff;overflow:hidden}
+.menu-user-info{min-width:0}
+.menu-name{font-size:13px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.menu-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px}
+.menu-divider{height:1px;background:rgba(255,255,255,.08);margin:4px 0}
+.menu-item{display:flex;align-items:center;gap:9px;width:100%;padding:8px 10px;font-size:13px;color:rgba(255,255,255,.75);background:transparent;border:none;border-radius:6px;cursor:pointer;text-decoration:none;transition:background .15s;text-align:left}
+.menu-item:hover{background:rgba(255,255,255,.08);color:#fff}
+.menu-item svg{flex-shrink:0;opacity:.65}
+.menu-item:hover svg{opacity:1}
+.xp-badge{background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.3);color:#fbbf24;font-size:11px;font-weight:700;border-radius:10px;padding:2px 8px}
+.btn-hub{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:var(--text-inv);font-size:12px;border-radius:6px;padding:6px 12px;transition:background .15s}
+.btn-hub:hover{background:rgba(255,255,255,.14)}
+
+/* SCREENS */
+.screen{position:fixed;inset:var(--topbar-h) 0 0 0;overflow:hidden}
+.hidden{display:none!important}
+
+/* AUTH OVERLAY */
+#auth-overlay{position:fixed;inset:0;background:rgba(10,14,23,.88);backdrop-filter:blur(12px);z-index:250;display:flex;align-items:center;justify-content:center;padding:20px}
+.auth-card{background:var(--surface);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:36px;width:100%;max-width:400px;position:relative}
+.auth-logo{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#3b82f6,#6366f1);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 16px;box-shadow:0 8px 24px rgba(59,130,246,.3)}
+.auth-title{font-size:22px;font-weight:800;text-align:center;margin-bottom:4px}
+.auth-sub{font-size:13px;color:var(--dim);text-align:center;margin-bottom:20px}
+.auth-tabs{display:flex;gap:0;background:rgba(255,255,255,.06);border-radius:8px;padding:3px;margin-bottom:22px}
+.auth-tab{flex:1;padding:8px;font-size:13px;font-weight:600;border-radius:6px;color:rgba(255,255,255,.4);transition:all .15s;background:none}
+.auth-tab.active{background:var(--accent);color:#fff}
+.auth-field{margin-bottom:12px}
+.auth-field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.4);margin-bottom:5px}
+.field-input{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 13px;color:var(--text-inv);font-size:14px;outline:none;transition:border .15s;font-family:inherit}
+.field-input:focus{border-color:var(--accent)}
+.auth-error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;font-size:12px;padding:8px 12px;border-radius:6px;margin-top:6px}
+.auth-divider{text-align:center;font-size:12px;color:rgba(255,255,255,.25);margin:14px 0 4px}
+.auth-switch{font-size:12px;color:var(--dim);text-align:center;margin-top:10px}
+.auth-switch button{color:var(--accent);font-size:12px;font-weight:600;text-decoration:underline;background:none;border:none;cursor:pointer}
+.auth-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.07);border-radius:6px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);cursor:pointer;font-size:16px;transition:all .15s}
+.auth-close:hover{background:rgba(255,255,255,.12);color:var(--text-inv)}
+
+/* COMMON BUTTONS */
+.field-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);text-align:left;margin-bottom:6px}
+.btn-primary{width:100%;background:var(--accent);color:#fff;font-size:17px;font-weight:700;padding:15px;border-radius:8px;transition:background .15s;margin-top:10px}
+.btn-primary:hover:not(:disabled){background:var(--accent-dark)}
+.btn-primary:disabled{opacity:.45;cursor:default}
+.welcome-hint{font-size:12px;color:var(--muted);margin-top:10px}
+
+/* TOAST */
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;color:#f1f5f9;font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:500;transition:opacity .3s;pointer-events:none}
+#toast.hidden{opacity:0}
+
+/* UNSAVED DIALOG */
+#unsaved-overlay{position:fixed;inset:0;background:rgba(15,21,32,.7);backdrop-filter:blur(6px);z-index:350;display:flex;align-items:center;justify-content:center}
+.unsaved-box{background:#fff;border-radius:14px;padding:28px;max-width:380px;width:90%;box-shadow:0 24px 64px rgba(0,0,0,.35)}
+.unsaved-title{font-size:16px;font-weight:700;color:#1e293b;margin-bottom:6px}
+.unsaved-sub{font-size:13px;color:#64748b;margin-bottom:20px;line-height:1.55}
+.unsaved-actions{display:flex;gap:10px;justify-content:flex-end}
+.btn-unsaved-leave{background:#ef4444;color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:7px;transition:background .15s}
+.btn-unsaved-leave:hover{background:#dc2626}
+.btn-unsaved-save{background:var(--accent);color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:7px;transition:background .15s;display:flex;align-items:center;gap:6px}
+.btn-unsaved-save:hover{background:var(--accent-dark)}
+.btn-unsaved-cancel{background:#f1f5f9;color:#475569;font-size:13px;font-weight:600;padding:9px 16px;border-radius:7px}
+.btn-unsaved-cancel:hover{background:#e2e8f0}
+
+/* SAVE INDICATOR */
+.save-hint{font-size:11px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:5px}
+.save-hint kbd{background:rgba(255,255,255,.1);border-radius:4px;padding:1px 5px;font-size:10px}
+
+/* PM NAME IN CAREER */
+.setup-name-input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:9px 12px;color:var(--text-inv);font-size:13px;outline:none;font-family:inherit;transition:border .15s;width:100%}
+.setup-name-input:focus{border-color:var(--accent)}
+
+/* LOGOUT BUTTON */
+.btn-logout{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:11px;font-weight:600;padding:5px 10px;border-radius:5px;transition:all .15s}
+.btn-logout:hover{background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.4);color:#fca5a5}
+
+/* MODE SELECT */
+#screen-mode{background:linear-gradient(135deg,#0f1520,#141d2e);display:flex;align-items:center;justify-content:center;padding:20px}
+.welcome-wrap{background:linear-gradient(135deg,#0f1520 0%,#141d2e 60%,#0d1823 100%);display:flex;align-items:center;justify-content:center;height:100%;padding:20px}
+.welcome-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:40px 36px;width:100%;max-width:420px;text-align:center}
+.welcome-icon{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,#3b82f6,#6366f1);display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 20px;box-shadow:0 8px 24px rgba(59,130,246,.3)}
+.welcome-title{font-size:24px;font-weight:800;margin-bottom:8px}
+.welcome-sub{font-size:14px;color:var(--dim);margin-bottom:28px;line-height:1.6}
+.resume-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:16px 18px;margin-bottom:12px;text-align:left}
+.resume-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.35);margin-bottom:4px}
+.resume-meta{font-size:13px;color:rgba(255,255,255,.6);line-height:1.5}
+.btn-outline-welcome{width:100%;background:transparent;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);font-size:14px;font-weight:600;padding:11px;border-radius:8px;cursor:pointer;transition:all .15s;margin-top:4px}
+.btn-outline-welcome:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8)}
+.save-list{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;max-height:260px;overflow-y:auto}
+.save-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 14px}
+.save-info{flex:1;text-align:left;min-width:0}
+.save-title{font-size:14px;font-weight:600;color:rgba(255,255,255,.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.save-meta{font-size:12px;color:rgba(255,255,255,.4);margin-top:2px}
+.btn-resume-item{background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.35);color:#93c5fd;font-size:12px;font-weight:600;padding:7px 14px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0}
+.btn-resume-item:hover{background:rgba(59,130,246,.3);border-color:#3b82f6;color:#fff}
+.mode-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:36px;width:100%;max-width:560px}
+.mode-card h2{font-size:20px;font-weight:700;margin-bottom:6px}
+.mode-card>p{font-size:13px;color:var(--dim);margin-bottom:24px}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mode-btn{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:12px;padding:22px 18px;text-align:left;transition:border-color .15s,background .15s}
+.mode-btn:hover{border-color:var(--accent);background:rgba(59,130,246,.08)}
+.mode-btn .m-icon{font-size:28px;margin-bottom:10px}
+.mode-btn .m-title{font-size:15px;font-weight:700;color:var(--text-inv);margin-bottom:4px}
+.mode-btn .m-desc{font-size:12px;color:var(--dim);line-height:1.5}
+
+/* CAREER SETUP */
+#screen-career{background:linear-gradient(135deg,#0f1520,#141d2e);display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.setup-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;width:100%;max-width:600px;overflow:hidden}
+.setup-card-head{padding:26px 30px 20px;border-bottom:1px solid rgba(255,255,255,.07)}
+.setup-card-head h2{font-size:18px;font-weight:700;margin-bottom:4px}
+.setup-card-head p{font-size:13px;color:var(--dim)}
+.setup-row{display:grid;grid-template-columns:130px 1fr;align-items:center;gap:14px;padding:14px 30px;border-bottom:1px solid rgba(255,255,255,.05)}
+.setup-row:last-of-type{border-bottom:none}
+.setup-row-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.4)}
+.opt-group{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.opt-cell{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:5px;padding:11px 8px;font-size:14px;font-weight:500;color:rgba(255,255,255,.5);cursor:pointer;text-align:center;transition:all .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.opt-cell:hover{background:rgba(255,255,255,.09);color:var(--text-inv);border-color:rgba(255,255,255,.2)}
+.opt-cell.selected{background:rgba(59,130,246,.18);border-color:var(--accent);color:#93c5fd;font-weight:600}
+.opt-cell.opt-random{border-style:dashed;color:rgba(255,255,255,.3)}
+.opt-cell.opt-random.selected{background:rgba(139,92,246,.15);border-color:var(--purple);color:#c4b5fd}
+.setup-card-foot{padding:18px 30px;border-top:1px solid rgba(255,255,255,.07)}
+.setup-select{width:100%;padding:10px 14px;background:#1e293b;border:1px solid rgba(255,255,255,.12);border-radius:8px;color:#fff;font-size:14px;cursor:pointer;outline:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.setup-select:focus{border-color:#3b82f6}
+.setup-select option{background:#1e293b;color:#fff}
+.opt-cell:disabled{opacity:.3;cursor:not-allowed;pointer-events:none}
+.opt-group.three-col{grid-template-columns:repeat(3,1fr)}
+.scenario-preview{margin:0 30px 16px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:10px 14px;font-size:13px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:8px}
+.scenario-preview.hidden{display:none}
+/* Dev toolbar */
+.dev-toolbar{display:flex;gap:8px;padding:10px 36px 0;border-top:1px dashed rgba(251,191,36,.2);margin-top:12px}
+.dev-btn{background:none;border:1px solid rgba(251,191,36,.3);border-radius:6px;padding:5px 12px;font-size:11px;font-weight:600;cursor:pointer;color:#fbbf24;letter-spacing:.04em;transition:all .15s}
+.dev-btn:hover{background:rgba(251,191,36,.1);border-color:#fbbf24}
+.dev-btn.report{border-color:rgba(239,68,68,.3);color:#f87171}
+.dev-btn.report:hover{background:rgba(239,68,68,.1);border-color:#f87171}
+/* Dev modal */
+.dev-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:400;display:flex;align-items:center;justify-content:center;padding:20px}
+.dev-modal-overlay.hidden{display:none}
+.dev-modal{background:#1e293b;border:1px solid rgba(255,255,255,.12);border-radius:12px;width:100%;max-width:580px;max-height:90vh;overflow-y:auto;padding:24px}
+.dev-modal h3{font-size:16px;font-weight:700;color:#fbbf24;margin-bottom:16px}
+.dev-field{margin-bottom:14px}
+.dev-field label{display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.4);margin-bottom:5px}
+.dev-field input,.dev-field textarea{width:100%;background:#0f1520;border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:8px 10px;color:#e2e8f0;font-size:13px;resize:vertical;font-family:inherit}
+.dev-field textarea{min-height:70px}
+.dev-modal-foot{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07)}
+.dev-modal-foot button{padding:8px 18px;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;border:none}
+.btn-dev-save{background:#3b82f6;color:#fff}
+.btn-dev-cancel{background:rgba(255,255,255,.07);color:#94a3b8}
+.btn-dev-copy{background:#10b981;color:#fff}
+
+/* YETKİNLİK ALANI WIZARD */
+#screen-perf{background:linear-gradient(135deg,#0f1520,#141d2e);display:flex;align-items:flex-start;justify-content:center;padding:32px 20px;overflow-y:auto}
+.comp-wizard{width:100%;max-width:680px}
+.wizard-steps{display:flex;align-items:center;gap:6px;margin-bottom:28px}
+.wizard-step{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:5px 14px;border-radius:20px;color:rgba(255,255,255,.3);background:rgba(255,255,255,.05);transition:all .2s}
+.wizard-step.active{background:var(--accent);color:#fff}
+.wizard-step.done{background:rgba(16,185,129,.2);color:#6ee7b7}
+.wizard-sep{color:rgba(255,255,255,.2);font-size:14px}
+.comp-wizard h2{font-size:20px;font-weight:700;margin-bottom:6px}
+.comp-wizard>div>p{font-size:13px;color:var(--dim);margin-bottom:22px}
+.wiz-back{background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);font-size:12px;font-weight:600;padding:5px 14px;border-radius:6px;cursor:pointer;margin-bottom:18px;transition:all .15s}
+.wiz-back:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8)}
+/* Domain cards */
+.domain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:12px}
+.domain-card{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.09);border-radius:14px;padding:22px 16px;text-align:left;cursor:pointer;transition:all .15s}
+.domain-card:hover{border-color:var(--accent);background:rgba(59,130,246,.08)}
+.domain-card.selected{border-color:var(--accent);background:rgba(59,130,246,.12)}
+.domain-icon{font-size:28px;margin-bottom:10px}
+.domain-title{font-size:15px;font-weight:700;color:var(--text-inv);margin-bottom:5px}
+.domain-sub{font-size:11px;color:var(--dim);line-height:1.5;margin-bottom:8px}
+.domain-count{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+/* Competency grid */
+.comp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-bottom:12px}
+.comp-card{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.09);border-radius:10px;padding:16px 14px;text-align:left;cursor:pointer;transition:all .15s}
+.comp-card:hover{border-color:var(--accent);background:rgba(59,130,246,.07)}
+.comp-card.selected{border-color:var(--accent);background:rgba(59,130,246,.12)}
+.comp-icon{font-size:22px;margin-bottom:8px}
+.comp-title{font-size:13px;font-weight:700;color:var(--text-inv);margin-bottom:3px}
+.comp-dec-count{font-size:11px;color:var(--dim)}
+/* Difficulty cards */
+.diff-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+.diff-card{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.09);border-radius:12px;padding:20px 16px;text-align:center;cursor:pointer;transition:all .15s}
+.diff-card:hover{border-color:var(--accent);background:rgba(59,130,246,.07)}
+.diff-card.selected{border-color:var(--accent);background:rgba(59,130,246,.12)}
+.diff-icon{font-size:28px;margin-bottom:10px}
+.diff-name{font-size:15px;font-weight:700;color:var(--text-inv);margin-bottom:5px}
+.diff-sub{font-size:11px;color:var(--dim);line-height:1.5}
+
+/* FM 3-PANEL */
+.fm-layout{display:grid;grid-template-columns:var(--list-w) 1fr;height:100%;overflow:hidden}
+.fm-nav{background:var(--nav-bg);border-right:1px solid var(--nav-border);display:flex;flex-direction:column;overflow:hidden}
+.fm-nav-section{padding:12px 12px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.3)}
+.fm-nav-item{display:flex;align-items:center;gap:9px;padding:9px 14px;font-size:13px;color:rgba(255,255,255,.55);cursor:pointer;transition:all .12s;border-left:2px solid transparent}
+.fm-nav-item:hover{background:rgba(255,255,255,.05);color:var(--text-inv)}
+.fm-nav-item.active{background:rgba(59,130,246,.1);color:#93c5fd;border-left-color:var(--accent)}
+.nav-icon{font-size:15px;width:18px;text-align:center}
+.fm-nav-spacer{flex:1}
+.fm-nav-footer{padding:12px;border-top:1px solid var(--nav-border)}
+.fm-nav-xp{display:flex;justify-content:space-between;font-size:12px;color:var(--dim)}
+.fm-nav-xp span:last-child{color:#fbbf24;font-weight:700}
+
+.fm-list{background:var(--list-bg);border-right:1px solid var(--list-border);display:flex;flex-direction:column;overflow:hidden}
+.fm-list-header{padding:16px 18px 12px;border-bottom:1px solid var(--list-border);flex-shrink:0}
+.fm-list-header h2{font-size:16px;font-weight:700;color:var(--text-inv);margin-bottom:3px}
+.fm-list-header p{font-size:13px;color:rgba(255,255,255,.45)}
+.fm-list-body{flex:1;overflow-y:auto;padding:4px 0}
+.fm-list-body::-webkit-scrollbar{width:3px}
+.fm-list-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px}
+
+.notif-item{padding:13px 14px;cursor:pointer;border:1.5px solid transparent;border-radius:6px;margin:3px 6px;transition:all .12s;position:relative}
+.notif-item:hover{background:rgba(255,255,255,.04)}
+.notif-item.active{background:rgba(34,197,94,.07);border-color:var(--green)!important}
+.notif-item.unread .ni-from{font-weight:700;color:var(--text-inv)}
+.notif-item.read{opacity:.45}
+.notif-item.decision-item .ni-subject::before{content:'⚡ ';font-size:9px;opacity:.7}
+.ni-from{font-size:15px;color:rgba(255,255,255,.85);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ni-subject{font-size:13px;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ni-snippet{font-size:12px;color:rgba(255,255,255,.28);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}
+.ni-meta{display:flex;align-items:center;gap:6px;margin-top:4px}
+.ni-time{font-size:12px;color:rgba(255,255,255,.25)}
+.ni-dot{width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0}
+.sec-divider{padding:8px 14px 5px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.28);background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.05)}
+
+/* FM DETAIL: SPLIT LAYOUT */
+.fm-detail{background:#fff;display:grid;grid-template-rows:2fr 3fr;overflow:hidden;height:100%}
+/* TOP: received email */
+.fm-email-pane{overflow-y:auto;padding:28px 36px 20px;background:#fff;border-bottom:2px solid #e2e8f0}
+.fm-email-pane::-webkit-scrollbar{width:5px}
+.fm-email-pane::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}
+
+.ph-wrap{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);text-align:center;gap:10px}
+.ph-icon{font-size:40px;opacity:.35}
+.ph-title{font-size:15px;font-weight:600;color:var(--muted)}
+.ph-sub{font-size:13px;color:#94a3b8}
+
+.nd-header{display:flex;align-items:flex-start;gap:14px;padding-bottom:14px;border-bottom:1px solid #e2e8f0;margin-bottom:16px}
+.sender-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#6366f1);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.nd-meta{flex:1;min-width:0}
+.nd-subject{font-size:20px;font-weight:700;color:var(--text);margin-bottom:6px}
+.nd-from{font-size:14px;color:var(--muted)}
+.nd-from b{color:#374151}
+.nd-body{font-size:16px;color:#374151;line-height:1.8;white-space:pre-line;margin-bottom:16px}
+.nd-sig{padding-top:14px;border-top:1px dashed #e2e8f0;font-size:14px}
+.sig-name{font-weight:700;color:#1e293b;margin-bottom:1px}
+.sig-role{color:#64748b}
+.sig-company{color:#94a3b8;font-size:11px}
+
+/* BOTTOM: compose reply */
+.fm-compose-pane{display:flex;flex-direction:column;background:#f8fafc;overflow:hidden}
+.compose-header{padding:12px 18px;background:#fff;border-bottom:1px solid #e2e8f0;flex-shrink:0}
+.compose-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#94a3b8;padding-bottom:8px;border-bottom:1px solid #f1f5f9;margin-bottom:6px}
+.compose-row{display:flex;align-items:baseline;gap:10px;padding:3px 0;font-size:14px}
+.cmp-label{color:#94a3b8;font-weight:600;width:74px;flex-shrink:0;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.cmp-val{color:#374151;font-weight:500;flex:1;font-size:14px}
+.cmp-badge{background:#dbeafe;color:#1e40af;font-size:9px;font-weight:700;padding:1px 6px;border-radius:10px;margin-left:5px;vertical-align:middle}
+
+.compose-opts{flex:1;overflow-y:auto;padding:8px 12px;display:flex;flex-direction:column;gap:6px}
+.compose-opts::-webkit-scrollbar{width:3px}
+.compose-opts::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:2px}
+.cmp-opt{display:flex;align-items:flex-start;gap:11px;padding:14px 16px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:all .12s;width:100%;text-align:left}
+.cmp-opt:hover:not([disabled]):not(.cmp-unavail){border-color:#93c5fd;background:#f0f7ff}
+.cmp-opt input[type=radio]{margin-top:3px;flex-shrink:0;accent-color:var(--accent);cursor:pointer;width:17px;height:17px}
+.cmp-opt.cmp-chosen{border-color:var(--accent)!important;background:#eff6ff!important}
+.cmp-opt.cmp-sent-good{border-color:var(--green)!important;background:#f0fdf4!important}
+.cmp-opt.cmp-sent-bad{border-color:var(--red)!important;background:#fef2f2!important}
+.cmp-opt.cmp-sent-mid{border-color:var(--amber)!important;background:#fffbeb!important}
+.cmp-opt.cmp-unavail{opacity:.38;cursor:not-allowed}
+.cmp-opt[disabled]{cursor:default;pointer-events:none}
+.cmp-opt-text{font-size:17px;color:#374151;line-height:1.6;flex:1}
+
+.compose-feedback-bar{padding:10px 16px;font-size:14px;display:flex;align-items:flex-start;gap:8px;line-height:1.55;flex-shrink:0}
+.cfb-good{background:#f0fdf4;border-top:1px solid #bbf7d0;color:#166534}
+.cfb-ok{background:#fffbeb;border-top:1px solid #fde68a;color:#92400e}
+.cfb-bad{background:#fef2f2;border-top:1px solid #fecaca;color:#991b1b}
+
+.compose-footer{padding:12px 16px;background:#fff;border-top:1px solid #e2e8f0;flex-shrink:0;display:flex;align-items:center;gap:12px}
+.btn-compose-send{background:var(--accent);color:#fff;font-size:17px;font-weight:700;padding:13px 28px;border-radius:8px;transition:all .15s;display:flex;align-items:center;gap:8px}
+.btn-compose-send:hover:not(:disabled){background:var(--accent-dark)}
+.btn-compose-send:disabled{opacity:.35;cursor:default}
+.compose-hint{font-size:13px;color:#94a3b8}
+
+.story-ack{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:6px;color:#94a3b8;text-align:center;padding:20px}
+.story-ack-icon{font-size:26px;opacity:.5}
+.story-ack-text{font-size:13px;font-weight:600}
+.story-ack-hint{font-size:11px}
+
+/* GAME CLOCK */
+.game-clock{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:600;color:rgba(255,255,255,.65);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+
+/* TOPBAR CONTINUE BUTTON */
+.btn-continue-top{background:var(--accent);color:#fff;font-size:15px;font-weight:700;padding:9px 20px;border-radius:6px;transition:all .15s;display:flex;align-items:center;gap:6px}
+.btn-continue-top:hover:not(:disabled){background:var(--accent-dark)}
+.btn-continue-top:disabled{opacity:.35;cursor:default}
+.btn-continue-top kbd{background:rgba(255,255,255,.2);border-radius:4px;padding:1px 5px;font-size:10px}
+
+/* DECISION ACTION CARDS */
+.dec-label{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#94a3b8;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #e2e8f0}
+.action-list{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.action-card{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:18px 22px;cursor:pointer;transition:all .15s;width:100%;text-align:left}
+.action-card:hover:not([disabled]):not(.ac-chosen):not(.ac-chosen-bad){border-color:#93c5fd;background:#f0f7ff;transform:translateX(3px)}
+.action-card[disabled]{cursor:default}
+.action-card.ac-chosen{border-color:var(--green)!important;background:#f0fdf4!important}
+.action-card.ac-chosen-bad{border-color:var(--red)!important;background:#fef2f2!important}
+.action-card.ac-neutral{border-color:var(--amber)!important;background:#fffbeb!important}
+.ac-plane{flex-shrink:0;color:#cbd5e1;transition:color .15s}
+.action-card:hover:not([disabled]):not(.ac-chosen):not(.ac-chosen-bad) .ac-plane{color:var(--accent)}
+.action-card.ac-chosen .ac-plane{color:var(--green)}
+.action-card.ac-chosen-bad .ac-plane{color:var(--red)}
+.action-card.ac-neutral .ac-plane{color:var(--amber)}
+.ac-text{font-size:17px;color:#374151;line-height:1.6;flex:1}
+.ac-disabled{opacity:.38;cursor:not-allowed!important}
+.ac-disabled:hover{transform:none!important;border-color:#e2e8f0!important;background:#fff!important}
+
+/* FEEDBACK */
+.fb-box{border-radius:10px;padding:14px 16px;margin-top:4px;display:flex;align-items:flex-start;gap:10px}
+.fb-good{background:#f0fdf4;border:1px solid #bbf7d0}
+.fb-ok{background:#fffbeb;border:1px solid #fde68a}
+.fb-bad{background:#fef2f2;border:1px solid #fecaca}
+.fb-icon{font-size:18px;flex-shrink:0}
+.fb-text{font-size:13px;line-height:1.55;color:#374151}
+.fb-text strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.xp-pill{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:10px;margin-top:6px}
+.xp-plus{background:#dcfce7;color:#166534}
+.xp-minus{background:#fee2e2;color:#991b1b}
+
+/* PM GLOSSARY TERMS */
+.pm-term{font-weight:700;color:#0f4f8a;border-bottom:1px dashed #93c5fd;cursor:help;position:relative}
+.pm-term::after{content:attr(data-def);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#1e293b;color:#f1f5f9;font-size:11px;font-weight:400;line-height:1.5;padding:8px 12px;border-radius:7px;white-space:normal;width:220px;z-index:60;box-shadow:0 4px 16px rgba(0,0,0,.35);pointer-events:none;opacity:0;transition:opacity .15s}
+.pm-term:hover::after{opacity:1}
+
+/* DAY TRANSITION OVERLAY */
+#day-transition{position:fixed;inset:0;background:rgba(10,14,23,.92);backdrop-filter:blur(10px);z-index:400;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.dt-icon{font-size:52px;animation:dt-pulse 1s ease-in-out infinite alternate}
+@keyframes dt-pulse{from{opacity:.4;transform:scale(.92)}to{opacity:1;transform:scale(1.06)}}
+.dt-date{font-size:32px;font-weight:900;color:#fff;letter-spacing:.02em}
+.dt-quote{font-size:13px;color:rgba(255,255,255,.5);max-width:380px;text-align:center;font-style:italic;line-height:1.6}
+.dt-bar{width:240px;height:2px;background:rgba(255,255,255,.12);border-radius:1px;overflow:hidden;margin-top:8px}
+.dt-bar-fill{height:100%;background:var(--accent);animation:dt-fill 3.2s linear forwards}
+@keyframes dt-fill{from{width:0}to{width:100%}}
+
+/* CONFIRM MODAL */
+#confirm-overlay{position:fixed;inset:0;background:rgba(15,21,32,.6);backdrop-filter:blur(6px);z-index:300;display:flex;align-items:center;justify-content:center}
+.confirm-box{background:#fff;border-radius:14px;padding:28px;max-width:440px;width:90%;box-shadow:0 24px 64px rgba(0,0,0,.35)}
+.confirm-title{font-size:15px;font-weight:700;color:#1e293b;margin-bottom:4px}
+.confirm-sub{font-size:12px;color:#64748b;margin-bottom:14px}
+.confirm-text{font-size:13px;color:#374151;line-height:1.65;padding:12px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:16px}
+.confirm-remember{display:flex;align-items:center;gap:9px;font-size:12px;color:#64748b;margin-bottom:20px;cursor:pointer;user-select:none}
+.confirm-remember input[type=checkbox]{width:15px;height:15px;cursor:pointer;accent-color:var(--accent)}
+.confirm-actions{display:flex;gap:10px;justify-content:flex-end}
+.btn-cancel{background:#f1f5f9;color:#475569;font-size:13px;font-weight:600;padding:9px 18px;border-radius:7px;transition:background .15s}
+.btn-cancel:hover{background:#e2e8f0}
+.btn-send{background:var(--accent);color:#fff;font-size:13px;font-weight:700;padding:9px 20px;border-radius:7px;transition:background .15s;display:flex;align-items:center;gap:7px}
+.btn-send:hover{background:var(--accent-dark)}
+
+/* RESULT / KARNE */
+#screen-result{background:var(--bg);overflow-y:auto;padding:0}
+.karne-wrap{min-height:100%;padding:32px 20px 48px;display:flex;flex-direction:column;align-items:center;gap:0}
+/* Header strip */
+.karne-header{width:100%;max-width:760px;background:linear-gradient(135deg,#1e3a5f,#1e293b);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px}
+.karne-player{display:flex;align-items:center;gap:14px}
+.karne-av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#6366f1);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;flex-shrink:0}
+.karne-player-name{font-size:20px;font-weight:800;color:#fff;margin-bottom:2px}
+.karne-player-role{font-size:12px;color:rgba(255,255,255,.5)}
+.karne-badge{text-align:right}
+.karne-grade{font-size:52px;font-weight:900;line-height:1}
+.karne-grade-label{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em}
+/* XP row */
+.karne-xp-row{width:100%;max-width:760px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.karne-stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px 18px;text-align:center}
+.karne-stat-val{font-size:28px;font-weight:900;color:#fbbf24;margin-bottom:2px}
+.karne-stat-label{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em}
+/* Talent triangle */
+.karne-tt-title{width:100%;max-width:760px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.35);margin-bottom:10px}
+.karne-tt-grid{width:100%;max-width:760px;display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.tt-area{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:28px 1fr 56px;align-items:center;gap:12px}
+.tt-icon{font-size:20px;text-align:center}
+.tt-info{}
+.tt-name{font-size:13px;font-weight:700;color:#f1f5f9;margin-bottom:1px}
+.tt-desc{font-size:11px;color:rgba(255,255,255,.35)}
+.tt-bar-col{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.tt-pct{font-size:15px;font-weight:800;color:#f1f5f9}
+.tt-bar-wrap{width:100%;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+.tt-bar-fill{height:100%;border-radius:2px;transition:width 1s ease}
+/* Scenario competencies */
+.karne-comp-title{width:100%;max-width:760px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.35);margin-bottom:10px}
+.comp-grid{width:100%;max-width:760px;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+.comp-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:12px 14px}
+.c-label{font-size:11px;color:var(--dim);margin-bottom:6px;font-weight:600}
+.c-bar-wrap{height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+.c-bar{height:4px;border-radius:2px}
+.c-score{font-size:12px;font-weight:700;color:#93c5fd;margin-top:4px}
+/* 3-Domain PMP Competency Cards */
+.domain-card{width:100%;max-width:760px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 20px;margin-bottom:14px}
+.domain-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07)}
+.domain-icon{font-size:18px}
+.domain-title{font-size:12px;font-weight:800;color:#f1f5f9;flex:1;text-transform:uppercase;letter-spacing:.08em}
+.domain-weight{font-size:11px;color:rgba(255,255,255,.4);background:rgba(255,255,255,.07);padding:2px 9px;border-radius:10px;font-weight:600}
+.domain-score-big{font-size:22px;font-weight:900}
+.comp-row{display:flex;align-items:center;gap:8px;padding:6px 0}
+.comp-row:not(:last-child){border-bottom:1px solid rgba(255,255,255,.04)}
+.comp-row-lbl{font-size:12px;color:rgba(255,255,255,.65);min-width:175px;flex-shrink:0;font-weight:500}
+.comp-row-bar-wrap{flex:1;height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.comp-row-bar{height:100%;border-radius:3px;transition:width .4s ease}
+.comp-row-pct{font-size:12px;font-weight:700;width:36px;text-align:right;flex-shrink:0}
+.comp-lvl{font-size:9px;font-weight:800;padding:2px 7px;border-radius:8px;flex-shrink:0;text-transform:uppercase;letter-spacing:.07em;width:42px;text-align:center;cursor:help}
+.lvl-giris{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.25)}
+.lvl-orta{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.25)}
+.lvl-ileri{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25)}
+/* ── INTRO SCREENS ──────────────────────────────────────────────────────── */
+#screen-intro{background:#080c14;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:40px 24px}
+.intro-stage{max-width:520px;width:100%;display:flex;flex-direction:column}
+.intro-step-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.18);text-align:center;margin-bottom:44px}
+.intro-body{display:flex;flex-direction:column;gap:18px;min-height:240px;animation:introFadeIn .45s ease}
+@keyframes introFadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.intro-p{font-size:15px;line-height:1.75;color:rgba(255,255,255,.8);font-weight:400}
+.intro-p.inner{font-style:italic;color:rgba(255,255,255,.38);font-size:14px}
+.intro-p.question{font-size:17px;font-weight:600;color:#f1f5f9;margin-top:4px}
+.intro-p.strong{color:rgba(255,255,255,.92);font-weight:500}
+.intro-dots{display:flex;gap:6px;justify-content:center;margin:36px 0 28px}
+.intro-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s}
+.intro-dot.active{background:rgba(255,255,255,.55)}
+.intro-btn-wrap{display:flex;justify-content:center}
+.btn-intro-next{background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);font-size:13px;font-weight:600;padding:11px 36px;border-radius:8px;cursor:pointer;letter-spacing:.04em;transition:all .2s}
+.btn-intro-next:hover{border-color:rgba(255,255,255,.45);color:#fff;background:rgba(255,255,255,.05)}
+.btn-intro-next.final{border-color:rgba(99,179,237,.4);color:#90cdf4}
+.btn-intro-next.final:hover{border-color:#63b3ed;color:#fff;background:rgba(99,179,237,.08)}
+
+/* Footer */
+.karne-footer{width:100%;max-width:760px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-restart{background:var(--accent);color:#fff;font-size:14px;font-weight:700;padding:13px 28px;border-radius:8px;transition:background .15s}
+.btn-restart:hover{background:var(--accent-dark)}
+
+/* LOCKED DECISION SHAKE */
+@keyframes compose-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.compose-shake{animation:compose-shake .45s ease-in-out}
+.compose-locked-hint{background:#fff3cd;border-top:1px solid #fde68a;padding:8px 14px;font-size:12px;color:#92400e;display:flex;align-items:center;gap:7px;flex-shrink:0}
+
+@media(max-width:900px){:root{--nav-w:0px;--list-w:260px}.fm-nav{overflow:hidden}}
+@media(max-width:640px){:root{--list-w:200px}.fm-detail-inner{padding:18px 16px 28px}}
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <button id="btn-hamburger" class="btn-hamburger">
+    <span></span><span></span><span></span>
+  </button>
+  <a class="brand" href="index.html"><img src="logo.png" class="brand-logo" alt="YetkinLider">YetkinLider<sup style="font-size:.55em;vertical-align:super;opacity:.8">&#8482;</sup></a>
+  <div class="topbar-right">
+    <div id="game-clock" class="game-clock hidden">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span id="game-date">-</span>
+      <span style="opacity:.4">·</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span id="game-time">-</span>
+    </div>
+    <button id="btn-continue-top" class="btn-continue-top hidden" disabled>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      Devam Et
+    </button>
+  </div>
+  <!-- Açılır Menü -->
+  <div id="topbar-menu" class="topbar-menu hidden">
+    <div class="menu-user">
+      <div class="menu-av" id="menu-av">?</div>
+      <div class="menu-user-info">
+        <div class="menu-name" id="menu-name">Giriş yapılmadı</div>
+        <div class="menu-sub" id="menu-sub"></div>
+      </div>
+    </div>
+    <div class="menu-divider"></div>
+    <button class="menu-item" id="menu-auth-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Giriş / Kayıt
+    </button>
+    <div class="menu-divider"></div>
+    <button class="menu-item" id="menu-save-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+      Kaydet
+    </button>
+    <button class="menu-item" id="menu-save-exit-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Kaydet ve Çık
+    </button>
+    <button class="menu-item" id="menu-exit-btn" style="color:#f87171">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Kaydetmeden Çık
+    </button>
+    <div class="menu-divider"></div>
+    <a class="menu-item" href="scorecard.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Yetkinlik Kartı
+    </a>
+    <button class="menu-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Ayarlar
+    </button>
+  </div>
+</div>
+
+<!-- WELCOME -->
+<div id="screen-welcome" class="screen">
+  <div class="welcome-wrap">
+    <div class="welcome-card">
+      <!-- filled dynamically by renderWelcomeScreen() -->
+      <div class="welcome-icon">📬</div>
+      <h1 class="welcome-title">PM İş Simülasyonu</h1>
+      <p class="welcome-sub">Yükleniyor…</p>
+    </div>
+  </div>
+</div>
+
+<!-- AUTH: managed centrally in index.html -->
+
+<!-- MODE SELECT -->
+<div id="screen-mode" class="screen hidden">
+  <div class="mode-card">
+    <h2>Mod Seçin</h2>
+    <p>Hangi deneyimi yaşamak istiyorsunuz?</p>
+    <div class="mode-grid">
+      <button class="mode-btn" id="btn-career">
+        <div class="m-icon">🚀</div>
+        <div class="m-title">Kariyer Modu</div>
+        <div class="m-desc">Gerçek bir şirkette PM olarak başla. Sektör, zorluk ve çalışma yöntemini seç.</div>
+      </button>
+      <button class="mode-btn" id="btn-perf">
+        <div class="m-icon">🎯</div>
+        <div class="m-title">Yetkinlik Alanı</div>
+        <div class="m-desc">İnsan, Süreç veya İş Çevresi alanında odaklı bir yetkinlik simülasyonu başlat.</div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- CAREER SETUP -->
+<div id="screen-career" class="screen hidden">
+  <div class="setup-card">
+    <div class="setup-card-head">
+      <h2>Kariyer Kurulumu</h2>
+      <p>Sektörünü ve zorluk seviyeni seç.</p>
+    </div>
+    <div class="setup-row">
+      <div class="setup-row-label">PM Adı</div>
+      <input id="inp-pm-name" class="setup-name-input" type="text" placeholder="Adınız..." maxlength="30" autocomplete="off">
+    </div>
+    <div class="setup-row">
+      <div class="setup-row-label">Sektör</div>
+      <select id="sel-sector" class="setup-select">
+        <option value="">— Sektör seçin —</option>
+      </select>
+    </div>
+    <div class="setup-row">
+      <div class="setup-row-label">Zorluk</div>
+      <select id="sel-difficulty" class="setup-select" disabled>
+        <option value="">— Önce sektör seçin —</option>
+      </select>
+    </div>
+    <div class="scenario-preview hidden" id="scenario-preview">📋 <span id="scenario-preview-text"></span></div>
+    <div class="setup-card-foot">
+      <button id="btn-career-go" class="btn-primary" disabled>Yolculuğa Başla 🚀</button>
+    </div>
+  </div>
+</div>
+
+<!-- YETKİNLİK ALANI WIZARD -->
+<div id="screen-perf" class="screen hidden">
+  <div class="comp-wizard">
+    <div class="wizard-steps">
+      <div class="wizard-step active" id="wstep-1">1 Alan</div>
+      <div class="wizard-sep">›</div>
+      <div class="wizard-step" id="wstep-2">2 Yetkinlik</div>
+      <div class="wizard-sep">›</div>
+      <div class="wizard-step" id="wstep-3">3 Seviye</div>
+    </div>
+
+    <!-- Step 1: Domain -->
+    <div id="wiz-step-1">
+      <h2>Yetkinlik Alanı Seçin</h2>
+      <p>Hangi alanda kendinizi geliştirmek istiyorsunuz?</p>
+      <div class="domain-grid">
+        <button class="domain-card" data-domain="people">
+          <div class="domain-icon">👥</div>
+          <div class="domain-title">İnsan</div>
+          <div class="domain-sub">Liderlik, çatışma yönetimi, takım gelişimi ve duygusal zeka</div>
+          <div class="domain-count">4 yetkinlik</div>
+        </button>
+        <button class="domain-card" data-domain="process">
+          <div class="domain-icon">⚙️</div>
+          <div class="domain-title">Süreç</div>
+          <div class="domain-sub">Entegrasyon, kapsam, zaman, maliyet, kalite, risk ve tedarik</div>
+          <div class="domain-count">8 yetkinlik</div>
+        </button>
+        <button class="domain-card" data-domain="business">
+          <div class="domain-icon">🌍</div>
+          <div class="domain-title">İş Çevresi</div>
+          <div class="domain-sub">Uyumluluk, fayda/değer yönetimi ve kurumsal değişim</div>
+          <div class="domain-count">4 yetkinlik</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2: Competency -->
+    <div id="wiz-step-2" class="hidden">
+      <button class="wiz-back" id="wiz-back-1">← Geri</button>
+      <h2 id="wiz-comp-title">Yetkinlik Seçin</h2>
+      <p>Bu alanda odaklanmak istediğiniz yetkinliği seçin.</p>
+      <div class="comp-grid" id="comp-grid"></div>
+    </div>
+
+    <!-- Step 3: Difficulty -->
+    <div id="wiz-step-3" class="hidden">
+      <button class="wiz-back" id="wiz-back-2">← Geri</button>
+      <h2 id="wiz-diff-title">Seviye Seçin</h2>
+      <p id="wiz-diff-sub">Hangi seviyede simülasyon yapmak istiyorsunuz?</p>
+      <div class="diff-cards">
+        <button class="diff-card" data-diff="beginner">
+          <div class="diff-icon">🌱</div>
+          <div class="diff-name">Aday</div>
+          <div class="diff-sub">Temel kavramlar ve standart senaryolar</div>
+        </button>
+        <button class="diff-card" data-diff="intermediate">
+          <div class="diff-icon">⚡</div>
+          <div class="diff-name">Yetkin</div>
+          <div class="diff-sub">Karmaşık durumlar ve baskı altında karar verme</div>
+        </button>
+        <button class="diff-card" data-diff="advanced">
+          <div class="diff-icon">🏆</div>
+          <div class="diff-name">Lider</div>
+          <div class="diff-sub">Kritik kriz yönetimi ve stratejik liderlik</div>
+        </button>
+      </div>
+      <button id="btn-comp-go" class="btn-primary" disabled>Simülasyonu Başlat 🚀</button>
+    </div>
+  </div>
+</div>
+
+<!-- INBOX/PLAY -->
+<div id="screen-inbox" class="screen hidden">
+  <div class="fm-layout">
+    <div class="fm-list">
+      <div class="fm-list-header">
+        <h2 id="list-title">Bildirimler</h2>
+        <p id="list-sub"></p>
+      </div>
+      <div class="fm-list-body" id="notif-list"></div>
+    </div>
+    <div class="fm-detail">
+      <div class="fm-email-pane" id="notif-email">
+        <div class="ph-wrap">
+          <div class="ph-icon">📬</div>
+          <div class="ph-title">Bildirim seçin</div>
+          <p class="ph-sub">Sol listeden bir bildirim seçin<br>veya <kbd>Space</kbd> ile ilerleyin.</p>
+        </div>
+      </div>
+      <div class="fm-compose-pane" id="notif-compose"></div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY TRANSITION OVERLAY -->
+<div id="day-transition" class="hidden">
+  <div class="dt-icon">⏳</div>
+  <div class="dt-date" id="dt-date"></div>
+  <div class="dt-quote" id="dt-quote"></div>
+  <div class="dt-bar"><div class="dt-bar-fill" id="dt-bar-fill"></div></div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="hidden"></div>
+
+<!-- DEV EDIT MODAL -->
+<div id="dev-edit-overlay" class="dev-modal-overlay hidden">
+  <div class="dev-modal">
+    <h3>✏️ Bildirimi Düzenle <span id="dev-edit-id" style="font-size:12px;color:#94a3b8"></span></h3>
+    <div class="dev-field"><label>Konu (Subject)</label><input id="dev-f-subject" type="text"></div>
+    <div class="dev-field"><label>İçerik (Body)</label><textarea id="dev-f-body" rows="4"></textarea></div>
+    <div id="dev-options-wrap"></div>
+    <div class="dev-modal-foot">
+      <button class="btn-dev-cancel" onclick="Game.closeDevEdit()">İptal</button>
+      <button class="btn-dev-save" onclick="Game.saveDevEdit()">💾 Kaydet (Yerel)</button>
+    </div>
+  </div>
+</div>
+
+<!-- DEV REPORT MODAL -->
+<div id="dev-report-overlay" class="dev-modal-overlay hidden">
+  <div class="dev-modal">
+    <h3>⚠️ Sorun Bildir</h3>
+    <div class="dev-field"><label>Bildirim Bilgisi</label><input id="dev-r-info" type="text" readonly></div>
+    <div class="dev-field"><label>Sorun Açıklaması</label><textarea id="dev-r-desc" rows="4" placeholder="Neyin yanlış olduğunu açıklayın..."></textarea></div>
+    <div class="dev-modal-foot">
+      <button class="btn-dev-cancel" onclick="Game.closeDevReport()">İptal</button>
+      <button class="btn-dev-copy" onclick="Game.copyDevReport()">📋 Panoya Kopyala</button>
+    </div>
+  </div>
+</div>
+
+<!-- UNSAVED DIALOG -->
+<div id="unsaved-overlay" class="hidden">
+  <div class="unsaved-box">
+    <div class="unsaved-title">⚠️ Kaydedilmemiş ilerleme</div>
+    <div class="unsaved-sub">Oyun ilerlemeniz kaydedilmedi. Çıkmadan önce kaydetmek ister misiniz?</div>
+    <div class="unsaved-actions">
+      <button class="btn-unsaved-cancel" onclick="Game.closeUnsaved()">İptal</button>
+      <button class="btn-unsaved-leave" onclick="Game.leaveWithoutSave()">Kaydetmeden Çık</button>
+      <button class="btn-unsaved-save" onclick="Game.saveAndLeave()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Kaydet ve Çık
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div id="confirm-overlay" class="hidden">
+  <div class="confirm-box">
+    <div class="confirm-title">Kararınızı gönderiyorsunuz</div>
+    <div class="confirm-sub">Bu karar geri alınamaz. Onaylıyor musunuz?</div>
+    <div class="confirm-text" id="confirm-text"></div>
+    <label class="confirm-remember">
+      <input type="checkbox" id="confirm-skip">
+      Bir daha sorma
+    </label>
+    <div class="confirm-actions">
+      <button class="btn-cancel" id="btn-cancel-confirm">İptal</button>
+      <button class="btn-send" id="btn-confirm-send">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Gönder
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT / KARNE -->
+<div id="screen-result" class="screen hidden">
+  <div class="karne-wrap">
+    <div class="karne-header" id="karne-header">
+      <div class="karne-player">
+        <div class="karne-av" id="karne-av">?</div>
+        <div>
+          <div class="karne-player-name" id="karne-player-name"></div>
+          <div class="karne-player-role" id="karne-player-role"></div>
+        </div>
+      </div>
+      <div class="karne-badge">
+        <div class="karne-grade" id="karne-grade">A</div>
+        <div class="karne-grade-label">Genel Not</div>
+      </div>
+    </div>
+    <div class="karne-xp-row">
+      <div class="karne-stat"><div class="karne-stat-val" id="karne-xp">0</div><div class="karne-stat-label">Toplam XP</div></div>
+      <div class="karne-stat"><div class="karne-stat-val" id="karne-decisions">0</div><div class="karne-stat-label">Karar Verildi</div></div>
+      <div class="karne-stat"><div class="karne-stat-val" id="karne-ethics">0</div><div class="karne-stat-label">Etik İhlali</div></div>
+    </div>
+    <div class="karne-tt-title" id="karne-tt-title">Yetkinlik Profili</div>
+    <div class="karne-tt-grid" id="karne-tt-grid"></div>
+    <div class="karne-comp-title" id="karne-comp-label" style="display:none">Senaryo Yetkinlik Alanları</div>
+    <div class="comp-grid" id="comp-grid"></div>
+    <div class="karne-footer">
+      <button class="btn-restart" onclick="Game.restart()">🔄 Yeniden Oyna</button>
+      <a href="index.html" class="btn-restart" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);text-decoration:none">← Ana Sayfa</a>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO SCREENS -->
+<div id="screen-intro" class="screen hidden">
+  <div class="intro-stage">
+    <div class="intro-step-label" id="intro-step-label"></div>
+    <div class="intro-body" id="intro-body"></div>
+    <div class="intro-dots" id="intro-dots"></div>
+    <div class="intro-btn-wrap">
+      <button class="btn-intro-next" id="btn-intro-next" onclick="Game.introNext()">Devam</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var Game; Game = (() => {
+  const S = {
+    name:'', mode:'', setup:{}, scenario:null, manifest:null, devMode:false,
+    notifs:[], answered:{}, xp:0, dCount:0, activeId:null, sectionId:1,
+    skipConfirm: false, shuffles:{}, pendingKey:{},
+    revealedIds: new Set(), dayBatches: [], dayIndex: 0, gameDate: null,
+    hasUnsavedChanges: false
+  };
+  let _pendingChoose = null;
+  let _pendingLeave = null;
+  const SCREENS = ['screen-welcome','screen-mode','screen-career','screen-perf','screen-inbox','screen-result','screen-intro'];
+  const show = id => {
+    SCREENS.forEach(s => {
+      const el = document.getElementById(s);
+      if (s === id) { el.classList.remove('hidden'); el.style.display = ''; }
+      else { el.classList.add('hidden'); }
+    });
+    const inInbox = id === 'screen-inbox';
+    document.getElementById('btn-continue-top').classList.toggle('hidden', !inInbox);
+    updateAuthButtons();
+  };
+
+  // ── AUTH HELPERS ─────────────────────────────────────────────────────────
+  const USERS_KEY = 'pmSim_users';
+  const SESSION_KEY = 'pmSim_session';
+
+  function authGetUsers() {
+    try { return JSON.parse(localStorage.getItem(USERS_KEY) || '[]'); } catch { return []; }
+  }
+  function authGetSession() {
+    try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch { return null; }
+  }
+  function authSaveSession(user) {
+    localStorage.setItem(SESSION_KEY, JSON.stringify({ username: user.username, displayName: user.displayName }));
+  }
+  function afterAuth(user) {
+    updateAuthButtons();
+    // Pre-fill name inputs if empty
+    const nameEl = document.getElementById('inp-name');
+    if(nameEl && !nameEl.value) nameEl.value = user.displayName;
+    const pmEl = document.getElementById('inp-pm-name');
+    if(pmEl && !pmEl.value) pmEl.value = user.displayName;
+    // If S.name not set, set it
+    if(!S.name) S.name = user.displayName;
+    updateAuthButtons();
+    closeAuthOverlay();
+    showToast('✓ Hoş geldin, ' + user.displayName + '!');
+  }
+  function toggleMenu() {
+    const menu = document.getElementById('topbar-menu');
+    if (menu) menu.classList.toggle('hidden');
+  }
+  function closeMenu() {
+    const menu = document.getElementById('topbar-menu');
+    if (menu) menu.classList.add('hidden');
+  }
+  function updateAuthButtons() {
+    const session = authGetSession();
+    const menuAv   = document.getElementById('menu-av');
+    const menuName = document.getElementById('menu-name');
+    const menuSub  = document.getElementById('menu-sub');
+    const authBtn  = document.getElementById('menu-auth-btn');
+    const profilePhoto = localStorage.getItem('pmSim_profile_photo');
+    if (session) {
+      if (menuAv) {
+        if (profilePhoto) {
+          menuAv.innerHTML = `<img src="${profilePhoto}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+        } else {
+          menuAv.textContent = (session.displayName || '?')[0].toUpperCase();
+        }
+      }
+      if (menuName) menuName.textContent = session.displayName || session.username;
+      if (menuSub)  menuSub.textContent = session.email ? session.email : '@' + session.username;
+      if (authBtn) {
+        authBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Çıkış Yap`;
+        authBtn.setAttribute('onclick', 'Game.doLogout()');
+      }
+    } else {
+      if (menuAv) {
+        if (profilePhoto) {
+          menuAv.innerHTML = `<img src="${profilePhoto}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+        } else {
+          menuAv.textContent = '?';
+        }
+      }
+      if (menuName) menuName.textContent = 'Giriş yapılmadı';
+      if (menuSub)  menuSub.textContent = '';
+      if (authBtn) {
+        authBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Giriş / Kayıt`;
+        authBtn.setAttribute('onclick', 'Game.openAuthOverlay()');
+      }
+    }
+  }
+  function openAuthOverlay() {
+    // Auth yönetimi index.html'de — oyunu koruyarak giriş sayfasına yönlendir
+    window.location.href = 'index.html?auth=1&return=game.html';
+  }
+  function closeAuthOverlay() { /* index.html'de yönetilir */ }
+  function doLogout() {
+    const doIt = () => {
+      localStorage.removeItem(SESSION_KEY);
+      S.name = ''; S.hasUnsavedChanges = false;
+      closeMenu();
+      updateAuthButtons();
+      showToast('Çıkış yapıldı');
+    };
+    if(S.hasUnsavedChanges && S.scenario) {
+      showUnsavedDialog(doIt);
+    } else {
+      doIt();
+    }
+  }
+
+  // ── DIFFICULTY WEIGHT ────────────────────────────────────────────────────
+  // beginner=1, intermediate=3, advanced=5  (random → treat as medium=3)
+  function getDifficultyWeight(difficulty) {
+    return { beginner: 1, intermediate: 3, advanced: 5 }[difficulty] || 3;
+  }
+
+  // ── SAVE / LOAD ───────────────────────────────────────────────────────────
+  function getSaveKey() {
+    if(!S.scenario) return null;
+    const session = authGetSession();
+    const userKey = session ? session.username : (S.name || 'guest');
+    return `pmSim_save_${userKey}_${S.scenario.id}`;
+  }
+  function saveGame() {
+    const key = getSaveKey();
+    if(!key) return;
+    const data = {
+      scenarioId: S.scenario.id, scenarioTitle: S.scenario.title || S.scenario.id, sectionId: S.sectionId,
+      totalDecisions: S.notifs.filter(n => n.type === 'decision').length,
+      difficultyWeight: getDifficultyWeight(S.setup?.difficulty),
+      answered: S.answered, xp: S.xp, dCount: S.dCount,
+      shuffles: S.shuffles, pendingKey: S.pendingKey,
+      dayBatches: S.dayBatches, dayIndex: S.dayIndex,
+      gameDate: S.gameDate?.toISOString(),
+      revealedIds: [...S.revealedIds], activeId: S.activeId,
+      setup: S.setup, name: S.name,
+      savedAt: new Date().toISOString()
+    };
+    localStorage.setItem(key, JSON.stringify(data));
+    S.hasUnsavedChanges = false;
+    showToast('✓ Oyun kaydedildi');
+  }
+  function hasSaveGame() { const k = getSaveKey(); return k && !!localStorage.getItem(k); }
+
+  // ── TOAST ─────────────────────────────────────────────────────────────────
+  let _toastTimer = null;
+  function showToast(msg, duration=2200) {
+    const el = document.getElementById('toast');
+    if(!el) return;
+    el.textContent = msg;
+    el.classList.remove('hidden');
+    if(_toastTimer) clearTimeout(_toastTimer);
+    _toastTimer = setTimeout(() => el.classList.add('hidden'), duration);
+  }
+
+  // ── UNSAVED DIALOG ────────────────────────────────────────────────────────
+  function showUnsavedDialog(callback) {
+    _pendingLeave = callback;
+    document.getElementById('unsaved-overlay').classList.remove('hidden');
+  }
+  function closeUnsaved() {
+    _pendingLeave = null;
+    document.getElementById('unsaved-overlay').classList.add('hidden');
+  }
+  function leaveWithoutSave() {
+    const cb = _pendingLeave;
+    closeUnsaved();
+    if(cb) cb();
+    else window.location.href = 'index.html';
+  }
+  function saveAndLeave() {
+    if(S.scenario) saveGame();
+    const cb = _pendingLeave;
+    closeUnsaved();
+    if(cb) cb();
+    else window.location.href = 'index.html';
+  }
+
+  let GLOSSARY = {};
+
+  async function loadGlossary() {
+    try {
+      const r = await fetch('data/glossary.json');
+      if (!r.ok) return;
+      const terms = await r.json();
+      const list = Array.isArray(terms) ? terms : (terms.terms || []);
+      list.forEach(t => {
+        if (t.term) GLOSSARY[t.term] = `${t.term}${t.termTR ? ' ('+t.termTR+')' : ''} – ${t.definitionTR || t.definition || ''}`;
+        if (t.termTR && t.termTR !== t.term) GLOSSARY[t.termTR] = `${t.termTR} (${t.term}) – ${t.definitionTR || t.definition || ''}`;
+      });
+    } catch(e) {}
+  }
+
+  function planeSVG(sz=15) {
+    return `<svg width="${sz}" height="${sz}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`;
+  }
+
+  function highlightGlossary(text) {
+    const terms = Object.keys(GLOSSARY).sort((a,b)=>b.length-a.length);
+    // Work on unescaped text, track replacement regions
+    const regions = []; // {start, end, term, matched}
+    terms.forEach(term => {
+      const re = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'gi');
+      let m;
+      while((m = re.exec(text)) !== null) {
+        const s = m.index, e = m.index + m[0].length;
+        if(!regions.some(r => r.s < e && r.e > s)) {
+          regions.push({s, e, term, matched: m[0]});
+        }
+      }
+    });
+    regions.sort((a,b) => a.s - b.s);
+    let result = '', pos = 0;
+    regions.forEach(({s, e, term, matched}) => {
+      result += esc(text.slice(pos, s));
+      result += `<mark class="pm-term" data-def="${esc(GLOSSARY[term])}">${esc(matched)}</mark>`;
+      pos = e;
+    });
+    result += esc(text.slice(pos));
+    return result;
+  }
+
+  const COMPETENCY_DOMAINS = {
+    people: {
+      title: 'İnsan', icon: '👥',
+      comps: [
+        { id:'catisma',          title:'Çatışma Yönetimi',   icon:'🤝', decisions:10 },
+        { id:'liderlik',         title:'Liderlik',            icon:'🎯', decisions:5  },
+        { id:'takim_gelisimi',   title:'Takım Gelişimi',      icon:'🏅', decisions:10 },
+        { id:'eq',               title:'Duygusal Zeka',       icon:'💡', decisions:6  },
+      ]
+    },
+    process: {
+      title: 'Süreç', icon: '⚙️',
+      comps: [
+        { id:'entegrasyon', title:'Entegrasyon Yönetimi', icon:'🔗', decisions:23 },
+        { id:'kapsam',      title:'Kapsam Yönetimi',      icon:'📋', decisions:17 },
+        { id:'zaman',       title:'Zaman Yönetimi',       icon:'⏰', decisions:16 },
+        { id:'maliyet',     title:'Maliyet Yönetimi',     icon:'💰', decisions:11 },
+        { id:'kalite',      title:'Kalite Yönetimi',      icon:'✅', decisions:12 },
+        { id:'risk',        title:'Risk Yönetimi',        icon:'⚠️', decisions:9  },
+        { id:'tedarik',     title:'Tedarik Yönetimi',     icon:'📦', decisions:19 },
+        { id:'kapanis',     title:'Kapanış Süreçleri',    icon:'🏁', decisions:14 },
+      ]
+    },
+    business: {
+      title: 'İş Çevresi', icon: '🌍',
+      comps: [
+        { id:'uyumluluk',          title:'Uyumluluk & Etik',    icon:'⚖️', decisions:15 },
+        { id:'fayda_deger',        title:'Fayda & Değer',        icon:'📈', decisions:4  },
+        { id:'kurumsal_degisim',   title:'Kurumsal Değişim',     icon:'🔄', decisions:3  },
+        { id:'dis_cevre',          title:'Dış Çevre',            icon:'🌐', decisions:6  },
+      ]
+    }
+  };
+
+  function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  /* ── Save helpers ─────────────────────────────────────────── */
+  function findUserSaves() {
+    const session = authGetSession();
+    if (!session) return [];
+    const prefix = `pmSim_save_${session.username}_`;
+    const saves = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(prefix)) {
+        try { const d = JSON.parse(localStorage.getItem(key)); if (d) saves.push(d); } catch {}
+      }
+    }
+    return saves.sort((a, b) => new Date(b.savedAt) - new Date(a.savedAt));
+  }
+
+  async function resumeSave(saveData) {
+    try {
+      const r = await fetch(`data/scenarios/${saveData.scenarioId}.json`);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      S.scenario    = await r.json();
+      S.notifs      = S.scenario.notifications || [];
+      S.name        = saveData.name || S.name;
+      S.setup       = saveData.setup || {};
+      S.sectionId   = saveData.sectionId || 1;
+      S.answered    = saveData.answered || {};
+      S.xp          = saveData.xp || 0;
+      S.dCount      = saveData.dCount || 0;
+      S.shuffles    = saveData.shuffles || {};
+      S.pendingKey  = saveData.pendingKey || {};
+      S.dayBatches  = saveData.dayBatches || [];
+      S.dayIndex    = saveData.dayIndex || 0;
+      S.gameDate    = saveData.gameDate ? new Date(saveData.gameDate) : new Date(2025, 0, 6);
+      S.revealedIds = new Set(saveData.revealedIds || []);
+      S.activeId    = saveData.activeId || null;
+      S.hasUnsavedChanges = false;
+      S.skipConfirm = false;
+      document.title = (S.scenario.title || 'Simülasyon') + ' — YetkinLider';
+      document.getElementById('game-clock').classList.remove('hidden');
+      updateXP(); updateAuthButtons();
+      const visible = S.notifs.filter(n => S.revealedIds.has(n.id));
+      renderList(visible);
+      // Restore clock
+      const curBatch = S.dayBatches[Math.min(S.dayIndex, S.dayBatches.length - 1)] || [];
+      const lastN = S.notifs.find(n => n.id === curBatch[curBatch.length - 1]);
+      updateClockDisplay(lastN?.time);
+      // Select active notif
+      const target = S.activeId ? S.notifs.find(x => x.id === S.activeId)
+                   : S.notifs.find(n => S.revealedIds.has(n.id) && !S.answered[n.id]);
+      if (target) selectNotif(target);
+      updateContinueBtn();
+      show('screen-inbox');
+    } catch(e) { alert('Kayıt yüklenemedi: ' + e.message); }
+  }
+
+  function renderWelcomeScreen(session, saves) {
+    const card = document.querySelector('#screen-welcome .welcome-card');
+    if (!card) return;
+    const pmEl = document.getElementById('inp-pm-name');
+    if (pmEl) pmEl.value = session.displayName;
+    S.name = session.displayName;
+
+    if (saves.length > 0) {
+      const saveItemsHTML = saves.map((sv, idx) => {
+        const d    = new Date(sv.savedAt);
+        const date = d.toLocaleDateString('tr-TR', { day:'numeric', month:'short', year:'numeric' });
+        const totalDec   = sv.totalDecisions || (sv.dayBatches||[]).flat().length;
+        const done       = Object.values(sv.answered||{}).filter(v => v !== 'READ').length;
+        const pct        = totalDec > 0 ? Math.min(100, Math.round((done / totalDec) * 100)) : 0;
+        const isComplete = pct >= 100;
+        const title      = sv.scenarioTitle || sv.scenarioId || 'Senaryo';
+        const xpBadge    = isComplete ? ` · ${sv.xp||0} XP` : '';
+        return `<div class="save-item">
+          <div class="save-info">
+            <div class="save-title">${title}</div>
+            <div class="save-meta">${date} · %${pct} tamamlandı${xpBadge}</div>
+          </div>
+          <button class="btn-resume-item" data-idx="${idx}">▶ Devam</button>
+        </div>`;
+      }).join('');
+
+      card.innerHTML = `
+        <div class="welcome-icon">📬</div>
+        <h1 class="welcome-title">Hoş geldin, ${session.displayName}!</h1>
+        <div class="save-list">${saveItemsHTML}</div>
+        <button id="btn-new-game" class="btn-outline-welcome">Yeni Oyun Başlat</button>`;
+
+      card.querySelectorAll('.btn-resume-item').forEach(btn => {
+        btn.onclick = () => resumeSave(saves[+btn.dataset.idx]);
+      });
+      document.getElementById('btn-new-game').onclick = () => show('screen-mode');
+    } else {
+      card.innerHTML = `
+        <div class="welcome-icon">📬</div>
+        <h1 class="welcome-title">Hoş geldin, ${session.displayName}!</h1>
+        <p class="welcome-sub">Gerçek bir PM olarak çalış. Bildirimlerini yönet, kararlar ver, projeyi tamamla.</p>
+        <button id="btn-start-new" class="btn-primary">Başla →</button>`;
+      document.getElementById('btn-start-new').onclick = () => show('screen-mode');
+    }
+  }
+
+  function init() {
+    loadGlossary();
+    // ── Auth gate: misafir moduna izin ver ────────────────────
+    let session = authGetSession();
+    if (!session) {
+      session = { username: 'guest', displayName: 'Misafir' };
+    }
+    S.name = session.displayName;
+    S.devMode = session.devMode || false;
+    updateAuthButtons();
+
+    // ?preview=<scenarioId> — mock skorlarla sonuç ekranını göster
+    const previewId = new URLSearchParams(location.search).get('preview');
+    if (previewId) { previewScorecard(previewId); return; }
+
+    // Find existing saves and render welcome accordingly
+    const saves = findUserSaves();
+    renderWelcomeScreen(session, saves);
+
+    // Hamburger menü
+    document.getElementById('btn-hamburger').onclick = e => { e.stopPropagation(); toggleMenu(); };
+    document.getElementById('menu-auth-btn').onclick = () => { closeMenu(); openAuthOverlay(); };
+    document.getElementById('menu-save-btn').onclick = () => { saveGame(); closeMenu(); };
+    document.getElementById('menu-save-exit-btn').onclick = () => { closeMenu(); saveAndLeave(); };
+    document.getElementById('menu-exit-btn').onclick     = () => { closeMenu(); leaveWithoutSave(); };
+    document.addEventListener('click', e => {
+      if (!e.target.closest('#topbar-menu') && !e.target.closest('#btn-hamburger')) closeMenu();
+    });
+
+    document.getElementById('btn-continue-top').onclick = advance;
+    document.getElementById('btn-career').onclick = () => { S.mode='career'; show('screen-career'); };
+    document.getElementById('btn-perf').onclick = () => { S.mode='perf'; initCompWizard(); show('screen-perf'); };
+    document.getElementById('btn-career-go').onclick = startCareer;
+
+    // Zorluk dropdown değişince senaryo önizlemesi göster
+    document.getElementById('sel-difficulty').addEventListener('change', e => {
+      const sector = document.getElementById('sel-sector').value;
+      const diff   = e.target.value;
+      const match  = (S.manifest?.scenarios||[]).find(s => s.sector === sector && s.difficulty === diff);
+      const prev   = document.getElementById('scenario-preview');
+      const txt    = document.getElementById('scenario-preview-text');
+      if (match && diff && prev && txt) {
+        txt.textContent = match.title + ' · ' + match.decisions + ' karar';
+        prev.classList.remove('hidden');
+      } else {
+        prev?.classList.add('hidden');
+      }
+      checkCareerReady();
+    });
+
+    // Sektör dropdown değişince zorluk seçeneklerini güncelle
+    document.getElementById('sel-sector').addEventListener('change', e => {
+      updateDifficultySelect(e.target.value);
+      document.getElementById('scenario-preview')?.classList.add('hidden');
+      checkCareerReady();
+    });
+
+    // PM name input updates career ready state
+    document.getElementById('inp-pm-name')?.addEventListener('input', checkCareerReady);
+
+    // Manifest yükle → sektör dropdown'ı doldur
+    fetch('data/scenarios/manifest.json').then(r => r.json()).then(m => {
+      S.manifest = m;
+      buildSectorDropdown();
+    }).catch(() => {});
+
+    // Compose pane: option selection + send (event delegation — no inline onclick needed)
+    document.getElementById('notif-compose').addEventListener('click', e => {
+      // Option button click
+      const optBtn = e.target.closest('[data-opt-key]');
+      if (optBtn && !optBtn.disabled) {
+        selectOption(+optBtn.dataset.optId, optBtn.dataset.optKey);
+        return;
+      }
+      // Send button click
+      const sendBtn = e.target.closest('[data-send-id]');
+      if (sendBtn && !sendBtn.disabled) {
+        sendSelected(+sendBtn.dataset.sendId);
+      }
+    });
+
+    // Confirm dialog buttons
+    document.getElementById('btn-cancel-confirm').onclick = closeConfirm;
+    document.getElementById('btn-confirm-send').onclick   = confirmSend;
+
+    // Auth butonlarını güncelle (topbar)
+
+    // Keyboard navigation
+    document.addEventListener('keydown', e => {
+      // Ctrl+S → save game
+      if((e.ctrlKey||e.metaKey) && e.key==='s') {
+        e.preventDefault();
+        if(S.scenario && !document.getElementById('screen-inbox').classList.contains('hidden')) saveGame();
+        return;
+      }
+      // Space → advance
+      if(e.code==='Space' && !document.getElementById('screen-inbox').classList.contains('hidden')){
+        e.preventDefault(); advance();
+      }
+    });
+
+    // Brand link unsaved guard
+    document.querySelector('#topbar .brand')?.addEventListener('click', e => {
+      if(S.hasUnsavedChanges && S.scenario) {
+        e.preventDefault();
+        showUnsavedDialog(() => { window.location.href = 'index.html'; });
+      }
+    });
+
+    // beforeunload guard
+    window.addEventListener('beforeunload', e => {
+      if(S.hasUnsavedChanges && S.scenario) { e.preventDefault(); e.returnValue = ''; }
+    });
+  }
+
+  function onNext() {
+    // Name comes from session (auth required); just go to mode select
+    show('screen-mode');
+  }
+
+  function buildSectorDropdown() {
+    const sel = document.getElementById('sel-sector');
+    if (!sel || !S.manifest) return;
+    const sectors = [...new Set((S.manifest.scenarios||[]).map(s => s.sector).filter(Boolean))];
+    sel.innerHTML = '<option value="">— Sektör seçin —</option>' +
+      sectors.map(s => `<option value="${s}">${s}</option>`).join('');
+    updateDifficultySelect('');
+  }
+
+  function updateDifficultySelect(sector) {
+    const sel = document.getElementById('sel-difficulty');
+    if (!sel) return;
+    const available = (S.manifest?.scenarios||[])
+      .filter(s => sector && s.sector === sector)
+      .map(s => s.difficulty);
+    const labels = { beginner:'Kolay', intermediate:'Normal', advanced:'Zor' };
+    if (!sector || available.length === 0) {
+      sel.innerHTML = '<option value="">— Önce sektör seçin —</option>';
+      sel.disabled = true;
+    } else {
+      sel.innerHTML = '<option value="">— Zorluk seçin —</option>' +
+        ['beginner','intermediate','advanced']
+          .filter(v => available.includes(v))
+          .map(v => `<option value="${v}">${labels[v]}</option>`)
+          .join('');
+      sel.disabled = false;
+    }
+  }
+
+  function checkCareerReady() {
+    const pmName = (document.getElementById('inp-pm-name')?.value||'').trim();
+    const sector = document.getElementById('sel-sector')?.value;
+    const diff   = document.getElementById('sel-difficulty')?.value;
+    document.getElementById('btn-career-go').disabled = !(pmName && sector && diff);
+  }
+
+  function startCareer() {
+    const pmName = (document.getElementById('inp-pm-name')?.value||'').trim() || S.name || 'PM';
+    S.name = pmName;
+    updateAuthButtons();
+    const sector = document.getElementById('sel-sector')?.value;
+    const diff   = document.getElementById('sel-difficulty')?.value;
+    S.setup = { difficulty: diff, sector: sector };
+    const match = (S.manifest?.scenarios||[]).find(s => s.sector === sector && s.difficulty === diff);
+    if (!match) { alert('Bu kombinasyon için henüz senaryo yok.'); return; }
+    loadScenario(match.id);
+  }
+
+  // ── DEV MODE ──────────────────────────────────────────────────────────────
+  let _devNotifId = null;
+
+  function openDevEdit(id) {
+    const n = S.notifs.find(x => x.id === id);
+    if (!n) return;
+    _devNotifId = id;
+    // Load override if exists
+    const overrides = getDevOverrides();
+    const ov = overrides[id] || {};
+    document.getElementById('dev-edit-id').textContent = `B${id}`;
+    document.getElementById('dev-f-subject').value = ov.subject ?? n.subject ?? '';
+    document.getElementById('dev-f-body').value    = ov.body    ?? n.body    ?? '';
+    // Options
+    const wrap = document.getElementById('dev-options-wrap');
+    if (n.type === 'decision' && n.options?.length) {
+      wrap.innerHTML = n.options.map(o => `
+        <div class="dev-field">
+          <label>${o.key} — Metin</label>
+          <input id="dev-opt-${o.key}-text" type="text" value="${esc((ov[`opt_${o.key}_text`] ?? o.text) || '')}">
+        </div>
+        <div class="dev-field">
+          <label>${o.key} — Geri Bildirim</label>
+          <input id="dev-opt-${o.key}-fb" type="text" value="${esc((ov[`opt_${o.key}_fb`] ?? o.feedback) || '')}">
+        </div>`).join('');
+    } else {
+      wrap.innerHTML = '';
+    }
+    document.getElementById('dev-edit-overlay').classList.remove('hidden');
+  }
+
+  function closeDevEdit() {
+    document.getElementById('dev-edit-overlay').classList.add('hidden');
+    _devNotifId = null;
+  }
+
+  function saveDevEdit() {
+    const id = _devNotifId;
+    if (!id) return;
+    const overrides = getDevOverrides();
+    const entry = overrides[id] || {};
+    entry.subject = document.getElementById('dev-f-subject').value;
+    entry.body    = document.getElementById('dev-f-body').value;
+    const n = S.notifs.find(x => x.id === id);
+    if (n?.options) {
+      n.options.forEach(o => {
+        const t = document.getElementById(`dev-opt-${o.key}-text`);
+        const f = document.getElementById(`dev-opt-${o.key}-fb`);
+        if (t) entry[`opt_${o.key}_text`] = t.value;
+        if (f) entry[`opt_${o.key}_fb`]   = f.value;
+      });
+    }
+    overrides[id] = entry;
+    localStorage.setItem(`pmSim_overrides_${S.scenario?.id}`, JSON.stringify(overrides));
+    applyOverride(id);
+    closeDevEdit();
+    showToast('✓ Düzenleme kaydedildi (yerel)');
+    if (S.activeId === id) renderDetail(n);
+  }
+
+  function applyOverride(id) {
+    const overrides = getDevOverrides();
+    const ov = overrides[id];
+    if (!ov) return;
+    const n = S.notifs.find(x => x.id === id);
+    if (!n) return;
+    if (ov.subject !== undefined) n.subject = ov.subject;
+    if (ov.body    !== undefined) n.body    = ov.body;
+    if (n.options) {
+      n.options.forEach(o => {
+        if (ov[`opt_${o.key}_text`] !== undefined) o.text     = ov[`opt_${o.key}_text`];
+        if (ov[`opt_${o.key}_fb`]   !== undefined) o.feedback = ov[`opt_${o.key}_fb`];
+      });
+    }
+  }
+
+  function getDevOverrides() {
+    try { return JSON.parse(localStorage.getItem(`pmSim_overrides_${S.scenario?.id}`) || '{}'); } catch { return {}; }
+  }
+
+  function loadAllOverrides() {
+    const overrides = getDevOverrides();
+    Object.keys(overrides).forEach(id => applyOverride(parseInt(id)));
+  }
+
+  function openDevReport(id) {
+    const n = S.notifs.find(x => x.id === id);
+    if (!n) return;
+    _devNotifId = id;
+    document.getElementById('dev-r-info').value = `B${id} | Bölüm ${n.section} | ${n.type} | ${n.subject || ''}`;
+    document.getElementById('dev-r-desc').value = '';
+    document.getElementById('dev-report-overlay').classList.remove('hidden');
+  }
+
+  function closeDevReport() {
+    document.getElementById('dev-report-overlay').classList.add('hidden');
+    _devNotifId = null;
+  }
+
+  function copyDevReport() {
+    const info = document.getElementById('dev-r-info').value;
+    const desc = document.getElementById('dev-r-desc').value;
+    const text = `[SORUN BİLDİRİMİ]\nSenaryo: ${S.scenario?.id || '?'}\n${info}\n\nAçıklama:\n${desc}`;
+    navigator.clipboard?.writeText(text).then(() => {
+      showToast('📋 Rapor panoya kopyalandı');
+      closeDevReport();
+    }).catch(() => { alert('Kopyalanamadı:\n\n' + text); });
+  }
+
+  /* ── Yetkinlik Alanı Wizard ────────────────────────────────── */
+  function initCompWizard() {
+    // Reset to step 1
+    showWizStep(1);
+    S.wizDomain = null; S.wizComp = null; S.wizDiff = null;
+
+    // Domain card clicks → go to step 2
+    document.querySelectorAll('.domain-card').forEach(btn => {
+      btn.addEventListener('click', () => {
+        S.wizDomain = btn.dataset.domain;
+        document.querySelectorAll('.domain-card').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        const dom = COMPETENCY_DOMAINS[S.wizDomain];
+        document.getElementById('wiz-comp-title').textContent = dom.title + ' — Yetkinlik Seçin';
+        document.getElementById('comp-grid').innerHTML = dom.comps.map(c => `
+          <button class="comp-card" data-comp="${c.id}">
+            <div class="comp-icon">${c.icon}</div>
+            <div class="comp-title">${c.title}</div>
+            <div class="comp-dec-count">${c.decisions} karar</div>
+          </button>`).join('');
+        document.querySelectorAll('.comp-card').forEach(cb => {
+          cb.addEventListener('click', () => {
+            S.wizComp = cb.dataset.comp;
+            document.querySelectorAll('.comp-card').forEach(x => x.classList.remove('selected'));
+            cb.classList.add('selected');
+            const compDef = dom.comps.find(x => x.id === S.wizComp);
+            document.getElementById('wiz-diff-title').textContent = (compDef?.title || '') + ' — Seviye Seçin';
+            document.getElementById('wiz-diff-sub').textContent = `${compDef?.decisions || 0} kararı ${compDef?.title || ''} simülasyonunda değerlendirin.`;
+            showWizStep(3);
+          });
+        });
+        showWizStep(2);
+      });
+    });
+
+    // Back buttons
+    document.getElementById('wiz-back-1').onclick = () => showWizStep(1);
+    document.getElementById('wiz-back-2').onclick = () => showWizStep(2);
+
+    // Difficulty card clicks
+    document.querySelectorAll('.diff-card').forEach(btn => {
+      btn.addEventListener('click', () => {
+        S.wizDiff = btn.dataset.diff;
+        document.querySelectorAll('.diff-card').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        document.getElementById('btn-comp-go').disabled = false;
+      });
+    });
+
+    // Start button
+    document.getElementById('btn-comp-go').onclick = startCompetency;
+  }
+
+  function showWizStep(n) {
+    [1,2,3].forEach(i => {
+      const step = document.getElementById(`wiz-step-${i}`);
+      const ind  = document.getElementById(`wstep-${i}`);
+      if (!step || !ind) return;
+      step.classList.toggle('hidden', i !== n);
+      ind.classList.remove('active','done');
+      if (i === n) ind.classList.add('active');
+      else if (i < n) ind.classList.add('done');
+    });
+    // Reset difficulty selection when returning to step 3
+    if (n === 3) {
+      S.wizDiff = null;
+      document.querySelectorAll('.diff-card').forEach(b => b.classList.remove('selected'));
+      document.getElementById('btn-comp-go').disabled = true;
+    }
+  }
+
+  async function startCompetency() {
+    if (!S.wizDomain || !S.wizComp || !S.wizDiff) return;
+    const dom = COMPETENCY_DOMAINS[S.wizDomain];
+    const compDef = dom?.comps.find(c => c.id === S.wizComp);
+    S.setup = { mode:'competency', domain: S.wizDomain, competencyId: S.wizComp, difficulty: S.wizDiff };
+    try {
+      const r = await fetch('data/scenarios/ebabil.json');
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      S.scenario = await r.json();
+      // Filter notifications to selected competency's decisions + all story notifications
+      const allNotifs = S.scenario.notifications || [];
+      const compEntry = (S.scenario.competencies || [])
+        .flatMap(d => d.components || [])
+        .find(c => c.id === S.wizComp);
+      const decisionIds = new Set(compEntry?.decisionIds || []);
+      if (decisionIds.size > 0) {
+        S.scenario.notifications = allNotifs.filter(n => n.type === 'story' || decisionIds.has(n.id));
+      }
+      S.scenario.title = (compDef?.title || S.wizComp) + ' Simülasyonu';
+      beginPlay();
+    } catch(e) { alert('Senaryo yüklenemedi: ' + e.message); }
+  }
+
+  // ── Preview modu: mock cevaplarla scorecard göster ──────────
+  async function previewScorecard(scenarioId) {
+    try {
+      const r = await fetch(`data/scenarios/${scenarioId}.json`);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      S.scenario = await r.json();
+      S.notifs   = S.scenario.notifications || [];
+      S.name     = 'Test PM';
+      S.xp       = 0; S.dCount = 0; S.answered = {};
+
+      // Mock cevaplar: %70 A, %20 B, %10 C
+      const decisions = S.notifs.filter(n => n.type === 'decision');
+      decisions.forEach((n, i) => {
+        const roll = i % 10;
+        const key  = roll < 7 ? 'A' : roll < 9 ? 'B' : 'C';
+        S.answered[n.id] = key;
+        const opt = n.options?.find(o => o.key === key);
+        if (opt) S.xp += opt.xp || 0;
+      });
+
+      document.title = (S.scenario.title || 'Preview') + ' – Scorecard Preview';
+      showResult();
+    } catch(e) { alert('Preview yüklenemedi: ' + e.message); }
+  }
+
+  async function loadScenario(id) {
+    try {
+      const r = await fetch(`data/scenarios/${id}.json`);
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      S.scenario = await r.json();
+      beginPlay();
+    } catch(e) { alert('Senaryo yüklenemedi: '+e.message); }
+  }
+
+  function beginPlay() {
+    S.notifs = S.scenario.notifications || [];
+    if (S.devMode) loadAllOverrides(); // Dev modda yerel düzenlemeleri uygula
+    S.answered = {}; S.xp = 0; S.dCount = 0; S.activeId = null;
+    S.skipConfirm = false; S.shuffles = {}; S.pendingKey = {};
+    S.revealedIds = new Set(); S.dayBatches = []; S.dayIndex = 0;
+    S.hasUnsavedChanges = false;
+    S.gameDate = new Date(2025, 0, 6); // Mon Jan 6 2025
+    document.title = (S.scenario.title||'Simülasyon') + ' — YetkinLider';
+    document.getElementById('game-clock').classList.remove('hidden');
+    updateXP();
+    loadSection((S.scenario.sections||[{id:1}])[0].id);
+    showIntro();
+  }
+
+  // ── INTRO SCREENS ─────────────────────────────────────────────────────────
+  const INTRO_SCREENS = [
+    { label: 'Karşılama', lines: [
+      { t: 'Liderlik Simülasyonuna hoş geldiniz.' },
+      { t: 'Birçok istekli arasından sıyrıldınız ve hayal ettiğiniz o pozisyonu elde ettiniz. Tebrikler.' },
+      { t: 'Heyecanınızı anlıyoruz. Hayallerinizi de…' },
+      { t: 'Belki ilk aracınızı alacaksınız. Belki model yükselteceksiniz. Belki de daha iyi bir evin ilanlarına çoktan bakmaya başladınız.' },
+      { t: 'Her şey gönlünüzce olsun.' },
+      { t: 'Ama artık pozisyonun gereklilikleri ile yüzleşme vakti.' },
+      { t: 'Aah… işe başladığım o ilk gün geldi aklıma. Farklı olduğumu sanmıştım. Ve o sektörü fethetmeye hazırdım.', c: 'inner' },
+      { t: 'Hazır mısınız?', c: 'question' },
+    ]},
+    { label: 'Gerçekler', lines: [
+      { t: 'Biraz ciddileşelim.' },
+      { t: 'Sınavlardan yüksek skorlar almış olabilirsiniz. Ama burada test yapmayız.' },
+      { t: 'Burada aldığınız kararların sonuçları olur. Gerçek sonuçları.', c: 'strong' },
+    ]},
+    { label: 'Kurallar', lines: [
+      { t: 'Bu maddeleri iyi dinleyin.' },
+      { t: 'Hayır, istediğiniz sorudan başlayamazsınız.' },
+      { t: 'Hayır, karar almanız gerektiğinde boş bırakıp geçemezsiniz. Sonra o soruna tekrar da dönemezsiniz.' },
+      { t: 'Yüzleştiğiniz sorunla ne yapmanız gerektiği hakkında bir fikriniz yoksa tecrübeli bir yöneticimiz müdahale eder. Ama bunu çok sevmeyiz.' },
+    ]},
+    { label: 'Kararlar', lines: [
+      { t: 'Hiçbir zaman tek doğru cevap yoktur. Olası seçenekler arasında en iyisi vardır. Tabii en kötüsü de.' },
+      { t: 'Aradaki farkı ayırt edebilirsiniz.' },
+      { t: 'Doğal olarak kararlarınızın sonuçları olur.' },
+      { t: 'Ama gerçekçi olalım. Doğru kararları alacağınıza inandığımız için maaş alıyorsunuz.' },
+      { t: 'Bunun için madalya beklemiyorsunuz umarım?', c: 'question' },
+      { t: 'Farkındayım. Bu biraz acıttı.', c: 'inner' },
+    ]},
+    { label: 'Doğrular ve Yanlışlar', lines: [
+      { t: 'Doğrularınız için madalya takmıyoruz. Ama yanlışlarınız da doğrularınızı götürmez. Merak etmeyin.' },
+      { t: 'Tabii yanlış var, yanlış var.' },
+      { t: 'Yeteri kadar yanlış yapanların ise sadece doğruları değil… kendileri de gitti.', c: 'strong' },
+    ]},
+    { label: 'Etik ve Zaman', lines: [
+      { t: 'Etik ihlallerin sonuçları olur. Bazen bu sonuçlar filmin sonunu görmenize bile engel olabilir.' },
+      { t: 'Ama sizinle böyle bir sorun yaşayacağımızı sanmıyorum.' },
+      { t: 'Her işimiz acil değildir. Ama işlerin doğal bir süresi vardır.' },
+      { t: 'Bir mesele ile ne zaman yüzleşirseniz, çözüm için size o anda bir süre tanınır.' },
+      { t: 'Bu süre size yeterli gelmezse, yine tecrübeli bir yöneticimiz müdahale eder.' },
+      { t: 'Ama sürekli başkaları müdahale edecekse… sizi neden işe aldık?', c: 'strong' },
+    ]},
+    { label: 'Kültür', lines: [
+      { t: 'Hiçbirimiz mükemmel değiliz. Ama sürekli gelişime inanıyoruz.' },
+      { t: 'Bu yüzden burada eksik yönlerimizi açık yüreklilikle birbirimize söyleriz.' },
+      { t: 'Ve yetkinliklerimizi sürekli geliştirmeyi hedefleriz.' },
+    ]},
+    { label: 'Son', lines: [
+      { t: 'Başka sorunuz?', c: 'question' },
+      { t: 'Ben de öyle tahmin etmiştim.', c: 'inner' },
+      { t: 'Başarılar.' },
+      { t: 'Kariyeriniz sizi bekliyor.', c: 'strong' },
+    ]},
+  ];
+  let _introStep = 0;
+
+  function showIntro() {
+    _introStep = 0;
+    _renderIntroStep();
+    show('screen-intro');
+  }
+
+  function _renderIntroStep() {
+    const s = INTRO_SCREENS[_introStep];
+    const total = INTRO_SCREENS.length;
+    document.getElementById('intro-step-label').textContent = s.label;
+    document.getElementById('intro-body').innerHTML = s.lines
+      .map(l => `<p class="intro-p${l.c ? ' '+l.c : ''}">${l.t}</p>`)
+      .join('');
+    // Dots
+    document.getElementById('intro-dots').innerHTML = INTRO_SCREENS
+      .map((_,i) => `<div class="intro-dot${i===_introStep?' active':''}"></div>`)
+      .join('');
+    // Button
+    const btn = document.getElementById('btn-intro-next');
+    const isLast = _introStep === total - 1;
+    btn.textContent = isLast ? 'Simülasyona Başla' : 'Devam';
+    btn.className = 'btn-intro-next' + (isLast ? ' final' : '');
+    // Restart animation
+    const body = document.getElementById('intro-body');
+    body.style.animation = 'none';
+    body.offsetHeight; // reflow
+    body.style.animation = '';
+  }
+
+  function introNext() {
+    if (_introStep < INTRO_SCREENS.length - 1) {
+      _introStep++;
+      _renderIntroStep();
+    } else {
+      show('screen-inbox');
+    }
+  }
+
+  // Calendar helpers
+  function nextWeekday(date) {
+    const d = new Date(date);
+    do { d.setDate(d.getDate() + 1); } while(d.getDay() === 0 || d.getDay() === 6);
+    return d;
+  }
+
+  function updateClockDisplay(time) {
+    const dateEl = document.getElementById('game-date');
+    const timeEl = document.getElementById('game-time');
+    if(!dateEl || !timeEl) return;
+    const d = S.gameDate || new Date();
+    const days = ['Paz','Pzt','Sal','Çar','Per','Cum','Cmt'];
+    const months = ['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Eki','Kas','Ara'];
+    dateEl.textContent = `${days[d.getDay()]} ${d.getDate()} ${months[d.getMonth()]}`;
+    // Saati son bildirimin saatinden 30 dk ileride göster
+    if (time && time.includes(':')) {
+      const [h, m] = time.split(':').map(Number);
+      const total = h * 60 + m + 30;
+      const hh = Math.floor(total / 60) % 24;
+      const mm = total % 60;
+      timeEl.textContent = `${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}`;
+    } else {
+      timeEl.textContent = time || '--:--';
+    }
+  }
+
+  function advanceGameDate() {
+    S.gameDate = nextWeekday(S.gameDate);
+  }
+
+  // Split section's notifications into batches of 3-6 per day
+  function computeBatches(notifs) {
+    const batches = [];
+    let i = 0;
+    while(i < notifs.length) {
+      const size = 3 + Math.floor(Math.random() * 4); // 3-6 per day
+      batches.push(notifs.slice(i, i + size).map(n => n.id));
+      i += size;
+    }
+    return batches;
+  }
+
+  function revealBatch(idx) {
+    const batch = S.dayBatches[idx] || [];
+    batch.forEach(id => S.revealedIds.add(id));
+    const visible = S.notifs.filter(n => S.revealedIds.has(n.id));
+    renderList(visible);
+    // Show time of last notification in batch on clock
+    const lastNotif = S.notifs.find(n => n.id === batch[batch.length - 1]);
+    updateClockDisplay(lastNotif?.time);
+    // Select first unanswered in new batch
+    const firstNew = S.notifs.find(n => batch.includes(n.id) && !S.answered[n.id]);
+    if(firstNew) selectNotif(firstNew);
+    updateContinueBtn();
+  }
+
+  function loadSection(secId) {
+    S.sectionId = secId;
+    const sec = (S.scenario.sections||[]).find(s=>s.id===secId);
+    document.getElementById('list-title').textContent = S.scenario.title || 'Bildirimler';
+    document.getElementById('list-sub').textContent = sec?.iteration || '';
+    document.getElementById('nav-iter')?.textContent && (document.getElementById('nav-iter').textContent = sec?.iteration || ('İterasyon '+secId));
+    const sectionNotifs = S.notifs.filter(n=>n.section===secId);
+    S.dayBatches = computeBatches(sectionNotifs);
+    S.dayIndex = 0;
+    revealBatch(0); // First batch without advancing date
+  }
+
+  function renderList(notifs) {
+    // Display newest at top (reverse time order), but navigate oldest→newest
+    const display = [...notifs].reverse();
+    document.getElementById('notif-list').innerHTML = display.map(n=>{
+      const isDec = n.type==='decision';
+      const done = !!S.answered[n.id];
+      const snippet = (n.body||'').replace(/\n/g,' ').trim();
+      const snipText = snippet.length > 72 ? snippet.slice(0,72)+'…' : snippet;
+      return `<div class="notif-item ${isDec?'decision-item':''} ${done?'read':'unread'}" data-id="${n.id}">
+        <div class="ni-from">${esc(n.from)}</div>
+        <div class="ni-subject">${esc(n.subject)}</div>
+        <div class="ni-snippet">${esc(snipText)}</div>
+        <div class="ni-meta">
+          <span class="ni-time">${n.time||''}</span>
+          ${!done?'<span class="ni-dot"></span>':''}
+        </div>
+      </div>`;
+    }).join('');
+    document.getElementById('notif-list').querySelectorAll('.notif-item').forEach(el=>{
+      el.addEventListener('click',()=>{
+        const id = parseInt(el.dataset.id);
+        // If clicking the same notification, allow (re-open)
+        if(id === S.activeId) return;
+        // Block if currently on an unanswered decision
+        if(hasUnansweredActiveDecision()) { flashComposePane(); return; }
+        const n=S.notifs.find(x=>x.id===id);
+        if(n) selectNotif(n);
+      });
+    });
+  }
+
+  function selectNotif(n) {
+    S.activeId = n.id;
+    document.querySelectorAll('.notif-item').forEach(el=>el.classList.toggle('active',parseInt(el.dataset.id)===n.id));
+    renderDetail(n);
+    // Clock shows the latest visible notification's time + 30 min, regardless of which is selected
+    const visibleIds = Array.from(document.querySelectorAll('.notif-item')).map(el => parseInt(el.dataset.id));
+    const visibleTimes = S.notifs.filter(x => visibleIds.includes(x.id)).map(x => x.time).filter(Boolean);
+    const maxTime = visibleTimes.reduce((max, t) => t > max ? t : max, n?.time || '00:00');
+    updateClockDisplay(maxTime);
+    const el = document.querySelector(`.notif-item[data-id="${n.id}"]`);
+    el?.scrollIntoView({block:'nearest'});
+  }
+
+  function renderDetail(n) {
+    renderEmailPane(n);
+    renderComposePane(n);
+    if((n.type==='story' || n.type==='conditional') && !S.answered[n.id]) setTimeout(()=>{ readStory(n.id); }, 0);
+    updateContinueBtn();
+  }
+
+  function renderEmailPane(n) {
+    const av = (n.from||'?')[0].toUpperCase();
+    const company = S.scenario?.company || '';
+    let h = `<div class="nd-header">
+      <div class="sender-av">${av}</div>
+      <div class="nd-meta">
+        <div class="nd-subject">${esc(n.subject)}</div>
+        <div class="nd-from">Kimden: <b>${esc(n.from)}</b>${n.fromRole?' · '+esc(n.fromRole):''}</div>
+        ${n.time?`<div class="nd-from" style="color:#94a3b8;font-size:11px">🕐 ${n.time}</div>`:''}
+      </div>
+    </div>
+    <div class="nd-body">${highlightGlossary(n.body||'')}</div>`;
+    // Sender signature
+    h += `<div class="nd-sig">
+      <div class="sig-name">${esc(n.from)}</div>
+      ${n.fromRole?`<div class="sig-role">${esc(n.fromRole)}</div>`:''}
+      ${company?`<div class="sig-company">${esc(company)}</div>`:''}
+    </div>`;
+    if (S.devMode) {
+      h += `<div class="dev-toolbar">
+        <button class="dev-btn" onclick="Game.openDevEdit(${n.id})">✏️ Düzenle</button>
+        <button class="dev-btn report" onclick="Game.openDevReport(${n.id})">⚠️ Sorun Bildir</button>
+        <span style="font-size:10px;color:rgba(255,255,255,.25);margin-left:auto">B${n.id} · §${n.section}</span>
+      </div>`;
+    }
+    document.getElementById('notif-email').innerHTML = h;
+  }
+
+  function renderComposePane(n) {
+    const composeEl = document.getElementById('notif-compose');
+    const ans = S.answered[n.id];
+
+    if(n.type==='story' || n.type==='conditional') {
+      composeEl.innerHTML = `<div class="story-ack">
+        <div class="story-ack-icon">✓</div>
+        <div class="story-ack-text">Bildirim okundu</div>
+        <div class="story-ack-hint">Devam etmek için <kbd style="background:#e2e8f0;border-radius:4px;padding:1px 6px;font-size:10px">Space</kbd> tuşuna basın</div>
+      </div>`;
+      return;
+    }
+
+    // Stable shuffle
+    if(!S.shuffles[n.id]) {
+      const keys = (n.options||[]).map(o=>o.key);
+      for(let i=keys.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[keys[i],keys[j]]=[keys[j],keys[i]];}
+      S.shuffles[n.id] = keys;
+    }
+    const opts = S.shuffles[n.id].map(k=>(n.options||[]).find(o=>o.key===k)).filter(Boolean);
+    const pendingKey = S.pendingKey[n.id] || null;
+
+    let h = `<div class="compose-header">
+      <div class="compose-title">Yanıtla</div>
+      <div class="compose-row"><span class="cmp-label">Gönderen</span><span class="cmp-val">${esc(S.name)}<span class="cmp-badge">Sen</span></span></div>
+      <div class="compose-row"><span class="cmp-label">Alıcı</span><span class="cmp-val">${esc(n.from)}</span></div>
+      <div class="compose-row"><span class="cmp-label">Konu</span><span class="cmp-val">RE: ${esc(n.subject)}</span></div>
+    </div>
+    <div class="compose-opts">`;
+
+    opts.forEach(o => {
+      const isChosen = ans === o.key;
+      const isPending = !ans && pendingKey === o.key;
+      const isUnavailable = o.unavailable === true;
+      let cls = 'cmp-opt';
+      if(isPending) cls += ' cmp-chosen';
+      if(isChosen) {
+        if(o.key==='A') cls += ' cmp-sent-good';
+        else if(o.key==='D') cls += ' cmp-sent-bad';
+        else cls += ' cmp-sent-mid';
+      }
+      if(isUnavailable && !isChosen) cls += ' cmp-unavail';
+      const disabled = !!ans || isUnavailable;
+      h += `<button class="${cls}" ${disabled?'disabled':''} data-opt-id="${n.id}" data-opt-key="${o.key}">
+        <input type="radio" name="cmp-r-${n.id}" ${(isPending||isChosen)?'checked':''} ${disabled?'disabled':''} tabindex="-1">
+        <span class="cmp-opt-text">${esc(o.text)}${isUnavailable&&!isChosen?' <em style="font-size:10px;color:#94a3b8">(mevcut değil)</em>':''}</span>
+      </button>`;
+    });
+
+    h += `</div>`;
+
+    if(ans) {
+      const opt = (n.options||[]).find(o=>o.key===ans);
+      if(opt) {
+        const xpPos = (opt.xp||0)>=0;
+        const fbc = opt.key==='A'?'cfb-good':opt.key==='D'?'cfb-bad':'cfb-ok';
+        h += `<div class="compose-feedback-bar ${fbc}">
+          <span>${opt.key==='A'?'✅':opt.key==='D'?'❌':'⚠️'}</span>
+          <span>${opt.isEthical===false?'<strong>Etik İhlali! </strong>':''}${esc(opt.feedback||'')} <span class="xp-pill ${xpPos?'xp-plus':'xp-minus'}">${xpPos?'+':''}${opt.xp} XP</span></span>
+        </div>`;
+      }
+    }
+
+    const canSend = !ans && !!pendingKey;
+    h += `<div class="compose-footer">
+      <button class="btn-compose-send" id="btn-compose-send" ${!canSend?'disabled':''} data-send-id="${n.id}">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Gönder
+      </button>
+      ${!ans&&!pendingKey?'<span class="compose-hint">⚠️ Seçim yapıp göndermeden ilerleyemezsiniz</span>':''}
+      ${!ans&&pendingKey?'<span class="compose-hint">Seçiminizi onaylamak için Gönder\'e basın</span>':''}
+      ${ans?'<span class="compose-hint" style="color:#22c55e">✓ Yanıt gönderildi</span>':''}
+    </div>`;
+
+    composeEl.innerHTML = h;
+  }
+
+  // Returns true if active notification is a decision that hasn't been answered yet
+  function hasUnansweredActiveDecision() {
+    if(!S.activeId) return false;
+    const n = S.notifs.find(x => x.id === S.activeId);
+    return !!(n && n.type === 'decision' && !S.answered[S.activeId]);
+  }
+
+  function flashComposePane() {
+    const el = document.getElementById('notif-compose');
+    if(!el) return;
+    el.classList.remove('compose-shake');
+    // Force reflow so animation restarts
+    void el.offsetWidth;
+    el.classList.add('compose-shake');
+    setTimeout(() => el.classList.remove('compose-shake'), 500);
+  }
+
+  function selectOption(notifId, key) {
+    if(S.answered[notifId]) return;
+    S.pendingKey[notifId] = key;
+    const n = S.notifs.find(x=>x.id===notifId);
+    if(n) renderComposePane(n);
+  }
+
+  function sendSelected(notifId) {
+    const key = S.pendingKey[notifId];
+    if(!key || S.answered[notifId]) return;
+    tryChoose(notifId, key);
+  }
+
+  function readStory(id) {
+    if(S.answered[id]) return;
+    S.answered[id]='READ';
+    S.hasUnsavedChanges = true;
+    refreshItem(id);
+    updateContinueBtn();
+  }
+
+  function tryChoose(id, key) {
+    if(S.answered[id]) return;
+    const n = S.notifs.find(x=>x.id===id);
+    if(!n) return;
+    const opt = (n.options||[]).find(o=>o.key===key);
+    if(!opt || opt.unavailable) return;
+    if(S.skipConfirm) { choose(id, key); return; }
+    _pendingChoose = {id, key};
+    document.getElementById('confirm-text').textContent = opt.text;
+    document.getElementById('confirm-skip').checked = false;
+    document.getElementById('confirm-overlay').classList.remove('hidden');
+  }
+
+  function closeConfirm() {
+    _pendingChoose = null;
+    document.getElementById('confirm-overlay').classList.add('hidden');
+  }
+
+  function confirmSend() {
+    if(document.getElementById('confirm-skip').checked) S.skipConfirm = true;
+    if(_pendingChoose) choose(_pendingChoose.id, _pendingChoose.key);
+    closeConfirm();
+  }
+
+  function choose(id, key) {
+    if(S.answered[id]) return;
+    S.answered[id]=key;
+    S.hasUnsavedChanges = true;
+    const n=S.notifs.find(x=>x.id===id);
+    if(!n) return;
+    const opt=(n.options||[]).find(o=>o.key===key);
+    if(opt){ S.xp+=(opt.xp||0); if(key==='D') S.dCount++; updateXP(); }
+    renderDetail(n); refreshItem(id);
+    // Otomatik kayıt: her 3 karar sonrası
+    const decCount = Object.values(S.answered).filter(v => v !== 'READ').length;
+    if(decCount > 0 && decCount % 3 === 0) {
+      saveGame();
+      showToast('Otomatik kaydedildi 💾');
+    }
+  }
+
+  function updateContinueBtn() {
+    const btn = document.getElementById('btn-continue-top');
+    if(!btn) return;
+    // Disable if no notifications yet, OR if stuck on an unanswered decision
+    btn.disabled = S.revealedIds.size === 0 || hasUnansweredActiveDecision();
+  }
+
+  function refreshItem(id) {
+    const el=document.querySelector(`.notif-item[data-id="${id}"]`);
+    if(el){el.classList.remove('unread');el.classList.add('read');el.querySelector('.ni-dot')?.remove();}
+  }
+
+  const DAY_QUOTES = [
+    'İyi bir proje yöneticisi belirsizliği kucaklar.',
+    'Paydaş güveni inşa etmek yıllar alır, yıkmak dakikalar.',
+    'Risk yönetimi şansı minimuma indirmektir.',
+    'En iyi plan, gerçeklikle buluştuğunda revize edilendir.',
+    'Ekip uyumu, en iyi Gantt şemasından değerlidir.',
+    'Kapsam sürünmesi sessizce gelir, gürültüyle bitirir.',
+    'Gerçek liderlik, kriz anında netlik sağlamaktır.',
+    'Sprint değer teslim etme yarışıdır, koşu değil.',
+    'Bir sorun bulunduğunda sorunu sahiplen, suçluyu değil.',
+    'İletişim boşlukları projelerin gizli düşmanıdır.',
+  ];
+
+  function showDayTransition(callback) {
+    const overlay = document.getElementById('day-transition');
+    const dateEl = document.getElementById('dt-date');
+    const quoteEl = document.getElementById('dt-quote');
+    const barFill = document.getElementById('dt-bar-fill');
+    // Update date display for the NEW date (already advanced)
+    const d = S.gameDate;
+    const days = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+    const months = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+    dateEl.textContent = `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`;
+    quoteEl.textContent = DAY_QUOTES[Math.floor(Math.random() * DAY_QUOTES.length)];
+    // Reset and restart animation
+    barFill.style.animation = 'none';
+    overlay.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => { barFill.style.animation = ''; });
+    });
+    setTimeout(() => {
+      overlay.classList.add('hidden');
+      callback();
+    }, 3400);
+  }
+
+  function advance() {
+    // Hard block: if currently viewing an unanswered decision, shake and stop
+    if(hasUnansweredActiveDecision()) { flashComposePane(); return; }
+
+    const currentBatch = S.dayBatches[S.dayIndex] || [];
+    const batchNotifs = S.notifs.filter(n => currentBatch.includes(n.id));
+
+    // Try to navigate to next notification within current batch
+    const currentIdx = batchNotifs.findIndex(n => n.id === S.activeId);
+    for(let i = currentIdx + 1; i < batchNotifs.length; i++) {
+      if(!S.answered[batchNotifs[i].id]) { selectNotif(batchNotifs[i]); return; }
+    }
+
+    // At end of current batch — check for unanswered decisions
+    const unanswered = batchNotifs.find(n => n.type==='decision' && !S.answered[n.id]);
+    if(unanswered) { selectNotif(unanswered); return; } // bounce back to first unanswered
+
+    // All done in batch → advance to next day
+    const nextIdx = S.dayIndex + 1;
+    if(nextIdx < S.dayBatches.length) {
+      S.dayIndex = nextIdx;
+      advanceGameDate();
+      showDayTransition(() => revealBatch(S.dayIndex));
+    } else {
+      const secs = S.scenario.sections || [];
+      const nxtSec = secs.find(s => s.id > S.sectionId);
+      if(nxtSec) {
+        advanceGameDate();
+        showDayTransition(() => loadSection(nxtSec.id));
+      } else {
+        showResult();
+      }
+    }
+  }
+
+  function updateXP(){
+    // XP is shown on the scorecard page (player badge → scorecard.html)
+    // Save XP to localStorage so scorecard can read it
+    try { localStorage.setItem('pmSim_session_xp', S.xp); } catch(e){}
+  }
+
+  const TALENT_AREAS = [
+    { id:'wow',    label:'Çalışma Yöntemleri', icon:'⚙️', color:'#3b82f6', desc:'Ways of Working — Metodoloji ve teknik yetkinlik' },
+    { id:'power',  label:'Güç Becerileri',      icon:'🤝', color:'#8b5cf6', desc:'Power Skills — İletişim, liderlik ve empati' },
+    { id:'acumen', label:'İş Zekası',           icon:'💼', color:'#f59e0b', desc:'Business Acumen — Değer odaklı stratejik düşünce' },
+    { id:'results',label:'Sonuçlar',            icon:'🎯', color:'#22c55e', desc:'Results — Problem çözme ve değer teslimi' },
+    { id:'ethics', label:'Etik & Sorumluluk',   icon:'⚖️', color:'#ef4444', desc:'Social Responsibility — Dürüstlük ve etik davranış' },
+  ];
+
+  function computeTalentScores() {
+    const decisions = S.notifs.filter(n => n.type === 'decision' && S.answered[n.id]);
+    const totals = {wow:0, power:0, acumen:0, results:0, ethics:0};
+    const counts = {wow:0, power:0, acumen:0, results:0, ethics:0};
+    decisions.forEach(n => {
+      const key = S.answered[n.id];
+      const opt = (n.options||[]).find(o => o.key === key);
+      if(!opt) return;
+      const xp = opt.xp || 0;
+      // Map xp to 0-100 contribution based on tier
+      const contribution = xp >= 30 ? 100 : xp >= 20 ? 85 : xp >= 10 ? 65 : xp >= 0 ? 45 : 10;
+      // Ethics penalty for D key or negative xp
+      const ethicsContrib = (key === 'D' || xp < 0) ? Math.max(0, 20 + xp) : contribution;
+      totals.wow    += contribution; counts.wow++;
+      totals.power  += contribution; counts.power++;
+      totals.acumen += contribution; counts.acumen++;
+      totals.results+= contribution; counts.results++;
+      totals.ethics += ethicsContrib; counts.ethics++;
+    });
+    const scores = {};
+    TALENT_AREAS.forEach(a => {
+      scores[a.id] = counts[a.id] > 0 ? Math.round(totals[a.id] / counts[a.id]) : 0;
+    });
+    return scores;
+  }
+
+  function gradeFromAvg(avg) {
+    if(avg >= 90) return { grade:'A+', color:'#22c55e' };
+    if(avg >= 80) return { grade:'A',  color:'#22c55e' };
+    if(avg >= 70) return { grade:'B',  color:'#3b82f6' };
+    if(avg >= 60) return { grade:'C',  color:'#f59e0b' };
+    if(avg >= 50) return { grade:'D',  color:'#f97316' };
+    return { grade:'F', color:'#ef4444' };
+  }
+
+  function computeComponentScore(c) {
+    const decs = (c.decisionIds||[]).map(id => S.notifs.find(n => n.id === id)).filter(Boolean);
+    const answered = decs.filter(n => S.answered[n.id]);
+    if (!answered.length) return 0;
+    const correct = answered.filter(n => {
+      const o = (n.options||[]).find(o => o.key === S.answered[n.id]);
+      return o && o.xp >= 25;
+    }).length;
+    return Math.round(correct / answered.length * 100);
+  }
+
+  function renderDomainCards(domains) {
+    return domains.map(domain => {
+      const compScores = domain.components.map(c => ({ c, pct: computeComponentScore(c) }));
+      const domainPct = compScores.length ? Math.round(compScores.reduce((s,x)=>s+x.pct,0)/compScores.length) : 0;
+      const domainColor = domainPct>=80?'#4ade80':domainPct>=50?'#fbbf24':'#f87171';
+      const rows = compScores.map(({c, pct}) => {
+        const barColor = pct>=80?'#4ade80':pct>=50?'#fbbf24':'#f87171';
+        const [lvlKey, lvlClass, lvlLabel] = pct>=80?['ileri','lvl-ileri','İleri']:pct>=50?['orta','lvl-orta','Orta']:['giris','lvl-giris','Giriş'];
+        const lvlDesc = c.levels ? c.levels[lvlKey] : '';
+        return `<div class="comp-row">
+          <div class="comp-row-lbl">${c.label}</div>
+          <div class="comp-row-bar-wrap"><div class="comp-row-bar" style="width:${pct}%;background:${barColor}"></div></div>
+          <div class="comp-row-pct" style="color:${barColor}">${pct}%</div>
+          <div class="comp-lvl ${lvlClass}" title="${lvlDesc}">${lvlLabel}</div>
+        </div>`;
+      }).join('');
+      return `<div class="domain-card">
+        <div class="domain-hdr">
+          <span class="domain-icon">${domain.icon||'📋'}</span>
+          <span class="domain-title">${domain.domain}</span>
+          <span class="domain-weight">%${domain.weight} Ağırlık</span>
+          <span class="domain-score-big" style="color:${domainColor}">${domainPct}%</span>
+        </div>
+        ${rows}
+      </div>`;
+    }).join('');
+  }
+
+  function showResult(){
+    const gameOver=S.dCount>=(S.scenario.dChoiceLimit||3);
+    S.hasUnsavedChanges = false;
+    const comps = S.scenario.competencies || [];
+    const isNewFormat = comps.length && comps[0].components;
+    let avgScore;
+
+    if (isNewFormat) {
+      // Compute weighted domain score for grade
+      const domainScores = comps.map(domain => {
+        const compPcts = domain.components.map(c => computeComponentScore(c));
+        return compPcts.length ? compPcts.reduce((a,b)=>a+b,0)/compPcts.length : 0;
+      });
+      avgScore = Math.round(
+        (domainScores[0]||0) * ((comps[0]?.weight||42)/100) +
+        (domainScores[1]||0) * ((comps[1]?.weight||50)/100) +
+        (domainScores[2]||0) * ((comps[2]?.weight||8)/100)
+      );
+    } else {
+      const ttScores = computeTalentScores();
+      avgScore = Math.round(Object.values(ttScores).reduce((a,b)=>a+b,0)/5);
+    }
+
+    const {grade, color} = gameOver ? {grade:'F',color:'#ef4444'} : gradeFromAvg(avgScore);
+    const totalDecisions = S.notifs.filter(n => n.type==='decision' && S.answered[n.id]).length;
+
+    // Header
+    document.getElementById('karne-av').textContent = (S.name||'?')[0].toUpperCase();
+    document.getElementById('karne-player-name').textContent = S.name || 'PM';
+    document.getElementById('karne-player-role').textContent = (S.scenario?.playerRole || 'Proje Yöneticisi') + ' · ' + (S.scenario?.company || '');
+    document.getElementById('karne-grade').textContent = grade;
+    document.getElementById('karne-grade').style.color = color;
+
+    // Stats
+    document.getElementById('karne-xp').textContent = S.xp;
+    document.getElementById('karne-decisions').textContent = totalDecisions;
+    document.getElementById('karne-ethics').textContent = S.dCount;
+
+    if (isNewFormat) {
+      // New 3-domain PMP format — hide Talent Triangle, show domain cards
+      document.getElementById('karne-tt-title').textContent = 'Liderlik Yetkinlik Matrisi';
+      document.getElementById('karne-tt-grid').style.cssText = 'display:flex;flex-direction:column;align-items:center;padding:0;gap:0;margin-bottom:12px';
+      document.getElementById('karne-tt-grid').innerHTML = renderDomainCards(comps);
+      document.getElementById('karne-comp-label').style.display = 'none';
+      document.getElementById('comp-grid').innerHTML = '';
+    } else {
+      // Classic Talent Triangle
+      document.getElementById('karne-tt-title').textContent = 'Yetkinlik Profili';
+      document.getElementById('karne-tt-grid').style.cssText = '';
+      const ttScores = computeTalentScores();
+      document.getElementById('karne-tt-grid').innerHTML = TALENT_AREAS.map(a => {
+        const pct = ttScores[a.id] || 0;
+        return `<div class="tt-area">
+          <div class="tt-icon">${a.icon}</div>
+          <div class="tt-info">
+            <div class="tt-name">${a.label}</div>
+            <div class="tt-desc">${a.desc}</div>
+            <div class="tt-bar-wrap" style="margin-top:6px">
+              <div class="tt-bar-fill" style="width:${pct}%;background:${a.color}"></div>
+            </div>
+          </div>
+          <div class="tt-bar-col">
+            <div class="tt-pct" style="color:${a.color}">${pct}%</div>
+          </div>
+        </div>`;
+      }).join('');
+      // Old flat competencies
+      if(comps.length) {
+        document.getElementById('karne-comp-label').style.display='';
+        document.getElementById('comp-grid').innerHTML=comps.map(c=>{
+          const decs=c.decisionIds.map(id=>S.notifs.find(n=>n.id===id)).filter(Boolean);
+          const pct=decs.length?Math.round(decs.filter(n=>{
+            const o=n.options?.find(o=>o.key===S.answered[n.id]);
+            return o&&o.xp>=25;
+          }).length/decs.length*100):0;
+          const barColor = pct>=70?'#22c55e':pct>=50?'#f59e0b':'#ef4444';
+          return `<div class="comp-item">
+            <div class="c-label">${c.label}</div>
+            <div class="c-bar-wrap"><div class="c-bar" style="width:${pct}%;background:${barColor}"></div></div>
+            <div class="c-score" style="color:${barColor}">${pct}%</div>
+          </div>`;
+        }).join('');
+      }
+    }
+    show('screen-result');
+  }
+
+  function restart(){
+    const session = authGetSession();
+    const prevName = session?.displayName || '';
+    Object.assign(S,{name:prevName,mode:'',setup:{},scenario:null,notifs:[],answered:{},xp:0,dCount:0,activeId:null,sectionId:1,skipConfirm:false,shuffles:{},pendingKey:{},revealedIds:new Set(),dayBatches:[],dayIndex:0,gameDate:null,hasUnsavedChanges:false});
+    document.getElementById('game-clock').classList.add('hidden');
+    try { localStorage.setItem('pmSim_session_xp', 0); } catch(e){}
+    const pmEl = document.getElementById('inp-pm-name');
+    if(pmEl) pmEl.value = prevName;
+    updateAuthButtons();
+    if (session) {
+      const saves = findUserSaves();
+      renderWelcomeScreen(session, saves);
+    }
+    show('screen-welcome');
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+  return {
+    tryChoose, closeConfirm, confirmSend, selectOption, sendSelected, advance, restart, resumeSave, introNext,
+    // Auth
+    doLogout, openAuthOverlay, closeAuthOverlay,
+    // Dev mode
+    openDevEdit, closeDevEdit, saveDevEdit, openDevReport, closeDevReport, copyDevReport,
+    // Save
+    saveGame,
+    // Unsaved dialog
+    closeUnsaved, leaveWithoutSave, saveAndLeave,
+    // Menu
+    toggleMenu, closeMenu,
+    // Result
+    showResult
+  };
+})();
+window.Game = Game;
+</script>
+</body>
+</html>

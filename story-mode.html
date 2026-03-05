@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hikaye Modu — YetkinLider</title>
+  <meta name="description" content="Etkileşimli hikayelerle liderlik yetkinliklerini geliştir.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bar: #2f4f60;
+      --text: #0b1220;
+      --muted: #334155;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --accent: #5f93c2;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --error: #ef4444;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    .topbar {
+      height: 44px;
+      background: var(--bar);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      font-size: 14px;
+      gap: 12px;
+    }
+
+    .topbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      transition: opacity 0.2s;
+    }
+
+    .topbar a:hover {
+      opacity: 0.8;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      color: var(--text);
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin: 0 0 32px 0;
+      font-size: 14px;
+    }
+
+    .story-card {
+      background: var(--card);
+      padding: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .scene-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+      color: var(--accent);
+    }
+
+    .scene-text {
+      font-size: 16px;
+      line-height: 1.8;
+      margin: 0 0 24px 0;
+      color: var(--text);
+    }
+
+    .concept-box {
+      background: #f0f7ff;
+      border-left: 4px solid var(--accent);
+      padding: 16px;
+      border-radius: 4px;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+
+    .concept-label {
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .choice-btn {
+      padding: 16px;
+      border: 2px solid var(--border);
+      background: white;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .choice-btn:hover {
+      border-color: var(--accent);
+      background: #f0f7ff;
+    }
+
+    .choice-btn strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+    }
+
+    .outcome-good {
+      background: #f0fdf4;
+      border-left-color: var(--success);
+      border-left-width: 4px;
+      border-left-style: solid;
+    }
+
+    .outcome-bad {
+      background: #fef2f2;
+      border-left-color: var(--error);
+      border-left-width: 4px;
+      border-left-style: solid;
+    }
+
+    .outcome-neutral {
+      background: #fffbeb;
+      border-left-color: var(--warning);
+      border-left-width: 4px;
+      border-left-style: solid;
+    }
+
+    .outcome-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .outcome-text {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .stats {
+      display: flex;
+      gap: 16px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .stat-label {
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .reset-btn {
+      margin-top: 24px;
+      padding: 12px 24px;
+      background: var(--bar);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .reset-btn:hover {
+      background: #1f3b49;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      .story-card {
+        padding: 20px;
+      }
+
+      .scene-text {
+        font-size: 15px;
+      }
+
+      .choice-btn {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <a href="index.html">← Back</a>
+  <span style="flex:1"></span>
+  <a href="dictionary.html">Dictionary</a>
+  <a href="practice.html">Practice</a>
+</div>
+
+<div class="container">
+
+  <h1>Story Mode</h1>
+  <p class="subtitle">Senaryolar aracılığıyla liderlik kararları ver ve sonuçlarını gör.</p>
+
+  <div id="storyContainer"></div>
+
+</div>
+
+<script>
+  // Story scenes with educational content
+  const scenes = [
+    {
+      id: 1,
+      title: "The Assignment",
+      text: "You've just been assigned as project manager for a major digital transformation initiative. The executive sponsor is excited but has a vague vision: 'Make our business more digital.' Multiple departments have conflicting ideas about what success looks like.",
+      concept: {
+        label: "Project Charter & Stakeholder Management",
+        text: "Before diving into work, you need to establish a clear project charter and understand your stakeholders' needs. Different groups have different expectations."
+      },
+      choices: [
+        {
+          text: "A) Immediately create a detailed project plan",
+          consequence: "neutral",
+          outcome: "You work hard on planning, but stakeholders reject it because their input wasn't gathered. Rework is needed.",
+          learning: "Plans without stakeholder agreement lead to rejection and rework."
+        },
+        {
+          text: "B) Schedule workshops with key stakeholders to develop shared vision",
+          consequence: "good",
+          outcome: "Stakeholders feel heard and invested. You create a project charter that everyone supports. The project has strong backing.",
+          learning: "Stakeholder engagement upfront prevents costly conflicts later. This is Stakeholder Management at its best."
+        },
+        {
+          text: "C) Ask the sponsor to make all decisions",
+          consequence: "bad",
+          outcome: "The sponsor delegates back to you, creating confusion. Work starts without clear direction.",
+          learning: "The PM must take ownership. Avoiding stakeholder engagement creates vacuum and delays."
+        }
+      ],
+      nextScene: 2
+    },
+    {
+      id: 2,
+      title: "Scope Definition",
+      text: "After stakeholder workshops, you've documented the project scope. You create a detailed Work Breakdown Structure (WBS) that breaks the project into manageable pieces. During a review, a key stakeholder says: 'Wait, I also need feature X that wasn't discussed.'",
+      concept: {
+        label: "Scope Management & Scope Creep",
+        text: "Once scope is approved, any additions must go through formal change control. Otherwise, you'll experience scope creep—unauthorized expansion that kills budgets and timelines."
+      },
+      choices: [
+        {
+          text: "A) Add feature X to the scope immediately",
+          consequence: "bad",
+          outcome: "Scope expands without formal approval. Budget gets tighter, timeline slips. Team morale suffers from constant changes.",
+          learning: "Scope creep without change control leads to project failure. Always use change control."
+        },
+        {
+          text: "B) Reject the feature outright",
+          consequence: "bad",
+          outcome: "The stakeholder feels ignored. They escalate to the sponsor. You lose credibility.",
+          learning: "Dismissing stakeholder needs damages relationships. You must listen and follow a process."
+        },
+        {
+          text: "C) Submit it through formal change control",
+          consequence: "good",
+          outcome: "You evaluate the impact: 2 weeks timeline, $50K budget impact. The change control board reviews and the sponsor decides. It's approved with adjustments to other features.",
+          learning: "Change control protects both the PM and stakeholders. It makes decisions transparent and manageable."
+        }
+      ],
+      nextScene: 3
+    },
+    {
+      id: 3,
+      title: "Schedule Pressure",
+      text: "You've built a project schedule using the Critical Path Method. The critical path shows project completion in 8 months. The sponsor needs it in 6 months. Your team lead says: 'We could add 10 people, but they'll need ramp-up time.'",
+      concept: {
+        label: "Schedule Management & Resource Management",
+        text: "Adding resources doesn't always speed up a project. Communication overhead grows with team size. Some tasks have dependencies that can't be parallelized. This is known as Brooks's Law."
+      },
+      choices: [
+        {
+          text: "A) Add 10 people immediately",
+          consequence: "bad",
+          outcome: "Onboarding chaos. Experienced team members spend time training new people. Some critical tasks have dependencies and can't be parallelized. Project gets slower, not faster.",
+          learning: "Throwing resources at a schedule doesn't always work. Consider dependencies and communication costs."
+        },
+        {
+          text: "B) Tell the sponsor it's impossible",
+          consequence: "neutral",
+          outcome: "The sponsor is disappointed but accepts reality. You start negotiating: which features can be reduced to meet 6 months? What's truly critical?",
+          learning: "Sometimes you need to reset expectations. Scope-time-cost trade-offs are part of project management."
+        },
+        {
+          text: "C) Analyze the critical path for compression opportunities",
+          consequence: "good",
+          outcome: "You identify: 1) Some tasks can be done in parallel with extra resources, 2) Redesign a workflow to save 3 weeks, 3) Get sponsor approval for reduced scope on non-critical features. Result: 6.5-month timeline achievable.",
+          learning: "Smart schedule compression uses critical path analysis. It's better than blindly adding people."
+        }
+      ],
+      nextScene: 4
+    },
+    {
+      id: 4,
+      title: "Risk Realization",
+      text: "You're 3 months in. A critical risk materializes: the senior database architect unexpectedly leaves the company. This person was irreplaceable and didn't document their work. Your team is now stuck on a critical path task.",
+      concept: {
+        label: "Risk Management",
+        text: "This is why we identify risks early and create mitigation plans. A contingency plan (backup architect, knowledge transfer) would have prevented this crisis."
+      },
+      choices: [
+        {
+          text: "A) Hire an external consultant immediately",
+          consequence: "neutral",
+          outcome: "Expensive ($200K) and slow (2 weeks to ramp up). You fix the crisis but blow the budget.",
+          learning: "Reactive risk response is expensive. This is why we plan for risks upfront."
+        },
+        {
+          text: "B) Have a junior dev figure it out",
+          consequence: "bad",
+          outcome: "The junior dev gets overwhelmed. The code quality suffers. You end up with technical debt and more delays.",
+          learning: "Ignoring risks doesn't make them go away. They come back bigger and uglier."
+        },
+        {
+          text: "C) You had created a knowledge transfer plan and cross-training",
+          consequence: "good",
+          outcome: "You had planned for key person risk. Another architect knows the system. They step up. There's a 1-week delay instead of a crisis.",
+          learning: "Good risk management = identified risks + mitigation plans. This scenario could have been prevented with proactive planning."
+        }
+      ],
+      nextScene: 5
+    },
+    {
+      id: 5,
+      title: "Final Sprint",
+      text: "You're in the final month. The project is on schedule and under budget. The team is exhausted. Quality issues are appearing because of rushed testing. The sponsor wants the launch in 2 weeks. Your QA lead says: 'We need 3 weeks to test properly.'",
+      concept: {
+        label: "Quality Management",
+        text: "Quality isn't something you add at the end. It must be built in throughout the project. Rushing quality creates technical debt and post-launch disasters."
+      },
+      choices: [
+        {
+          text: "A) Skip thorough testing to meet the deadline",
+          consequence: "bad",
+          outcome: "Launch happens. Two days later, critical bugs crash the system. Data loss occurs. Post-launch fixes cost 3x more than pre-launch prevention. Your credibility is destroyed.",
+          learning: "Cutting quality for speed is almost always a bad trade. The cost of fixing bugs in production is exponentially higher."
+        },
+        {
+          text: "B) Negotiate: Launch with core features tested, remaining features follow",
+          consequence: "good",
+          outcome: "You reduce scope for launch. Core features get 3 weeks of testing. Phase 2 launches 4 weeks later with remaining features. Quality is maintained, sponsor gets value sooner.",
+          learning: "Trade-offs are part of PM. Quality, Scope, Time, Cost—you can't have all maximized. Be smart about what to sacrifice."
+        },
+        {
+          text: "C) Tell the sponsor testing can't be rushed",
+          consequence: "neutral",
+          outcome: "You delay the launch by 3 weeks. Quality is good, but you've missed a business window. The sponsor is unhappy about timing.",
+          learning: "You're right about quality, but you should have worked with QA earlier to plan testing windows."
+        }
+      ],
+      nextScene: 6
+    },
+    {
+      id: 6,
+      title: "Project Closure",
+      text: "The project is complete! Time to close it down. You could: hand over deliverables and move on, or conduct a proper closure with stakeholders, document lessons learned, and celebrate with the team.",
+      concept: {
+        label: "Project Closure & Lessons Learned",
+        text: "Closure isn't just about finishing. It's about capturing knowledge, recognizing the team, and formally transitioning to operations. Lessons learned are gold for future projects."
+      },
+      choices: [
+        {
+          text: "A) Hand off deliverables and move to next project",
+          consequence: "neutral",
+          outcome: "The project ends, but knowledge is lost. The team feels unappreciated. 6 months later, you make the same mistakes on a new project.",
+          learning: "No closure planning = repeated mistakes. Knowledge is lost."
+        },
+        {
+          text: "B) Conduct a proper closure",
+          consequence: "good",
+          outcome: "You hold a stakeholder meeting, hand over deliverables formally, document lessons learned (what worked, what didn't), celebrate with the team, and transition support to operations. Knowledge is captured for future projects.",
+          learning: "Proper closure builds organizational knowledge. Your next project benefits from what you learned here."
+        }
+      ],
+      nextScene: null
+    }
+  ];
+
+  let currentSceneId = 1;
+  let choices = {};
+
+  function displayScene(sceneId) {
+    const scene = scenes.find(s => s.id === sceneId);
+    if (!scene) {
+      showConclusion();
+      return;
+    }
+
+    const html = `
+      <div class="story-card">
+        <div style="font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Scene ${scene.id} of ${scenes.length}</div>
+        <h2 class="scene-title">${scene.title}</h2>
+        <p class="scene-text">${scene.text}</p>
+
+        <div class="concept-box">
+          <span class="concept-label">💡 PMP Concept</span>
+          <strong>${scene.concept.label}:</strong> ${scene.concept.text}
+        </div>
+
+        <div class="choices">
+          ${scene.choices.map((choice, idx) => `
+            <button class="choice-btn" onclick="makeChoice(${sceneId}, ${idx}, '${choice.consequence}')">
+              <strong>${choice.text}</strong>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    document.getElementById('storyContainer').innerHTML = html;
+  }
+
+  function makeChoice(sceneId, choiceIdx, consequence) {
+    const scene = scenes.find(s => s.id === sceneId);
+    const choice = scene.choices[choiceIdx];
+
+    choices[sceneId] = choiceIdx;
+
+    const outcomeClass = consequence === 'good' ? 'outcome-good' : (consequence === 'bad' ? 'outcome-bad' : 'outcome-neutral');
+    const title = consequence === 'good' ? '✓ Good Decision' : (consequence === 'bad' ? '✗ Poor Decision' : '⚠ Mixed Results');
+
+    const html = `
+      <div class="story-card">
+        <div style="font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Scene ${sceneId}</div>
+        <h2 class="scene-title">${scene.title}</h2>
+
+        <div class="${outcomeClass}" style="padding: 16px; border-radius: 4px;">
+          <div class="outcome-title">${title}</div>
+          <p class="outcome-text">${choice.outcome}</p>
+        </div>
+
+        <div class="concept-box" style="margin-top: 16px;">
+          <span class="concept-label">📚 Learning</span>
+          ${choice.learning}
+        </div>
+
+        <button onclick="nextScene()" style="margin-top: 24px; padding: 12px 24px; background: var(--accent); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; width: 100%;">
+          Continue →
+        </button>
+      </div>
+    `;
+
+    document.getElementById('storyContainer').innerHTML = html;
+  }
+
+  function nextScene() {
+    const scene = scenes.find(s => s.id === currentSceneId);
+    if (scene && scene.nextScene) {
+      currentSceneId = scene.nextScene;
+      displayScene(currentSceneId);
+    } else {
+      showConclusion();
+    }
+  }
+
+  function showConclusion() {
+    const goodCount = Object.values(choices).filter(c => c !== undefined).length;
+
+    const html = `
+      <div class="story-card" style="text-align: center;">
+        <h2 class="scene-title" style="color: var(--success);">Story Complete!</h2>
+        <p class="scene-text">You've completed the digital transformation project and learned key PMP concepts along the way.</p>
+
+        <div style="background: #f0fdf4; border: 2px solid var(--success); border-radius: 6px; padding: 24px; margin: 24px 0;">
+          <div style="font-size: 32px; font-weight: 700; color: var(--success);">Well Done!</div>
+          <p style="margin: 0; color: var(--muted); margin-top: 8px;">You've learned about PMP principles through real-world scenarios.</p>
+        </div>
+
+        <p style="color: var(--text); font-weight: 500; margin: 24px 0;">Key Takeaways:</p>
+        <ul style="text-align: left; max-width: 500px; margin: 0 auto; color: var(--text); line-height: 1.8;">
+          <li>Stakeholder engagement prevents costly rework</li>
+          <li>Change control protects scope and budget</li>
+          <li>Risk management prevents crises</li>
+          <li>Quality must be built in, not added at the end</li>
+          <li>Proper closure captures knowledge for future projects</li>
+        </ul>
+
+        <button onclick="resetStory()" class="reset-btn">Play Again</button>
+        <br><br>
+        <a href="dictionary.html" style="display: inline-block; margin-top: 16px; color: var(--accent); text-decoration: none; font-weight: 600;">Explore the PMP Dictionary →</a>
+      </div>
+    `;
+
+    document.getElementById('storyContainer').innerHTML = html;
+  }
+
+  function resetStory() {
+    currentSceneId = 1;
+    choices = {};
+    displayScene(1);
+  }
+
+  // Start the story
+  displayScene(1);
+</script>
+
+</body>
+</html>

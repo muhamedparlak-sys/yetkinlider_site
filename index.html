@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+  <link rel="icon" href="favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liderlik Yetkinliklerini Geliştir — YetkinLider</title>
+<meta name="description" content="Gerçekçi proje senaryolarında kritik kararlar ver. Liderlik yetkinliklerini geliştir.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2f4f60;
+  --primary-dark: #1f3b49;
+  --primary-light: #5f93c2;
+  --accent: #3b7bc8;
+  --accent-dark: #2563a8;
+  --text: #0b1220;
+  --muted: #334155;
+  --light: #64748b;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --radius: 12px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, system-ui, sans-serif; color: var(--text); background: var(--bg); }
+
+/* ── NAV ── */
+.navbar {
+  background: var(--primary); height: 52px;
+  display: flex; align-items: center; padding: 0 20px;
+  position: sticky; top: 0; z-index: 1000;
+  box-shadow: 0 1px 6px rgba(0,0,0,.18);
+}
+.brand { color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+.brand sup { font-size: 9px; vertical-align: super; }
+.brand-logo { width: 26px; height: 26px; border-radius: 5px; flex-shrink: 0; filter: brightness(0) invert(1); }
+.nav-spacer { flex: 1; }
+.nav-user { display: flex; align-items: center; gap: 8px; margin-right: 10px; }
+.nav-av {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; overflow: hidden; flex-shrink: 0;
+}
+.nav-av img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.nav-username {
+  color: rgba(255,255,255,.9); font-size: 13px; font-weight: 600;
+  max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.hamburger {
+  display: flex; flex-direction: column; justify-content: center; gap: 5px;
+  background: transparent; border: 1px solid rgba(255,255,255,.25);
+  border-radius: 7px; cursor: pointer; padding: 7px 8px; flex-shrink: 0;
+  transition: border-color .15s;
+}
+.hamburger:hover { border-color: rgba(255,255,255,.45); }
+.hamburger span { display: block; width: 18px; height: 2px; background: #fff; border-radius: 2px; transition: all .2s; }
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── MENU PANEL ── */
+.menu-panel {
+  position: fixed; top: 52px; left: 0; right: 0;
+  background: var(--primary-dark); z-index: 999;
+  max-height: 0; overflow: hidden;
+  transition: max-height .28s ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+}
+.menu-panel.open { max-height: 600px; }
+.menu-inner { padding: 6px 0 12px; }
+.menu-item {
+  display: flex; align-items: center; gap: 13px; padding: 11px 22px;
+  color: rgba(255,255,255,.8); text-decoration: none;
+  font-size: 14px; font-weight: 500; transition: background .12s, color .12s;
+}
+.menu-item:hover { background: rgba(255,255,255,.07); color: #fff; }
+.menu-item.active { background: rgba(255,255,255,.07); color: #fff; }
+.menu-item.primary {
+  color: #fff; font-weight: 700; font-size: 14.5px;
+  background: rgba(59,123,200,.15);
+  border-left: 3px solid var(--accent); padding-left: 19px;
+}
+.menu-item.primary:hover { background: rgba(59,123,200,.25); }
+.menu-icon { width: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; opacity: .72; }
+.menu-item.primary .menu-icon, .menu-item:hover .menu-icon, .menu-item.active .menu-icon { opacity: 1; }
+.menu-div { border-top: 1px solid rgba(255,255,255,.1); margin: 6px 0; }
+.menu-auth-area { padding: 8px 22px 4px; }
+.menu-auth-row { display: flex; align-items: center; gap: 10px; }
+.menu-auth-name { color: rgba(255,255,255,.85); font-size: 13px; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btn-menu-login {
+  display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+  color: #fff; font-size: 13px; font-weight: 600; border-radius: 8px;
+  cursor: pointer; font-family: inherit; transition: background .15s; text-decoration: none;
+}
+.btn-menu-login:hover { background: rgba(255,255,255,.18); }
+.btn-menu-logout {
+  background: transparent; border: 1px solid rgba(255,255,255,.18);
+  color: rgba(255,255,255,.5); font-size: 12px; padding: 5px 11px;
+  border-radius: 6px; cursor: pointer; font-family: inherit; transition: all .15s;
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-menu-logout:hover { border-color: rgba(239,68,68,.4); color: #fca5a5; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(150deg, var(--primary) 0%, #18384d 60%, #0f2535 100%);
+  color: #fff; padding: 100px 24px 112px; text-align: center;
+  min-height: calc(100vh - 52px);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-inner { max-width: 620px; }
+.hero-eyebrow {
+  display: inline-block;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
+  color: rgba(255,255,255,.7); font-size: 11px; font-weight: 700;
+  padding: 4px 14px; border-radius: 999px; letter-spacing: .06em;
+  text-transform: uppercase; margin-bottom: 28px;
+}
+.hero h1 {
+  font-size: clamp(36px, 7vw, 62px);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 22px;
+}
+.hero p {
+  font-size: clamp(15px, 2vw, 18px); color: rgba(255,255,255,.68);
+  line-height: 1.65; margin-bottom: 40px;
+  max-width: 500px; margin-left: auto; margin-right: auto;
+}
+.btn-hero {
+  display: inline-flex; align-items: center; gap: 11px;
+  background: #fff; color: var(--primary); padding: 15px 32px; border-radius: 12px;
+  font-size: 15px; font-weight: 700; text-decoration: none;
+  transition: transform .15s, box-shadow .15s;
+  box-shadow: 0 4px 20px rgba(0,0,0,.2);
+}
+.btn-hero:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.28); }
+.hero-note { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,.38); }
+
+/* ── TOOLS ── */
+.tools-section {
+  background: #fff; border-top: 1px solid var(--border); padding: 52px 24px 56px;
+}
+.tools-inner { max-width: 960px; margin: 0 auto; }
+.tools-label {
+  text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--light); margin-bottom: 28px;
+}
+.tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.tool-card {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+  padding: 22px 20px; border-radius: 12px; border: 1px solid var(--border);
+  text-decoration: none; color: var(--text);
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+.tool-card:hover { border-color: var(--primary-light); box-shadow: 0 4px 16px rgba(0,0,0,.07); transform: translateY(-2px); }
+.tool-icon {
+  width: 36px; height: 36px; border-radius: 9px;
+  background: var(--bg); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center; color: var(--primary);
+}
+.tool-name { font-size: 13.5px; font-weight: 700; }
+.tool-desc { font-size: 12px; color: var(--light); line-height: 1.45; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--primary); color: rgba(255,255,255,.55);
+  text-align: center; padding: 24px 16px; font-size: 12.5px; line-height: 1.6;
+}
+footer strong { color: rgba(255,255,255,.85); }
+
+/* ── AUTH MODAL ── */
+#auth-overlay {
+  position: fixed; inset: 0;
+  background: rgba(10,14,23,.88); backdrop-filter: blur(12px);
+  z-index: 1050; display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+#auth-overlay.hidden { display: none; }
+#form-login.hidden, #form-register.hidden, #form-forgot.hidden { display: none; }
+.auth-card {
+  background: #141d2e; border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px; padding: 36px; width: 100%; max-width: 400px;
+  position: relative; color: #f1f5f9;
+}
+.auth-logo {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), #6366f1);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px; box-shadow: 0 6px 20px rgba(59,123,200,.3); color: #fff;
+}
+.auth-title { font-size: 21px; font-weight: 800; text-align: center; margin-bottom: 4px; }
+.auth-sub { font-size: 13px; color: #94a3b8; text-align: center; margin-bottom: 20px; }
+.auth-tabs {
+  display: flex; background: rgba(255,255,255,.06);
+  border-radius: 8px; padding: 3px; margin-bottom: 22px;
+}
+.auth-tab {
+  flex: 1; padding: 8px; font-size: 13px; font-weight: 600; border-radius: 6px;
+  color: rgba(255,255,255,.4); transition: all .15s; background: none;
+  border: none; cursor: pointer; font-family: inherit;
+}
+.auth-tab.active { background: var(--accent); color: #fff; }
+.auth-field { margin-bottom: 12px; }
+.auth-field label {
+  display: block; font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .07em; color: rgba(255,255,255,.4); margin-bottom: 5px;
+}
+.auth-input {
+  width: 100%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px; padding: 11px 13px; color: #f1f5f9;
+  font-size: 14px; outline: none; transition: border .15s; font-family: inherit;
+}
+.auth-input:focus { border-color: var(--accent); }
+.auth-error {
+  background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.3);
+  color: #fca5a5; font-size: 12px; padding: 8px 12px; border-radius: 6px; margin-top: 6px;
+}
+.auth-error.hidden { display: none; }
+.btn-auth-submit {
+  width: 100%; background: var(--accent); color: #fff;
+  font-size: 15px; font-weight: 700; padding: 13px; border-radius: 8px;
+  transition: background .15s; margin-top: 10px; border: none; cursor: pointer; font-family: inherit;
+}
+.btn-auth-submit:hover { background: var(--accent-dark); }
+.auth-close {
+  position: absolute; top: 14px; right: 14px;
+  background: rgba(255,255,255,.07); border-radius: 6px; width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.4); cursor: pointer; font-size: 16px;
+  transition: all .15s; border: none; font-family: inherit;
+}
+.auth-close:hover { background: rgba(255,255,255,.12); color: #f1f5f9; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) { .tools-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 400px) { .tools-grid { grid-template-columns: 1fr; } .nav-username { display: none; } }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="brand" href="index.html"><img src="logo.png" class="brand-logo" alt="YetkinLider">YetkinLider<sup style="font-size:.55em;vertical-align:super;opacity:.8">&#8482;</sup></a>
+  <div class="nav-spacer"></div>
+  <div class="nav-user" id="navUser"></div>
+  <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-inner">
+    <a class="menu-item primary" href="game.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+      Liderlik Simülasyonu
+    </a>
+    <a class="menu-item" href="exam.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="m9 12 2 2 4-4"/></svg></span>
+      Sınav Simülatörü
+    </a>
+    <a class="menu-item" href="glossary.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+      Liderlik Sözlüğü
+    </a>
+    <a class="menu-item" href="flashcards.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="13" rx="2"/><path d="M4 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2"/></svg></span>
+      Öğrenme Kartları
+    </a>
+    <a class="menu-item" href="blog.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+      Blog
+    </a>
+    <a class="menu-item" href="pricing.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+      Fiyatlar
+    </a>
+    <div class="menu-div"></div>
+    <div class="menu-auth-area" id="menuAuth"></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Liderlik Yetkinlik Platformu</div>
+    <h1>Liderlik Yetkinliklerini Geliştir</h1>
+    <p>Gerçekçi proje senaryolarında kritik kararlar ver. Liderlik yetkinliklerini geliştir.</p>
+    <a href="game.html" class="btn-hero">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Liderlik Simülasyonuna Başla
+    </a>
+    <div class="hero-note">Yetkinliklerini sınamak için <a href="index.html?auth=1" style="color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:3px">ücretsiz kayıt ol</a></div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<div class="tools-section">
+  <div class="tools-inner">
+    <div class="tools-label">Destek Araçları</div>
+    <div class="tools-grid">
+      <a class="tool-card" href="exam.html">
+        <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div class="tool-name">Sınav Simülatörü</div>
+        <div class="tool-desc">Proje yönetimi sınav formatında sorular, zamanlayıcı ve detaylı analiz.</div>
+      </a>
+      <a class="tool-card" href="glossary.html">
+        <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <div class="tool-name">Liderlik Sözlüğü</div>
+        <div class="tool-desc">262 terim, Türkçe ve İngilizce. 8. Baskı.</div>
+      </a>
+      <a class="tool-card" href="flashcards.html">
+        <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="13" rx="2"/><path d="M4 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2"/></svg></div>
+        <div class="tool-name">Öğrenme Kartları</div>
+        <div class="tool-desc">Temel kavramları çevirerek öğren. Kategoriye göre filtrele.</div>
+      </a>
+      <a class="tool-card" href="blog.html">
+        <div class="tool-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="tool-name">Blog</div>
+        <div class="tool-desc">Çalışma stratejileri, alan analizleri ve sınav tüyoları.</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>YetkinLider</strong> — Liderlik yetkinlik geliştirme platformu.
+</footer>
+
+<!-- AUTH MODAL -->
+<div id="auth-overlay" class="hidden">
+  <div class="auth-card">
+    <button class="auth-close" onclick="closeAuth()" title="Kapat">✕</button>
+    <div class="auth-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </div>
+    <div class="auth-title">Liderlik Simülasyonu</div>
+    <div class="auth-sub">Profilini oluştur, yetkinlik gelişimini takip et.</div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-login"    onclick="switchTab('login')">Giriş Yap</button>
+      <button class="auth-tab"        id="tab-register" onclick="switchTab('register')">Kayıt Ol</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="form-login">
+      <div class="auth-field">
+        <label>Kullanıcı Adı</label>
+        <input class="auth-input" id="inp-login-user" type="text" placeholder="kullanici_adi" autocomplete="username">
+      </div>
+      <div class="auth-field">
+        <label>Şifre</label>
+        <input class="auth-input" id="inp-login-pass" type="password" placeholder="••••••" autocomplete="current-password">
+      </div>
+      <div class="auth-error hidden" id="err-login"></div>
+      <button class="btn-auth-submit" onclick="doLogin()">Giriş Yap →</button>
+      <div style="text-align:center;margin-top:12px;font-size:12px;color:#64748b">
+        Hesabın yok mu? <button style="background:none;border:none;color:#3b82f6;font-size:12px;font-weight:600;cursor:pointer;text-decoration:underline;font-family:inherit" onclick="switchTab('register')">Kayıt Ol</button>
+        &nbsp;·&nbsp;
+        <button style="background:none;border:none;color:#94a3b8;font-size:12px;cursor:pointer;text-decoration:underline;font-family:inherit" onclick="switchTab('forgot')">Şifremi unuttum</button>
+      </div>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="form-register" class="hidden">
+      <div class="auth-field">
+        <label>Kullanıcı Adı</label>
+        <input class="auth-input" id="inp-reg-user" type="text" placeholder="kullanici_adi" autocomplete="username">
+      </div>
+      <div class="auth-field">
+        <label>Görünen Ad</label>
+        <input class="auth-input" id="inp-reg-name" type="text" placeholder="Adın Soyadın" autocomplete="name">
+      </div>
+      <div class="auth-field">
+        <label>E-posta <span style="color:#ef4444;font-size:10px">zorunlu</span></label>
+        <input class="auth-input" id="inp-reg-email" type="email" placeholder="ornek@mail.com" autocomplete="email">
+      </div>
+      <div class="auth-field">
+        <label>Şifre</label>
+        <input class="auth-input" id="inp-reg-pass" type="password" placeholder="en az 6 karakter" autocomplete="new-password">
+      </div>
+      <div class="auth-error hidden" id="err-register"></div>
+      <button class="btn-auth-submit" onclick="doRegister()">Kayıt Ol →</button>
+      <div style="text-align:center;margin-top:12px;font-size:12px;color:#64748b">
+        Zaten hesabın var mı? <button style="background:none;border:none;color:#3b82f6;font-size:12px;font-weight:600;cursor:pointer;text-decoration:underline;font-family:inherit" onclick="switchTab('login')">Giriş Yap</button>
+      </div>
+    </div>
+
+    <!-- ŞİFREMİ UNUTTUM -->
+    <div id="form-forgot" class="hidden">
+      <div style="font-size:13px;color:#64748b;margin-bottom:16px;line-height:1.5;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:12px 14px">
+        Verileriniz bu tarayıcıda saklanmaktadır. Kayıtlı e-posta adresinizi girerek şifrenizi sıfırlayabilirsiniz.
+      </div>
+      <div class="auth-field">
+        <label>Kayıtlı E-posta</label>
+        <input class="auth-input" id="inp-forgot-email" type="email" placeholder="kayıtlı@mail.com" autocomplete="email">
+      </div>
+      <div id="forgot-new-pass-wrap" class="hidden">
+        <div class="auth-field" style="margin-top:12px">
+          <label>Yeni Şifre <span id="forgot-username-hint" style="color:#3b82f6;font-weight:600"></span></label>
+          <input class="auth-input" id="inp-forgot-newpass" type="password" placeholder="en az 6 karakter">
+        </div>
+        <div class="auth-field">
+          <label>Yeni Şifre Tekrar</label>
+          <input class="auth-input" id="inp-forgot-newpass2" type="password" placeholder="••••••">
+        </div>
+      </div>
+      <div class="auth-error hidden" id="err-forgot"></div>
+      <button class="btn-auth-submit" id="btn-forgot-submit" onclick="doForgot()">E-postayı Doğrula →</button>
+      <div style="text-align:center;margin-top:12px;font-size:12px;color:#64748b">
+        <button style="background:none;border:none;color:#3b82f6;font-size:12px;font-weight:600;cursor:pointer;text-decoration:underline;font-family:inherit" onclick="switchTab('login')">← Giriş Yap</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── HAMBURGER + MENU PANEL ─────────────────────────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const menuPanel  = document.getElementById('menuPanel');
+
+hamburger.addEventListener('click', () => {
+  const open = menuPanel.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', String(open));
+});
+document.addEventListener('click', e => {
+  if (!hamburger.contains(e.target) && !menuPanel.contains(e.target)) {
+    menuPanel.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+});
+menuPanel.querySelectorAll('.menu-item').forEach(a => {
+  a.addEventListener('click', () => {
+    menuPanel.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Auto-highlight current page
+(function() {
+  const page = location.pathname.split('/').pop() || 'index.html';
+  menuPanel.querySelectorAll('.menu-item[href]').forEach(a => {
+    if (a.getAttribute('href') === page) a.classList.add('active');
+  });
+})();
+
+// ── AUTH STORAGE ───────────────────────────────────────────────────────────────
+const USERS_KEY   = 'pmSim_users';
+const SESSION_KEY = 'pmSim_session';
+
+function authGetUsers()   { try { return JSON.parse(localStorage.getItem(USERS_KEY)   || '[]');   } catch { return []; }   }
+function authGetSession() { try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch { return null; } }
+function authSaveSession(user) {
+  localStorage.setItem(SESSION_KEY, JSON.stringify({
+    username: user.username, displayName: user.displayName, devMode: user.devMode || false
+  }));
+}
+
+// ── NAV USER + MENU AUTH ───────────────────────────────────────────────────────
+const userSvg   = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
+const logoutSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>`;
+
+function updateNav() {
+  const session  = authGetSession();
+  const navUser  = document.getElementById('navUser');
+  const menuAuth = document.getElementById('menuAuth');
+
+  if (session) {
+    const photo = localStorage.getItem('pmSim_profile_photo');
+    const avContent = photo
+      ? `<img src="${photo}" alt="">`
+      : (session.displayName || '?')[0].toUpperCase();
+    navUser.innerHTML = `
+      <div class="nav-av">${avContent}</div>
+      <span class="nav-username">${session.displayName}</span>`;
+    menuAuth.innerHTML = `
+      <div class="menu-auth-row">
+        <div class="nav-av">${avContent}</div>
+        <span class="menu-auth-name">${session.displayName}</span>
+        <button class="btn-menu-logout" onclick="doLogout()">${logoutSvg} Çıkış</button>
+      </div>`;
+  } else {
+    navUser.innerHTML = '';
+    menuAuth.innerHTML = `
+      <div class="menu-auth-row">
+        <button class="btn-menu-login" onclick="openAuth()">${userSvg} Giriş Yap / Kayıt Ol</button>
+      </div>`;
+  }
+}
+
+// ── AUTH MODAL ─────────────────────────────────────────────────────────────────
+function openAuth(tab) {
+  document.getElementById('auth-overlay').classList.remove('hidden');
+  menuPanel.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  switchTab(tab || 'login');
+}
+function closeAuth() { document.getElementById('auth-overlay').classList.add('hidden'); }
+function switchTab(tab) {
+  ['login','register','forgot'].forEach(t => {
+    document.getElementById('form-' + t).classList.toggle('hidden', tab !== t);
+    document.getElementById('tab-'  + t).classList.toggle('active', tab === t);
+  });
+  if (tab === 'forgot') {
+    document.getElementById('forgot-new-pass-wrap').classList.add('hidden');
+    document.getElementById('inp-forgot-email').value = '';
+    document.getElementById('btn-forgot-submit').textContent = 'E-postayı Doğrula →';
+    document.getElementById('btn-forgot-submit').dataset.step = 'verify';
+    hideErr('err-forgot');
+  }
+}
+
+let _forgotUser = null;
+function doForgot() {
+  const step = document.getElementById('btn-forgot-submit').dataset.step || 'verify';
+  if (step === 'verify') {
+    const email = (document.getElementById('inp-forgot-email').value || '').trim().toLowerCase();
+    if (!email) { showErr('err-forgot', 'E-posta adresinizi girin'); return; }
+    const user = authGetUsers().find(u => u.email && u.email.toLowerCase() === email);
+    if (!user) { showErr('err-forgot', 'Bu e-posta ile kayıtlı hesap bulunamadı'); return; }
+    _forgotUser = user;
+    hideErr('err-forgot');
+    document.getElementById('forgot-username-hint').textContent = '(@' + user.username + ')';
+    document.getElementById('forgot-new-pass-wrap').classList.remove('hidden');
+    document.getElementById('inp-forgot-email').disabled = true;
+    document.getElementById('btn-forgot-submit').textContent = 'Şifreyi Sıfırla →';
+    document.getElementById('btn-forgot-submit').dataset.step = 'reset';
+  } else {
+    const newPass  = document.getElementById('inp-forgot-newpass').value;
+    const newPass2 = document.getElementById('inp-forgot-newpass2').value;
+    if (newPass.length < 6)   { showErr('err-forgot', 'Şifre en az 6 karakter olmalı'); return; }
+    if (newPass !== newPass2) { showErr('err-forgot', 'Şifreler eşleşmiyor'); return; }
+    const users = authGetUsers();
+    const idx = users.findIndex(u => u.username === _forgotUser.username);
+    if (idx === -1) { showErr('err-forgot', 'Hesap bulunamadı'); return; }
+    users[idx].password = newPass;
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+    _forgotUser = null;
+    hideErr('err-forgot');
+    switchTab('login');
+    const loginErr = document.getElementById('err-login');
+    loginErr.textContent = 'Şifreniz güncellendi. Şimdi giriş yapabilirsiniz.';
+    loginErr.style.color = '#22c55e';
+    loginErr.classList.remove('hidden');
+  }
+}
+
+function showErr(id, msg) {
+  const el = document.getElementById(id); el.textContent = msg; el.style.color = ''; el.classList.remove('hidden');
+}
+function hideErr(id) { document.getElementById(id).classList.add('hidden'); }
+
+function afterAuth(user) {
+  authSaveSession(user); closeAuth(); updateNav();
+  const ret = new URLSearchParams(window.location.search).get('return');
+  if (ret) window.location.href = ret;
+}
+
+function doLogin() {
+  const username = (document.getElementById('inp-login-user').value || '').trim();
+  const password = document.getElementById('inp-login-pass').value;
+  document.getElementById('err-login').style.color = '';
+  if (!username || !password) { showErr('err-login', 'Tüm alanları doldurun'); return; }
+  const user = authGetUsers().find(u => u.username.toLowerCase() === username.toLowerCase() && u.password === password);
+  if (!user) { showErr('err-login', 'Kullanıcı adı veya şifre hatalı'); return; }
+  hideErr('err-login');
+  afterAuth(user);
+}
+
+function doRegister() {
+  const username    = (document.getElementById('inp-reg-user').value  || '').trim();
+  const displayName = (document.getElementById('inp-reg-name').value  || '').trim();
+  const email       = (document.getElementById('inp-reg-email').value || '').trim();
+  const password    = document.getElementById('inp-reg-pass').value;
+  if (!username || !displayName || !email || !password) { showErr('err-register', 'Tüm alanları doldurun'); return; }
+  if (username.length < 3) { showErr('err-register', 'Kullanıcı adı en az 3 karakter olmalı'); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showErr('err-register', 'Geçerli bir e-posta adresi girin'); return; }
+  if (password.length < 6) { showErr('err-register', 'Şifre en az 6 karakter olmalı'); return; }
+  const users = authGetUsers();
+  if (users.find(u => u.username.toLowerCase() === username.toLowerCase())) {
+    showErr('err-register', 'Bu kullanıcı adı zaten kullanımda'); return;
+  }
+  if (users.find(u => u.email && u.email.toLowerCase() === email.toLowerCase())) {
+    showErr('err-register', 'Bu e-posta adresi zaten kayıtlı'); return;
+  }
+  // devMode sadece admin panelinden verilebilir
+  const user = { username, displayName, email, password, devMode: false, createdAt: new Date().toISOString() };
+  users.push(user);
+  localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  hideErr('err-register');
+  afterAuth(user);
+}
+
+function doLogout() { localStorage.removeItem(SESSION_KEY); updateNav(); }
+
+document.getElementById('auth-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('auth-overlay')) closeAuth();
+});
+document.getElementById('inp-login-pass').addEventListener('keydown',  e => { if (e.key === 'Enter') doLogin(); });
+document.getElementById('inp-login-user').addEventListener('keydown',  e => { if (e.key === 'Enter') doLogin(); });
+document.getElementById('inp-reg-email').addEventListener('keydown',   e => { if (e.key === 'Enter') doRegister(); });
+document.getElementById('inp-reg-pass').addEventListener('keydown',    e => { if (e.key === 'Enter') doRegister(); });
+
+// ── INIT ───────────────────────────────────────────────────────────────────────
+updateNav();
+const params = new URLSearchParams(window.location.search);
+if (params.get('auth') === '1') openAuth('login');
+</script>
+</body>
+</html>

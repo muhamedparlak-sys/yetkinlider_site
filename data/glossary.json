@@ -1,0 +1,3203 @@
+{
+  "terms": [
+    {
+      "term": "Acceptance Criteria",
+      "category": "Scope Management",
+      "definition": "Predefined conditions a deliverable must satisfy before stakeholders formally accept it. These criteria are agreed upon before work begins and establish the standard for determining whether an output is complete and acceptable.",
+      "related": [
+        "Definition of Done",
+        "User Story",
+        "Deliverable",
+        "Quality Control"
+      ],
+      "termTR": "Kabul Kriterleri",
+      "definitionTR": "Bir ürünün, hizmetin veya sonucun müşteri veya sponsor tarafından resmi olarak kabul edilebilmesi için karşılaması gereken standartlar ve koşullar dizisidir."
+    },
+    {
+      "term": "Active Listening",
+      "termTR": "Aktif Dinleme",
+      "category": "Stakeholder & Communication",
+      "definition": "A conscious communication skill used to correctly understand the speaker's message, reduce miscommunications (especially in virtual and multicultural teams), and identify and remove communication barriers.",
+      "definitionTR": "Karşıdaki kişinin mesajını doğru anlamak, yanlış iletişimleri (özellikle sanal ve çok kültürlü takımlarda) azaltmak ve iletişimin önündeki engelleri fark edip ortadan kaldırmak için kullanılan bilinçli dinleme becerisidir.",
+      "related": [
+        "Communication Methods",
+        "Emotional Intelligence (EI)",
+        "Stakeholder"
+      ]
+    },
+    {
+      "term": "Activity Attributes",
+      "termTR": "Faaliyet Nitelikleri",
+      "category": "Schedule Management",
+      "definition": "Multiple data elements associated with each scheduled activity, including activity codes, predecessor/successor activities, logical relationships, leads and lags, resource requirements, constraints, and assumptions.",
+      "definitionTR": "Zaman çizelgesindeki her bir faaliyetin özelliklerini tanımlayan; faaliyetin kodunu, açıklamasını, öncül/ardıl ilişkilerini, kaynak gereksinimlerini ve kısıtlarını içeren çoklu veri setleridir.",
+      "related": [
+        "Network Diagram",
+        "Critical Path Method (CPM)",
+        "Work Breakdown Structure (WBS)"
+      ]
+    },
+    {
+      "term": "Actual Cost (AC)",
+      "category": "Earned Value Management",
+      "definition": "The total cost incurred for work performed on the project up to a given point in time. Used alongside Earned Value and Planned Value to assess cost efficiency and project health.",
+      "related": [
+        "Earned Value (EV)",
+        "Planned Value (PV)",
+        "Cost Variance (CV)",
+        "Cost Performance Index (CPI)"
+      ],
+      "termTR": "Gerçekleşen Maliyet (AC)",
+      "definitionTR": "Belirli bir zaman diliminde bir faaliyet üzerinde gerçekleştirilen iş için katlanılan gerçekleşmiş, net maliyettir."
+    },
+    {
+      "term": "Adaptive Approach",
+      "category": "Development Approach",
+      "definition": "A delivery method that embraces change and uncertainty by executing work in short cycles, continuously incorporating feedback, and adjusting plans as understanding grows. Includes agile, iterative, and incremental approaches.",
+      "related": [
+        "Agile",
+        "Scrum",
+        "Kanban",
+        "Iterative Approach",
+        "Incremental Approach"
+      ],
+      "termTR": "Uyarlanabilir Yaklaşım"
+    },
+    {
+      "term": "Agile",
+      "category": "Agile & Adaptive",
+      "definition": "A mindset grounded in values and principles that prioritizes delivering value through collaboration, transparency, and continuous improvement. Agile teams work in short cycles, respond quickly to change, and favor working solutions over heavy documentation.",
+      "related": [
+        "Agile Manifesto",
+        "Scrum",
+        "Kanban",
+        "Adaptive Approach",
+        "Sprint"
+      ],
+      "termTR": "Çevik"
+    },
+    {
+      "term": "Agile Center of Excellence (ACoE)",
+      "termTR": "Çevik Mükemmeliyet Merkezi / Değer Teslim Ofisi",
+      "category": "Agile & Adaptive",
+      "definition": "Organizational units (also called Value Delivery Office / VDO) that provide coaching, mentoring, and support directly to teams rather than directing them, enabling organizations to respond rapidly to changing customer needs.",
+      "definitionTR": "Ekiplerin değişen müşteri ihtiyaçlarına hızlı bir şekilde yanıt vermesi gereken kurumlarda, yöneticilik yapmak yerine doğrudan takımlara koçluk ve mentorluk sağlayan oluşumlardır.",
+      "related": [
+        "PMO (Project Management Office)",
+        "Servant Leadership",
+        "Scrum Master"
+      ]
+    },
+    {
+      "term": "Agile Manifesto",
+      "category": "Agile & Adaptive",
+      "definition": "A foundational document created in 2001 by software practitioners articulating four core values: individuals and interactions over processes and tools; working software over comprehensive documentation; customer collaboration over contract negotiation; and responding to change over following a plan.",
+      "related": [
+        "Agile",
+        "Scrum",
+        "Adaptive Approach"
+      ],
+      "termTR": "Çevik Manifesto"
+    },
+    {
+      "term": "Ambiguity",
+      "termTR": "Belirsizlik / Muğlaklık",
+      "category": "Core Concepts",
+      "definition": "A state of uncertainty about the cause of events or conditions, or having multiple options to choose from, resulting in lack of clarity. Differs from risk (known unknowns) and complexity (many interacting elements).",
+      "definitionTR": "Nelerin veya olayların nedenini belirlemede zorluk yaşama ya da aralarından seçim yapılabilecek birden fazla seçeneğe sahip olma (belirgin olmama) durumudur.",
+      "related": [
+        "Risk",
+        "Navigate Complexity",
+        "Uncertainty Performance Domain"
+      ]
+    },
+    {
+      "term": "Analogous Estimating",
+      "termTR": "Benzerlik Tahmini",
+      "category": "Planning",
+      "definition": "A technique that uses historical data from similar past projects to estimate the current project's cost or duration. A 'top-down' approach — less accurate than bottom-up but faster and requires less detail.",
+      "definitionTR": "Geçmişteki benzer projelerin veya faaliyetlerin süre ve maliyet verilerini kullanarak, mevcut projenin maliyet veya süresini 'yukarıdan aşağıya' tahmin etme yöntemidir.",
+      "related": [
+        "Bottom-up Estimating",
+        "Parametric Estimating",
+        "Three-Point Estimate (PERT)"
+      ]
+    },
+    {
+      "term": "Appraisal Cost",
+      "category": "Quality Management",
+      "definition": "Costs incurred to measure, evaluate, and audit products or services to ensure they conform to quality standards. Examples include testing, inspections, and audits. Appraisal costs are a component of Cost of Quality.",
+      "related": [
+        "Cost of Quality (COQ)",
+        "Prevention Cost",
+        "Internal Failure Cost",
+        "External Failure Cost"
+      ],
+      "termTR": "Değerlendirme Maliyeti"
+    },
+    {
+      "term": "Artifact",
+      "termTR": "Eser / Proje Çıktısı",
+      "category": "Core Concepts",
+      "definition": "A document or other object produced during a portfolio, program, or project to assist with management and provide information to the team and stakeholders. Includes plans, reports, backlogs, and registers.",
+      "definitionTR": "Portföy, program veya proje sırasında, yönetime yardımcı olmak ve takım ile paydaşlara bilgi sağlamak amacıyla oluşturulan belge veya diğer nesnelerdir.",
+      "related": [
+        "Deliverable",
+        "Project Management Plan",
+        "Risk Register"
+      ]
+    },
+    {
+      "term": "Assumption",
+      "category": "Core Concepts",
+      "definition": "A factor treated as true or certain for planning purposes without verification or proof. Assumptions introduce risk when they prove false and should be documented and revisited throughout the project life cycle.",
+      "related": [
+        "Assumption Log",
+        "Constraint",
+        "Risk"
+      ],
+      "termTR": "Varsayım",
+      "definitionTR": "Planlama ve risk süreçlerinde, aksine bir kanıt veya gösterge olmaksızın doğru, gerçek veya kesin olarak kabul edilen faktörlerdir."
+    },
+    {
+      "term": "Assumption Log",
+      "category": "Planning",
+      "definition": "A project document that captures all identified assumptions and constraints throughout the project. It is continuously updated as new information emerges to help the team monitor factors that could affect outcomes.",
+      "related": [
+        "Assumption",
+        "Constraint",
+        "Risk Register"
+      ],
+      "termTR": "Varsayım Kaydı"
+    },
+    {
+      "term": "Backlog Refinement",
+      "category": "Agile & Adaptive",
+      "definition": "An ongoing collaborative activity in agile projects where the team reviews, clarifies, estimates, and reprioritizes product backlog items. Also called backlog grooming, it ensures upcoming work is well-defined and ready for sprint planning.",
+      "related": [
+        "Product Backlog",
+        "Sprint Planning",
+        "User Story",
+        "Definition of Ready (DoR)"
+      ],
+      "termTR": "İş Birikim Listesi İyileştirme",
+      "definitionTR": "Aşırı karmaşık veya büyük hikayelerin (epic) daha alt parçalara bölünerek detaylandırılmasını sağlayan ve takımın bunları daha hızlı tamamlamasına olanak tanıyan toplantı/çalışmadır."
+    },
+    {
+      "term": "Baseline",
+      "category": "Core Concepts",
+      "definition": "An approved, snapshot version of a plan component — scope, schedule, or cost — used as a fixed reference point for measuring performance. Changes to baselines require formal approval through the change control process.",
+      "related": [
+        "Scope Baseline",
+        "Schedule Baseline",
+        "Cost Baseline",
+        "Performance Measurement Baseline (PMB)"
+      ],
+      "termTR": "Temel Çizgi"
+    },
+    {
+      "term": "Be a Diligent Steward",
+      "category": "PMBOK Principles",
+      "definition": "One of the 12 PMBOK® 8th edition principles. Project managers and team members act as responsible stewards of organizational resources — including time, money, materials, and reputation — managing them with integrity, diligence, and care for both short-term and long-term consequences.",
+      "related": [
+        "Governance",
+        "Value",
+        "Project Manager",
+        "Ethics"
+      ],
+      "termTR": "Titiz Bir Yönetici Ol"
+    },
+    {
+      "term": "Behavior-Driven Development (BDD)",
+      "termTR": "Davranış Odaklı Geliştirme",
+      "category": "Agile & Adaptive",
+      "definition": "An extension of Test-Driven Development (TDD) where automated tests and simulations are created before the product is built, enabling quality defects to be discovered early.",
+      "definitionTR": "Ürünü geliştirmeden önce otomatik testler ve simülasyonların oluşturulduğu, Test Odaklı Geliştirme'nin (TDD) bir uzantısı olan ve kalite kusurlarını işin başında keşfetmeyi sağlayan tekniktir.",
+      "related": [
+        "Extreme Programming (XP)",
+        "Definition of Done (DoD)",
+        "User Story"
+      ]
+    },
+    {
+      "term": "Benchmarking",
+      "category": "Quality Management",
+      "definition": "The practice of comparing a project's processes, outputs, or metrics against recognized best practices, industry standards, or similar past projects to identify improvement opportunities and realistic performance targets.",
+      "related": [
+        "Quality Management",
+        "Process Improvement",
+        "Continuous Improvement"
+      ],
+      "termTR": "Kıyaslama",
+      "definitionTR": "En iyi uygulamaları belirlemek ve iyileştirme için fikirler üretmek amacıyla gerçek veya planlanmış proje süreçlerini diğer benzer organizasyonlarınkilerle karşılaştırma işlemidir."
+    },
+    {
+      "term": "Benefit",
+      "termTR": "Fayda",
+      "category": "Core Concepts",
+      "definition": "A gain or value realized or perceived by the organization or stakeholders as a result of delivered project outputs. Represents the positive change achieved, not just the output produced.",
+      "definitionTR": "Teslim edilen proje çıktılarının bir sonucu olarak organizasyon veya paydaşlar tarafından elde edilen veya algılanan kazanç ya da değerdir.",
+      "related": [
+        "Benefits Realization",
+        "Business Value",
+        "Business Case",
+        "Outcome"
+      ]
+    },
+    {
+      "term": "Benefit-Cost Ratio (BCR)",
+      "category": "Cost Management",
+      "definition": "A financial indicator that divides the expected benefits of a project by its estimated costs. A BCR greater than 1.0 means anticipated benefits exceed costs. Higher BCR values indicate more financially attractive projects when comparing alternatives.",
+      "related": [
+        "Business Case",
+        "Net Present Value (NPV)",
+        "Internal Rate of Return (IRR)",
+        "Payback Period"
+      ],
+      "termTR": "Fayda-Maliyet Oranı (BCR)"
+    },
+    {
+      "term": "Benefits Owner",
+      "termTR": "Fayda Sahibi",
+      "category": "Core Concepts",
+      "definition": "The individual responsible for monitoring, measuring, and verifying whether the benefits produced by a project or program have been realized in operational life. Accountable for benefits realization after project closure.",
+      "definitionTR": "Projenin veya programın ürettiği faydaları izlemekten, ölçmekten ve bu faydaların operasyonel hayata geçip geçmediğini doğrulamaktan sorumlu olan kişidir.",
+      "related": [
+        "Benefits Realization",
+        "Sponsor",
+        "Business Case",
+        "Outcome"
+      ]
+    },
+    {
+      "term": "Benefits Realization",
+      "category": "Core Concepts",
+      "definition": "The ongoing process of ensuring that the intended benefits of a project or program are actually achieved and sustained after closure. It includes defining, planning, measuring, and tracking benefits throughout and beyond the project life cycle.",
+      "related": [
+        "Business Case",
+        "Value",
+        "Governance",
+        "Outcome"
+      ],
+      "termTR": "Fayda Gerçekleştirme"
+    },
+    {
+      "term": "Bid Documents",
+      "termTR": "İhale Belgeleri",
+      "category": "Procurement",
+      "definition": "All standard documents used to request information, quotations, or proposals from potential vendors. Includes Request for Proposal (RFP), Request for Quotation (RFQ), and Invitation for Bid (IFB).",
+      "definitionTR": "Potansiyel satıcılardan bilgi, teklif (quotation) veya öneri (proposal) istemek (solicit) amacıyla kullanılan standart dokümanların tümüdür.",
+      "related": [
+        "Request for Proposal (RFP)",
+        "Bidder Conference",
+        "Contract",
+        "Procurement"
+      ]
+    },
+    {
+      "term": "Bidder Conference",
+      "termTR": "Tedarikçi / Teklif Verenler Konferansı",
+      "category": "Procurement",
+      "definition": "A meeting held before bid submission to ensure all prospective sellers have a clear, common, and fair understanding of the procurement requirements, so no seller has privileged information.",
+      "definitionTR": "Teklif sunumundan önce, tüm olası satıcıların proje ihalesi hakkında net, ortak ve adil bir anlayışa sahip olmasını sağlamak için yapılan ön toplantıdır.",
+      "related": [
+        "Bid Documents",
+        "Request for Proposal (RFP)",
+        "Contract",
+        "Procurement"
+      ]
+    },
+    {
+      "term": "Body Language",
+      "termTR": "Vücut Dili",
+      "category": "Stakeholder & Communication",
+      "definition": "Non-verbal physical communication through facial expressions, gestures, and posture that often conveys more information than words. Critical in the message encoding/decoding phases of communication.",
+      "definitionTR": "İletişim süreçlerinde, özellikle mesajın kodlanması ve kodunun çözülmesi aşamalarında kelimelerden çok daha fazla etkiye sahip olan; yüz ifadeleri, jestler ve duruşu içeren fiziksel bilgi aktarımıdır.",
+      "related": [
+        "Active Listening",
+        "Communication Methods",
+        "Emotional Intelligence (EI)"
+      ]
+    },
+    {
+      "term": "Bottom-up Estimating",
+      "termTR": "Aşağıdan Yukarıya Tahmin",
+      "category": "Planning",
+      "definition": "A method for estimating project duration or cost by aggregating estimates of lower-level WBS components. Each work package is estimated individually and rolled up to determine the total.",
+      "definitionTR": "İş kırılım yapısının (İKY) alt düzey bileşenlerinin tahminlerini toplayarak projenin toplam süresini veya maliyetini tahmin eden bir yöntemdir.",
+      "related": [
+        "Work Breakdown Structure (WBS)",
+        "Three-Point Estimate (PERT)",
+        "Analogous Estimating",
+        "Parametric Estimating"
+      ]
+    },
+    {
+      "term": "Brainstorming",
+      "termTR": "Beyin Fırtınası",
+      "category": "Planning",
+      "definition": "A creative group technique used to generate ideas, gather data, identify risks, or elicit requirements. Participants freely contribute ideas without criticism. Quantity of ideas is encouraged in the initial phase.",
+      "definitionTR": "Veri toplamak, yeni fikirler üretmek veya riskleri ve gereksinimleri belirlemek için takım veya uzmanlarla birlikte kullanılan çok yönlü bir yaratıcılık tekniğidir.",
+      "related": [
+        "Delphi Technique",
+        "Risk Register",
+        "Requirements",
+        "Brainwriting"
+      ]
+    },
+    {
+      "term": "Brainwriting",
+      "termTR": "Beyin Yazımı",
+      "category": "Planning",
+      "definition": "A creative technique where team members silently write their ideas on paper or digitally instead of voicing them, after which ideas are passed around the group for further development. Overcomes groupthink.",
+      "definitionTR": "Geleneksel beyin fırtınasının aksine, takım üyelerinin fikirlerini sesli söylemek yerine sessizce yazıp daha sonra grupta dolaştırarak geliştirdikleri yaratıcılık tekniğidir.",
+      "related": [
+        "Brainstorming",
+        "Delphi Technique",
+        "Risk Register"
+      ]
+    },
+    {
+      "term": "Budget at Completion (BAC)",
+      "category": "Earned Value Management",
+      "definition": "The total authorized budget allocated to the project. It represents the sum of all planned values and is the baseline denominator for calculating Estimate at Completion, Variance at Completion, and To-Complete Performance Index.",
+      "related": [
+        "Estimate at Completion (EAC)",
+        "Variance at Completion (VAC)",
+        "Planned Value (PV)",
+        "Performance Measurement Baseline (PMB)"
+      ],
+      "termTR": "Tamamlanma Bütçesi (BAC)",
+      "definitionTR": "Gerçekleştirilecek proje işi için kurulan/onaylanan orijinal tahmini bütçelerin tümünün toplamıdır."
+    },
+    {
+      "term": "Build Quality Into Processes",
+      "category": "PMBOK Principles",
+      "definition": "One of the 12 PMBOK® 8th edition principles. Build quality into both processes and deliverables from the outset. Quality is everyone's responsibility, achieved through prevention, inspection, and continuous improvement — not as an afterthought or a separate team's job.",
+      "related": [
+        "Quality Management",
+        "Cost of Quality (COQ)",
+        "Continuous Improvement",
+        "Definition of Done (DoD)"
+      ],
+      "termTR": "Kaliteyi Süreçlere İşle"
+    },
+    {
+      "term": "Burndown Chart",
+      "category": "Agile & Adaptive",
+      "definition": "A visual tracking tool that plots remaining work (vertical axis) against time (horizontal axis). As team members complete tasks, the line drops toward zero, giving a clear picture of progress and whether the sprint or release is on track.",
+      "related": [
+        "Burnup Chart",
+        "Velocity",
+        "Sprint",
+        "Product Backlog"
+      ],
+      "termTR": "Kalan İş Grafiği",
+      "definitionTR": "Tamamlanması gereken veya kalan iş miktarını belirli bir zaman dilimine karşı gösteren ve genellikle çevik projelerde takımın hızını izlemek için kullanılan bir araçtır."
+    },
+    {
+      "term": "Burnup Chart",
+      "category": "Agile & Adaptive",
+      "definition": "A chart that tracks completed work (vertical axis) over time (horizontal axis) alongside a total scope line. Unlike a burndown chart, burnup charts make scope changes visible by showing both the work done and any changes to the total target.",
+      "related": [
+        "Burndown Chart",
+        "Velocity",
+        "Product Backlog"
+      ],
+      "termTR": "Tamamlanan İş Grafiği",
+      "definitionTR": "Zamana karşı tamamlanan iş miktarını gösteren, aynı zamanda projenin toplam kapsamındaki değişikliklerin de takip edilmesini sağlayan görsel bir bilgi grafiğidir."
+    },
+    {
+      "term": "Business Case",
+      "category": "Core Concepts",
+      "definition": "A formal document justifying project initiation by analyzing the problem or opportunity, evaluating solution alternatives, estimating costs and benefits, and recommending a preferred course of action. It serves as the primary basis for senior leadership decisions.",
+      "related": [
+        "Benefits Realization",
+        "Business Value",
+        "Project Charter",
+        "Net Present Value (NPV)"
+      ],
+      "termTR": "İş Gerekçesi"
+    },
+    {
+      "term": "Business Value",
+      "category": "Core Concepts",
+      "definition": "The net quantifiable benefit an organization derives from its investments, encompassing financial returns, improved customer experience, competitive advantages, and operational gains. Delivering business value is the ultimate purpose of project management.",
+      "related": [
+        "Value",
+        "Benefits Realization",
+        "Business Case",
+        "Outcome"
+      ],
+      "termTR": "İş Değeri"
+    },
+    {
+      "term": "Cause-and-Effect Diagram",
+      "category": "Quality Management",
+      "definition": "Also called a fishbone or Ishikawa diagram, this quality tool maps potential root causes of a defect or problem, organizing them by category — such as people, process, materials, machines, and environment — to help teams pinpoint and address underlying sources.",
+      "related": [
+        "Quality Control",
+        "Pareto Chart",
+        "Root Cause Analysis"
+      ],
+      "termTR": "Neden-Sonuç Diyagramı (Ishikawa)",
+      "definitionTR": "Bir sorunun nedenlerini ayrı dallara (kılçık modeline) bölerek ana veya kök nedeni belirlemeye ve aykırı değerleri ortaya çıkarmaya yardımcı olan analiz aracıdır."
+    },
+    {
+      "term": "Change Control Board (CCB)",
+      "category": "Core Concepts",
+      "definition": "A formally authorized group responsible for reviewing, evaluating, approving, deferring, or rejecting proposed changes to the project. The CCB protects the integrity of baselines by ensuring that only beneficial changes are incorporated in a controlled manner.",
+      "related": [
+        "Integrated Change Control",
+        "Change Request",
+        "Configuration Management"
+      ],
+      "termTR": "Değişiklik Kontrol Kurulu (DKK)",
+      "definitionTR": "Projedeki değişiklik taleplerini gözden geçirmek, değerlendirmek, onaylamak, ertelemek veya reddetmek ve bu kararları iletmekle yetkilendirilmiş resmi gruptur."
+    },
+    {
+      "term": "Change Request",
+      "category": "Core Concepts",
+      "definition": "A formal proposal to modify any project document, deliverable, or baseline. Change requests may arise from identified defects, evolving requirements, or new information, and must be processed through integrated change control before implementation.",
+      "related": [
+        "Integrated Change Control",
+        "Change Control Board (CCB)",
+        "Scope Creep"
+      ],
+      "termTR": "Değişiklik Talebi",
+      "definitionTR": "Projenin kapsam, zaman çizelgesi, maliyet veya kalite temel çizgilerinde ya da belgelerinde resmi bir değişiklik yapılması için sunulan öneridir."
+    },
+    {
+      "term": "Checklist",
+      "termTR": "Kontrol Listesi",
+      "category": "Quality Management",
+      "definition": "A structured tool used during quality control or project closure to verify that a required set of steps has been performed or that specific quality standards have been met. Ensures consistency and completeness.",
+      "definitionTR": "Kalite kontrol veya proje kapanışı sırasında, gerekli bir dizi adımın uygulandığını veya belirli standartlara uyulduğunu doğrulamak için kullanılan yapılandırılmış bir araçtır.",
+      "related": [
+        "Definition of Done (DoD)",
+        "Acceptance Criteria"
+      ]
+    },
+    {
+      "term": "Claim",
+      "termTR": "Hak Talebi / İddia",
+      "category": "Procurement",
+      "definition": "In procurement contracts, a request or assertion by one party for consideration, compensation, or payment. Typically arises from disputed changes, differing conditions, or breach of contract. Handled through claims administration.",
+      "definitionTR": "Tedarik sözleşmelerinde, alıcı ile satıcı arasında şartlar, değişiklikler veya ödemeler konusunda bir anlaşmazlık olduğunda taraflardan birinin yasal/sözleşmesel olarak talep ettiği hak, itiraz veya tazminattır.",
+      "related": [
+        "Contract",
+        "Change Request",
+        "Procurement"
+      ]
+    },
+    {
+      "term": "Cognitive Bias",
+      "termTR": "Bilişsel Önyargı",
+      "category": "Core Concepts",
+      "definition": "A systematic pattern of deviation from rational judgment in project decision-making. Examples include confirmation bias and anchoring bias. Self-awareness and structured decision processes help mitigate its effects.",
+      "definitionTR": "Proje yöneticisinin veya takımın karar almasını olumsuz etkileyen; verileri kendi inançlarına uydurma veya yanıltıcı varsayımlarda bulunma gibi zihinsel hata durumlarıdır.",
+      "related": [
+        "Confirmation Bias",
+        "Critical Thinking",
+        "Risk",
+        "Decision Tree Analysis"
+      ]
+    },
+    {
+      "term": "Communication Channels Formula",
+      "category": "Stakeholder & Communication",
+      "definition": "A formula that calculates the number of potential communication channels in a project: n(n−1)/2, where n is the number of stakeholders. As the team grows, the number of channels grows rapidly, highlighting the importance of structured communication planning.",
+      "related": [
+        "Communications Management Plan",
+        "Communication Methods",
+        "Stakeholder"
+      ],
+      "termTR": "İletişim Kanalları Formülü"
+    },
+    {
+      "term": "Communication Methods",
+      "category": "Stakeholder & Communication",
+      "definition": "The three primary communication methods: Interactive (real-time exchange between two or more parties, e.g., meetings and calls); Push (information sent to recipients without expecting a response, e.g., emails and reports); and Pull (information made available for recipients to access on demand, e.g., portals and repositories).",
+      "related": [
+        "Communications Management Plan",
+        "Communication Channels Formula",
+        "Stakeholder Register"
+      ],
+      "termTR": "İletişim Yöntemleri"
+    },
+    {
+      "term": "Communications Management Plan",
+      "category": "Stakeholder & Communication",
+      "definition": "A subsidiary plan that defines what information will be communicated, to whom, how frequently, via which channels, and in what format. It ensures stakeholder communication needs are systematically met throughout the project.",
+      "related": [
+        "Stakeholder Register",
+        "Communication Methods",
+        "Information Radiator"
+      ],
+      "termTR": "İletişim Yönetim Planı"
+    },
+    {
+      "term": "Community of Practice",
+      "termTR": "Uygulama Topluluğu",
+      "category": "Team & Leadership",
+      "definition": "An interaction group established together with mentoring to ensure knowledge is regularly stored and transferred within the team against risks of team member departure or competency loss.",
+      "definitionTR": "İşten ayrılma riskleri veya yetkinlik kayıplarına karşı bilginin takım içinde düzenli olarak depolanmasını ve transfer edilmesini sağlamak için mentorluk ile birlikte kurulan etkileşim grubudur.",
+      "related": [
+        "Tacit Knowledge",
+        "Explicit Knowledge",
+        "Lessons Learned Register",
+        "Organizational Process Assets (OPA)"
+      ]
+    },
+    {
+      "term": "Configuration Management",
+      "category": "Core Concepts",
+      "definition": "A system that identifies, tracks, and controls project deliverables and documentation throughout the project life cycle. It maintains baseline integrity and provides a full history of changes to any controlled item.",
+      "related": [
+        "Change Control Board (CCB)",
+        "Integrated Change Control",
+        "Baseline"
+      ],
+      "termTR": "Konfigürasyon Yönetimi"
+    },
+    {
+      "term": "Confirmation Bias",
+      "termTR": "Onay Önyargısı",
+      "category": "Core Concepts",
+      "definition": "A cognitive bias in project decision-making where people favor information that confirms their pre-existing beliefs while ignoring contradictory data. Can lead to poor risk assessment and project failures.",
+      "definitionTR": "Proje karar alma süreçlerinde, insanların sadece kendi önceden var olan inançlarını doğrulayan bilgileri dikkate alıp, tersini gösteren verileri yok sayması şeklindeki bilişsel hatadır.",
+      "related": [
+        "Critical Thinking",
+        "Risk",
+        "Decision Tree Analysis",
+        "Ambiguity"
+      ]
+    },
+    {
+      "term": "Conflict Resolution Techniques",
+      "category": "Team & Leadership",
+      "definition": "Approaches for managing disagreements within a project team. Five key techniques in order of general effectiveness: Collaborating/Problem Solving (finding a win-win solution — most preferred), Compromising (each party gives something up), Smoothing/Accommodating (playing down differences), Forcing/Directing (imposing a solution), and Withdrawing/Avoiding (retreating from the conflict — least effective).",
+      "related": [
+        "Emotional Intelligence (EI)",
+        "Servant Leadership",
+        "Tuckman's Stages",
+        "Team Development"
+      ],
+      "termTR": "Çatışma Çözme Teknikleri",
+      "definitionTR": "Anlaşmazlıkları çözmek için kullanılan temel PMI yaklaşımları: İşbirliği/Problem Çözme (en iyi), Uzlaşma, Pürüzsüzleştirme, Zorlama ve Kaçınma."
+    },
+    {
+      "term": "Constraint",
+      "category": "Core Concepts",
+      "definition": "A limiting condition that restricts the project team's options, such as a fixed end date, capped budget, regulatory requirement, or resource limitation. Unlike assumptions, constraints are established facts rather than beliefs.",
+      "related": [
+        "Assumption",
+        "Risk",
+        "Triple Constraint"
+      ],
+      "termTR": "Kısıt"
+    },
+    {
+      "term": "Contingency Reserve",
+      "category": "Risk Management",
+      "definition": "A portion of the project budget or schedule set aside to address identified risks that may materialize. Contingency reserves are planned for specific known risks, included within the project baseline, and accessed when those risks occur.",
+      "related": [
+        "Management Reserve",
+        "Risk Register",
+        "Risk Response Strategies",
+        "Reserve Analysis"
+      ],
+      "termTR": "Acil Durum Yedeği",
+      "definitionTR": "Bilinen riskleri (önceden tanımlanmış ve öngörülen sorunları) ele almak için proje bütçesine veya zaman çizelgesine eklenen ve doğrudan proje yöneticisinin kontrolü altında olan fon veya zaman yedekleridir."
+    },
+    {
+      "term": "Continuous Improvement",
+      "category": "Quality Management",
+      "definition": "An ongoing commitment to incrementally improving products, processes, and services over time. In project management, it is embedded in agile retrospectives, lessons learned reviews, and quality audits. Supported by methods such as Kaizen and Plan-Do-Check-Act (PDCA).",
+      "related": [
+        "Retrospective",
+        "Kaizen",
+        "Lessons Learned",
+        "Six Sigma"
+      ],
+      "termTR": "Sürekli İyileştirme"
+    },
+    {
+      "term": "Contract",
+      "termTR": "Sözleşme",
+      "category": "Procurement",
+      "definition": "A mutually binding legal agreement that obligates the seller to provide specified products, services, or results and obligates the buyer to provide monetary or other valuable consideration. Subject to remedy in courts.",
+      "definitionTR": "Tedarikçinin belirtilen ürünleri veya hizmetleri sağlamasını zorunlu kılan, alıcıyı tazmin etmeye yükümlü kılan ve mahkemelerde çözüme tabi olan bağlayıcı hukuki ilişkidir.",
+      "related": [
+        "Fixed-Price Contract",
+        "Cost Reimbursable Contract",
+        "Time and Material Contract",
+        "Procurement"
+      ]
+    },
+    {
+      "term": "Control Charts",
+      "category": "Quality Management",
+      "definition": "Statistical tools that plot process behavior over time, including upper and lower control limits. When data points fall outside these limits or exhibit non-random patterns, the process is considered out of statistical control and investigation is warranted.",
+      "related": [
+        "Quality Control",
+        "Process Improvement",
+        "Benchmarking"
+      ],
+      "termTR": "Kontrol Grafikleri",
+      "definitionTR": "Bir sürecin zaman içinde stabil olup olmadığını veya kontrol limitleri içinde kalarak öngörülebilir bir performansa sahip olup olmadığını belirlemek için kullanılan kalite aracıdır."
+    },
+    {
+      "term": "Cost Baseline",
+      "category": "Cost Management",
+      "definition": "The approved, time-phased project budget, excluding management reserve. It represents expected cumulative cost at any point in the project and is used as the reference for measuring cost performance through Earned Value Management.",
+      "related": [
+        "Budget at Completion (BAC)",
+        "Performance Measurement Baseline (PMB)",
+        "Earned Value Management (EVM)"
+      ],
+      "termTR": "Maliyet Temel Çizgisi"
+    },
+    {
+      "term": "Cost Management Plan",
+      "category": "Cost Management",
+      "definition": "A project management plan component that specifies how project costs will be planned, estimated, budgeted, financed, managed, monitored, and controlled. It establishes thresholds, reporting formats, and criteria for cost performance measurement.",
+      "related": [
+        "Cost Baseline",
+        "Budget at Completion (BAC)",
+        "Earned Value Management (EVM)"
+      ],
+      "termTR": "Maliyet Yönetim Planı"
+    },
+    {
+      "term": "Cost of Quality (COQ)",
+      "category": "Quality Management",
+      "definition": "The total cost of all quality-related activities, including costs to prevent failures (prevention costs), costs to detect failures (appraisal costs), and costs resulting from failures (internal and external failure costs). Reducing COQ generally indicates a more mature quality system.",
+      "related": [
+        "Prevention Cost",
+        "Appraisal Cost",
+        "Internal Failure Cost",
+        "External Failure Cost"
+      ],
+      "termTR": "Kalite Maliyeti (COQ)",
+      "definitionTR": "Hataların azaltılmasına yönelik önleyici maliyetler, değerlendirme maliyetleri (denetimler) ve hem iç hem de dış hatalarla ilgili başarısızlık maliyetlerinin toplamını ifade eder."
+    },
+    {
+      "term": "Cost Performance Index (CPI)",
+      "category": "Earned Value Management",
+      "definition": "A cost efficiency ratio calculated as EV ÷ AC. A CPI above 1.0 means the project is delivering more value than it is spending; below 1.0 signals overspending relative to the work accomplished. CPI is one of the most widely used EVM metrics.",
+      "related": [
+        "Earned Value (EV)",
+        "Actual Cost (AC)",
+        "Schedule Performance Index (SPI)",
+        "Estimate at Completion (EAC)"
+      ],
+      "termTR": "Maliyet Performans Endeksi (CPI)",
+      "definitionTR": "Kazanılmış değerin (EV), gerçekleşen maliyete (AC) bölünmesiyle elde edilen ve bir projenin maliyet verimliliğini ölçen formüldür."
+    },
+    {
+      "term": "Cost Reimbursable Contract",
+      "category": "Procurement",
+      "definition": "A contract type where the buyer pays all allowable costs incurred by the seller plus an agreed-upon fee representing profit. Cost risk rests primarily with the buyer. Best suited when scope cannot be well-defined in advance.",
+      "related": [
+        "Fixed-Price Contract",
+        "Time and Material Contract",
+        "Statement of Work (SOW)"
+      ],
+      "termTR": "Masraf Geri Ödemeli Sözleşme"
+    },
+    {
+      "term": "Cost Variance (CV)",
+      "category": "Earned Value Management",
+      "definition": "The difference between earned value and actual cost at a specific point in time: CV = EV − AC. A positive CV means the project is under budget for the work completed; a negative CV indicates cost overrun.",
+      "related": [
+        "Earned Value (EV)",
+        "Actual Cost (AC)",
+        "Schedule Variance (SV)"
+      ],
+      "termTR": "Maliyet Sapması (CV)",
+      "definitionTR": "Kazanılmış Değer'den (EV) Gerçekleşen Maliyetin (AC) çıkarılmasıyla hesaplanır. Negatif bir maliyet sapması, projenin bütçeyi aştığı anlamına gelir."
+    },
+    {
+      "term": "Crashing",
+      "category": "Schedule Management",
+      "definition": "A schedule compression technique that reduces project duration by adding resources to critical path activities, accepting increased cost as a trade-off. Unlike fast tracking, crashing keeps activities in their original sequence.",
+      "related": [
+        "Fast Tracking",
+        "Critical Path",
+        "Resource Leveling"
+      ],
+      "termTR": "Sıkıştırma",
+      "definitionTR": "Zaman çizelgesini kısaltmak için bütçeyi artırarak kritik yol üzerindeki faaliyetlere daha fazla personel veya kaynak ekleme yöntemidir."
+    },
+    {
+      "term": "Create a Collaborative Team Environment",
+      "category": "PMBOK Principles",
+      "definition": "One of the 12 PMBOK® 8th edition principles. Build a collaborative project team environment characterized by shared ownership, psychological safety, mutual respect, and diversity of thought. Teams that trust each other consistently outperform collections of individuals working in silos.",
+      "related": [
+        "Servant Leadership",
+        "Tuckman's Stages",
+        "Emotional Intelligence (EI)",
+        "Collaborative Culture"
+      ],
+      "termTR": "İşbirlikçi Takım Ortamı Oluştur"
+    },
+    {
+      "term": "Critical Path",
+      "category": "Schedule Management",
+      "definition": "The longest sequence of dependent activities from project start to finish that defines the minimum project duration. Any delay to a critical path activity directly delays the project completion date.",
+      "related": [
+        "Critical Path Method (CPM)",
+        "Float (Slack)",
+        "Network Diagram",
+        "Crashing"
+      ],
+      "termTR": "Kritik Yol"
+    },
+    {
+      "term": "Critical Path Method (CPM)",
+      "category": "Schedule Management",
+      "definition": "A scheduling algorithm that identifies the longest chain of dependent activities from project start to finish. Activities on this path have zero total float and must finish on time to prevent project delay. CPM is a fundamental tool in predictive project scheduling.",
+      "related": [
+        "Critical Path",
+        "Float (Slack)",
+        "Network Diagram",
+        "Precedence Diagramming Method (PDM)"
+      ],
+      "termTR": "Kritik Yol Yöntemi (CPM)",
+      "definitionTR": "Bir projenin zaman çizelgesi modelini oluşturmak ve ağ diyagramı üzerinden projenin tamamlanması için gereken en uzun ve en az esnekliğe sahip süreyi belirlemek için kullanılan hesaplama yöntemidir."
+    },
+    {
+      "term": "Critical Thinking",
+      "termTR": "Eleştirel Düşünme",
+      "category": "Team & Leadership",
+      "definition": "The ability to analyze information objectively, reflectively, and logically to recognize biases, identify root causes of problems, and overcome challenges such as ambiguity and complexity.",
+      "definitionTR": "Önyargıları tanımak, sorunların kök nedenlerini belirlemek, belirsizlik ve karmaşıklık gibi zorlukların üstesinden gelmek için bilgiyi objektif, yansıtıcı ve mantıksal bir şekilde analiz etme yeteneğidir.",
+      "related": [
+        "Ambiguity",
+        "Confirmation Bias",
+        "Cause-and-Effect Diagram",
+        "Decision Tree Analysis"
+      ]
+    },
+    {
+      "term": "Crystal Methods",
+      "termTR": "Kristal Metodolojiler",
+      "category": "Agile & Adaptive",
+      "definition": "A family of agile methodologies developed by Alistair Cockburn where processes are tailored to the team size, project criticality, and priorities. Places people and interactions over rigid processes.",
+      "definitionTR": "Takımın büyüklüğüne, projenin kritikliğine ve önceliklerine göre süreçlerin takıma özel olarak uyarlandığı, insan etkileşimini süreçlerin önüne koyan esnek çevik metodolojiler grubudur.",
+      "related": [
+        "Agile",
+        "Hybrid Approach",
+        "Tailoring",
+        "Scrum"
+      ]
+    },
+    {
+      "term": "Daily Scrum",
+      "category": "Agile & Adaptive",
+      "definition": "A brief, time-boxed daily meeting (typically 15 minutes) for the development team to synchronize work, share progress, and surface blockers. It is a team coordination event, not a status report to management. The Scrum Master facilitates but does not run it.",
+      "related": [
+        "Scrum",
+        "Sprint",
+        "Sprint Planning",
+        "Scrum Master"
+      ],
+      "termTR": "Günlük Scrum (Stand-up)",
+      "definitionTR": "Çevik takımların her gün ilerlemeyi gözden geçirmek, o günkü işleri planlamak ve engelleri tespit etmek için yaptıkları kısa, genellikle 15 dakikalık zaman kutulu senkronizasyon toplantısıdır."
+    },
+    {
+      "term": "Decision Tree Analysis",
+      "category": "Risk Management",
+      "definition": "A quantitative risk analysis tool that diagrams possible decisions and outcomes, assigning probabilities and monetary values to each branch. The expected monetary value of each branch is calculated to identify the option with the highest expected return.",
+      "related": [
+        "Expected Monetary Value (EMV)",
+        "Monte Carlo Simulation",
+        "Risk Management"
+      ],
+      "termTR": "Karar Ağacı Analizi",
+      "definitionTR": "Birden fazla seçeneğin olduğu durumlarda, her bir seçeneğin potansiyel maliyetlerini, risklerini ve beklenen faydalarını matematiksel olarak değerlendirmek için kullanılan karar modelleme tekniğidir."
+    },
+    {
+      "term": "Decomposition",
+      "category": "Scope Management",
+      "definition": "A technique that breaks project deliverables or work down into smaller, more manageable components. Used to create the Work Breakdown Structure and to subdivide user stories into tasks. Decomposition continues until each piece is small enough to be estimated, assigned, and completed within a manageable timeframe.",
+      "related": [
+        "Work Breakdown Structure (WBS)",
+        "Epic",
+        "User Story",
+        "Work Package"
+      ],
+      "termTR": "Ayrıştırma"
+    },
+    {
+      "term": "Definition of Done (DoD)",
+      "category": "Agile & Adaptive",
+      "definition": "A shared team agreement on all quality standards, tests, and criteria that must be satisfied for a work item or increment to be considered complete. Without a clear DoD, 'done' means different things to different people, leading to technical debt and rework.",
+      "related": [
+        "Acceptance Criteria",
+        "Increment",
+        "Definition of Ready (DoR)",
+        "Quality"
+      ],
+      "termTR": "Tamamlanmışın Tanımı (DoD)",
+      "definitionTR": "Bir müşteri veya paydaş tarafından tamamlanmış bir görev veya hikayenin kabul edilebilmesi için mutlaka karşılanması gereken kalite kriterlerinin listesidir."
+    },
+    {
+      "term": "Definition of Ready (DoR)",
+      "category": "Agile & Adaptive",
+      "definition": "A set of conditions a backlog item must meet before the team can pull it into a sprint. It typically requires sufficient detail, clear acceptance criteria, and a feasible size. Having a DoR reduces mid-sprint clarification delays.",
+      "related": [
+        "Definition of Done (DoD)",
+        "Product Backlog",
+        "Backlog Refinement",
+        "User Story"
+      ],
+      "termTR": "Hazırın Tanımı (DoR)",
+      "definitionTR": "Çevik projelerde, bir kullanıcı hikayesinin tahminleme yapılmadan önce geliştirilmeye 'hazır' olduğunu onaylamak için karşılanması gereken spesifik kabul kriterleridir."
+    },
+    {
+      "term": "Deliverable",
+      "category": "Core Concepts",
+      "definition": "Any unique, verifiable product, result, or capability produced to complete a project, phase, or process. Deliverables may be tangible (documents, hardware, software) or intangible (trained personnel, improved processes).",
+      "related": [
+        "Outcome",
+        "Acceptance Criteria",
+        "Scope Baseline",
+        "Work Breakdown Structure (WBS)"
+      ],
+      "termTR": "Teslimat"
+    },
+    {
+      "term": "Delivery Performance Domain",
+      "category": "Performance Domains",
+      "definition": "One of the 8 PMBOK® 8th edition performance domains. Addresses activities and responsibilities related to delivering scope and quality in a way that meets stakeholder requirements and achieves the intended business outcomes and value.",
+      "related": [
+        "Deliverable",
+        "Value",
+        "Acceptance Criteria",
+        "Benefits Realization"
+      ],
+      "termTR": "Teslimat Performans Alanı"
+    },
+    {
+      "term": "Delphi Technique",
+      "termTR": "Delphi Tekniği",
+      "category": "Planning",
+      "definition": "A method of reaching consensus in which relevant experts participate anonymously by completing surveys and sharing opinions. Responses are aggregated and fed back for further refinement until consensus is achieved.",
+      "definitionTR": "İlgili uzmanların yüz yüze gelmeden, anonim (gizli) olarak anket doldurması ve görüş bildirmesi yoluyla bir konuda fikir birliğine varılmasını sağlayan bilgi toplama yöntemidir.",
+      "related": [
+        "Brainstorming",
+        "Risk Register",
+        "Analogous Estimating"
+      ]
+    },
+    {
+      "term": "Demonstrate Leadership",
+      "category": "PMBOK Principles",
+      "definition": "One of the 12 PMBOK® 8th edition principles. Demonstrate and foster effective leadership behaviors — motivation, coaching, empowerment, and vision — throughout the project. Leadership is not limited to the project manager; anyone on the team can and should lead when the situation calls for it.",
+      "related": [
+        "Servant Leadership",
+        "Emotional Intelligence (EI)",
+        "Team Development",
+        "Situational Leadership"
+      ],
+      "termTR": "Liderliği Sergile"
+    },
+    {
+      "term": "Design of Experiments (DOE)",
+      "termTR": "Deney Tasarımı",
+      "category": "Quality Management",
+      "definition": "A statistical method used in quality management to determine which variables (factors) have the greatest influence on specific product or process characteristics. Helps optimize quality by systematically varying multiple factors.",
+      "definitionTR": "Kalite yönetiminde, bir ürünün veya sürecin geliştirilmesi sırasında hangi faktörlerin belirli özellikler üzerinde en büyük etkiye sahip olduğunu belirlemek için kullanılan istatistiksel yöntemdir.",
+      "related": [
+        "Statistical Sampling",
+        "Control Charts",
+        "Six Sigma",
+        "Cause-and-Effect Diagram"
+      ]
+    },
+    {
+      "term": "Design Thinking",
+      "termTR": "Tasarım Odaklı Düşünme",
+      "category": "Agile & Adaptive",
+      "definition": "A human-centered problem-solving approach that aims to create user-centered innovations by building deep empathy with customers, rapid prototyping, and iterating based on feedback.",
+      "definitionTR": "Karmaşık problemleri çözerken veya ürün gereksinimlerini toplarken müşteriyle derin bir empati kurmayı, prototiplemeyi ve iteratif olarak kullanıcı merkezli yenilikler üretmeyi hedefleyen yaklaşımdır.",
+      "related": [
+        "Voice of the Customer",
+        "User Story",
+        "Proof of Concept (POC)",
+        "Minimum Viable Product (MVP)"
+      ]
+    },
+    {
+      "term": "Development Approach",
+      "category": "Core Concepts",
+      "definition": "The method selected to create and evolve project deliverables, ranging from fully predictive (waterfall) to fully adaptive (agile), with hybrid combinations in between. Selection is driven by requirements stability, delivery risk, team capability, and organizational context.",
+      "related": [
+        "Predictive Approach",
+        "Adaptive Approach",
+        "Hybrid Approach",
+        "Tailoring"
+      ],
+      "termTR": "Geliştirme Yaklaşımı"
+    },
+    {
+      "term": "Development Approach and Life Cycle Performance Domain",
+      "category": "Performance Domains",
+      "definition": "One of the 8 PMBOK® 8th edition performance domains. Addresses the selection and application of the appropriate project delivery approach — predictive, hybrid, or adaptive — and the structuring of the project life cycle to best serve stakeholder needs and project context.",
+      "related": [
+        "Development Approach",
+        "Predictive Approach",
+        "Adaptive Approach",
+        "Hybrid Approach",
+        "Phase Gate"
+      ],
+      "termTR": "Geliştirme Yaklaşımı ve Yaşam Döngüsü Performans Alanı"
+    },
+    {
+      "term": "DevOps",
+      "termTR": "DevOps",
+      "category": "Agile & Adaptive",
+      "definition": "An approach that combines Development (Dev) and Operations (Ops) through early and continuous collaboration, aiming for continuous delivery through automation. Breaks down silos between development and IT operations.",
+      "definitionTR": "Geliştirme (Development) ve operasyon (Operations) ekiplerinin erken ve sürekli işbirliğini sağlayarak, her iki alanın otomasyonu ile kesintisiz teslimatı hedefleyen yaklaşımdır.",
+      "related": [
+        "Continuous Improvement",
+        "Extreme Programming (XP)",
+        "Agile"
+      ]
+    },
+    {
+      "term": "Dormancy",
+      "termTR": "Pasiflik / Gecikme Süresi",
+      "category": "Risk Management",
+      "definition": "The time elapsed between when a risk event occurs and when its impact on the project is actually noticed or felt. A short dormancy period gives less time to respond before impact is realized.",
+      "definitionTR": "Risk yönetiminde, bir riskin (veya olayın) gerçekleştiği an ile bu riskin proje üzerindeki etkisinin 'fark edildiği' an arasında geçen süredir.",
+      "related": [
+        "Risk",
+        "Risk Register",
+        "Issue",
+        "Risk Appetite"
+      ]
+    },
+    {
+      "term": "Earned Value (EV)",
+      "category": "Earned Value Management",
+      "definition": "The authorized budget amount for the work that has actually been completed at a specific point in time. EV expresses accomplishment in financial terms, enabling objective comparison with what was planned and what was spent.",
+      "related": [
+        "Planned Value (PV)",
+        "Actual Cost (AC)",
+        "Earned Value Management (EVM)"
+      ],
+      "termTR": "Kazanılmış Değer (EV)",
+      "definitionTR": "Projede o ana kadar fiziksel olarak tamamlanan işin değerini, o işe atanmış olan orijinal onaylı bütçe üzerinden matematiksel olarak ifade eden performans ölçümüdür."
+    },
+    {
+      "term": "Earned Value Management (EVM)",
+      "category": "Earned Value Management",
+      "definition": "An integrated performance measurement system that combines scope, schedule, and cost data to provide an objective, quantitative view of project health. By comparing PV, EV, and AC, teams can calculate variances, efficiency indexes, and forecasts at any point in the project.",
+      "related": [
+        "Earned Value (EV)",
+        "Planned Value (PV)",
+        "Actual Cost (AC)",
+        "Cost Performance Index (CPI)",
+        "Schedule Performance Index (SPI)"
+      ],
+      "termTR": "Kazanılmış Değer Yönetimi (KDY)"
+    },
+    {
+      "term": "Embrace Adaptability & Resilience",
+      "category": "PMBOK Principles",
+      "definition": "One of the 12 PMBOK® 8th edition principles. Build the capacity to anticipate and respond to disruptions, setbacks, and change without losing momentum toward project goals. Resilient teams absorb shocks, learn quickly, and adapt their approach rather than failing when conditions change.",
+      "related": [
+        "Adaptive Approach",
+        "Retrospective",
+        "Continuous Improvement",
+        "Uncertainty Performance Domain"
+      ],
+      "termTR": "Uyarlanabilirlik ve Dayanıklılık"
+    },
+    {
+      "term": "Emotional Intelligence (EI)",
+      "category": "Team & Leadership",
+      "definition": "The capacity to recognize, understand, manage, and effectively apply one's own emotions and the emotions of others. High EI in project managers supports better conflict resolution, stronger team cohesion, and more productive stakeholder relationships.",
+      "related": [
+        "Servant Leadership",
+        "Conflict Resolution",
+        "Team Development",
+        "Tuckman's Stages"
+      ],
+      "termTR": "Duygusal Zeka"
+    },
+    {
+      "term": "Enable Change",
+      "category": "PMBOK Principles",
+      "definition": "One of the 12 PMBOK® 8th edition principles. Embrace and enable change when it is necessary to realize the intended benefits. This means preparing people for change, managing transition thoughtfully, and helping the organization move from its current state to the desired future state.",
+      "related": [
+        "Change Request",
+        "Integrated Change Control",
+        "Benefits Realization",
+        "Stakeholder"
+      ],
+      "termTR": "Değişimi Benimse"
+    },
+    {
+      "term": "Engage with Stakeholders",
+      "category": "PMBOK Principles",
+      "definition": "One of the 12 PMBOK® 8th edition principles. Actively and proactively engage with stakeholders throughout the project. Understanding their interests, expectations, and concerns — and addressing them appropriately — is essential for delivering outcomes that create real value.",
+      "related": [
+        "Stakeholder Register",
+        "Power/Interest Grid",
+        "Salience Model",
+        "Stakeholder Engagement Plan"
+      ],
+      "termTR": "Paydaşları Dahil Et"
+    },
+    {
+      "term": "Enterprise Environmental Factors (EEF)",
+      "category": "Core Concepts",
+      "definition": "Internal and external conditions — outside the project team's direct control — that can influence project outcomes. Examples include organizational culture, market conditions, regulatory requirements, commercial databases, and industry standards.",
+      "related": [
+        "Organizational Process Assets (OPA)",
+        "Governance",
+        "Risk"
+      ],
+      "termTR": "Çevresel İşletme Faktörleri (ÇİF)",
+      "definitionTR": "Proje takımının doğrudan kontrolü altında olmayan, ancak projenin yönetimini etkileyen, kısıtlayan veya yönlendiren iç ve dış koşullardır."
+    },
+    {
+      "term": "Epic",
+      "category": "Agile & Adaptive",
+      "definition": "A large body of work that is too broad to be completed in a single sprint and must be decomposed into smaller user stories or features. Epics represent high-level requirements and serve as containers for organizing related work across multiple iterations.",
+      "related": [
+        "User Story",
+        "Feature",
+        "Product Backlog",
+        "Decomposition"
+      ],
+      "termTR": "Epic (Büyük Kullanıcı Hikayesi)"
+    },
+    {
+      "term": "Escalation",
+      "termTR": "Eskalasyon / Yükseltme",
+      "category": "Stakeholder & Communication",
+      "definition": "The formal process of transferring an issue, risk, or decision to a higher level of management when resolution exceeds the project manager's authority, resources, or capability.",
+      "definitionTR": "Bir sorunun veya riskin çözümünün, proje yöneticisinin yetkisini veya kontrolünü aşması durumunda üst yönetime (sponsor, PMO vb.) resmi olarak devredilmesidir.",
+      "related": [
+        "Issue Log",
+        "Risk Register",
+        "Sponsor",
+        "PMO (Project Management Office)"
+      ]
+    },
+    {
+      "term": "Estimate at Completion (EAC)",
+      "category": "Earned Value Management",
+      "definition": "A forecast of the total project cost based on actual performance to date. The most common formula assumes current efficiency continues: EAC = BAC ÷ CPI. Alternative formulas apply different assumptions about future performance.",
+      "related": [
+        "Budget at Completion (BAC)",
+        "Cost Performance Index (CPI)",
+        "Estimate to Complete (ETC)",
+        "Variance at Completion (VAC)"
+      ],
+      "termTR": "Tamamlama Tahmini (EAC)",
+      "definitionTR": "Proje devam ederken geçmiş proje performansına ve gerçekleşen maliyetlere (AC) dayanarak, projenin tamamen bittiğinde ulaşacağı toplam maliyetin revize edilmiş ve güncel projeksiyonudur."
+    },
+    {
+      "term": "Estimate to Complete (ETC)",
+      "category": "Earned Value Management",
+      "definition": "The expected cost needed to complete all remaining project work. When calculated from EVM data: ETC = EAC − AC. The team may also re-estimate ETC from scratch when performance assumptions change significantly.",
+      "related": [
+        "Estimate at Completion (EAC)",
+        "Actual Cost (AC)",
+        "Earned Value Management (EVM)"
+      ],
+      "termTR": "Tamamlamak İçin Tahmin (ETC)"
+    },
+    {
+      "term": "Expected Monetary Value (EMV)",
+      "category": "Risk Management",
+      "definition": "A statistical concept that quantifies the weighted average outcome of an uncertain event by multiplying the probability of occurrence by the financial impact. EMV can be negative (threats) or positive (opportunities) and is summed to evaluate overall risk exposure.",
+      "related": [
+        "Decision Tree Analysis",
+        "Monte Carlo Simulation",
+        "Risk Register"
+      ],
+      "termTR": "Beklenen Parasal Değer (BPD)"
+    },
+    {
+      "term": "Explicit Knowledge",
+      "termTR": "Açık Bilgi",
+      "category": "Team & Leadership",
+      "definition": "Knowledge that can be easily codified, documented, and directly transferred to others using numbers, words, images, and symbols. The opposite of Tacit Knowledge. Examples include manuals, procedures, and databases.",
+      "definitionTR": "Rakamlar, kelimeler, resimler ve semboller kullanılarak kolayca kodlanabilen, dokümante edilip başkalarına doğrudan aktarılabilen (Örtük Bilginin zıttı) bilgi türüdür.",
+      "related": [
+        "Tacit Knowledge",
+        "Lessons Learned Register",
+        "Organizational Process Assets (OPA)"
+      ]
+    },
+    {
+      "term": "External Dependency",
+      "termTR": "Dış Bağımlılık",
+      "category": "Schedule Management",
+      "definition": "A relationship between project activities and activities outside the project that are not under the control of the organization or project team.",
+      "definitionTR": "Proje faaliyetleri ile proje dışı (organizasyonun veya projenin kontrolü dışındaki) faaliyetler arasındaki ilişkidir.",
+      "related": [
+        "Network Diagram",
+        "Lag",
+        "Critical Path",
+        "Precedence Diagramming Method (PDM)"
+      ]
+    },
+    {
+      "term": "External Failure Cost",
+      "category": "Quality Management",
+      "definition": "Costs incurred when defects are discovered after the product has been delivered to the customer. Examples include warranty repairs, recalls, rework in the field, and loss of reputation. These are the most expensive category of quality failure costs.",
+      "related": [
+        "Internal Failure Cost",
+        "Cost of Quality (COQ)",
+        "Quality Control"
+      ],
+      "termTR": "Dış Hata Maliyeti"
+    },
+    {
+      "term": "Extreme Programming (XP)",
+      "termTR": "Ekstrem Programlama",
+      "category": "Agile & Adaptive",
+      "definition": "An agile software development framework focused on engineering practices such as pair programming, test-first programming (TDD), continuous integration, small releases, and refactoring.",
+      "definitionTR": "Eşli programlama (pair programming), önce-test programlama (test-first), sürekli entegrasyon ve süreçlerin metafor olarak adlandırılması gibi mühendislik pratiklerine odaklanan çevik bir yazılım geliştirme çerçevesidir.",
+      "related": [
+        "Pair Programming",
+        "Behavior-Driven Development (BDD)",
+        "Agile",
+        "DevOps"
+      ]
+    },
+    {
+      "term": "Fallback Plan",
+      "termTR": "B Planı / Geri Çekilme Planı",
+      "category": "Risk Management",
+      "definition": "An alternative course of action available if the primary plan must be abandoned due to issues, risks, or other circumstances. Triggered when the original risk response proves inadequate.",
+      "definitionTR": "Sorunlar, riskler veya başka nedenlerle birincil planın terk edilmesi gerektiğinde kullanılabilecek alternatif eylem ve görevler dizisidir.",
+      "related": [
+        "Risk Response Strategies",
+        "Contingency Reserve",
+        "Issue",
+        "Risk Register"
+      ]
+    },
+    {
+      "term": "Fast Tracking",
+      "category": "Schedule Management",
+      "definition": "A schedule compression technique that overlaps activities originally planned sequentially, shortening the project duration without adding resources. Fast tracking increases risk because it removes natural buffer time and requires closer coordination between parallel work streams.",
+      "related": [
+        "Crashing",
+        "Critical Path",
+        "Lead"
+      ],
+      "termTR": "Hızlı İzleme",
+      "definitionTR": "Proje süresini kısaltmak amacıyla normal şartlarda ardışık yapılacak faaliyetlerin veya proje fazlarının eşzamanlı veya paralel olarak yürütülmesidir."
+    },
+    {
+      "term": "Feature",
+      "category": "Agile & Adaptive",
+      "definition": "A distinct, customer-valued capability of a product that can be planned and developed together. Features are larger than user stories but smaller than epics, and typically represent a meaningful chunk of functionality deliverable across one or a few sprints.",
+      "related": [
+        "Epic",
+        "User Story",
+        "Product Backlog",
+        "Minimum Viable Product (MVP)"
+      ],
+      "termTR": "Özellik"
+    },
+    {
+      "term": "Feature-Driven Development (FDD)",
+      "termTR": "Özellik Odaklı Geliştirme",
+      "category": "Agile & Adaptive",
+      "definition": "An agile framework focused on modeling and delivering the project according to small customer-valued features. Designed for large-scale software development projects. Emphasizes domain-object modeling and feature lists.",
+      "definitionTR": "Müşteri için küçük iş değeri taşıyan yeteneklere (özelliklere) göre projeyi modellemeye ve planlamaya odaklanan, özellikle büyük ölçekli yazılım geliştirme projelerinin ihtiyaçları için tasarlanmış bir çerçevedir.",
+      "related": [
+        "Agile",
+        "User Story",
+        "Feature",
+        "Scrum"
+      ]
+    },
+    {
+      "term": "Finish-to-Finish (FF)",
+      "category": "Schedule Management",
+      "definition": "A logical relationship in which a successor activity cannot finish until its predecessor finishes. For example, user acceptance testing cannot finish until development finishes. FF relationships are used in the Precedence Diagramming Method.",
+      "related": [
+        "Finish-to-Start (FS)",
+        "Start-to-Start (SS)",
+        "Start-to-Finish (SF)",
+        "Precedence Diagramming Method (PDM)"
+      ],
+      "termTR": "Bitiş-Bitiş (BB)"
+    },
+    {
+      "term": "Finish-to-Start (FS)",
+      "category": "Schedule Management",
+      "definition": "The most common logical relationship in project scheduling: a successor activity cannot start until its predecessor finishes. For example, testing cannot begin until coding is complete.",
+      "related": [
+        "Finish-to-Finish (FF)",
+        "Start-to-Start (SS)",
+        "Start-to-Finish (SF)",
+        "Lead",
+        "Lag"
+      ],
+      "termTR": "Bitiş-Başlangıç (BB)"
+    },
+    {
+      "term": "Fishbowl",
+      "termTR": "Akvaryum (Sanal Ofis)",
+      "category": "Team & Leadership",
+      "definition": "A permanently open video conference window maintained throughout working hours to give geographically distributed (virtual) teams a constant presence, making them feel like they are in the same office.",
+      "definitionTR": "Coğrafi olarak dağıtılmış (sanal) takımlarda kalıcı bir görüş alanı sağlamak, 'aynı ofisteymiş gibi' hissettirmek ve gerçek zamanlı etkileşimi artırmak için çalışma saatleri boyunca sürekli açık bırakılan video konferans penceresidir.",
+      "related": [
+        "Information Radiator",
+        "Daily Scrum",
+        "Communication Methods"
+      ]
+    },
+    {
+      "term": "Fixed-Price Contract",
+      "category": "Procurement",
+      "definition": "A contract type where the agreed price is set before work begins and does not change regardless of actual costs. Cost risk is borne primarily by the seller. Best suited when scope is well-defined and stable prior to contracting.",
+      "related": [
+        "Cost Reimbursable Contract",
+        "Time and Material Contract",
+        "Statement of Work (SOW)"
+      ],
+      "termTR": "Sabit Fiyatlı Sözleşme"
+    },
+    {
+      "term": "Fixed-Price Incentive Fee Contract (FPIF)",
+      "termTR": "Sabit Fiyatlı Teşvik Ücretli Sözleşme",
+      "category": "Procurement",
+      "definition": "A contract type where the buyer pays the seller a defined amount, with the possibility for the seller to earn an additional incentive fee if performance criteria are exceeded or the targeted cost is underrun.",
+      "definitionTR": "Alıcının satıcıya tanımlanmış belirli bir tutarı ödediği ve satıcının performans kriterlerini aşması veya hedeflenen maliyetin altına inmesi durumunda ek bir teşvik (prim) kazandığı sözleşme türüdür.",
+      "related": [
+        "Fixed-Price Contract",
+        "Contract",
+        "Procurement"
+      ]
+    },
+    {
+      "term": "Float (Slack)",
+      "category": "Schedule Management",
+      "definition": "The amount of time a scheduled activity can be delayed without causing a negative consequence. Total float measures delay without impacting the project end date; free float measures delay without affecting the earliest start of any successor. Activities on the critical path have zero total float.",
+      "related": [
+        "Total Float",
+        "Free Float",
+        "Critical Path",
+        "Network Diagram"
+      ],
+      "termTR": "Bolluk / Serbesti"
+    },
+    {
+      "term": "Focus on Value",
+      "category": "PMBOK Principles",
+      "definition": "One of the 12 PMBOK® 8th edition principles. Continuously evaluate and align work to the outcomes that matter most. Value delivery goes beyond delivering on schedule and budget — it means producing outcomes that genuinely benefit the organization and its stakeholders.",
+      "related": [
+        "Business Value",
+        "Benefits Realization",
+        "Outcome",
+        "Business Case"
+      ],
+      "termTR": "Değere Odaklan"
+    },
+    {
+      "term": "Free Float",
+      "category": "Schedule Management",
+      "definition": "The amount of time an activity can be delayed without delaying the earliest start of any immediately following (successor) activity. Free float is always less than or equal to total float and pertains only to the activity's direct successors.",
+      "related": [
+        "Float (Slack)",
+        "Total Float",
+        "Critical Path Method (CPM)"
+      ],
+      "termTR": "Serbest Bolluk"
+    },
+    {
+      "term": "Gantt Chart",
+      "termTR": "Gantt Şeması",
+      "category": "Schedule Management",
+      "definition": "A horizontal bar chart that visualizes the project schedule by showing the start dates, end dates, and durations of project activities. Named after Henry Gantt. One of the most widely used project management tools.",
+      "definitionTR": "Proje faaliyetlerinin zaman çizelgesini görselleştiren, görevlerin başlangıç, bitiş tarihleri ve sürelerini yatay çubuklar yardımıyla sunan yaygın bir grafiksel araçtır.",
+      "related": [
+        "Critical Path",
+        "Milestone",
+        "Schedule Baseline",
+        "Float (Slack)"
+      ]
+    },
+    {
+      "term": "Generative AI",
+      "termTR": "Üretken Yapay Zeka",
+      "category": "Core Concepts",
+      "definition": "Next-generation AI systems introduced to project management literature with PMBOK 8, capable of generating text, code, images, or project data, providing predictions, and supporting decision-making processes.",
+      "definitionTR": "PMBOK 8 ile literatüre giren, metin, kod, görüntü veya proje verisi üretmek, öngörüler sağlamak ve karar alma süreçlerini desteklemek için kullanılan yeni nesil yapay zeka sistemleridir.",
+      "related": [
+        "Agile",
+        "Continuous Improvement",
+        "Project Management"
+      ]
+    },
+    {
+      "term": "Gold Plating",
+      "category": "Scope Management",
+      "definition": "The practice of adding features or functions not included in the approved scope — even if well-intentioned — without going through formal change control. Gold plating wastes resources, may introduce risk, and violates the principle of delivering what was agreed.",
+      "related": [
+        "Scope Creep",
+        "Change Request",
+        "Integrated Change Control"
+      ],
+      "termTR": "Altın Kaplama"
+    },
+    {
+      "term": "Governance",
+      "category": "Core Concepts",
+      "definition": "The framework of rules, policies, processes, and decision rights by which projects, programs, and portfolios are directed, controlled, and evaluated. Effective governance ensures decisions are made at the right level, accountability is clear, and performance is monitored against strategic intent.",
+      "related": [
+        "PMO (Project Management Office)",
+        "Sponsor",
+        "Change Control Board (CCB)",
+        "Benefits Realization"
+      ],
+      "termTR": "Yönetişim"
+    },
+    {
+      "term": "Herzberg's Two-Factor Theory",
+      "category": "Team & Leadership",
+      "definition": "A motivational theory distinguishing between hygiene factors — whose absence causes dissatisfaction (e.g., salary, working conditions, job security) — and motivators — whose presence drives satisfaction and engagement (e.g., achievement, recognition, growth). Removing dissatisfiers alone does not motivate; adding motivators is necessary.",
+      "related": [
+        "Maslow's Hierarchy of Needs",
+        "McClelland's Theory of Needs",
+        "McGregor's Theory X and Theory Y"
+      ],
+      "termTR": "Herzberg'in İki Faktör Teorisi"
+    },
+    {
+      "term": "Hybrid Approach",
+      "category": "Development Approach",
+      "definition": "A project delivery method that deliberately combines predictive and adaptive elements, selecting the best practices from each to suit the specific project context. For example, requirements may be gathered predictively while delivery is executed iteratively in sprints.",
+      "related": [
+        "Predictive Approach",
+        "Adaptive Approach",
+        "Tailoring",
+        "Development Approach"
+      ],
+      "termTR": "Hibrit Yaklaşım",
+      "definitionTR": "İki veya daha fazla çevik (agile) ve çevik olmayan (şelale) unsurun birleştirildiği, genellikle çıktının çevik olmadığı melez proje yönetimi modelidir."
+    },
+    {
+      "term": "Impediment",
+      "termTR": "Engel / Bloker",
+      "category": "Agile & Adaptive",
+      "definition": "Any external or internal factor that prevents the team from reaching their goals or completing their work. In Scrum, removing impediments is the Scrum Master's primary responsibility. Also called a blocker.",
+      "definitionTR": "Takımın hedeflerine ulaşmasını engelleyen herhangi bir dış veya iç faktördür. Çevik projelerde bunları ortadan kaldırmak Scrum Master'ın birincil görevidir.",
+      "related": [
+        "Scrum Master",
+        "Daily Scrum",
+        "Risk",
+        "Issue"
+      ]
+    },
+    {
+      "term": "Incremental Approach",
+      "category": "Development Approach",
+      "definition": "A delivery method where the product is built and released in successive increments, each adding new, usable functionality to what was previously delivered. Increments build on each other without revisiting completed portions, enabling early delivery of partial value.",
+      "related": [
+        "Iterative Approach",
+        "Adaptive Approach",
+        "Sprint",
+        "Minimum Viable Product (MVP)"
+      ],
+      "termTR": "Artımlı Yaklaşım"
+    },
+    {
+      "term": "Information Radiator",
+      "category": "Agile & Adaptive",
+      "definition": "A highly visible, publicly accessible display — physical or digital — that shows current work status in a format easily readable by anyone on or around the team. Kanban boards, burndown charts, and task walls are common examples that promote transparency.",
+      "related": [
+        "Kanban",
+        "Burndown Chart",
+        "Transparency",
+        "Communications Management Plan"
+      ],
+      "termTR": "Bilgi Yayıcı / Görsel Bilgi Ekranı",
+      "definitionTR": "Takımın ilerlemesini, durumunu, çalışma hızını ve darboğazlarını organizasyon genelinde şeffafça paylaşmak için çalışma alanında herkesin görebileceği şekilde tutulan fiziksel veya dijital bilgi ekranlarıdır."
+    },
+    {
+      "term": "Initiating Process Group",
+      "termTR": "Başlatma Süreç Grubu",
+      "category": "Core Concepts",
+      "definition": "The group of activities that begins a new project or a new phase of an existing project, defining the project boundaries and resulting in formal authorization. Key outputs include the Project Charter and stakeholder identification.",
+      "definitionTR": "Yeni bir projenin veya mevcut bir projenin yeni bir fazının yetkilendirilmesiyle sonuçlanabilecek süreci başlatan ve proje sınırlarını çizen faaliyetler grubudur.",
+      "related": [
+        "Project Charter",
+        "Sponsor",
+        "Stakeholder Register",
+        "Project Management Plan"
+      ]
+    },
+    {
+      "term": "Integrated Change Control",
+      "category": "Core Concepts",
+      "definition": "The process of reviewing, approving, and managing all change requests by evaluating their impact across the full project — scope, schedule, cost, quality, and risk — before any change is implemented. It ensures changes are handled consistently and baselines remain valid.",
+      "related": [
+        "Change Control Board (CCB)",
+        "Change Request",
+        "Configuration Management",
+        "Baseline"
+      ],
+      "termTR": "Entegre Değişiklik Kontrolü"
+    },
+    {
+      "term": "Internal Failure Cost",
+      "category": "Quality Management",
+      "definition": "Costs incurred to correct defects discovered before the product is delivered to the customer. Examples include rework, scrap, and re-testing. Catching failures internally is far less costly than external failure but still represents waste.",
+      "related": [
+        "External Failure Cost",
+        "Cost of Quality (COQ)",
+        "Quality Control"
+      ],
+      "termTR": "İç Hata Maliyeti"
+    },
+    {
+      "term": "Internal Rate of Return (IRR)",
+      "category": "Cost Management",
+      "definition": "The discount rate at which the net present value of all project cash flows equals zero. A higher IRR signals a more attractive investment. Projects are generally selected when IRR exceeds the organization's required rate of return or hurdle rate.",
+      "related": [
+        "Net Present Value (NPV)",
+        "Benefit-Cost Ratio (BCR)",
+        "Payback Period",
+        "Business Case"
+      ],
+      "termTR": "İç Getiri Oranı (IRR)"
+    },
+    {
+      "term": "Issue",
+      "category": "Core Concepts",
+      "definition": "A current problem, gap, or conflict that is already occurring and requires resolution to avoid negative impact on project objectives. Issues differ from risks in that they are happening now rather than being potential future events.",
+      "related": [
+        "Issue Log",
+        "Risk",
+        "Change Request"
+      ],
+      "termTR": "Sorun"
+    },
+    {
+      "term": "Issue Log",
+      "category": "Core Concepts",
+      "definition": "A project document that tracks all identified issues, their descriptions, owners, priority levels, status, and resolution actions. Maintaining an issue log ensures that no problem falls through the cracks and that accountability is clear.",
+      "related": [
+        "Issue",
+        "Risk Register",
+        "Change Request"
+      ],
+      "termTR": "Sorun Kaydı"
+    },
+    {
+      "term": "Iterative Approach",
+      "category": "Development Approach",
+      "definition": "A delivery method where work is performed in repeating cycles (iterations), with each cycle producing a refined version of the deliverable based on feedback from the previous one. This enables learning and adaptation while progressively improving the output.",
+      "related": [
+        "Incremental Approach",
+        "Adaptive Approach",
+        "Sprint",
+        "Retrospective"
+      ],
+      "termTR": "Yinelemeli Yaklaşım"
+    },
+    {
+      "term": "Kaizen",
+      "category": "Quality Management",
+      "definition": "A Japanese philosophy meaning 'change for the better,' focused on continuous, incremental improvement involving all team members at all levels. In project management, it supports a culture of small, ongoing improvements rather than large occasional changes.",
+      "related": [
+        "Continuous Improvement",
+        "Retrospective",
+        "Lean",
+        "Six Sigma"
+      ],
+      "termTR": "Kaizen (Sürekli Küçük İyileştirme)"
+    },
+    {
+      "term": "Kanban",
+      "category": "Agile & Adaptive",
+      "definition": "A visual workflow management system that limits work in progress (WIP) and uses a pull-based approach — work is pulled into active stages only when capacity exists, rather than being pushed by a schedule. Kanban boards make flow and bottlenecks immediately visible.",
+      "related": [
+        "WIP Limit",
+        "Information Radiator",
+        "Adaptive Approach",
+        "Scrum"
+      ],
+      "termTR": "Kanban"
+    },
+    {
+      "term": "Lag",
+      "category": "Schedule Management",
+      "definition": "A delay intentionally introduced between a predecessor and successor activity. For example, in a Finish-to-Start relationship with a five-day lag, the successor cannot start until five days after the predecessor finishes, allowing for curing time or regulatory waiting periods.",
+      "related": [
+        "Lead",
+        "Finish-to-Start (FS)",
+        "Precedence Diagramming Method (PDM)",
+        "Network Diagram"
+      ],
+      "termTR": "Gecikme / Öteleme",
+      "definitionTR": "Fiziksel kısıtlamalar veya kaynak kısıtları durumunda, başka bir faaliyetin bitmesini beklemek için sonraki faaliyetlerin başlangıcına eklenen zorunlu bekleme süreleridir."
+    },
+    {
+      "term": "Lead",
+      "category": "Schedule Management",
+      "definition": "An overlap between predecessor and successor activities that allows the successor to begin before the predecessor is fully complete. Lead is represented as a negative lag value and is commonly used to accelerate a schedule without adding resources.",
+      "related": [
+        "Lag",
+        "Fast Tracking",
+        "Precedence Diagramming Method (PDM)",
+        "Network Diagram"
+      ],
+      "termTR": "Öne Çekme",
+      "definitionTR": "Proje zaman çizelgesini kısaltmak için, önceki bir faaliyet henüz tamamen bitmeden bir sonraki bağımlı faaliyetin erken başlatılmasıdır."
+    },
+    {
+      "term": "Lean",
+      "category": "Agile & Adaptive",
+      "definition": "A philosophy and set of practices focused on maximizing value while minimizing waste. Originating in manufacturing (Toyota Production System), Lean principles — including eliminating waste, amplifying learning, and deciding late — influence both agile frameworks and process improvement initiatives.",
+      "related": [
+        "Kanban",
+        "Kaizen",
+        "Continuous Improvement",
+        "WIP Limit"
+      ],
+      "termTR": "Yalın Yönetim"
+    },
+    {
+      "term": "Lessons Learned",
+      "category": "Core Concepts",
+      "definition": "Knowledge and insights gained during a project — from both successes and failures — that are captured, shared, and used to improve future projects. Lessons learned should be collected continuously, not only at project close.",
+      "related": [
+        "Lessons Learned Register",
+        "Retrospective",
+        "Organizational Process Assets (OPA)"
+      ],
+      "termTR": "Öğrenilmiş Dersler"
+    },
+    {
+      "term": "Lessons Learned Register",
+      "category": "Core Concepts",
+      "definition": "A living document that records knowledge gained about processes, risks, decisions, and outcomes throughout the project. At closure, it is transferred to the organization's process asset library to benefit future projects.",
+      "related": [
+        "Lessons Learned",
+        "Organizational Process Assets (OPA)",
+        "Project Closure"
+      ],
+      "termTR": "Öğrenilmiş Dersler Kaydı",
+      "definitionTR": "Geçmişteki veya mevcut projelerden elde edilen; takımın neleri iyi yaptığını, nerelerde hata yaptığını barındıran ve gelecekteki projeleri iyileştirmek için hazırlanan resmi belgedir."
+    },
+    {
+      "term": "Life Cycle Cost",
+      "category": "Cost Management",
+      "definition": "The total cost of ownership of a project deliverable over its entire operational life, including acquisition, operation, maintenance, and disposal costs. Considering life cycle cost leads to better investment decisions than looking at project costs alone.",
+      "related": [
+        "Business Case",
+        "Cost Management Plan",
+        "Net Present Value (NPV)"
+      ],
+      "termTR": "Yaşam Döngüsü Maliyeti"
+    },
+    {
+      "term": "Management Reserve",
+      "category": "Risk Management",
+      "definition": "Budget held outside the project baseline and reserved for unknown unknowns — risks that were not identified during planning. Accessing management reserve requires management authorization, distinguishing it from contingency reserve which is already in the project budget.",
+      "related": [
+        "Contingency Reserve",
+        "Risk",
+        "Budget at Completion (BAC)"
+      ],
+      "termTR": "Yönetim Yedeği",
+      "definitionTR": "Kapsam içinde yer alan ancak tamamen öngörülemeyen 'bilinmeyen-bilinmeyen' riskler için maliyet veya zaman çizelgesi temel çizgisine eklenen, kullanımı için üst yönetimin onayı gereken zaman veya bütçe tamponudur."
+    },
+    {
+      "term": "Maslow's Hierarchy of Needs",
+      "category": "Team & Leadership",
+      "definition": "A motivation model proposing that human needs are arranged in a hierarchy: physiological (survival) → safety → social belonging → esteem → self-actualization. Lower-level needs must generally be met before higher-level needs become motivating. It helps managers understand what motivates different team members at different times.",
+      "related": [
+        "Herzberg's Two-Factor Theory",
+        "McClelland's Theory of Needs",
+        "McGregor's Theory X and Theory Y"
+      ],
+      "termTR": "Maslow'un İhtiyaçlar Hiyerarşisi"
+    },
+    {
+      "term": "McClelland's Theory of Needs",
+      "category": "Team & Leadership",
+      "definition": "A motivation theory identifying three dominant needs that drive individual behavior: Achievement (the desire to accomplish challenging goals), Affiliation (the need for positive relationships and belonging), and Power (the drive to influence others). Managers can motivate more effectively by recognizing which need dominates each person.",
+      "related": [
+        "Maslow's Hierarchy of Needs",
+        "Herzberg's Two-Factor Theory",
+        "Emotional Intelligence (EI)"
+      ],
+      "termTR": "McClelland'ın İhtiyaçlar Teorisi"
+    },
+    {
+      "term": "McGregor's Theory X and Theory Y",
+      "category": "Team & Leadership",
+      "definition": "A management framework contrasting two opposing assumptions about workers. Theory X assumes employees are inherently lazy, avoid responsibility, and must be controlled. Theory Y assumes employees are self-motivated, creative, and capable of taking ownership. Modern project management largely embraces Theory Y principles.",
+      "related": [
+        "Maslow's Hierarchy of Needs",
+        "Servant Leadership",
+        "Emotional Intelligence (EI)"
+      ],
+      "termTR": "McGregor'un X ve Y Teorisi"
+    },
+    {
+      "term": "Measurement Performance Domain",
+      "category": "Performance Domains",
+      "definition": "One of the 8 PMBOK® 8th edition performance domains. Addresses activities for assessing project performance and implementing necessary adjustments. Effective measurement uses meaningful metrics to understand progress, identify trends, and forecast outcomes — rather than reporting for its own sake.",
+      "related": [
+        "Earned Value Management (EVM)",
+        "Key Performance Indicators",
+        "Schedule Variance (SV)",
+        "Cost Variance (CV)"
+      ],
+      "termTR": "Ölçüm Performans Alanı"
+    },
+    {
+      "term": "Milestone",
+      "category": "Schedule Management",
+      "definition": "A significant point or event in the project schedule — typically the completion of a major deliverable, phase, or key decision — that has zero duration and serves as a checkpoint for reviewing progress and making go/no-go decisions.",
+      "related": [
+        "Schedule Baseline",
+        "Phase Gate",
+        "Work Breakdown Structure (WBS)",
+        "Deliverable"
+      ],
+      "termTR": "Kilometre Taşı",
+      "definitionTR": "Bir projede, programda veya portföyde önemli bir anı, tamamlanmış bir olayı veya kritik bir aşamayı temsil eden (genellikle süresi sıfır olan) zaman noktasıdır."
+    },
+    {
+      "term": "Minimum Marketable Feature (MMF)",
+      "termTR": "Minimum Pazarlanabilir Özellik",
+      "category": "Agile & Adaptive",
+      "definition": "The smallest functional feature set that adds immediate value to the customer and can be released for general use. Unlike MVP (a learning vehicle), MMF is a fully finished, marketable addition to the product.",
+      "definitionTR": "Müşteriye hemen değer katacak ve genel kullanıma hazır olarak pazara sürülebilecek en küçük işlevsel özellik setidir. MVP'nin aksine, MMF tamamen bitmiş ve pazarlanabilir bir ektir.",
+      "related": [
+        "Minimum Viable Product (MVP)",
+        "User Story",
+        "Product Backlog",
+        "Feature"
+      ]
+    },
+    {
+      "term": "Minimum Viable Product (MVP)",
+      "category": "Agile & Adaptive",
+      "definition": "The smallest version of a product that delivers enough value to early adopters while generating feedback to guide further development. MVPs allow teams to validate assumptions with real users before committing to full feature development, reducing waste and investment risk.",
+      "related": [
+        "Incremental Approach",
+        "Product Backlog",
+        "Feature",
+        "Burndown Chart"
+      ],
+      "termTR": "Minimum Yapılabilir Ürün (MVP)",
+      "definitionTR": "Müşterilere değer sunmak, pazarın rekabetine ilk giren olmak ve kullanıcı geri bildirimi toplamak amacıyla piyasaya sürülen, sistemin en temel özelliklerini içeren küçük artımlı ilk versiyondur."
+    },
+    {
+      "term": "Monte Carlo Simulation",
+      "category": "Risk Management",
+      "definition": "A quantitative risk analysis technique that runs thousands of simulated scenarios using probability distributions for uncertain inputs (duration or cost ranges) to generate a probability distribution of possible outcomes, showing the likelihood of completing on time or within budget.",
+      "related": [
+        "Expected Monetary Value (EMV)",
+        "Decision Tree Analysis",
+        "Risk Register"
+      ],
+      "termTR": "Monte Carlo Simülasyonu"
+    },
+    {
+      "term": "Navigate Complexity",
+      "category": "PMBOK Principles",
+      "definition": "One of the 12 PMBOK® 8th edition principles. Recognize, evaluate, and navigate complexity by applying appropriate tools, techniques, and judgment. Complex projects involve emergent behavior, ambiguity, and interconnected factors that cannot be fully anticipated — requiring adaptive responses rather than rigid plans.",
+      "related": [
+        "Risk",
+        "Uncertainty Performance Domain",
+        "Adaptive Approach",
+        "Systems Thinking"
+      ],
+      "termTR": "Karmaşıklıkla Başa Çık"
+    },
+    {
+      "term": "Net Present Value (NPV)",
+      "category": "Cost Management",
+      "definition": "The current worth of future cash flows discounted to the present at a required rate of return. A positive NPV indicates the project is expected to generate more value than it costs. When selecting among projects, the one with the highest NPV is typically preferred.",
+      "related": [
+        "Internal Rate of Return (IRR)",
+        "Benefit-Cost Ratio (BCR)",
+        "Payback Period",
+        "Business Case"
+      ],
+      "termTR": "Net Bugünkü Değer (NBD)"
+    },
+    {
+      "term": "Network Diagram",
+      "category": "Schedule Management",
+      "definition": "A graphical representation of the logical sequence and dependencies among project activities. Used in Critical Path Method analysis to identify the longest path, float values, and the impact of delays. The most common format is Activity-on-Node (AON) using the Precedence Diagramming Method.",
+      "related": [
+        "Precedence Diagramming Method (PDM)",
+        "Critical Path Method (CPM)",
+        "Float (Slack)",
+        "Lead",
+        "Lag"
+      ],
+      "termTR": "Ağ Diyagramı",
+      "definitionTR": "Proje faaliyetlerini bağımlılıklarına dayalı olarak sıralamak ve görselleştirmek için kullanılan grafiksel gösterimdir."
+    },
+    {
+      "term": "Opportunity Cost",
+      "category": "Cost Management",
+      "definition": "The potential benefit forfeited when one option is chosen over the next best alternative. In project selection, the opportunity cost of approving a project is the best benefit that could have been gained from a competing project that was not funded.",
+      "related": [
+        "Business Case",
+        "Net Present Value (NPV)",
+        "Project Selection"
+      ],
+      "termTR": "Fırsat Maliyeti"
+    },
+    {
+      "term": "Optimize Risk Responses",
+      "category": "PMBOK Principles",
+      "definition": "One of the 12 PMBOK® 8th edition principles. Proactively identify, evaluate, and respond to both threats and opportunities. Managing risk is not a one-time event but a continuous discipline that protects project objectives while also enabling teams to pursue upside potential.",
+      "related": [
+        "Risk Register",
+        "Risk Response Strategies",
+        "Expected Monetary Value (EMV)",
+        "Contingency Reserve"
+      ],
+      "termTR": "Risk Yanıtlarını Optimize Et"
+    },
+    {
+      "term": "Organizational Breakdown Structure (OBS)",
+      "category": "Team & Leadership",
+      "definition": "A hierarchical diagram that shows how the project is organized by responsibility, mapping work to organizational units or individuals. When aligned with the WBS, the OBS forms the basis for creating a Responsibility Assignment Matrix (RAM).",
+      "related": [
+        "RACI Matrix",
+        "Work Breakdown Structure (WBS)",
+        "Responsibility Assignment Matrix (RAM)"
+      ],
+      "termTR": "Organizasyonel Kırılım Yapısı (OKY)"
+    },
+    {
+      "term": "Organizational Cultural Intelligence",
+      "termTR": "Kurumsal Kültürel Zeka",
+      "category": "Team & Leadership",
+      "definition": "The ability of an organization, project manager, and teams to recognize and leverage cultural differences to work effectively and harmoniously in culturally diverse, complex, and multinational environments.",
+      "definitionTR": "Kurumun, proje yöneticisinin ve takımların, kültürel olarak çeşitli, karmaşık ve çok uluslu ortamlarda farklılıkları tanıyıp bunlardan faydalanarak etkili bir şekilde ve uyum içinde çalışma yeteneğidir.",
+      "related": [
+        "Emotional Intelligence (EI)",
+        "Active Listening",
+        "Stakeholder"
+      ]
+    },
+    {
+      "term": "Organizational Process Assets (OPA)",
+      "category": "Core Concepts",
+      "definition": "The accumulated knowledge, procedures, templates, historical data, and lessons learned owned by the performing organization. OPAs inform how projects are managed and are updated by project outputs to benefit future work.",
+      "related": [
+        "Lessons Learned Register",
+        "Enterprise Environmental Factors (EEF)",
+        "Templates"
+      ],
+      "termTR": "Organizasyonel Süreç Varlıkları (OSV)",
+      "definitionTR": "Organizasyon tarafından geçmiş projelerde oluşturulan ve yeni projelerde kullanılan rehberler, şablonlar, prosedürler, politikalar ve öğrenilmiş dersler havuzu gibi bilgi birikimi depolarıdır."
+    },
+    {
+      "term": "Outcome",
+      "category": "Core Concepts",
+      "definition": "The result or effect achieved through the completion of a project or process — the change in condition, behavior, or capability for people, systems, or organizations. Outcomes are broader than deliverables: a deliverable is the output, while the outcome is the lasting change it enables.",
+      "related": [
+        "Deliverable",
+        "Value",
+        "Benefits Realization",
+        "Business Value"
+      ],
+      "termTR": "Sonuç / Çıktı"
+    },
+    {
+      "term": "Pair Programming",
+      "termTR": "Eşli Programlama",
+      "category": "Agile & Adaptive",
+      "definition": "An Extreme Programming (XP) practice where two team members work together at a single workstation. One writes code (driver) while the other reviews in real time (navigator). Roles are switched regularly.",
+      "definitionTR": "İki takım üyesinin tek bir iş istasyonunda birlikte çalıştığı, biri işi yaparken diğerinin anında gözden geçirip hata aradığı bir Ekstrem Programlama (XP) pratiğidir.",
+      "related": [
+        "Extreme Programming (XP)",
+        "Technical Debt",
+        "Definition of Done (DoD)"
+      ]
+    },
+    {
+      "term": "Parametric Estimating",
+      "termTR": "Parametrik Tahmin",
+      "category": "Planning",
+      "definition": "A technique that uses statistical relationships between historical data and project variables (e.g., cost per square meter, hours per function point) to calculate project cost or duration with high accuracy.",
+      "definitionTR": "Geçmiş veriler ile proje değişkenleri arasındaki istatistiksel ilişkiyi kullanarak projenin maliyetini veya süresini yüksek doğrulukla hesaplama yöntemidir.",
+      "related": [
+        "Analogous Estimating",
+        "Bottom-up Estimating",
+        "Three-Point Estimate (PERT)"
+      ]
+    },
+    {
+      "term": "Pareto Chart",
+      "category": "Quality Management",
+      "definition": "A combination bar-and-line chart that ranks defect categories or problem causes by frequency, illustrating the 80/20 principle: roughly 80% of problems stem from 20% of causes. It helps quality teams focus improvement efforts on the highest-impact issues first.",
+      "related": [
+        "Cause-and-Effect Diagram",
+        "Quality Control",
+        "Continuous Improvement"
+      ],
+      "termTR": "Pareto Grafiği",
+      "definitionTR": "Projedeki sorunların veya hataların kök nedenlerini analiz etmek ve enerjiyi hataların %80'ine neden olan %20'lik sebebe odaklamak amacıyla kullanılan, sorunları en çoktan en aza doğru sıralayan çubuk grafiğidir."
+    },
+    {
+      "term": "Payback Period",
+      "category": "Cost Management",
+      "definition": "The time required to recover the initial project investment from net cash inflows. Shorter payback periods indicate lower financial risk and faster return of capital. Used as a simple screening criterion alongside NPV and IRR in project selection.",
+      "related": [
+        "Net Present Value (NPV)",
+        "Internal Rate of Return (IRR)",
+        "Benefit-Cost Ratio (BCR)",
+        "Business Case"
+      ],
+      "termTR": "Geri Ödeme Süresi"
+    },
+    {
+      "term": "Performance Measurement Baseline (PMB)",
+      "category": "Earned Value Management",
+      "definition": "The integrated scope-schedule-cost plan that combines all three baselines into a unified performance standard. The PMB is the reference for EVM analysis and excludes management reserve. All EVM metrics compare actual performance against the PMB.",
+      "related": [
+        "Scope Baseline",
+        "Schedule Baseline",
+        "Cost Baseline",
+        "Earned Value Management (EVM)"
+      ],
+      "termTR": "Performans Ölçüm Temel Çizgisi (PMB)"
+    },
+    {
+      "term": "Phase Gate",
+      "category": "Core Concepts",
+      "definition": "A formal review point at the end of a project phase where senior stakeholders evaluate performance, deliverables, and the viability of proceeding. The outcome may be to continue, redirect, pause, or terminate the project. Also called a stage gate or kill point.",
+      "related": [
+        "Milestone",
+        "Governance",
+        "Project Life Cycle"
+      ],
+      "termTR": "Faz Kapısı"
+    },
+    {
+      "term": "Planned Value (PV)",
+      "category": "Earned Value Management",
+      "definition": "The authorized budget allocated to scheduled work at a specific measurement date. PV represents what the project was planned to have accomplished by that point. It is also known as Budgeted Cost of Work Scheduled (BCWS).",
+      "related": [
+        "Earned Value (EV)",
+        "Actual Cost (AC)",
+        "Schedule Variance (SV)",
+        "Budget at Completion (BAC)"
+      ],
+      "termTR": "Planlanan Değer (PV)",
+      "definitionTR": "Belirli bir dönemde bitirilmesi planlanmış ve zamanlanmış iş için başlangıçta yetkilendirilmiş ve ayrılmış olan bütçe miktarıdır."
+    },
+    {
+      "term": "Planning Performance Domain",
+      "category": "Performance Domains",
+      "definition": "One of the 8 PMBOK® 8th edition performance domains. Addresses all activities involved in initially and continuously organizing and coordinating project work — including scope, schedule, cost, resources, and risk — to ensure the team delivers what was agreed.",
+      "related": [
+        "Project Management Plan",
+        "Scope Baseline",
+        "Schedule Baseline",
+        "Cost Baseline"
+      ],
+      "termTR": "Planlama Performans Alanı"
+    },
+    {
+      "term": "Planning Poker",
+      "category": "Agile & Adaptive",
+      "definition": "A consensus-based agile estimation technique where team members simultaneously reveal their individual effort estimates (typically using cards with Fibonacci-like values) for a work item. Differences in estimates trigger discussion that converges on a shared understanding and agreed estimate.",
+      "related": [
+        "Story Points",
+        "Backlog Refinement",
+        "User Story",
+        "Velocity"
+      ],
+      "termTR": "Planlama Pokeri"
+    },
+    {
+      "term": "PMO (Project Management Office)",
+      "category": "Core Concepts",
+      "definition": "An organizational structure that standardizes project governance and facilitates the sharing of resources, methodologies, tools, and information. PMOs range from supportive (advisory), to controlling (mandating standards), to directive (directly managing projects).",
+      "related": [
+        "Governance",
+        "Portfolio",
+        "Program",
+        "Organizational Process Assets (OPA)"
+      ],
+      "termTR": "Proje Yönetim Ofisi (PYO)",
+      "definitionTR": "Projelerle ilgili yönetişim süreçlerini standartlaştıran ve metodolojilerin, araçların, eğitimlerin ve kaynakların projeler arasında paylaşımını kolaylaştıran merkezi departmandır."
+    },
+    {
+      "term": "Portfolio",
+      "category": "Core Concepts",
+      "definition": "A collection of projects, programs, subsidiary portfolios, and operations managed as a group to achieve strategic goals. Portfolio management focuses on selecting the right mix of work to maximize organizational value rather than on individual project delivery.",
+      "related": [
+        "Program",
+        "Project",
+        "PMO (Project Management Office)",
+        "Governance"
+      ],
+      "termTR": "Portföy",
+      "definitionTR": "Bir organizasyonun stratejik iş hedeflerine ulaşmak amacıyla bir grup olarak yönetilen projeler, programlar ve operasyonların tamamıdır."
+    },
+    {
+      "term": "Power/Interest Grid",
+      "category": "Stakeholder & Communication",
+      "definition": "A stakeholder mapping tool that places stakeholders on a two-axis grid based on their level of authority (power) and their concern for project outcomes (interest). The four resulting quadrants guide the amount of engagement and communication effort to direct toward each group.",
+      "related": [
+        "Salience Model",
+        "Stakeholder Register",
+        "Stakeholder Engagement Plan"
+      ],
+      "termTR": "Güç/İlgi Matrisi"
+    },
+    {
+      "term": "Precedence Diagramming Method (PDM)",
+      "category": "Schedule Management",
+      "definition": "A scheduling technique that represents activities as nodes connected by arrows showing dependency relationships. PDM supports four dependency types: Finish-to-Start (FS), Start-to-Start (SS), Finish-to-Finish (FF), and Start-to-Finish (SF).",
+      "related": [
+        "Network Diagram",
+        "Critical Path Method (CPM)",
+        "Finish-to-Start (FS)",
+        "Lead",
+        "Lag"
+      ],
+      "termTR": "Öncelik Diyagram Yöntemi (ÖDY)"
+    },
+    {
+      "term": "Predictive Approach",
+      "category": "Development Approach",
+      "definition": "A project delivery method where scope, schedule, and cost are determined in detail early and work is executed according to a comprehensive plan. Best suited to projects with well-defined requirements, stable technology, and low uncertainty. Also referred to as waterfall or plan-driven.",
+      "related": [
+        "Adaptive Approach",
+        "Hybrid Approach",
+        "Development Approach",
+        "Baseline"
+      ],
+      "termTR": "Öngörücü Yaklaşım (Şelale)",
+      "definitionTR": "Bir projenin kapsamının, zamanının ve maliyetinin projenin başlarında kapsamlı bir planlamayla belirlendiği geleneksel, ardışık geliştirme yaklaşımıdır. Şelale modeli olarak da bilinir."
+    },
+    {
+      "term": "Prevention Cost",
+      "category": "Quality Management",
+      "definition": "Costs incurred to prevent defects from occurring in the first place. Examples include training, process design, standards development, and design reviews. Prevention costs are the most cost-effective quality investment — catching a defect early is far cheaper than fixing it later.",
+      "related": [
+        "Appraisal Cost",
+        "Internal Failure Cost",
+        "External Failure Cost",
+        "Cost of Quality (COQ)"
+      ],
+      "termTR": "Önleme Maliyeti"
+    },
+    {
+      "term": "Probability and Impact Matrix",
+      "category": "Risk Management",
+      "definition": "A qualitative risk analysis tool that scores each identified risk by combining its probability of occurrence with its potential impact on project objectives. Risks are plotted in a matrix to prioritize which require detailed response strategies.",
+      "related": [
+        "Risk Register",
+        "Risk Management",
+        "Expected Monetary Value (EMV)"
+      ],
+      "termTR": "Olasılık ve Etki Matrisi"
+    },
+    {
+      "term": "Procurement",
+      "termTR": "Tedarik",
+      "category": "Procurement",
+      "definition": "The processes of acquiring goods, services, subcontracting, or external resources needed for project success from outside the organization through formal contracts. Includes planning, conducting, and controlling procurement.",
+      "definitionTR": "Projenin başarılı olması için ihtiyaç duyulan mal, hizmet, taşeronluk veya dış kaynakların kurum dışından resmi sözleşmeler yoluyla satın alınması süreçleridir.",
+      "related": [
+        "Contract",
+        "Fixed-Price Contract",
+        "Request for Proposal (RFP)",
+        "Bid Documents"
+      ]
+    },
+    {
+      "term": "Product Backlog",
+      "category": "Agile & Adaptive",
+      "definition": "An ordered, evolving list of everything needed in the product, maintained exclusively by the Product Owner. It is the single source of requirements for all future work. Items at the top are more detailed and immediately actionable; items at the bottom are larger and less refined.",
+      "related": [
+        "Sprint Backlog",
+        "Product Owner",
+        "Backlog Refinement",
+        "User Story"
+      ],
+      "termTR": "Ürün Birikim Listesi"
+    },
+    {
+      "term": "Product Owner",
+      "category": "Agile & Adaptive",
+      "definition": "In Scrum, the team member responsible for maximizing product value by managing and prioritizing the product backlog. The Product Owner bridges the gap between stakeholders and the development team, making final decisions about what gets built and in what order.",
+      "related": [
+        "Product Backlog",
+        "Scrum Master",
+        "Scrum",
+        "Stakeholder"
+      ],
+      "termTR": "Ürün Sahibi"
+    },
+    {
+      "term": "Program",
+      "category": "Core Concepts",
+      "definition": "A group of related projects, subsidiary programs, and program activities managed together to obtain benefits not achievable by managing them individually. Program management coordinates interdependencies between projects and aligns their collective outcomes with strategic goals.",
+      "related": [
+        "Portfolio",
+        "Project",
+        "PMO (Project Management Office)",
+        "Benefits Realization"
+      ],
+      "termTR": "Program",
+      "definitionTR": "Ortak bir amaca hizmet eden, ancak bireysel olarak yönetildiklerinde elde edilemeyecek düzeyde faydalar sağlamak amacıyla koordineli bir biçimde yönetilen birbiriyle ilişkili projeler bütünüdür."
+    },
+    {
+      "term": "Progressive Elaboration",
+      "category": "Planning",
+      "definition": "The continuous process of increasing detail in a project plan as more information becomes available. Early in the project, plans may be high-level; as understanding grows, specifics are added. This is a natural feature of all project planning, not a sign of poor preparation.",
+      "related": [
+        "Rolling Wave Planning",
+        "Assumption",
+        "Work Breakdown Structure (WBS)"
+      ],
+      "termTR": "Aşamalı Detaylandırma",
+      "definitionTR": "Daha fazla bilgi ve daha doğru tahminler elde edildikçe, bir proje yönetim planındaki ayrıntı düzeyini sürekli ve yinelemeli olarak artırma sürecidir."
+    },
+    {
+      "term": "Project",
+      "category": "Core Concepts",
+      "definition": "A temporary endeavor with a defined beginning and end, undertaken to create a unique product, service, or result. Projects differ from ongoing operations in their finite nature and unique objectives. Every project creates something that did not previously exist.",
+      "related": [
+        "Program",
+        "Portfolio",
+        "Operations",
+        "Project Management"
+      ],
+      "termTR": "Proje",
+      "definitionTR": "Yeni, özgün bir ürün, hizmet veya sonuç yaratmak amacıyla üstlenilen; tanımlanmış bir başlangıcı ve bitişi olan geçici bir girişimdir."
+    },
+    {
+      "term": "Project Charter",
+      "category": "Planning",
+      "definition": "The document that formally authorizes a project's existence and grants the project manager authority to allocate organizational resources. Issued by the sponsor, it documents high-level objectives, success criteria, risks, constraints, and key stakeholders.",
+      "related": [
+        "Project Management Plan",
+        "Sponsor",
+        "Business Case",
+        "Governance"
+      ],
+      "termTR": "Proje Başlatma Belgesi",
+      "definitionTR": "Bir projeyi resmi olarak var eden, projenin temel hedeflerini, iş gerekçesini ve kısıtlarını içeren ve proje yöneticisine organizasyonel kaynakları kullanma yetkisi atayan, sponsor tarafından imzalanan temel belgedir."
+    },
+    {
+      "term": "Project Closure",
+      "category": "Core Concepts",
+      "definition": "The final phase of the project life cycle where all activities are formally completed, deliverables are transferred or handed over, contracts are closed, final documentation is archived, and lessons learned are captured. Closure formally releases project resources and confirms that all obligations have been fulfilled.",
+      "related": [
+        "Lessons Learned Register",
+        "Transition Plan",
+        "Final Report",
+        "Organizational Process Assets (OPA)"
+      ],
+      "termTR": "Proje Kapanışı"
+    },
+    {
+      "term": "Project Life Cycle",
+      "category": "Core Concepts",
+      "definition": "The series of phases a project passes through from initiation to closure. The life cycle structure provides a framework for managing and governing project work, with phase gates serving as formal decision points between phases.",
+      "related": [
+        "Phase Gate",
+        "Development Approach",
+        "Milestone",
+        "Project Phase"
+      ],
+      "termTR": "Proje Yaşam Döngüsü",
+      "definitionTR": "Bir projenin başlatılmasından, planlanmasına, yürütülmesine ve kapanışına kadar geçtiği birbirini takip eden evreler veya aşamalar dizisidir."
+    },
+    {
+      "term": "Project Management",
+      "category": "Core Concepts",
+      "definition": "The application of knowledge, skills, tools, and techniques to project activities to meet project requirements. Effective project management means balancing competing demands across scope, schedule, cost, quality, resources, and risk to deliver value to stakeholders.",
+      "related": [
+        "Project Manager",
+        "Project Management Plan",
+        "Project",
+        "PMBOK® Guide"
+      ],
+      "termTR": "Proje Yönetimi"
+    },
+    {
+      "term": "Project Management Plan",
+      "category": "Planning",
+      "definition": "The master document describing how the project will be executed, monitored, controlled, and closed. It integrates all subsidiary management plans and baselines into a coherent guide that evolves throughout the project via formal change control.",
+      "related": [
+        "Project Charter",
+        "Baseline",
+        "Subsidiary Plans",
+        "Change Management Plan"
+      ],
+      "termTR": "Proje Yönetim Planı",
+      "definitionTR": "Projenin hedeflerine nasıl ulaşacağını; işin nasıl yürütüleceğini, izleneceğini, kontrol edileceğini ve kapatılacağını tanımlayan temel çizgileri ve tüm alt yönetim planlarını barındıran entegre ana dokümandır."
+    },
+    {
+      "term": "Project Manager",
+      "category": "Core Concepts",
+      "definition": "The individual assigned to lead the project team in achieving project objectives. Responsible for planning, executing, monitoring, controlling, and closing the project, the project manager must balance competing stakeholder needs and act as a bridge between the team and senior leadership.",
+      "related": [
+        "Sponsor",
+        "Team",
+        "Stakeholder",
+        "Project Charter"
+      ],
+      "termTR": "Proje Yöneticisi"
+    },
+    {
+      "term": "Project Roadmap",
+      "category": "Planning",
+      "definition": "A high-level visual summary showing key milestones, deliverables, and timing across the project or product at a strategic level. A roadmap communicates direction and priorities without prescribing every execution detail.",
+      "related": [
+        "Milestone",
+        "Product Backlog",
+        "Project Charter",
+        "Schedule Baseline"
+      ],
+      "termTR": "Proje Yol Haritası"
+    },
+    {
+      "term": "Project Work Performance Domain",
+      "category": "Performance Domains",
+      "definition": "One of the 8 PMBOK® 8th edition performance domains. Addresses the activities required to establish and maintain the project work processes needed to produce deliverables efficiently. Covers day-to-day execution, resource management, procurement, and stakeholder communications.",
+      "related": [
+        "Project Management Plan",
+        "Change Request",
+        "Deliverable",
+        "Resource Management"
+      ],
+      "termTR": "Proje Çalışması Performans Alanı"
+    },
+    {
+      "term": "Proof of Concept (POC)",
+      "termTR": "Kavram Kanıtlama",
+      "category": "Agile & Adaptive",
+      "definition": "A small-scale prototype or experiment developed to demonstrate that an idea, design, or solution is technically and economically feasible before committing full resources. Reduces uncertainty early in the project.",
+      "definitionTR": "Bir fikrin, tasarımın veya çözümün teknik ve ekonomik olarak uygulanabilir olup olmadığını organizasyona göstermek için geliştirilen küçük ölçekli ve hızlı kanıt veya test modelidir.",
+      "related": [
+        "Minimum Viable Product (MVP)",
+        "Spike",
+        "Iterative Approach",
+        "Risk Response Strategies"
+      ]
+    },
+    {
+      "term": "RACI Matrix",
+      "category": "Team & Leadership",
+      "definition": "A Responsibility Assignment Matrix that clarifies roles for each project activity or deliverable using four designations: Responsible (does the work), Accountable (owns the outcome and makes final decisions), Consulted (provides input), and Informed (kept in the loop). Each task should have exactly one Accountable party.",
+      "related": [
+        "Organizational Breakdown Structure (OBS)",
+        "Work Breakdown Structure (WBS)",
+        "Stakeholder Management"
+      ],
+      "termTR": "RACI Matrisi",
+      "definitionTR": "Bir projede her bir görevin kimin sorumluluğunda olduğunu netleştirmek için kullanılan; Sorumlu (R), Hesap Veren (A), Danışılan (C) ve Bilgilendirilen (I) rollerini tanımlayan sorumluluk atama matrisidir."
+    },
+    {
+      "term": "Request for Proposal (RFP)",
+      "category": "Procurement",
+      "definition": "A formal procurement document used when the buyer cannot fully define requirements and wants sellers to propose solutions. An RFP includes the problem statement, evaluation criteria, and contract requirements. Sellers respond with a formal proposal outlining their approach, qualifications, and pricing.",
+      "related": [
+        "Statement of Work (SOW)",
+        "Fixed-Price Contract",
+        "Source Selection Criteria"
+      ],
+      "termTR": "Teklif Talebi (RFP)"
+    },
+    {
+      "term": "Requirements",
+      "category": "Scope Management",
+      "definition": "Conditions or capabilities that a product, service, or result must satisfy to meet stakeholder needs or contractual obligations. Requirements are elicited, documented, and validated before being incorporated into the approved project scope.",
+      "related": [
+        "Work Breakdown Structure (WBS)",
+        "Acceptance Criteria",
+        "Scope Statement",
+        "User Story"
+      ],
+      "termTR": "Gereksinimler"
+    },
+    {
+      "term": "Requirements Traceability Matrix",
+      "termTR": "Gereksinim İzlenebilirlik Matrisi",
+      "category": "Scope Management",
+      "definition": "A formal document that links requirements to their origin and tracks them throughout the project life cycle to ensure all objectives are met and no requirements are lost or changed without control.",
+      "definitionTR": "Gereksinimleri kökenlerine bağlayan ve hedeflerin karşılandığından emin olmak için proje yaşam döngüsü boyunca onları adım adım izleyen resmi belgedir.",
+      "related": [
+        "Requirements",
+        "Scope Baseline",
+        "Work Breakdown Structure (WBS)",
+        "Acceptance Criteria"
+      ]
+    },
+    {
+      "term": "Resource Leveling",
+      "category": "Schedule Management",
+      "definition": "A schedule optimization technique that adjusts activity start and finish dates to resolve resource over-allocation. Resource leveling may extend the project duration but ensures no team member or resource is scheduled beyond their capacity in any given time period.",
+      "related": [
+        "Resource Smoothing",
+        "Crashing",
+        "Critical Path",
+        "Float (Slack)"
+      ],
+      "termTR": "Kaynak Dengeleme"
+    },
+    {
+      "term": "Resource Smoothing",
+      "category": "Schedule Management",
+      "definition": "A schedule optimization technique that adjusts resource usage within the available float of activities to reduce peak demand, without extending the project end date. Unlike resource leveling, it does not delay the critical path or change the project duration.",
+      "related": [
+        "Resource Leveling",
+        "Float (Slack)",
+        "Critical Path"
+      ],
+      "termTR": "Kaynak Düzleştirme"
+    },
+    {
+      "term": "Responsibility Assignment Matrix (RAM)",
+      "category": "Team & Leadership",
+      "definition": "A matrix that maps project scope components to the team members or groups responsible for completing them. The most common form is the RACI matrix. The RAM ensures that every work package has a clear owner and that accountability is unambiguous.",
+      "related": [
+        "RACI Matrix",
+        "Organizational Breakdown Structure (OBS)",
+        "Work Breakdown Structure (WBS)"
+      ],
+      "termTR": "Sorumluluk Atama Matrisi"
+    },
+    {
+      "term": "Retrospective",
+      "category": "Agile & Adaptive",
+      "definition": "A structured team meeting held at the end of an iteration or project phase where the team reflects on their process, identifies what went well, what could be improved, and commits to specific changes in the next cycle. It is the core mechanism for continuous improvement in agile.",
+      "related": [
+        "Lessons Learned",
+        "Sprint Retrospective",
+        "Continuous Improvement",
+        "Kaizen"
+      ],
+      "termTR": "Retrospektif / Geçmişe Bakış",
+      "definitionTR": "Çevik bir iterasyonun veya projenin sonunda, takımın geçmiş performansı masaya yatırdığı; nelerin iyi gittiğini, nelerin yanlış gittiğini ve ne iyileştirileceğini şeffafça tartışıp sürekli iyileştirme sağladığı toplantıdır."
+    },
+    {
+      "term": "Risk",
+      "category": "Risk Management",
+      "definition": "An uncertain event or condition that, if it occurs, will have a positive or negative effect on project objectives. Negative risks are called threats; positive risks are opportunities. All projects carry inherent risk due to their unique and temporary nature.",
+      "related": [
+        "Risk Register",
+        "Risk Response Strategies",
+        "Probability and Impact Matrix",
+        "Issue"
+      ],
+      "termTR": "Risk",
+      "definitionTR": "Gerçekleşmesi durumunda projenin hedeflerinden en az biri üzerinde olumlu (fırsat) veya olumsuz (tehdit) etki yaratan belirsiz bir olaydır."
+    },
+    {
+      "term": "Risk Appetite",
+      "category": "Risk Management",
+      "definition": "The degree of uncertainty an organization or stakeholder is willing to accept in pursuit of a reward. Organizations with high risk appetite tolerate greater uncertainty for potentially greater gain; those with low risk appetite prefer more predictable, conservative outcomes.",
+      "related": [
+        "Risk Tolerance",
+        "Risk Threshold",
+        "Risk Register"
+      ],
+      "termTR": "Risk İştahı"
+    },
+    {
+      "term": "Risk Register",
+      "category": "Risk Management",
+      "definition": "The primary project document for tracking all identified risks, including their descriptions, categories, probability and impact ratings, prioritization, response plans, owners, triggers, and current status. It is updated continuously throughout the project life cycle.",
+      "related": [
+        "Risk",
+        "Probability and Impact Matrix",
+        "Risk Response Strategies",
+        "Issue Log"
+      ],
+      "termTR": "Risk Kaydı",
+      "definitionTR": "Proje süresince tanımlanan risklerin detaylarının (olasılık, etki) ve bu riskler için geliştirilen yanıt stratejilerinin listelendiği ve izlendiği temel belgedir."
+    },
+    {
+      "term": "Risk Response Strategies",
+      "category": "Risk Management",
+      "definition": "Planned actions to address identified risks. For threats: Avoid (change plans to eliminate the risk), Transfer (shift risk to a third party via insurance or contract), Mitigate (reduce probability or impact), or Accept (acknowledge without proactive action). For opportunities: Exploit, Share, Enhance, or Accept.",
+      "related": [
+        "Risk Register",
+        "Contingency Reserve",
+        "Risk Management"
+      ],
+      "termTR": "Risk Yanıt Stratejileri",
+      "definitionTR": "Fırsatlar için: Sömürme, Geliştirme, Paylaşma. Tehditler için: Kaçınma, Azaltma/Hafifletme, Transfer Etme. Hem fırsatlar hem tehditler için: Kabul etme."
+    },
+    {
+      "term": "Rolling Wave Planning",
+      "category": "Planning",
+      "definition": "A progressive elaboration technique where near-term work is planned in fine detail while distant work is planned at a high level, with detail added as the work approaches. It acknowledges that precise planning of far-future work is often premature and wasteful.",
+      "related": [
+        "Progressive Elaboration",
+        "Product Backlog",
+        "Iterative Approach"
+      ],
+      "termTR": "Kayan Dalga Planlama"
+    },
+    {
+      "term": "Roman Voting",
+      "termTR": "Roma Oylaması",
+      "category": "Agile & Adaptive",
+      "definition": "A rapid consensus-building technique where team members simultaneously show thumbs up (approve), thumbs down (reject), or sideways (neutral/abstain) to indicate agreement or disagreement.",
+      "definitionTR": "Takımın bir fikre veya karara katılıp katılmadığını eşzamanlı olarak başparmaklarını yukarı (onay), aşağı (ret) veya yana (kararsız/çekimser) çevirerek gösterdikleri hızlı fikir birliği tekniğidir.",
+      "related": [
+        "Voting Techniques",
+        "Planning Poker",
+        "Retrospective"
+      ]
+    },
+    {
+      "term": "Salience Model",
+      "category": "Stakeholder & Communication",
+      "definition": "A stakeholder analysis tool that classifies stakeholders based on three attributes: Power (ability to impose their will), Legitimacy (appropriateness of their engagement), and Urgency (time-sensitivity of their needs). Stakeholders who score high on all three are the most 'salient' and require the most attention.",
+      "related": [
+        "Power/Interest Grid",
+        "Stakeholder Register",
+        "Stakeholder Engagement Plan"
+      ],
+      "termTR": "Belirginlik Modeli",
+      "definitionTR": "Paydaşları güç (power), aciliyet (urgency) ve meşruiyet (legitimacy) özelliklerine göre sınıflandıran, liderlerin karmaşık paydaş ilişkilerinde doğru kişilere odaklanmasına yardımcı olan analiz modelidir."
+    },
+    {
+      "term": "Schedule Baseline",
+      "category": "Schedule Management",
+      "definition": "The approved version of the project schedule model, fixed at a point in time and changeable only through formal change control. It is used as the reference for measuring schedule performance and calculating Schedule Variance.",
+      "related": [
+        "Schedule Performance Index (SPI)",
+        "Critical Path",
+        "Integrated Change Control",
+        "Baseline"
+      ],
+      "termTR": "Zaman Çizelgesi Temel Çizgisi"
+    },
+    {
+      "term": "Schedule Performance Index (SPI)",
+      "category": "Earned Value Management",
+      "definition": "A schedule efficiency ratio calculated as EV ÷ PV. An SPI above 1.0 indicates the project is completing more work than planned for the period; below 1.0 means it is behind schedule. SPI measures schedule efficiency in budget terms, not calendar time.",
+      "related": [
+        "Earned Value (EV)",
+        "Planned Value (PV)",
+        "Cost Performance Index (CPI)",
+        "Schedule Variance (SV)"
+      ],
+      "termTR": "Zaman Çizelgesi Performans Endeksi (SPI)",
+      "definitionTR": "Kazanılmış değerin (EV), planlanan değere (PV) bölünmesiyle hesaplanan ve proje ekibinin zaman planına ne kadar verimli uyduğunu gösteren matematiksel ölçüdür."
+    },
+    {
+      "term": "Schedule Variance (SV)",
+      "category": "Earned Value Management",
+      "definition": "The difference between earned value and planned value at a measurement date: SV = EV − PV. A positive SV indicates the project is ahead of schedule; a negative SV means it is behind. Because SV is expressed in monetary terms, it eventually reaches zero at project completion regardless of actual schedule performance.",
+      "related": [
+        "Earned Value (EV)",
+        "Planned Value (PV)",
+        "Cost Variance (CV)",
+        "Schedule Performance Index (SPI)"
+      ],
+      "termTR": "Zaman Çizelgesi Sapması (SV)",
+      "definitionTR": "Kazanılmış Değer'den (EV) Planlanan Değerin (PV) çıkarılmasıyla hesaplanır. Negatif bir zaman çizelgesi sapması, projenin orijinal takvimin gerisinde kaldığı anlamına gelir."
+    },
+    {
+      "term": "Scope",
+      "termTR": "Kapsam",
+      "category": "Scope Management",
+      "definition": "The sum of the products, services, and results to be provided as a project. Defines all the work — and only the work — required to complete the project successfully.",
+      "definitionTR": "Bir proje kapsamında ortaya konulması veya sağlanması gereken ürünlerin, hizmetlerin ve sonuçların toplamıdır.",
+      "related": [
+        "Scope Baseline",
+        "Scope Creep",
+        "Work Breakdown Structure (WBS)",
+        "Requirements"
+      ]
+    },
+    {
+      "term": "Scope Baseline",
+      "category": "Scope Management",
+      "definition": "An approved, integrated package consisting of the project scope statement, the Work Breakdown Structure, and the WBS dictionary. It is the reference for measuring scope performance and can only be changed through formal change control.",
+      "related": [
+        "Work Breakdown Structure (WBS)",
+        "WBS Dictionary",
+        "Integrated Change Control",
+        "Baseline"
+      ],
+      "termTR": "Kapsam Temel Çizgisi",
+      "definitionTR": "Resmi kapsam belgelerinin (İKY ve İKY Sözlüğü dahil) onaylanmış versiyonudur; yalnızca değişiklik kontrol prosedürleri kullanılarak değiştirilebilir."
+    },
+    {
+      "term": "Scope Creep",
+      "category": "Scope Management",
+      "definition": "The uncontrolled expansion of project scope — often through small, informal changes — without corresponding adjustments to schedule, cost, or resources. Scope creep typically results from bypassing the formal change control process and is one of the most common causes of project overruns.",
+      "related": [
+        "Change Control Board (CCB)",
+        "Integrated Change Control",
+        "Scope Baseline",
+        "Gold Plating"
+      ],
+      "termTR": "Kapsam Kayması",
+      "definitionTR": "Proje veya ürün kapsamının; zaman, maliyet ve kaynaklar için herhangi bir resmi ayarlama veya değişiklik kontrolü yapılmadan kontrolsüz bir şekilde genişlemesi durumudur."
+    },
+    {
+      "term": "Scrum",
+      "category": "Agile & Adaptive",
+      "definition": "An agile framework that organizes work into time-boxed sprints (1–4 weeks) with three defined roles (Product Owner, Scrum Master, Development Team), three artifacts (Product Backlog, Sprint Backlog, Increment), and five events (Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective).",
+      "related": [
+        "Sprint",
+        "Product Owner",
+        "Scrum Master",
+        "Sprint Planning",
+        "Product Backlog"
+      ],
+      "termTR": "Scrum"
+    },
+    {
+      "term": "Scrum Master",
+      "category": "Agile & Adaptive",
+      "definition": "A servant-leader role in Scrum responsible for ensuring the team understands and adheres to the Scrum framework, removing organizational impediments, coaching on agile principles, and shielding the team from disruptive external influences. The Scrum Master is not a traditional manager.",
+      "related": [
+        "Scrum",
+        "Product Owner",
+        "Servant Leadership",
+        "Impediment"
+      ],
+      "termTR": "Scrum Master"
+    },
+    {
+      "term": "Scrum of Scrums",
+      "termTR": "Scrum'ların Scrum'ı",
+      "category": "Agile & Adaptive",
+      "definition": "A scaled agile coordination meeting where representatives from multiple Scrum teams meet to align on dependencies, progress, and blockers across teams working simultaneously on related features.",
+      "definitionTR": "Birbiriyle ilişkili özellikler üzerinde aynı anda çalışan çoklu (ölçeklendirilmiş) çevik takımlar arasındaki bağımlılıkları ve engelleri hizalamak/koordine etmek için yapılan toplantıdır.",
+      "related": [
+        "Scrum",
+        "Daily Scrum",
+        "Scrum Master",
+        "Agile Center of Excellence (ACoE)"
+      ]
+    },
+    {
+      "term": "Servant Leadership",
+      "category": "Team & Leadership",
+      "definition": "A leadership approach that places the needs of the team above the leader's own agenda. A servant leader focuses on empowering team members, removing obstacles, developing individuals, and creating the conditions for high performance — rather than directing, controlling, or taking credit.",
+      "related": [
+        "Scrum Master",
+        "Emotional Intelligence (EI)",
+        "Tuckman's Stages",
+        "Conflict Resolution"
+      ],
+      "termTR": "Hizmetkar Liderlik",
+      "definitionTR": "Liderin sonuçları tek başına dikte etmek yerine, takım üyelerinin ihtiyaçlarını anlamaya, takımı engellere karşı korumaya ve onların en yüksek performansa ulaşması için ortak karar almaya odaklandığı liderlik pratiğidir."
+    },
+    {
+      "term": "Service Level Agreement (SLA)",
+      "termTR": "Hizmet Seviyesi Anlaşması",
+      "category": "Procurement",
+      "definition": "A formal contract between a service provider and a buyer that defines agreed-upon performance measurements, response times, uptime guarantees, and quality standards. Commonly used in IT and outsourcing contracts.",
+      "definitionTR": "Alıcı ve hizmet sağlayıcı arasında yapılan, her iki tarafça kabul edilen performans ölçümlerine, teslimat sürelerine ve hizmet kalitesine odaklanan özel bir sözleşme türüdür.",
+      "related": [
+        "Contract",
+        "Fixed-Price Contract",
+        "Procurement"
+      ]
+    },
+    {
+      "term": "Six Sigma",
+      "category": "Quality Management",
+      "definition": "A data-driven quality methodology that targets process improvement by reducing defect rates to below 3.4 defects per million opportunities — the statistical 'six sigma' level. It uses DMAIC (Define, Measure, Analyze, Improve, Control) for improving existing processes and DMADV for designing new ones.",
+      "related": [
+        "Quality Management",
+        "Continuous Improvement",
+        "Control Charts",
+        "Kaizen"
+      ],
+      "termTR": "Altı Sigma"
+    },
+    {
+      "term": "Spike",
+      "termTR": "Sıçrama (Spike)",
+      "category": "Agile & Adaptive",
+      "definition": "A time-boxed research or exploration task carried out by an agile team to investigate a technology, reduce uncertainty, or understand a problem. Results inform future work but may not produce shippable software.",
+      "definitionTR": "Özellikle çevik projelerde, bir teknolojiyi denemek, pazar belirsizliğini azaltmak veya bir sorunu anlamak amacıyla takımın belli bir zaman kutusunda yürüttüğü hedefli analiz ve araştırma görevidir.",
+      "related": [
+        "Proof of Concept (POC)",
+        "Timeboxing",
+        "Sprint",
+        "User Story"
+      ]
+    },
+    {
+      "term": "Sponsor",
+      "category": "Core Concepts",
+      "definition": "The individual or group that provides resources and support for the project and is ultimately accountable for its success at the organizational level. The sponsor authorizes the project charter, champions the project with leadership, removes high-level obstacles, and makes executive decisions.",
+      "related": [
+        "Project Charter",
+        "Project Manager",
+        "Governance",
+        "Stakeholder"
+      ],
+      "termTR": "Proje Sponsoru",
+      "definitionTR": "Bir proje veya portföy için finansmanı ve temel kaynakları sağlayan, projenin iş değeri üretmesinden sorumlu olan ve genellikle teslimatları nihai olarak imzalayan kişi veya gruptur."
+    },
+    {
+      "term": "Sprint",
+      "category": "Agile & Adaptive",
+      "definition": "A fixed, time-boxed period (typically 1–4 weeks) in Scrum during which the team builds a potentially releasable product increment. Each sprint starts with a planning event, ends with a review and retrospective, and is driven by a clear sprint goal.",
+      "related": [
+        "Scrum",
+        "Sprint Planning",
+        "Sprint Review",
+        "Sprint Retrospective",
+        "Sprint Backlog"
+      ],
+      "termTR": "Sprint / Yineleme",
+      "definitionTR": "Scrum ve Çevik çerçevelerde, çalışan ve test edilebilir bir ürün artırımının geliştirildiği, genellikle 1 ila 4 hafta arasında süren sabit uzunluktaki zaman kutusudur."
+    },
+    {
+      "term": "Sprint Backlog",
+      "category": "Agile & Adaptive",
+      "definition": "The set of product backlog items selected for the current sprint, along with the team's detailed plan for completing them and achieving the sprint goal. The sprint backlog is owned by the development team and updated daily as progress and understanding evolve.",
+      "related": [
+        "Product Backlog",
+        "Sprint",
+        "Sprint Planning",
+        "Burndown Chart"
+      ],
+      "termTR": "Sprint Birikim Listesi"
+    },
+    {
+      "term": "Sprint Planning",
+      "category": "Agile & Adaptive",
+      "definition": "A Scrum event at the start of each sprint where the team selects backlog items, agrees on a sprint goal, and breaks selected items into tasks. The output is a committed sprint backlog with a realistic, achievable scope for the time-box.",
+      "related": [
+        "Sprint",
+        "Product Backlog",
+        "Sprint Backlog",
+        "Sprint Goal"
+      ],
+      "termTR": "Sprint Planlaması"
+    },
+    {
+      "term": "Sprint Retrospective",
+      "category": "Agile & Adaptive",
+      "definition": "A Scrum event held after the sprint review and before the next sprint, where the team inspects its own process and collaboration patterns, identifies what worked and what didn't, and commits to at least one specific improvement in the next sprint.",
+      "related": [
+        "Sprint Review",
+        "Retrospective",
+        "Continuous Improvement",
+        "Lessons Learned"
+      ],
+      "termTR": "Sprint Retrospektifi"
+    },
+    {
+      "term": "Sprint Review",
+      "category": "Agile & Adaptive",
+      "definition": "A Scrum event held at the end of each sprint where the team demonstrates the completed increment to stakeholders, gathers feedback, and collaborates on updating the product backlog. It is a working session designed to inspect the outcome and adapt the product direction.",
+      "related": [
+        "Sprint Retrospective",
+        "Increment",
+        "Product Backlog",
+        "Stakeholder"
+      ],
+      "termTR": "Sprint İncelemesi"
+    },
+    {
+      "term": "Stacey Complexity Model",
+      "termTR": "Stacey Karmaşıklık Modeli",
+      "category": "Core Concepts",
+      "definition": "A framework that determines a project's complexity level (Simple, Complicated, Complex, Chaotic) by mapping how well requirements (scope) are understood against how well the technology/method to build them is known.",
+      "definitionTR": "Bir projenin gereksinimlerinin ne kadar iyi anlaşıldığı (Kapsam) ile bunları oluşturmak için gereken teknolojinin ne kadar iyi bilindiği (Teknoloji) arasındaki ilişkiye bakarak projenin karmaşıklık düzeyini belirleyen değerlendirme aracıdır.",
+      "related": [
+        "Navigate Complexity",
+        "Tailoring",
+        "Hybrid Approach",
+        "Ambiguity"
+      ]
+    },
+    {
+      "term": "Stakeholder",
+      "category": "Core Concepts",
+      "definition": "Any individual, group, or organization that may affect, be affected by, or perceive themselves to be affected by a project decision, activity, or outcome. Stakeholders hold varying degrees of interest, influence, and authority, and must be actively engaged throughout the project.",
+      "related": [
+        "Sponsor",
+        "Project Manager",
+        "Stakeholder Register",
+        "Power/Interest Grid"
+      ],
+      "termTR": "Paydaş",
+      "definitionTR": "Bir projenin, programın veya portföyün yürütülmesinden veya nihai sonucundan etkilenebilecek, projeyi etkileyebilecek veya etkilendiğini düşünebilecek her türlü kişi, grup veya kuruluştur."
+    },
+    {
+      "term": "Stakeholder Engagement Plan",
+      "category": "Stakeholder & Communication",
+      "definition": "A subsidiary project plan that describes the strategies, actions, and communication approaches for effectively engaging stakeholders throughout the project, based on their needs, interests, and current level of engagement versus the desired engagement level.",
+      "related": [
+        "Stakeholder Register",
+        "Communications Management Plan",
+        "Power/Interest Grid"
+      ],
+      "termTR": "Paydaş Katılım Planı"
+    },
+    {
+      "term": "Stakeholder Performance Domain",
+      "category": "Performance Domains",
+      "definition": "One of the 8 PMBOK® 8th edition performance domains. Addresses how the project team builds productive relationships with stakeholders throughout the project, understanding their needs and expectations, engaging them appropriately, and managing their involvement to ensure positive project outcomes.",
+      "related": [
+        "Stakeholder Register",
+        "Power/Interest Grid",
+        "Salience Model",
+        "Stakeholder Engagement Plan"
+      ],
+      "termTR": "Paydaş Performans Alanı"
+    },
+    {
+      "term": "Stakeholder Register",
+      "category": "Stakeholder & Communication",
+      "definition": "A project document containing information about all identified stakeholders, including contact details, roles, interests, expectations, levels of influence, and current engagement status. It is the foundation for all stakeholder management planning.",
+      "related": [
+        "Stakeholder",
+        "Stakeholder Engagement Plan",
+        "Power/Interest Grid",
+        "Salience Model"
+      ],
+      "termTR": "Paydaş Kaydı"
+    },
+    {
+      "term": "Start-to-Finish (SF)",
+      "category": "Schedule Management",
+      "definition": "A rarely used logical relationship in which the successor activity cannot finish until the predecessor activity has started. It is most commonly seen in just-in-time scheduling and shift handover scenarios.",
+      "related": [
+        "Finish-to-Start (FS)",
+        "Start-to-Start (SS)",
+        "Finish-to-Finish (FF)",
+        "Precedence Diagramming Method (PDM)"
+      ],
+      "termTR": "Başlangıç-Bitiş (BF)"
+    },
+    {
+      "term": "Start-to-Start (SS)",
+      "category": "Schedule Management",
+      "definition": "A logical relationship in which a successor activity cannot start until its predecessor has started. SS relationships are used when work can begin in parallel, but the successor must wait for the predecessor to initiate. For example, writing can begin after editing has started.",
+      "related": [
+        "Finish-to-Start (FS)",
+        "Finish-to-Finish (FF)",
+        "Start-to-Finish (SF)",
+        "Precedence Diagramming Method (PDM)"
+      ],
+      "termTR": "Başlangıç-Başlangıç (BB)"
+    },
+    {
+      "term": "Statement of Work (SOW)",
+      "category": "Procurement",
+      "definition": "A narrative document describing the work to be performed by a contractor or project team, including specific deliverables, timelines, location, applicable standards, and acceptance criteria. The SOW is typically incorporated into or attached to a contract.",
+      "related": [
+        "Request for Proposal (RFP)",
+        "Fixed-Price Contract",
+        "Procurement Management Plan"
+      ],
+      "termTR": "İş Bildirimi (SOW)",
+      "definitionTR": "Proje tarafından teslim edilecek nihai ürün, hizmet veya sonuçların anlatısal (metin tabanlı) bir açıklamasıdır."
+    },
+    {
+      "term": "Statistical Sampling",
+      "termTR": "İstatistiksel Örnekleme",
+      "category": "Quality Management",
+      "definition": "The process of selecting only a random portion of a population to measure metrics and verify quality during quality inspection. More efficient than inspecting every item when population is large.",
+      "definitionTR": "Kalite denetimi sırasında, metrikleri ölçmek ve kaliteyi doğrulamak için ilgilenilen popülasyonun sadece rastgele bir bölümünün seçilmesi işlemidir.",
+      "related": [
+        "Control Charts",
+        "Pareto Chart",
+        "Cost of Quality (COQ)",
+        "Appraisal Cost"
+      ]
+    },
+    {
+      "term": "Status Meetings",
+      "termTR": "Durum Toplantıları",
+      "category": "Stakeholder & Communication",
+      "definition": "Regularly scheduled communication events to update stakeholders and team members on the project's current status, progress, and performance metrics. Key tool for maintaining stakeholder engagement and transparency.",
+      "definitionTR": "Projenin mevcut durumunu, ilerlemesini ve performans metriklerini paydaşlara ve takım üyelerine aktarmak için düzenlenen düzenli iletişim etkinlikleridir.",
+      "related": [
+        "Communications Management Plan",
+        "Information Radiator",
+        "Stakeholder Engagement Plan"
+      ]
+    },
+    {
+      "term": "Story Mapping",
+      "termTR": "Hikaye Haritalama",
+      "category": "Agile & Adaptive",
+      "definition": "A technique where groups organize user stories and visualize product functionality across a timeline. Especially useful during discovery work for prioritizing the backlog and identifying the minimum viable product.",
+      "definitionTR": "Özellikle keşif aşamasındaki çalışmalarda, daha büyük grupların kullanıcı hikayelerini organize edip ürünün işlevselliğini görselleştirmesi için kullanılan etkili bir tekniktir.",
+      "related": [
+        "User Story",
+        "Product Backlog",
+        "Minimum Viable Product (MVP)",
+        "Epic"
+      ]
+    },
+    {
+      "term": "Story Points",
+      "category": "Agile & Adaptive",
+      "definition": "A relative unit used by agile teams to estimate the size or complexity of a backlog item. Story points capture effort, complexity, and uncertainty as a single measure. Teams use their velocity (points completed per sprint) to forecast when work will be done.",
+      "related": [
+        "Velocity",
+        "Planning Poker",
+        "Backlog Refinement",
+        "User Story"
+      ],
+      "termTR": "Hikaye Puanları"
+    },
+    {
+      "term": "Successor Activity",
+      "termTR": "Ardıl Faaliyet",
+      "category": "Schedule Management",
+      "definition": "An activity that logically comes after another activity (the predecessor) in a project schedule and depends on it. The nature of the dependency is defined by the relationship type (FS, FF, SS, SF).",
+      "definitionTR": "Bir zaman çizelgesinde mantıksal olarak başka bir faaliyetten (öncül faaliyetten) sonra gelen ve ona bağımlı olan faaliyettir.",
+      "related": [
+        "Precedence Diagramming Method (PDM)",
+        "Network Diagram",
+        "Critical Path",
+        "Lag"
+      ]
+    },
+    {
+      "term": "Summary Activity",
+      "termTR": "Özet Faaliyet",
+      "category": "Schedule Management",
+      "definition": "In a project schedule, a grouping of related sub-activities shown as a single comprehensive activity or phase. Used in Gantt charts to provide a high-level view. Also called a 'hammock activity'.",
+      "definitionTR": "Zaman çizelgesinde, birbiriyle ilişkili birden çok alt faaliyetin toplanarak tek bir kapsamlı faaliyet veya aşama olarak gösterildiği yapıdır.",
+      "related": [
+        "Gantt Chart",
+        "Work Breakdown Structure (WBS)",
+        "Milestone"
+      ]
+    },
+    {
+      "term": "Sunk Cost",
+      "category": "Cost Management",
+      "definition": "Money already spent that cannot be recovered. A fundamental principle in decision-making is that sunk costs should not influence future choices — only future costs and benefits should drive decisions. Continuing a failing project simply to justify past spending is a cognitive bias, not rational management.",
+      "related": [
+        "Opportunity Cost",
+        "Business Case",
+        "Cost Management"
+      ],
+      "termTR": "Batık Maliyet"
+    },
+    {
+      "term": "SWOT Analysis",
+      "termTR": "SWOT Analizi",
+      "category": "Planning",
+      "definition": "A strategic analysis framework that identifies an organization's or project's Strengths, Weaknesses, Opportunities, and Threats. Used in risk identification, strategic planning, and stakeholder analysis.",
+      "definitionTR": "Bir kurumun, projenin veya seçeneğin; Güçlü Yönlerini (Strengths), Zayıf Yönlerini (Weaknesses), Fırsatlarını (Opportunities) ve Tehditlerini (Threats) analiz etmeye yarayan risk ve strateji aracıdır.",
+      "related": [
+        "Risk Register",
+        "Risk Response Strategies",
+        "Assumption",
+        "Brainstorming"
+      ]
+    },
+    {
+      "term": "T-Shaped Team Member",
+      "termTR": "T-Şekilli Takım Üyesi",
+      "category": "Team & Leadership",
+      "definition": "A team profile with broad general knowledge across multiple disciplines (horizontal bar of the T) and deep expertise in one specific area (vertical bar of the T). Enables flexibility and cross-functional collaboration.",
+      "definitionTR": "Çevik projelerde tercih edilen, yatay düzlemde birden çok disiplin hakkında genel bilgiye sahipken, dikey düzlemde belirli bir uzmanlık alanında çok derin beceriye sahip olan yetenekli takım profilidir.",
+      "related": [
+        "Scrum",
+        "Velocity",
+        "Servant Leadership"
+      ]
+    },
+    {
+      "term": "Tacit Knowledge",
+      "termTR": "Örtük Bilgi",
+      "category": "Team & Leadership",
+      "definition": "Knowledge that is difficult to articulate, archive, and share with others, such as beliefs, personal experience, and practical insights. The opposite of explicit knowledge. Critical for knowledge transfer during project closure.",
+      "definitionTR": "İnançlar, kişisel deneyimler ve pratik içgörüler gibi kelimelere dökülmesi, arşivlenmesi ve başkalarıyla paylaşılması zor olan bilgi türüdür.",
+      "related": [
+        "Explicit Knowledge",
+        "Lessons Learned Register",
+        "Community of Practice"
+      ]
+    },
+    {
+      "term": "Tailor Your Approach",
+      "category": "PMBOK Principles",
+      "definition": "One of the 12 PMBOK® 8th edition principles. Intentionally adapt the project approach, governance, and processes to fit the unique context of each project. No single methodology suits every situation — thoughtful tailoring finds the right balance between rigor and flexibility.",
+      "related": [
+        "Tailoring",
+        "Development Approach",
+        "Hybrid Approach",
+        "Governance"
+      ],
+      "termTR": "Yaklaşımını Uyarla"
+    },
+    {
+      "term": "Tailoring",
+      "category": "Core Concepts",
+      "definition": "The intentional adaptation of project management approaches, processes, governance, tools, and methods to fit the unique context, culture, complexity, and constraints of a specific project. Effective tailoring avoids both under-management (too little process) and over-management (too much process).",
+      "related": [
+        "Development Approach",
+        "Hybrid Approach",
+        "Governance",
+        "Adaptive Approach"
+      ],
+      "termTR": "Uyarlama"
+    },
+    {
+      "term": "Team Performance Domain",
+      "category": "Performance Domains",
+      "definition": "One of the 8 PMBOK® 8th edition performance domains. Addresses activities and responsibilities related to developing, building, and maintaining an effective, motivated, and high-performing project team. Covers leadership, team culture, accountability, and team growth.",
+      "related": [
+        "Servant Leadership",
+        "Tuckman's Stages",
+        "RACI Matrix",
+        "Emotional Intelligence (EI)"
+      ],
+      "termTR": "Takım Performans Alanı"
+    },
+    {
+      "term": "Technical Debt",
+      "category": "Agile & Adaptive",
+      "definition": "The implied cost of rework resulting from shortcuts or quick fixes implemented now instead of proper solutions. Like financial debt, technical debt accrues interest in the form of increasing complexity and maintenance burden over time. Agile teams actively manage technical debt to sustain development velocity.",
+      "related": [
+        "Definition of Done (DoD)",
+        "Continuous Improvement",
+        "Velocity",
+        "Backlog Refinement"
+      ],
+      "termTR": "Teknik Borç"
+    },
+    {
+      "term": "Think Systemically",
+      "category": "PMBOK Principles",
+      "definition": "One of the 12 PMBOK® 8th edition principles. View the project as part of a broader system, recognizing how components interact with each other and with the surrounding environment. Changes in one part of the system create ripple effects that must be anticipated and managed.",
+      "related": [
+        "Complexity",
+        "Governance",
+        "Stakeholder",
+        "Risk"
+      ],
+      "termTR": "Sistemik Düşün"
+    },
+    {
+      "term": "Three-Point Estimate (PERT)",
+      "category": "Schedule Management",
+      "definition": "An estimating technique that uses three estimates — Optimistic (O), Most Likely (M), and Pessimistic (P) — to calculate a weighted average duration or cost. The PERT formula is: (O + 4M + P) ÷ 6. It accounts for estimation uncertainty better than single-point estimates.",
+      "related": [
+        "Duration Estimate",
+        "Cost Estimate",
+        "Monte Carlo Simulation",
+        "Risk"
+      ],
+      "termTR": "Üç Noktalı Tahmin (PERT)"
+    },
+    {
+      "term": "Time and Material Contract",
+      "category": "Procurement",
+      "definition": "A hybrid contract that combines elements of both fixed-price and cost-reimbursable structures. The buyer pays for actual labor at fixed hourly or daily rates, plus actual material costs. Appropriate when scope cannot be defined in advance but some pricing structure is needed.",
+      "related": [
+        "Fixed-Price Contract",
+        "Cost Reimbursable Contract",
+        "Procurement Management Plan"
+      ],
+      "termTR": "Zaman ve Malzeme Sözleşmesi"
+    },
+    {
+      "term": "Timeboxing",
+      "category": "Agile & Adaptive",
+      "definition": "A scheduling technique that fixes the duration of an activity or iteration in advance, adjusting scope to fit within that window rather than extending time to complete a fixed scope. Sprints are the most prominent example — the team delivers the best possible outcome within the sprint's fixed length.",
+      "related": [
+        "Sprint",
+        "WIP Limit",
+        "Adaptive Approach",
+        "Scrum"
+      ],
+      "termTR": "Zaman Kutusu / Zaman Sınırlaması",
+      "definitionTR": "Belirli bir hedefe ulaşmak, bir görevi tamamlamak veya bir toplantıyı yapmak için ayrılmış, süresi asla uzatılamayacak, sınırları kesin olarak belirlenmiş maksimum zaman aralığıdır."
+    },
+    {
+      "term": "To-Complete Performance Index (TCPI)",
+      "category": "Earned Value Management",
+      "definition": "The required cost efficiency ratio for remaining work to meet the project's budget goal. TCPI = (BAC − EV) ÷ (BAC − AC). A TCPI above 1.0 means future work must be performed more efficiently than in the past to avoid a cost overrun.",
+      "related": [
+        "Cost Performance Index (CPI)",
+        "Budget at Completion (BAC)",
+        "Estimate at Completion (EAC)"
+      ],
+      "termTR": "Tamamlamak İçin Performans Endeksi (TCPI)"
+    },
+    {
+      "term": "Total Float",
+      "category": "Schedule Management",
+      "definition": "The total amount of time an activity can be delayed from its early start without delaying the project end date or violating a schedule constraint. Activities on the critical path have zero total float — any delay directly delays the project.",
+      "related": [
+        "Float (Slack)",
+        "Free Float",
+        "Critical Path",
+        "Network Diagram"
+      ],
+      "termTR": "Toplam Bolluk"
+    },
+    {
+      "term": "Transparency",
+      "termTR": "Şeffaflık",
+      "category": "Team & Leadership",
+      "definition": "A core agile value and servant leadership principle where people openly and honestly share their work in progress, successes, failures, and current status without fear. Enables informed decisions and builds trust.",
+      "definitionTR": "Özellikle çevik yaklaşımlarda ve hizmetkar liderlikte, insanların ara teslimatlarını, başarılarını, başarısızlıklarını ve mevcut durumu korkusuzca, dürüst ve açık bir şekilde paylaşma kültürüdür.",
+      "related": [
+        "Information Radiator",
+        "Servant Leadership",
+        "Agile",
+        "Retrospective"
+      ]
+    },
+    {
+      "term": "Tuckman's Stages of Team Development",
+      "category": "Team & Leadership",
+      "definition": "A model describing the typical progression of team dynamics: Forming (polite orientation), Storming (conflict and competition), Norming (developing cohesion and norms), Performing (high-trust, high-productivity), and Adjourning (dissolution at project end). Teams may cycle back to earlier stages when membership or goals change significantly.",
+      "related": [
+        "Team Development",
+        "Servant Leadership",
+        "Emotional Intelligence (EI)",
+        "Conflict Resolution"
+      ],
+      "termTR": "Tuckman Takım Gelişim Modeli",
+      "definitionTR": "Takım dinamiklerini açıklayan dört aşamalı model: Oluşum (Forming), Fırtına/Karmaşa (Storming), Uyumlanma (Norming) ve Performans (Performing). Bazı versiyonlara Dağılma (Adjourning) aşaması da eklenir."
+    },
+    {
+      "term": "Uncertainty Performance Domain",
+      "category": "Performance Domains",
+      "definition": "One of the 8 PMBOK® 8th edition performance domains. Addresses activities and responsibilities for identifying, evaluating, and responding to threats and opportunities arising from uncertainty, ambiguity, and complexity throughout the project life cycle.",
+      "related": [
+        "Risk",
+        "Risk Register",
+        "Monte Carlo Simulation",
+        "PMBOK® Guide Principle: Risk"
+      ],
+      "termTR": "Belirsizlik Performans Alanı"
+    },
+    {
+      "term": "User Story",
+      "category": "Agile & Adaptive",
+      "definition": "A brief, informal description of a product feature from the perspective of a specific user, written in the format: 'As a [user type], I want [capability] so that [benefit].' User stories promote conversation and shared understanding rather than detailed specification documents.",
+      "related": [
+        "Acceptance Criteria",
+        "Product Backlog",
+        "Epic",
+        "Feature",
+        "Definition of Done (DoD)"
+      ],
+      "termTR": "Kullanıcı Hikayesi"
+    },
+    {
+      "term": "Validation",
+      "termTR": "Validasyon / Geçerlilik Kılma",
+      "category": "Quality Management",
+      "definition": "The process of confirming that a deliverable meets the customer's actual needs and expected business value. Answers: 'Did we build the right product?' Distinct from Verification which checks technical compliance.",
+      "definitionTR": "Teslim edilen ürünün veya hizmetin, müşterinin gerçek ihtiyaçlarını ve beklenen iş değerini karşılayıp karşılamadığının kanıtlanmasıdır. (Doğru ürünü mü yaptık?)",
+      "related": [
+        "Verification",
+        "Acceptance Criteria",
+        "Definition of Done (DoD)"
+      ]
+    },
+    {
+      "term": "Value",
+      "category": "Core Concepts",
+      "definition": "The worth, utility, or importance of something relative to a stakeholder or organization. In PMBOK® 8th edition, delivering value is the purpose of project management — encompassing financial returns, organizational improvements, customer satisfaction, and social or environmental benefits, not merely the completion of tasks.",
+      "related": [
+        "Business Value",
+        "Benefits Realization",
+        "Outcome",
+        "Stakeholder"
+      ],
+      "termTR": "Değer"
+    },
+    {
+      "term": "Value Stream Mapping",
+      "termTR": "Değer Akışı Haritalama",
+      "category": "Agile & Adaptive",
+      "definition": "A lean technique that visualizes all steps in a process from customer request to product delivery to identify bottlenecks, waste (muda), and process gaps. Commonly used in Lean and Kanban environments.",
+      "definitionTR": "Bir müşteri talebinden ürünün teslimine kadar geçen süreçteki tüm adımları görselleştiren, darboğazları ve israfı (waste) belirlemek için kullanılan yalın (lean) üretim tekniğidir.",
+      "related": [
+        "Lean",
+        "Kanban",
+        "Kaizen",
+        "Continuous Improvement"
+      ]
+    },
+    {
+      "term": "Vanity Metric",
+      "termTR": "Gösteriş Metriği",
+      "category": "Agile & Adaptive",
+      "definition": "A measure that appears to show achievement on the surface but provides no useful information for decision-making or improvement. Example: total page views without context, raw user counts without engagement data.",
+      "definitionTR": "Görünürde bir miktar sonuç veya başarı gösteren ancak aslında karar vermek veya iyileştirme yapmak için hiçbir faydalı bilgi sağlamayan ölçütlerdir.",
+      "related": [
+        "Velocity",
+        "Burndown Chart",
+        "Measurement Performance Domain"
+      ]
+    },
+    {
+      "term": "Variance",
+      "termTR": "Sapma",
+      "category": "Core Concepts",
+      "definition": "A measurable deviation, departure, or difference from a known baseline or expected value. Variances in scope, cost, or schedule trigger corrective or preventive actions.",
+      "definitionTR": "Projenin bilinen veya onaylanmış temel çizgisinden (beklenen değerinden) ölçülebilir düzeyde uzaklaşması, sapması veya ayrılmasıdır.",
+      "related": [
+        "Variance Analysis",
+        "Cost Variance (CV)",
+        "Schedule Variance (SV)",
+        "Variance at Completion (VAC)"
+      ]
+    },
+    {
+      "term": "Variance Analysis",
+      "termTR": "Sapma Analizi",
+      "category": "Earned Value Management",
+      "definition": "A technique for comparing actual project performance to the approved baseline to determine the cause and magnitude of differences in scope, cost, or schedule. Enables informed corrective actions.",
+      "definitionTR": "Kapsam, maliyet veya zaman çizelgesindeki gerçekleşen performansın, onaylanmış temel çizgiyle karşılaştırılarak aradaki farkların nedenlerini ve etkilerini belirleme tekniğidir.",
+      "related": [
+        "Variance",
+        "Cost Variance (CV)",
+        "Schedule Variance (SV)",
+        "Earned Value Management (EVM)"
+      ]
+    },
+    {
+      "term": "Variance at Completion (VAC)",
+      "category": "Earned Value Management",
+      "definition": "The projected difference between the total budget and the expected final cost of the project: VAC = BAC − EAC. A positive VAC forecasts an under-budget completion; a negative VAC signals a projected cost overrun.",
+      "related": [
+        "Budget at Completion (BAC)",
+        "Estimate at Completion (EAC)",
+        "Cost Variance (CV)"
+      ],
+      "termTR": "Tamamlanma Sapması (VAC)",
+      "definitionTR": "Projenin başlangıcında belirlenen Tamamlanma Bütçesi (BAC) ile güncel Tamamlama Tahmini (EAC) arasındaki fark olarak ifade edilen beklenen bütçe açığı veya fazlasının net miktarıdır."
+    },
+    {
+      "term": "Velocity",
+      "category": "Agile & Adaptive",
+      "definition": "The amount of work (typically measured in story points) a scrum team completes per sprint. Tracking velocity over multiple sprints helps teams make realistic commitments, forecast release dates, and identify process improvements. Velocity is a planning tool for the team, not a performance measure for management.",
+      "related": [
+        "Sprint",
+        "Story Points",
+        "Burndown Chart",
+        "Product Backlog"
+      ],
+      "termTR": "Hız (Velocity)"
+    },
+    {
+      "term": "Verification",
+      "termTR": "Doğrulama (Verifikasyon)",
+      "category": "Quality Management",
+      "definition": "The process of checking through quality control that the product has been produced in accordance with defined technical requirements, specifications, or regulations. Answers: 'Did we build the product right?'",
+      "definitionTR": "Ürünün, belirlenen teknik gereksinimlere, spesifikasyonlara veya regülasyonlara uygun olarak üretilip üretilmediğinin kalite kontrol süreçleriyle kontrol edilmesidir. (Ürünü doğru mu yaptık?)",
+      "related": [
+        "Validation",
+        "Control Charts",
+        "Acceptance Criteria",
+        "Definition of Done (DoD)"
+      ]
+    },
+    {
+      "term": "Voice of the Customer",
+      "termTR": "Müşterinin Sesi",
+      "category": "Stakeholder & Communication",
+      "definition": "A technique used to translate customer requirements into appropriate technical requirements for each project phase, ensuring products truly reflect customer expectations. Captures both stated and unstated needs.",
+      "definitionTR": "Müşteri gereksinimlerini projenin her fazı için uygun teknik gereksinimlere tercüme ederek müşteri beklentilerini gerçekten yansıtan ürünler sağlamak için kullanılan tekniktir.",
+      "related": [
+        "Requirements",
+        "Stakeholder",
+        "User Story",
+        "Design Thinking"
+      ]
+    },
+    {
+      "term": "Voting Techniques",
+      "termTR": "Oylama Teknikleri",
+      "category": "Agile & Adaptive",
+      "definition": "Methods used by teams to reach decisions: Unanimity (everyone agrees), Majority (>50% support), Plurality (largest block wins even without majority), and Dictatorship (one person decides).",
+      "definitionTR": "Takımın kararlara ulaşmak için kullandığı yöntemler: Oybirliği (herkesin aynı fikirde olması), Çoğunluk (%50'den fazla destek), Göreceli Çoğunluk (en büyük bloğun kararı) ve Diktatörlük (tek kişi karar verir).",
+      "related": [
+        "Roman Voting",
+        "Planning Poker",
+        "Retrospective"
+      ]
+    },
+    {
+      "term": "WBS Dictionary",
+      "category": "Scope Management",
+      "definition": "A companion document to the Work Breakdown Structure that provides detailed information about each WBS component, including scope description, deliverables, assigned resources, cost estimates, schedule milestones, and quality requirements.",
+      "related": [
+        "Work Breakdown Structure (WBS)",
+        "Scope Baseline",
+        "Control Account"
+      ],
+      "termTR": "İKY Sözlüğü",
+      "definitionTR": "İş kırılım yapısındaki her bir iş paketi (bileşen) hakkında ayrıntılı teslimat, faaliyet, zaman çizelgesi ve kabul kriteri bilgileri sağlayan destekleyici belgedir."
+    },
+    {
+      "term": "What-If Scenario Analysis",
+      "termTR": "Ya Olursa Senaryo Analizi",
+      "category": "Risk Management",
+      "definition": "The process of evaluating alternative plans to estimate the potential impact of specific scenarios and crises on project objectives. Used to assess project viability under adverse conditions.",
+      "definitionTR": "Belirli senaryoların ve krizlerin proje hedefleri üzerindeki potansiyel etkilerini tahmin etmek amacıyla alternatif planları değerlendirme sürecidir.",
+      "related": [
+        "Monte Carlo Simulation",
+        "Risk Register",
+        "Fallback Plan",
+        "Expected Monetary Value (EMV)"
+      ]
+    },
+    {
+      "term": "WIP Limit",
+      "category": "Agile & Adaptive",
+      "definition": "A constraint in Kanban that caps the number of work items permitted in any workflow stage at one time. WIP limits force the team to finish existing work before starting new items, expose bottlenecks, and maintain a consistent flow of value delivery.",
+      "related": [
+        "Kanban",
+        "Throughput",
+        "Flow",
+        "Information Radiator"
+      ],
+      "termTR": "Devam Eden İş Limiti (WIP Limiti)"
+    },
+    {
+      "term": "Work Breakdown Structure (WBS)",
+      "category": "Scope Management",
+      "definition": "A hierarchical decomposition of the total project scope into progressively smaller components, down to work packages that can be scheduled, cost-estimated, monitored, and controlled. The WBS represents 100% of the scope — nothing more, nothing less.",
+      "related": [
+        "WBS Dictionary",
+        "Scope Baseline",
+        "Decomposition",
+        "Work Package"
+      ],
+      "termTR": "İş Kırılım Yapısı (İKY)",
+      "definitionTR": "Proje hedeflerini gerçekleştirmek için proje takımı tarafından yürütülecek toplam kapsamın, daha küçük ve yönetilebilir parçalara hiyerarşik olarak ayrıştırılmasıdır."
+    }
+  ]
+}

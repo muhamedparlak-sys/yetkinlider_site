@@ -1,0 +1,31 @@
+{
+  "scenarios": [
+    {
+      "id": "scenario-001",
+      "title": "The Startup Sprint",
+      "description": "A 12-week software delivery project for a fast-growing startup. Limited budget, aggressive timeline, and a team that's never worked together before.",
+      "difficulty": "Beginner",
+      "weeks": 12,
+      "domain": "Software Development",
+      "tags": ["Agile", "Risk", "Stakeholders"]
+    },
+    {
+      "id": "scenario-002",
+      "title": "Enterprise Migration",
+      "description": "Lead a 16-week legacy system migration for a large enterprise client. Complex stakeholders, strict compliance requirements, and zero tolerance for downtime.",
+      "difficulty": "Intermediate",
+      "weeks": 16,
+      "domain": "IT Infrastructure",
+      "tags": ["Predictive", "Procurement", "Quality"]
+    },
+    {
+      "id": "scenario-003",
+      "title": "Global Product Launch",
+      "description": "Coordinate a 20-week cross-functional product launch across 4 time zones. Every decision affects scope, cost, and three competing executive sponsors.",
+      "difficulty": "Advanced",
+      "weeks": 20,
+      "domain": "Product Management",
+      "tags": ["Hybrid", "Stakeholders", "EVM"]
+    }
+  ]
+}

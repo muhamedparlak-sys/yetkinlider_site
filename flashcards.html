@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <link rel="icon" href="favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Öğrenme Kartları — YetkinLider</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2f4f60;
+  --primary-dark: #1f3b49;
+  --primary-light: #5f93c2;
+  --accent: #3b7bc8;
+  --text: #0b1220;
+  --muted: #334155;
+  --light: #64748b;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --radius: 14px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, system-ui, sans-serif; color: var(--text); background: var(--bg); min-height: 100vh; display: flex; flex-direction: column; }
+
+/* ── NAV ── */
+.navbar { background: var(--primary); height: 52px; display: flex; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 6px rgba(0,0,0,.18); }
+  .brand-logo { width: 26px; height: 26px; border-radius: 5px; flex-shrink: 0; filter: brightness(0) invert(1); }
+  .brand { color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; white-space: nowrap; }
+.brand sup { font-size: 9px; vertical-align: super; }
+.nav-spacer { flex: 1; }
+.nav-user { display: flex; align-items: center; gap: 8px; margin-right: 10px; }
+.nav-av { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; overflow: hidden; flex-shrink: 0; }
+.nav-av img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.nav-username { color: rgba(255,255,255,.9); font-size: 13px; font-weight: 600; max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; background: transparent; border: 1px solid rgba(255,255,255,.25); border-radius: 7px; cursor: pointer; padding: 7px 8px; flex-shrink: 0; transition: border-color .15s; }
+.hamburger:hover { border-color: rgba(255,255,255,.45); }
+.hamburger span { display: block; width: 18px; height: 2px; background: #fff; border-radius: 2px; transition: all .2s; }
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu-panel { position: fixed; top: 52px; left: 0; right: 0; background: var(--primary-dark); z-index: 999; max-height: 0; overflow: hidden; transition: max-height .28s ease; box-shadow: 0 8px 24px rgba(0,0,0,.3); }
+.menu-panel.open { max-height: 600px; }
+.menu-inner { padding: 6px 0 12px; }
+.menu-item { display: flex; align-items: center; gap: 13px; padding: 11px 22px; color: rgba(255,255,255,.8); text-decoration: none; font-size: 14px; font-weight: 500; transition: background .12s, color .12s; }
+.menu-item:hover { background: rgba(255,255,255,.07); color: #fff; }
+.menu-item.active { background: rgba(255,255,255,.07); color: #fff; }
+.menu-item.primary { color: #fff; font-weight: 700; font-size: 14.5px; background: rgba(59,123,200,.15); border-left: 3px solid var(--accent); padding-left: 19px; }
+.menu-item.primary:hover { background: rgba(59,123,200,.25); }
+.menu-icon { width: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; opacity: .72; }
+.menu-item.primary .menu-icon, .menu-item:hover .menu-icon, .menu-item.active .menu-icon { opacity: 1; }
+.menu-div { border-top: 1px solid rgba(255,255,255,.1); margin: 6px 0; }
+.menu-auth-area { padding: 8px 22px 4px; }
+.menu-auth-row { display: flex; align-items: center; gap: 10px; }
+.menu-auth-name { color: rgba(255,255,255,.85); font-size: 13px; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btn-menu-login { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #fff; font-size: 13px; font-weight: 600; border-radius: 8px; cursor: pointer; font-family: inherit; transition: background .15s; text-decoration: none; }
+.btn-menu-login:hover { background: rgba(255,255,255,.18); }
+.btn-menu-logout { background: transparent; border: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.5); font-size: 12px; padding: 5px 11px; border-radius: 6px; cursor: pointer; font-family: inherit; transition: all .15s; display: flex; align-items: center; gap: 6px; }
+.btn-menu-logout:hover { border-color: rgba(239,68,68,.4); color: #fca5a5; }
+
+/* HEADER */
+.page-header { background: linear-gradient(135deg, var(--primary) 0%, #1a3a4e 100%); color: #fff; padding: 32px 24px 28px; }
+.page-header .inner { max-width: 900px; margin: 0 auto; }
+.page-header h1 { font-size: clamp(22px, 4vw, 32px); font-weight: 800; margin-bottom: 6px; }
+.page-header p { font-size: 14px; color: rgba(255,255,255,.7); }
+
+/* CONTROLS */
+.controls { background: #fff; border-bottom: 1px solid var(--border); padding: 14px 24px; }
+.controls .inner { max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.controls select {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  background: #fff;
+  cursor: pointer;
+}
+.ctrl-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .15s;
+}
+.ctrl-btn:hover { border-color: var(--primary); color: var(--primary); }
+.progress-text { font-size: 13px; color: var(--light); margin-left: auto; }
+
+/* FLASHCARD STAGE */
+.stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  gap: 24px;
+}
+
+/* PROGRESS BAR */
+.progress-bar-wrap { width: 100%; max-width: 600px; }
+.progress-bar-track {
+  background: var(--border);
+  border-radius: 999px;
+  height: 6px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  border-radius: 999px;
+  transition: width .3s ease;
+}
+.progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--light); margin-top: 5px; }
+
+/* CARD FLIP */
+.card-scene {
+  width: 100%;
+  max-width: 600px;
+  height: 320px;
+  perspective: 1200px;
+  cursor: pointer;
+}
+.card-flip {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .45s cubic-bezier(.4,0,.2,1);
+}
+.card-flip.flipped { transform: rotateY(180deg); }
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+}
+.card-front { background: #fff; }
+.card-back { background: linear-gradient(135deg, var(--primary) 0%, #1a3a4e 100%); color: #fff; transform: rotateY(180deg); }
+
+.face-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: .55;
+}
+.term-text { font-size: clamp(20px, 4vw, 28px); font-weight: 800; line-height: 1.2; }
+.cat-badge {
+  margin-top: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--light);
+}
+.def-text {
+  font-size: clamp(13px, 2vw, 15px);
+  line-height: 1.65;
+  opacity: .9;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.flip-hint { font-size: 12px; opacity: .5; margin-top: 12px; }
+
+/* NAV BUTTONS */
+.nav-row { display: flex; align-items: center; gap: 12px; }
+.nav-card-btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  transition: all .15s;
+}
+.nav-card-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.nav-card-btn:disabled { opacity: .35; cursor: default; }
+.nav-card-btn:disabled:hover { background: #fff; color: var(--text); border-color: var(--border); }
+.flip-btn {
+  padding: 12px 28px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .15s;
+}
+.flip-btn:hover { background: var(--primary-dark); }
+
+/* KNOWN/UNKNOWN */
+.mark-row { display: flex; gap: 10px; }
+.mark-btn {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+}
+.mark-btn.know { border-color: #86efac; background: #f0fdf4; color: #15803d; }
+.mark-btn.know:hover { background: #dcfce7; }
+.mark-btn.review { border-color: #fca5a5; background: #fef2f2; color: #b91c1c; }
+.mark-btn.review:hover { background: #fee2e2; }
+
+/* COMPLETE STATE */
+.complete-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+}
+.complete-card h2 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+.complete-card p { font-size: 15px; color: var(--light); margin-bottom: 24px; }
+.score-row { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; }
+.score-box { text-align: center; }
+.score-box .num { font-size: 32px; font-weight: 800; }
+.score-box .num.green { color: #15803d; }
+.score-box .num.red { color: #b91c1c; }
+.score-box .lbl { font-size: 12px; color: var(--light); }
+.restart-btn {
+  padding: 13px 28px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.restart-btn:hover { background: var(--primary-dark); }
+
+@media (max-width: 640px) {
+  .card-scene { height: 280px; }
+  .card-face { padding: 22px; }
+  .nav-card-btn { padding: 10px 16px; font-size: 14px; }
+
+  .nav-username { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="brand" href="index.html"><img src="logo.png" class="brand-logo" alt="YetkinLider">YetkinLider<sup style="font-size:.55em;vertical-align:super;opacity:.8">&#8482;</sup></a>
+  <div class="nav-spacer"></div>
+  <div class="nav-user" id="navUser"></div>
+  <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-inner">
+    <a class="menu-item primary" href="game.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+      Liderlik Simülasyonu
+    </a>
+    <a class="menu-item" href="exam.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="m9 12 2 2 4-4"/></svg></span>
+      Sınav Simülatörü
+    </a>
+    <a class="menu-item" href="glossary.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+      Liderlik Sözlüğü
+    </a>
+    <a class="menu-item" href="flashcards.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="13" rx="2"/><path d="M4 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2"/></svg></span>
+      Öğrenme Kartları
+    </a>
+    <a class="menu-item" href="blog.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+      Blog
+    </a>
+    <a class="menu-item" href="pricing.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+      Fiyatlar
+    </a>
+    <div class="menu-div"></div>
+    <div class="menu-auth-area" id="menuAuth"></div>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="inner">
+    <h1>Öğrenme Kartları</h1>
+    <p>Karta tıklayarak tanımı görün. Bildiğinizi işaretleyin — bilmedikleriniz tekrar gelecek.</p>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="inner">
+    <select id="catSelect" aria-label="Kategoriye göre filtrele">
+      <option value="All">Tüm Kategoriler</option>
+    </select>
+    <button class="ctrl-btn" id="shuffleBtn">Karıştır</button>
+    <button class="ctrl-btn" id="restartBtn">Yeniden Başla</button>
+    <span class="progress-text" id="progressText"></span>
+  </div>
+</div>
+
+<div class="stage" id="stage">
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <div class="progress-label"><span id="progressLeft"></span><span id="progressRight"></span></div>
+  </div>
+
+  <div class="card-scene" id="cardScene" role="button" aria-label="Flip card" tabindex="0">
+    <div class="card-flip" id="cardFlip">
+      <div class="card-face card-front">
+        <div class="face-label">Terim</div>
+        <div class="term-text" id="termText">Yükleniyor…</div>
+        <div class="cat-badge" id="catBadge"></div>
+        <div class="flip-hint">Tanımı görmek için tıklayın</div>
+      </div>
+      <div class="card-face card-back">
+        <div class="face-label" style="color:rgba(255,255,255,.5)">Tanım</div>
+        <div class="def-text" id="defText"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mark-row" id="markRow" style="display:none">
+    <button class="mark-btn know" id="knowBtn">✓ Bildim</button>
+    <button class="mark-btn review" id="reviewCardBtn">✗ Tekrar bak</button>
+  </div>
+
+  <div class="nav-row">
+    <button class="nav-card-btn" id="prevCard">← Önceki</button>
+    <button class="flip-btn" id="flipBtn">Çevir</button>
+    <button class="nav-card-btn" id="nextCard">Sonraki →</button>
+  </div>
+</div>
+
+<script>
+// NAV
+// ── NAV ─────────────────────────────────────────────────────────────────────────────────
+(function() {
+  const hamburger = document.getElementById('hamburger');
+  const menuPanel  = document.getElementById('menuPanel');
+  hamburger.addEventListener('click', () => {
+    const open = menuPanel.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(open));
+  });
+  document.addEventListener('click', e => {
+    if (!hamburger.contains(e.target) && !menuPanel.contains(e.target)) {
+      menuPanel.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  menuPanel.querySelectorAll('.menu-item').forEach(a => {
+    a.addEventListener('click', () => { menuPanel.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); });
+  });
+  const page = location.pathname.split('/').pop() || 'index.html';
+  menuPanel.querySelectorAll('.menu-item[href]').forEach(a => { if (a.getAttribute('href') === page) a.classList.add('active'); });
+  const SESSION_KEY = 'pmSim_session';
+  function getSession() { try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch { return null; } }
+  const session  = getSession();
+  const navUser  = document.getElementById('navUser');
+  const menuAuth = document.getElementById('menuAuth');
+  const uSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+  const lSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>';
+  if (session) {
+    const photo = localStorage.getItem('pmSim_profile_photo');
+    const av = photo ? '<img src="' + photo + '" alt="">' : (session.displayName || '?')[0].toUpperCase();
+    navUser.innerHTML = '<div class="nav-av">' + av + '</div><span class="nav-username">' + session.displayName + '</span>';
+    menuAuth.innerHTML = '<div class="menu-auth-row"><div class="nav-av">' + av + '</div><span class="menu-auth-name">' + session.displayName + '</span><button class="btn-menu-logout" onclick="localStorage.removeItem(\'pmSim_session\');location.reload()">' + lSvg + ' Çıkış</button></div>';
+  } else {
+    const ret = encodeURIComponent(location.href);
+    menuAuth.innerHTML = '<div class="menu-auth-row"><a class="btn-menu-login" href="index.html?auth=1&return=' + ret + '">' + uSvg + ' Giriş Yap / Kayıt Ol</a></div>';
+  }
+})();
+// STATE
+let allTerms = [], deck = [], idx = 0, flipped = false;
+let known = new Set(), toReview = new Set();
+
+// LOAD
+fetch("data/glossary.json")
+  .then(r => r.json())
+  .then(data => {
+    allTerms = data.terms;
+    buildCatSelect();
+    buildDeck("All");
+  });
+
+function buildCatSelect() {
+  const cats = [...new Set(allTerms.map(t => t.category))].sort();
+  const sel = document.getElementById('catSelect');
+  cats.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c; opt.textContent = c;
+    sel.appendChild(opt);
+  });
+  sel.addEventListener('change', () => { buildDeck(sel.value); });
+}
+
+function buildDeck(cat) {
+  deck = cat === "All" ? [...allTerms] : allTerms.filter(t => t.category === cat);
+  shuffle(deck);
+  idx = 0; flipped = false;
+  known.clear(); toReview.clear();
+  render();
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
+
+function render() {
+  if (deck.length === 0) return;
+
+  const t = deck[idx];
+  document.getElementById('termText').textContent = t.term;
+  document.getElementById('catBadge').textContent = t.category;
+  document.getElementById('defText').textContent = t.definition;
+
+  // Reset flip
+  document.getElementById('cardFlip').classList.remove('flipped');
+  flipped = false;
+  document.getElementById('markRow').style.display = 'none';
+
+  // Progress
+  const done = known.size + toReview.size;
+  const pct = deck.length ? (done / deck.length * 100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLeft').textContent = `${idx + 1} / ${deck.length}`;
+  document.getElementById('progressRight').textContent = `✓ ${known.size}  ✗ ${toReview.size}`;
+  document.getElementById('progressText').textContent = `${deck.length} kart`;
+
+  document.getElementById('prevCard').disabled = idx === 0;
+  document.getElementById('nextCard').disabled = idx === deck.length - 1;
+}
+
+function flip() {
+  flipped = !flipped;
+  document.getElementById('cardFlip').classList.toggle('flipped', flipped);
+  document.getElementById('markRow').style.display = flipped ? 'flex' : 'none';
+}
+
+document.getElementById('cardScene').addEventListener('click', flip);
+document.getElementById('cardScene').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+document.getElementById('flipBtn').addEventListener('click', e => { e.stopPropagation(); flip(); });
+
+document.getElementById('prevCard').addEventListener('click', () => { if (idx > 0) { idx--; render(); } });
+document.getElementById('nextCard').addEventListener('click', () => { if (idx < deck.length - 1) { idx++; render(); } });
+
+document.getElementById('knowBtn').addEventListener('click', () => {
+  known.add(idx);
+  toReview.delete(idx);
+  if (idx < deck.length - 1) { idx++; render(); } else renderComplete();
+});
+document.getElementById('reviewCardBtn').addEventListener('click', () => {
+  toReview.add(idx);
+  known.delete(idx);
+  if (idx < deck.length - 1) { idx++; render(); } else renderComplete();
+});
+
+document.getElementById('shuffleBtn').addEventListener('click', () => {
+  shuffle(deck); idx = 0; flipped = false; known.clear(); toReview.clear(); render();
+});
+document.getElementById('restartBtn').addEventListener('click', () => {
+  idx = 0; flipped = false; known.clear(); toReview.clear(); render();
+  document.getElementById('stage').innerHTML = '';
+  // Re-render stage
+  location.reload();
+});
+
+function renderComplete() {
+  const stage = document.getElementById('stage');
+  stage.innerHTML = `
+    <div class="complete-card">
+      <h2>Tebrikler!</h2>
+      <p>Tüm ${deck.length} kartı tamamladınız.</p>
+      <div class="score-row">
+        <div class="score-box"><div class="num green">${known.size}</div><div class="lbl">Bildim</div></div>
+        <div class="score-box"><div class="num red">${toReview.size}</div><div class="lbl">Tekrar bak</div></div>
+      </div>
+      <button class="restart-btn" id="doRestart">Yeniden Başla</button>
+    </div>`;
+  document.getElementById('doRestart').addEventListener('click', () => location.reload());
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft' && idx > 0) { idx--; render(); }
+  if (e.key === 'ArrowRight' && idx < deck.length - 1) { idx++; render(); }
+  if (e.key === ' ' || e.key === 'f') { e.preventDefault(); flip(); }
+});
+</script>
+</body>
+</html>

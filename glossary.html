@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+  <link rel="icon" href="favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liderlik Sözlüğü — YetkinLider</title>
+<meta name="description" content="Türkçe ve İngilizce PMP® proje yönetimi terimleri sözlüğü. 8. Baskı, Çevik ve hibrit yaklaşım kavramları.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2f4f60;
+  --primary-dark: #1f3b49;
+  --primary-light: #5f93c2;
+  --accent: #3b7bc8;
+  --text: #0b1220;
+  --muted: #334155;
+  --light: #64748b;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --radius: 10px;
+  --en: #1e40af;
+  --tr: #065f46;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, system-ui, sans-serif; color: var(--text); background: var(--bg); }
+
+/* ── NAV ── */
+.navbar { background: var(--primary); height: 52px; display: flex; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 6px rgba(0,0,0,.18); }
+  .brand-logo { width: 26px; height: 26px; border-radius: 5px; flex-shrink: 0; filter: brightness(0) invert(1); }
+  .brand { color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; white-space: nowrap; }
+.brand sup { font-size: 9px; vertical-align: super; }
+.nav-spacer { flex: 1; }
+.nav-user { display: flex; align-items: center; gap: 8px; margin-right: 10px; }
+.nav-av { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; overflow: hidden; flex-shrink: 0; }
+.nav-av img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.nav-username { color: rgba(255,255,255,.9); font-size: 13px; font-weight: 600; max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; background: transparent; border: 1px solid rgba(255,255,255,.25); border-radius: 7px; cursor: pointer; padding: 7px 8px; flex-shrink: 0; transition: border-color .15s; }
+.hamburger:hover { border-color: rgba(255,255,255,.45); }
+.hamburger span { display: block; width: 18px; height: 2px; background: #fff; border-radius: 2px; transition: all .2s; }
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu-panel { position: fixed; top: 52px; left: 0; right: 0; background: var(--primary-dark); z-index: 999; max-height: 0; overflow: hidden; transition: max-height .28s ease; box-shadow: 0 8px 24px rgba(0,0,0,.3); }
+.menu-panel.open { max-height: 600px; }
+.menu-inner { padding: 6px 0 12px; }
+.menu-item { display: flex; align-items: center; gap: 13px; padding: 11px 22px; color: rgba(255,255,255,.8); text-decoration: none; font-size: 14px; font-weight: 500; transition: background .12s, color .12s; }
+.menu-item:hover { background: rgba(255,255,255,.07); color: #fff; }
+.menu-item.active { background: rgba(255,255,255,.07); color: #fff; }
+.menu-item.primary { color: #fff; font-weight: 700; font-size: 14.5px; background: rgba(59,123,200,.15); border-left: 3px solid var(--accent); padding-left: 19px; }
+.menu-item.primary:hover { background: rgba(59,123,200,.25); }
+.menu-icon { width: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; opacity: .72; }
+.menu-item.primary .menu-icon, .menu-item:hover .menu-icon, .menu-item.active .menu-icon { opacity: 1; }
+.menu-div { border-top: 1px solid rgba(255,255,255,.1); margin: 6px 0; }
+.menu-auth-area { padding: 8px 22px 4px; }
+.menu-auth-row { display: flex; align-items: center; gap: 10px; }
+.menu-auth-name { color: rgba(255,255,255,.85); font-size: 13px; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btn-menu-login { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #fff; font-size: 13px; font-weight: 600; border-radius: 8px; cursor: pointer; font-family: inherit; transition: background .15s; text-decoration: none; }
+.btn-menu-login:hover { background: rgba(255,255,255,.18); }
+.btn-menu-logout { background: transparent; border: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.5); font-size: 12px; padding: 5px 11px; border-radius: 6px; cursor: pointer; font-family: inherit; transition: all .15s; display: flex; align-items: center; gap: 6px; }
+.btn-menu-logout:hover { border-color: rgba(239,68,68,.4); color: #fca5a5; }
+
+/* ── HEADER ── */
+.page-header {
+  background: linear-gradient(135deg, var(--primary) 0%, #1a3a4e 100%);
+  color: #fff; padding: 28px 24px 24px;
+}
+.page-header .inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+.page-header h1 { font-size: clamp(20px, 3.5vw, 28px); font-weight: 800; line-height: 1.2; }
+.page-header h1 .sub { font-size: 13px; font-weight: 400; opacity: .65; display: block; margin-top: 4px; letter-spacing: .01em; }
+.stat-pills { display: flex; gap: 7px; flex-wrap: wrap; }
+.stat-pill { background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,.92); white-space: nowrap; }
+
+/* ── CONTROLS ── */
+.controls {
+  background: #fff; border-bottom: 1px solid var(--border);
+  padding: 11px 24px;
+  position: sticky; top: 52px; z-index: 100;
+}
+.controls .inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+.search-wrap { position: relative; flex: 1; min-width: 180px; }
+.search-wrap svg { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--light); pointer-events: none; }
+#searchInput {
+  width: 100%; padding: 8px 10px 8px 34px;
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13.5px; font-family: inherit; outline: none;
+  transition: border-color .15s;
+  background: #fafbfc;
+}
+#searchInput:focus { border-color: var(--primary-light); background: #fff; }
+.ctrl-select {
+  padding: 8px 28px 8px 10px;
+  border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; font-family: inherit; background: #fafbfc;
+  color: var(--muted); cursor: pointer; outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 8px center;
+  transition: border-color .15s; max-width: 200px;
+}
+.ctrl-select:focus { border-color: var(--primary-light); }
+.count-badge { font-size: 12.5px; color: var(--light); white-space: nowrap; flex-shrink: 0; }
+.clear-btn {
+  background: none; border: 1px solid var(--border); border-radius: 7px;
+  padding: 6px 10px; font-size: 12px; color: var(--light); cursor: pointer;
+  display: none; transition: all .15s; white-space: nowrap;
+}
+.clear-btn:hover { border-color: var(--primary-light); color: var(--primary); }
+.clear-btn.visible { display: block; }
+
+/* ── MAIN ── */
+.main { max-width: 1100px; margin: 0 auto; padding: 20px 24px 48px; }
+
+/* ── SECTION HEADING ── */
+.section-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 5px 0 8px;
+  border-bottom: 2px solid var(--border);
+  margin: 28px 0 12px;
+  font-size: 11.5px; font-weight: 700; color: var(--primary);
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.section-head:first-of-type { margin-top: 0; }
+.section-count { font-size: 11px; font-weight: 600; background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; color: var(--light); letter-spacing: 0; text-transform: none; }
+
+/* ── TERM GRID ── */
+.term-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 9px; }
+
+/* ── TERM CARD ── */
+.term-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 13px 15px;
+  cursor: pointer; transition: border-color .15s, box-shadow .15s;
+  position: relative;
+}
+.term-card:hover { border-color: var(--primary-light); box-shadow: 0 2px 8px rgba(0,0,0,.07); }
+.term-card.open { border-color: var(--primary); box-shadow: 0 3px 12px rgba(47,79,96,.12); }
+
+.card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.card-names { flex: 1; min-width: 0; }
+.card-en { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.3; }
+.card-tr { font-size: 12px; color: var(--light); margin-top: 2px; font-style: italic; }
+.card-meta { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.card-tag {
+  font-size: 10px; font-weight: 600; padding: 2px 7px;
+  border-radius: 999px; background: var(--bg); color: var(--light);
+  border: 1px solid var(--border); white-space: nowrap; line-height: 1.6;
+}
+.card-chevron { color: #cbd5e1; flex-shrink: 0; transition: transform .2s; }
+.term-card.open .card-chevron { transform: rotate(180deg); color: var(--primary); }
+
+/* ── CARD BODY ── */
+.card-body { display: none; margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--border); }
+.term-card.open .card-body { display: block; }
+
+.def-block { margin-bottom: 10px; }
+.def-block:last-of-type { margin-bottom: 0; }
+.lang-badge {
+  display: inline-block; font-size: 9.5px; font-weight: 800;
+  letter-spacing: .07em; text-transform: uppercase;
+  padding: 1px 6px; border-radius: 4px; margin-bottom: 5px;
+}
+.lang-badge.en { background: #eff6ff; color: var(--en); }
+.lang-badge.tr { background: #ecfdf5; color: var(--tr); }
+.def-text { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+.related-wrap { margin-top: 11px; display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
+.related-lbl { font-size: 11px; color: var(--light); margin-right: 2px; }
+.related-tag {
+  font-size: 11px; color: var(--accent); background: #eff6ff;
+  border: 1px solid #bfdbfe; border-radius: 5px; padding: 1px 7px;
+  cursor: pointer; transition: background .12s;
+}
+.related-tag:hover { background: #dbeafe; }
+
+/* ── EMPTY STATE ── */
+.empty { text-align: center; padding: 64px 0; color: var(--light); font-size: 15px; }
+.empty svg { display: block; margin: 0 auto 14px; opacity: .3; }
+
+@media (max-width: 640px) {
+  .term-grid { grid-template-columns: 1fr; }
+  .controls { padding: 10px 14px; }
+  .controls .inner { gap: 7px; }
+  .main { padding: 14px 14px 36px; }
+  .page-header { padding: 20px 16px; }
+  .ctrl-select { max-width: 140px; font-size: 12px; }
+
+  .nav-username { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="brand" href="index.html"><img src="logo.png" class="brand-logo" alt="YetkinLider">YetkinLider<sup style="font-size:.55em;vertical-align:super;opacity:.8">&#8482;</sup></a>
+  <div class="nav-spacer"></div>
+  <div class="nav-user" id="navUser"></div>
+  <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-inner">
+    <a class="menu-item primary" href="game.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+      Liderlik Simülasyonu
+    </a>
+    <a class="menu-item" href="exam.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="m9 12 2 2 4-4"/></svg></span>
+      Sınav Simülatörü
+    </a>
+    <a class="menu-item" href="glossary.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+      Liderlik Sözlüğü
+    </a>
+    <a class="menu-item" href="flashcards.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="13" rx="2"/><path d="M4 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2"/></svg></span>
+      Öğrenme Kartları
+    </a>
+    <a class="menu-item" href="blog.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+      Blog
+    </a>
+    <a class="menu-item" href="pricing.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+      Fiyatlar
+    </a>
+    <div class="menu-div"></div>
+    <div class="menu-auth-area" id="menuAuth"></div>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="inner">
+    <h1>
+      Liderlik Sözlüğü
+      <span class="sub">Leadership & Project Management Dictionary</span>
+    </h1>
+    <div class="stat-pills">
+      <span class="stat-pill" id="totalPill">…</span>
+      <span class="stat-pill">TR + EN</span>
+      <span class="stat-pill">PMBOK 8</span>
+    </div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="inner">
+    <div class="search-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input id="searchInput" type="search" placeholder="Türkçe veya İngilizce ara…" autocomplete="off" aria-label="Terim ara">
+    </div>
+    <select class="ctrl-select" id="catSelect" aria-label="Kategori filtrele">
+      <option value="">Tüm Kategoriler</option>
+    </select>
+    <select class="ctrl-select" id="alphaSelect" aria-label="Harfe göre filtrele">
+      <option value="">A – Z</option>
+    </select>
+    <button class="clear-btn" id="clearBtn" aria-label="Filtreleri temizle">✕ Temizle</button>
+    <span class="count-badge" id="countBadge"></span>
+  </div>
+</div>
+
+<main class="main" id="main">
+  <div class="empty" id="emptyMsg" style="display:none">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    Arama sonucu bulunamadı.
+  </div>
+</main>
+
+<script>
+// ── NAV ─────────────────────────────────────────────────────────────────────────────────
+(function() {
+  const hamburger = document.getElementById('hamburger');
+  const menuPanel  = document.getElementById('menuPanel');
+  hamburger.addEventListener('click', () => {
+    const open = menuPanel.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(open));
+  });
+  document.addEventListener('click', e => {
+    if (!hamburger.contains(e.target) && !menuPanel.contains(e.target)) {
+      menuPanel.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  menuPanel.querySelectorAll('.menu-item').forEach(a => {
+    a.addEventListener('click', () => { menuPanel.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); });
+  });
+  const page = location.pathname.split('/').pop() || 'index.html';
+  menuPanel.querySelectorAll('.menu-item[href]').forEach(a => { if (a.getAttribute('href') === page) a.classList.add('active'); });
+  const SESSION_KEY = 'pmSim_session';
+  function getSession() { try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch { return null; } }
+  const session  = getSession();
+  const navUser  = document.getElementById('navUser');
+  const menuAuth = document.getElementById('menuAuth');
+  const uSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+  const lSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>';
+  if (session) {
+    const photo = localStorage.getItem('pmSim_profile_photo');
+    const av = photo ? '<img src="' + photo + '" alt="">' : (session.displayName || '?')[0].toUpperCase();
+    navUser.innerHTML = '<div class="nav-av">' + av + '</div><span class="nav-username">' + session.displayName + '</span>';
+    menuAuth.innerHTML = '<div class="menu-auth-row"><div class="nav-av">' + av + '</div><span class="menu-auth-name">' + session.displayName + '</span><button class="btn-menu-logout" onclick="localStorage.removeItem(\'pmSim_session\');location.reload()">' + lSvg + ' Çıkış</button></div>';
+  } else {
+    const ret = encodeURIComponent(location.href);
+    menuAuth.innerHTML = '<div class="menu-auth-row"><a class="btn-menu-login" href="index.html?auth=1&return=' + ret + '">' + uSvg + ' Giriş Yap / Kayıt Ol</a></div>';
+  }
+})();
+const CAT_ICONS = {
+  "PMBOK Principles":             "⚡",
+  "Performance Domains":          "🎯",
+  "Core Concepts":                "🔑",
+  "Agile & Adaptive":             "🔄",
+  "Development Approach":         "🛤️",
+  "Earned Value Management":      "📊",
+  "Risk Management":              "⚠️",
+  "Quality Management":           "✅",
+  "Procurement":                  "📋",
+  "Stakeholder & Communication":  "🤝",
+  "Team & Leadership":            "👥",
+  "Schedule Management":          "📅",
+  "Cost Management":              "💰",
+  "Scope Management":             "📐",
+  "Planning":                     "🗺️"
+};
+const CAT_ORDER = Object.keys(CAT_ICONS);
+
+let allTerms = [];
+let state = { q: '', cat: '', letter: '' };
+
+fetch('data/glossary.json')
+  .then(r => r.json())
+  .then(data => {
+    allTerms = data.terms.sort((a, b) => a.term.localeCompare(b.term, 'tr'));
+    document.getElementById('totalPill').textContent = allTerms.length + ' terim';
+    buildCatSelect();
+    buildAlphaSelect();
+    render();
+  });
+
+function buildCatSelect() {
+  const cats = [...new Set(allTerms.map(t => t.category))];
+  cats.sort((a, b) => {
+    const ai = CAT_ORDER.indexOf(a), bi = CAT_ORDER.indexOf(b);
+    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+  });
+  const sel = document.getElementById('catSelect');
+  cats.forEach(c => {
+    const o = document.createElement('option');
+    o.value = c;
+    o.textContent = (CAT_ICONS[c] || '📌') + ' ' + c;
+    sel.appendChild(o);
+  });
+}
+
+function buildAlphaSelect() {
+  const letters = [...new Set(
+    allTerms.flatMap(t => {
+      const ls = [];
+      if (t.term?.[0]) ls.push(t.term[0].toUpperCase());
+      if (t.termTR?.[0]) ls.push(t.termTR[0].toUpperCase());
+      return ls;
+    })
+  )].sort((a, b) => a.localeCompare(b, 'tr'));
+  const sel = document.getElementById('alphaSelect');
+  letters.forEach(l => {
+    const o = document.createElement('option');
+    o.value = l; o.textContent = l;
+    sel.appendChild(o);
+  });
+}
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  state.q = e.target.value.trim().toLowerCase();
+  syncClear(); render();
+});
+document.getElementById('catSelect').addEventListener('change', e => {
+  state.cat = e.target.value;
+  syncClear(); render();
+});
+document.getElementById('alphaSelect').addEventListener('change', e => {
+  state.letter = e.target.value;
+  syncClear(); render();
+});
+document.getElementById('clearBtn').addEventListener('click', () => {
+  state = { q: '', cat: '', letter: '' };
+  document.getElementById('searchInput').value = '';
+  document.getElementById('catSelect').value = '';
+  document.getElementById('alphaSelect').value = '';
+  syncClear(); render();
+});
+
+function syncClear() {
+  document.getElementById('clearBtn').classList.toggle('visible', !!(state.q || state.cat || state.letter));
+}
+
+function getFiltered() {
+  return allTerms.filter(t => {
+    if (state.cat && t.category !== state.cat) return false;
+    if (state.letter) {
+      const enOk = (t.term?.[0] || '').toUpperCase() === state.letter;
+      const trOk = (t.termTR?.[0] || '').toUpperCase() === state.letter;
+      if (!enOk && !trOk) return false;
+    }
+    if (state.q) {
+      const q = state.q;
+      return (t.term || '').toLowerCase().includes(q)
+          || (t.termTR || '').toLowerCase().includes(q)
+          || (t.definition || '').toLowerCase().includes(q)
+          || (t.definitionTR || '').toLowerCase().includes(q);
+    }
+    return true;
+  });
+}
+
+function render() {
+  const filtered = getFiltered();
+  const main = document.getElementById('main');
+  const empty = document.getElementById('emptyMsg');
+  document.getElementById('countBadge').textContent = filtered.length + ' terim';
+
+  Array.from(main.children).forEach(c => { if (c !== empty) c.remove(); });
+
+  if (filtered.length === 0) { empty.style.display = ''; return; }
+  empty.style.display = 'none';
+
+  if (!state.cat) {
+    // Group by category
+    const groups = {};
+    filtered.forEach(t => {
+      (groups[t.category] = groups[t.category] || []).push(t);
+    });
+    const sortedCats = Object.keys(groups).sort((a, b) => {
+      const ai = CAT_ORDER.indexOf(a), bi = CAT_ORDER.indexOf(b);
+      return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+    });
+    sortedCats.forEach(cat => {
+      const sec = document.createElement('div');
+      const head = document.createElement('div');
+      head.className = 'section-head';
+      head.innerHTML = `<span>${CAT_ICONS[cat] || '📌'} ${cat}</span><span class="section-count">${groups[cat].length}</span>`;
+      sec.appendChild(head);
+      const grid = document.createElement('div');
+      grid.className = 'term-grid';
+      groups[cat].forEach(t => grid.appendChild(makeCard(t)));
+      sec.appendChild(grid);
+      main.appendChild(sec);
+    });
+  } else {
+    const grid = document.createElement('div');
+    grid.className = 'term-grid';
+    filtered.forEach(t => grid.appendChild(makeCard(t)));
+    main.appendChild(grid);
+  }
+}
+
+function makeCard(t) {
+  const card = document.createElement('div');
+  card.className = 'term-card';
+  card.id = 'term-' + t.term.replace(/[^a-z0-9]/gi, '-').toLowerCase();
+
+  const headHTML = `
+    <div class="card-head">
+      <div class="card-names">
+        <div class="card-en">${esc(t.term)}</div>
+        ${t.termTR ? `<div class="card-tr">${esc(t.termTR)}</div>` : ''}
+      </div>
+      <div class="card-meta">
+        <span class="card-tag">${esc(t.category)}</span>
+        <svg class="card-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
+    </div>`;
+
+  const bodyParts = [];
+  if (t.definition) {
+    bodyParts.push(`<div class="def-block"><span class="lang-badge en">EN</span><p class="def-text">${esc(t.definition)}</p></div>`);
+  }
+  if (t.definitionTR) {
+    bodyParts.push(`<div class="def-block"><span class="lang-badge tr">TR</span><p class="def-text">${esc(t.definitionTR)}</p></div>`);
+  }
+  if (t.related && t.related.length) {
+    const tags = t.related.map(r => `<span class="related-tag" data-term="${esc(r)}">${esc(r)}</span>`).join('');
+    bodyParts.push(`<div class="related-wrap"><span class="related-lbl">İlgili:</span>${tags}</div>`);
+  }
+
+  card.innerHTML = headHTML + (bodyParts.length ? `<div class="card-body">${bodyParts.join('')}</div>` : '');
+
+  card.querySelector('.card-head').addEventListener('click', () => {
+    const was = card.classList.contains('open');
+    document.querySelectorAll('.term-card.open').forEach(c => c.classList.remove('open'));
+    if (!was) card.classList.add('open');
+  });
+
+  card.querySelectorAll('.related-tag').forEach(tag => {
+    tag.addEventListener('click', e => { e.stopPropagation(); jumpTo(tag.dataset.term); });
+  });
+
+  return card;
+}
+
+function esc(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function jumpTo(name) {
+  const id = 'term-' + name.replace(/[^a-z0-9]/gi, '-').toLowerCase();
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.classList.add('open');
+  } else {
+    state.q = name.toLowerCase();
+    state.cat = ''; state.letter = '';
+    document.getElementById('searchInput').value = name;
+    document.getElementById('catSelect').value = '';
+    document.getElementById('alphaSelect').value = '';
+    syncClear(); render();
+    setTimeout(() => {
+      const found = document.getElementById('term-' + name.replace(/[^a-z0-9]/gi, '-').toLowerCase());
+      if (found) { found.scrollIntoView({ behavior: 'smooth', block: 'center' }); found.classList.add('open'); }
+    }, 100);
+  }
+}
+</script>
+</body>
+</html>

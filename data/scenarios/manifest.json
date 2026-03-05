@@ -1,0 +1,27 @@
+{
+  "scenarios": [
+    {
+      "id": "scenario-001",
+      "title": "The Startup Sprint",
+      "decisions": 12,
+      "difficulty": "beginner",
+      "sector": "Software Development"
+    },
+    {
+      "id": "star-top-bank",
+      "title": "Star Top Bank",
+      "decisions": 40,
+      "difficulty": "intermediate",
+      "sector": "Fintech / Bankacılık"
+    },
+    {
+      "id": "ebabil",
+      "title": "Ebabil Otonom İHA Sistemi",
+      "decisions": 180,
+      "difficulty": "advanced",
+      "sector": "Savunma Sanayii / Teknoloji"
+    }
+  ],
+  "note": "Add new scenarios here. difficulty: beginner|intermediate|advanced. universeScore = sum(decisions * 3) computed at runtime.",
+  "updatedAt": "2026-03-05"
+}
