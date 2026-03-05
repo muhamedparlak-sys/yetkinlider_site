@@ -766,7 +766,7 @@ function renderExplanation() {
   const div = document.createElement('div');
   div.className = 'explanation-box ' + (userCorrect ? 'correct' : 'wrong');
   const title = document.createElement('strong');
-  title.textContent = userCorrect ? '✓ Correct!' : '✗ Incorrect';
+  title.textContent = userCorrect ? 'Doğru!' : 'Yanlış';
   div.appendChild(title);
   const { answers } = getShuffled(idx);
   const correctText = document.createElement('div');
@@ -860,7 +860,7 @@ function showResults() {
   const answeredCount = Object.keys(checked).length;
   const pct = answeredCount > 0 ? Math.round(correctCount / answeredCount * 100) : 0;
 
-  document.getElementById('resultsTitle').textContent = pct >= 61 ? '🎉 Well Done!' : '📖 Keep Studying';
+  document.getElementById('resultsTitle').textContent = pct >= 61 ? 'Tebrikler!' : 'Çalışmaya Devam Et';
   document.getElementById('resultsSubtitle').textContent = `You answered ${answeredCount} of ${total} questions and scored ${pct}%.`;
 
   // Score grid

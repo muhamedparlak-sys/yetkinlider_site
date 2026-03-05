@@ -451,11 +451,15 @@ a{color:inherit;text-decoration:none}
 .intro-dots{display:flex;gap:6px;justify-content:center;margin:36px 0 28px}
 .intro-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s}
 .intro-dot.active{background:rgba(255,255,255,.55)}
-.intro-btn-wrap{display:flex;justify-content:center}
+.intro-btn-wrap{position:fixed;bottom:40px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:14px;z-index:20}
 .btn-intro-next{background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);font-size:13px;font-weight:600;padding:11px 36px;border-radius:8px;cursor:pointer;letter-spacing:.04em;transition:all .2s}
 .btn-intro-next:hover{border-color:rgba(255,255,255,.45);color:#fff;background:rgba(255,255,255,.05)}
 .btn-intro-next.final{border-color:rgba(99,179,237,.4);color:#90cdf4}
 .btn-intro-next.final:hover{border-color:#63b3ed;color:#fff;background:rgba(99,179,237,.08)}
+.intro-skip-label{display:none;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.3);cursor:pointer;user-select:none}
+.intro-skip-label input{accent-color:rgba(99,179,237,.7);cursor:pointer}
+.intro-skip-label:hover{color:rgba(255,255,255,.5)}
+#screen-intro .intro-stage{padding-bottom:120px}
 
 /* Footer */
 .karne-footer{width:100%;max-width:760px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -535,7 +539,7 @@ a{color:inherit;text-decoration:none}
   <div class="welcome-wrap">
     <div class="welcome-card">
       <!-- filled dynamically by renderWelcomeScreen() -->
-      <div class="welcome-icon">📬</div>
+      <div class="welcome-icon" style="display:none"></div>
       <h1 class="welcome-title">PM İş Simülasyonu</h1>
       <p class="welcome-sub">Yükleniyor…</p>
     </div>
@@ -717,7 +721,7 @@ a{color:inherit;text-decoration:none}
 <!-- DEV REPORT MODAL -->
 <div id="dev-report-overlay" class="dev-modal-overlay hidden">
   <div class="dev-modal">
-    <h3>⚠️ Sorun Bildir</h3>
+    <h3>Sorun Bildir</h3>
     <div class="dev-field"><label>Bildirim Bilgisi</label><input id="dev-r-info" type="text" readonly></div>
     <div class="dev-field"><label>Sorun Açıklaması</label><textarea id="dev-r-desc" rows="4" placeholder="Neyin yanlış olduğunu açıklayın..."></textarea></div>
     <div class="dev-modal-foot">
@@ -730,8 +734,8 @@ a{color:inherit;text-decoration:none}
 <!-- UNSAVED DIALOG -->
 <div id="unsaved-overlay" class="hidden">
   <div class="unsaved-box">
-    <div class="unsaved-title">⚠️ Kaydedilmemiş ilerleme</div>
-    <div class="unsaved-sub">Oyun ilerlemeniz kaydedilmedi. Çıkmadan önce kaydetmek ister misiniz?</div>
+    <div class="unsaved-title">Kaydedilmemiş ilerleme</div>
+    <div class="unsaved-sub">Simülasyon ilerlemeniz kaydedilmedi. Çıkmadan önce kaydetmek ister misiniz?</div>
     <div class="unsaved-actions">
       <button class="btn-unsaved-cancel" onclick="Game.closeUnsaved()">İptal</button>
       <button class="btn-unsaved-leave" onclick="Game.leaveWithoutSave()">Kaydetmeden Çık</button>
@@ -803,6 +807,9 @@ a{color:inherit;text-decoration:none}
     <div class="intro-dots" id="intro-dots"></div>
     <div class="intro-btn-wrap">
       <button class="btn-intro-next" id="btn-intro-next" onclick="Game.introNext()">Devam</button>
+      <label class="intro-skip-label" id="intro-skip-label">
+        <input type="checkbox" id="intro-skip-cb"> Bir daha gösterme
+      </label>
     </div>
   </div>
 </div>
@@ -957,7 +964,7 @@ var Game; Game = (() => {
         console.warn('[DB] Arka plan kayıt başarısız:', e.message)
       );
     }
-    showToast('✓ Oyun kaydedildi');
+    showToast('✓ Simülasyon kaydedildi');
   }
   function hasSaveGame() { const k = getSaveKey(); return k && !!localStorage.getItem(k); }
 
@@ -1156,10 +1163,10 @@ var Game; Game = (() => {
       }).join('');
 
       card.innerHTML = `
-        <div class="welcome-icon">📬</div>
+        <div class="welcome-icon" style="display:none"></div>
         <h1 class="welcome-title">Hoş geldin, ${session.displayName}!</h1>
         <div class="save-list">${saveItemsHTML}</div>
-        <button id="btn-new-game" class="btn-outline-welcome">Yeni Oyun Başlat</button>`;
+        <button id="btn-new-game" class="btn-outline-welcome">Yeni Simülasyon Başlat</button>`;
 
       card.querySelectorAll('.btn-resume-item').forEach(btn => {
         btn.onclick = () => resumeSave(saves[+btn.dataset.idx]);
@@ -1167,7 +1174,7 @@ var Game; Game = (() => {
       document.getElementById('btn-new-game').onclick = () => show('screen-mode');
     } else {
       card.innerHTML = `
-        <div class="welcome-icon">📬</div>
+        <div class="welcome-icon" style="display:none"></div>
         <h1 class="welcome-title">Hoş geldin, ${session.displayName}!</h1>
         <p class="welcome-sub">Gerçek bir PM olarak çalış. Bildirimlerini yönet, kararlar ver, projeyi tamamla.</p>
         <button id="btn-start-new" class="btn-primary">Başla →</button>`;
@@ -1177,10 +1184,12 @@ var Game; Game = (() => {
 
   function init() {
     loadGlossary();
-    // ── Auth gate: misafir moduna izin ver ────────────────────
+    // ── Auth gate: giriş zorunlu ───────────────────────────────
     let session = authGetSession();
     if (!session) {
-      session = { username: 'guest', displayName: 'Misafir' };
+      // Misafir kullanıcı simülasyona giremez — kayıt/giriş sayfasına yönlendir
+      window.location.replace('index.html?auth=1&return=game.html');
+      return;
     }
     S.name = session.displayName;
     S.devMode = session.devMode || false;
@@ -1680,7 +1689,12 @@ var Game; Game = (() => {
   ];
   let _introStep = 0;
 
+  const _INTRO_SKIP_KEY = 'pmSim_introSkipped';
+  function isIntroSkipped() {
+    try { return JSON.parse(localStorage.getItem(_INTRO_SKIP_KEY) || 'false'); } catch { return false; }
+  }
   function showIntro() {
+    if (isIntroSkipped()) { show('screen-inbox'); return; }
     _introStep = 0;
     _renderIntroStep();
     show('screen-intro');
@@ -1699,9 +1713,12 @@ var Game; Game = (() => {
       .join('');
     // Button
     const btn = document.getElementById('btn-intro-next');
+    const skipLabel = document.getElementById('intro-skip-label');
     const isLast = _introStep === total - 1;
     btn.textContent = isLast ? 'Simülasyona Başla' : 'Devam';
     btn.className = 'btn-intro-next' + (isLast ? ' final' : '');
+    // Son adımda "Bir daha gösterme" seçeneğini göster
+    if (skipLabel) skipLabel.style.display = isLast ? 'flex' : 'none';
     // Restart animation
     const body = document.getElementById('intro-body');
     body.style.animation = 'none';
@@ -1714,6 +1731,11 @@ var Game; Game = (() => {
       _introStep++;
       _renderIntroStep();
     } else {
+      // "Bir daha gösterme" tercihi kaydet
+      const skipCb = document.getElementById('intro-skip-cb');
+      if (skipCb && skipCb.checked) {
+        localStorage.setItem(_INTRO_SKIP_KEY, 'true');
+      }
       show('screen-inbox');
     }
   }
@@ -1859,7 +1881,7 @@ var Game; Game = (() => {
     if (S.devMode) {
       h += `<div class="dev-toolbar">
         <button class="dev-btn" onclick="Game.openDevEdit(${n.id})">✏️ Düzenle</button>
-        <button class="dev-btn report" onclick="Game.openDevReport(${n.id})">⚠️ Sorun Bildir</button>
+        <button class="dev-btn report" onclick="Game.openDevReport(${n.id})">Sorun Bildir</button>
         <span style="font-size:10px;color:rgba(255,255,255,.25);margin-left:auto">B${n.id} · §${n.section}</span>
       </div>`;
     }
@@ -1923,7 +1945,7 @@ var Game; Game = (() => {
         const xpPos = (opt.xp||0)>=0;
         const fbc = opt.key==='A'?'cfb-good':opt.key==='D'?'cfb-bad':'cfb-ok';
         h += `<div class="compose-feedback-bar ${fbc}">
-          <span>${opt.key==='A'?'✅':opt.key==='D'?'❌':'⚠️'}</span>
+          <span>${opt.key==='A'?'✅':opt.key==='D'?'❌':''}</span>
           <span>${opt.isEthical===false?'<strong>Etik İhlali! </strong>':''}${esc(opt.feedback||'')} <span class="xp-pill ${xpPos?'xp-plus':'xp-minus'}">${xpPos?'+':''}${opt.xp} XP</span></span>
         </div>`;
       }
@@ -1935,7 +1957,7 @@ var Game; Game = (() => {
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         Gönder
       </button>
-      ${!ans&&!pendingKey?'<span class="compose-hint">⚠️ Seçim yapıp göndermeden ilerleyemezsiniz</span>':''}
+      ${!ans&&!pendingKey?'<span class="compose-hint">Seçim yapıp göndermeden ilerleyemezsiniz</span>':''}
       ${!ans&&pendingKey?'<span class="compose-hint">Seçiminizi onaylamak için Gönder\'e basın</span>':''}
       ${ans?'<span class="compose-hint" style="color:#22c55e">✓ Yanıt gönderildi</span>':''}
     </div>`;
