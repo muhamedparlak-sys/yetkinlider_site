@@ -1,0 +1,27 @@
+# Ortam değişkenleri (local dev)
+.env
+.env.*
+!.env.example
+
+# Supabase service_role key — asla commit edilmez
+.supabase/
+
+# Claude Code
+.claude/
+.claude-code/
+
+# Git worktrees (ana repo dışında tutulur)
+worktrees/
+
+# Node (eğer ileride build pipeline eklenirse)
+node_modules/
+dist/
+.npm
+
+# OS kalıntıları
+.DS_Store
+Thumbs.db
+
+# Python (mevcut .py scriptler için)
+__pycache__/
+*.pyc
