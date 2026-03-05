@@ -1255,16 +1255,16 @@ var Game; Game = (() => {
       ? `${_sbBase}/manifest.json`
       : 'data/scenarios/manifest.json';
 
-    fetch(_manifestSrc + '?t=' + Date.now()).then(r => r.json()).then(m => {
-      S.manifest = m;
-      buildSectorDropdown();
-    }).catch(() => {
-      // Supabase başarısız olursa lokal'den dene
-      fetch('data/scenarios/manifest.json').then(r => r.json()).then(m => {
-        S.manifest = m;
-        buildSectorDropdown();
-      }).catch(() => {});
-    });
+    fetch(_manifestSrc + '?t=' + Date.now())
+      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(m => { if (!Array.isArray(m?.scenarios)) throw new Error('bad manifest'); S.manifest = m; buildSectorDropdown(); })
+      .catch(() => {
+        // Supabase başarısız / manifest bozuksa lokal'den dene
+        fetch('data/scenarios/manifest.json')
+          .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+          .then(m => { S.manifest = m; buildSectorDropdown(); })
+          .catch(() => {});
+      });
 
     // Compose pane: option selection + send (event delegation — no inline onclick needed)
     document.getElementById('notif-compose').addEventListener('click', e => {
@@ -1688,6 +1688,7 @@ var Game; Game = (() => {
     ]},
   ];
   let _introStep = 0;
+  let _typewriterCancel = null; // aktif typewriter'ı iptal eder
 
   const _INTRO_SKIP_KEY = 'pmSim_introSkipped';
   function isIntroSkipped() {
@@ -1704,8 +1705,10 @@ var Game; Game = (() => {
     const s = INTRO_SCREENS[_introStep];
     const total = INTRO_SCREENS.length;
     document.getElementById('intro-step-label').textContent = s.label;
-    document.getElementById('intro-body').innerHTML = s.lines
-      .map(l => `<p class="intro-p${l.c ? ' '+l.c : ''}">${l.t}</p>`)
+    // Boş paragraflar oluştur — typewriter dolduracak
+    const body = document.getElementById('intro-body');
+    body.innerHTML = s.lines
+      .map(l => `<p class="intro-p${l.c ? ' '+l.c : ''}"></p>`)
       .join('');
     // Dots
     document.getElementById('intro-dots').innerHTML = INTRO_SCREENS
@@ -1719,14 +1722,52 @@ var Game; Game = (() => {
     btn.className = 'btn-intro-next' + (isLast ? ' final' : '');
     // Son adımda "Bir daha gösterme" seçeneğini göster
     if (skipLabel) skipLabel.style.display = isLast ? 'flex' : 'none';
-    // Restart animation
-    const body = document.getElementById('intro-body');
+    // Fade-in animasyonu sıfırla
     body.style.animation = 'none';
     body.offsetHeight; // reflow
     body.style.animation = '';
+    // Typewriter başlat
+    _typewriterLines(s.lines, Array.from(body.querySelectorAll('p')));
+  }
+
+  // Typewriter: karakterleri tek tek yaz, satırlar arasında kısa duraklama
+  function _typewriterLines(lines, els) {
+    if (_typewriterCancel) { _typewriterCancel(); _typewriterCancel = null; }
+    let cancelled = false;
+    const CHAR_MS  = 22;  // karakter başına ms (okuma hızından tık hızlı)
+    const LINE_MS  = 260; // satırlar arası duraklama
+
+    _typewriterCancel = () => {
+      cancelled = true;
+      lines.forEach((l, i) => { if (els[i]) els[i].textContent = l.t; });
+      _typewriterCancel = null;
+    };
+
+    let lineIdx = 0;
+    function typeLine() {
+      if (cancelled || lineIdx >= lines.length) { _typewriterCancel = null; return; }
+      const text = lines[lineIdx].t;
+      const el   = els[lineIdx];
+      let charIdx = 0;
+      function typeChar() {
+        if (cancelled) return;
+        if (charIdx <= text.length) {
+          el.textContent = text.slice(0, charIdx++);
+          setTimeout(typeChar, CHAR_MS);
+        } else {
+          lineIdx++;
+          if (lineIdx < lines.length) setTimeout(typeLine, LINE_MS);
+          else _typewriterCancel = null;
+        }
+      }
+      typeChar();
+    }
+    typeLine();
   }
 
   function introNext() {
+    // Animasyon devam ediyorsa: önce tüm metni anında göster, sonraki tıkta ilerle
+    if (_typewriterCancel) { _typewriterCancel(); return; }
     if (_introStep < INTRO_SCREENS.length - 1) {
       _introStep++;
       _renderIntroStep();
