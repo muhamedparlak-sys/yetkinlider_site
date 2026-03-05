@@ -951,6 +951,12 @@ var Game; Game = (() => {
     };
     localStorage.setItem(key, JSON.stringify(data));
     S.hasUnsavedChanges = false;
+    // Supabase'e arka planda kaydet (fire-and-forget — hata sessiz)
+    if (typeof window.__sbUpsertSave === 'function') {
+      window.__sbUpsertSave(data).catch(e =>
+        console.warn('[DB] Arka plan kayıt başarısız:', e.message)
+      );
+    }
     showToast('✓ Oyun kaydedildi');
   }
   function hasSaveGame() { const k = getSaveKey(); return k && !!localStorage.getItem(k); }
@@ -2297,21 +2303,64 @@ var Game; Game = (() => {
     // Menu
     toggleMenu, closeMenu,
     // Result
-    showResult
+    showResult,
+    // Supabase senkronizasyon sonrası welcome screen'i yenile
+    refreshWelcome() {
+      const sess = authGetSession();
+      const welcomeEl = document.getElementById('screen-welcome');
+      if (sess && welcomeEl && !welcomeEl.classList.contains('hidden')) {
+        renderWelcomeScreen(sess, findUserSaves());
+      }
+    }
   };
 })();
 window.Game = Game;
 </script>
 
-<!-- ── Supabase Storage entegrasyonu ───────────────────────────────────── -->
+<!-- ── Supabase entegrasyonu (Storage + DB) ────────────────────────────── -->
 <script type="module">
 import { fetchScenario, manifestUrl } from '/js/storage.js';
+import { upsertGameSave, fetchUserSaves } from '/js/db.js';
 
-// loadScenario() Supabase'den çeker (1. öncelik, yerel JSON fallback)
+// ── Storage bağlantıları ─────────────────────────────────────────────────
 window.__sbFetchScenario = fetchScenario;
+window.__sbManifestUrl   = manifestUrl();
 
-// Manifest URL'sini global'e bağla (manifest fetch zaten bunu kullanıyor)
-window.__sbManifestUrl = manifestUrl();
+// ── DB bağlantıları ──────────────────────────────────────────────────────
+window.__sbUpsertSave = upsertGameSave;
+
+// ── Cross-device senkronizasyon ──────────────────────────────────────────
+// Supabase'deki kayıtları localStorage ile birleştir, welcome screen'i güncelle
+(async () => {
+  try {
+    const sbSaves = await fetchUserSaves();
+    if (!sbSaves.length) return;
+
+    const session = (() => {
+      try { return JSON.parse(localStorage.getItem('pmSim_session') || 'null'); } catch { return null; }
+    })();
+    if (!session?.username) return;
+
+    // Supabase'de olup localStorage'da olmayan ya da daha yeni olan kayıtları güncelle
+    let synced = 0;
+    sbSaves.forEach(save => {
+      const key = `pmSim_save_${session.username}_${save.scenarioId}`;
+      const raw = localStorage.getItem(key);
+      const local = raw ? JSON.parse(raw) : null;
+      if (!local || (save.savedAt && (!local.savedAt || save.savedAt > local.savedAt))) {
+        localStorage.setItem(key, JSON.stringify(save));
+        synced++;
+      }
+    });
+
+    // Kayıt varsa welcome screen'i taze verilerle yenile
+    if (synced > 0 && typeof window.Game?.refreshWelcome === 'function') {
+      window.Game.refreshWelcome();
+    }
+  } catch (e) {
+    console.warn('[DB] Senkronizasyon başarısız:', e.message);
+  }
+})();
 </script>
 </body>
 </html>

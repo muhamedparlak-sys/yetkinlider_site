@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yetkinlik Kartı — YetkinLider</title>
+<script src="/config.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -421,19 +422,39 @@ function getDiffWeight(difficulty) {
   return DIFF_WEIGHT[(difficulty||'').toLowerCase()] || 3;
 }
 
-/* ── data loading ─────────────────────────────────────────────── */
+/* ── data loading (Supabase Storage öncelikli, yerel JSON fallback) ────── */
 async function loadManifest() {
-  try { const r = await fetch('data/scenarios/manifest.json'); return r.ok ? await r.json() : null; }
+  // 1. Supabase Storage
+  if (window.__ENV?.SUPABASE_URL) {
+    const BUCKET = 'scenarios';
+    const storageBase = `${window.__ENV.SUPABASE_URL}/storage/v1/object/public/${BUCKET}`;
+    try {
+      const r = await fetch(`${storageBase}/manifest.json?t=${Date.now()}`);
+      if (r.ok) return r.json();
+    } catch {}
+  }
+  // 2. Yerel JSON
+  try { const r = await fetch('data/scenarios/manifest.json'); return r.ok ? r.json() : null; }
   catch { return null; }
 }
 
 async function loadScenario(id) {
-  try { const r = await fetch(`data/scenarios/${id}.json`); return r.ok ? await r.json() : null; }
+  // 1. Supabase Storage
+  if (window.__ENV?.SUPABASE_URL) {
+    const BUCKET = 'scenarios';
+    const storageBase = `${window.__ENV.SUPABASE_URL}/storage/v1/object/public/${BUCKET}`;
+    try {
+      const r = await fetch(`${storageBase}/${id}.json?t=${Date.now()}`);
+      if (r.ok) return r.json();
+    } catch {}
+  }
+  // 2. Yerel JSON
+  try { const r = await fetch(`data/scenarios/${id}.json`); return r.ok ? r.json() : null; }
   catch { return null; }
 }
 
-/* ── extract user saves from localStorage ────────────────────── */
-function getUserSaves(username) {
+/* ── extract user saves: Supabase öncelikli, localStorage fallback ───── */
+function _getLocalSaves(username) {
   const prefix = `pmSim_save_${username}_`;
   const saves = [];
   for (let i = 0; i < localStorage.length; i++) {
@@ -445,6 +466,31 @@ function getUserSaves(username) {
     } catch {}
   }
   return saves;
+}
+
+async function getUserSaves(username) {
+  // 1. Supabase DB — giriş yapılmışsa buradan çek
+  if (window.__sbFetchUserSaves) {
+    try {
+      const sbSaves = await window.__sbFetchUserSaves();
+      if (sbSaves.length > 0) {
+        // Supabase kayıtlarını localStorage ile de senkronize et
+        sbSaves.forEach(save => {
+          const key = `pmSim_save_${username}_${save.scenarioId}`;
+          const raw = localStorage.getItem(key);
+          const local = raw ? JSON.parse(raw) : null;
+          if (!local || (save.savedAt && (!local.savedAt || save.savedAt > local.savedAt))) {
+            localStorage.setItem(key, JSON.stringify(save));
+          }
+        });
+        return sbSaves;
+      }
+    } catch (e) {
+      console.warn('[DB] Kayıtlar Supabase\'den alınamadı, local\'den devam:', e.message);
+    }
+  }
+  // 2. localStorage fallback
+  return _getLocalSaves(username);
 }
 
 /* ── build decision → max XP map + decision → competency map for a scenario ── */
@@ -698,9 +744,9 @@ async function init() {
     ids.forEach((id,i) => { if (loaded[i]) G.scenariosData[id] = loaded[i]; });
   }
 
-  // Load saves
+  // Load saves (Supabase öncelikli, localStorage fallback)
   if (session?.username) {
-    G.saves = getUserSaves(session.username);
+    G.saves = await getUserSaves(session.username);
   }
 
   // Profile
@@ -765,7 +811,7 @@ function renderTab(tab) {
     <div class="right-panel">${rightHTML}</div>`;
 }
 
-function confirmReset() {
+async function confirmReset() {
   if (!confirm('Tüm kariyer istatistiklerini sıfırlamak istediğinden emin misin?\n\nBu işlem geri alınamaz.')) return;
   const session = (() => { try { return JSON.parse(localStorage.getItem(SESSION_KEY)||'null'); } catch { return null; } })();
   if (session?.username) {
@@ -778,10 +824,28 @@ function confirmReset() {
     keys.forEach(k => localStorage.removeItem(k));
   }
   localStorage.removeItem('pmp_career_competency');
+  // Supabase'deki kayıtları da sil
+  if (window.__sbDeleteSaves) {
+    try { await window.__sbDeleteSaves(); } catch (e) { console.warn('[DB] Supabase sıfırlama başarısız:', e.message); }
+  }
   location.reload();
 }
 
-document.addEventListener('DOMContentLoaded', init);
+// init() artık module tarafından çağrılıyor (Supabase fonksiyonları hazır olsun diye)
+// document.addEventListener('DOMContentLoaded', init);  ← module'e taşındı
+</script>
+
+<!-- ── Supabase DB entegrasyonu — init() burada başlatılıyor ────────────── -->
+<script type="module">
+import { fetchUserSaves, deleteAllSaves } from '/js/db.js';
+
+// DB fonksiyonlarını global'e bağla (scorecard.js classic kodunun erişebilmesi için)
+window.__sbFetchUserSaves = fetchUserSaves;
+window.__sbDeleteSaves    = deleteAllSaves;
+
+// Supabase hazır olduktan sonra init()'i çalıştır
+// (module deferred olduğu için DOM zaten hazır)
+init();
 </script>
 
 </body>
