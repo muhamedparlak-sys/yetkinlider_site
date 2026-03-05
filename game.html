@@ -1235,19 +1235,26 @@ var Game; Game = (() => {
     // PM name input updates career ready state
     document.getElementById('inp-pm-name')?.addEventListener('input', checkCareerReady);
 
-    // Manifest yükle → sektör dropdown'ı doldur (Supabase önce, lokal fallback)
-    const _manifestSrc = window.__sbManifestUrl || 'data/scenarios/manifest.json';
+    // Manifest yükle → sektör dropdown'ı doldur
+    // window.__ENV config.js'ten gelir (klasik script, her zaman hazır)
+    // window.__sbManifestUrl modülden gelir (deferred — init() sırasında henüz yok)
+    // Bu yüzden URL'yi doğrudan __ENV'den hesaplıyoruz.
+    const _sbBase = window.__ENV?.SUPABASE_URL
+      ? `${window.__ENV.SUPABASE_URL}/storage/v1/object/public/scenarios`
+      : null;
+    const _manifestSrc = _sbBase
+      ? `${_sbBase}/manifest.json`
+      : 'data/scenarios/manifest.json';
+
     fetch(_manifestSrc + '?t=' + Date.now()).then(r => r.json()).then(m => {
       S.manifest = m;
       buildSectorDropdown();
     }).catch(() => {
       // Supabase başarısız olursa lokal'den dene
-      if (window.__sbManifestUrl) {
-        fetch('data/scenarios/manifest.json').then(r => r.json()).then(m => {
-          S.manifest = m;
-          buildSectorDropdown();
-        }).catch(() => {});
-      }
+      fetch('data/scenarios/manifest.json').then(r => r.json()).then(m => {
+        S.manifest = m;
+        buildSectorDropdown();
+      }).catch(() => {});
     });
 
     // Compose pane: option selection + send (event delegation — no inline onclick needed)
