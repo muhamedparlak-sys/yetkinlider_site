@@ -8,8 +8,8 @@
   "company": "Kalkan Savunma Sistemleri",
   "client": "Savunma Sanayii Başkanlığı (SSB)",
   "dChoiceLimit": 3,
-  "totalDecisions": 54,
-  "maxXP": 1620,
+  "totalDecisions": 60,
+  "maxXP": 1800,
   "sections": [
     {"id":1,"title":"BÖLÜM 1: İHALEYE HAZIRLIK","iteration":"Hafta 1 — Maceraya Çağrı"},
     {"id":2,"title":"BÖLÜM 2: KURALLARI BELİRLEMEK","iteration":"Hafta 2 — Risk Stratejisi ve Planlama"},
@@ -28,16 +28,18 @@
     {"id":15,"title":"BÖLÜM 15: YUKARIDAN GELEN DALGALAR","iteration":"Hafta 15 — Program Riskleri ve İzleme"},
     {"id":16,"title":"BÖLÜM 16: BİLİNMEYENLERİN GÖLGESİ VE REZERVLER","iteration":"Hafta 16 — Analiz ve Çevik Uyum"},
     {"id":17,"title":"BÖLÜM 17: PORTFÖY VİZYONU VE SİSTEM MÜHENDİSLİĞİ","iteration":"Hafta 17 — Strateji ve İleri Analiz"},
-    {"id":18,"title":"BÖLÜM 18: GRAFİKLER VE DENGELER","iteration":"Hafta 18 — İzleme ve Portföy Optimizasyonu"}
+    {"id":18,"title":"BÖLÜM 18: GRAFİKLER VE DENGELER","iteration":"Hafta 18 — İzleme ve Portföy Optimizasyonu"},
+    {"id":19,"title":"BÖLÜM 19: GİZLİ GÜNDEMLER VE STRATEJİK TERCİHLER","iteration":"Hafta 19 — Tedarik, İletişim ve Paydaş Riskleri"},
+    {"id":20,"title":"BÖLÜM 20: MİRAS VE SÜREKLİ İYİLEŞTİRME","iteration":"Hafta 20 — Kapanış ve Operasyonlara Geçiş"}
   ],
   "competencies": [
-    {"id":"risk_plan","label":"Risk Yönetim Planı","decisionIds":[3,7,13,41,57,67,73]},
-    {"id":"risk_paydas","label":"Paydaş & Toleranslar","decisionIds":[4,9,11,60]},
-    {"id":"risk_tanim","label":"Risk Belirleme Teknikleri","decisionIds":[5,8,12,15,16,17,19,20,44,59,63]},
+    {"id":"risk_plan","label":"Risk Yönetim Planı","decisionIds":[3,7,13,41,57,67,73,80,81]},
+    {"id":"risk_paydas","label":"Paydaş & Toleranslar","decisionIds":[4,9,11,60,77]},
+    {"id":"risk_tanim","label":"Risk Belirleme Teknikleri","decisionIds":[5,8,12,15,16,17,19,20,44,59,63,75]},
     {"id":"risk_nitelik","label":"Niteliksel Risk Analizi","decisionIds":[21,23,24]},
     {"id":"risk_nicelik","label":"Niceliksel Risk Analizi","decisionIds":[25,27,28,43,45,47,65,68,72]},
     {"id":"risk_yanit","label":"Risk Yanıt Stratejileri","decisionIds":[29,31,32,33,49,51,55,64,69]},
-    {"id":"risk_izleme","label":"Takip, Kontrol & Raporlama","decisionIds":[35,36,37,39,40,48,52,53,56,61,71]}
+    {"id":"risk_izleme","label":"Takip, Kontrol & Raporlama","decisionIds":[35,36,37,39,40,48,52,53,56,61,71,76,79]}
   ],
   "notifications": [
     {
@@ -873,6 +875,98 @@
         {"key":"B","text":"Risk her zaman kötüdür. Organizasyonu korumak adına kesinlikle sıfır riskli olan Proje B'yi seçmeliyiz. Portföy yönetiminin temel amacı risklerden tamamen kaçınmaktır (Avoidance).","feedback":"Portföy düzeyinde risk yönetimi sadece tehditleri önlemek değil, fırsatları (opportunities) ve değeri (value) maksimize etmektir. Sürekli riskten kaçınmak, şirketin yenilikçilik (innovation) ve büyüme stratejilerini yok eder.","xp":10,"isEthical":true},
         {"key":"C","text":"Risk ne kadar yüksekse getiri de o kadar yüksek olur. Şirket her zaman kârını maksimize etmelidir. Bu yüzden organizasyonun risk kapasitesine (Risk Capacity) bakmaksızın gözü kapalı Proje A'ya girmeliyiz.","feedback":"Sadece getiriye odaklanıp organizasyonun kapasitesini ve risk eşiklerini (Thresholds) aşan maceralara atılmak 'Pervasızlık' (Reckless Risk Seeking) olarak adlandırılır ve kurumu iflasa sürükleyebilir.","xp":5,"isEthical":true},
         {"key":"D","text":"İki projeyi de Müşteriye (SSB) sunup hangisini isterlerse onu yapacağımızı söyleyelim. Karar alma sorumluluğunu (Transfer) tamamen müşteriye yıkalım.","feedback":"Portföy stratejisi ve şirketin iş modeli vizyonu dış paydaşlara transfer edilemez. Bu kurumsal yönetişimin (Governance) reddedilmesi anlamına gelir.","xp":0,"isEthical":false}
+      ]
+    },
+    {
+      "id":74,"type":"story","section":19,
+      "from":"Halime Ana","fromRole":"Ofis Destek Sorumlusu",
+      "subject":"Koridorlarda Fısıltılar...",
+      "body":"Evladım, ofiste bugünlerde garip bir hava var. Mühendisler kendi aralarında fısır fısır konuşuyor, müşteri temsilcileri toplantılardan gergin çıkıyor. Projeler büyüdükçe kimin neyi kime söyleyeceği, hangi işi kimin yapacağı büyük bir güç savaşına dönüştü. İletişim ve güven eksikliği her zaman en büyük felaketleri getirir, gözünü dört aç ve kayıtlarını sağlam tut. Kolay gelsin.",
+      "time":"08:00"
+    },
+    {
+      "id":75,"type":"decision","section":19,
+      "from":"Can Kaya Kalecik","fromRole":"Başmühendis",
+      "subject":"Termal Kamera Kutusunu Biz Üretelim!",
+      "body":"İHA'ların üzerindeki yeni termal kameralar için özel bir koruyucu gövdeye ihtiyacımız var. Deren bunu dışarıdan (taşerondan) satın almak istiyor. Ancak ben 'Mühendislik ekibi olarak bunu kendimiz tasarlayıp kendi 3D yazıcılarımızla üretelim (Make)' diyorum. Dışarıya para vermeyelim. Proje risk yöneticisi olarak, bu 'Yap veya Satın Al' (Make-or-Buy) kararının yaratacağı riskleri belirlerken hangi faktörleri değerlendirmeliyiz?",
+      "time":"09:30",
+      "options":[
+        {"key":"A","text":"'Yap veya Satın Al' kararlarının risklerini değerlendirirken (Control PR.PRO.3); kurumun yetkinlik ve fikri mülkiyet (IP) ihtiyaçlarını, mevcut kapasite ve kabiliyetlerin uygunluğunu, teslimat üzerindeki kontrol derecesini ve bu üretimin projedeki diğer aktivitelere (ana işlere) olan etkisini analiz etmeliyiz.","feedback":"PMI Risk Management Standardı'na göre, 'Yap veya Satın Al' (Make-or-Buy) kararları büyük riskler barındırır. Bir işi içeride yapmak sadece maliyetle ölçülemez; asıl risk, kurumun o alanda yetkinliğinin (capability) olup olmaması, sınırlı kaynakların (capacity) ana işten sapıp bu yan işe harcanması ve diğer proje teslimatlarının gecikme ihtimalidir. Risk Yöneticisi bu faktörleri masaya yatırmalıdır.","xp":30,"isEthical":true},
+        {"key":"B","text":"Sadece finansal maliyete bakmalıyız. Eğer bizim kendi mühendislerimizle üretmemiz kâğıt üzerinde 1 TL bile daha ucuza geliyorsa, riskleri düşünmeden doğrudan 'Yap' (Make) kararını seçmeliyiz.","feedback":"Maliyet odaklı dar bakış açısıdır. İçeride üretim yapmak, kalite sorunları (Rework) ve takvim gecikmeleri gibi devasa riskleri beraberinde getirebilir. Salt maliyet hesabı, risk analizini yok saymaktır.","xp":10,"isEthical":true},
+        {"key":"C","text":"Şirket içi üretimler 'Bilinen-Bilinen' (Known-Known) olduğu için hiçbir risk taşımazlar. Tüm tedarik riskleri sadece dışarıdan ürün satın alırken (Buy) geçerlidir.","feedback":"Kendi içinde üretim yapmanın (Make) risksiz olduğu büyük bir yanılgıdır. Yeni bir alanda üretim yapmak, öğrenme eğrileri (learning curves) ve teknik başarısızlık ihtimalleri nedeniyle genellikle taşerondan almaktan çok daha risklidir.","xp":5,"isEthical":true},
+        {"key":"D","text":"Bu teknik bir konudur, risk yönetimini ilgilendirmez. Can Kaya veya Deren arasında kimin yetkisi daha yüksekse kararı o versin ve biz o kararın sonucunu pasif bir şekilde bekleyelim.","feedback":"Tedarik kararları (Procurement) proje risk profilini kökünden değiştirir. Tedarik kararları verilmeden önce risk analizi yapılması zorunludur.","xp":0,"isEthical":false}
+      ]
+    },
+    {
+      "id":76,"type":"decision","section":19,
+      "from":"Nalan Han Çubuk","fromRole":"Program Yöneticisi",
+      "subject":"AFAD'a Karşı Şeffaflık İkilemi",
+      "body":"HIZIR-NET yazılımının AFAD sunucularına entegrasyonunda kritik bir güvenlik açığı bulduk. Çözümü için ekibimiz çalışıyor ancak en az 2 hafta sürecek. Eğer bu durumu şimdi AFAD'a söylersek panik yapacaklar, bürokrasi artacak ve projenin durdurulmasını bile isteyebilirler. 'Sorunu çözene kadar onlardan bu bilgiyi saklayalım, çözdüğümüzde haber veririz' diyorum. Bir bilginin saklanması veya geciktirilmesinin risklerini nasıl değerlendirirsin?",
+      "time":"11:00",
+      "options":[
+        {"key":"A","text":"Bir bilginin verilmesi veya saklanması çok büyük iletişim riskleri (Control PR.COM.3) doğurur. Bilgiyi saklamanın veya geciktirmenin yasal/sözleşmesel (contractual) sonuçlarını, bilginin anında verilmesinin yaratacağı etkinin boyutunu ve paydaşların güveninin (Trust) kırılmasının projeye vereceği uzun vadeli hasarı analiz etmeliyiz.","feedback":"PMI Standartlarında iletişim riskleri çok kritik bir başlıktır. Bilgiyi kasıtlı olarak saklamak (Withholding information), yasal gereksinimlerin (regulatory requirements) ihlaline yol açabileceği gibi, sonradan ortaya çıktığında itibar (Reputation) ve güven kaybına neden olarak programın tamamen çökmesine yol açabilir. Etik olarak proaktif ve dürüst iletişim esastır.","xp":30,"isEthical":true},
+        {"key":"B","text":"Paydaşları endişelendirmemek adına kötü haberleri saklamak standart bir 'Risk Azaltma' (Mitigation) tekniğidir. Gerçekleşip gerçekleşmeyeceği kesin olmayan bir açığı müşteriye söylemek sadece gereksiz gürültü (Noise) yaratır.","feedback":"Geçmişte proje yöneticileri 'kötü haberi geç verme' eğilimindeydi (Green-shifting / Karpuz raporlama). Ancak modern risk yönetiminde şeffaflık ve dürüstlük (PMI Ethics) tartışmaya kapalıdır. Sorun saklanamaz.","xp":10,"isEthical":true},
+        {"key":"C","text":"Bu durumu hemen PMO'ya eskale etmeliyiz (Escalate). PMO, bilgiyi resmi olarak manipüle edip AFAD'a her şey yolunda diye bir rapor göndersin.","feedback":"Raporları manipüle etmek veya kurumsal bir yapıyı (PMO) yalan söylemeye teşvik etmek, profesyonellik dışı bir eylemdir ve sözleşme iptallerine/davalara yol açar.","xp":5,"isEthical":true},
+        {"key":"D","text":"İletişim riskleri sadece dış basınla (Media) ilgilidir. Müşterimiz zaten işin içinde olduğu için onlara bilgi verip vermememiz bir 'risk' olarak değerlendirilemez.","feedback":"İletişim riskleri en çok da iç paydaşlar ve sponsorlar/müşteriler arasında yaşanır. Kilit paydaşların doğru zamanda doğru bilgiyi almaması (Lack of transparent information sharing) bir projenin başarısızlığının bir numaralı nedenidir.","xp":0,"isEthical":false}
+      ]
+    },
+    {
+      "id":77,"type":"decision","section":19,
+      "from":"Deren Çamlı","fromRole":"Portföy Tedarik ve Strateji",
+      "subject":"Yerel Halkın Sisteme Karşı Güvensizliği",
+      "body":"HIZIR-NET'in testlerini yapacağımız afet bölgesindeki yerel yöneticiler ve sivil toplum kuruluşları (STK), İHA'ların onların mahremiyetini ihlal edeceğini düşünüyor. Bize karşı çok tepkililer ve işbirliğine yanaşmıyorlar. Bu kilit paydaşlarla olan 'Katılım' (Engagement) stratejimizin risklerini belirlerken HANGİ faktörleri göz önünde bulundurmalıyız?",
+      "time":"14:00",
+      "options":[
+        {"key":"A","text":"Paydaş katılımı risklerini belirlerken (Control PR.STK.3); paydaşların istenen şekilde katılma konusundaki istekliliğini (willingness to engage), aramızdaki işbirliği kültürünü (cooperation culture), güven seviyesini (level of trust), kültürel farklılıkları (cultural differences) ve seçeceğimiz etkileşim yöntemlerinin avantaj ile kısıtlamalarını kapsamlı şekilde analiz etmeliyiz.","feedback":"PMI Risk Standartlarına göre, paydaş katılımı (Stakeholder Engagement) sadece toplantı yapmak değildir. Kültürel farklılıklar, bireylerin olgunluk seviyeleri, risk tutumları ve 'Güven' (Trust) seviyesi, paydaş direncini veya desteğini belirleyen en önemli risk faktörleridir. Bu yumuşak beceriler (soft skills) risk analizinin temelidir.","xp":30,"isEthical":true},
+        {"key":"B","text":"Yerel halk ve STK'lar projenin teknik bir parçası (Component) olmadığı için sadece dış çevresel bir gürültüdür. Bu yüzden onların güven seviyelerini veya kültürel yapılarını analiz etmemize gerek yoktur.","feedback":"Projeyi sadece 'teknik teslimat' olarak gören eski bir bakış açısıdır. Günümüzde sivil toplum ve yerel halk, projenin lisansını iptal ettirebilecek veya testleri durdurabilecek güce (Power/Interest) sahip kilit dış paydaşlardır.","xp":10,"isEthical":true},
+        {"key":"C","text":"Tüm bu paydaşları Olasılık ve Etki Matrisinde birer 'Tehdit' (Threat) olarak işaretlemeli ve 'Kaçınma' (Avoid) stratejisi kullanarak onlarla hiçbir iletişime girmemeli, onları projeden tamamen izole etmeliyiz.","feedback":"Etkileşim kurmaktan kaçınmak, paydaş direncini artırır. Tepkili paydaşları izole edemezsiniz; aksine, onlarla iletişimi artırıp endişelerini gidererek bu durumu bir desteğe (Fırsata) dönüştürmeniz gerekir.","xp":5,"isEthical":true},
+        {"key":"D","text":"Bu paydaşların bütçe gücü (Finansman) olmadığı için proje hedeflerimize etki edemezler. Onları sadece 'Bilgilendirilecekler' (Keep Informed) listesine ekleyip standart otomatik mail atalım, özel bir stratejiye gerek yok.","feedback":"Paydaşların gücü (Power) sadece para ile ölçülmez. Politik, sosyal veya itibar bazlı güçleri, projelerin durdurulmasına yol açabilir. Standart ve umursamaz iletişim (Broadcasting) direnişi tetikler.","xp":0,"isEthical":false}
+      ]
+    },
+    {
+      "id":78,"type":"story","section":20,
+      "from":"Şeref Koçhisar","fromRole":"Sponsor / Portföy Yöneticisi",
+      "subject":"HIZIR-NET Canlıya Geçiyor!",
+      "body":"Büyük gün geldi. HIZIR-NET sistemini ve üretilen tüm İHA'ları yarın resmi bir törenle AFAD'ın operasyon ekiplerine devrediyoruz. Proje yönetimi aşaması resmen kapanıyor ve ürünün operasyonel yaşam döngüsü başlıyor. Süreç boyunca gösterdiğin üstün risk yönetimi liderliği için teşekkür ederim. Ancak projeyi kapatmadan önce masanda çözmen gereken son birkaç stratejik dosya var. Başarılar!",
+      "time":"08:30"
+    },
+    {
+      "id":79,"type":"decision","section":20,
+      "from":"Nalan Han Çubuk","fromRole":"Program Yöneticisi",
+      "subject":"Artık (Residual) Riskleri Ne Yapacağız?",
+      "body":"Projeyi resmi olarak kapatıyoruz (Closing Processes). Ancak Risk Kaydımızda (Risk Register) hala geçerliliğini koruyan, bilerek 'Kabul (Accept)' ettiğimiz veya yanıt planlarını uygulamamıza rağmen tamamen sıfırlanmayan bazı 'Artık Riskler' (Residual Risks) var (Örn: İHA bataryalarının 3 yıl sonra performans düşüklüğü yaşaması ihtimali). Proje ekibi dağılırken bu risklerin akıbeti ne olacak?",
+      "time":"09:00",
+      "options":[
+        {"key":"A","text":"Proje kapanışı sırasında, bu kalan bilinen riskler (artık riskler) ve onların yönetimi için gerekli olan bilgiler, AFAD'ın operasyon yönetimi ekibine (işletme sahibine) resmi olarak devredilmelidir (Handed over). Risklerin sahipliği artık operasyon tarafına geçer.","feedback":"PMI standartlarına göre, kapanış süreçlerinin (Closing Processes) bir parçası olarak, faydaların gerçekleştirilmesini etkileyebilecek geriye kalan bilinen riskler (remaining known risks), proje kapanışından önce operasyonlara veya müşteri tarafına devredilir. Proje bittiğinde riskler buharlaşmaz, operasyonel risklere dönüşürler.","xp":30,"isEthical":true},
+        {"key":"B","text":"Proje bittiği için Risk Kaydındaki tüm maddeleri (gerçekleşme ihtimali devam etse bile) 'Kapatıldı (Closed)' olarak işaretleyip silmeliyiz. Proje bittiğinde risk de biter.","feedback":"Proje bittiğinde proje ekibinin işi biter ancak ürünün operasyonel ömrü devam ettiği için ürün kaynaklı riskler devam eder. Bu riskleri silmek, müşteriyi kör bir noktada bırakmaktır.","xp":10,"isEthical":true},
+        {"key":"C","text":"Bu artık riskleri izlemeye devam etmek için HIZIR-NET proje ekibini 3 yıl daha dağıtmadan, operasyon ekibiyle birlikte aktif olarak projede tutmalıyız.","feedback":"Projeler doğası gereği geçici (temporary) girişimlerdir. Ürün canlıya alındıktan sonra operasyonlar başlar. Proje ekibini operasyonel izleme için sonsuza dek elde tutmak, projenin tanımına aykırıdır ve kaynak israfıdır.","xp":5,"isEthical":true},
+        {"key":"D","text":"AFAD'a bu risklerden hiç bahsetmemeliyiz. Projeyi 'Sıfır Hata ve Sıfır Risk' ile teslim etmişiz gibi gösterip başarı primlerimizi almalıyız.","feedback":"Şeffaflık ilkesinin ihlalidir. Artık (residual) veya ikincil (secondary) riskleri müşteriden gizlemek PMI Etik Kurallarına aykırıdır.","xp":0,"isEthical":false}
+      ]
+    },
+    {
+      "id":80,"type":"decision","section":20,
+      "from":"Evren Elmadağ","fromRole":"Kalite Yöneticisi",
+      "subject":"Risk Denetim Sonuçları ve Kurumsal Hafıza",
+      "body":"Tüm proje boyunca yaptığımız risk denetimlerinin (Risk Audits), varyans analizlerinin ve Çevik retrospektiflerin (Agile retrospectives) sonuçlarını topladım. Birçok 'Alınan Ders' (Lessons Learned) çıkardık. Organizasyonel proje yönetimi bağlamında, elde ettiğimiz bu proje düzeyindeki tecrübelerin en büyük amacı nedir?",
+      "time":"11:00",
+      "options":[
+        {"key":"A","text":"Proje düzeyinde alınan bu dersler, kuruluşun Sürekli İyileştirme (Continuous Improvement) sürecine uygulanmak üzere üst kademelere (Portföy/Kurum) yükseltilmeli ve değerlendirilmelidir. Böylece süreç ve standartlarda güncellemeler yapılarak, gelecekteki projelerde organizasyonun risk ve kalite olgunluğu artırılır.","feedback":"Kurumsal Risk Yönetimi ve Sürekli İyileştirme prensiplerine göre; çevik projelerdeki retrospektifler veya geleneksel projelerdeki alınan dersler, sadece o projeyi değil, kurumsal mekanizmaları ve Organizasyonel Süreç Varlıklarını (OPA) iyileştirmek için temel kaynaktır.","xp":30,"isEthical":true},
+        {"key":"B","text":"Alınan derslerin tek amacı, proje boyunca risk yönetim planına uymayan veya hata yapan takım üyelerini tespit edip, onlara bir sonraki projede görev vermemektir.","feedback":"Kalite ve risk denetimlerinde amaç insanları (kişileri) suçlamak değil, hatalı veya eksik olan süreçleri (processes) onarmaktır. Suçlayıcı bir kültür (blame culture), risk şeffaflığını yok eder.","xp":10,"isEthical":true},
+        {"key":"C","text":"Sadece başarıyla yönettiğimiz fırsatları (Opportunities) kaydedip, başarısız olduğumuz tehditleri (Threats) gizleyerek şirketin dışarıya karşı imajını korumaktır.","feedback":"Başarısızlıklar ve gerçekleşen majör tehditler, organizasyonun öğrenme eğrisi için başarılardan çok daha değerlidir. Hataları gizlemek sürekli iyileştirmeyi imkansız kılar.","xp":5,"isEthical":true},
+        {"key":"D","text":"Proje bittikten sonra bu belgelerin hiçbir amacı kalmaz. Formalite icabı arşive kaldırılır ve bir daha asla okunmaz.","feedback":"'Yaz ve unut' mantığı, düşük olgunluktaki organizasyonların tipik hatasıdır. Öğrenilmiş dersler aktif olarak gelecekteki bilgi istemleri (prompt lists) ve analizler için kullanılmalıdır.","xp":0,"isEthical":false}
+      ]
+    },
+    {
+      "id":81,"type":"decision","section":20,
+      "from":"Şeref Koçhisar","fromRole":"Sponsor",
+      "subject":"Risk Yönetimi Harcamalarının Sınıflandırılması",
+      "body":"Proje muhasebesini inceliyorum. Risk tanımlama toplantıları, ekibe aldırdığımız eğitimler, Monte Carlo simülasyon yazılımları ve tedarikçilere yaptığımız kalite/risk denetimleri için ciddi bir bütçe harcamışsın. Projenin finansal raporlarında bu harcamaları 'Kalite Maliyeti' (Cost of Quality) kategorilerinden hangisine yazmalıyım?",
+      "time":"14:30",
+      "options":[
+        {"key":"A","text":"Bu harcamalar 'Gereksinimlere Uymanın Maliyeti' (Cost of Conformance) başlığı altındaki Önleme (Prevention) ve Değerlendirme (Appraisal) maliyetleridir. Hatalardan kaçınmak ve riskleri sorunlara dönüşmeden bertaraf etmek için yaptığımız doğru yatırımlardır.","feedback":"Risk yönetimi ve proaktif kalite güvence faaliyetleri (eğitimler, denetimler, testler, analizler) uygunluk maliyetidir (Cost of Conformance). Amaç, çok daha pahalı olan 'Gereksinimlere Uymamanın Maliyeti'ni (Dahili ve Harici Hata maliyetleri) önlemektir.","xp":30,"isEthical":true},
+        {"key":"B","text":"Bunlar 'Dahili Hata Maliyetleri' (Internal Failure Costs) olarak yazılmalıdır. Çünkü bu riskleri bulmasaydık başımıza iş açacaklardı.","feedback":"Dahili hata maliyetleri; ıskarta, yeniden yapma (rework) gibi hatalar oluştuktan sonra ama ürün müşteriye gitmeden önce ortaya çıkan kayıplardır. Proaktif risk analizi bir hata maliyeti değil, önleme maliyetidir.","xp":10,"isEthical":true},
+        {"key":"C","text":"Bunlar 'Harici Hata Maliyetleri' (External Failure Costs) olarak yazılmalıdır.","feedback":"Harici hatalar, ürün müşteriye ulaştıktan sonra ortaya çıkan, garanti çalışmaları, itibar ve pazar payı kaybı gibi en yıkıcı başarısızlık maliyetleridir. Risk yönetimi tam olarak bunu engellemek için yapılır.","xp":5,"isEthical":true},
+        {"key":"D","text":"Risk yönetimi süreçlerinin finansal bir maliyeti yoktur. Harcanan paralar projenin bütçe aşımı (Cost Overrun) olarak raporlanmalıdır.","feedback":"Risk yönetimi ve kalite yönetimi faaliyetlerinin planlanmış ve bütçelenmiş maliyetleri vardır. Bunları israf veya bütçe aşımı olarak görmek stratejik körlüktür.","xp":0,"isEthical":false}
       ]
     }
   ]
