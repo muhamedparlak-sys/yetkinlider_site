@@ -8,8 +8,8 @@
   "company": "Kalkan Savunma Sistemleri",
   "client": "Savunma Sanayii Başkanlığı (SSB)",
   "dChoiceLimit": 3,
-  "totalDecisions": 114,
-  "maxXP": 3420,
+  "totalDecisions": 115,
+  "maxXP": 3450,
   "sections": [
     {
       "id": 1,
@@ -326,7 +326,8 @@
         124,
         134,
         138,
-        139
+        139,
+        142
       ]
     }
   ],
@@ -5160,6 +5161,106 @@
           "isEthical": false
         }
       ]
+    },
+    {
+      "id": 142,
+      "type": "decision",
+      "section": 31,
+      "from": "Nalan Han Çubuk",
+      "fromRole": "PMO / Portföy Yönetim Ofisi",
+      "subject": "Risk Sahibi Kim? Sorumluluk Nerede Bitiyor?",
+      "body": "Risk Kaydımızdaki her risk için bir 'Risk Sahibi' (Risk Owner) atamamız gerektiğini biliyoruz. Ancak bazı ekip üyeleri 'Risk Sahibi' ile 'Risk Direktörü/Yöneticisi' rolünü karıştırıyor. PMI-RMP çerçevesine göre Risk Sahibi'nin (Risk Owner) birincil sorumluluğu nedir?",
+      "time": "16:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Risk Sahibi (Risk Owner), belirli bir risk yanıt stratejisinin uygulanmasından ve o riskin izlenmesinden birincil sorumlu olan kişi veya gruptur. Risk Sahibi, atandığı riskin durum güncellemelerini takip eder ve yanıt eylemlerinin zamanında hayata geçirildiğini güvence altına alır.",
+          "feedback": "PMI Standartlarına göre her tanımlanmış risk için bir 'Risk Owner' atanmalıdır. Risk Owner; yanıt stratejisini uygular, tetikleyicileri izler ve raporlar. Risk Direktörü ise tüm sürecin kolaylaştırıcısıdır — bireysel risklerin sahibi değildir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Risk Sahibi, organizasyondaki TÜM risklerin merkezi olarak izlenmesinden ve Risk Kaydının güncel tutulmasından sorumlu olan Risk Direktörü veya Proje Yöneticisidir. Her risk için ayrı bir sahip atamak gereksizdir.",
+          "feedback": "Risk Direktörü/Proje Yöneticisi süreci yönetir ve kolaylaştırır. Ancak her bireysel riskin, o riski en yakından bilen ve yanıtı hayata geçirebilecek kapasitede olan bir 'Risk Sahibi' olmalıdır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Risk Sahibi, projenin sigorta poliçelerini yöneten ve riskler gerçekleştiğinde tazminat taleplerini başlatan finansal risk uzmanıdır.",
+          "feedback": "Sigorta bir risk transfer aracıdır. Risk Sahipliği ise projedeki her bireysel riskin yanıt uygulamasından ve izlenmesinden sorumlu iç kişiyi tanımlar; dış sigorta uzmanını değil.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Risk Sahibi, bir risk gerçekleştiğinde sorumluluğu üstlenmesi için belirlenen ve cezalandırılacak olan yöneticidir. Bu sistem korku yaratarak çalışanları daha dikkatli olmaya zorlar.",
+          "feedback": "Risk sahipliği cezalandırma değil; proaktif izleme ve yanıt uygulama sorumluluğudur. Suçlama kültürü (blame culture) risk yönetiminin en büyük düşmanıdır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 143,
+      "type": "story",
+      "section": 26,
+      "from": "Evren Elmadağ",
+      "fromRole": "Kalite Yöneticisi",
+      "subject": "26. Hafta Kapandı: İzleme Döngüsünü Tamamladın!",
+      "body": "Bu hafta Risk Denetimlerini, Alınan Dersleri ve Risk İştahının stratejimizle olan derin bağını kavradın. Artık bir Öğrenen Organizasyon'un nasıl inşa edildiğini ve risklerin pasif değil, aktif ve döngüsel olarak nasıl yönetildiğini içselleştirdin. Hafta 27'de seni çok daha karmaşık senaryolar ve projemizin son teslimat süreçleri bekliyor. Hazır ol!",
+      "time": "17:30"
+    },
+    {
+      "id": 144,
+      "type": "story",
+      "section": 27,
+      "from": "Nalan Han Çubuk",
+      "fromRole": "Program Yöneticisi",
+      "subject": "27. Hafta Kapandı: Karmaşıklık Navigatörüsün!",
+      "body": "Bu hafta HIZIR-NET'in son teslimat süreçlerindeki en kritik zorluklarla yüzleştin. Karmaşıklığı yönetmekten artık risklerin AFAD'a devrineye, Değer-Risk dengelemesinden Çevik retrospektiflerin kurumsal hafızaya katkısına kadar uzanan büyük bir perspektif edinin. Risk Profilini hissedarlara sunabilecek ve Mükemmelliğin bürokrasiyle değil, uyarlama ile kazanıldığını artık biliyorsun. Büyük Final'e bir adım kaldı!",
+      "time": "17:30"
+    },
+    {
+      "id": 145,
+      "type": "story",
+      "section": 29,
+      "from": "Şeref Koçhisar",
+      "fromRole": "Yönetim Kurulu Başkanı",
+      "subject": "29. Hafta Kapandı: Küresel Arenaya Açıldın!",
+      "body": "Bu hafta Kalkan A.Ş. gerçek anlamda uluslararası bir şirkete dönüştü. Risk yönetiminin küresel felsefesini yatırımcılara anlatmayı, Portföy iç paydaşlarını stratejik uyumla yönetmeyi, Karar Ağacı ile sermaye kararları almayı ve Çevik yaklaşımın risk avantajını kavradın. Veri kalitesi analizinin niceliksel analizin ön koşulu olduğunu da unutma. Küresel zorluklara hazırsın!",
+      "time": "17:30"
+    },
+    {
+      "id": 146,
+      "type": "story",
+      "section": 30,
+      "from": "Deren Çamlı",
+      "fromRole": "Strateji ve Tedarik",
+      "subject": "30. Hafta Kapandı: Strateji Ustası Oldun!",
+      "body": "Bu hafta Delphi tekniğiyle önyargıdan arınmış risk tanımlama yaptın, Portföy bütçe kesintisini 'Aşağı Yuvarlanan Risk' olarak doğru sınıflandırdın, fırsatları %100 garantiye almak için Exploit stratejisinin gücünü gördün ve küresel paydaşlarla iletişim kopukluğunu çözmeyi öğrendin. Risk İştahının stratejinin özünde yattığını da bir kez daha pekiştirdin. Son iki hafta seni bekliyor — derin bir nefes al!",
+      "time": "17:30"
+    },
+    {
+      "id": 147,
+      "type": "story",
+      "section": 31,
+      "from": "Beyza Parlar",
+      "fromRole": "Yapay Zekâ Takım Lideri",
+      "subject": "31. Hafta Kapandı: Portföy ve Teknoloji Dünyasına Girdin!",
+      "body": "Bu hafta 450 riskin niteliksel önceliklendirilmesinden, iklim riskine karşı Aktif Kabul stratejisine, küresel yetenek krizinden Portföy Yönetişim Kurullarına ve AI/ML'nin risk yönetiminin geleceğini nasıl şekillendireceğine kadar devasa bir konu yelpazesini başarıyla geçtin. Risk Sahibi sorumluluğunu da artık içselleştirdin. Büyük Final ve son kontroller seni bekliyor — hazır mısın?",
+      "time": "17:30"
+    },
+    {
+      "id": 148,
+      "type": "story",
+      "section": 32,
+      "from": "Şeref Koçhisar",
+      "fromRole": "Sponsor / Yönetim Kurulu Başkanı",
+      "subject": "🏆 SİMÜLASYON TAMAMLANDI — Tebrikler, Kurumsal Risk Direktörü!",
+      "body": "HIZIR-NET ile başlayan bu efsanevi yolculuk resmen kapandı. Risk planlamasından ERM entegrasyonuna, Siyah Kuğularla savaşmaktan fırsatları yakalamaya, Monte Carlo simülasyonlarından 115. ve son karara uzanan 32 haftalık bu devasa simülasyonda her zorluğun üstesinden geldin. PMI-RMP çerçevesini yalnızca teknik bilgi olarak değil, bir liderlik felsefesi olarak içselleştirdin. Sen artık bir Risk Yönetim Ustasısın — organizasyonun gözbebeğisin! 🎓",
+      "time": "18:00"
     }
   ]
 }
