@@ -8,8 +8,8 @@
   "company": "Kalkan Savunma Sistemleri",
   "client": "Savunma Sanayii Başkanlığı (SSB)",
   "dChoiceLimit": 3,
-  "totalDecisions": 63,
-  "maxXP": 1890,
+  "totalDecisions": 86,
+  "maxXP": 2580,
   "sections": [
     {
       "id": 1,
@@ -115,6 +115,51 @@
       "id": 21,
       "title": "BÖLÜM 21: BÜYÜK RESİM VE KURUMSAL DAYANIKLILIK",
       "iteration": "Hafta 21 — Kurumsal Risk Yönetimi - ERM"
+    },
+    {
+      "id": 22,
+      "title": "BÖLÜM 22: DEĞER YARATMAK VE KÜLTÜRÜ DEĞİŞTİRMEK",
+      "iteration": "Hafta 22 — Portföy ve ERM"
+    },
+    {
+      "id": 23,
+      "title": "BÖLÜM 23: PORTFÖYÜN YAPISAL TEHLİKELERİ",
+      "iteration": "Hafta 23 — Strateji ve Tanımlama"
+    },
+    {
+      "id": 24,
+      "title": "BÖLÜM 24: PROGRAM YÖNETİŞİMİ VE İLETİŞİM",
+      "iteration": "Hafta 24 — Program Governance"
+    },
+    {
+      "id": 25,
+      "title": "BÖLÜM 25: DEĞER YARATIMI VE ÇEVİK TEDARİK",
+      "iteration": "Hafta 25 — Portföy ve Tedarik Riskleri"
+    },
+    {
+      "id": 26,
+      "title": "BÖLÜM 26: İZLEME, DENETİM VE ÖĞRENEN ORGANİZASYON",
+      "iteration": "Hafta 26 — İzleme ve Öğrenen Organizasyon"
+    },
+    {
+      "id": 27,
+      "title": "BÖLÜM 27: SON TESLİMATLAR VE KARMAŞIKLIĞI YÖNETMEK",
+      "iteration": "Hafta 27 — Karmaşıklık Navigasyonu ve ERM"
+    },
+    {
+      "id": 28,
+      "title": "BÖLÜM 28: KURUMSAL GELECEK VE BÜYÜK FİNAL",
+      "iteration": "Hafta 28 — ERM Entegrasyonu ve Kapanış"
+    },
+    {
+      "id": 29,
+      "title": "BÖLÜM 29: KÜRESEL ARENA VE VERİ KALİTESİ",
+      "iteration": "Hafta 29 — İleri Düzey ERM ve Analiz"
+    },
+    {
+      "id": 30,
+      "title": "BÖLÜM 30: KÜRESEL ZORLUKLAR VE STRATEJİK YANITLAR",
+      "iteration": "Hafta 30 — Analiz ve İletişim"
     }
   ],
   "competencies": [
@@ -131,7 +176,20 @@
         73,
         80,
         81,
-        83
+        83,
+        87,
+        88,
+        89,
+        105,
+        107,
+        110,
+        112,
+        113,
+        115,
+        116,
+        119,
+        122,
+        125
       ]
     },
     {
@@ -142,7 +200,8 @@
         9,
         11,
         60,
-        77
+        77,
+        117
       ]
     },
     {
@@ -161,7 +220,9 @@
         59,
         63,
         75,
-        85
+        85,
+        120,
+        121
       ]
     },
     {
@@ -186,7 +247,9 @@
         65,
         68,
         72,
-        84
+        84,
+        114,
+        118
       ]
     },
     {
@@ -201,7 +264,8 @@
         51,
         55,
         64,
-        69
+        69,
+        123
       ]
     },
     {
@@ -220,7 +284,11 @@
         61,
         71,
         76,
-        79
+        79,
+        106,
+        108,
+        109,
+        124
       ]
     }
   ],
@@ -2960,6 +3028,946 @@
           "key": "D",
           "text": "Bilinmeyen riskler için endişelenmek zaman kaybıdır. Piyasalar her zaman kendi kendini dengeler. Bu konuyu Yönetim Kuruluna 'kadercilik' (Fatalism) çerçevesinde açıklayıp, hiçbir şey yapmadan beklemeliyiz.",
           "feedback": "Organizasyonu öngörülemeyen şoklara karşı tamamen savunmasız bırakmak, risk yönetiminin en temel proaktif yapısına terstir ve kriz anında kurumun tamamen çökmesine (iflasına) zemin hazırlar.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "type": "story",
+      "section": 22,
+      "from": "Eren Keçi",
+      "fromRole": "İnsan Kaynakları ve İletişim Direktörü",
+      "subject": "Şirket İçi Risk Kültürü Anketi Sonuçları",
+      "body": "Kurumsal Risk Direktörü (CRO) olarak atandığından beri şirkette rüzgarlar farklı esiyor. Ancak İK olarak yaptığımız gizli anketin sonuçları pek iç açıcı değil. Alt kademedeki birçok proje yöneticisi, projelerinde bir risk tespit ettiklerinde bunu üst yönetime raporlamaktan korkuyorlar. \"Kötü haber getiren elçi\" olmak istemiyorlar. Sistemleri ve matrisleri kurdun ama şimdi insanları (kültürü) değiştirme zamanı!",
+      "time": "09:00"
+    },
+    {
+      "id": 87,
+      "type": "decision",
+      "section": 22,
+      "from": "Şeref Koçhisar",
+      "fromRole": "Yönetim Kurulu Başkanı",
+      "subject": "Yöneticiler Neden Riskleri Saklıyor?",
+      "body": "Eren'in anket raporunu ben de okudum. Proje yöneticilerimiz riskleri kayıt altına alıp bize bildirmek yerine, halı altına süpürüp sorun patlayana kadar bekliyorlar! Bu durum şirketimizi Siyah Kuğulara karşı tamamen kör ve savunmasız bırakıyor. Tepe yönetim olarak, organizasyonda risk yönetimini benimseyen bir kültürü (Culture that Embraces Risk Management) nasıl inşa etmeliyiz?",
+      "time": "10:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Risk yönetimini benimseyen bir kültür oluşturmak için pozitif bir zihniyet geliştirmeliyiz. Liderler olarak, tehditlerin proaktif şekilde belirlenmesini teşvik eden (suçlayıcı olmayan) açık ve dürüst bir iletişim (Open and Honest Communication) ortamı yaratmalı ve fırsatları bulanları ödüllendirmeliyiz.",
+          "feedback": "PMI Standartlarına göre risk yönetimini benimseyen bir kültür teşvik edilmelidir. Açık ve dürüst iletişim başarı faktörüdür. İnsanlar riskleri bildirdiklerinde cezalandırılacaklarını (blame culture) düşünürlerse, riskleri saklarlar. Yönetim, proaktif risk tespitini bir 'başarısızlık' değil, 'değer koruma' hamlesi olarak ödüllendirmelidir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Kimin hangi riski sakladığını bulmak için gizli denetçiler atamalı ve risk raporlamayan yöneticilerin performans primlerini derhal keserek şirkette korku ve disiplin ortamı yaratmalıyız.",
+          "feedback": "Korku ve cezalandırma üzerine kurulu bir yönetim tarzı, risklerin daha da derinlere saklanmasına ve iletişim yollarının tamamen kapanmasına neden olur. Modern risk yönetimi şeffaflık gerektirir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Madem insanlar risk yazmaktan strese giriyor, Risk Kaydı (Risk Register) doldurma zorunluluğunu tamamen ortadan kaldıralım. Herkes işine odaklansın, sorun çıkarsa o an çözeriz.",
+          "feedback": "Süreçleri tamamen terk edip reaktif (tepkisel) yangın söndürme moduna geçmek, kurumsal yönetişimin (Governance) iflas etmesi demektir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Tüm proje yöneticilerini işten çıkarıp, doğası gereği 'riskten tamamen kaçınan' (Risk Averse) yeni personeller işe alalım ki şirketimiz bir daha hiçbir riskle karşılaşmasın.",
+          "feedback": "Risk almamak, iş yapmamak demektir. Şirketler büyümek için belirli bir Risk İştahı (Risk Appetite) doğrultusunda hesaplanmış riskler almak zorundadır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "type": "decision",
+      "section": 22,
+      "from": "Nalan Han Çubuk",
+      "fromRole": "Portföy Yönetim Ofisi - PMO",
+      "subject": "Portföye Yeni Bir Proje Ekleme Kararı",
+      "body": "Masamızda onay bekleyen yeni bir 'Yapay Zeka Destekli Lojistik Ağ' projesi var. Projenin getirisi (Fırsat/Değer) muazzam, ancak içerdiği belirsizlikler ve tehditler de bir o kadar yüksek. Portföy seviyesinde, bir projenin (bileşenin) portföye eklenip eklenmeyeceğine karar verirken ERM stratejimiz gereği NEYE odaklanarak karar vermeliyiz?",
+      "time": "11:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Portföy risk yönetiminin temel amacı 'Değer Teslimi'ni (Value Delivery) maksimize etmektir. Karar verirken; bu projenin portföyün genel risk maruziyetine (Overall Risk Exposure) olan katkısını ve stratejik hedeflerimize sağlayacağı değeri dengelemeliyiz (Risk-Verimli Portföy). Getirisi risk iştahımıza uyuyorsa projeyi portföye ekleriz.",
+          "feedback": "Portföy düzeyinde risk yönetimi, projelerin stratejik hedeflere ulaşmak için bir grup olarak yönetilmesidir. Portföy yönetimi, genel risk maruziyeti ve stratejik değere dayalı olarak bileşenlerin (projelerin) eklenmesi veya çıkarılmasıyla 'Risk-Verimli' (Risk-Efficient) bir denge kurmayı hedefler. Odak noktası riskten kaçmak değil, beklenen değeri teslim etmektir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Eğer bir projenin Olasılık ve Etki Matrisinde kırmızı (yüksek) tehditleri varsa, getireceği kâra bakılmaksızın doğrudan reddedilmelidir. Portföyün amacı riskleri her zaman %0'da tutmaktır.",
+          "feedback": "Yenilikçi projeler her zaman yüksek risk barındırır. Portföy yönetiminin amacı sıfır risk değil, şirketin risk toleransı sınırları içinde optimum faydayı (fırsatları maksimize etmeyi) sağlamaktır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Şirketin parası bol olduğu için hiçbir analize gerek yoktur. Ne kadar çok proje alırsak o kadar çok büyürüz diyerek masadaki tüm projeleri aynı anda onaylamalıyız.",
+          "feedback": "Kaynakların (bütçe, insan) sınırsız olduğunu varsayıp tüm projeleri onaylamak, organizasyonel kapasitenin çökmesine ve mevcut projelerin de iflas etmesine (kaynak seyreltmesi) yol açar.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Bu kararı projenin kendi yöneticisine bırakmalıyız. Portföy yönetimi projelere karışmaz, sadece yıl sonunda muhasebe hesaplarını kontrol eder.",
+          "feedback": "Portföy yönetimi pasif bir muhasebe süreci değildir; şirketin hangi yöne gideceğini (Strateji) belirleyen en üst düzey aktif karar alma mekanizmasıdır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "type": "decision",
+      "section": 22,
+      "from": "Can Kaya Kalecik",
+      "fromRole": "Başmühendis",
+      "subject": "Yapay Zeka Uzmanlarımız Tükendi! (Kapasite Riski)",
+      "body": "Çok büyük bir krizin eşiğindeyiz. Portföydeki 5 farklı program aynı anda, spesifik uzmanlığa sahip olan o 3 'Yapay Zeka Görüntü İşleme' mühendisimizi talep ediyor. İnsan kaynağı kapasitemiz (Capacity) bu yükü kaldırmıyor. Kimse kimseye mühendisini vermek istemiyor, işler durma noktasına geldi. Portföy Risk Yöneticisi olarak, kaynaklar üzerindeki bu organizasyonel çatışmayı ve riski nasıl ele alırsın?",
+      "time": "14:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Portföy Kapasite ve Kabiliyet Yönetimi bağlamındaki risklere odaklanmalıyım. Organizasyonun kapasitesini (mevcut kaynak miktarını) ve kabiliyetini (beceri setini) değerlendirerek, ana stratejik hedeflere en çok hizmet eden portföy bileşenlerine kaynak önceliği verilmesini sağlayacak bir yönetişim (Governance) kararı aldırmalıyım.",
+          "feedback": "Portföy Kapasite ve Kabiliyet Yönetimi bağlamındaki risk yönetimi, portföy ile ilgili operasyonların karşılıklı etkisine odaklanır. Aynı anda sınırlı sayıdaki kilit kaynaklar (yeteneğin bulunamaması - unavailability of key talent) üzerinde oluşan rekabet, stratejik önceliklendirme ve kaynak optimizasyonu yapılarak (Portföy Yönetişimi) çözülmelidir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "İlk gelen alır kuralını işletmeliyim. Hangi program müdürü mühendisleri önce talep ettiyse, tüm mühendisleri ona verip diğer projelerin (stratejik önemine bakmaksızın) aylarca beklemesini sağlamalıyım.",
+          "feedback": "İlk gelen alır mantığı (First-come-first-served) stratejik bir portföy yönetimi yaklaşımı değildir. Operasyonel projelerin kurumun stratejik vizyonundan kopmasına neden olur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Hemen dışarıdan rastgele, deneyimsiz 20 tane yeni mühendis alıp tüm programlara dağıtmalıyım ki kimse kaynak eksiğinden şikayet etmesin.",
+          "feedback": "Spesifik beceri gerektiren (kabiliyet/capability) işlere yetkinliği olmayan insanları sadece 'sayısal kapasiteyi' doldurmak için atamak, devasa kalite maliyetlerine (CoQ) ve proje başarısızlıklarına yol açar.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Program müdürlerine kendi aralarında kavga etmemelerini, şikayet etmeyi bırakıp mevcut personeli günde 16 saat çalışmaya zorlamalarını emrederim.",
+          "feedback": "Personeli tükenmişliğe (burnout) ve aşırı kapasite kullanımına zorlamak sadece etik dışı olmakla kalmaz, aynı zamanda çalışan devir oranını (turnover) artırarak yetenek kaybı (loss of key talent) riskini gerçeğe dönüştürür.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "type": "decision",
+      "section": 27,
+      "from": "Can Kaya Kalecik",
+      "fromRole": "Başmühendis",
+      "subject": "Entegrasyon Çok Karışık!",
+      "body": "HIZIR-NET'in yapay zekâ yazılımı, AFAD'ın mevcut eski sunucuları ve sahada uçan İHA'lar aynı anda birbirine bağlanıyor. Ortada insan davranışı, sistem etkileşimleri ve belirsizliklerden doğan devasa bir 'Karmaşıklık' (Complexity) var. Bu karmaşık yapıyı risk yönetimi ile çözerken odak noktamız ne olmalıdır?",
+      "time": "09:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Hedefleri, gereksinimleri ve kapsamı netleştirerek potansiyel riskleri belirlemeli ve bu öngörülemeyen durumların girişimi engelleme olasılığını azaltmak için 'Karmaşıklığı Yönetme' (Navigate Complexity) ilkesini uygulamalıyız.",
+          "feedback": "PMI Standartlarına göre [Bölüm 1.4.6]; karmaşıklık; insan davranışı, sistem etkileşimleri ve belirsizliğin bir sonucudur. Risk yönetimi, hedefleri netleştirip bu karmaşıklığı ayrıştırarak projeyi başarılı çıktılara yönlendirmek için kullanılır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Karmaşık (Complex) projelerde risk yönetimi işe yaramaz. Her şeyi basite indirgeyip (Oversimplification) sadece donanım tarafına odaklanmalıyız.",
+          "feedback": "Karmaşıklığı yok saymak, entegrasyon risklerinin patlamasına neden olur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Karmaşıklığın olduğu yerde Çevik (Agile) yöntemler kullanılamaz. Derhal Şelale (Predictive) yöntemine dönüp her bir kabloyu önceden planlamalıyız.",
+          "feedback": "Tam tersine, karmaşıklık ve belirsizliğin yüksek olduğu ortamlarda Çevik ve Hibrit (Adaptive) yöntemler en iyi çözümdür.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "AFAD'ın eski sunucularını kullanmayı reddetmeli ve onlara sıfırdan sistem kurmalarını emretmeliyiz.",
+          "feedback": "Paydaşın kısıtlarına (Constraints) saygı duymadan sistemi çöpe atmak proje yönetiminin değer yaratma amacına terstir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "type": "decision",
+      "section": 27,
+      "from": "Nalan Han Çubuk",
+      "fromRole": "Program Yöneticisi",
+      "subject": "HIZIR-NET Kapanış Dosyası",
+      "body": "Programı resmen AFAD'a teslim ediyoruz. Ancak Risk Kaydımızda halen 'Gelecekte yazılım kütüphanelerinin eskimemesi için düzenli güncelleme gereksinimi' gibi bazı Artık Riskler (Residual Risks) var. Proje/Program kapanış (Closing Processes) aşamasında bu riskleri ne yapmalıyız?",
+      "time": "10:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Proje kapanışından hemen önce, faydaların gerçekleşmesini (benefits realization) etkileyebilecek olan bu geriye kalan bilinen riskler, sorumluluğu devralacak olan Operasyon (Operations) ekibine veya müşteriye resmi olarak devredilmelidir (Handed over).",
+          "feedback": "PMI Standartlarına göre [Bölüm 7.2.5]; proje veya programlar kapandığında riskler yok olmaz. Gelecekte fayda yaratımını etkileyebilecek Artık Riskler, kapanış belgeleriyle birlikte operasyonları yürütecek kuruma devredilerek operasyonel risklere dönüştürülür.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Kapanış aşamasındayız, proje bitmiştir. Tüm artık riskleri 'Gerçekleşmedi' (Closed) olarak işaretleyip dosyayı arşive kaldırmalıyız.",
+          "feedback": "Projenin bitmesi, ürünün ömrünün bitmesi demek değildir. Riskleri gizleyerek kapatmak müşteriyi savunmasız bırakır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Bu riskler sıfırlanana kadar projenin kapanışını (Sign-off) süresiz olarak ertelemeliyiz.",
+          "feedback": "Her projede belli bir miktar artık (residual) risk kalır. Sıfır risk diye bir şey yoktur; bu yüzden operasyonlara devir yapılır.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Bu artık riskleri karşılaması için AFAD'dan ekstra bütçe talep edip yeni bir proje başlatmalıyız.",
+          "feedback": "Sözleşmesi tamamlanan bir işte kalan normal operasyonel riskler için fırsatçılık yapıp yeni bütçe istemek etik dışıdır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "type": "decision",
+      "section": 27,
+      "from": "Deren Çamlı",
+      "fromRole": "Strateji ve Tedarik",
+      "subject": "Büyük Bir Fırsat mı, Büyük Bir Tehdit mi?",
+      "body": "Program kapanmak üzereyken, yeni ve çok ucuz bir batarya tedarikçisi buldum. Bu bize son anda 5 Milyon TL ekstra kâr (Değer) sağlayabilir. Ancak bataryaların kalite testleri için yeterli zamanımız yok, yani operasyonel çöküş riski (Tehdit) de çok yüksek. Kurumsal Risk Direktörü olarak bu 'Değer' ile 'Risk' arasındaki seçimi nasıl yapmalıyız?",
+      "time": "11:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Değer Gerçekleşmesini Genel Risklere Karşı Dengelemek (Balance Realization of Value Against Overall Risks) ilkesini uygulamalıyız. Kurumsal Risk Yönetimi (ERM), potansiyel faydalar (5 Milyon TL kâr) ile bununla ilişkili risk maruziyetinin (kalite çöküşü) kabul edilebilirliği (Risk İştahı) arasındaki ödünleşimleri (Trade-offs) dikkatle dengelemeyi gerektirir. Kalite tehdidi toleransımızı aşıyorsa bu değerden vazgeçilmelidir.",
+          "feedback": "PMI-RMP ilkelerine göre [Bölüm 1.3.4]; değer peşinde koşmak her türlü riski almak demek değildir. Organizasyonlar yaratılacak 'Değer' (Value) ile maruz kalınacak 'Genel Risk' arasında stratejik bir denge (balance) kurmak zorundadır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Kâr (Value) her zaman en önemlidir. 5 Milyon TL büyük bir para, kalite risklerini (tehdidi) göz ardı edip derhal ucuz bataryaları almalıyız.",
+          "feedback": "Sadece finansal faydaya odaklanıp riskleri analiz etmemek pervasızlık (reckless risk-seeking) örneğidir ve uzun vadede markayı batırır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Risk her zaman kötüdür. Fırsat ne kadar büyük olursa olsun, hiçbir yeni değişikliği kabul etmeyip her zaman 'Riskten Kaçınma' (Avoidance) stratejisi uygulamalıyız.",
+          "feedback": "Her fırsatı reddetmek (Risk-averse), şirketin rekabet gücünü yok eder. Ödünleşim (Trade-off) analizi yapılmalıdır.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Kararı müşteriye (AFAD) bırakalım, 'Kârı biz alacağız ama riskler size ait, kabul ediyor musunuz?' diye soralım.",
+          "feedback": "Müşteriye karşı etik olmayan ve sözleşme ruhuna aykırı bir yaklaşımdır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "type": "decision",
+      "section": 27,
+      "from": "Beyza Parlar",
+      "fromRole": "Yapay Zekâ Takım Lideri",
+      "subject": "Son Çevik (Agile) Retrospektif Toplantımız",
+      "body": "HIZIR-NET yazılım ekibi olarak son Çevik (Agile) iterasyonumuzu bitirdik. Risk yönetimi süreçlerimizi değerlendirdiğimiz çok verimli bir 'Retrospektif' yaptık. Neleri iyi yaptığımızı ve hangi risklerde tökezlediğimizi konuştuk. Bu Retrospektif çıktılarının şirketimiz için en büyük faydası ne olacaktır?",
+      "time": "13:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Çevik projelerde iterasyonların sonunda yapılan retrospektifler, sadece o projeyi iyileştirmekle kalmaz; aynı zamanda elde edilen dersler kurumsal düzeyde değerlendirilerek şirketin Sürekli İyileştirme (Continuous Improvement) sürecine ve Organizasyonel Süreç Varlıklarına (OPA) doğrudan katkı sağlar.",
+          "feedback": "PMI Standartlarına göre [Bölüm 4.1.1]; Çevik (Agile) yaklaşımlarda retrospektifler 'Alınan Dersler' (Lessons Learned) işlevi görür. Bu veriler gelecekteki projeler için kurumsal bir hafıza oluşturarak (OPA güncellemeleri) risk yönetiminin mükemmelleşmesini sağlar.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Retrospektiflerin amacı, proje boyunca hata yapan veya 'işleri bozan' yazılımcıları tespit edip, onlara bir sonraki projede görev vermemektir.",
+          "feedback": "Çevik manifestoya ve risk yönetimi kültürüne tamamen aykırıdır. Retrospektifler suçlu bulmak (blame game) için değil, süreçleri iyileştirmek için yapılır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Çevik projelerde dokümantasyona inanmadığımız için, konuştuklarımızı yazıya dökmemize gerek yoktur. Toplantı bittikten sonra herkes her şeyi unutabilir.",
+          "feedback": "Çeviklik gereksiz dokümantasyondan kaçınır ancak 'Öğrenilmiş Derslerin' ve kurumsal hafızanın kaydedilmesini şart koşar.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Retrospektif sadece Müşteri (AFAD) mutlu olsun diye yapılan göstermelik bir toplantıdır, iç işleyişimize bir etkisi yoktur.",
+          "feedback": "Tam tersine, retrospektif ekibin kendi iç süreçlerini optimize etmesi için yapılan en kritik Çevik ritüeldir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "type": "decision",
+      "section": 27,
+      "from": "Şeref Koçhisar",
+      "fromRole": "Yönetim Kurulu Başkanı",
+      "subject": "Hissedarlara Son Sunum!",
+      "body": "Yarın sabah hissedarlarımıza (Yatırımcılar) Kalkan A.Ş.'nin güncel risk durumunu sunacaksın. Senden sadece Excel'deki yüzlerce satırlık teknik riskleri değil; organizasyonun genel gidişatını, belirsizlik seviyesini ve aldığımız stratejik risklerin özetini kapsayan kapsamlı bir belge sunmanı bekliyorlar. Bu belgenin/kavramın adı nedir?",
+      "time": "15:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Hissedarlara şirketin veya portföyün 'Risk Profili' (Risk Profile) sunulmalıdır. Risk profili; bireysel riskler hakkındaki bilgileri, bunların gerçekleşme olasılıklarını, etkilerini ve en önemlisi paydaşların risk durumunu anlayıp bilinçli kararlar almasını sağlayan 'Genel Risk Maruziyetinin' (Overall Exposure) kapsamlı ve üst düzey bir özetidir.",
+          "feedback": "PMI Standartlarına göre [Sayfa 76]; Risk Profili (Risk Profile), tekil risklerin yanı sıra portföyün/organizasyonun 'Genel (Overall) Risk Maruziyetini' gösteren ve üst yönetimin stratejik karar almasını sağlayan en kapsamlı iletişim ve raporlama aracıdır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Hissedarlara 'Risk Kırılım Yapısı' (Risk Breakdown Structure - RBS) sunulmalıdır. Hangi riskin hangi departmandan çıktığını gösteren bu hiyerarşik tablo hissedarlar için yeterlidir.",
+          "feedback": "RBS riskleri kategorize etmek için harika bir araçtır ancak risklerin etkisini, olasılığını veya şirketin genel finansal/stratejik durumunu (Exposure) göstermez.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Şirketin tüm projelerindeki Beklenmedik Durum Yedeklerinin (Contingency Reserves) alt alta toplandığı bir muhasebe fişi sunulmalıdır.",
+          "feedback": "Salt muhasebe verisi 'Risk Profili' demek değildir. Yatırımcılar sadece maliyeti değil, fırsatları, tehditleri ve belirsizliği (Uncertainty) görmek isterler.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Hissedarları endişelendirmemek için, riskleri gizleyen ve şirketin %100 risksiz olduğunu iddia eden 'Beyaz Yalanlar' içeren sahte bir PR sunumu yapılmalıdır.",
+          "feedback": "Açık ve dürüst iletişim (Open and honest communication) ilkesinin ve şeffaflığın ihlalidir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "type": "decision",
+      "section": 27,
+      "from": "Evren Elmadağ",
+      "fromRole": "Kalite Yöneticisi",
+      "subject": "Risk Planına Harfi Harfine Uymak 'Mükemmellik' midir?",
+      "body": "HIZIR-NET projesi biterken bazı mühendisler, Risk Yönetim Planındaki süreçleri (formları, onayları) o kadar katı ve bürokratik bir şekilde uyguladılar ki (katı kuralcılık), riskleri zamanında çözmekte gecikerek projeye zarar verdiler. PMI standartlarına göre risk yönetiminde 'Mükemmelliğe Ulaşmak' (Strive to Achieve Excellence) kuralcılıkla mı sağlanır?",
+      "time": "16:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Hayır. Risk yönetiminde mükemmellik (Excellence), süreçlerin katı (strict) ve yorucu bir şekilde uygulanmasıyla elde edilmez. Aksine mükemmellik; elde edilecek faydaları maliyetlerle dengeleyerek ve risk süreçlerini organizasyonun/projenin boyutuna, karmaşıklığına ve olgunluğuna göre Uyarlayarak (Tailoring) elde edilir.",
+          "feedback": "PMI İlkelerine göre [Bölüm 1.3.1]; risk yönetiminde mükemmelliğe ulaşmak demek, süreci dogmatik bir şekilde (katı) uygulamak değil, projenin ihtiyaçlarına göre esnetmek (tailoring) ve uygulanan sürecin maliyetinin, getireceği faydayı aşmamasını (optimizasyon) sağlamaktır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Evet. Süreç ne kadar ağır ve bürokratik olursa olsun, kurallara harfi harfine (strict) uymak mükemmelliğin tek göstergesidir. Proje gecikse bile kurallar esnetilemez.",
+          "feedback": "Aşırı bürokrasi ve kurallara katı bağlılık, çevikliği (agility) öldürür ve risk yönetiminin asıl amacı olan 'değer yaratımını' engeller.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Mükemmellik, proje yöneticisinin risk süreçlerini tamamen terk edip sadece içgüdülerine (gut feeling) güvenerek hareket etmesiyle elde edilir.",
+          "feedback": "Süreçleri esnetmek/uyarlamak (tailoring) ile süreçleri tamamen çöpe atmak birbirinden farklıdır. Yapılandırılmış bir yaklaşım her zaman gereklidir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Mükemmelliğe sadece en pahalı risk yönetimi yazılımlarını (Software) satın alarak ve işi tamamen bilgisayarlara devrederek ulaşılabilir.",
+          "feedback": "Araçlar (Tools) sadece destekleyicidir. Mükemmellik araçlarda değil, insanların kültürü, karar alma süreçleri ve uyarlama (tailoring) yeteneğindedir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 111,
+      "type": "story",
+      "section": 28,
+      "from": "Eren Keçi",
+      "fromRole": "İK / Kültür Dönüşümü",
+      "subject": "Artık Korkmuyoruz!",
+      "body": "Sana harika bir haberim var. Kurumsal Risk Direktörü (CRO) olarak uyguladığın 'Şeffaf İletişim' politikaları sayesinde şirket kültürümüz tamamen değişti. Proje yöneticileri artık bir risk (tehdit) gördüklerinde bunu saklamak yerine anında gururla raporluyorlar. Çünkü artık 'kötü haber getiren elçi'nin cezalandırılmadığını (No Blame Culture), aksine proaktif davranıldığı için ödüllendirildiğini biliyorlar. Risk kültürümüz sınıf atladı!",
+      "time": "09:00"
+    },
+    {
+      "id": 112,
+      "type": "decision",
+      "section": 28,
+      "from": "Şeref Koçhisar",
+      "fromRole": "Yönetim Kurulu Başkanı",
+      "subject": "Tüm Yönetimi ERM'ye Bağlamak",
+      "body": "Kalkan A.Ş. olarak HIZIR-NET projesinden elde ettiğimiz başarıyı, şirketin İnsan Kaynakları, Pazarlama ve Operasyonlar gibi tüm fonksiyonlarına taşımak istiyorum. Kurduğumuz bu Kurumsal Risk Yönetimi (ERM) sisteminin, şirketin genel yönetimiyle (Management) tam olarak bütünleştiğinde (fully integrated) organizasyona sağlayacağı en büyük 'stratejik fayda' nedir?",
+      "time": "10:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "ERM, organizasyonun yönetimine ve kültürüne tam olarak entegre edildiğinde; farklı risk sonuç senaryoları arasındaki ödünleşimleri (trade-offs) netleştirir, tüm belirsizliklerin ele alınmasını sağlar ve organizasyonun misyonu, vizyonu ve stratejik hedefleri doğrultusunda değer (value) yaratması ve bu değeri sürdürmesi (sustain) için organizasyona benzersiz bir 'netlik' (clarity) kazandırır.",
+          "feedback": "PMI ERM standartlarına göre [Appendix X7 - Sayfa 159]; Kurumsal Risk Yönetimi organizasyona tam entegre olduğunda sadece proje sorunlarını çözmekle kalmaz; yönetimin vizyonunu netleştirir, kârlılığı destekler, stratejiyi şekillendirir ve kurumun en yüksek değeri yaratıp korumasını güvence altına alır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "ERM'nin tek faydası, şirketin devlete ödediği vergileri (Taxes) düşürmek için kullanılacak yasal bir kılıf olmasıdır.",
+          "feedback": "Risk yönetimini salt yasal zorunluluk (compliance) veya muhasebe oyunu olarak görmek, ERM'nin stratejik gücünü tamamen ıskalamaktır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "ERM entegre olduğunda, proje yöneticilerine (PM) artık ihtiyaç kalmaz; çünkü ERM sistemi projeleri otomatik olarak kendi kendine yönetir.",
+          "feedback": "ERM bir yazılım veya otomasyon değil, felsefedir. Başarılı olması için proje, program ve portföy yöneticilerinin aktif eylemlerine ihtiyaç duyar.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "ERM, şirketin aldığı tüm kararlarda risk oranını 'Sıfıra' indirerek şirketin asla zarar etmeyeceğini (Risk Avoidance) %100 garanti eder.",
+          "feedback": "Hiçbir sistem (ERM dahil) belirsizliği %100 yok edemez veya riskleri sıfırlayamaz. Amaç riski sıfırlamak değil, ödül/fayda dengesini (Risk Efficiency) kurmaktır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 113,
+      "type": "decision",
+      "section": 28,
+      "from": "Nalan Han Çubuk",
+      "fromRole": "Portföy Yönetim Ofisi",
+      "subject": "HIZIR-NET Ekibini Nereye Dağıtacağız?",
+      "body": "HIZIR-NET başarıyla bittiği için elimizde çok yetenekli mühendisler, veri analistleri ve yazılımcılardan oluşan bir havuz boşa çıktı (Capability). Şimdi bu yetenekli insanları portföyümüzdeki diğer yeni projelere dağıtmamız gerekiyor. Portföy seviyesinde 'Kapasite ve Kabiliyet' yönetimi risklerini ele alırken bu dağıtımı NEYE göre yapmalıyız?",
+      "time": "11:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Portföy yönetişimi (Governance) çerçevesinde; bu kilit insan kaynağının (key talent) yetkinliklerini, portföydeki diğer projelerin gereksinimleriyle eşleştirmeli ve organizasyonun 'Stratejik Hedeflerine' (Strategic Objectives) en yüksek değeri (Value) sağlayacak olan projelere öncelik vererek atamaları gerçekleştirmeliyiz.",
+          "feedback": "PMI Standartlarına göre [Bölüm 5.2.3 ve X3.4]; Portföy Kapasite ve Kabiliyet riskleri, sınırlı sayıdaki kilit kaynakların yanlış yerlere harcanmasını engellemeyi hedefler. Kaynaklar her zaman 'stratejik uyuma' ve 'değer yaratımına' en çok katkı sağlayacak bileşenlere aktarılır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "'İlk gelen alır' kuralını işletmeliyiz. Hangi yeni projenin yöneticisi ilk önce talepte bulunduysa, tüm uzman ekibi stratejik önemine bakmaksızın ona devretmeliyiz.",
+          "feedback": "Portföy kaynaklarının operasyonel taleplere (first-come-first-served) göre rastgele dağıtılması, stratejik hizalanmayı (Strategic Alignment) bozar ve değer kaybına yol açar.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Hepsini işten çıkarmalıyız. Proje bittiği için organizasyonun bu kişilere daha fazla maaş ödemesi kurumsal bir finansal risktir.",
+          "feedback": "'Öğrenme eğrisini' (Learning Curve) tamamlamış kilit yetenekleri (Key talent) proje bitiminde doğrudan işten çıkarmak, şirketin 'Kabiliyet' (Capability) ve 'Bilgi' (Knowledge) kapasitesini yok eden devasa bir tehdittir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Tüm uzmanları aynı anda portföydeki 12 projeye birden (%10'luk eforlarla) atamalıyız ki kimse kaynak eksikliği yaşamasın.",
+          "feedback": "Kaynakların aşırı bölünmesi (Resource Dilution / Multitasking), verimliliği bitiren ve portföydeki tüm projelerin aynı anda gecikmesine (Schedule Slip) neden olan yapısal bir risktir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 114,
+      "type": "decision",
+      "section": 28,
+      "from": "Can Kaya Kalecik",
+      "fromRole": "Başmühendis / Ar-Ge",
+      "subject": "Risk Yönetiminin Geleceği (AI & ML)",
+      "body": "Şirketin 5 yıllık teknoloji vizyonunu planlıyoruz. Portföy seviyesindeki riskleri tespit etmek ve devasa geçmiş veri tabanlarımızdan 'gizli kalmış' (Unknown) riskleri keşfetmek istiyoruz. İnsan gücünün (analistlerin) hızını ve doğruluğunu aşan bu devasa veriyi işlemek için portföy risk yönetiminde Yükselen Trendlerden (Emerging Trends) hangisine yatırım yapmalıyız?",
+      "time": "13:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "İleri Düzey Veri Analitiğine (Data Analytics), Yapay Zekâ (AI) ve Makine Öğrenimi (ML) algoritmalarına yatırım yapmalıyız. Bu teknolojiler, hem şirket içi hem de dış dünyadaki (public domain) devasa verileri işleyerek, insan gözüyle görülemeyecek karmaşık risk kalıplarını (patterns), eğilimleri ve bağlantıları çok daha hızlı ve isabetli bir şekilde tespit etmemizi (Proaktif Risk Yönetimi) sağlar.",
+          "feedback": "PMI Standartlarında [Bölüm 5.1.5 - Emerging Trends]; Yapay Zekâ (AI), Makine Öğrenimi (ML) ve İleri Veri Analitiği, portföy risk yönetiminin geleceğidir. Büyük veriyi (Big Data) işleyerek yöneticilere çok daha hızlı ve kanıta dayalı erken uyarı (early warning) ve karar destek sistemleri sunarlar.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Uzman Görüşüne (Expert Judgment) geri dönmeliyiz. Yapay zekâ her zaman hata yapar; sadece yaşı ilerlemiş 3-4 danışmanın hissiyatlarıyla (gut feeling) geleceği tahmin etmelerini beklemeliyiz.",
+          "feedback": "Uzman görüşü her zaman değerlidir ancak devasa büyüklükteki küresel ve kurumsal veriyi (Big Data) sadece insan zihniyle (AI desteği olmadan) analiz etmeye çalışmak artık modası geçmiş ve yavaş bir yöntemdir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Olasılık ve Etki Matrisi şablonlarını Excel'de kullanmaya devam etmeliyiz. Gelişmiş yazılımlar sadece ekstra masraftır ve yeni trendler risk yönetimine değer katmaz.",
+          "feedback": "Yenilikleri ve teknolojik adaptasyonu (Agility) reddetmek, şirketin rekabetçiliğini (Competitiveness) kaybetmesine ve rakiplerin gerisinde kalmasına neden olur.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Şirketin tüm karar alma yetkisini (Governance) tamamen Yapay Zekâya devretmeli ve hiçbir insanın (yöneticinin) bu kararları sorgulamasına izin vermemeliyiz.",
+          "feedback": "AI/ML sistemleri 'karar destek' (Decision-support) araçlarıdır. Nihai hesap verebilirlik (Accountability) ve stratejik vizyon yönetimi her zaman insanlara (Sponsor, Yönetim Kurulu) aittir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 115,
+      "type": "decision",
+      "section": 28,
+      "from": "Şeref Koçhisar",
+      "fromRole": "Sponsor / YK Başkanı",
+      "subject": "Son Soru: Neden Buradayız?",
+      "body": "Sevgili CRO, HIZIR-NET projesiyle başladığın bu zorlu yolculuğu Yönetim Kurulu masasında zirveye taşıdın. Matrisler kurdun, Monte Carlo simülasyonları çalıştırdın, Siyah Kuğularla savaştın, fırsatları yakaladın ve kurumun kültürünü değiştirdin. Şimdi, hissedarların gözünün içine bakarak, PMI-RMP felsefesine göre yaptığımız tüm bu 'Risk Yönetimi' işinin nihai varoluş amacını (Purpose) TEK BİR CÜMLE ile özetlemeni istiyorum.",
+      "time": "15:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "'Risk yönetiminin nihai amacı; portföyler, programlar ve projeler (girişimler) üzerinde organizasyonun hedeflerini saptırabilecek belirsizlikleri yöneterek, organizasyonun DEĞER YARATMA VE BU DEĞERİ KORUMA (Create and Sustain Value) misyonunu proaktif bir şekilde güvence altına almaktır.'",
+          "feedback": "Tebrikler! PMI'ın Risk Yönetimi felsefesinin en öz ve en güçlü tanımı budur. İster proje ister ERM düzeyinde olsun, risk yönetimi sadece form doldurmak veya felaketlerden kaçmak değil; organizasyon için stratejik 'Değer' (Value) yaratmak, fırsatları en üst düzeye çıkarmak ve o değeri tehditlere karşı korumaktır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "'Risk yönetiminin amacı, sözleşmelerimizde hiçbir açığın kalmamasını sağlayarak, hata yaptığımızda suçu atacağımız bir alt yüklenici (Taşeron) bulmaktır.'",
+          "feedback": "Savunmacı, hukuki bahane üretmeye odaklı ve değer yaratmaktan uzak eski tarz bir vizyonsuzluktur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "'Risk yönetiminin amacı, bütçeyi her zaman planlanan miktarın altında tutmak ve şirketin cebinden ekstra 1 TL bile çıkmasını engellemektir.'",
+          "feedback": "Para tasarrufu yapmak taktiksel bir hedeftir, ancak şirketin vizyonunu gerçekleştirmesi (Value Delivery) uğruna yeri geldiğinde bütçe yedeği harcanması (Contingency) veya risk alınması (Risk Appetite) gerekir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "'Risk yönetimi, geleceği %100 kesinlikle tahmin ederek, şirketimizin bir daha asla herhangi bir sorunla (Issue) karşılaşmamasını sağlayan sihirli bir formüldür.'",
+          "feedback": "Gelecek asla %100 tahmin edilemez (Uncertainty). Risk yönetimi bir sihir değil; dayanıklılık (Resilience), esneklik ve yapılandırılmış karar alma (Decision-making) disiplinidir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 116,
+      "type": "decision",
+      "section": 29,
+      "from": "Şeref Koçhisar",
+      "fromRole": "Yönetim Kurulu Başkanı",
+      "subject": "Yeni Sezon, Yeni Vizyon! Yatırımcılara Ne Diyeceğiz?",
+      "body": "Sevgili CRO, HIZIR-NET ile ulusal çapta rüştümüzü ispatladık. Şimdi Kalkan A.Ş. olarak uluslararası pazarlara açılıyoruz. Yabancı yatırımcılarla ilk toplantımızı yapacağız. Bize 'Risk yönetimi sizin için sadece korkulardan kaçmak mıdır?' diye soracaklar. Portföy, program ve proje (PPP) düzeyinde, PMI standartlarının 'Risk Yönetimi' tanımını ve felsefesini yatırımcılara en doğru nasıl açıklamalıyız?",
+      "time": "09:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Risk yönetimi, planlama sürecinde ortaya çıkabilecek belirli olayların hedeflerimiz üzerinde hem olumlu (fırsat) hem de olumsuz (tehdit) etkileri olabileceği gerçeğini ele alır. Fırsatları yakalamak (capture) ve tehditleri sınırlandırmak (limit) için proaktif planlama yapmamızı sağlayan yapılandırılmış bir değer yaratma sürecidir.",
+          "feedback": "PMI 'The Standard for Risk Management in Portfolios, Programs, and Projects' giriş bölümüne göre, risk yönetimi sadece tehditlerden kaçmak değil, fırsatları yakalamak ve hedeflerden sapmayı engellemek için yapılan proaktif planlamalar bütünüdür.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Risk yönetimi, girdiğimiz uluslararası ihalelerde başımıza gelebilecek hukuki sorunları alt yüklenicilere (taşeronlara) yıkmak için sözleşmelerdeki açıkları bulma sanatıdır.",
+          "feedback": "Risk yönetimi sorumluluktan kaçmak değil, belirsizliği proaktif olarak yönetmektir. Hukuki bahane üretmeye odaklı bu tanım PMI felsefesine tamamen aykırıdır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Risk yönetimi, geleceği %100 kesinlikle tahmin ederek şirketimizin hiçbir bütçe aşımı veya zaman gecikmesi yaşamamasını garanti eden matematiksel bir formüldür.",
+          "feedback": "Belirsizliği tamamen yok etmek imkânsızdır. Risk yönetimi belirsizliği yönetmek için yapılandırılmış bir yaklaşım sunar, sihirli bir garanti vermez.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Risk yönetimi, sadece operasyonel süreçlerde kalite hatalarını bulmak için kullanılan reaktif (tepkisel) bir kontrol mekanizmasıdır.",
+          "feedback": "Risk yönetimi reaktif değil proaktiftir ve sadece kalite değil tüm belirsizlik kaynaklarını (tehdit ve fırsatlar) kapsar.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 117,
+      "type": "decision",
+      "section": 29,
+      "from": "Nalan Han Çubuk",
+      "fromRole": "Portföy Yönetim Ofisi",
+      "subject": "İç Paydaş Çatışmaları (Bileşen Yöneticileri)",
+      "body": "Yeni küresel portföyümüzün altındaki program ve proje yöneticileri (bileşen yöneticileri) ile ciddi bir sorun yaşıyoruz. Herkes sadece kendi projesinin bütçesini ve başarısını düşünüyor, portföyün genel stratejik vizyonunu umursamıyorlar. Portföy düzeyinde en kritik paydaş gruplarından olan bu 'bileşen yöneticilerine' (component managers) yönelik risk yönetimi odağımız ne olmalıdır?",
+      "time": "10:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Portföy risk yönetimi bu açıdan iki şeye odaklanmalıdır: 1) Organizasyonun stratejisini gerçekleştirme etkinliğini artıracak fırsatlara, 2) Stratejiyi gerçekleştirme yeteneğini düşürebilecek (bileşenler arası uyumsuzluk gibi) tehditlere. Bu yöneticilerle etkileşim kurarak stratejik uyum sağlanmalıdır.",
+          "feedback": "PMI Standartlarına göre, portföy seviyesindeki kilit paydaşlar arasında 'bileşen yöneticileri' (program/proje müdürleri) yer alır. Portföy risk yönetimi, bu paydaşların kurumsal stratejiye katkısını artıracak fırsatlara ve bunu engelleyecek tehditlere odaklanır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Tüm proje yöneticilerini Olasılık ve Etki Matrisinde birer 'tehdit' olarak etiketleyip, hiçbir karara dahil etmeden onları tamamen izole etmeliyiz.",
+          "feedback": "İç paydaşları 'tehdit' olarak izole etmek, stratejik uyumu daha da bozar ve organizasyon içi çatışmaları artırır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Bileşen yöneticileri portföyün dış paydaşları olduğu için, onların ne düşündüğü bizi ilgilendirmez. Biz sadece Müşterilere odaklanmalıyız.",
+          "feedback": "Bileşen yöneticileri portföyün en kritik İÇ paydaşlarıdır. Onların stratejik uyumu sağlanmadan portföy değer yaratamaz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Bileşen yöneticilerinin tüm taleplerini 'Kabul Etme' (Accept) stratejisiyle onaylamalıyız, böylece iç çatışma riski tamamen ortadan kalkar.",
+          "feedback": "Her talebi körü körüne kabul etmek portföy kaynaklarını ve stratejik öncelikleri yok eder. Etkileşim ve müzakere esastır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 118,
+      "type": "decision",
+      "section": 29,
+      "from": "Can Kaya Kalecik",
+      "fromRole": "Ar-Ge Lideri",
+      "subject": "120 Milyonluk Fabrika Kararı!",
+      "body": "İhracat için üretim kapasitemizi artırmalıyız. Karşımızda bir belirsizlik var: Yeni bir fabrika inşa etmek için 120 Milyon TL mi yatırmalıyız, yoksa mevcut fabrikamızı 50 Milyon TL'ye yükseltmeli miyiz (upgrade)? Pazar talebinin 'Güçlü' veya 'Zayıf' olmasına göre elde edeceğimiz kârlar (payoff) değişecek. Bize tavsiye ettiğin Karar Ağacı (Decision Tree) Analizini uyguladığımda bu analiz bana tam olarak neyi gösterecek?",
+      "time": "11:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Bir Karar Ağacı, 'karar düğümleri' ile 'şans (belirsizlik) düğümlerini' kullanarak farklı olasılıkların Beklenen Parasal Değerini (EMV) hesaplar. Her yolun uç noktasındaki getirilerden (payoff) yatırım maliyeti çıkarılır. Böylece alternatif sermaye stratejileri arasında en yüksek EMV'ye sahip olanı matematiksel olarak seçmemizi sağlar.",
+          "feedback": "PMI kaynaklarına göre Karar Ağacı Analizi, belirsizlik altındaki durumlarda finansal ve stratejik alternatifler arasında tercih yapmak için Beklenen Parasal Değer (EMV) hesaplayan en temel niceliksel tekniktir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Projenin bütçeyi veya takvimi aşma ihtimalini gösteren ve güvenilirlik seviyemizi (örn: %85 ihtimalle bitiririz) belirten bir 'S-Eğrisi' grafiği üretecektir.",
+          "feedback": "S-Eğrisi Monte Carlo simülasyonunun çıktısıdır. Karar Ağacı ise alternatif seçenekler arasındaki EMV farkını ortaya koyar; proje tamamlanma olasılığını değil.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Yeni fabrikanın inşası sırasında ortaya çıkabilecek 'teknik donanım arızalarının' (failure modes) sistemin genelini nasıl çökerteceğini gösteren bir Hata Ağacı (Fault Tree) şeması sunacaktır.",
+          "feedback": "Hata Ağacı (Fault Tree) sistem güvenilirliği ve arıza analizi için kullanılır, yatırım alternatifleri arasında EMV karşılaştırması yapmaz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Risklerin kurumun stratejik hedeflerine olan görece etkisini hesaplayıp bunları 'Tornado Diyagramı' şeklinde büyükten küçüğe doğru sıralayacaktır.",
+          "feedback": "Tornado Diyagramı Duyarlılık Analizinin çıktısıdır; en etkili risk değişkenini gösterir. Yatırım alternatifleri arasında seçim yapmak için Karar Ağacı kullanılır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 119,
+      "type": "decision",
+      "section": 29,
+      "from": "Beyza Parlar",
+      "fromRole": "Yazılım Geliştirme Takım Lideri",
+      "subject": "Uluslararası Yazılım İşini 'Çevik' Yapacağız!",
+      "body": "Yeni ihracat pazarımız için gereken 'Sürü İHA Kontrol Yazılımı'nı tamamen Çevik (Agile/Adaptive) yöntemlerle geliştirmeye karar verdik. Gereksinimler şu an çok belirsiz. Çevik bir yöntem seçtiğimizde, geleneksel (şelale) yöntemlere kıyasla risk yönetiminde nasıl bir yapısal avantaj elde ederiz?",
+      "time": "13:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Çevik yaklaşımlarda proje küçük, yönetilebilir artırımlara (increments/iterations) bölünür. Bu sayede takım sürekli gözden geçirme (review) ve uyarlama (adjust) yaptığı için yeni riskleri çok hızlı tespit eder ve sorunlara 'eş zamanlı' (real-time) müdahale edebiliriz. Bu, baştan her şeyi tahmin etmeye çalışmaktan çok daha etkilidir.",
+          "feedback": "PMI Standartlarına göre Çevik/Uyarlanabilir yaklaşımlar, esneklikleri ve kısa geri bildirim döngüleri sayesinde belirsizliği (riski) projenin başında değil, gerçek zamanlı olarak ve çok daha etkili bir şekilde yönetmeye imkan tanır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Çevik projelerde dokümantasyon gereksiz olduğu için Risk Kaydı (Risk Register) veya Risk Yönetim Planı tutma zorunluluğumuz tamamen ortadan kalkar, bu da bize ciddi zaman kazandırır.",
+          "feedback": "Çeviklik gereksiz bürokratik dokümantasyonu azaltır; ancak risk yönetimi yapısını ortadan kaldırmaz. Risk Kaydı çevik projelerde de (farklı formatlarda) tutulur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Çevik projeler hiçbir planlama yapılmadan 'kervan yolda düzülür' mantığıyla ilerlediği için, sadece 'Tehditleri' kabul etme (Passive Acceptance) stratejisi kullanmamıza olanak sağlar.",
+          "feedback": "Çeviklik plansızlık değildir. Her sprint'te risk değerlendirmesi yapılır; passive acceptance ise kasıtlı seçilen bir stratejidir, çevikliğin doğal sonucu değildir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Belirsizlik çok yüksek olduğu için tüm riskleri ve maliyeti müşteriye transfer edebileceğimiz 'Sıkı Sabit Fiyatlı' (Firm Fixed Price) sözleşmeler imzalama şansı verir.",
+          "feedback": "FFP sözleşmeler belirsizliği artırır ve satıcı için riski yükseltir. Yüksek belirsizlikli çevik projelerde genellikle T&M veya Cost-Plus sözleşmeler tercih edilir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 120,
+      "type": "decision",
+      "section": 29,
+      "from": "Evren Elmadağ",
+      "fromRole": "Kalite Yöneticisi",
+      "subject": "'Çöp Giren, Çöp Çıkar' Kuralı!",
+      "body": "Geçen haftaki niceliksel analiz (Monte Carlo) simülasyonlarımız için uzmanlardan olasılık ve etki verileri topladık. Ancak analiz sonuçları bana hiç mantıklı gelmiyor. Risk analizi sonuçları, sadece onu besleyen veriler kadar iyidir. Niteliksel veya Niceliksel analizler öncesinde verilerin güvenirliğini garanti altına almak için hangi PMI tekniğini kullanmalıyız?",
+      "time": "15:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Risk Veri Kalitesi Analizi (Risk Data Quality Analysis) yapmalıyız. Toplanan verilerin güvenilirliğini, tarafsızlığını (bias olmamasını) ve yeterliliğini incelemeli; düşük kaliteli veya zayıf verileri (poor-quality data) analizden dışlayarak sonucun sağlam (robust) olmasını sağlamalıyız.",
+          "feedback": "PMI Standartlarına göre, analizden önce toplanan verilerin (örneğin uzman tahminlerinin) sağlamlığını, doğruluğunu ve önyargılardan arınmış olup olmadığını test etme işlemine 'Risk Data Quality Analysis' denir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Duyarlılık Analizi (Sensitivity Analysis) yapmalıyız. Hangi uzmanın verdiği verinin en yüksek etkiye sahip olduğunu bulup sadece o uzmanın verilerini doğru kabul etmeliyiz.",
+          "feedback": "Duyarlılık Analizi hangi riskin projeye en çok etkisi olduğunu gösterir; verilerin kalitesini değerlendirmez.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Veriler konusunda şüphe varsa, analizi tamamen durdurup 'Risklerden Kaçınma' (Avoidance) kararı almalı ve projeyi derhal iptal etmeliyiz.",
+          "feedback": "Veri kalitesi sorunu projeyi iptal etmeyi değil, veriyi doğrulamayı ya da güvenilir kaynaklardan toplamayı gerektirir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Risk Denetimi (Risk Audit) yapmalıyız. Bize yanlış veya eksik veri sağlayan departmanları denetleyip onlara cezai işlem uygulamalıyız.",
+          "feedback": "Risk Denetimi (Risk Audit) süreçlerin etkinliğini değerlendirir; girdi verilerinin kalitesini ölçmez ve suçlayıcı bir araç değildir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 121,
+      "type": "decision",
+      "section": 30,
+      "from": "Can Kaya Kalecik",
+      "fromRole": "Başmühendis",
+      "subject": "Teknik Riskleri Belirlerken 'Grup Düşüncesi' (Groupthink) Tehlikesi",
+      "body": "Küresel pazar için geliştireceğimiz yeni 'Yapay Zeka Savunma Ağı' projesinin teknik risklerini belirlememiz lazım. Ancak uzmanlarımızı aynı odada topladığımızda (Beyin Fırtınası yaptığımızda), kıdemli mühendislerin baskın karakterleri yüzünden genç mühendisler susuyor veya herkes dominant kişiye hak veriyor (Groupthink / Grup Düşüncesi). Önyargıları ve baskıları (bias) ortadan kaldırarak uzmanlardan bağımsız risk verisi toplamak için hangi tekniği kullanmalıyız?",
+      "time": "09:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Delphi Tekniği (Delphi Technique) kullanmalıyız. Uzmanlara birbirlerini görmeden, isimsiz (anonim) anketler gönderilir ve cevaplar bir moderatör tarafından toplanıp tekrar uzmanlara süzülerek sunulur. Bu teknik, 'Grup Düşüncesi' (Groupthink) riskini önler ve baskın kişilerin (dominant members) sonuçları manipüle etmesini engelleyerek tarafsız bir konsensüs sağlar.",
+          "feedback": "PMI Standartlarına göre Delphi tekniği, uzmanların anonim olarak katıldığı, önyargıların (bias) ve dominant karakterlerin etkisinin kırıldığı, fikir birliğine varmak için kullanılan en etkili risk tanımlama tekniklerinden biridir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Beyin Fırtınası (Brainstorming) kullanmaya devam etmeliyiz; sadece dominant karakterli mühendislere toplantıdan önce 'lütfen az konuşun' dememiz yeterlidir.",
+          "feedback": "Beyin fırtınasının en büyük dezavantajı 'Groupthink' (Grup Düşüncesi) ve dominant kişilerin baskısıdır. Uyarı yapmak bu psikolojik durumu çözmez.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Kök Neden Analizi (Root Cause Analysis) yapmalıyız.",
+          "feedback": "Kök neden analizi, halihazırda belirlenmiş bir problemin derinine inmek için kullanılır (Örn: Ishikawa/Balık Kılçığı). Henüz hiç belirlenmemiş yepyeni riskleri sıfırdan bulmak ve uzman görüşü almak için Delphi daha uygundur.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Kontrol Listeleri (Checklists) kullanmalıyız. Yeni bir şey sormaya gerek yok, geçen yılki projenin Excel listesini kopyalayıp kullanalım.",
+          "feedback": "Çok karmaşık ve yeni (Yapay Zeka vb.) projelerde sadece eski kontrol listelerine güvenmek, yepyeni teknolojik risklerin gözden kaçmasına (blind spots) neden olur.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 122,
+      "type": "decision",
+      "section": 30,
+      "from": "Nalan Han Çubuk",
+      "fromRole": "Program Yöneticisi",
+      "subject": "Yönetim Kurulunun Bütçe Kesintisi Kararı!",
+      "body": "Küresel pazardaki enflasyon nedeniyle, şirketin Yönetim Kurulu (Portföy seviyesi) stratejik bir karar alarak şirketteki TÜM programların Ar-Ge bütçelerini aniden %15 kesti. Bu durum bizim HIZIR-NET programımızın da bel kemiğini kırdı. Program seviyesinden baktığımızda, üst yönetimin (Portföy) aldığı bu stratejik kararlardan doğarak bizim programımıza çarpan bu tür risklere ne ad verilir?",
+      "time": "10:30",
+      "options": [
+        {
+          "key": "A",
+          "text": "Bu bir 'Aşağı Yuvarlanan Risk'tir (Cascaded Risk). Cascaded riskler, portföy seviyesinde veya üst yönetim tarafından alınan stratejik kararlardan kaynaklanan ve program seviyesini etkilemek üzere aşağı doğru inen risklerdir. Program yöneticisi, bu dış kısıtı kabul edip programı buna göre adapte etmelidir.",
+          "feedback": "PMI Program Yönetimi Standartlarına göre riskler yönüne göre ikiye ayrılır. Aşağıdan yukarı gönderilenler 'Escalated' (Yükseltilmiş), üst yönetimin stratejik kararlarıyla (bütçe kesintisi vb.) programın kucağına düşenler ise 'Cascaded' (Aşağı Yuvarlanan) risklerdir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Bu bir 'Yükseltilmiş Risk'tir (Escalated Risk). Yukarıdan geldiği için derhal projeye de eskalasyon yapmalıyız.",
+          "feedback": "Terminolojik bir hatadır. Escalated risk, sizin çözemeyip üst yönetime devrettiğiniz risktir, üst yönetimden size gelen risk değil.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Bu bir 'Bireysel Bileşen Riski'dir (Individual Component Risk). Sadece alt seviyedeki mühendisleri ilgilendirir.",
+          "feedback": "Bütçenin %15 kesilmesi tek bir projeyi değil, programın tamamını ve Genel Program Riskini (Overall Program Risk) etkileyen yapısal bir sorundur.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Bu bir 'Siyah Kuğu' (Black Swan) olayıdır ve öngörülemezdir.",
+          "feedback": "Şirketin kendi yönetim kurulunun aldığı bir bütçe kararı, organizasyon dışı bir doğa olayı veya tahmin edilemez küresel bir salgın (Siyah Kuğu) değildir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "type": "decision",
+      "section": 30,
+      "from": "Deren Çamlı",
+      "fromRole": "Strateji ve Tedarik",
+      "subject": "Fırsatı %100 Garanti Altına Almalıyız!",
+      "body": "Avrupa pazarındaki en büyük ihaleyi kazanma 'fırsatımız' (opportunity) var. Ancak ihaleyi almamızın tek bir şartı var: İHA bataryamızın tam 30 saat dayanması. Şu anki Ar-Ge verilerimize göre başarma ihtimalimiz %70. Yönetim Kurulu bu fırsatı o kadar çok istiyor ki, 'Sınırsız bütçe kullanın, en iyi uzmanları bu işe atayın ve bu ihtimali %100'e çıkararak bu ihaleyi KESİNLİKLE almamızı sağlayın' talimatı verdi. Yönetim kurulunun uyguladığı bu Fırsat Yanıt Stratejisi hangisidir?",
+      "time": "13:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Yararlanma (Exploiting). Bu strateji, organizasyonun fırsatın gerçekleştiğinden emin olmak istediği yüksek öncelikli fırsatlar için seçilir. Bir fırsatla ilişkili faydayı, gerçekleşme olasılığını %100'e çıkararak (kesinleştirerek) yakalamayı hedefler.",
+          "feedback": "Fırsat yanıtlarında, eğer eylem ihtimali %100'e çıkarmayı (garanti etmeyi) amaçlıyorsa bu 'Exploit' (Yararlanma) stratejisidir. En yetenekli personeli atamak veya sınırsız bütçe vermek bu stratejinin tipik örneğidir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Geliştirme (Enhancing).",
+          "feedback": "Enhancing (Geliştirme), olasılığı veya etkiyi artırmayı hedefler ancak %100'e ulaştırmayı garanti etmez (Örn: %70'ten %85'e çıkarmak). 'Kesinlikle almamızı sağlayın' talimatı Exploit stratejisidir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Paylaşma (Sharing).",
+          "feedback": "Paylaşma, fırsatı yakalamak için şirket dışından üçüncü bir tarafla (Ortak Girişim / Joint Venture) karı bölüşmek demektir. Burada kendi kaynaklarımızla işi kesinleştiriyoruz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Kabul Etme (Accepting).",
+          "feedback": "Aktif eylemler alıp sınırsız bütçe harcamak 'Kabul etme' değildir. Kabul etme, fırsat olursa ne mutlu bize diyip proaktif hiçbir şey yapmamaktır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 124,
+      "type": "decision",
+      "section": 30,
+      "from": "Eren Keçi",
+      "fromRole": "İK / İletişim Direktörü",
+      "subject": "Asyalı Paydaşlarla İletişim Kopukluğu",
+      "body": "Küresel portföyümüzdeki Asyalı yatırımcılar (Kilit Paydaşlar) son 3 aydır gönderdiğimiz Risk Durum Raporlarını okumuyor ve geri bildirim vermiyorlar. Görünüşe göre onlara gönderdiğimiz 50 sayfalık İngilizce yazılı raporlar, onların yüz yüze ve bağlama dayalı (high-context) iletişim kültürüne uymuyor. Risklerin izlenmesinde kör noktalar (blind spots) oluşmaya başladı. Bu iletişim kopukluğunu çözerken hangi adımı atmalıyız?",
+      "time": "15:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "'İletişimleri İzleme' ve 'Paydaş Katılımı' süreçlerinden gelen bu geri bildirimleri (issues/conflicts) kullanarak, 'İletişim Yönetimini Planlama' (Plan Communications Management) sürecini yinelemeli (iterate) ve İletişim Yönetim Planımızı onların kültürel ve dilsel beklentilerine uygun olacak şekilde derhal revize etmeliyiz.",
+          "feedback": "PMI İletişim ve Risk standartlarına göre; paydaşlarla iletişimde bir sorun veya kopukluk yaşanırsa, bu durum İletişim Yönetim Planının (Plan Communications Management) güncellenmesini tetikleyen bir girdi oluşturur. Süreç sürekli ve yinelemelidir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Paydaşların raporları okumaması bir risk değildir. Onlara resmi bir ihtarname çekip, PMI standartları gereği raporları okumak zorunda olduklarını bildirmeliyiz.",
+          "feedback": "Paydaşı zorlamak (forcing) kültürel zekaya (cultural awareness) ve modern paydaş yönetimi esnekliğine aykırıdır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Bu durumu 'Risk Transferi' (Transference) olarak değerlendirip, raporlama sorumluluğunu tamamen Asya ofisindeki bir sekretere yıkmalıyız.",
+          "feedback": "Proje veya risk yöneticisi, kilit paydaşların bilgilendirilmesi (accountability) sorumluluğunu sıradan bir sekretere transfer edemez.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "İletişim kopukluğunu 'Kabul' (Accept) etmeli ve rapor göndermeyi tamamen bırakarak zamandan tasarruf etmeliyiz.",
+          "feedback": "Paydaş katılımının kopması, projenin tamamen başarısız olmasına (değer yaratımının durmasına) yol açan devasa bir ikincil risktir. Yok sayılamaz.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 125,
+      "type": "decision",
+      "section": 30,
+      "from": "Şeref Koçhisar",
+      "fromRole": "Yönetim Kurulu Başkanı",
+      "subject": "Risk İştahımızın Özünde Ne Var?",
+      "body": "Kurumsal Risk Direktörü olarak, Kalkan A.Ş.'nin yüksek riskli siber güvenlik pazarına girmesiyle ilgili bir 'Risk İştahı' (Risk Appetite) beyanı hazırlıyorsun. ERM (Kurumsal Risk Yönetimi) çatısına göre, bir organizasyonun 'Risk İştahı', temelde neyin üzerine inşa edilir ve neyi destekler?",
+      "time": "17:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Risk İştahı, organizasyonun Stratejisi ve İş Değer Sürücüleri (Strategy and Business Value Drivers) üzerine inşa edilir. Kurumun misyonunu, vizyonunu ve temel değerlerini destekler. Ayrıca organizasyonun stratejik hedeflerine ulaşmak için almayı kabul ettiği risk miktarını ve türünü tanımlar.",
+          "feedback": "PMI Portföy ve ERM Standartlarına (Şekil 2-1) göre, Risk İştahının altında yatan ana temel 'Strateji ve İş Değeri Sürücüleri'dir. Risk iştahı, kurumun stratejik hedeflerinden ve vizyonundan bağımsız olarak belirlenemez.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Risk İştahı, sadece projelerin 'İş Kırılım Yapısı' (WBS) ve takvimlerindeki sapma oranları üzerine inşa edilir. Stratejiyle ilgisi yoktur.",
+          "feedback": "WBS ve takvim varyansları proje (taktiksel) seviyesiyle ilgilidir. Risk iştahı ise kurumsal (stratejik) bir yönetim bildirgesidir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Risk İştahı, organizasyondaki bireysel proje yöneticilerinin kendi kişisel 'Risk Tutumlarına' (Risk Attitude) göre günlük olarak değişen geçici bir hevestir.",
+          "feedback": "Bireylerin risk tutumları (Attitude) değişebilir ancak Kurumsal Risk İştahı (Appetite), üst yönetim tarafından stratejik olarak tanımlanan ve kurum kültürüne entegre edilen çerçevedir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Risk İştahı, riskleri tamamen yok etmek (Sıfır Risk) amacıyla oluşturulmuş bir İnsan Kaynakları disiplinidir.",
+          "feedback": "Risk iştahı riskleri yok etmeyi değil, 'ödül beklentisiyle kabul etmeye istekli olunan belirsizlik derecesini' temsil eder.",
           "xp": 0,
           "isEthical": false
         }
