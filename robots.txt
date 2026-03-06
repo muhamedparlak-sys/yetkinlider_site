@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Oturum gerektiren veya admin sayfaları
+Disallow: /admin.html
+Disallow: /config.js
+Disallow: /result.html
+Disallow: /scorecard.html
+
+# Statik varlıklar (isteğe bağlı)
+Disallow: /scripts/
+Disallow: /engine/
+
+Sitemap: https://yetkinlider.com/sitemap.xml
