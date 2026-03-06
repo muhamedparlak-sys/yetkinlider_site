@@ -8,8 +8,8 @@
   "company": "Kalkan Savunma Sistemleri",
   "client": "Savunma Sanayii Başkanlığı (SSB)",
   "dChoiceLimit": 3,
-  "totalDecisions": 98,
-  "maxXP": 2940,
+  "totalDecisions": 114,
+  "maxXP": 3420,
   "sections": [
     {
       "id": 1,
@@ -160,6 +160,16 @@
       "id": 30,
       "title": "BÖLÜM 30: KÜRESEL ZORLUKLAR VE STRATEJİK YANITLAR",
       "iteration": "Hafta 30 — Analiz ve İletişim"
+    },
+    {
+      "id": 31,
+      "title": "BÖLÜM 31: KÜRESEL KAYNAKLAR VE YAPAY ZEKÂ",
+      "iteration": "Hafta 31 — Portföy ve Teknoloji"
+    },
+    {
+      "id": 32,
+      "title": "BÖLÜM 32: SON KONTROLLER VE BÜYÜK FİNAL",
+      "iteration": "Hafta 32 — Final"
     }
   ],
   "competencies": [
@@ -193,7 +203,12 @@
         116,
         119,
         122,
-        125
+        125,
+        128,
+        129,
+        133,
+        140,
+        141
       ]
     },
     {
@@ -228,7 +243,9 @@
         91,
         100,
         120,
-        121
+        121,
+        131,
+        135
       ]
     },
     {
@@ -237,7 +254,8 @@
       "decisionIds": [
         21,
         23,
-        24
+        24,
+        126
       ]
     },
     {
@@ -255,7 +273,9 @@
         72,
         84,
         114,
-        118
+        118,
+        130,
+        137
       ]
     },
     {
@@ -273,7 +293,10 @@
         69,
         93,
         97,
-        123
+        123,
+        127,
+        132,
+        136
       ]
     },
     {
@@ -300,7 +323,10 @@
         106,
         108,
         109,
-        124
+        124,
+        134,
+        138,
+        139
       ]
     }
   ],
@@ -4490,6 +4516,646 @@
           "key": "D",
           "text": "Risk İştahı, riskleri tamamen yok etmek (Sıfır Risk) amacıyla oluşturulmuş bir İnsan Kaynakları disiplinidir.",
           "feedback": "Risk iştahı riskleri yok etmeyi değil, 'ödül beklentisiyle kabul etmeye istekli olunan belirsizlik derecesini' temsil eder.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 126,
+      "type": "decision",
+      "section": 31,
+      "from": "Balamir Gölbaşı",
+      "fromRole": "Portföy Analisti",
+      "subject": "Yüzlerce Risk İçin Monte Carlo İstiyorlar!",
+      "body": "Avrupa açılımımız kapsamında hazırlanan yeni portföyde tam 450 adet yeni risk tanımladık. Alt kademedeki bazı proje yöneticileri, güvende hissetmek için bu 450 riskin tamamına anında karmaşık ve pahalı olan 'Niceliksel Analiz' (Monte Carlo, Karar Ağacı vb.) yapılmasını talep ediyor. Kurumsal Risk Direktörü olarak onlara, niceliksel analizden önce neden mutlaka 'Niteliksel (Qualitative) Risk Analizi' yapmamız gerektiğini nasıl açıklarsın?",
+      "time": "09:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Niteliksel analiz, risklerin önemini değerlendirerek onları kategorize etmemizi ve 'önceliklendirmemizi' (prioritize) sağlar. Bize işletme faaliyetleri üzerinde küçük bir etkisi olacak risklerle, büyük bir etkisi olacak riskleri ayırt etme imkânı verir. Tüm risklere pahalı niceliksel analiz yapmak israftır; niteliksel analiz, sadece ileri düzey (niceliksel) analize veya acil yanıta ihtiyaç duyan yüksek öncelikli riskleri filtrelemek için şarttır.",
+          "feedback": "PMI Standartlarına [Section 4.4.1] göre, Niteliksel Analizin temel amacı, listelenen tüm riskleri olasılık ve etki bazında hızlıca önceliklendirerek (örn: Yüksek, Orta, Düşük), organizasyonun zamanını ve parasını sadece gerçekten önemli olan risklerin 'Niceliksel' analizine odaklamasını sağlamaktır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Niteliksel analiz, projenin sonunda tam olarak kaç milyon dolar zarar edeceğimizi (EMV) kuruşu kuruşuna hesaplayan tek matematiksel yöntem olduğu için önce o yapılmalıdır.",
+          "feedback": "EMV (Beklenen Parasal Değer) hesabı Niceliksel analizin aracıdır. Niteliksel analiz sayısal değil, önceliklendirme (sıralama) odaklıdır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Niteliksel analiz yasal bir zorunluluktur. Devlet denetçileri (Government) sadece niteliksel risk matrislerine güvenir, niceliksel yazılımları kabul etmez.",
+          "feedback": "Risk analizi yöntemi seçimi yasal bir zorunluluk değil, organizasyonun ihtiyaç ve kaynaklarına göre yapılan stratejik bir tercihdir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Niteliksel analiz yaparsak, tüm risklerin olasılığı %0'a düşer ve bir daha hiçbir risk analizi yapmamıza gerek kalmaz.",
+          "feedback": "Hiçbir analiz yöntemi riskleri sıfıra indirmez. Risk yönetimi sürekli ve yinelemeli bir süreçtir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 127,
+      "type": "decision",
+      "section": 31,
+      "from": "Nalan Han Çubuk",
+      "fromRole": "Program Yöneticisi",
+      "subject": "İklim Riskine Karşı Rezerve Bütçe",
+      "body": "Asya'daki rüzgâr türbini kurulum programımızda, 'öngörülemeyen tayfunlar' nedeniyle operasyonun durması gibi büyük bir tehdit var. Doğası gereği hava durumunu değiştiremeyiz veya bu riski proaktif olarak engelleyemeyiz. Ancak Yönetim Kurulu olarak şöyle bir karar aldık: 'Bu tayfun vurursa diye, onarım ve gecikme masraflarını karşılamak üzere bütçeye özel bir Beklenmedik Durum Yedeği (Contingency Reserve) ekliyoruz.' Uyguladığımız bu spesifik risk yanıt stratejisi hangisidir?",
+      "time": "10:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Pasif Kabul (Passive Acceptance). Sadece periyodik olarak hava durumunu izleriz, bütçe ayırmayız.",
+          "feedback": "Pasif Kabulde hazırlık yapılmaz, sadece izlenir. Yedek bütçe tahsis etmek proaktif (aktif) bir harekettir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Tehdidi Azaltma (Mitigate). Tayfunun gelme ihtimalini veya yıkıcılığını fiziksel olarak azaltmış oluruz.",
+          "feedback": "Azaltma stratejisi tehdidin olasılığını veya etkisini fiilen düşürmeyi hedefler. Bütçe ayırmak olasılığı değiştirmez; sadece etki gerçekleştiğinde hazırlıklı olmayı sağlar.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Aktif Kabul (Active Acceptance). Tehdidin varlığı kabul edilir ve onu engellemek için hiçbir önleyici (proactive) fiziksel adım atılamasa da, risk gerçekleştiğinde onunla başa çıkabilmek için zaman, para veya kaynak içeren bir 'Beklenmedik Durum Yedeği' (Contingency Reserve) oluşturulur.",
+          "feedback": "PMI-RMP Standartlarına [Section 4.6.1 / Accept] göre; 'Kabul' stratejisi proaktif bir önlem alınamadığında uygulanır. Eğer bu kabulün yanına bir 'Yedek Bütçe / Contingency Reserve' ekliyorsanız, bu en yaygın 'Aktif Kabul' stratejisidir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Kaçınma (Avoid). Tayfun riskinden dolayı Asya pazarından tamamen çekilir ve projeyi iptal ederiz.",
+          "feedback": "Kaçınma stratejisi riski tamamen ortadan kaldırmak için tehdidin kaynağından uzaklaşmayı gerektirir. Bütçe ayırarak projeye devam etmek kaçınma değildir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 128,
+      "type": "decision",
+      "section": 31,
+      "from": "Eren Keçi",
+      "fromRole": "İK / İletişim Direktörü",
+      "subject": "Küresel Yetenek Krizi Büyüyor!",
+      "body": "Kalkan A.Ş. olarak artık 4 farklı kıtada projeler yönetiyoruz. Ancak Portföy düzeyinde 'Kapasite ve Kabiliyet' (Capacity and Capability) yönetiminde büyük sıkıntılar baş gösterdi. İnsan kaynaklarımızın (Human Capital) uygunluğu ve performansıyla ilgili riskleri analiz ederken, PMI çerçevesine göre HANGİ faktörler portföyümüz için açık birer 'Tehdit' (Threat) olarak sınıflandırılır?",
+      "time": "11:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Yeni beceriler öğrenmek, kişisel gelişim ve haleflerin (successors) yetiştirilmesi.",
+          "feedback": "Bunlar fırsattır, tehdit değil. Organizasyonun kapasitesini ve kabiliyetini artıran unsurlardır.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Coğrafi dağılımın getirdiği zorluklar, kültürel farklılıklar, zorlu öğrenme eğrileri (learning curves), kilit yeteneklerin bulunamaması (unavailability of key talent) ve iş gücü piyasasındaki sert rekabet.",
+          "feedback": "PMI Portföy Yönetimi Standardına [Control PF.CAP.3] göre; kilit insan kaynağı söz konusu olduğunda organizasyonun kültürel farklılıkları, kilit personelin eksikliği ve rakiplerin yetenekleri kapması (rekabet) portföy seviyesindeki en büyük kapasite 'tehditleridir'.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Şirketin sahip olduğu patentler, lisanslar ve telif hakları.",
+          "feedback": "Patentler ve lisanslar fikri mülkiyet varlıklarıdır; insan kaynağı kapasitesi ve kabiliyetiyle doğrudan ilgisi yoktur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Müşterilerle olan iletişim planlarının ve proje yönetim yazılımlarının şeffaflığı.",
+          "feedback": "İletişim planları ve araçlar, kapasite/kabiliyet tehdidi değil; proje iletişim yönetiminin konusudur.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 129,
+      "type": "decision",
+      "section": 31,
+      "from": "Şeref Koçhisar",
+      "fromRole": "Yönetim Kurulu Başkanı",
+      "subject": "Yeni Yönetişim Kurulunun Görevi Ne?",
+      "body": "Kalkan A.Ş.'nin tüm küresel yatırımlarını (Portföyünü) denetlemek üzere büyük bir 'Portföy Yönetişim Kurulu' (Governance Board) kurduk. Kurumsal Risk Direktörü olarak bu kurulda baş köşedesin. 'Portföy Yönetişimi' bağlamında risk yönetiminin üstlendiği birincil stratejik rol (amaç) nedir?",
+      "time": "13:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Risk yönetiminin portföy yönetişimindeki rolü; organizasyonun potansiyelini kullanarak (a) yeterli yönetişim ve yönetim uygulamalarını verimli bir şekilde güvence altına almak ve (b) portföyün kötü yönetilmesine (misconduct) veya etkisiz kalmasına yol açabilecek üst düzey tehditleri engellemek veya azaltmaktır.",
+          "feedback": "PMI Portföy Risk Yönetimi standartlarına [Section 5.2.2] göre; Yönetişim (Governance) seviyesindeki risk yönetiminin amacı, yasal ve kurumsal uyumluluğu sağlamak, yönetimin yanlış kararlar almasını (tehditleri) engellemek ve şeffaf/etkili bir yönetim yapısını garanti etmektir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Tüm proje ekiplerinin günlük (daily) stand-up toplantılarına katılıp mühendislerin işe saat kaçta geldiklerini denetlemektir (Mikro-yönetim).",
+          "feedback": "Portföy Yönetişim Kurulunun görevi stratejik denetimdir; operasyonel mikro-yönetim değildir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Portföydeki tüm bileşenlerin risk puanlarını otomatik olarak 'sıfıra' indirip, hissedarlara yalan beyanda bulunmaktır.",
+          "feedback": "Risk puanlarını manipüle etmek ve yalan beyan, PMI etik kurallarının doğrudan ihlalidir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Sadece geçmişte iptal edilmiş projelerin arşivlerini düzenlemek ve yasal belgeleri klasörlemektir.",
+          "feedback": "Yönetişim kurulunun rolü geçmiş arşiv yönetimi değil, mevcut ve gelecekteki portföyün stratejik uyumunu ve etkinliğini güvence altına almaktır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 130,
+      "type": "decision",
+      "section": 31,
+      "from": "Can Kaya Kalecik",
+      "fromRole": "Başmühendis",
+      "subject": "Yapay Zekâ Bizi İşimizden mi Edecek?",
+      "body": "Geçen hafta bahsettiğin o yeni nesil veri analitiği, Yapay Zekâ (AI) ve Makine Öğrenimi (ML) araçlarını portföy sistemlerimize entegre etmeye başladık. Ekipteki bazı arkadaşlar 'Bu robotlar risk yönetimini bizden daha mı iyi yapacak?' diye endişeleniyor. Portföy Risk Yönetiminde AI ve ML gibi Yükselen Trendlerin (Emerging Trends) biz yöneticilere sağladığı asıl ve en büyük katkı nedir?",
+      "time": "15:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Gelişmiş algoritmalar; kurum içi veritabanlarındaki ve kamuya açık alanlardaki (public domain) devasa büyüklükteki verileri analiz ederek, insan gözünden kaçan kalıpları (patterns) çok daha hızlı ve doğru bir şekilde tespit etmemizi, gizli riskleri bulmamızı ve piyasa değişimlerini öngörerek 'daha bilinçli (informed) kararlar' almamızı sağlar.",
+          "feedback": "PMI Standartlarına [Section 5.1.5 - Emerging Trends] göre AI ve ML yöneticilerin yerini almaz; devasa verileri (Big Data) işleyerek yöneticilere çok daha keskin, hızlı ve derinlemesine 'Karar Destek' öngörüleri (kalıp tanıma vb.) sunarlar.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "AI ve ML, organizasyonun Risk İştahını (Risk Appetite) yöneticilere sormadan kendi kendine değiştirip, şirketin tüm parasını kripto paralara yatırarak kâr elde etmemizi sağlar.",
+          "feedback": "Risk iştahı stratejik bir yönetim kararıdır; yapay zeka bunu kendi başına değiştiremez ve yöneticilerin onayı olmadan finansal yatırım kararları alamaz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Yapay zekâ, tüm paydaş (stakeholder) toplantılarına bizim yerimize katılıp insanlarla duygusal bağ kurarak aradaki 'güven' (trust) problemini tek başına çözer.",
+          "feedback": "İnsan ilişkileri ve güven inşası (Trust Building) insani yetkinlikler gerektiren süreçlerdir; yapay zeka bu konuda insanın yerini alamaz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Makine öğrenimi sadece proje bittikten sonra maliyet muhasebesi (Cost accounting) yapmak için kullanılan standart bir hesap makinesi yazılımıdır.",
+          "feedback": "ML, proaktif risk tespiti, örüntü tanıma ve öngörücü analitik için kullanılır; geriye dönük muhasebe işlevi oldukça sınırlı bir tanımdır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 131,
+      "type": "decision",
+      "section": 32,
+      "from": "Beyza Parlar",
+      "fromRole": "Yapay Zekâ Takım Lideri",
+      "subject": "Çevik Ortamlarda Belirsizlik: MVP Nedir?",
+      "body": "Son hazırlık seansımıza geldik. Hızlı bir soru: Çevik (Agile) bir projede risk yönetimi açısından 'Minimum Uygulanabilir Ürün' (Minimum Viable Product - MVP) kavramı en doğru nasıl tanımlanır ve risk yönetimiyle ilişkisi nedir?",
+      "time": "09:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "MVP, çevik projelerde belirsizliği (uncertainty) kontrol altına almak için kullanılan bir risk yönetimi aracıdır. Ürünün en temel işlevsel halini erken aşamada teslim ederek gerçek kullanıcı geri bildirimini doğrudan toplar ve böylece yanlış yönde ilerleme riskini (direction risk) en aza indirir.",
+          "feedback": "PMI Agile Pratiği kılavuzuna göre MVP, erken ve gerçek geri bildirim toplayarak belirsizliği azaltan temel bir risk yönetimi aracıdır. Yanlış ürünü geliştirme riskini minimize eder ve iteratif öğrenme döngüsünü besler.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "MVP, projenin sonunda müşteriye teslim edilen son ürünün tamamlanmış ve mükemmel halidir. 'Minimum' ifadesi bütçe sınırlamasını değil, kalite hedefini tanımlar.",
+          "feedback": "MVP 'nihai ve mükemmel ürün' değildir. Aksine, müşteri değerini doğrulamak için oluşturulan en küçük çalışan ürün sürümüdür. Amaç erken öğrenme ve yanlış yönde ilerleme riskini azaltmaktır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "MVP, bir projedeki en büyük bireysel riski temsil eden kısaltmadır. Monte Carlo simülasyonunda 'en kötü senaryo değişkeni' olarak kullanılır.",
+          "feedback": "MVP (Minimum Viable Product), istatistiksel bir risk değişkeni değildir. Çevik ürün geliştirme sürecinde erken değer doğrulaması için kullanılan bir ürün teslim yaklaşımıdır.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "MVP kavramı yalnızca startup ekosisteminde kullanılır. PMI standartları ve profesyonel proje yönetimi metodolojilerinde resmi bir yeri yoktur.",
+          "feedback": "PMI Agile Pratiği kılavuzu ve PMBOK 7. baskısı MVP'yi çevik ve hibrit yaklaşımların temel risk yönetimi kavramlarından biri olarak benimser.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 132,
+      "type": "decision",
+      "section": 32,
+      "from": "Balamir Gölbaşı",
+      "fromRole": "Portföy Analisti",
+      "subject": "Yanıt Stratejimiz Yeni Bir Risk Yarattı!",
+      "body": "Bir projedeki büyük yangın riskini gidermek için sprinkler sistemi kurdunuz. Ancak bu sistemin su hasarı yapma riski ortaya çıktı. PMI standartlarına göre bu 'su hasarı riski' nasıl adlandırılır?",
+      "time": "10:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Artık Risk (Residual Risk). Sprinkler sistemi kurulduktan sonra geriye kalan yangın riski artık risktir. Su hasarı riski de bu kategoriye girer.",
+          "feedback": "Artık risk, birincil yanıt uygulandıktan sonra orijinal riskten geriye kalan bölümdür. Su hasarı ise sprinkler kurulumunun yarattığı YENİ bir risktir — bu iki kavram birbirinden farklıdır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "İkincil Risk (Secondary Risk). Bir risk yanıtının (sprinkler sistemi kurulumu) uygulanmasının doğrudan sonucu olarak ortaya çıkan yeni riskler İkincil Risk olarak adlandırılır ve ayrıca tanımlanıp yönetilmesi gerekir.",
+          "feedback": "PMI Standartlarına göre [Section 4.6.3]; yanıt stratejisi uygulandıktan sonra ortaya çıkan yeni riskler 'Secondary Risk (İkincil Risk)' olarak tanımlanır. Sprinkler sistemi yangın riskini azaltırken su hasarı riskini yaratmıştır — bu tipik bir İkincil Risk örneğidir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Risk Tetikleyicisi (Trigger). Su sızıntısı belirtisi, yangın riskinin yakında gerçekleşeceğini haber veren bir erken uyarı işaretidir.",
+          "feedback": "Tetikleyiciler (Triggers), bir riskin gerçekleşmek üzere olduğunu gösteren göstergelerdir. Yanıt uygulaması sonucu ortaya çıkan yeni risk ise İkincil Risk'tir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Genel Proje Riski (Overall Project Risk). Sprinkler sisteminin neden olduğu su hasarı, tüm projenin birleşik belirsizliğinin bir yansımasıdır.",
+          "feedback": "Genel Proje Riski, bireysel risklerin ötesinde tüm projenin belirsizlik düzeyini ifade eder. Yanıt uygulamasından doğan yeni spesifik risk ise İkincil Risk'tir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 133,
+      "type": "decision",
+      "section": 32,
+      "from": "Şeref Koçhisar",
+      "fromRole": "Yönetim Kurulu Başkanı",
+      "subject": "Risk İştahı mı, Risk Eşiği mi?",
+      "body": "Yönetim Kurulumuz 'Orta düzey kâr projelerinde makul riskler alabiliriz' diyor. Ayrıca proje metodolojimizde 'Herhangi bir bireysel risk 200.000 TL'yi aşarsa, o risk Yönetim Kurulu'na yükseltilmelidir' kuralımız var. Bu iki kavram sırasıyla hangisidir?",
+      "time": "10:30",
+      "options": [
+        {
+          "key": "A",
+          "text": "Her ikisi de Risk İştahı'dır. İlki niteliksel Risk İştahı, ikincisi ise parasal sınır olarak belirlenmiş niceliksel Risk İştahı'dır.",
+          "feedback": "Risk İştahı ve Risk Eşiği birbirinden farklı kavramlardır. İştah genel tutum bildirgesiyken, Eşik proaktif eylemin tetiklendiği ölçülebilir sınır değerdir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "İlki Risk İştahı (Risk Appetite) — organizasyonun genel olarak almaya razı olduğu belirsizlik seviyesini tanımlayan niteliksel bir bildirge. İkincisi ise Risk Eşiği (Risk Threshold) — belirli bir proaktif eylemin (eskalasyon gibi) tetiklendiği ölçülebilir sınır değerdir.",
+          "feedback": "PMI ERM Standartlarına göre; Risk İştahı (Appetite) organizasyonun genel risk toleransını yansıtan stratejik tutum bildirgesiyken, Risk Eşiği (Threshold) organizasyonun tahammül sınırını sayısal olarak tanımlar. İkisi tamamlayıcı ama farklı kavramlardır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "İlki Risk Tutumu (Risk Attitude), ikincisi ise Beklenen Parasal Değer (EMV) hesaplama eşiğidir. İkisi arasında doğrudan bir bağ yoktur.",
+          "feedback": "Risk tutumu bireylerin öznel yaklaşımıdır. 200.000 TL sınırı ise organizasyonun Risk Eşiği'ni (Threshold) tanımlar. Bunlar Risk İştahı ve Eşik kavramlarıyla daha doğru eşleşir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Her ikisi de Risk Eşiği'dir. Biri Yönetim Kurulu'nun stratejik eşiği, diğeri ise operasyonel ekiplerin taktiksel eşiğidir.",
+          "feedback": "İlk ifade ('makul riskler alabiliriz') nicel bir sınır değil, genel bir yönelim ifadesidir — bu Risk İştahı'dır. İkinci ifade ise sayısal bir eşik (Threshold) tanımlar.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 134,
+      "type": "decision",
+      "section": 32,
+      "from": "Nalan Han Çubuk",
+      "fromRole": "PMO / Portföy Yönetim Ofisi",
+      "subject": "Risk Kaydını Nasıl Güncel Tutarız?",
+      "body": "PMI standartlarına göre, bir projedeki riskleri İzleme ve Kontrol (Monitor and Control) aşamasında düzenli aralıklarla tekrar gözden geçirip mevcut durumunu, olasılığını veya etkisini yeniden değerlendirme süreci nasıl adlandırılır?",
+      "time": "11:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Risk Denetimi (Risk Audit). Risk yönetimi süreçlerinin ve prosedürlerinin etkinliğini düzenli aralıklarla değerlendirmek için yapılır.",
+          "feedback": "Risk Denetimi (Risk Audit), risk yönetim süreçlerinin işleyişini inceler; bireysel risklerin mevcut olasılık ve etkilerini güncellemez. Bu iki araç farklı amaçlara hizmet eder.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Risk Yeniden Değerlendirmesi (Risk Reassessment). Mevcut risklerin durumunu güncellemek, gerçekleşmiş veya geçerliliğini yitirmiş riskleri kapatmak ve yeni risklerin ortaya çıkıp çıkmadığını belirlemek için proje boyunca periyodik olarak tekrarlanan bir izleme sürecidir.",
+          "feedback": "PMI Standartlarına göre [Monitor Risks süreci]; Risk Yeniden Değerlendirmesi, her riskin olasılık, etki ve önceliğinin güncel tutulmasını sağlar. Dinamik bir risk kaydı için zorunlu periyodik bir süreçtir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Teknik Performans Ölçümü (Technical Performance Measurement). Proje çıktılarının teknik gereksinimleri karşılama derecesini izlemek için kullanılan karşılaştırmalı bir analiz tekniğidir.",
+          "feedback": "Teknik Performans Ölçümü, teknik hedeflere ulaşılıp ulaşılmadığını ölçer. Risk kayıtlarındaki olasılık/etki güncellemesi farklı bir süreçtir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Sapma ve Eğilim Analizi (Variance and Trend Analysis). Proje performans ölçütlerini analiz ederek sapmaların nereden kaynaklandığını tespit etmek için kullanılır.",
+          "feedback": "Sapma ve eğilim analizi performans verilerini değerlendirir; risk kayıtlarındaki bireysel risk parametrelerini (olasılık, etki) güncellemez.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 135,
+      "type": "decision",
+      "section": 32,
+      "from": "Deren Çamlı",
+      "fromRole": "Strateji ve Tedarik",
+      "subject": "RBS ile WBS Farkı Nedir?",
+      "body": "Takımımızdan biri Risk Kırılım Yapısı (Risk Breakdown Structure - RBS) ile İş Kırılım Yapısı (Work Breakdown Structure - WBS) kavramlarını karıştırıyor. PMI standartlarına göre RBS'nin birincil amacı ve kullanım yeri nedir?",
+      "time": "11:30",
+      "options": [
+        {
+          "key": "A",
+          "text": "RBS, projenin tüm iş paketlerini, teslimatlarını ve alt görevlerini hiyerarşik biçimde gösteren bir planlama aracıdır. Maliyet ve zaman tahminlerinin temelini oluşturur.",
+          "feedback": "Bu tanım WBS'i (İş Kırılım Yapısı) tarif etmektedir. RBS ise iş paketlerini değil, risk kategorilerini ve kaynaklarını hiyerarşik biçimde düzenler.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "RBS, risk tanımlama aşamasında kullanılan ve riskleri kaynaklarına veya kategorilerine göre (teknik, organizasyonel, dış çevre, proje yönetimi vb.) hiyerarşik biçimde düzenleyen bir yapıdır. Olası risk alanlarına kapsamlı bakış sağlar ve kör nokta oluşmasını önler.",
+          "feedback": "PMI Standartlarına göre [Section 3.3.3]; Risk Kırılım Yapısı (RBS), riskleri kaynakları veya kategorilerine göre düzenleyen hiyerarşik bir yapıdır. Risk tanımlama brainstorming seanslarında kontrol listesi işlevi görerek gözden kaçabilecek risk alanlarının tespit edilmesine yardımcı olur.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "RBS, proje aktiviteleri arasındaki bağımlılıkları gösteren bir ağ diyagramıdır. Kritik yolu (Critical Path) hesaplamak ve proje takvimini optimize etmek için kullanılır.",
+          "feedback": "Bu tanım Öncelik Diyagramı (PDM/Ağ Diyagramı) aracını tarif etmektedir. RBS risk kaynaklarını kategorize eder, faaliyet bağımlılıklarını değil.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "RBS yalnızca yazılım geliştirme projelerine özgüdür. Donanım veya inşaat projelerinde 'Risk Breakdown Structure' kavramı uygulanamaz.",
+          "feedback": "RBS sektörden bağımsız olarak tüm proje türlerinde uygulanabilen evrensel bir risk yönetimi aracıdır. Yazılım projesine özel bir kısıtlaması yoktur.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 136,
+      "type": "decision",
+      "section": 32,
+      "from": "Can Kaya Kalecik",
+      "fromRole": "Başmühendis",
+      "subject": "Hem Birincil Plan Hem Yedek Plan Çöktü!",
+      "body": "İHA'larımızın birincil güç sistemi bozulursa diye yedek pil sistemi (Beklenmedik Durum Planı) hazırladık. Ancak yedek pil sistemi de üretim hatasıyla çöktü. Şimdi 'Acil Jetpack Sistemi' adını verdiğimiz üçüncü çözümü devreye alıyoruz. PMI terminolojisinde bu 'Acil Jetpack Sistemi' ne tür bir plan olarak adlandırılır?",
+      "time": "13:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Geri Çekilme Planı (Fallback Plan). Hem birincil risk yanıt stratejisi hem de Beklenmedik Durum Planı (Contingency Plan) başarısız olduğunda devreye giren, önceden hazırlanmış son çare alternatif yanıt planıdır.",
+          "feedback": "PMI Standartlarına göre [Section 4.6.3 / Fallback Plan]; birincil yanıt ve contingency plan işe yaramaması durumunda önceden hazırlanmış 'Fallback Plan (Geri Çekilme Planı)' devreye girer. 'Son çare' niteliğindeki bu plan, riskin kontrol altına alınması için nihai güvencedir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Beklenmedik Durum Planı (Contingency Plan). Tetikleyici koşullar (triggers) gerçekleştiğinde devreye alınan önceden hazırlanmış plandır.",
+          "feedback": "Beklenmedik Durum Planı (Contingency Plan), birincil yanıt devreye girmeden önce kullanılan plandır. Burada hem birincil hem de contingency planı başarısız olmuştur — üçüncü aşamadaki plan Fallback Plan'dır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Artık Risk Planı (Residual Risk Plan). Yanıt uygulandıktan sonra geriye kalan risk için yapılan planlama etkinliğidir.",
+          "feedback": "Artık risk kavramı, uygulanan yanıttan sonra geriye kalan riskin kabul düzeyini ifade eder. 'Acil Jetpack Sistemi' bir yanıt planıdır; kalan risk miktarını tanımlamaz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "İkincil Risk Planı (Secondary Risk Plan). Birincil yanıtın uygulanmasıyla ortaya çıkan yeni risklerle başa çıkmak için geliştirilen plandır.",
+          "feedback": "İkincil risk, birincil yanıtın uygulanmasından doğan yeni bir risktir. Başarısız contingency planının yerine geçen yedek yanıt planı (Fallback Plan) kavramından farklıdır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 137,
+      "type": "decision",
+      "section": 32,
+      "from": "Balamir Gölbaşı",
+      "fromRole": "Portföy Analisti",
+      "subject": "Tornado Diyagramını Nasıl Kullanmalıyız?",
+      "body": "Monte Carlo simülasyonumuzun ardından ekip 'Tornado Diyagramı' oluşturmamızı önerdi. PMI-RMP standartlarına göre bu Duyarlılık Analizi (Sensitivity Analysis) aracının birincil amacı nedir?",
+      "time": "13:30",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tornado Diyagramı, projenin bütçe ve takvim performansını izlemek için hazırlanan bir Kazanılmış Değer Yönetimi (EVM) raporudur. CPI ve SPI değerlerini görselleştirir.",
+          "feedback": "Tornado Diyagramı bir EVM aracı değildir. Hangi bireysel risklerin proje sonuçlarını en fazla etkilediğini görselleştiren bir Duyarlılık Analizi aracıdır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Tornado Diyagramı, hangi bireysel proje risklerinin (veya değişkenlerinin) proje hedefleri (örn: toplam maliyet, tamamlanma tarihi) üzerinde en fazla etkisi olduğunu görsel olarak gösterir. En uzun çubuğa sahip risk, öncelikli yönetilmesi gereken en kritik risktir.",
+          "feedback": "PMI Standartlarına göre [Section 4.5.2 / Sensitivity Analysis]; Tornado Diyagramı, proje parametrelerindeki belirsizliğin proje sonuçlarına olan göreli etkisini karşılaştırmak için kullanılır. Diyagramda en uzun çubuklar, proje hedefleri üzerindeki etkisi en yüksek olan risklere karşılık gelir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Tornado Diyagramı, paydaşların risk tutumlarını (Risk Attitudes) ölçmek için İK departmanı tarafından uygulanan anket bazlı bir değerlendirme aracıdır.",
+          "feedback": "Risk tutumu değerlendirmesi için anket ve müzakere yöntemleri kullanılır. Tornado Diyagramı ise sayısal veriye dayalı grafik bir duyarlılık analizi aracıdır.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Tornado Diyagramı yalnızca meteoroloji ve doğal afet risk modellemesinde kullanılır. Proje yönetimi bağlamında PMI standardında yer almaz.",
+          "feedback": "Tornado Diyagramı, PMI Standartlarında açıkça tanımlanmış bir Duyarlılık Analizi aracıdır ve proje risk yönetiminin Niceliksel Analiz (Quantitative Analysis) aşamasında kullanılır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 138,
+      "type": "decision",
+      "section": 32,
+      "from": "Evren Elmadağ",
+      "fromRole": "Kalite Yöneticisi",
+      "subject": "Kurumsal Hafızamızı Nasıl Besleriz?",
+      "body": "Projelerimizden elde ettiğimiz Alınan Dersleri (Lessons Learned), Risk Veri Tabanımızı ve geçmiş risk planlarımızı merkezi bir arşivde topladık. PMI standartlarında bu tür kurumsal hafıza ve bilgi birikimi depolarına ne ad verilir?",
+      "time": "14:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Organizasyonel Süreç Varlıkları (Organizational Process Assets - OPA). OPA'lar; politikaları, prosedürleri, alınan dersleri ve geçmiş proje verilerini kapsar. Yeni projelerde Risk Yönetimi Planı hazırlanırken tarihsel referans olarak kullanılarak sürekli iyileştirme (continuous improvement) döngüsünü besler.",
+          "feedback": "PMI Standartlarına göre [Section 2.2 / OPA]; Organizasyonel Süreç Varlıkları, organizasyonun tarihsel bilgi birikimini, politikalarını ve prosedürlerini içerir. Alınan dersler ve risk veri tabanları en kritik OPA bileşenlerindendir ve kurumsal hafızayı projeye özgü bilgilerle sürekli zenginleştirir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Kurumsal Çevre Faktörleri (Enterprise Environmental Factors - EEF). Piyasa koşulları, endüstri standartları ve yasal düzenlemeler gibi organizasyonun kontrol edemediği dış faktörlerdir.",
+          "feedback": "EEF, organizasyonun dışından gelen ve projeyi etkileyen faktörlerdir. OPA ise organizasyonun kendi iç deneyim birikimlerini ve süreçlerini içerir — tamamen farklı bir kategoridir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Proje Yönetim Planı (Project Management Plan). Proje kapsam, zaman, maliyet ve risk gibi tüm yönetim bileşenlerinin nasıl uygulanacağını açıklayan kapsamlı belge.",
+          "feedback": "Proje Yönetim Planı, belirli bir projeye özgüdür. OPA ise organizasyonun birikimli kurumsal hafızasını temsil eder ve birden fazla projeye girdi sağlar.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Paydaş Kayıt Defteri (Stakeholder Register). Projenin paydaşlarını, çıkarlarını ve etkilerini belgeleyen dokümandır.",
+          "feedback": "Paydaş Kayıt Defteri proje paydaşlarının bilgilerini içerir. Alınan dersler, geçmiş risk planları ve veri tabanları ise OPA kategorisindedir.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 139,
+      "type": "decision",
+      "section": 32,
+      "from": "Nalan Han Çubuk",
+      "fromRole": "Program Yöneticisi",
+      "subject": "Devir Sonrası Artık Riskler Kimin Sorumluluğu?",
+      "body": "HIZIR-NET programı AFAD'a teslim edildi ve Risk Kaydımızdaki Artık Riskler (Residual Risks) kapanış belgesiyle birlikte AFAD'a devredildi. Bu devir tesliminden sonra söz konusu artık riskler ne statüsünde değerlendirilir ve kim yönetir?",
+      "time": "14:30",
+      "options": [
+        {
+          "key": "A",
+          "text": "Artık riskler, proje kapanış belgesi imzalandığı anda kalıcı olarak 'Kapalı' statüsüne geçer ve artık hiçbir tarafın bu riskleri takip etmesine gerek kalmaz.",
+          "feedback": "Proje kapanışı artık riskleri yok etmez. Bu riskler ürün/servis operasyonel hayatta kaldığı sürece var olmaya devam eder ve sorumluluğu devralan tarafça yönetilmelidir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Artık riskler, proje ekibinin sorumluluk alanında kalmaya devam eder. Proje yöneticisi projeyi kapattıktan sonra bile bu riskleri belirsiz bir süre izlemelidir.",
+          "feedback": "Proje/program resmi olarak kapandıktan ve ürün operasyonlara devredildikten sonra orijinal proje ekibinin operasyonel risk sorumluluğu sona erer. Sorumluluk devralan organizasyona geçer.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Proje veya programın kapanmasından sonra devredilen Artık Riskler 'Operasyonel Riskler' statüsüne dönüşür ve artık sorumluluğu devralan organizasyonun (AFAD) kendi risk yönetim süreçleri çerçevesinde yönetilir.",
+          "feedback": "PMI Standartlarına göre [Section 7.2.5]; proje kapanışında ürünle birlikte devredilen artık riskler, organizasyonel düzeyde operasyonel risklere dönüşür. Artık risk yönetimi sorumluluğu operasyonları yürüten birime (AFAD) geçer ve proje ekibinin operasyonel sorumluluğu sona erer.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Artık riskler devredildikten sonra, yeni sahibi bu riskleri sıfırlamak zorundadır. Eğer sıfırlayamazsa, sorumluluk orijinal proje ekibine iade edilebilir.",
+          "feedback": "'Sıfır risk' hedeflemek hem teorik hem pratik olarak imkânsızdır. Devir gerçekleştikten sonra sorumluluk geri iade edilemez; operasyonları devralan organizasyon kendi risk çerçevesiyle yönetimi sürdürür.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 140,
+      "type": "decision",
+      "section": 32,
+      "from": "Can Kaya Kalecik",
+      "fromRole": "Başmühendis",
+      "subject": "Karmaşık Projeyi Nasıl Yönetiriz?",
+      "body": "Belirsizliğin yüksek, paydaş sayısının fazla ve sistem etkileşimlerinin öngörülemez olduğu karmaşık bir projeyi yönetmek için hangi yaklaşım PMI standartlarına en uygundur?",
+      "time": "15:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "Projenin başında tüm sistem gereksinimlerini eksiksiz dokümante ederek değişime kapalı sabit bir kapsam oluşturmalıyız. Bu sayede sistem etkileşimleri değişmez ve belirsizlik kontrol altında tutulur.",
+          "feedback": "Tahminsel (Waterfall) yaklaşım, gereksinimlerin baştan net olduğu ve belirsizliğin düşük olduğu projelere uygundur. Yüksek karmaşıklık ve belirsizlik ortamında katı sabit kapsam riski artırır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Karmaşıklık ve belirsizliğin yüksek olduğu projelerde; Çevik veya Hibrit yaklaşımlar benimsenmeli, kapsam küçük iterasyonlara bölünmeli, paydaşlar sürekli katılımla bütünleştirilmeli ve risklere uyarlanabilir (adaptive) yanıtlar geliştirilmelidir.",
+          "feedback": "PMI Standartlarına göre [Section 1.4.6 / Navigate Complexity]; belirsizlik ve karmaşıklığın yüksek olduğu ortamlarda iteratif, çevik ve hibrit yaklaşımlar en etkili yöntemdir. Bu yaklaşımlar kısa döngülerle öğrenmeyi ve risklere hızlı yanıt vermeyi mümkün kılar.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Projenin tüm karmaşık bileşenlerini dış uzmanlara (outsource) devretmeliyiz. Bu sayede organizasyon karmaşıklıkla doğrudan ilgilenmek zorunda kalmaz.",
+          "feedback": "Outsourcing bazı riskleri azaltabilir ancak karmaşıklığı ve temel belirsizliği ortadan kaldırmaz. Ayrıca yeni tedarik ve koordinasyon riskleri yaratır.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Karmaşıklık algısaldır; gerçek değildir. Yeterli detay planlaması yapıldığında her projenin karmaşıklığı tamamen ortadan kalkar ve geriye doğrusal bir uygulama süreci kalır.",
+          "feedback": "Karmaşıklık insan davranışı, sistem etkileşimleri ve belirsizliğin kaçınılmaz bir ürünüdür. PMI'a göre yöneticilerin görevi karmaşıklığı inkar etmek değil, onunla baş etmek (Navigate Complexity) için uygun araç ve yaklaşımları kullanmaktır.",
+          "xp": 0,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 141,
+      "type": "decision",
+      "section": 32,
+      "from": "Şeref Koçhisar",
+      "fromRole": "Sponsor / Yönetim Kurulu Başkanı",
+      "subject": "BÜYÜK FİNAL: Risk Yönetiminin Nihai Amacı",
+      "body": "Sevgili CRO, HIZIR-NET projesiyle başladığın bu zorlu yolculuğu Yönetim Kurulu masasında zirveye taşıdın. Matrisler kurdun, Monte Carlo simülasyonları çalıştırdın, Siyah Kuğularla savaştın, fırsatları yakaladın ve kurumun kültürünü değiştirdin. Şimdi, hissedarların gözünün içine bakarak, PMI-RMP felsefesine göre yaptığımız tüm bu 'Risk Yönetimi' işinin nihai varoluş amacını (Purpose) TEK BİR CÜMLE ile özetlemeni istiyorum.",
+      "time": "16:00",
+      "options": [
+        {
+          "key": "A",
+          "text": "\"Risk yönetiminin amacı, sözleşmelerimizde hiçbir açığın kalmamasını sağlayarak, hata yaptığımızda suçu atacağımız bir alt yüklenici (Taşeron) bulmaktır.\"",
+          "feedback": "Savunmacı, hukuki bahane üretmeye odaklı ve değer yaratmaktan uzak bu vizyonsuz yaklaşım, PMI'ın risk yönetimi felsefesiyle tamamen çelişir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "\"Risk yönetiminin amacı, bütçeyi her zaman planlanan miktarın altında tutmak ve şirketin cebinden ekstra 1 TL bile çıkmasını engellemektir.\"",
+          "feedback": "Para tasarrufu taktiksel bir hedeftir. Şirketin vizyonunu gerçekleştirmek için zaman zaman Beklenmedik Durum Yedeği (Contingency) harcanması ve hesaplanmış riskler alınması (Risk Appetite) zorunludur.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "\"Risk yönetiminin nihai amacı; portföyler, programlar ve projeler üzerinde organizasyonun hedeflerini saptırabilecek belirsizlikleri yöneterek, organizasyonun 'DEĞER YARATMA VE BU DEĞERİ KORUMA' (Create and Sustain Value) misyonunu proaktif bir şekilde güvence altına almaktır.\"",
+          "feedback": "Mükemmel kapanış! PMI'ın Risk Yönetimi felsefesinin en öz ve güçlü tanımı budur. Risk yönetimi; sadece form doldurmak veya felaketlerden kaçmak değil, organizasyon için stratejik değer (Value) yaratmak, fırsatları en üst düzeye çıkarmak ve o değeri tehditlere karşı korumaktır. 115 kararı tamamladın — tebrikler, Kurumsal Risk Direktörü!",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "\"Risk yönetimi, geleceği %100 kesinlikle tahmin ederek, şirketimizin bir daha asla herhangi bir sorunla karşılaşmamasını sağlayan sihirli bir formüldür.\"",
+          "feedback": "Gelecek asla %100 tahmin edilemez (Uncertainty). Risk yönetimi bir sihir değil; dayanıklılık (Resilience), esneklik ve yapılandırılmış karar alma (Decision-making) disiplinidir.",
           "xp": 0,
           "isEthical": false
         }
