@@ -93,7 +93,8 @@
         "PMO (Project Management Office)",
         "Servant Leadership",
         "Scrum Master"
-      ]
+      ],
+      "whenToUse": "Organizasyon genelinde birden fazla takımın çevik yaklaşıma geçerken standartları oturtamadığı, takımların yöneticilik ve baskı yerine 'koçluk, mentorluk ve doğrudan destek' alabilecekleri yapısal bir birime ihtiyaç duyduğu kurumsal dönüşüm krizleri."
     },
     {
       "term": "Agile Manifesto",
@@ -233,7 +234,8 @@
         "Extreme Programming (XP)",
         "Definition of Done (DoD)",
         "User Story"
-      ]
+      ],
+      "whenToUse": "Yazılım takımının kalite kusurlarını (bug) iş işten geçtikten sonra fark ettiği; bunu önlemek için ürün kodlanmadan önce otomatik testlerin ve simülasyonların yazılarak testlerin 'başarısız olmaya zorlandığı' kalite ve süreç sorunları."
     },
     {
       "term": "Benchmarking",
@@ -377,7 +379,8 @@
         "Brainstorming",
         "Delphi Technique",
         "Risk Register"
-      ]
+      ],
+      "whenToUse": "Beyin fırtınası toplantılarında baskın/sesi yüksek çıkan yöneticilerin diğer takım üyelerini bastırdığı (grup düşüncesi / groupthink) ve iyi fikirlerin kaybolduğu; bu yüzden takım üyelerinin fikirlerini konuşarak değil 'sessizce bir kağıda/ekrana yazarak' anonim şekilde paylaşmasının gerektiği iletişim tıkanıklıkları."
     },
     {
       "term": "Budget at Completion (BAC)",
@@ -520,7 +523,8 @@
         "Contract",
         "Change Request",
         "Procurement"
-      ]
+      ],
+      "whenToUse": "Alıcı (proje yöneticisi) ile satıcı (tedarikçi) arasında sözleşme şartları, değişiklikler veya ödemeler konusunda bir anlaşmazlık çıktığında; taraflardan birinin yasal/sözleşmesel olarak ekstra ödeme veya hak talep ettiği dış paydaş çatışmaları."
     },
     {
       "term": "Cognitive Bias",
@@ -582,7 +586,8 @@
         "Explicit Knowledge",
         "Lessons Learned Register",
         "Organizational Process Assets (OPA)"
-      ]
+      ],
+      "whenToUse": "Kilit personelin aniden işten ayrılması veya projeler arası yetkinlik kaybı yaşanması riskine karşı; uzmanların bir araya gelerek organizasyon içinde bilginin düzenli olarak depolanmasını ve aktarılmasını (mentorluk eşliğinde) sağlamak için kurdukları yapı ihtiyacı."
     },
     {
       "term": "Configuration Management",
@@ -749,7 +754,8 @@
         "Statement of Work (SOW)"
       ],
       "termTR": "Masraf Geri Ödemeli Sözleşme",
-      "definitionTR": "Alıcının, satıcı tarafından gerçekleştirilen tüm izin verilen maliyetleri artı kârı temsil eden üzerinde mutabık kalınan bir ücreti ödediği sözleşme türüdür. Maliyet riski ağırlıklı olarak alıcıya aittir. Kapsamın önceden net biçimde tanımlanamadığı durumlara en uygun sözleşme türüdür."
+      "definitionTR": "Alıcının, satıcı tarafından gerçekleştirilen tüm izin verilen maliyetleri artı kârı temsil eden üzerinde mutabık kalınan bir ücreti ödediği sözleşme türüdür. Maliyet riski ağırlıklı olarak alıcıya aittir. Kapsamın önceden net biçimde tanımlanamadığı durumlara en uygun sözleşme türüdür.",
+      "whenToUse": "Proje kapsamının en baştan net olarak tanımlanamadığı (yüksek belirsizlik) durumlarda; alıcının risk alarak, satıcıya (tedarikçiye) yaptığı tüm masrafları ve üzerine belli bir kar payını ödemeyi baştan kabul etmek zorunda kaldığı satın alma senaryoları."
     },
     {
       "term": "Cost Variance (CV)",
@@ -1438,7 +1444,8 @@
         "Agile",
         "Continuous Improvement",
         "Project Management"
-      ]
+      ],
+      "whenToUse": "Proje yöneticisinin büyük miktardaki veri/kalite sonuçlarını analiz etmesi, öngörüler sağlaması, karar alma süreçlerini hızlandırması veya metin/kod üreterek inovasyon sürecini desteklemesi gerektiği analiz krizleri."
     },
     {
       "term": "Gold Plating",
@@ -2720,7 +2727,8 @@
         "Contract",
         "Fixed-Price Contract",
         "Procurement"
-      ]
+      ],
+      "whenToUse": "Dışarıdan alınan bir hizmette (örneğin sunucu kiralama) sadece donanımın tesliminin değil, 'performans ölçümünün ve hizmet kalitesinin' (örneğin %99.9 kesintisiz çalışma garantisi) güvence altına alınması gerektiği sözleşme müzakereleri."
     },
     {
       "term": "Six Sigma",
@@ -2932,7 +2940,8 @@
         "Procurement Management Plan"
       ],
       "termTR": "İş Bildirimi (SOW)",
-      "definitionTR": "Proje tarafından teslim edilecek nihai ürün, hizmet veya sonuçların anlatısal (metin tabanlı) bir açıklamasıdır."
+      "definitionTR": "Proje tarafından teslim edilecek nihai ürün, hizmet veya sonuçların anlatısal (metin tabanlı) bir açıklamasıdır.",
+      "whenToUse": "Dışarıdan ihale yoluyla bir iş yaptırılacağı zaman, satıcıların/tedarikçilerin fiyat teklifi vermeden önce projede ne yapacaklarını tam olarak anlamaları için onlara teslim edilecek 'işin anlatısal (metin tabanlı) detaylı tanımının' sunulması gereken anlar."
     },
     {
       "term": "Statistical Sampling",
@@ -2945,7 +2954,8 @@
         "Pareto Chart",
         "Cost of Quality (COQ)",
         "Appraisal Cost"
-      ]
+      ],
+      "whenToUse": "Üretilen ürün veya teslimat sayısının çok fazla olduğu (örn: 5.000 adet sensör) ve kalite takımının her bir parçayı tek tek test edecek zamanı/bütçesi olmadığı için, rastgele bir bölümü (örneklem) seçerek genel kaliteyi doğrulamasının gerektiği kaynak/zaman kısıtları."
     },
     {
       "term": "Status Meetings",
@@ -3151,7 +3161,8 @@
         "Procurement Management Plan"
       ],
       "termTR": "Zaman ve Malzeme Sözleşmesi",
-      "definitionTR": "Sabit fiyatlı ve masraf geri ödemeli sözleşmelerin unsurlarını bir araya getiren hibrit bir sözleşme türüdür. Alıcı, sabit saatlik veya günlük oranlarla gerçek işgücü maliyetini ve gerçek malzeme maliyetlerini öder. Kapsamın önceden tanımlanamadığı ancak belirli bir fiyatlandırma yapısının gerektiği durumlara uygundur."
+      "definitionTR": "Sabit fiyatlı ve masraf geri ödemeli sözleşmelerin unsurlarını bir araya getiren hibrit bir sözleşme türüdür. Alıcı, sabit saatlik veya günlük oranlarla gerçek işgücü maliyetini ve gerçek malzeme maliyetlerini öder. Kapsamın önceden tanımlanamadığı ancak belirli bir fiyatlandırma yapısının gerektiği durumlara uygundur.",
+      "whenToUse": "Kapsamın net olmadığı ancak işe (örneğin dışarıdan acil yazılımcı veya danışman bulmaya) hemen başlanması gereken acil durumlarda; işçilik için saatlik/günlük sabit bir ücretin ödendiği karma satın alma senaryoları."
     },
     {
       "term": "Timeboxing",
