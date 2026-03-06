@@ -19,20 +19,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bar:#2f4f60;
-      --bar2:#5f93c2;
-      --ink:#1f2937;
-      --muted:#6b7280;
+      /* ── BRAND ── */
+      --primary:#2f4f60;
+      --primary-dark:#1f3b49;
+      --primary-light:#5f93c2;
+      --accent:#3b82f6;
+      --accent-dark:#2563eb;
+      /* ── TEXT ── */
+      --text:#1f2937;
+      --text-secondary:#6b7280;
+      --text-muted:#9ca3af;
+      /* ── BACKGROUNDS ── */
       --bg:#f3f4f6;
-      --card:#ffffff;
-      --line:#d6dde6;
+      --surface:#ffffff;
+      --surface2:#f9fafb;
+      /* ── UI ── */
+      --border:#d6dde6;
+      --radius:10px;
+      /* ── SEMANTIC ── */
+      --success:#10b981;
+      --warning:#f59e0b;
+      --error:#ef4444;
+      /* ── EXAM SPECIFIC ── */
+      --correct:#15803d;
+      --correct-bg:#f0fdf4;
+      --wrong:#b91c1c;
+      --wrong-bg:#fef2f2;
+      /* ── LEGACY ALIASES ── */
+      --bar:var(--primary);
+      --bar2:var(--primary-light);
+      --ink:var(--text);
+      --muted:var(--text-secondary);
+      --card:var(--surface);
+      --line:var(--border);
       --btn:#2f6ea5;
       --btn2:#245a87;
       --warn:#b45309;
-      --correct:#15803d;
-      --wrong:#b91c1c;
-      --correct-bg:#f0fdf4;
-      --wrong-bg:#fef2f2;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink)}

@@ -8,17 +8,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
+  /* ── BRAND ── */
   --primary: #2f4f60;
   --primary-dark: #1f3b49;
   --primary-light: #5f93c2;
-  --accent: #3b7bc8;
+  --accent: #3b82f6;
+  --accent-dark: #2563eb;
+  /* ── TEXT ── */
   --text: #0b1220;
-  --muted: #334155;
-  --light: #64748b;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  /* ── BACKGROUNDS ── */
   --bg: #f8fafc;
-  --card: #ffffff;
+  --surface: #ffffff;
+  --surface2: #f1f5f9;
+  /* ── UI ── */
   --border: #e2e8f0;
   --radius: 14px;
+  /* ── SEMANTIC ── */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  /* ── LEGACY ALIASES ── */
+  --muted: var(--text-secondary);
+  --light: var(--text-muted);
+  --card: var(--surface);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: Inter, system-ui, sans-serif; color: var(--text); background: var(--bg); min-height: 100vh; display: flex; flex-direction: column; }

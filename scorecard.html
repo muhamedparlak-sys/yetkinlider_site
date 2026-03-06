@@ -9,16 +9,23 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0d1117;
-  --s1:#161b22;
-  --s2:#21262d;
-  --border:rgba(255,255,255,.08);
+  /* ── BRAND ── */
+  --primary:#2f4f60;--primary-light:#5f93c2;
+  --accent:#3b82f6;--accent-dark:#2563eb;
+  /* ── TEXT ── */
   --text:#e6edf3;
-  --muted:#7d8590;
-  --dim:#484f58;
-  --capm:#c9960c;
-  --pmp:#3b82f6;
-  --adv:#a855f7;
+  --text-secondary:#7d8590;--text-muted:#484f58;
+  /* ── BACKGROUNDS ── */
+  --bg:#0d1117;--surface:#161b22;--surface2:#21262d;
+  /* ── UI ── */
+  --border:rgba(255,255,255,.08);--radius:10px;
+  /* ── SEMANTIC ── */
+  --success:#10b981;--warning:#f59e0b;--error:#ef4444;
+  /* ── SCORECARD SPECIFIC ── */
+  --capm:#c9960c;--pmp:#3b82f6;--adv:#a855f7;
+  /* ── LEGACY ALIASES ── */
+  --s1:var(--surface);--s2:var(--surface2);
+  --muted:var(--text-secondary);--dim:var(--text-muted);
   --topbar-h:48px;
 }
 body{font-family:Inter,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.4}
