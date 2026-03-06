@@ -20,8 +20,18 @@
       "decisions": 180,
       "difficulty": "advanced",
       "sector": "Savunma Sanayii / Teknoloji"
+    },
+    {
+      "id": "hizir-net",
+      "title": "HIZIR-NET",
+      "subtitle": "İHA Tabanlı Afet Tespiti Projesi",
+      "decisions": 115,
+      "difficulty": "advanced",
+      "sector": "Savunma Sanayii / Teknoloji",
+      "focus": "PMI-RMP Risk Yönetimi"
     }
   ],
   "note": "Add new scenarios here. difficulty: beginner|intermediate|advanced. universeScore = sum(decisions * 3) computed at runtime.",
-  "updatedAt": "2026-03-05"
+  "updatedAt": "2026-03-06",
+  "note2": "hizir-net: 32 hafta, 115 karar, 148 bildirim, maxXP=3450"
 }
