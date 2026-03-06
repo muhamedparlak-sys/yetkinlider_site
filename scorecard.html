@@ -114,6 +114,16 @@ button{border:none;cursor:pointer;font-family:inherit}
 }
 .area-head-name{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
 .area-head-weight{font-size:10px;color:var(--dim)}
+.risk-section-divider{
+  grid-column:1/-1;margin:20px 0 8px;display:flex;align-items:center;gap:10px;
+}
+.risk-section-divider span{
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;
+  color:#a78bfa;white-space:nowrap;
+}
+.risk-section-divider::before,.risk-section-divider::after{
+  content:'';flex:1;height:1px;background:rgba(167,139,250,.2);
+}
 
 .skill-pair{display:flex;border-bottom:1px solid rgba(255,255,255,.04)}
 .skill-pair:last-child{border-bottom:none}
@@ -381,7 +391,51 @@ const AREAS = [
                 pmp:  'İş ortamı değişikliklerini kapsam için değerlendirir.',
                 adv:  "Mevzuat, teknoloji ve pazar değişimlerini sürekli tarar, Backlog'u günceller." } },
     ]
-  }
+  },
+  /* ── RİSK YÖNETİMİ YETKİNLİKLERİ ─────────────────────────────────────── */
+  {
+    id: 'risk_strateji', label: 'STRATEJİ & TANIMLAMA', type: 'risk', weight: null,
+    skills: [
+      { id: 'risk_plan',   label: 'Risk Yönetim Planı',      oldLabel: null,
+        desc: { capm: 'Organizasyonun standart şablonlarını ve metodolojisini kullanır.',
+                pmp:  'Planı projenin karmaşıklığına göre tailoring yaparak uyarlar.',
+                adv:  'Risk stratejisini Kurumsal Risk Yönetimi (ERM) ve portföy hedefleriyle tam entegre eder.' } },
+      { id: 'risk_paydas', label: 'Paydaş & Toleranslar',   oldLabel: null,
+        desc: { capm: 'Temel paydaş listesini çıkarır ve risk sahiplerini belirler.',
+                pmp:  'Güç/İlgi matrisi ile paydaşların risk iştahını ve tutum yanlılıklarını analiz eder.',
+                adv:  'Karmaşık yönetişim yapılarında stratejik risk eşiklerini belirler ve öncelikleri hizalar.' } },
+      { id: 'risk_tanim',  label: 'Risk Belirleme Teknikleri', oldLabel: null,
+        desc: { capm: 'Hazır kontrol listelerini (checklists) ve beyin fırtınasını uygular.',
+                pmp:  'SWOT, Kök Neden Analizi ve Balık Kılçığı (Ishikawa) diyagramlarını uzmanlıkla kullanır.',
+                adv:  'Delphi tekniği ile uzman görüşü süreçlerini yönetir; Siyah Kuğu ve ortaya çıkan riskleri tanımlar.' } },
+    ]
+  },
+  {
+    id: 'risk_analiz', label: 'RİSK ANALİZİ & YANITLAR', type: 'risk', weight: null,
+    skills: [
+      { id: 'risk_nitelik',  label: 'Niteliksel Analiz',    oldLabel: null,
+        desc: { capm: 'Standart Olasılık ve Etki Matrisi ile riskleri puanlar.',
+                pmp:  'Analizdeki önyargıları minimize eder; risklerin aciliyet (urgency) ve yakınlığını değerlendirir.',
+                adv:  'Riskler arası bağlantısallığı (connectivity) analiz eder ve veri kalitesini denetler.' } },
+      { id: 'risk_nicelik',  label: 'Niceliksel Analiz',    oldLabel: null,
+        desc: { capm: 'Beklenen Parasal Değer (EMV) hesaplamalarını temel seviyede yapar.',
+                pmp:  'Karar Ağacı Analizi ve Duyarlılık (Tornado) analizlerini kurgular.',
+                adv:  'Monte Carlo simülasyonu ve FMECA ile bütçe/takvim yedeklerini optimize eder.' } },
+      { id: 'risk_yanit',    label: 'Yanıt Stratejileri',   oldLabel: null,
+        desc: { capm: 'Temel yanıtları (Kaçınma, Azaltma, Aktarma, Kabul) belirler ve uygular.',
+                pmp:  'İkincil ve artık riskleri değerlendirerek Çok Kriterli Karar Analizi ile en uygun yanıtı seçer.',
+                adv:  'Yanıt planlarını WBS veya çevik iş birikimine (Backlog) tam entegre eder.' } },
+    ]
+  },
+  {
+    id: 'risk_izleme_area', label: 'RİSKLERİN İZLENMESİ', type: 'risk', weight: null,
+    skills: [
+      { id: 'risk_izleme',   label: 'Takip, Kontrol & Raporlama', oldLabel: null,
+        desc: { capm: 'Risk listesini günceller ve tetikleyici (trigger) koşulları izler.',
+                pmp:  'Varyans ve Trend Analizi yaparak risk rezervlerinin kullanımını denetler.',
+                adv:  'Bağımsız Risk Denetimleri yürütür; Alınan Dersler üzerinden sürekli iyileştirme sağlar.' } },
+    ]
+  },
 ];
 
 /* Old star-top-bank competency id → new id mapping */
@@ -635,11 +689,16 @@ function applyAvatar(photoUrl, fallback) {
 /* ── render attribute panel ──────────────────────────────────── */
 function renderAttr(stats, tab) {
   let html = '<div class="attr-panel">';
+  let riskShown = false;
   for (const area of AREAS) {
+    if (area.type === 'risk' && !riskShown) {
+      html += `<div class="risk-section-divider"><span>RİSK YÖNETİMİ YETKİNLİKLERİ</span></div>`;
+      riskShown = true;
+    }
     html += `<div class="area-block">
       <div class="area-head">
         <span class="area-head-name">${area.label}</span>
-        <span class="area-head-weight">%${area.weight} ECO</span>
+        ${area.weight != null ? `<span class="area-head-weight">%${area.weight} ECO</span>` : ''}
       </div>`;
     const skills = area.skills;
     for (let i = 0; i < skills.length; i += 2) {
@@ -680,7 +739,7 @@ function renderRight(profile, stats, saves, tab, scenariosData) {
 
   // ECO breakdown for this tab
   let ecoHTML = `<div class="info-panel"><div class="panel-head">ECO Alan Performansı · ${tabName}</div>`;
-  for (const area of AREAS) {
+  for (const area of AREAS.filter(a => a.type !== 'risk')) {
     const compStats = area.skills.map(sk => stats[sk.id]||0).filter(v=>v>0);
     const avg = compStats.length > 0 ? Math.round(compStats.reduce((a,b)=>a+b,0)/compStats.length) : 0;
     const pct = Math.round((avg/20)*100);
