@@ -486,8 +486,11 @@ function getUsers()   { try { return JSON.parse(localStorage.getItem(USERS_KEY) 
 
 function isAdmin(session) {
   if (!session) return false;
-  // Admin: devMode flag OR username === 'admin'
-  return session.devMode === true || session.username === 'admin';
+  // Admin: devMode, username=admin, veya Supabase profiles'dan gelen role
+  return session.devMode === true
+    || session.username === 'admin'
+    || session.role === 'admin'
+    || session.role === 'editor';
 }
 
 // ── CONSTANTS ────────────────────────────────────────────────────────────────
