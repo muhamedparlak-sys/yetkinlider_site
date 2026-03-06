@@ -11,7 +11,8 @@
         "Quality Control"
       ],
       "termTR": "Kabul Kriterleri",
-      "definitionTR": "Bir ürünün, hizmetin veya sonucun müşteri veya sponsor tarafından resmi olarak kabul edilebilmesi için karşılaması gereken standartlar ve koşullar dizisidir."
+      "definitionTR": "Bir ürünün, hizmetin veya sonucun müşteri veya sponsor tarafından resmi olarak kabul edilebilmesi için karşılaması gereken standartlar ve koşullar dizisidir.",
+      "whenToUse": "Takımın işi (teslimatı) 'bitti' diyerek sunduğu ancak müşterinin veya sponsorun 'bu benim istediğim şey değil' diyerek işi reddettiği durumlar. Çözüm: İşe başlamadan önce 'neyin bittiği' konusunda paydaşlarla önceden anlaşmaya varılmış koşullara (kriterlere) bakmaktır."
     },
     {
       "term": "Active Listening",
@@ -23,7 +24,8 @@
         "Communication Methods",
         "Emotional Intelligence (EI)",
         "Stakeholder"
-      ]
+      ],
+      "whenToUse": "Özellikle sanal takımlarda, farklı kültürlerden gelen takım üyelerinin veya paydaşların birbirlerini yanlış anladığı, iletişimin koptuğu veya gizli bir öfkenin yaşandığı psikolojik kriz anları. Çözüm: Karşıdakinin mesajını doğru anlamak ve engelleri kaldırmak için aktif dinleme tekniğini kullanmaktır."
     },
     {
       "term": "Activity Attributes",
@@ -48,7 +50,8 @@
         "Cost Performance Index (CPI)"
       ],
       "termTR": "Gerçekleşen Maliyet (AC)",
-      "definitionTR": "Belirli bir zaman diliminde bir faaliyet üzerinde gerçekleştirilen iş için katlanılan gerçekleşmiş, net maliyettir."
+      "definitionTR": "Belirli bir zaman diliminde bir faaliyet üzerinde gerçekleştirilen iş için katlanılan gerçekleşmiş, net maliyettir.",
+      "whenToUse": "Sponsorun gelip 'Bugüne kadar tam olarak ne kadar para harcadık, cebimizden ne kadar nakit çıktı?' diye sorduğu sayısal durumlar."
     },
     {
       "term": "Adaptive Approach",
@@ -62,7 +65,8 @@
         "Incremental Approach"
       ],
       "termTR": "Uyarlanabilir Yaklaşım",
-      "definitionTR": "Değişimi ve belirsizliği, kısa döngülerde iş yürütüp sürekli geri bildirim alarak ve anlayış geliştikçe planları güncelleyerek benimseyen bir teslimat yöntemidir. Çevik, yinelemeli ve artımlı yaklaşımları kapsar."
+      "definitionTR": "Değişimi ve belirsizliği, kısa döngülerde iş yürütüp sürekli geri bildirim alarak ve anlayış geliştikçe planları güncelleyerek benimseyen bir teslimat yöntemidir. Çevik, yinelemeli ve artımlı yaklaşımları kapsar.",
+      "whenToUse": "Proje başında gereksinimlerin net olmadığı, belirsizliğin ve inovasyon ihtiyacının çok yüksek olduğu, sık sık dış çevre değişikliği yaşanan ortamlar. Çözüm: Uzun vadeli katı planlar yapmak yerine, kısa döngülerle (sprint) geri bildirim alarak planı esnetmektir."
     },
     {
       "term": "Agile",
@@ -76,7 +80,8 @@
         "Sprint"
       ],
       "termTR": "Çevik",
-      "definitionTR": "Değer sunmayı işbirliği, şeffaflık ve sürekli iyileştirme yoluyla önceleyen, değerler ve ilkeler üzerine kurulu bir zihin yapısıdır. Çevik ekipler kısa döngülerde çalışır, değişime hızla yanıt verir ve ağır belgelendirme yerine çalışan çözümleri tercih eder."
+      "definitionTR": "Değer sunmayı işbirliği, şeffaflık ve sürekli iyileştirme yoluyla önceleyen, değerler ve ilkeler üzerine kurulu bir zihin yapısıdır. Çevik ekipler kısa döngülerde çalışır, değişime hızla yanıt verir ve ağır belgelendirme yerine çalışan çözümleri tercih eder.",
+      "whenToUse": "Kapsamlı ve kalın dokümantasyonların (şelale) müşteriye değer katmadığı, değişimin çok hızlı olduğu ve takımın işbirliği/şeffaflık içinde kendi kendini yönetmesinin gerektiği karmaşık proje ihtiyaçları."
     },
     {
       "term": "Agile Center of Excellence (ACoE)",
@@ -112,7 +117,8 @@
         "Risk",
         "Navigate Complexity",
         "Uncertainty Performance Domain"
-      ]
+      ],
+      "whenToUse": "Masada birden fazla çözüm seçeneğinin olduğu, olayların nedeninin net anlaşılamadığı, 'risk (bilinen bilinmeyen)' durumundan daha çok 'yön eksikliği' yaşanan durumlar."
     },
     {
       "term": "Analogous Estimating",
@@ -124,7 +130,8 @@
         "Bottom-up Estimating",
         "Parametric Estimating",
         "Three-Point Estimate (PERT)"
-      ]
+      ],
+      "whenToUse": "Projenin henüz çok başında olunduğu, detaylı bilginin bulunmadığı ancak üst yönetimin acilen bir maliyet veya süre tahmini ('kabaca ne kadar sürer?') istediği anlar. Çözüm: Geçmişteki benzer projelerin verilerini (yukarıdan aşağıya) kullanmaktır."
     },
     {
       "term": "Appraisal Cost",
@@ -173,7 +180,8 @@
         "Risk Register"
       ],
       "termTR": "Varsayım Kaydı",
-      "definitionTR": "Proje boyunca belirlenen tüm varsayım ve kısıtları kaydeden bir proje belgesidir. Yeni bilgiler ortaya çıktıkça sürekli güncellenir ve ekibin sonuçları etkileyebilecek faktörleri izlemesine yardımcı olur."
+      "definitionTR": "Proje boyunca belirlenen tüm varsayım ve kısıtları kaydeden bir proje belgesidir. Yeni bilgiler ortaya çıktıkça sürekli güncellenir ve ekibin sonuçları etkileyebilecek faktörleri izlemesine yardımcı olur.",
+      "whenToUse": "Projenin başında, kanıtlanmamış faktörlerin 'doğru' kabul edilerek yola çıkıldığı ve bu durumların sonradan değişerek projeye risk (tehdit) oluşturup oluşturmadığının takip edilmesi gerektiği anlar."
     },
     {
       "term": "Backlog Refinement",
@@ -199,7 +207,8 @@
         "Performance Measurement Baseline (PMB)"
       ],
       "termTR": "Temel Çizgi",
-      "definitionTR": "Bir plan bileşeninin —kapsam, zaman çizelgesi veya maliyet— onaylanmış, anlık görüntü versiyonudur; performans ölçümü için sabit bir referans noktası olarak kullanılır. Temel çizgilerdeki değişiklikler, değişiklik kontrol süreci aracılığıyla resmi onay gerektirir."
+      "definitionTR": "Bir plan bileşeninin —kapsam, zaman çizelgesi veya maliyet— onaylanmış, anlık görüntü versiyonudur; performans ölçümü için sabit bir referans noktası olarak kullanılır. Temel çizgilerdeki değişiklikler, değişiklik kontrol süreci aracılığıyla resmi onay gerektirir.",
+      "whenToUse": "Proje devam ederken, takımın veya müşterinin projenin orijinal plandan sapıp sapmadığını (gecikme veya bütçe aşımı) ölçmek istediği performans değerlendirme krizleri."
     },
     {
       "term": "Be a Diligent Steward",
@@ -262,7 +271,8 @@
         "Payback Period"
       ],
       "termTR": "Fayda-Maliyet Oranı (BCR)",
-      "definitionTR": "Bir projenin beklenen faydalarını tahmini maliyetlerine bölen finansal bir göstergedir. 1,0 dan büyük bir BCR, beklenen faydaların maliyetleri aştığı anlamına gelir. Alternatifleri karşılaştırırken daha yüksek BCR değerleri finansal açıdan daha cazip projelere işaret eder."
+      "definitionTR": "Bir projenin beklenen faydalarını tahmini maliyetlerine bölen finansal bir göstergedir. 1,0 dan büyük bir BCR, beklenen faydaların maliyetleri aştığı anlamına gelir. Alternatifleri karşılaştırırken daha yüksek BCR değerleri finansal açıdan daha cazip projelere işaret eder.",
+      "whenToUse": "Masada birden fazla projenin veya çözüm alternatifinin bulunduğu ve yönetimin 'Hangi proje bize harcadığımız paraya karşılık en yüksek finansal cazibeyi/kazancı sağlar?' diye sorduğu karar anları. Çözüm: Oranı 1.0'dan en büyük olanı seçmektir."
     },
     {
       "term": "Benefits Owner",
@@ -288,7 +298,8 @@
         "Outcome"
       ],
       "termTR": "Fayda Gerçekleştirme",
-      "definitionTR": "Bir proje veya programın amaçlanan faydalarının kapanış sonrasında gerçekten elde edilip edilmediğini ve sürdürülüp sürdürülmediğini sağlayan süregelen bir süreçtir. Proje yaşam döngüsü boyunca ve ötesinde faydaların tanımlanmasını, planlanmasını, ölçülmesini ve izlenmesini kapsar."
+      "definitionTR": "Bir proje veya programın amaçlanan faydalarının kapanış sonrasında gerçekten elde edilip edilmediğini ve sürdürülüp sürdürülmediğini sağlayan süregelen bir süreçtir. Proje yaşam döngüsü boyunca ve ötesinde faydaların tanımlanmasını, planlanmasını, ölçülmesini ve izlenmesini kapsar.",
+      "whenToUse": "Proje başarılı bir şekilde kapanıp ürün teslim edildikten aylar sonra bile 'Biz bu projeyi satışları %20 artırmak için yapmıştık, bu amaca ulaştık mı?' sorusunun izlendiği (satış sonrası) durumlar."
     },
     {
       "term": "Bid Documents",
@@ -339,7 +350,8 @@
         "Three-Point Estimate (PERT)",
         "Analogous Estimating",
         "Parametric Estimating"
-      ]
+      ],
+      "whenToUse": "Çok kritik bir projede, hata payının en aza indirilmesi gereken ve maliyetin en yüksek doğrulukla hesaplanmasının zorunlu olduğu durumlar. Çözüm: İşi İş Kırılım Yapısındaki (WBS) en küçük parçalara bölüp tek tek hesaplayarak toplamaktır (Zaman alır ama en doğrusudur)."
     },
     {
       "term": "Brainstorming",
@@ -352,7 +364,8 @@
         "Risk Register",
         "Requirements",
         "Brainwriting"
-      ]
+      ],
+      "whenToUse": "Projede tamamen yeni bir pazar veya teknoloji ile karşılaşıldığında, takımın riskleri tanımlamakta veya bir probleme çözüm bulmakta tıkandığı ve 'eleştirilmeden, çok sayıda fikre' ihtiyaç duyulan toplantı anları."
     },
     {
       "term": "Brainwriting",
@@ -377,7 +390,8 @@
         "Performance Measurement Baseline (PMB)"
       ],
       "termTR": "Tamamlanma Bütçesi (BAC)",
-      "definitionTR": "Gerçekleştirilecek proje işi için kurulan/onaylanan orijinal tahmini bütçelerin tümünün toplamıdır."
+      "definitionTR": "Gerçekleştirilecek proje işi için kurulan/onaylanan orijinal tahmini bütçelerin tümünün toplamıdır.",
+      "whenToUse": "Proje yöneticisinin tüm onaylanmış bütçelerin toplamını görmek istediği ve gelecekteki olası maliyet sapmalarını hesaplarken kullanacağı temel bütçe (referans noktası) sorulduğunda."
     },
     {
       "term": "Build Quality Into Processes",
@@ -428,7 +442,8 @@
         "Net Present Value (NPV)"
       ],
       "termTR": "İş Gerekçesi",
-      "definitionTR": "Sorunu veya fırsatı analiz eden, çözüm alternatiflerini değerlendiren, maliyet ve faydaları tahmin eden ve tercih edilen eylem planını öneren, proje başlatmayı meşrulaştıran resmi bir belgedir. Üst düzey liderlik kararları için birincil dayanak işlevi görür."
+      "definitionTR": "Sorunu veya fırsatı analiz eden, çözüm alternatiflerini değerlendiren, maliyet ve faydaları tahmin eden ve tercih edilen eylem planını öneren, proje başlatmayı meşrulaştıran resmi bir belgedir. Üst düzey liderlik kararları için birincil dayanak işlevi görür.",
+      "whenToUse": "Piyasada aniden yeni bir yasa çıktığında, enflasyon aşırı arttığında veya rakip firma daha iyi bir ürün çıkardığında; 'Bu projeye hala devam etmemiz finansal ve stratejik olarak mantıklı mı?' diye sorgulanan o kritik (Go/No-Go) kararı anları."
     },
     {
       "term": "Business Value",
@@ -441,7 +456,8 @@
         "Outcome"
       ],
       "termTR": "İş Değeri",
-      "definitionTR": "Bir organizasyonun yatırımlarından elde ettiği net, ölçülebilir faydadır; finansal getiriler, iyileştirilmiş müşteri deneyimi, rekabet avantajları ve operasyonel kazanımları kapsar. İş değeri sunmak, proje yönetiminin nihai amacıdır."
+      "definitionTR": "Bir organizasyonun yatırımlarından elde ettiği net, ölçülebilir faydadır; finansal getiriler, iyileştirilmiş müşteri deneyimi, rekabet avantajları ve operasyonel kazanımları kapsar. İş değeri sunmak, proje yönetiminin nihai amacıdır.",
+      "whenToUse": "Çevik bir projede bütçe kısıtlı olduğunda veya zaman daraldığında; Ürün Sahibinin (Product Owner) İş Birikim Listesinde (Backlog) 'İlk olarak hangisini geliştirmeliyiz?' kavgası yaşandığında. Çözüm: Her zaman organizasyona en yüksek İş Değerini katacak özelliği en başa koymaktır."
     },
     {
       "term": "Cause-and-Effect Diagram",
@@ -453,7 +469,8 @@
         "Root Cause Analysis"
       ],
       "termTR": "Neden-Sonuç Diyagramı (Ishikawa)",
-      "definitionTR": "Bir sorunun nedenlerini ayrı dallara (kılçık modeline) bölerek ana veya kök nedeni belirlemeye ve aykırı değerleri ortaya çıkarmaya yardımcı olan analiz aracıdır."
+      "definitionTR": "Bir sorunun nedenlerini ayrı dallara (kılçık modeline) bölerek ana veya kök nedeni belirlemeye ve aykırı değerleri ortaya çıkarmaya yardımcı olan analiz aracıdır.",
+      "whenToUse": "Projede bir kalite kusurunun ortaya çıktığı, takımın sadece semptomları (belirtileri) gördüğü ve 'Bu sorunun asıl (kök) nedeni nedir?' sorusuna cevap bulmak için potansiyel nedenleri makine, insan, süreç gibi dallara ayırarak beyin fırtınası yapması gerektiği anlar."
     },
     {
       "term": "Change Control Board (CCB)",
@@ -465,7 +482,8 @@
         "Configuration Management"
       ],
       "termTR": "Değişiklik Kontrol Kurulu (DKK)",
-      "definitionTR": "Projedeki değişiklik taleplerini gözden geçirmek, değerlendirmek, onaylamak, ertelemek veya reddetmek ve bu kararları iletmekle yetkilendirilmiş resmi gruptur."
+      "definitionTR": "Projedeki değişiklik taleplerini gözden geçirmek, değerlendirmek, onaylamak, ertelemek veya reddetmek ve bu kararları iletmekle yetkilendirilmiş resmi gruptur.",
+      "whenToUse": "Şelale (Predictive) bir projede; müşteri veya sponsorun kilitlenmiş (baseline) kapsama, takvime veya bütçeye etki edecek yeni bir değişiklik istediği durumlar. Kural: Proje yöneticisi etkiyi analiz ettikten sonra kararı (onay/ret) tek başına alamaz, bu kurula (CCB) sunmalıdır."
     },
     {
       "term": "Change Request",
@@ -477,7 +495,8 @@
         "Scope Creep"
       ],
       "termTR": "Değişiklik Talebi",
-      "definitionTR": "Projenin kapsam, zaman çizelgesi, maliyet veya kalite temel çizgilerinde ya da belgelerinde resmi bir değişiklik yapılması için sunulan öneridir."
+      "definitionTR": "Projenin kapsam, zaman çizelgesi, maliyet veya kalite temel çizgilerinde ya da belgelerinde resmi bir değişiklik yapılması için sunulan öneridir.",
+      "whenToUse": "Geleneksel projede aniden yeni bir yasanın çıkması, zorunlu bir uyumluluk (compliance) kuralının gelmesi veya müşterinin kapsamı değiştirmek istemesi durumlarında; takımın çalışmaya başlamadan önce atması gereken ilk resmi eylem (Dokümantasyon)."
     },
     {
       "term": "Checklist",
@@ -488,7 +507,8 @@
       "related": [
         "Definition of Done (DoD)",
         "Acceptance Criteria"
-      ]
+      ],
+      "whenToUse": "Takım üyelerinin bazı adımları atladığı, süreçlerde tutarsızlıkların (insan hatası) yaşandığı ve proje yöneticisinin 'işin eksiksiz ve standartlara uygun yapıldığını' adım adım doğrulamak için yapılandırılmış bir araca ihtiyaç duyduğu krizler."
     },
     {
       "term": "Claim",
@@ -625,7 +645,8 @@
         "Reserve Analysis"
       ],
       "termTR": "Acil Durum Yedeği",
-      "definitionTR": "Bilinen riskleri (önceden tanımlanmış ve öngörülen sorunları) ele almak için proje bütçesine veya zaman çizelgesine eklenen ve doğrudan proje yöneticisinin kontrolü altında olan fon veya zaman yedekleridir."
+      "definitionTR": "Bilinen riskleri (önceden tanımlanmış ve öngörülen sorunları) ele almak için proje bütçesine veya zaman çizelgesine eklenen ve doğrudan proje yöneticisinin kontrolü altında olan fon veya zaman yedekleridir.",
+      "whenToUse": "Proje planlamasında önceden tanımlanıp analiz edilen (bilinen-bilinmeyen) bir riskin aniden gerçekleştiği (örn: beklenen kötü hava koşulları nedeniyle işin durması) ve proje yöneticisinin üst yönetime/sponsora gitmeden, kendi yetkisiyle bu zaman/para fonunu kullanması gereken anlar."
     },
     {
       "term": "Continuous Improvement",
@@ -638,7 +659,8 @@
         "Six Sigma"
       ],
       "termTR": "Sürekli İyileştirme",
-      "definitionTR": "Ürünleri, süreçleri ve hizmetleri zamanla artımlı biçimde geliştirmeye yönelik süregelen bir taahhüttür. Proje yönetiminde çevik retrospektifler, öğrenilen ders incelemeleri ve kalite denetimleri aracılığıyla uygulanır. Kaizen ve PDCA (Planla-Uygula-Kontrol Et-Önlem Al) yöntemleriyle desteklenir."
+      "definitionTR": "Ürünleri, süreçleri ve hizmetleri zamanla artımlı biçimde geliştirmeye yönelik süregelen bir taahhüttür. Proje yönetiminde çevik retrospektifler, öğrenilen ders incelemeleri ve kalite denetimleri aracılığıyla uygulanır. Kaizen ve PDCA (Planla-Uygula-Kontrol Et-Önlem Al) yöntemleriyle desteklenir.",
+      "whenToUse": "Takımın süreçlerde verimsizlik yaşadığı; ürünleri ve süreçleri büyük ve maliyetli adımlarla değil, retrospektifler aracılığıyla 'sürekli ve küçük adımlarla' (incremental) iyileştirmesi gerektiği kültür dönüşümü anları."
     },
     {
       "term": "Contract",
@@ -663,7 +685,8 @@
         "Benchmarking"
       ],
       "termTR": "Kontrol Grafikleri",
-      "definitionTR": "Bir sürecin zaman içinde stabil olup olmadığını veya kontrol limitleri içinde kalarak öngörülebilir bir performansa sahip olup olmadığını belirlemek için kullanılan kalite aracıdır."
+      "definitionTR": "Bir sürecin zaman içinde stabil olup olmadığını veya kontrol limitleri içinde kalarak öngörülebilir bir performansa sahip olup olmadığını belirlemek için kullanılan kalite aracıdır.",
+      "whenToUse": "Üretim hattında veya süreçte tekrarlayan kalite sapmalarının yaşandığı, proje yöneticisinin 'sürecin stabil olup olmadığını' veya 'alt ve üst kontrol limitleri içinde çalışıp çalışmadığını' anlamak istediği ölçüm durumları."
     },
     {
       "term": "Cost Baseline",
@@ -713,7 +736,8 @@
         "Estimate at Completion (EAC)"
       ],
       "termTR": "Maliyet Performans Endeksi (CPI)",
-      "definitionTR": "Kazanılmış değerin (EV), gerçekleşen maliyete (AC) bölünmesiyle elde edilen ve bir projenin maliyet verimliliğini ölçen formüldür."
+      "definitionTR": "Kazanılmış değerin (EV), gerçekleşen maliyete (AC) bölünmesiyle elde edilen ve bir projenin maliyet verimliliğini ölçen formüldür.",
+      "whenToUse": "Sponsorun gelip 'Harcadığımız her 1 dolar için ne kadarlık değer (iş) üretiyoruz? Maliyet verimliliğimiz nedir?' diye sorduğu finansal analiz anları. (Hesaplanan değer 1.0'ın altındaysa bütçe aşılmıştır)."
     },
     {
       "term": "Cost Reimbursable Contract",
@@ -737,7 +761,8 @@
         "Schedule Variance (SV)"
       ],
       "termTR": "Maliyet Sapması (CV)",
-      "definitionTR": "Kazanılmış Değer'den (EV) Gerçekleşen Maliyetin (AC) çıkarılmasıyla hesaplanır. Negatif bir maliyet sapması, projenin bütçeyi aştığı anlamına gelir."
+      "definitionTR": "Kazanılmış Değer'den (EV) Gerçekleşen Maliyetin (AC) çıkarılmasıyla hesaplanır. Negatif bir maliyet sapması, projenin bütçeyi aştığı anlamına gelir.",
+      "whenToUse": "Proje bütçesinin aşılıp aşılmadığının 'oran (endeks) olarak değil, net para miktarı (dolar) olarak' (CV = EV - AC) görülmek istendiği performans ölçüm krizleri."
     },
     {
       "term": "Crashing",
@@ -749,7 +774,8 @@
         "Resource Leveling"
       ],
       "termTR": "Sıkıştırma",
-      "definitionTR": "Zaman çizelgesini kısaltmak için bütçeyi artırarak kritik yol üzerindeki faaliyetlere daha fazla personel veya kaynak ekleme yöntemidir."
+      "definitionTR": "Zaman çizelgesini kısaltmak için bütçeyi artırarak kritik yol üzerindeki faaliyetlere daha fazla personel veya kaynak ekleme yöntemidir.",
+      "whenToUse": "Projenin takvimin gerisinde kaldığı (geciktiği) ve proje yöneticisinin teslim tarihine yetişmek için ekstra maliyeti (bütçeyi) göze alarak kritik yoldaki faaliyetlere fazla mesai uyguladığı veya fazladan kaynak/personel eklediği acil durumlar."
     },
     {
       "term": "Create a Collaborative Team Environment",
@@ -788,7 +814,8 @@
         "Precedence Diagramming Method (PDM)"
       ],
       "termTR": "Kritik Yol Yöntemi (CPM)",
-      "definitionTR": "Bir projenin zaman çizelgesi modelini oluşturmak ve ağ diyagramı üzerinden projenin tamamlanması için gereken en uzun ve en az esnekliğe sahip süreyi belirlemek için kullanılan hesaplama yöntemidir."
+      "definitionTR": "Bir projenin zaman çizelgesi modelini oluşturmak ve ağ diyagramı üzerinden projenin tamamlanması için gereken en uzun ve en az esnekliğe sahip süreyi belirlemek için kullanılan hesaplama yöntemidir.",
+      "whenToUse": "Projenin tamamlanması için gereken 'en kısa sürenin (minimum sürenin)' hesaplanması ve hangi görevlerin asla gecikmemesi gerektiğinin (sıfır bolluk/float) tespit edilmesi gereken planlama/zamanlama krizleri."
     },
     {
       "term": "Critical Thinking",
@@ -852,7 +879,8 @@
         "Work Package"
       ],
       "termTR": "Ayrıştırma",
-      "definitionTR": "Proje teslimat ürünlerini veya işini daha küçük, daha yönetilebilir bileşenlere bölen bir tekniktir. İş Kırılım Yapısı oluşturmak ve kullanıcı hikayelerini görevlere bölmek için kullanılır. Her parça tahmin edilebilir, atanabilir ve yönetilebilir hale gelene kadar sürer."
+      "definitionTR": "Proje teslimat ürünlerini veya işini daha küçük, daha yönetilebilir bileşenlere bölen bir tekniktir. İş Kırılım Yapısı oluşturmak ve kullanıcı hikayelerini görevlere bölmek için kullanılır. Her parça tahmin edilebilir, atanabilir ve yönetilebilir hale gelene kadar sürer.",
+      "whenToUse": "Proje teslimatlarının veya gereksinimlerin (Çevik'te Epic'lerin) zaman/maliyet tahmini yapılamayacak kadar 'büyük ve karmaşık' olduğu; işin daha küçük, kolay yönetilebilir parçalara (iş paketleri veya tasklar) bölünmesinin gerektiği tıkandığınız anlar."
     },
     {
       "term": "Definition of Done (DoD)",
@@ -865,7 +893,8 @@
         "Quality"
       ],
       "termTR": "Tamamlanmışın Tanımı (DoD)",
-      "definitionTR": "Bir müşteri veya paydaş tarafından tamamlanmış bir görev veya hikayenin kabul edilebilmesi için mutlaka karşılanması gereken kalite kriterlerinin listesidir."
+      "definitionTR": "Bir müşteri veya paydaş tarafından tamamlanmış bir görev veya hikayenin kabul edilebilmesi için mutlaka karşılanması gereken kalite kriterlerinin listesidir.",
+      "whenToUse": "Çevik takımın ürünü 'bitti' diyerek sunduğu ancak ürün sahibinin veya müşterinin güvenlik, test veya kodlama standartları karşılanmadığı için ürünü reddettiği 'Neye bitti diyoruz?' konulu beklenti uyuşmazlığı (kalite) krizleri."
     },
     {
       "term": "Definition of Ready (DoR)",
@@ -878,7 +907,8 @@
         "User Story"
       ],
       "termTR": "Hazırın Tanımı (DoR)",
-      "definitionTR": "Çevik projelerde, bir kullanıcı hikayesinin tahminleme yapılmadan önce geliştirilmeye 'hazır' olduğunu onaylamak için karşılanması gereken spesifik kabul kriterleridir."
+      "definitionTR": "Çevik projelerde, bir kullanıcı hikayesinin tahminleme yapılmadan önce geliştirilmeye 'hazır' olduğunu onaylamak için karşılanması gereken spesifik kabul kriterleridir.",
+      "whenToUse": "Takımın sprint (yineleme) içine aldığı bir kullanıcı hikayesini; detayları, bağımlılıkları veya kabul kriterleri netleşmediği için sprint ortasında tahmin edemeyip (veya geliştiremeyip) işin tıkandığı planlama hataları."
     },
     {
       "term": "Deliverable",
@@ -916,7 +946,8 @@
         "Brainstorming",
         "Risk Register",
         "Analogous Estimating"
-      ]
+      ],
+      "whenToUse": "Önemli bir riskin veya sürenin tahmin edileceği bir toplantıda, odadaki baskın yöneticilerin veya dışa dönük kişilerin diğer takım üyelerini etkilemesini engellemek için, uzmanlardan anonim (gizli) olarak anket veya görüş toplanması gereken durumlar."
     },
     {
       "term": "Demonstrate Leadership",
@@ -955,7 +986,8 @@
         "User Story",
         "Proof of Concept (POC)",
         "Minimum Viable Product (MVP)"
-      ]
+      ],
+      "whenToUse": "Projenin başlangıcında müşterinin tam olarak ne istediğini bilemediği veya piyasanın karmaşık olduğu durumlarda; takımın müşteriyle derin empati kurarak, hızlı prototipler üreterek 'kullanıcı merkezli' yenilikler yaratması gereken belirsizlik anları."
     },
     {
       "term": "Development Approach",
@@ -994,7 +1026,8 @@
         "Continuous Improvement",
         "Extreme Programming (XP)",
         "Agile"
-      ]
+      ],
+      "whenToUse": "Yazılım Geliştirme (Dev) ekibinin ürünü hızlıca kodladığı ancak Operasyon/Altyapı (Ops) ekibinin dağıtım/test aşamasında yavaş kaldığı; departmanlar arası silolaşmanın ve otomasyon eksikliğinin projenin teslimatını yavaşlattığı organizasyonel kültür krizleri."
     },
     {
       "term": "Dormancy",
@@ -1019,7 +1052,8 @@
         "Earned Value Management (EVM)"
       ],
       "termTR": "Kazanılmış Değer (EV)",
-      "definitionTR": "Projede o ana kadar fiziksel olarak tamamlanan işin değerini, o işe atanmış olan orijinal onaylı bütçe üzerinden matematiksel olarak ifade eden performans ölçümüdür."
+      "definitionTR": "Projede o ana kadar fiziksel olarak tamamlanan işin değerini, o işe atanmış olan orijinal onaylı bütçe üzerinden matematiksel olarak ifade eden performans ölçümüdür.",
+      "whenToUse": "Projenin ortasında sponsorun gelip 'Şu ana kadar ne kadar para harcadığımızı (AC) sormuyorum, bana şu ana kadar fiziksel olarak tamamladığımız işin parasal karşılığını söyle' dediği performans ölçüm anları."
     },
     {
       "term": "Earned Value Management (EVM)",
@@ -1033,7 +1067,8 @@
         "Schedule Performance Index (SPI)"
       ],
       "termTR": "Kazanılmış Değer Yönetimi (KDY)",
-      "definitionTR": "Kapsam, zaman çizelgesi ve maliyet verilerini bir araya getirerek projenin sağlığına ilişkin nesnel ve sayısal bir görünüm sunan entegre bir performans ölçüm sistemidir. PD, KD ve GM karşılaştırılarak herhangi bir noktada varyanslar, verimlilik endeksleri ve tahminler hesaplanabilir."
+      "definitionTR": "Kapsam, zaman çizelgesi ve maliyet verilerini bir araya getirerek projenin sağlığına ilişkin nesnel ve sayısal bir görünüm sunan entegre bir performans ölçüm sistemidir. PD, KD ve GM karşılaştırılarak herhangi bir noktada varyanslar, verimlilik endeksleri ve tahminler hesaplanabilir.",
+      "whenToUse": "Yönetimin sizden projenin sadece zamanını veya sadece bütçesini değil; kapsam, zaman ve maliyet verilerini bütünleşik ve objektif bir matematiksel sistemle analiz edip projenin gidişatını raporlamanızı istediği durumlar."
     },
     {
       "term": "Embrace Adaptability & Resilience",
@@ -1059,7 +1094,8 @@
         "Tuckman's Stages"
       ],
       "termTR": "Duygusal Zeka",
-      "definitionTR": "Kendi duygularını ve başkalarının duygularını tanıma, anlama, yönetme ve etkin biçimde uygulama kapasitesidir. Proje yöneticilerinde yüksek duygusal zeka, daha iyi çatışma çözümünü, daha güçlü ekip uyumunu ve daha verimli paydaş ilişkilerini destekler."
+      "definitionTR": "Kendi duygularını ve başkalarının duygularını tanıma, anlama, yönetme ve etkin biçimde uygulama kapasitesidir. Proje yöneticilerinde yüksek duygusal zeka, daha iyi çatışma çözümünü, daha güçlü ekip uyumunu ve daha verimli paydaş ilişkilerini destekler.",
+      "whenToUse": "Projenin teslimine çok az süre kala takımın gece geç saatlere kadar çalıştığı, stres ve tükenmişlik (burnout) yaşadığı, üyeler arası bağırışmaların veya pasif-agresif davranışların başladığı yüksek psikolojik kriz anları."
     },
     {
       "term": "Enable Change",
@@ -1097,7 +1133,8 @@
         "Risk"
       ],
       "termTR": "Çevresel İşletme Faktörleri (ÇİF)",
-      "definitionTR": "Proje takımının doğrudan kontrolü altında olmayan, ancak projenin yönetimini etkileyen, kısıtlayan veya yönlendiren iç ve dış koşullardır."
+      "definitionTR": "Proje takımının doğrudan kontrolü altında olmayan, ancak projenin yönetimini etkileyen, kısıtlayan veya yönlendiren iç ve dış koşullardır.",
+      "whenToUse": "Proje takımının doğrudan kontrolü altında olmayan; hükümetin aniden yeni bir yasa çıkarması, piyasada enflasyonun patlaması veya şirketin kendi içindeki katı hiyerarşik yapısının projenin ilerlemesini kısıtlamaya başladığı dış/iç krizler."
     },
     {
       "term": "Epic",
@@ -1110,7 +1147,8 @@
         "Decomposition"
       ],
       "termTR": "Epic (Büyük Kullanıcı Hikayesi)",
-      "definitionTR": "Tek bir sprintte tamamlanamayacak kadar geniş kapsamlı olduğu için daha küçük kullanıcı hikayelerine veya özelliklere ayrıştırılması gereken büyük bir iş gövdesidir. Epikler üst düzey gereksinimleri temsil eder ve ilgili işlerin birden fazla yineleme boyunca organize edilmesi için kapsayıcı işlev görür."
+      "definitionTR": "Tek bir sprintte tamamlanamayacak kadar geniş kapsamlı olduğu için daha küçük kullanıcı hikayelerine veya özelliklere ayrıştırılması gereken büyük bir iş gövdesidir. Epikler üst düzey gereksinimleri temsil eder ve ilgili işlerin birden fazla yineleme boyunca organize edilmesi için kapsayıcı işlev görür.",
+      "whenToUse": "Müşterinin istediği bir gereksinimin tek bir sprint'e sığmayacak kadar devasa ve karmaşık olduğu, takımın tahminleme yapamadığı ve işi 'Ayrıştırma (Decomposition)' ile daha küçük User Story'lere bölmek zorunda kaldığı planlama darboğazları."
     },
     {
       "term": "Escalation",
@@ -1123,7 +1161,8 @@
         "Risk Register",
         "Sponsor",
         "PMO (Project Management Office)"
-      ]
+      ],
+      "whenToUse": "Çözümü proje yöneticisinin yetkisini, bütçesini veya projenin sınırlarını tamamen aşan bir kriz yaşandığında başvurulacak son çare eylemi."
     },
     {
       "term": "Estimate at Completion (EAC)",
@@ -1136,7 +1175,8 @@
         "Variance at Completion (VAC)"
       ],
       "termTR": "Tamamlama Tahmini (EAC)",
-      "definitionTR": "Proje devam ederken geçmiş proje performansına ve gerçekleşen maliyetlere (AC) dayanarak, projenin tamamen bittiğinde ulaşacağı toplam maliyetin revize edilmiş ve güncel projeksiyonudur."
+      "definitionTR": "Proje devam ederken geçmiş proje performansına ve gerçekleşen maliyetlere (AC) dayanarak, projenin tamamen bittiğinde ulaşacağı toplam maliyetin revize edilmiş ve güncel projeksiyonudur.",
+      "whenToUse": "Projede işler baştaki plandan kötü gitmeye başladığında, sponsorun 'Eski bütçeyi (BAC) unut, mevcut kötü gidişatımızla proje bittiğinde cebimizden toplam ne kadar çıkacak?' diye sorduğu finansal revizyon anları."
     },
     {
       "term": "Estimate to Complete (ETC)",
@@ -1160,7 +1200,8 @@
         "Risk Register"
       ],
       "termTR": "Beklenen Parasal Değer (BPD)",
-      "definitionTR": "Belirsiz bir olayın olasılıkla ağırlıklandırılmış ortalama sonucunu, gerçekleşme olasılığını finansal etkiyle çarparak sayısal hale getiren istatistiksel bir kavramdır. BPD negatif (tehditler) veya pozitif (fırsatlar) olabilir; genel risk maruziyetini değerlendirmek için toplanır."
+      "definitionTR": "Belirsiz bir olayın olasılıkla ağırlıklandırılmış ortalama sonucunu, gerçekleşme olasılığını finansal etkiyle çarparak sayısal hale getiren istatistiksel bir kavramdır. BPD negatif (tehditler) veya pozitif (fırsatlar) olabilir; genel risk maruziyetini değerlendirmek için toplanır.",
+      "whenToUse": "Masada birden fazla olası senaryo (tehdit veya fırsat) olduğunda ve yöneticinin Karar Ağacı kullanarak bu senaryoların olasılık (%) ile parasal etkilerini ($) çarpıp matematiksel olarak en doğru yolu bulması gerektiği durumlar."
     },
     {
       "term": "Explicit Knowledge",
@@ -1172,7 +1213,8 @@
         "Tacit Knowledge",
         "Lessons Learned Register",
         "Organizational Process Assets (OPA)"
-      ]
+      ],
+      "whenToUse": "Projeye yeni katılan bir üyenin, projenin standartlarını, prosedürlerini, kılavuzlarını veya spesifikasyonlarını hızlıca okuyup öğrenmesi gerektiği veri transferi durumları."
     },
     {
       "term": "External Dependency",
@@ -1210,7 +1252,8 @@
         "Behavior-Driven Development (BDD)",
         "Agile",
         "DevOps"
-      ]
+      ],
+      "whenToUse": "Yazılım geliştiren bir takımın sürekli kalite kusurları ürettiği ve 'Eşli programlama (pair programming), önce-test yazma ve sürekli entegrasyon' gibi katı mühendislik pratiklerine ihtiyaç duyduğu süreç krizleri."
     },
     {
       "term": "Fallback Plan",
@@ -1223,7 +1266,8 @@
         "Contingency Reserve",
         "Issue",
         "Risk Register"
-      ]
+      ],
+      "whenToUse": "Önceden öngörülen bir risk gerçekleştiğinde, takımın uyguladığı 'ilk risk yanıt stratejisinin' işe yaramadığı anlaşıldığında, acilen devreye sokulması gereken kurtarma eylemi."
     },
     {
       "term": "Fast Tracking",
@@ -1235,7 +1279,8 @@
         "Lead"
       ],
       "termTR": "Hızlı İzleme",
-      "definitionTR": "Proje süresini kısaltmak amacıyla normal şartlarda ardışık yapılacak faaliyetlerin veya proje fazlarının eşzamanlı veya paralel olarak yürütülmesidir."
+      "definitionTR": "Proje süresini kısaltmak amacıyla normal şartlarda ardışık yapılacak faaliyetlerin veya proje fazlarının eşzamanlı veya paralel olarak yürütülmesidir.",
+      "whenToUse": "Projenin takvimin çok gerisinde kaldığı ancak elde ekstra adam tutacak veya mesai ödeyecek para olmadığı için, normalde sırayla yapılması gereken işlerin 'artan bir riski göze alarak' aynı anda (paralel) yapılmaya başlandığı acil durumlar."
     },
     {
       "term": "Feature",
@@ -1261,7 +1306,8 @@
         "User Story",
         "Feature",
         "Scrum"
-      ]
+      ],
+      "whenToUse": "Projenin, tek bir Scrum takımına sığmayacak kadar çok büyük ölçekli bir yazılım projesi olduğu ve işin 'müşteriye değer katan özellik listeleri (features)' üzerinden modellenip yürütülmesinin gerektiği karmaşık mimari durumlar."
     },
     {
       "term": "Finish-to-Finish (FF)",
@@ -1288,7 +1334,8 @@
         "Lag"
       ],
       "termTR": "Bitiş-Başlangıç (BB)",
-      "definitionTR": "Proje zamanlamasında en yaygın mantıksal ilişkidir: ardıl faaliyet, öncülü tamamlanmadan başlayamaz. Örneğin, kodlama tamamlanmadan test başlayamaz."
+      "definitionTR": "Proje zamanlamasında en yaygın mantıksal ilişkidir: ardıl faaliyet, öncülü tamamlanmadan başlayamaz. Örneğin, kodlama tamamlanmadan test başlayamaz.",
+      "whenToUse": "PDM kullanılarak bir görev planlaması yaparken, 'Önceki görev (A) tamamen bitmeden, sonraki görevin (B) kesinlikle başlayamayacağı' zorunlu sıralama durumları (Örn: Duvar örülmeden boya yapılamaz)."
     },
     {
       "term": "Fishbowl",
@@ -1300,7 +1347,8 @@
         "Information Radiator",
         "Daily Scrum",
         "Communication Methods"
-      ]
+      ],
+      "whenToUse": "Coğrafi olarak tamamen dağıtık çalışan çevik bir takımın, sanki aynı odadaymış gibi anlık iletişim kuramamaktan ve izolasyondan şikayet ettiği anlarda; video konferans kamerasının tüm mesai boyunca açık bırakılması çözümü."
     },
     {
       "term": "Fixed-Price Contract",
@@ -1312,7 +1360,8 @@
         "Statement of Work (SOW)"
       ],
       "termTR": "Sabit Fiyatlı Sözleşme",
-      "definitionTR": "İş başlamadan önce belirlenen ve gerçek maliyetten bağımsız olarak değişmeyen sözleşme türüdür. Maliyet riski ağırlıklı olarak satıcıya aittir. Kapsam, sözleşme öncesinde iyi tanımlanmış ve stabil olduğunda en uygun sözleşme türüdür."
+      "definitionTR": "İş başlamadan önce belirlenen ve gerçek maliyetten bağımsız olarak değişmeyen sözleşme türüdür. Maliyet riski ağırlıklı olarak satıcıya aittir. Kapsam, sözleşme öncesinde iyi tanımlanmış ve stabil olduğunda en uygun sözleşme türüdür.",
+      "whenToUse": "Şelale projesinde müşteri olarak çalışan şirketin, bütçe aşımı riskini 'tamamen tedarikçiye (satıcıya) yıkmak' istediği ve projenin kapsamının en baştan %100 net olduğu satın alma kararları."
     },
     {
       "term": "Fixed-Price Incentive Fee Contract (FPIF)",
@@ -1337,7 +1386,8 @@
         "Network Diagram"
       ],
       "termTR": "Bolluk / Serbesti",
-      "definitionTR": "Planlanan bir faaliyetin olumsuz bir sonuca yol açmadan geciktirilebileceği süredir. Toplam bolluk, proje bitiş tarihini etkilemeden gecikmeyi ölçer; serbest bolluk ise ardıllardan herhangi birinin en erken başlangıcını etkilemeden gecikmeyi ölçer. Kritik yoldaki faaliyetlerin toplam bolluğu sıfırdır."
+      "definitionTR": "Planlanan bir faaliyetin olumsuz bir sonuca yol açmadan geciktirilebileceği süredir. Toplam bolluk, proje bitiş tarihini etkilemeden gecikmeyi ölçer; serbest bolluk ise ardıllardan herhangi birinin en erken başlangıcını etkilemeden gecikmeyi ölçer. Kritik yoldaki faaliyetlerin toplam bolluğu sıfırdır.",
+      "whenToUse": "Bir takım üyesinin hastalanması veya malzemenin gümrükte takılması nedeniyle bir faaliyetin 3 gün geciktiği, ancak proje yöneticisinin 'Bu gecikme projenin nihai bitiş tarihini kaydırır mı?' diye sorduğu analiz anları."
     },
     {
       "term": "Focus on Value",
@@ -1375,7 +1425,8 @@
         "Milestone",
         "Schedule Baseline",
         "Float (Slack)"
-      ]
+      ],
+      "whenToUse": "Üst yönetimin veya paydaşların, 'Hangi görev ne zaman başlıyor, ne zaman bitiyor ve projenin genel takvimi nedir?' diye sorduğu ve proje yöneticisinin bu karmaşık verileri 'yatay çubuklar halinde, yüksek seviyeli ve görsel' olarak raporlaması gereken durumlar."
     },
     {
       "term": "Generative AI",
@@ -1399,7 +1450,8 @@
         "Integrated Change Control"
       ],
       "termTR": "Altın Kaplama",
-      "definitionTR": "İyi niyetle de olsa resmi değişiklik kontrolünden geçmeksizin onaylanan kapsamda yer almayan özellik veya işlevler eklemek pratiğidir. Altın kaplama kaynakları boşa harcatır, risk yaratabilir ve üzerinde mutabık kalınanı teslim etme ilkesini ihlal eder."
+      "definitionTR": "İyi niyetle de olsa resmi değişiklik kontrolünden geçmeksizin onaylanan kapsamda yer almayan özellik veya işlevler eklemek pratiğidir. Altın kaplama kaynakları boşa harcatır, risk yaratabilir ve üzerinde mutabık kalınanı teslim etme ilkesini ihlal eder.",
+      "whenToUse": "Takım üyelerinden birinin 'Müşteriyi daha çok memnun edelim' diyerek, resmi onay almadan ve müşteri istemediği halde ürüne fazladan bir özellik (kod, cila, ekstra rapor) eklediği ve farkında olmadan zaman/para israfı yarattığı kalite ve kapsam ihlali durumları. (Çözüm: Takımı uyar ve sadece onaylanan kapsamı teslim et)."
     },
     {
       "term": "Governance",
@@ -1412,7 +1464,8 @@
         "Benefits Realization"
       ],
       "termTR": "Yönetişim",
-      "definitionTR": "Projelerin, programların ve portföylerin yönlendirildiği, kontrol edildiği ve değerlendirildiği kurallar, politikalar, süreçler ve karar haklarından oluşan çerçevedir. Etkin yönetişim, kararların doğru düzeyde alınmasını, hesap verebilirliğin açık olmasını ve performansın stratejik amaçlara karşı izlenmesini sağlar."
+      "definitionTR": "Projelerin, programların ve portföylerin yönlendirildiği, kontrol edildiği ve değerlendirildiği kurallar, politikalar, süreçler ve karar haklarından oluşan çerçevedir. Etkin yönetişim, kararların doğru düzeyde alınmasını, hesap verebilirliğin açık olmasını ve performansın stratejik amaçlara karşı izlenmesini sağlar.",
+      "whenToUse": "Projenin şirketin stratejik iş hedefleriyle uyuşup uyuşmadığının sorgulandığı, kararların kim tarafından alınacağının, hesap verebilirliğin ve süreç politikalarının netleştirilmesi gerektiği 'kurumsal yapı' krizleri."
     },
     {
       "term": "Herzberg's Two-Factor Theory",
@@ -1424,7 +1477,8 @@
         "McGregor's Theory X and Theory Y"
       ],
       "termTR": "Herzberg'in İki Faktör Teorisi",
-      "definitionTR": "Hijyen faktörler ile motivatörleri birbirinden ayıran bir motivasyon teorisidir. Hijyen faktörlerin yokluğu memnuniyetsizliğe yol açar (ör. maaş, çalışma koşulları, iş güvencesi); motivatörlerin varlığı ise memnuniyet ve bağlılığı artırır (ör. başarı, takdir, gelişim). Yalnızca memnuniyetsizlik yaratan unsurları ortadan kaldırmak motivasyonu sağlamaz; motivatörler eklemek de gereklidir."
+      "definitionTR": "Hijyen faktörler ile motivatörleri birbirinden ayıran bir motivasyon teorisidir. Hijyen faktörlerin yokluğu memnuniyetsizliğe yol açar (ör. maaş, çalışma koşulları, iş güvencesi); motivatörlerin varlığı ise memnuniyet ve bağlılığı artırır (ör. başarı, takdir, gelişim). Yalnızca memnuniyetsizlik yaratan unsurları ortadan kaldırmak motivasyonu sağlamaz; motivatörler eklemek de gereklidir.",
+      "whenToUse": "Proje yöneticisinin, takımın maaşını artırdığı veya çalışma koşullarını (hijyen faktörleri) düzelttiği halde takımın hala 'motive olmadığını' gördüğü anlar. (Çözüm: Yalnızca tatminsizliği ortadan kaldırmak yetmez; insanları gerçekten motive etmek için 'başarı, tanınma ve kişisel gelişim/sorumluluk' (motivatörler) sağlamak gerekir)."
     },
     {
       "term": "Hybrid Approach",
@@ -1437,7 +1491,8 @@
         "Development Approach"
       ],
       "termTR": "Hibrit Yaklaşım",
-      "definitionTR": "İki veya daha fazla çevik (agile) ve çevik olmayan (şelale) unsurun birleştirildiği, genellikle çıktının çevik olmadığı melez proje yönetimi modelidir."
+      "definitionTR": "İki veya daha fazla çevik (agile) ve çevik olmayan (şelale) unsurun birleştirildiği, genellikle çıktının çevik olmadığı melez proje yönetimi modelidir.",
+      "whenToUse": "Projenin donanım/yasal kısımları için kesin ve katı bir plana (Şelale/Öngörücü) ihtiyaç duyulurken, yazılım veya kullanıcı arayüzü kısımlarında müşterinin sürekli fikrini değiştirdiği ve esnekliğe (Çevik) ihtiyaç duyulan karmaşık uyarlama (tailoring) durumları."
     },
     {
       "term": "Impediment",
@@ -1450,7 +1505,8 @@
         "Daily Scrum",
         "Risk",
         "Issue"
-      ]
+      ],
+      "whenToUse": "Günlük Scrum (Stand-up) toplantısında takım üyelerinden birinin, dış bir departmanın onay vermemesi, donanımın bozulması veya sunucuya erişememesi nedeniyle 'işimi yapamıyorum' diyerek tıkandığı anlar. (Çözüm: Scrum Master'ın asıl görevi olarak bu engeli derhal ortadan kaldırması)."
     },
     {
       "term": "Incremental Approach",
@@ -1463,7 +1519,8 @@
         "Minimum Viable Product (MVP)"
       ],
       "termTR": "Artımlı Yaklaşım",
-      "definitionTR": "Ürünün birbirini izleyen artımlarla oluşturulup yayımlandığı teslimat yöntemidir; her artım, önceki teslimat üzerine yeni ve kullanılabilir işlevsellik ekler. Artımlar, tamamlanan bölümlere yeniden dönmeksizin birbirleri üzerine inşa edilir; bu sayede kısmi değerin erken teslimi mümkün olur."
+      "definitionTR": "Ürünün birbirini izleyen artımlarla oluşturulup yayımlandığı teslimat yöntemidir; her artım, önceki teslimat üzerine yeni ve kullanılabilir işlevsellik ekler. Artımlar, tamamlanan bölümlere yeniden dönmeksizin birbirleri üzerine inşa edilir; bu sayede kısmi değerin erken teslimi mümkün olur.",
+      "whenToUse": "Müşterinin veya sponsorun, 'Projenin tamamen bitmesini bekleyemem, hemen kullanıp değer/para kazanmaya (ROI) başlamam lazım' diyerek, ürünün küçük ama çalışan ve kullanılabilir modüllerini erkenden teslim almak istediği pazar baskısı durumları."
     },
     {
       "term": "Information Radiator",
@@ -1476,7 +1533,8 @@
         "Communications Management Plan"
       ],
       "termTR": "Bilgi Yayıcı / Görsel Bilgi Ekranı",
-      "definitionTR": "Takımın ilerlemesini, durumunu, çalışma hızını ve darboğazlarını organizasyon genelinde şeffafça paylaşmak için çalışma alanında herkesin görebileceği şekilde tutulan fiziksel veya dijital bilgi ekranlarıdır."
+      "definitionTR": "Takımın ilerlemesini, durumunu, çalışma hızını ve darboğazlarını organizasyon genelinde şeffafça paylaşmak için çalışma alanında herkesin görebileceği şekilde tutulan fiziksel veya dijital bilgi ekranlarıdır.",
+      "whenToUse": "Üst yönetimin veya diğer departmanların sürekli 'Proje ne durumda, takım ne yapıyor?' diyerek takımı rahatsız ettiği ve takımın ilerlemesini (Kanban panosu, burndown chart) herkesin görebileceği büyük fiziksel/dijital ekranlarda şeffafça sergilemesi gereken anlar."
     },
     {
       "term": "Initiating Process Group",
@@ -1502,7 +1560,8 @@
         "Baseline"
       ],
       "termTR": "Entegre Değişiklik Kontrolü",
-      "definitionTR": "Tüm değişiklik taleplerini, herhangi bir değişiklik uygulanmadan önce projenin tamamı üzerindeki etkiyi —kapsam, zaman çizelgesi, maliyet, kalite ve risk— değerlendirerek inceleyen, onaylayan ve yöneten süreçtir. Değişikliklerin tutarlı biçimde ele alınmasını ve temel çizgilerin geçerliliğini korumasını sağlar."
+      "definitionTR": "Tüm değişiklik taleplerini, herhangi bir değişiklik uygulanmadan önce projenin tamamı üzerindeki etkiyi —kapsam, zaman çizelgesi, maliyet, kalite ve risk— değerlendirerek inceleyen, onaylayan ve yöneten süreçtir. Değişikliklerin tutarlı biçimde ele alınmasını ve temel çizgilerin geçerliliğini korumasını sağlar.",
+      "whenToUse": "Öngörücü (Şelale) bir projede maliyeti, takvimi veya kaliteyi etkileyecek yepyeni bir isteğin geldiği anlar. Kural: Proje yöneticisi bu değişikliğin tüm proje üzerindeki etkisini (zaman, maliyet, risk) değerlendirmeden ve Değişiklik Kontrol Kurulunun (CCB) onayından geçirmeden asla uygulamaya başlayamaz."
     },
     {
       "term": "Internal Failure Cost",
@@ -1527,7 +1586,8 @@
         "Business Case"
       ],
       "termTR": "İç Getiri Oranı (IRR)",
-      "definitionTR": "Tüm proje nakit akışlarının net bugünkü değerini sıfıra eşitleyen iskonto oranıdır. Daha yüksek IGO, daha cazip bir yatırıma işaret eder. Projeler genellikle IGO nun organizasyonun gerekli getiri oranını veya eşik oranını aştığı durumlarda seçilir."
+      "definitionTR": "Tüm proje nakit akışlarının net bugünkü değerini sıfıra eşitleyen iskonto oranıdır. Daha yüksek IGO, daha cazip bir yatırıma işaret eder. Projeler genellikle IGO nun organizasyonun gerekli getiri oranını veya eşik oranını aştığı durumlarda seçilir.",
+      "whenToUse": "Yönetimin masasına yatırım yapılacak birden fazla proje veya çözüm alternatifi geldiği ve 'Hangi proje bize en yüksek finansal cazibeyi (yüzdesel getiriyi) sağlar?' diye sorduğu proje seçimi / İş Gerekçesi (Business Case) değerlendirme anları. (Kural: Her zaman IRR'si en yüksek olan seçilir)."
     },
     {
       "term": "Issue",
@@ -1551,7 +1611,8 @@
         "Change Request"
       ],
       "termTR": "Sorun Kaydı",
-      "definitionTR": "Belirlenen tüm sorunları, açıklamalarını, sahiplerini, öncelik düzeylerini, durumlarını ve çözüm eylemlerini izleyen bir proje belgesidir. Sorun kaydı tutmak, hiçbir sorunun göz ardı edilmemesini ve hesap verebilirliğin net olmasını sağlar."
+      "definitionTR": "Belirlenen tüm sorunları, açıklamalarını, sahiplerini, öncelik düzeylerini, durumlarını ve çözüm eylemlerini izleyen bir proje belgesidir. Sorun kaydı tutmak, hiçbir sorunun göz ardı edilmemesini ve hesap verebilirliğin net olmasını sağlar.",
+      "whenToUse": "Sadece olma 'ihtimali' olan bir olayın değil; halihazırda gerçekleşmiş, projenin kanamaya başladığı (kilit personelin istifası, makinenin bozulması, tedarikçinin gecikmesi) bir problemin, atlanmaması ve sahibinin atanması için ilk olarak belgelenmesi gereken anlar."
     },
     {
       "term": "Iterative Approach",
@@ -1564,7 +1625,8 @@
         "Retrospective"
       ],
       "termTR": "Yinelemeli Yaklaşım",
-      "definitionTR": "Çalışmanın tekrarlayan döngüler (yinelemeler) halinde yürütüldüğü teslimat yöntemidir; her döngü, önceki döngüden alınan geri bildirimlere dayanarak teslimat ürününün rafine edilmiş bir versiyonunu üretir. Öğrenmeyi ve uyumu mümkün kılarak çıktıyı aşamalı biçimde iyileştirir."
+      "definitionTR": "Çalışmanın tekrarlayan döngüler (yinelemeler) halinde yürütüldüğü teslimat yöntemidir; her döngü, önceki döngüden alınan geri bildirimlere dayanarak teslimat ürününün rafine edilmiş bir versiyonunu üretir. Öğrenmeyi ve uyumu mümkün kılarak çıktıyı aşamalı biçimde iyileştirir.",
+      "whenToUse": "Nihai çözümün veya tasarımın en başta net olarak bilinemediği; müşteriden gelen ardışık geri bildirimlerle (feedback) taslağın tekrar tekrar üzerinden geçilip düzeltilerek (iyileştirilerek) mükemmelleştirilmesi gereken belirsizlik durumları."
     },
     {
       "term": "Kaizen",
@@ -1577,7 +1639,8 @@
         "Six Sigma"
       ],
       "termTR": "Kaizen (Sürekli Küçük İyileştirme)",
-      "definitionTR": "\"Daha iyiye doğru değişim\" anlamına gelen Japonca bir felsefedir; tüm düzeylerdeki ekip üyelerini kapsayan sürekli ve artımlı iyileştirmeye odaklanır. Proje yönetiminde büyük ve aralıklı değişiklikler yerine küçük ve süregelen iyileştirme kültürünü destekler."
+      "definitionTR": "\"Daha iyiye doğru değişim\" anlamına gelen Japonca bir felsefedir; tüm düzeylerdeki ekip üyelerini kapsayan sürekli ve artımlı iyileştirmeye odaklanır. Proje yönetiminde büyük ve aralıklı değişiklikler yerine küçük ve süregelen iyileştirme kültürünü destekler.",
+      "whenToUse": "Takımın süreçlerde verimsizlik yaşadığı ancak büyük, radikal ve maliyetli bir değişim yapmak için bütçenin olmadığı; bunun yerine takımın her gün kendi süreçlerini 'küçük adımlarla, sürekli iyileştirerek' sorunları kaynağında çözmesinin beklendiği (Retrospektif bağlantılı) durumlar."
     },
     {
       "term": "Kanban",
@@ -1590,7 +1653,8 @@
         "Scrum"
       ],
       "termTR": "Kanban",
-      "definitionTR": "İş akışını görselleştiren, süren iş miktarını (WIP) sınırlayan ve çekme tabanlı bir yaklaşım kullanan bir yönetim sistemidir; iş, bir takvime göre itilmek yerine kapasite oluştuğunda aktif aşamalara çekilir. Kanban panoları akışı ve darboğazları anında görünür kılar."
+      "definitionTR": "İş akışını görselleştiren, süren iş miktarını (WIP) sınırlayan ve çekme tabanlı bir yaklaşım kullanan bir yönetim sistemidir; iş, bir takvime göre itilmek yerine kapasite oluştuğunda aktif aşamalara çekilir. Kanban panoları akışı ve darboğazları anında görünür kılar.",
+      "whenToUse": "Takımın aynı anda çok fazla göreve başladığı ancak hiçbirini bitiremediği, süreçte darboğazların (bottleneck) yaşandığı ve takımın iş akışını görselleştirerek bu kaosu çözmeye ihtiyaç duyduğu kriz anları. (AI Çözüm Kuralı: Devam Eden İşleri (WIP) sınırlandır)."
     },
     {
       "term": "Lag",
@@ -1603,7 +1667,8 @@
         "Network Diagram"
       ],
       "termTR": "Gecikme / Öteleme",
-      "definitionTR": "Fiziksel kısıtlamalar veya kaynak kısıtları durumunda, başka bir faaliyetin bitmesini beklemek için sonraki faaliyetlerin başlangıcına eklenen zorunlu bekleme süreleridir."
+      "definitionTR": "Fiziksel kısıtlamalar veya kaynak kısıtları durumunda, başka bir faaliyetin bitmesini beklemek için sonraki faaliyetlerin başlangıcına eklenen zorunlu bekleme süreleridir.",
+      "whenToUse": "Zaman çizelgesinde ardışık iki faaliyet arasında fiziksel veya yasal bir zorunluluk (örneğin dökülen betonun kuruması için beklenmesi veya yasal onay için 15 gün geçmesi) nedeniyle, sonraki faaliyetin mecburi olarak bekletilmesi/ertelenmesi gerektiği planlama durumları."
     },
     {
       "term": "Lead",
@@ -1616,7 +1681,8 @@
         "Network Diagram"
       ],
       "termTR": "Öne Çekme",
-      "definitionTR": "Proje zaman çizelgesini kısaltmak için, önceki bir faaliyet henüz tamamen bitmeden bir sonraki bağımlı faaliyetin erken başlatılmasıdır."
+      "definitionTR": "Proje zaman çizelgesini kısaltmak için, önceki bir faaliyet henüz tamamen bitmeden bir sonraki bağımlı faaliyetin erken başlatılmasıdır.",
+      "whenToUse": "Projenin takvimin gerisinde kaldığı ve yöneticinin zaman kazanmak için, önceki faaliyet (A) henüz tamamen bitmeden, bir sonraki bağımlı faaliyeti (B) erken başlatarak (üst üste bindirerek) bir risk aldığı 'zaman sıkıştırma' krizleri."
     },
     {
       "term": "Lean",
@@ -1629,7 +1695,8 @@
         "WIP Limit"
       ],
       "termTR": "Yalın Yönetim",
-      "definitionTR": "İsrafı en aza indirirken değeri maksimize etmeye odaklanan bir felsefe ve uygulamalar bütünüdür. Üretimde ortaya çıkan (Toyota Üretim Sistemi) Yalın ilkeler — israfı ortadan kaldırma, öğrenmeyi güçlendirme ve geç karar verme — hem çevik çerçeveleri hem de süreç iyileştirme girişimlerini etkiler."
+      "definitionTR": "İsrafı en aza indirirken değeri maksimize etmeye odaklanan bir felsefe ve uygulamalar bütünüdür. Üretimde ortaya çıkan (Toyota Üretim Sistemi) Yalın ilkeler — israfı ortadan kaldırma, öğrenmeyi güçlendirme ve geç karar verme — hem çevik çerçeveleri hem de süreç iyileştirme girişimlerini etkiler.",
+      "whenToUse": "Süreçlerde çok fazla israfın (waste) olduğu, müşteriye değer katmayan adımların (gereksiz dokümantasyon, aşırı onay mekanizmaları, beklemeler) projeyi yavaşlattığı ve değerin maksimize edilmesi gereken verimsizlik durumları."
     },
     {
       "term": "Lessons Learned",
@@ -1653,7 +1720,8 @@
         "Project Closure"
       ],
       "termTR": "Öğrenilmiş Dersler Kaydı",
-      "definitionTR": "Geçmişteki veya mevcut projelerden elde edilen; takımın neleri iyi yaptığını, nerelerde hata yaptığını barındıran ve gelecekteki projeleri iyileştirmek için hazırlanan resmi belgedir."
+      "definitionTR": "Geçmişteki veya mevcut projelerden elde edilen; takımın neleri iyi yaptığını, nerelerde hata yaptığını barındıran ve gelecekteki projeleri iyileştirmek için hazırlanan resmi belgedir.",
+      "whenToUse": "Projede büyük bir hata yapıldığında veya beklenmedik bir kriz çok zekice bir yöntemle çözüldüğünde, takımın 'Şirketteki gelecekteki projelerin veya diğer takımların aynı hataya düşmemesi için' bu bilgiyi projenin kapanmasını beklemeden, anında belgelemesi gerektiği bilgi aktarım anları."
     },
     {
       "term": "Life Cycle Cost",
@@ -1689,7 +1757,8 @@
         "McGregor's Theory X and Theory Y"
       ],
       "termTR": "Maslow'un İhtiyaçlar Hiyerarşisi",
-      "definitionTR": "İnsan ihtiyaçlarının bir hiyerarşi içinde sıralandığını öne süren bir motivasyon modelidir: fizyolojik (hayatta kalma) → güvenlik → sosyal aidiyet → saygınlık → kendini gerçekleştirme. Alt düzeydeki ihtiyaçlar genellikle karşılanmadan üst düzeydekiler motive edici olmaz. Yöneticilerin farklı ekip üyelerini farklı zamanlarda neyin motive ettiğini anlamalarına yardımcı olur."
+      "definitionTR": "İnsan ihtiyaçlarının bir hiyerarşi içinde sıralandığını öne süren bir motivasyon modelidir: fizyolojik (hayatta kalma) → güvenlik → sosyal aidiyet → saygınlık → kendini gerçekleştirme. Alt düzeydeki ihtiyaçlar genellikle karşılanmadan üst düzeydekiler motive edici olmaz. Yöneticilerin farklı ekip üyelerini farklı zamanlarda neyin motive ettiğini anlamalarına yardımcı olur.",
+      "whenToUse": "Takım üyelerinin ofis koşulları (güvenlik) veya maaşları (fizyolojik) ile ilgili temel şikayetleri varken, proje yöneticisinin onlara 'kendini gerçekleştirme' veya 'başarı' vizyonu satarak onları motive etmeye çalıştığı ancak başarısız olduğu uyumsuzluk durumları. (Kural: Alt düzey ihtiyaçlar karşılanmadan üst düzey motive etmez)."
     },
     {
       "term": "McClelland's Theory of Needs",
@@ -1713,7 +1782,8 @@
         "Emotional Intelligence (EI)"
       ],
       "termTR": "McGregor'un X ve Y Teorisi",
-      "definitionTR": "Çalışanlar hakkında iki karşıt varsayımı karşılaştıran bir yönetim çerçevesidir. X Teorisi, çalışanların doğası gereği tembel olduğunu, sorumluluktan kaçındığını ve kontrol edilmesi gerektiğini varsayar. Y Teorisi ise çalışanların kendi kendini motive eden, yaratıcı ve sahipliği üstlenebilen bireyler olduğunu varsayar. Çağdaş proje yönetimi büyük ölçüde Y Teorisi ilkelerini benimser."
+      "definitionTR": "Çalışanlar hakkında iki karşıt varsayımı karşılaştıran bir yönetim çerçevesidir. X Teorisi, çalışanların doğası gereği tembel olduğunu, sorumluluktan kaçındığını ve kontrol edilmesi gerektiğini varsayar. Y Teorisi ise çalışanların kendi kendini motive eden, yaratıcı ve sahipliği üstlenebilen bireyler olduğunu varsayar. Çağdaş proje yönetimi büyük ölçüde Y Teorisi ilkelerini benimser.",
+      "whenToUse": "Organizasyon üst yönetiminin 'insanlar tembeldir, işten kaçar, bu yüzden onlara zorla iş yaptırmalıyız (X Teorisi)' diyerek takıma mikro yönetim uyguladığı; proje yöneticisinin ise takımın 'kendi kendini motive edebilen ve sorumluluk alan (Y Teorisi)' bireyler olduğuna inanarak onları üst yönetimin baskısından koruması gerektiği zihniyet çatışmaları."
     },
     {
       "term": "Measurement Performance Domain",
@@ -1739,7 +1809,8 @@
         "Deliverable"
       ],
       "termTR": "Kilometre Taşı",
-      "definitionTR": "Bir projede, programda veya portföyde önemli bir anı, tamamlanmış bir olayı veya kritik bir aşamayı temsil eden (genellikle süresi sıfır olan) zaman noktasıdır."
+      "definitionTR": "Bir projede, programda veya portföyde önemli bir anı, tamamlanmış bir olayı veya kritik bir aşamayı temsil eden (genellikle süresi sıfır olan) zaman noktasıdır.",
+      "whenToUse": "Üst yönetimin veya müşterinin, projenin her bir küçük detayını (Gantt şeması) incelemek istemediği; sadece 'önemli fazların veya kritik ürünlerin (teslimatların) ne zaman biteceğini' yüksek seviyede ve sıfır süreli bir kontrol noktası olarak görmek istediği raporlama/iletişim krizleri."
     },
     {
       "term": "Minimum Marketable Feature (MMF)",
@@ -1752,7 +1823,8 @@
         "User Story",
         "Product Backlog",
         "Feature"
-      ]
+      ],
+      "whenToUse": "Proje bütçesinin daraldığı veya rakiplerin benzer bir ürünü çıkarmak üzere olduğu durumlarda, müşterinin 'Bunu hemen piyasaya sürüp genel kullanımdan anında para kazanmaya (ROI) başlamalıyız' dediği pazar baskısı durumları. (Not: MVP sadece öğrenmek için test edilirken, MMF satılabilir üründür)."
     },
     {
       "term": "Minimum Viable Product (MVP)",

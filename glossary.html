@@ -124,6 +124,30 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 .clear-btn:hover { border-color: var(--primary-light); color: var(--primary); }
 .clear-btn.visible { display: block; }
 
+/* ── CRISIS FILTER BUTTON ── */
+.crisis-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 7px 12px; border-radius: 8px;
+  border: 1px solid #fed7aa; background: #fff7ed;
+  color: #c2410c; font-size: 12.5px; font-weight: 600;
+  cursor: pointer; transition: all .15s; white-space: nowrap;
+  font-family: inherit;
+}
+.crisis-btn:hover { background: #ffedd5; border-color: #fb923c; }
+.crisis-btn.active { background: #ea580c; border-color: #c2410c; color: #fff; }
+
+/* ── CRISIS BLOCK INSIDE CARD ── */
+.crisis-block {
+  background: #fff7ed; border: 1px solid #fed7aa;
+  border-radius: 7px; padding: 9px 12px; margin-top: 11px;
+}
+.crisis-label {
+  font-size: 9.5px; font-weight: 800; letter-spacing: .07em;
+  text-transform: uppercase; color: #c2410c;
+  display: block; margin-bottom: 5px;
+}
+.crisis-text { font-size: 12.5px; color: #7c2d12; line-height: 1.65; }
+
 /* ── MAIN ── */
 .main { max-width: 1100px; margin: 0 auto; padding: 20px 24px 48px; }
 
@@ -275,6 +299,7 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
     <select class="ctrl-select" id="alphaSelect" aria-label="Harfe göre filtrele">
       <option value="">A – Z</option>
     </select>
+    <button class="crisis-btn" id="crisisBtn" title="Sadece kriz bağlamı olan terimleri göster">🚨 Kriz Bağlamı</button>
     <button class="clear-btn" id="clearBtn" aria-label="Filtreleri temizle">✕ Temizle</button>
     <span class="count-badge" id="countBadge"></span>
   </div>
@@ -344,7 +369,7 @@ const CAT_ICONS = {
 const CAT_ORDER = Object.keys(CAT_ICONS);
 
 let allTerms = [];
-let state = { q: '', cat: '', letter: '' };
+let state = { q: '', cat: '', letter: '', crisis: false };
 
 fetch('data/glossary.json')
   .then(r => r.json())
@@ -400,20 +425,27 @@ document.getElementById('alphaSelect').addEventListener('change', e => {
   state.letter = e.target.value;
   syncClear(); render();
 });
+document.getElementById('crisisBtn').addEventListener('click', () => {
+  state.crisis = !state.crisis;
+  document.getElementById('crisisBtn').classList.toggle('active', state.crisis);
+  syncClear(); render();
+});
 document.getElementById('clearBtn').addEventListener('click', () => {
-  state = { q: '', cat: '', letter: '' };
+  state = { q: '', cat: '', letter: '', crisis: false };
   document.getElementById('searchInput').value = '';
   document.getElementById('catSelect').value = '';
   document.getElementById('alphaSelect').value = '';
+  document.getElementById('crisisBtn').classList.remove('active');
   syncClear(); render();
 });
 
 function syncClear() {
-  document.getElementById('clearBtn').classList.toggle('visible', !!(state.q || state.cat || state.letter));
+  document.getElementById('clearBtn').classList.toggle('visible', !!(state.q || state.cat || state.letter || state.crisis));
 }
 
 function getFiltered() {
   return allTerms.filter(t => {
+    if (state.crisis && !t.whenToUse) return false;
     if (state.cat && t.category !== state.cat) return false;
     if (state.letter) {
       const enOk = (t.term?.[0] || '').toUpperCase() === state.letter;
@@ -495,6 +527,9 @@ function makeCard(t) {
   }
   if (t.definitionTR) {
     bodyParts.push(`<div class="def-block"><span class="lang-badge tr">TR</span><p class="def-text">${esc(t.definitionTR)}</p></div>`);
+  }
+  if (t.whenToUse) {
+    bodyParts.push(`<div class="crisis-block"><span class="crisis-label">🚨 Hangi Durumda Kullanılır?</span><p class="crisis-text">${esc(t.whenToUse)}</p></div>`);
   }
   if (t.related && t.related.length) {
     const tags = t.related.map(r => `<span class="related-tag" data-term="${esc(r)}">${esc(r)}</span>`).join('');
