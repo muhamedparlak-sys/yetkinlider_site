@@ -17,6 +17,20 @@
       "processGroup": "Planlama"
     },
     {
+      "term": "Acting on Hearsay",
+      "termTR": "Söylentiyle Hareket Etmek",
+      "category": "Stakeholder & Communication",
+      "definition": "Making managerial decisions, such as removing a team member or taking disciplinary action, based solely on rumors, gossip, or third-party complaints without verifying the facts firsthand. This damages trust and team relationships.",
+      "definitionTR": "Performansı veya sorunu ilk elden (verilerle) görmeden, sadece diğer üyelerin şikayetlerine veya söylentilere dayanarak işlem yapmaktır. PMI zihniyetine göre, söylentinin hiçbir geçerliliği yoktur ve her zaman önce gerçekler araştırılmalıdır.",
+      "related": [
+        "Active Listening",
+        "Conflict Resolution Techniques",
+        "Emotional Intelligence (EI)"
+      ],
+      "conceptType": "Zehir/Çeldirici",
+      "processGroup": "Yürütme"
+    },
+    {
       "term": "Active Listening",
       "termTR": "Aktif Dinleme",
       "category": "Stakeholder & Communication",
@@ -213,6 +227,20 @@
       "processGroup": "Başlatma"
     },
     {
+      "term": "Authoritarian Forcing",
+      "termTR": "Otorite Kullanarak Zorlamak",
+      "category": "Team & Leadership",
+      "definition": "Using formal power and positional authority to resolve a conflict or force a decision, especially as a first resort. It goes against collaborative problem-solving and agile principles.",
+      "definitionTR": "Çatışma anlarında veya fikir ayrılıklarında karşı çıkan üyeye yetkiyi hatırlatarak (zorlama/doğrudan yaklaşım) tartışmayı sonlandırmaktır. Bu yaklaşım işbirliği ilkelerine aykırıdır ve yalnızca son çare olmalıdır.",
+      "related": [
+        "Conflict Resolution Techniques",
+        "Servant Leadership",
+        "Emotional Intelligence (EI)"
+      ],
+      "conceptType": "Zehir/Çeldirici",
+      "processGroup": "Yürütme"
+    },
+    {
       "term": "Backlog Refinement",
       "category": "Agile & Adaptive",
       "definition": "An ongoing collaborative activity in agile projects where the team reviews, clarifies, estimates, and reprioritizes product backlog items. Also called backlog grooming, it ensures upcoming work is well-defined and ready for sprint planning.",
@@ -380,6 +408,21 @@
       "processGroup": "Yürütme"
     },
     {
+      "term": "Blindly Crashing / Fast-Tracking",
+      "termTR": "Körlemesine Süre Sıkıştırmak",
+      "category": "Schedule Management",
+      "definition": "Immediately deciding to crash (add resources) or fast-track (do work in parallel) a delayed project without first analyzing the impact on cost, risk, or considering alternative solutions like scope reduction.",
+      "definitionTR": "Zaman kısıtlaması olan durumlarda, alternatifleri (kapsamı daraltmayı sponsorla görüşmek vb.) değerlendirmeden doğrudan maliyet veya risk artırıcı yöntemlere (Crashing / Fast Tracking) başvurmaktır.",
+      "related": [
+        "Crashing",
+        "Fast Tracking",
+        "Integrated Change Control",
+        "Schedule Variance (SV)"
+      ],
+      "conceptType": "Zehir/Çeldirici",
+      "processGroup": "İzleme ve Kontrol"
+    },
+    {
       "term": "Body Language",
       "termTR": "Vücut Dili",
       "category": "Stakeholder & Communication",
@@ -531,6 +574,20 @@
       "whenToUse": "Çevik bir projede bütçe kısıtlı olduğunda veya zaman daraldığında; Ürün Sahibinin (Product Owner) İş Birikim Listesinde (Backlog) 'İlk olarak hangisini geliştirmeliyiz?' kavgası yaşandığında. Çözüm: Her zaman organizasyona en yüksek İş Değerini katacak özelliği en başa koymaktır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma"
+    },
+    {
+      "term": "Bypassing Functional Manager",
+      "termTR": "Fonksiyonel Yöneticiyi Çiğnemek",
+      "category": "Team & Leadership",
+      "definition": "In a matrix organization, directly approaching a resource to assign them to a project or change their schedule without negotiating with and obtaining approval from their functional/resource manager.",
+      "definitionTR": "Matris bir organizasyonda, projedeki bir kaynağın (personelin) atanması, programının değiştirilmesi veya projeden alınması için fonksiyonel (departman) yöneticiyi atlayarak doğrudan kaynakla görüşmektir. Bu eylem etik değildir.",
+      "related": [
+        "RACI Matrix",
+        "Responsibility Assignment Matrix (RAM)",
+        "Stakeholder Register"
+      ],
+      "conceptType": "Zehir/Çeldirici",
+      "processGroup": "Planlama"
     },
     {
       "term": "Cause-and-Effect Diagram",
@@ -1023,6 +1080,20 @@
       "whenToUse": "Proje teslimatlarının veya gereksinimlerin (Çevik'te Epic'lerin) zaman/maliyet tahmini yapılamayacak kadar 'büyük ve karmaşık' olduğu; işin daha küçük, kolay yönetilebilir parçalara (iş paketleri veya tasklar) bölünmesinin gerektiği tıkandığınız anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama"
+    },
+    {
+      "term": "Defensive Behavior (Blaming)",
+      "termTR": "Savunmacı Davranış (Suçlamak)",
+      "category": "Stakeholder & Communication",
+      "definition": "Reacting to failure, customer complaints, or rejected deliverables by pointing fingers, blaming the team, or reminding stakeholders that they previously approved the flawed product. This destroys psychological safety and stakeholder trust.",
+      "definitionTR": "Bir ürün başarısız olduğunda veya müşteri şikayet ettiğinde, müşteriye 'bu ürünü siz de onaylamıştınız' diyerek savunmacı bir rol oynamak veya takımı suçlamaktır. PMI'a göre başarısızlıklar paylaşılan bir sorumlulukla (işbirliğiyle) ele alınmalıdır.",
+      "related": [
+        "Servant Leadership",
+        "Stakeholder Engagement Plan",
+        "Emotional Intelligence (EI)"
+      ],
+      "conceptType": "Zehir/Çeldirici",
+      "processGroup": "Yürütme"
     },
     {
       "term": "Definition of Done (DoD)",
@@ -1730,6 +1801,35 @@
       "processGroup": "Planlama"
     },
     {
+      "term": "Ignoring the Issue (Doing Nothing)",
+      "termTR": "Sorunu Görmezden Gelmek",
+      "category": "Core Concepts",
+      "definition": "Choosing not to act when observing negative team behavior, burnout, compliance deviations, or minor rule violations, hoping the problem will resolve itself. This sets a dangerous precedent.",
+      "definitionTR": "Takım içindeki rahatsız edici bir davranışı, tükenmişliği (burnout) veya ufak bir kural ihlalini (örneğin kredi kartı yanlış kullanımını) görmezden gelmek veya hiçbir şey yapmamaktır. Bu, gelecekteki kötü davranışlar için emsal oluşturur.",
+      "related": [
+        "Issue Log",
+        "Conflict Resolution Techniques",
+        "Active Listening"
+      ],
+      "conceptType": "Zehir/Çeldirici",
+      "processGroup": "İzleme ve Kontrol"
+    },
+    {
+      "term": "Immediate Escalation",
+      "termTR": "Anında Eskalasyon Yapmak",
+      "category": "Core Concepts",
+      "definition": "Transferring a problem to the sponsor or senior management immediately without first attempting to analyze and resolve it within the project manager's or team's level of authority. It shows a lack of leadership and accountability.",
+      "definitionTR": "Proje yöneticisinin veya takımın, kendi yetkisindeki bir sorunu (ekip içi kavgalar, ufak gecikmeler vb.) çözmeye çalışmadan veya alternatifleri değerlendirmeden derhal sponsora veya üst yönetime bildirmesidir. Yönetici her zaman önce kendi yetkisi dahilindeki adımları atmalıdır.",
+      "related": [
+        "Escalation",
+        "Sponsor",
+        "PMO (Project Management Office)",
+        "Issue Log"
+      ],
+      "conceptType": "Zehir/Çeldirici",
+      "processGroup": "İzleme ve Kontrol"
+    },
+    {
       "term": "Impediment",
       "termTR": "Engel / Bloker",
       "category": "Agile & Adaptive",
@@ -2078,6 +2178,20 @@
       "definitionTR": "PMBOK® 8. Baskının 8 performans alanından biridir. Proje performansını değerlendirme ve gerekli düzeltmeleri uygulama faaliyetlerini ele alır. Etkin ölçüm; salt raporlama amacıyla değil, ilerlemeyi kavramak, eğilimleri belirlemek ve sonuçları öngörmek için anlamlı metrikler kullanır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol"
+    },
+    {
+      "term": "Micromanagement (Bypassing the Team)",
+      "termTR": "Mikro Yönetim (Takımı Atlamak)",
+      "category": "Team & Leadership",
+      "definition": "Intervening in the team's daily work or directly handling stakeholder communications on their behalf because they are struggling. In Agile, this undermines the team's self-organization and empowerment.",
+      "definitionTR": "Takım paydaşlarla iletişim kuramıyorsa veya bir sorun yaşıyorsa, liderin araya girip işi onların yerine yapması (doğrudan paydaşla çalışması) durumudur. Bu, takımı baltalamak demektir; bunun yerine takıma koçluk yapılmalıdır.",
+      "related": [
+        "Servant Leadership",
+        "Scrum Master",
+        "Emotional Intelligence (EI)"
+      ],
+      "conceptType": "Zehir/Çeldirici",
+      "processGroup": "Yürütme"
     },
     {
       "term": "Milestone",
@@ -2746,6 +2860,35 @@
       "whenToUse": "Projede tamamen yeni ve hiç bilinmeyen bir teknolojinin (örn: Yapay Zeka entegrasyonu) kullanılacağı, takımın 'Bu teknoloji bizim altyapımızda gerçekten çalışır mı?' diye şüpheye düştüğü ve büyük yatırım yapmadan önce küçük bir deney/prototip yapılması gerektiği belirsizlik krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma"
+    },
+    {
+      "term": "Public Reprimand",
+      "termTR": "Toplum İçinde Azarlamak",
+      "category": "Team & Leadership",
+      "definition": "A negative leadership action where a team member is criticized or punished in front of others. According to the PMI mindset, this creates a hostile team environment, causes resentment, and destroys motivation. Performance issues or mistakes must always be addressed privately.",
+      "definitionTR": "Bir takım üyesinin hata yaptığında veya kuralları çiğnediğinde herkesin içinde uyarılması veya cezalandırılmasıdır. PMI zihniyetine göre bu eylem, olumsuz bir takım ortamı yaratır ve motivasyon kaybına yol açar. Sorunlar her zaman özel (birebir) olarak ele alınmalıdır.",
+      "related": [
+        "Emotional Intelligence (EI)",
+        "Servant Leadership",
+        "Tuckman's Stages of Team Development"
+      ],
+      "conceptType": "Zehir/Çeldirici",
+      "processGroup": "Yürütme"
+    },
+    {
+      "term": "Punishing the Vendor",
+      "termTR": "Tedarikçiyi Hemen Cezalandırmak",
+      "category": "Procurement",
+      "definition": "Immediately applying contractual penalties or withholding payment when a vendor experiences a delay or performance issue, rather than collaborating to find a solution or mitigate the risk. This often worsens quality and accelerates project failure.",
+      "definitionTR": "Tedarikçiyle performans veya zamanlama sorunu (risk) yaşandığında, aniden sözleşmeye ceza eklemek veya ödemeyi kesmektir. PMI'a göre bu, riski azaltmaz, aksine tedarikçiyi acele ettirerek kaliteyi (yeni riskleri) bozar.",
+      "related": [
+        "Contract",
+        "Procurement",
+        "Claim",
+        "Risk Response Strategies"
+      ],
+      "conceptType": "Zehir/Çeldirici",
+      "processGroup": "İzleme ve Kontrol"
     },
     {
       "term": "RACI Matrix",
@@ -3568,6 +3711,20 @@
       "whenToUse": "Proje çok benzersiz bir yapıya sahip olduğunda; örneğin donanım kısmı için kesin ve katı kurallar gerekirken yazılım kısmı için sürekli değişen müşteri istekleri olduğunda. Çözüm: 'Herkese uyan tek bir yöntem' (One-size-fits-all) dayatmak yerine, süreçleri projenin benzersiz bağlamına ve karmaşıklığına göre 'uyarlamak'.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama"
+    },
+    {
+      "term": "Taking Away Authority",
+      "termTR": "Takımın Yetkisini Elinden Almak",
+      "category": "Agile & Adaptive",
+      "definition": "Revoking an agile team's self-organizing privileges, assigning tasks directly, or imposing rigid rules when the team experiences delays or quality drops. This kills agility and growth.",
+      "definitionTR": "Çevik bir takım kalite sorunu yaşadığında veya geciktiğinde, yöneticinin 'kendi kendini organize etme (self-organizing)' yetkilerini ellerinden alıp takım üyelerine zorla görev atamasıdır.",
+      "related": [
+        "Agile",
+        "Servant Leadership",
+        "Scrum Master"
+      ],
+      "conceptType": "Zehir/Çeldirici",
+      "processGroup": "İzleme ve Kontrol"
     },
     {
       "term": "Team Performance Domain",
