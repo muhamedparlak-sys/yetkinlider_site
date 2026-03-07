@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Senaryo Terzisi — YetkinLider</title>
+<meta name="description" content="Kendi proje yönetimi maceranı kurgula. Senaryo Terzisi ile kariyer simülasyonunu veya yetkinlik antrenmanını başlat.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary:#2f4f60; --primary-dark:#1f3b49; --primary-light:#5f93c2;
+  --accent:#3b82f6; --accent-dark:#2563eb;
+  --text:#0b1220; --text-secondary:#334155; --text-muted:#64748b;
+  --bg:#f8fafc; --surface:#ffffff; --surface2:#f1f5f9;
+  --border:#e2e8f0; --radius:12px;
+  --success:#10b981; --warning:#f59e0b; --error:#ef4444;
+  --career:#7c3aed; --career-light:#ede9fe; --career-border:#c4b5fd;
+  --comp:#0369a1; --comp-light:#e0f2fe; --comp-border:#7dd3fc;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, system-ui, sans-serif; color: var(--text); background: var(--bg); min-height: 100vh; }
+
+/* ── NAVBAR ── */
+.navbar { background: var(--primary); height: 52px; display: flex; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 6px rgba(0,0,0,.18); }
+.brand-logo { width: 26px; height: 26px; border-radius: 5px; flex-shrink: 0; filter: brightness(0) invert(1); }
+.brand { color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+.brand sup { font-size: 9px; vertical-align: super; }
+.nav-spacer { flex: 1; }
+.nav-back { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,.75); font-size: 13px; font-weight: 500; text-decoration: none; padding: 6px 12px; border: 1px solid rgba(255,255,255,.2); border-radius: 7px; transition: all .15s; }
+.nav-back:hover { color: #fff; border-color: rgba(255,255,255,.4); }
+
+/* ── WIZARD CONTAINER ── */
+.wizard-wrap { max-width: 780px; margin: 0 auto; padding: 32px 20px 64px; }
+
+/* ── PROGRESS STEPPER ── */
+.stepper { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 36px; }
+.stepper-item { display: flex; align-items: center; }
+.stepper-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; transition: all .25s;
+  border: 2px solid var(--border); background: var(--surface);
+  color: var(--text-muted); flex-shrink: 0;
+}
+.stepper-dot.active { border-color: var(--accent); background: var(--accent); color: #fff; }
+.stepper-dot.done { border-color: var(--success); background: var(--success); color: #fff; }
+.stepper-dot.career-active { border-color: var(--career); background: var(--career); color: #fff; }
+.stepper-dot.comp-active { border-color: var(--comp); background: var(--comp); color: #fff; }
+.stepper-line { height: 2px; width: 40px; background: var(--border); transition: background .25s; flex-shrink: 0; }
+.stepper-line.done { background: var(--success); }
+.stepper-label { font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 5px; white-space: nowrap; }
+
+/* ── PAGE ── */
+.page { display: none; animation: fadeSlide .28s ease; }
+.page.active { display: block; }
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── PAGE HEADER ── */
+.page-title {
+  font-size: clamp(20px, 3.5vw, 26px); font-weight: 800;
+  color: var(--text); line-height: 1.25; margin-bottom: 6px;
+}
+.page-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+
+/* ── SECTION LABEL ── */
+.section-lbl { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted); margin-bottom: 10px; display: block; }
+
+/* ── MODE CARDS (Step 0) ── */
+.mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.mode-card {
+  border: 2px solid var(--border); border-radius: 16px; padding: 28px 24px;
+  cursor: pointer; transition: all .2s; background: var(--surface); text-align: left;
+  position: relative; overflow: hidden;
+}
+.mode-card::before {
+  content: ''; position: absolute; inset: 0;
+  opacity: 0; transition: opacity .2s;
+}
+.mode-card.career::before { background: linear-gradient(135deg, var(--career-light) 0%, rgba(237,233,254,0) 60%); }
+.mode-card.comp::before   { background: linear-gradient(135deg, var(--comp-light) 0%, rgba(224,242,254,0) 60%); }
+.mode-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.09); transform: translateY(-2px); }
+.mode-card:hover::before, .mode-card.selected::before { opacity: 1; }
+.mode-card.career.selected { border-color: var(--career); }
+.mode-card.comp.selected   { border-color: var(--comp); }
+.mode-icon { font-size: 36px; margin-bottom: 12px; display: block; }
+.mode-name { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+.mode-card.career .mode-name { color: var(--career); }
+.mode-card.comp .mode-name   { color: var(--comp); }
+.mode-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
+.mode-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+.mode-pill {
+  font-size: 10.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px;
+  border: 1px solid; white-space: nowrap;
+}
+.mode-card.career .mode-pill { color: var(--career); border-color: var(--career-border); background: var(--career-light); }
+.mode-card.comp .mode-pill   { color: var(--comp); border-color: var(--comp-border); background: var(--comp-light); }
+
+/* ── TEXT INPUT ── */
+.field-group { margin-bottom: 18px; }
+.field-label { font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; display: block; }
+.field-input {
+  width: 100%; padding: 10px 14px; border: 1px solid var(--border);
+  border-radius: 9px; font-size: 14px; font-family: inherit;
+  background: var(--surface); color: var(--text); outline: none; transition: border-color .15s;
+}
+.field-input:focus { border-color: var(--primary-light); }
+.field-input::placeholder { color: var(--text-muted); }
+
+/* ── OPTION CARDS GRID ── */
+.option-grid { display: grid; gap: 10px; margin-bottom: 24px; }
+.option-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.option-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.option-grid.cols-auto { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+.option-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+
+.opt-card {
+  border: 1.5px solid var(--border); border-radius: 11px;
+  padding: 14px 14px 12px; cursor: pointer; transition: all .17s;
+  background: var(--surface); text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.opt-card:hover { border-color: var(--primary-light); box-shadow: 0 2px 8px rgba(0,0,0,.07); }
+.opt-card.selected { border-color: var(--accent); background: #eff6ff; }
+.opt-card.selected .opt-name { color: var(--accent-dark); }
+.opt-icon { font-size: 22px; line-height: 1; }
+.opt-name { font-size: 12.5px; font-weight: 700; color: var(--text); }
+.opt-sub  { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+
+/* Difficulty özel renkleri */
+.opt-card[data-val="beginner"].selected   { border-color: #16a34a; background: #f0fdf4; }
+.opt-card[data-val="beginner"].selected .opt-name { color: #15803d; }
+.opt-card[data-val="intermediate"].selected { border-color: #d97706; background: #fffbeb; }
+.opt-card[data-val="intermediate"].selected .opt-name { color: #b45309; }
+.opt-card[data-val="advanced"].selected   { border-color: var(--error); background: #fef2f2; }
+.opt-card[data-val="advanced"].selected .opt-name { color: #b91c1c; }
+
+/* ── CHECKBOX CARDS (multi-select) ── */
+.check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px; }
+.check-card {
+  display: flex; align-items: flex-start; gap: 10px;
+  border: 1.5px solid var(--border); border-radius: 10px; padding: 12px 14px;
+  cursor: pointer; transition: all .17s; background: var(--surface);
+}
+.check-card:hover { border-color: var(--primary-light); }
+.check-card.selected { border-color: var(--accent); background: #eff6ff; }
+.check-box {
+  width: 18px; height: 18px; border-radius: 5px; border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all .17s; margin-top: 1px;
+}
+.check-card.selected .check-box { border-color: var(--accent); background: var(--accent); }
+.check-box::after { content: '✓'; font-size: 11px; color: #fff; display: none; font-weight: 700; }
+.check-card.selected .check-box::after { display: block; }
+.check-text .check-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.check-text .check-desc { font-size: 11.5px; color: var(--text-muted); line-height: 1.4; }
+
+/* ── SPRINT SELECTOR ── */
+.sprint-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+.sprint-card {
+  border: 1.5px solid var(--border); border-radius: 11px;
+  padding: 16px 14px; cursor: pointer; transition: all .17s;
+  background: var(--surface); text-align: center;
+}
+.sprint-card:hover { border-color: var(--primary-light); }
+.sprint-card.selected { border-color: var(--comp); background: var(--comp-light); }
+.sprint-card.selected .sprint-name { color: var(--comp); }
+.sprint-num { font-size: 28px; font-weight: 800; color: var(--text); }
+.sprint-name { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .05em; }
+.sprint-desc { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+/* ── SUMMARY CARD ── */
+.summary-card {
+  border: 1.5px solid var(--border); border-radius: 14px;
+  background: var(--surface); overflow: hidden; margin-bottom: 28px;
+}
+.summary-header {
+  padding: 18px 22px; font-size: 13px; font-weight: 700; letter-spacing: .04em;
+  text-transform: uppercase; display: flex; align-items: center; gap: 8px;
+}
+.summary-career-header { background: var(--career-light); color: var(--career); border-bottom: 1px solid var(--career-border); }
+.summary-comp-header   { background: var(--comp-light); color: var(--comp); border-bottom: 1px solid var(--comp-border); }
+.summary-body { padding: 20px 22px; }
+.summary-row { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--surface2); }
+.summary-row:last-child { border-bottom: none; }
+.summary-icon { font-size: 16px; width: 22px; text-align: center; flex-shrink: 0; margin-top: 1px; }
+.summary-key { font-size: 11.5px; color: var(--text-muted); font-weight: 600; width: 140px; flex-shrink: 0; }
+.summary-val { font-size: 13px; font-weight: 700; color: var(--text); flex: 1; }
+.summary-tag { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; background: var(--surface2); color: var(--text-muted); border: 1px solid var(--border); margin: 2px; }
+
+/* ── NAV BUTTONS ── */
+.nav-row { display: flex; align-items: center; gap: 12px; }
+.btn-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 18px; border-radius: 9px; font-size: 13.5px; font-weight: 600;
+  border: 1.5px solid var(--border); background: var(--surface); color: var(--text-muted);
+  cursor: pointer; transition: all .15s; font-family: inherit;
+}
+.btn-back:hover { border-color: var(--primary-light); color: var(--text); }
+.btn-next {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 26px; border-radius: 9px; font-size: 14px; font-weight: 700;
+  border: none; cursor: pointer; transition: all .15s; font-family: inherit;
+  color: #fff; flex: 1; justify-content: center; max-width: 260px;
+}
+.btn-next.career-btn { background: linear-gradient(135deg, var(--career), #6d28d9); }
+.btn-next.comp-btn   { background: linear-gradient(135deg, var(--comp), #0ea5e9); }
+.btn-next.start-btn  { background: linear-gradient(135deg, #059669, #0d9488); font-size: 15px; padding: 14px 32px; max-width: 320px; }
+.btn-next:disabled { opacity: .45; cursor: not-allowed; }
+.btn-next:not(:disabled):hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,.15); }
+.spacer { flex: 1; }
+
+/* ── VALIDATION ── */
+.val-hint { font-size: 12px; color: var(--error); margin-top: 8px; display: none; }
+.val-hint.show { display: block; }
+
+/* ── DIVIDER ── */
+.section-divider { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .mode-grid { grid-template-columns: 1fr; }
+  .option-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+  .option-grid.cols-5 { grid-template-columns: repeat(3, 1fr); }
+  .check-grid { grid-template-columns: 1fr; }
+  .stepper-line { width: 22px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="brand" href="index.html">
+    <img src="logo.png" class="brand-logo" alt="YetkinLider">
+    YetkinLider<sup>™</sup>
+  </a>
+  <div class="nav-spacer"></div>
+  <a class="nav-back" href="game.html">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+    Simülatör
+  </a>
+</nav>
+
+<div class="wizard-wrap">
+
+  <!-- ═══════════════════════════════════════════════════════
+       STEP 0 — MOD SEÇİMİ
+  ═══════════════════════════════════════════════════════ -->
+  <div class="page active" id="page-mode">
+    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:10px;">Senaryo Terzisi</p>
+    <h1 class="page-title">Maceranda nasıl bir<br>yönetici olacaksın?</h1>
+    <p class="page-sub">İki farklı deneyim seni bekliyor. Birini seç, kalanını biz hallederiz.</p>
+
+    <div class="mode-grid">
+      <div class="mode-card career" data-mode="career" onclick="selectMode('career')">
+        <span class="mode-icon">🎭</span>
+        <div class="mode-name">Kariyer Senaryosu</div>
+        <p class="mode-desc">Gerçek bir proje yöneticisi gibi 365 gün yaşa. Olaylar kronolojik akar, kararların birikerek seni şekillendirir.</p>
+        <div class="mode-pills">
+          <span class="mode-pill">🕐 365 Gün</span>
+          <span class="mode-pill">📰 300 Olay</span>
+          <span class="mode-pill">🎭 Hikaye Tabanlı</span>
+          <span class="mode-pill">🗺️ Başlatma→Kapanış</span>
+        </div>
+      </div>
+      <div class="mode-card comp" data-mode="competency" onclick="selectMode('competency')">
+        <span class="mode-icon">🎯</span>
+        <div class="mode-name">Yetkinlik Antrenmanı</div>
+        <p class="mode-desc">Sprint bazlı, odaklı antrenman. Zayıf yönünü belirle ve o alanda yoğun pratik yap.</p>
+        <div class="mode-pills">
+          <span class="mode-pill">⚡ Sprint Bazlı</span>
+          <span class="mode-pill">🔬 ECO Odaklı</span>
+          <span class="mode-pill">🎯 Nokta Atışı</span>
+          <span class="mode-pill">🔄 Tekrar Edilebilir</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:8px;">
+      <p style="font-size:12px;color:var(--text-muted);">Modu seçince otomatik ilerler</p>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       CAREER STEP 1 — KİMLİK
+  ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-c1">
+    <div id="stepper-c" class="stepper"></div>
+    <h2 class="page-title">Karakterini yarat</h2>
+    <p class="page-sub">Bu bilgiler oyun boyunca sana ve projenize hitap etmek için kullanılır.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;">
+      <div class="field-group">
+        <label class="field-label">👤 PM Adın / Takma Ad</label>
+        <input class="field-input" id="pm_name" type="text" placeholder="Ör: Arif Demir" maxlength="40">
+      </div>
+      <div class="field-group">
+        <label class="field-label">📁 Proje Adı</label>
+        <input class="field-input" id="project_name" type="text" placeholder="Ör: Proje Pegasus" maxlength="50">
+      </div>
+    </div>
+
+    <span class="section-lbl">🌍 Sektör</span>
+    <div class="option-grid cols-auto" id="sector-grid">
+      <div class="opt-card" data-group="sector" data-val="it" onclick="selectOpt(this,'sector')">
+        <span class="opt-icon">💻</span>
+        <span class="opt-name">IT / Yazılım</span>
+      </div>
+      <div class="opt-card" data-group="sector" data-val="construction" onclick="selectOpt(this,'sector')">
+        <span class="opt-icon">🏗️</span>
+        <span class="opt-name">İnşaat</span>
+      </div>
+      <div class="opt-card" data-group="sector" data-val="health" onclick="selectOpt(this,'sector')">
+        <span class="opt-icon">🏥</span>
+        <span class="opt-name">Sağlık</span>
+      </div>
+      <div class="opt-card" data-group="sector" data-val="finance" onclick="selectOpt(this,'sector')">
+        <span class="opt-icon">🏦</span>
+        <span class="opt-name">Finans</span>
+      </div>
+      <div class="opt-card" data-group="sector" data-val="defense" onclick="selectOpt(this,'sector')">
+        <span class="opt-icon">✈️</span>
+        <span class="opt-name">Savunma</span>
+      </div>
+      <div class="opt-card" data-group="sector" data-val="education" onclick="selectOpt(this,'sector')">
+        <span class="opt-icon">🎓</span>
+        <span class="opt-name">Eğitim / NGO</span>
+      </div>
+    </div>
+
+    <p class="val-hint" id="hint-c1">Lütfen bir sektör seçin.</p>
+    <div class="nav-row" style="margin-top:28px;">
+      <button class="btn-back" onclick="goPage('page-mode')">← Geri</button>
+      <div class="spacer"></div>
+      <button class="btn-next career-btn" onclick="nextCareer(1)">İleri →</button>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       CAREER STEP 2 — ZORLUK & PMO
+  ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-c2">
+    <div class="stepper" id="stepper-c2"></div>
+    <h2 class="page-title">Zorluk ve ortam</h2>
+    <p class="page-sub">Ne kadar baskı altında çalışmak istiyorsun?</p>
+
+    <span class="section-lbl">⚡ Zorluk Seviyesi</span>
+    <div class="option-grid cols-3" style="margin-bottom:24px;">
+      <div class="opt-card" data-group="difficulty" data-val="beginner" onclick="selectOpt(this,'difficulty')">
+        <span class="opt-icon">🟢</span>
+        <span class="opt-name">Giriş</span>
+        <span class="opt-sub">Az çeldirici, net krizler</span>
+      </div>
+      <div class="opt-card" data-group="difficulty" data-val="intermediate" onclick="selectOpt(this,'difficulty')">
+        <span class="opt-icon">🟡</span>
+        <span class="opt-name">Orta</span>
+        <span class="opt-sub">Standart PMP zorluğu</span>
+      </div>
+      <div class="opt-card" data-group="difficulty" data-val="advanced" onclick="selectOpt(this,'difficulty')">
+        <span class="opt-icon">🔴</span>
+        <span class="opt-name">İleri</span>
+        <span class="opt-sub">Zehir yoğun, anlık baskı</span>
+      </div>
+    </div>
+
+    <span class="section-lbl">🏢 PMO Kültürü</span>
+    <div class="option-grid cols-3" style="margin-bottom:24px;">
+      <div class="opt-card" data-group="pmo_type" data-val="supportive" onclick="selectOpt(this,'pmo_type')">
+        <span class="opt-icon">🤝</span>
+        <span class="opt-name">Destekleyici</span>
+        <span class="opt-sub">PMO rehber, müdahil değil</span>
+      </div>
+      <div class="opt-card" data-group="pmo_type" data-val="controlling" onclick="selectOpt(this,'pmo_type')">
+        <span class="opt-icon">📋</span>
+        <span class="opt-name">Denetleyici</span>
+        <span class="opt-sub">Süreç uyumu zorunlu</span>
+      </div>
+      <div class="opt-card" data-group="pmo_type" data-val="directive" onclick="selectOpt(this,'pmo_type')">
+        <span class="opt-icon">👑</span>
+        <span class="opt-name">Yönlendirici</span>
+        <span class="opt-sub">PMO kararları belirliyor</span>
+      </div>
+    </div>
+
+    <span class="section-lbl">👥 Takım Kültürü</span>
+    <div class="option-grid cols-3" style="margin-bottom:8px;">
+      <div class="opt-card" data-group="team_culture" data-val="collaborative" onclick="selectOpt(this,'team_culture')">
+        <span class="opt-icon">🌱</span>
+        <span class="opt-name">Kolaboratif</span>
+        <span class="opt-sub">Güven yüksek, flat yapı</span>
+      </div>
+      <div class="opt-card" data-group="team_culture" data-val="hierarchical" onclick="selectOpt(this,'team_culture')">
+        <span class="opt-icon">🏛️</span>
+        <span class="opt-name">Hiyerarşik</span>
+        <span class="opt-sub">Onay zinciri uzun</span>
+      </div>
+      <div class="opt-card" data-group="team_culture" data-val="autonomous" onclick="selectOpt(this,'team_culture')">
+        <span class="opt-icon">🚀</span>
+        <span class="opt-name">Bağımsız</span>
+        <span class="opt-sub">Uzak/dağıtık takım</span>
+      </div>
+    </div>
+
+    <p class="val-hint" id="hint-c2">Lütfen tüm seçenekleri seçin.</p>
+    <div class="nav-row" style="margin-top:28px;">
+      <button class="btn-back" onclick="goPage('page-c1')">← Geri</button>
+      <div class="spacer"></div>
+      <button class="btn-next career-btn" onclick="nextCareer(2)">İleri →</button>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       CAREER STEP 3 — ÖĞRENME HEDEFLERİ
+  ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-c3">
+    <div class="stepper" id="stepper-c3"></div>
+    <h2 class="page-title">Odak noktanı seç</h2>
+    <p class="page-sub">AI bu tercihe göre hangi kavramları sana öğreteceğini belirler. Birden fazla seçebilirsin.</p>
+
+    <div class="check-grid" id="goals-grid">
+      <div class="check-card" data-val="risk_management" onclick="toggleGoal(this)">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-name">🎲 Risk Yönetimi</div>
+          <div class="check-desc">Risk kaydı, duyarlılık analizi, yanıt stratejileri</div>
+        </div>
+      </div>
+      <div class="check-card" data-val="agile_leadership" onclick="toggleGoal(this)">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-name">🔄 Çevik Liderlik</div>
+          <div class="check-desc">Scrum, Kanban, retrospektif, servant leadership</div>
+        </div>
+      </div>
+      <div class="check-card" data-val="stakeholder_communication" onclick="toggleGoal(this)">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-name">🤝 Paydaş & İletişim</div>
+          <div class="check-desc">Paydaş haritası, çatışma yönetimi, müzakere</div>
+        </div>
+      </div>
+      <div class="check-card" data-val="evm_cost" onclick="toggleGoal(this)">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-name">📊 EVM & Maliyet</div>
+          <div class="check-desc">CPI, SPI, EV, kazanılmış değer analizi</div>
+        </div>
+      </div>
+      <div class="check-card" data-val="scope_quality" onclick="toggleGoal(this)">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-name">📐 Kapsam & Kalite</div>
+          <div class="check-desc">WBS, kapsam kayması, kalite güvencesi</div>
+        </div>
+      </div>
+      <div class="check-card" data-val="ai_random" onclick="toggleGoal(this)">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-name">🎰 Sürpriz — AI Seçsin</div>
+          <div class="check-desc">Tüm kavramlar havuza girer, AI dengeli seçer</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="val-hint" id="hint-c3">En az bir hedef seçin.</p>
+    <div class="nav-row" style="margin-top:16px;">
+      <button class="btn-back" onclick="goPage('page-c2')">← Geri</button>
+      <div class="spacer"></div>
+      <button class="btn-next career-btn" onclick="nextCareer(3)">Özete Git →</button>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       CAREER STEP 4 — ÖZET
+  ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-c4">
+    <div class="stepper" id="stepper-c4"></div>
+    <h2 class="page-title">Her şey hazır!</h2>
+    <p class="page-sub">Kurulumunu gözden geçir — değiştirmek istediğin varsa geri dönebilirsin.</p>
+
+    <div class="summary-card">
+      <div class="summary-header summary-career-header">🎭 Kariyer Senaryosu Özeti</div>
+      <div class="summary-body" id="career-summary-body">
+        <!-- JS ile doldurulur -->
+      </div>
+    </div>
+
+    <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px 16px;margin-bottom:24px;font-size:13px;color:#92400e;line-height:1.6;">
+      <strong>ℹ️ Nasıl çalışır?</strong><br>
+      AI, glossary.json'daki 284 terimden sadece henüz öğretilmemiş olanları hedef olarak seçer. Daha önce doğru seçtiğin kararlar tekrar İlaç olarak çıkmaz; ama Çeldirici olabilir.
+    </div>
+
+    <div class="nav-row">
+      <button class="btn-back" onclick="goPage('page-c3')">← Düzenle</button>
+      <div class="spacer"></div>
+      <button class="btn-next start-btn" onclick="startGame()">🎬 Maceraya Başla</button>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       COMPETENCY STEP 1 — YAKLAŞIM & ROL
+  ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-k1">
+    <div class="stepper" id="stepper-k1"></div>
+    <h2 class="page-title">Yaklaşım ve rolünü seç</h2>
+    <p class="page-sub">Antrenmanın bu çerçeveye göre şekillenecek.</p>
+
+    <span class="section-lbl">🛤️ Geliştirme Yaklaşımı</span>
+    <div class="option-grid cols-3" style="margin-bottom:24px;">
+      <div class="opt-card" data-group="dev_approach" data-val="predictive" onclick="selectOpt(this,'dev_approach')">
+        <span class="opt-icon">📐</span>
+        <span class="opt-name">Öngörücü</span>
+        <span class="opt-sub">Waterfall / Şelale</span>
+      </div>
+      <div class="opt-card" data-group="dev_approach" data-val="agile" onclick="selectOpt(this,'dev_approach')">
+        <span class="opt-icon">🔄</span>
+        <span class="opt-name">Çevik</span>
+        <span class="opt-sub">Scrum / XP / Kanban</span>
+      </div>
+      <div class="opt-card" data-group="dev_approach" data-val="hybrid" onclick="selectOpt(this,'dev_approach')">
+        <span class="opt-icon">🔀</span>
+        <span class="opt-name">Hibrit</span>
+        <span class="opt-sub">Karma yaklaşım</span>
+      </div>
+    </div>
+
+    <span class="section-lbl">🏢 Organizasyon Yapısı</span>
+    <div class="option-grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr));margin-bottom:24px;">
+      <div class="opt-card" data-group="org_structure" data-val="functional" onclick="selectOpt(this,'org_structure')">
+        <span class="opt-icon">🏛️</span>
+        <span class="opt-name">Fonksiyonel</span>
+        <span class="opt-sub">PM yetkisi düşük</span>
+      </div>
+      <div class="opt-card" data-group="org_structure" data-val="matrix_weak" onclick="selectOpt(this,'org_structure')">
+        <span class="opt-icon">⚖️</span>
+        <span class="opt-name">Zayıf Matris</span>
+        <span class="opt-sub">Ağırlık FM'de</span>
+      </div>
+      <div class="opt-card" data-group="org_structure" data-val="matrix_balanced" onclick="selectOpt(this,'org_structure')">
+        <span class="opt-icon">🔗</span>
+        <span class="opt-name">Dengeli Matris</span>
+        <span class="opt-sub">Eşit yetki dağılımı</span>
+      </div>
+      <div class="opt-card" data-group="org_structure" data-val="matrix_strong" onclick="selectOpt(this,'org_structure')">
+        <span class="opt-icon">💪</span>
+        <span class="opt-name">Güçlü Matris</span>
+        <span class="opt-sub">PM yetkisi baskın</span>
+      </div>
+      <div class="opt-card" data-group="org_structure" data-val="projectized" onclick="selectOpt(this,'org_structure')">
+        <span class="opt-icon">🚀</span>
+        <span class="opt-name">Proje Odaklı</span>
+        <span class="opt-sub">Tam PM otoritesi</span>
+      </div>
+    </div>
+
+    <span class="section-lbl">👔 Rolün</span>
+    <div class="option-grid cols-3" style="margin-bottom:8px;">
+      <div class="opt-card" data-group="role" data-val="PM" onclick="selectOpt(this,'role')">
+        <span class="opt-icon">🧭</span>
+        <span class="opt-name">Proje Yöneticisi</span>
+        <span class="opt-sub">PM — tam yetki</span>
+      </div>
+      <div class="opt-card" data-group="role" data-val="Scrum_Master" onclick="selectOpt(this,'role')">
+        <span class="opt-icon">🛡️</span>
+        <span class="opt-name">Scrum Master</span>
+        <span class="opt-sub">Takımı koruyan lider</span>
+      </div>
+      <div class="opt-card" data-group="role" data-val="Product_Owner" onclick="selectOpt(this,'role')">
+        <span class="opt-icon">🎯</span>
+        <span class="opt-name">Ürün Sahibi</span>
+        <span class="opt-sub">Backlog & değer önceliği</span>
+      </div>
+    </div>
+
+    <p class="val-hint" id="hint-k1">Lütfen tüm seçenekleri seçin.</p>
+    <div class="nav-row" style="margin-top:28px;">
+      <button class="btn-back" onclick="goPage('page-mode')">← Geri</button>
+      <div class="spacer"></div>
+      <button class="btn-next comp-btn" onclick="nextComp(1)">İleri →</button>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       COMPETENCY STEP 2 — ECO & SPRİNT
+  ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-k2">
+    <div class="stepper" id="stepper-k2"></div>
+    <h2 class="page-title">Odak alanı ve sprint</h2>
+    <p class="page-sub">Hangi ECO yetkinlik alanını antrenman yapmak istiyorsun?</p>
+
+    <span class="section-lbl">🔬 ECO Yetkinlik Alanı (çoklu seçim)</span>
+    <div class="check-grid" id="eco-grid">
+      <div class="check-card" data-val="people" onclick="toggleEco(this)">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-name">👥 İnsan</div>
+          <div class="check-desc">Liderlik, çatışma, motivasyon, ekip dinamikleri</div>
+        </div>
+      </div>
+      <div class="check-card" data-val="process" onclick="toggleEco(this)">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-name">⚙️ Süreç</div>
+          <div class="check-desc">Risk, kapsam, zamanlama, EVM, kalite</div>
+        </div>
+      </div>
+      <div class="check-card" data-val="business" onclick="toggleEco(this)">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-name">🌐 İş Ortamı</div>
+          <div class="check-desc">Strateji, tedarik, uyum, paydaş yönetimi</div>
+        </div>
+      </div>
+      <div class="check-card" data-val="all" onclick="toggleEco(this)">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-name">🎲 Karma</div>
+          <div class="check-desc">Üç alanı dengeli karıştır</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+    <span class="section-lbl">🎯 Sprint Uzunluğu</span>
+    <div class="sprint-grid">
+      <div class="sprint-card" data-val="5" onclick="selectSprint(this)">
+        <div class="sprint-num">5</div>
+        <div class="sprint-name">Hızlı</div>
+        <div class="sprint-desc">~10 dakika</div>
+      </div>
+      <div class="sprint-card" data-val="15" onclick="selectSprint(this)">
+        <div class="sprint-num">15</div>
+        <div class="sprint-name">Normal</div>
+        <div class="sprint-desc">~30 dakika</div>
+      </div>
+      <div class="sprint-card" data-val="30" onclick="selectSprint(this)">
+        <div class="sprint-num">30</div>
+        <div class="sprint-name">Derin</div>
+        <div class="sprint-desc">~60 dakika</div>
+      </div>
+    </div>
+
+    <p class="val-hint" id="hint-k2">Lütfen ECO alanı ve sprint uzunluğu seçin.</p>
+    <div class="nav-row" style="margin-top:16px;">
+      <button class="btn-back" onclick="goPage('page-k1')">← Geri</button>
+      <div class="spacer"></div>
+      <button class="btn-next comp-btn" onclick="nextComp(2)">Özete Git →</button>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       COMPETENCY STEP 3 — ÖZET
+  ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-k3">
+    <div class="stepper" id="stepper-k3"></div>
+    <h2 class="page-title">Antrenman hazır!</h2>
+    <p class="page-sub">Kurulumunu gözden geçir.</p>
+
+    <div class="summary-card">
+      <div class="summary-header summary-comp-header">🎯 Yetkinlik Antrenmanı Özeti</div>
+      <div class="summary-body" id="comp-summary-body"></div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn-back" onclick="goPage('page-k2')">← Düzenle</button>
+      <div class="spacer"></div>
+      <button class="btn-next start-btn" onclick="startGame()">🎯 Antrenmanı Başlat</button>
+    </div>
+  </div>
+
+</div><!-- /wizard-wrap -->
+
+<script>
+// ─── STATE ──────────────────────────────────────────────────────────────────
+const S = {
+  mode: null,
+  career: { pm_name:'', project_name:'', sector:null, difficulty:null, pmo_type:null, team_culture:null, learning_goals:[] },
+  comp:   { dev_approach:null, org_structure:null, role:null, eco_filters:[], sprint_length:null }
+};
+
+// ─── LABELS ─────────────────────────────────────────────────────────────────
+const SECTOR_LBL    = { it:'💻 IT / Yazılım', construction:'🏗️ İnşaat', health:'🏥 Sağlık', finance:'🏦 Finans', defense:'✈️ Savunma', education:'🎓 Eğitim / NGO' };
+const DIFF_LBL      = { beginner:'🟢 Giriş', intermediate:'🟡 Orta', advanced:'🔴 İleri' };
+const PMO_LBL       = { supportive:'🤝 Destekleyici', controlling:'📋 Denetleyici', directive:'👑 Yönlendirici' };
+const TEAM_LBL      = { collaborative:'🌱 Kolaboratif', hierarchical:'🏛️ Hiyerarşik', autonomous:'🚀 Bağımsız' };
+const GOAL_LBL      = { risk_management:'🎲 Risk Yönetimi', agile_leadership:'🔄 Çevik Liderlik', stakeholder_communication:'🤝 Paydaş & İletişim', evm_cost:'📊 EVM & Maliyet', scope_quality:'📐 Kapsam & Kalite', ai_random:'🎰 AI Seçsin' };
+const DA_LBL        = { predictive:'📐 Öngörücü', agile:'🔄 Çevik', hybrid:'🔀 Hibrit' };
+const ORG_LBL       = { functional:'🏛️ Fonksiyonel', matrix_weak:'⚖️ Zayıf Matris', matrix_balanced:'🔗 Dengeli Matris', matrix_strong:'💪 Güçlü Matris', projectized:'🚀 Proje Odaklı' };
+const ROLE_LBL      = { PM:'🧭 Proje Yöneticisi', Scrum_Master:'🛡️ Scrum Master', Product_Owner:'🎯 Ürün Sahibi' };
+const ECO_LBL       = { people:'👥 İnsan', process:'⚙️ Süreç', business:'🌐 İş Ortamı', all:'🎲 Karma' };
+const SPRINT_LBL    = { '5':'⚡ Hızlı (5)', '15':'🎯 Normal (15)', '30':'🔬 Derin (30)' };
+
+// ─── PAGE NAVIGATION ─────────────────────────────────────────────────────────
+function goPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ─── MODE SELECTION ───────────────────────────────────────────────────────────
+function selectMode(mode) {
+  S.mode = mode;
+  document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
+  document.querySelector(`.mode-card[data-mode="${mode}"]`).classList.add('selected');
+  setTimeout(() => {
+    renderStepper('stepper-c',  4, 1, 'career');
+    renderStepper('stepper-c2', 4, 2, 'career');
+    renderStepper('stepper-c3', 4, 3, 'career');
+    renderStepper('stepper-c4', 4, 4, 'career');
+    renderStepper('stepper-k1', 3, 1, 'comp');
+    renderStepper('stepper-k2', 3, 2, 'comp');
+    renderStepper('stepper-k3', 3, 3, 'comp');
+    goPage(mode === 'career' ? 'page-c1' : 'page-k1');
+  }, 180);
+}
+
+// ─── STEPPER RENDER ───────────────────────────────────────────────────────────
+function renderStepper(elId, total, current, mode) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  const labels = mode === 'career'
+    ? ['Kimlik', 'Ortam', 'Hedefler', 'Özet']
+    : ['Yaklaşım', 'ECO & Sprint', 'Özet'];
+  let html = '';
+  for (let i = 1; i <= total; i++) {
+    const isDone   = i < current;
+    const isActive = i === current;
+    const dotClass = isDone ? 'done' : isActive ? (mode === 'career' ? 'career-active' : 'comp-active') : '';
+    const content  = isDone ? '✓' : i;
+    html += `<div class="stepper-item">
+      <div style="text-align:center">
+        <div class="stepper-dot ${dotClass}">${content}</div>
+        <div class="stepper-label">${labels[i-1]}</div>
+      </div>
+    </div>`;
+    if (i < total) html += `<div class="stepper-line ${isDone ? 'done' : ''}"></div>`;
+  }
+  el.innerHTML = html;
+}
+
+// ─── SINGLE SELECT ────────────────────────────────────────────────────────────
+function selectOpt(el, group) {
+  document.querySelectorAll(`.opt-card[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+// ─── GOAL TOGGLE (multi) ─────────────────────────────────────────────────────
+function toggleGoal(el) {
+  const val = el.dataset.val;
+  el.classList.toggle('selected');
+  if (el.classList.contains('selected')) {
+    if (!S.career.learning_goals.includes(val)) S.career.learning_goals.push(val);
+  } else {
+    S.career.learning_goals = S.career.learning_goals.filter(v => v !== val);
+  }
+}
+
+// ─── ECO TOGGLE (multi) ──────────────────────────────────────────────────────
+function toggleEco(el) {
+  const val = el.dataset.val;
+  el.classList.toggle('selected');
+  if (el.classList.contains('selected')) {
+    if (!S.comp.eco_filters.includes(val)) S.comp.eco_filters.push(val);
+  } else {
+    S.comp.eco_filters = S.comp.eco_filters.filter(v => v !== val);
+  }
+}
+
+// ─── SPRINT SELECT ────────────────────────────────────────────────────────────
+function selectSprint(el) {
+  document.querySelectorAll('.sprint-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  S.comp.sprint_length = el.dataset.val;
+}
+
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+function getOpt(group) {
+  const el = document.querySelector(`.opt-card[data-group="${group}"].selected`);
+  return el ? el.dataset.val : null;
+}
+function showHint(id, show) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('show', show);
+}
+
+// ─── CAREER NAVIGATION ───────────────────────────────────────────────────────
+function nextCareer(step) {
+  if (step === 1) {
+    const pm = document.getElementById('pm_name').value.trim();
+    const pr = document.getElementById('project_name').value.trim();
+    const sector = getOpt('sector');
+    if (!sector) { showHint('hint-c1', true); return; }
+    showHint('hint-c1', false);
+    S.career.pm_name = pm || 'PM';
+    S.career.project_name = pr || 'Proje';
+    S.career.sector = sector;
+    goPage('page-c2');
+  } else if (step === 2) {
+    const diff = getOpt('difficulty');
+    const pmo  = getOpt('pmo_type');
+    const team = getOpt('team_culture');
+    if (!diff || !pmo || !team) { showHint('hint-c2', true); return; }
+    showHint('hint-c2', false);
+    S.career.difficulty   = diff;
+    S.career.pmo_type     = pmo;
+    S.career.team_culture = team;
+    goPage('page-c3');
+  } else if (step === 3) {
+    // goals — re-collect from DOM
+    S.career.learning_goals = [];
+    document.querySelectorAll('#goals-grid .check-card.selected').forEach(c => S.career.learning_goals.push(c.dataset.val));
+    if (S.career.learning_goals.length === 0) { showHint('hint-c3', true); return; }
+    showHint('hint-c3', false);
+    renderCareerSummary();
+    goPage('page-c4');
+  }
+}
+
+// ─── COMP NAVIGATION ─────────────────────────────────────────────────────────
+function nextComp(step) {
+  if (step === 1) {
+    const da  = getOpt('dev_approach');
+    const org = getOpt('org_structure');
+    const rol = getOpt('role');
+    if (!da || !org || !rol) { showHint('hint-k1', true); return; }
+    showHint('hint-k1', false);
+    S.comp.dev_approach   = da;
+    S.comp.org_structure  = org;
+    S.comp.role           = rol;
+    goPage('page-k2');
+  } else if (step === 2) {
+    S.comp.eco_filters = [];
+    document.querySelectorAll('#eco-grid .check-card.selected').forEach(c => S.comp.eco_filters.push(c.dataset.val));
+    const sprint = S.comp.sprint_length;
+    if (S.comp.eco_filters.length === 0 || !sprint) { showHint('hint-k2', true); return; }
+    showHint('hint-k2', false);
+    renderCompSummary();
+    goPage('page-k3');
+  }
+}
+
+// ─── SUMMARY RENDERERS ───────────────────────────────────────────────────────
+function summaryRow(icon, key, val) {
+  return `<div class="summary-row">
+    <span class="summary-icon">${icon}</span>
+    <span class="summary-key">${key}</span>
+    <span class="summary-val">${val}</span>
+  </div>`;
+}
+function tagHtml(arr, map) {
+  return arr.map(v => `<span class="summary-tag">${map[v] || v}</span>`).join('');
+}
+
+function renderCareerSummary() {
+  const c = S.career;
+  document.getElementById('career-summary-body').innerHTML =
+    summaryRow('👤', 'PM Adı', c.pm_name) +
+    summaryRow('📁', 'Proje Adı', c.project_name) +
+    summaryRow('🌍', 'Sektör', SECTOR_LBL[c.sector] || c.sector) +
+    summaryRow('⚡', 'Zorluk', DIFF_LBL[c.difficulty] || c.difficulty) +
+    summaryRow('🏢', 'PMO Kültürü', PMO_LBL[c.pmo_type] || c.pmo_type) +
+    summaryRow('👥', 'Takım Kültürü', TEAM_LBL[c.team_culture] || c.team_culture) +
+    summaryRow('🎯', 'Öğrenme Hedefleri', tagHtml(c.learning_goals, GOAL_LBL));
+}
+
+function renderCompSummary() {
+  const k = S.comp;
+  document.getElementById('comp-summary-body').innerHTML =
+    summaryRow('🛤️', 'Geliştirme Yaklaşımı', DA_LBL[k.dev_approach] || k.dev_approach) +
+    summaryRow('🏢', 'Organizasyon', ORG_LBL[k.org_structure] || k.org_structure) +
+    summaryRow('👔', 'Rol', ROLE_LBL[k.role] || k.role) +
+    summaryRow('🔬', 'ECO Alanları', tagHtml(k.eco_filters, ECO_LBL)) +
+    summaryRow('🎯', 'Sprint Uzunluğu', SPRINT_LBL[k.sprint_length] || k.sprint_length + ' karar');
+}
+
+// ─── JSON PAYLOAD GENERATOR ──────────────────────────────────────────────────
+function buildPayload() {
+  const uid = (typeof crypto !== 'undefined' && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : Date.now().toString(36) + Math.random().toString(36).slice(2);
+
+  const now = new Date().toISOString();
+
+  if (S.mode === 'career') {
+    return {
+      schema_version: "2.1",
+      session_id: uid,
+      created_at: now,
+      mode: "career",
+      player: {
+        name: S.career.pm_name,
+        project_name: S.career.project_name,
+        avatar_seed: S.career.pm_name.toLowerCase().replace(/\s+/g,'_')
+      },
+      career_config: {
+        sector: S.career.sector,
+        sector_label: SECTOR_LBL[S.career.sector],
+        difficulty: S.career.difficulty,
+        pmo_type: S.career.pmo_type,
+        team_culture: S.career.team_culture,
+        learning_goals: S.career.learning_goals
+      },
+      competency_config: null,
+      game_state: {
+        current_day: 0,
+        current_phase: "initiating",
+        phase_sequence: ["initiating","planning","executing","monitoring_controlling","closing"],
+        notifications_total: 300,
+        notifications_sent: 0,
+        lore_count: 0,
+        crisis_count: 0,
+        decisions_made: 0,
+        correct_decisions: 0,
+        score: 0,
+        streak: 0,
+        tension_level: 1,
+        health: { budget:100, schedule:100, scope:100, team_morale:100, stakeholder_satisfaction:100 },
+        metrics: { bac:0, pv:0, ev:0, ac:0, cpi:1.0, spi:1.0, eac:0, etc:0, vac:0, cv:0, sv:0 },
+        kanban_wip: { backlog:0, in_progress:0, review:0, done:0, wip_limit:5, wip_exceeded:false },
+        risk_register: { open_risks:0, critical_risks:0, materialized_risks:0 },
+        change_log: { pending_approvals:0, approved:0, rejected:0 }
+      },
+      knowledge_base: {
+        source: "data/glossary.json",
+        filter_active: {
+          process_group: "initiating",
+          development_approach: ["predictive","hybrid"]
+        },
+        used_decisions: [],
+        target_term: null,
+        decoy_pool: [],
+        active_characters: _buildCareerCharacters()
+      },
+      drama_engine: {
+        arc_stage: "ordinary_world",
+        arc_stages_sequence: ["ordinary_world","call_to_adventure","threshold_guardians","ordeal","reward","road_back","resurrection","return"],
+        tension_level: 1,
+        tension_max: 5,
+        pending_events: [],
+        tuckman_stage: "forming",
+        scope_creep_count: 0,
+        sponsor_pressure: false,
+        last_event_tone: "neutral"
+      },
+      session_settings: {
+        language: "tr",
+        response_format: "narrative_decision",
+        notification_pacing: "dynamic",
+        hallucination_guard: true,
+        term_source_required: true
+      }
+    };
+  } else {
+    return {
+      schema_version: "2.1",
+      session_id: uid,
+      created_at: now,
+      mode: "competency",
+      player: { name: "PM", project_name: "Antrenman" },
+      career_config: null,
+      competency_config: {
+        development_approach: S.comp.dev_approach,
+        org_structure: S.comp.org_structure,
+        role: S.comp.role,
+        eco_filters: S.comp.eco_filters,
+        sprint_length: parseInt(S.comp.sprint_length, 10)
+      },
+      game_state: {
+        current_day: 0,
+        current_phase: "sprint",
+        notifications_total: parseInt(S.comp.sprint_length, 10),
+        notifications_sent: 0,
+        decisions_made: 0,
+        correct_decisions: 0,
+        score: 0,
+        streak: 0,
+        tension_level: 1,
+        health: { budget:100, schedule:100, scope:100, team_morale:100, stakeholder_satisfaction:100 },
+        metrics: { cpi:1.0, spi:1.0 }
+      },
+      knowledge_base: {
+        source: "data/glossary.json",
+        filter_active: {
+          development_approach: [S.comp.dev_approach],
+          eco_domains: S.comp.eco_filters
+        },
+        used_decisions: [],
+        target_term: null,
+        decoy_pool: []
+      },
+      drama_engine: { arc_stage: "sprint", tension_level: 1 },
+      session_settings: {
+        language: "tr",
+        response_format: "narrative_decision",
+        hallucination_guard: true,
+        term_source_required: true
+      }
+    };
+  }
+}
+
+function _buildCareerCharacters() {
+  const sector = S.career.sector;
+  const sectorNames = {
+    it: [['Zeynep','Sponsor','results_oriented'],['Kemal','Fonksiyonel Yönetici','territorial'],['Deniz','Teknik Lider','burnout_risk']],
+    construction: [['Zehra Hanım','Sponsor','results_oriented'],['Kemal Bey','Fonksiyonel Yönetici','territorial'],['Caner','İnşaat Şefi','burnout_risk']],
+    health: [['Dr. Ayşe','Sponsor','detail_oriented'],['Murat Bey','Fonksiyonel Yönetici','cautious'],['Selin','Klinik Koordinatör','collaborative']],
+    finance: [['Ahmet Direktör','Sponsor','aggressive'],['Burcu','Risk Yöneticisi','analytical'],['Taner','Yazılım Lideri','autonomous']],
+    defense: [['Korg. Yıldız','Sponsor','hierarchical'],['Tuğb. Demir','Fonksiyonel Yönetici','strict'],['Mühendis Kaya','Sistem Mimarı','perfectionist']],
+    education: [['Rektör Yardımcısı','Sponsor','visionary'],['Müdür Hanım','Fonksiyonel Yönetici','bureaucratic'],['Asistan Bora','Koordinatör','enthusiastic']]
+  };
+  const chars = (sectorNames[sector] || sectorNames['it']).map(([name, role, personality]) => ({
+    id: `char_${name.toLowerCase().replace(/\s/g,'_')}`,
+    name, role, personality,
+    stress_level: "medium",
+    relationship_score: 65
+  }));
+  return chars;
+}
+
+// ─── START GAME ──────────────────────────────────────────────────────────────
+function startGame() {
+  const payload = buildPayload();
+  try {
+    localStorage.setItem('yetkinlider_scenario', JSON.stringify(payload));
+    localStorage.setItem('yetkinlider_scenario_mode', payload.mode);
+  } catch(e) {
+    console.error('localStorage error:', e);
+  }
+
+  // Başlama animasyonu
+  const btn = document.querySelector('.start-btn');
+  if (btn) { btn.textContent = '⏳ Yükleniyor...'; btn.disabled = true; }
+
+  setTimeout(() => { window.location.href = 'game.html'; }, 400);
+}
+
+// ─── AUTH GUARD (opsiyonel — session varsa devam) ────────────────────────────
+(function() {
+  // Mevcut session varsa kullanıcı adını navbar'a yaz (opsiyonel)
+  try {
+    const sess = JSON.parse(localStorage.getItem('pmSim_session') || 'null');
+    if (sess && sess.displayName) {
+      const back = document.querySelector('.nav-back');
+      if (back) back.insertAdjacentHTML('beforebegin',
+        `<span style="color:rgba(255,255,255,.75);font-size:13px;margin-right:8px;">👤 ${sess.displayName}</span>`);
+    }
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>
