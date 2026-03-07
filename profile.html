@@ -81,6 +81,14 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 .profile-badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--surface2); border: 1px solid var(--border); color: var(--text-secondary); }
 .profile-badge.dev { background: #fef3c7; border-color: #fcd34d; color: #92400e; }
 
+/* ── TABS ── */
+.profile-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+.profile-tab { flex: 1; text-align: center; padding: 10px 4px; font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: color .15s, border-color .15s; background: none; border-top: none; border-left: none; border-right: none; margin-bottom: -1px; }
+.profile-tab:hover { color: var(--text); }
+.profile-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
 /* ── SECTION ── */
 .section { margin-bottom: 28px; }
 .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
@@ -228,35 +236,26 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
     </div>
   </div>
 
-  <!-- YETKİNLİK PUANLARI -->
-  <div class="section">
-    <div class="section-title">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      Yetkinlik Puanları
-    </div>
-    <div class="domain-grid" id="domainGrid">
-      <!-- filled by JS -->
-    </div>
+  <!-- TABS -->
+  <div class="profile-tabs">
+    <button class="profile-tab active" data-tab="yetkinlik" onclick="switchTab('yetkinlik')">Yetkinlikler</button>
+    <button class="profile-tab" data-tab="senaryo" onclick="switchTab('senaryo')">Son Senaryo</button>
+    <button class="profile-tab" data-tab="hesap" onclick="switchTab('hesap')">Hesap</button>
   </div>
 
-  <!-- SON SENARYO -->
-  <div class="section">
-    <div class="section-title">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Son Senaryo
-    </div>
+  <!-- YETKİNLİK PANEL -->
+  <div class="tab-panel active" id="panel-yetkinlik">
+    <div class="domain-grid" id="domainGrid"></div>
+  </div>
+
+  <!-- SENARYO PANEL -->
+  <div class="tab-panel" id="panel-senaryo">
     <div id="lastScenarioWrap"></div>
   </div>
 
-  <!-- HESAP -->
-  <div class="section">
-    <div class="section-title">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      Hesap
-    </div>
-    <div class="account-card" id="accountCard">
-      <!-- filled by JS -->
-    </div>
+  <!-- HESAP PANEL -->
+  <div class="tab-panel" id="panel-hesap">
+    <div class="account-card" id="accountCard"></div>
   </div>
 
 </div>
@@ -275,11 +274,11 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 
 <div class="modal-overlay" id="editWorkModal">
   <div class="modal-box">
-    <div class="modal-title">İş Bilgileri</div>
+    <div class="modal-title">Kişisel Bilgiler</div>
     <label style="font-size:12px;font-weight:600;color:var(--text-muted);display:block;margin-bottom:5px">Firma / Kurum Adı</label>
     <input class="modal-input" id="editCompanyInput" type="text" maxlength="80" placeholder="Çalıştığın firma veya kurum" style="margin-bottom:12px">
     <label style="font-size:12px;font-weight:600;color:var(--text-muted);display:block;margin-bottom:5px">Sektör</label>
-    <select class="modal-input" id="editSectorInput">
+    <select class="modal-input" id="editSectorInput" style="margin-bottom:12px">
       <option value="">— Seçiniz —</option>
       <option value="it">IT / Yazılım</option>
       <option value="finance">Finans / Bankacılık</option>
@@ -292,6 +291,16 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
       <option value="telecom">Telekomünikasyon</option>
       <option value="other">Diğer</option>
     </select>
+    <label style="font-size:12px;font-weight:600;color:var(--text-muted);display:block;margin-bottom:5px">Cinsiyet</label>
+    <select class="modal-input" id="editGenderInput" style="margin-bottom:12px">
+      <option value="">— Seçiniz —</option>
+      <option value="male">Erkek</option>
+      <option value="female">Kadın</option>
+      <option value="other">Diğer</option>
+      <option value="prefer_not">Belirtmek istemiyorum</option>
+    </select>
+    <label style="font-size:12px;font-weight:600;color:var(--text-muted);display:block;margin-bottom:5px">Doğum Tarihi</label>
+    <input class="modal-input" id="editBirthdateInput" type="date" style="margin-bottom:4px">
     <div class="modal-footer">
       <button class="btn-modal-cancel" onclick="closeWorkModal()">İptal</button>
       <button class="btn-modal-save" onclick="saveWork()">Kaydet</button>
@@ -539,6 +548,20 @@ function renderAccount() {
 </div>
 <div class="account-row">
   <div class="account-row-label">
+    <strong>Cinsiyet</strong>
+  </div>
+  <div class="account-row-value">${{male:'Erkek',female:'Kadın',other:'Diğer',prefer_not:'Belirtmek istemiyorum'}[meta.gender] || '—'}</div>
+  <button class="btn-edit" onclick="openWorkModal()">Düzenle</button>
+</div>
+<div class="account-row">
+  <div class="account-row-label">
+    <strong>Doğum Tarihi</strong>
+  </div>
+  <div class="account-row-value">${meta.birthdate ? new Date(meta.birthdate).toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric'}) : '—'}</div>
+  <button class="btn-edit" onclick="openWorkModal()">Düzenle</button>
+</div>
+<div class="account-row">
+  <div class="account-row-label">
     <strong>Oturumu Kapat</strong>
     <span>Bu cihazdan çıkış yap</span>
   </div>
@@ -589,8 +612,10 @@ function getWorkMeta() {
 }
 function openWorkModal() {
   const meta = getWorkMeta();
-  document.getElementById('editCompanyInput').value = meta.company || '';
-  document.getElementById('editSectorInput').value  = meta.sector  || '';
+  document.getElementById('editCompanyInput').value   = meta.company   || '';
+  document.getElementById('editSectorInput').value    = meta.sector    || '';
+  document.getElementById('editGenderInput').value    = meta.gender    || '';
+  document.getElementById('editBirthdateInput').value = meta.birthdate || '';
   document.getElementById('editWorkModal').classList.add('open');
   setTimeout(() => document.getElementById('editCompanyInput').focus(), 50);
 }
@@ -598,9 +623,11 @@ function closeWorkModal() {
   document.getElementById('editWorkModal').classList.remove('open');
 }
 function saveWork() {
-  const company = document.getElementById('editCompanyInput').value.trim();
-  const sector  = document.getElementById('editSectorInput').value;
-  localStorage.setItem('pmSim_work_meta', JSON.stringify({ company, sector }));
+  const company   = document.getElementById('editCompanyInput').value.trim();
+  const sector    = document.getElementById('editSectorInput').value;
+  const gender    = document.getElementById('editGenderInput').value;
+  const birthdate = document.getElementById('editBirthdateInput').value;
+  localStorage.setItem('pmSim_work_meta', JSON.stringify({ company, sector, gender, birthdate }));
   closeWorkModal();
   renderAccount();
 }
@@ -612,6 +639,16 @@ document.getElementById('editWorkModal').addEventListener('click', e => {
 function doLogout() {
   localStorage.removeItem(SESSION_KEY);
   location.href = 'index.html';
+}
+
+// ── TABS ─────────────────────────────────────────────────────────────────────
+function switchTab(name) {
+  document.querySelectorAll('.profile-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tab === name);
+  });
+  document.querySelectorAll('.tab-panel').forEach(p => {
+    p.classList.toggle('active', p.id === 'panel-' + name);
+  });
 }
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
