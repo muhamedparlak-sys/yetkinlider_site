@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Profilim — YetkinLider</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>if(localStorage.getItem('pmSim_theme')==='dark')document.documentElement.classList.add('dark');</script>
 <style>
 :root {
   --primary: #2f4f60;
@@ -177,6 +178,35 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
   .nav-username { display: none; }
 }
 
+/* ── THEME TOGGLE ── */
+.theme-toggle { background:transparent; border:1px solid rgba(255,255,255,.25); border-radius:7px; cursor:pointer; padding:7px 8px; flex-shrink:0; color:#fff; display:flex; align-items:center; justify-content:center; transition:border-color .15s; margin-right:6px; }
+.theme-toggle:hover { border-color:rgba(255,255,255,.5); }
+
+/* ── DARK MODE ── */
+html.dark { color-scheme:dark; }
+html.dark body { background:#0d1117; color:#e6edf3; }
+html.dark {
+  --text:#e6edf3; --text-secondary:#8b949e; --text-muted:#7d8590;
+  --bg:#0d1117; --surface:#161b22; --surface2:#21262d;
+  --border:rgba(255,255,255,.10);
+}
+html.dark .profile-career-stats { border-top-color:var(--border); }
+html.dark .profile-tabs { border-color:var(--border); }
+html.dark .sc-wrap { background:transparent; border-radius:0; }
+html.dark .sc-wrap .tab-row { padding-left:0; padding-right:0; }
+html.dark .main-grid { padding-left:0; padding-right:0; }
+html.dark .scenario-card,.scenario-card-title { color:var(--text); }
+html.dark .account-row { border-bottom-color:var(--border); }
+html.dark .modal-box { background:var(--surface); }
+html.dark .modal-input { background:var(--surface2); border-color:var(--border); color:var(--text); }
+html.dark .modal-overlay { background:rgba(0,0,0,.65); }
+/* badge dark variants */
+html.dark .profile-badge.admin   { background:rgba(239,68,68,.15);  border-color:rgba(239,68,68,.35);  color:#fca5a5; }
+html.dark .profile-badge.editor  { background:rgba(249,115,22,.15); border-color:rgba(249,115,22,.35); color:#fdba74; }
+html.dark .profile-badge.premium { background:rgba(168,85,247,.15); border-color:rgba(168,85,247,.35); color:#c4b5fd; }
+html.dark .profile-badge.trial   { background:rgba(16,185,129,.15); border-color:rgba(16,185,129,.35); color:#6ee7b7; }
+html.dark .profile-badge.dev     { background:rgba(245,158,11,.15); border-color:rgba(245,158,11,.35); color:#fcd34d; }
+
 /* ── PROFILE CAREER STATS (below role badge) ── */
 .profile-career-stats { display:flex; gap:18px; flex-wrap:wrap; margin-top:10px; padding-top:10px; border-top:1px solid var(--border); }
 .pcs-item { display:flex; flex-direction:column; gap:2px; }
@@ -194,8 +224,8 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 .sc-wrap .tab-row { display:flex; gap:6px; padding:12px 12px 0; }
 .tab-btn { flex:1; background:var(--s1); border:1px solid var(--border); border-radius:8px; padding:10px 14px; text-align:center; transition:border-color .15s,background .15s; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:3px; font-family:inherit; }
 .tab-btn:hover { border-color:rgba(255,255,255,.15); }
-.tab-cert { font-size:12px; font-weight:700; color:var(--muted); transition:color .15s; }
-.tab-sub { font-size:10px; color:var(--dim); }
+.tab-cert { font-size:12px; font-weight:700; color:rgba(255,255,255,.78); transition:color .15s; }
+.tab-sub { font-size:10px; color:var(--muted); }
 .tab-btn[data-tab="capm"].active { border-color:var(--capm); background:rgba(201,150,12,.06); }
 .tab-btn[data-tab="capm"].active .tab-cert { color:var(--capm); }
 .tab-btn[data-tab="pmp"].active { border-color:var(--pmp); background:rgba(59,130,246,.06); }
@@ -259,6 +289,9 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
   <a class="brand" href="index.html"><img src="logo.png" class="brand-logo" alt="YetkinLider">YetkinLider<sup>&#8482;</sup></a>
   <div class="nav-spacer"></div>
   <div class="nav-user" id="navUser"></div>
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Tema değiştir">
+    <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
   <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -413,6 +446,29 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 </div>
 
 <script>
+// ── THEME ─────────────────────────────────────────────────────────────────────
+const THEME_KEY = 'pmSim_theme';
+function applyTheme(theme) {
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+  const icon = document.getElementById('themeIcon');
+  if (!icon) return;
+  if (theme === 'dark') {
+    // Sun icon — click to go light
+    icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+    document.getElementById('themeToggle').title = 'Açık moda geç';
+  } else {
+    // Moon icon — click to go dark
+    icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    document.getElementById('themeToggle').title = 'Koyu moda geç';
+  }
+}
+function toggleTheme() {
+  const next = (localStorage.getItem(THEME_KEY) || 'light') === 'dark' ? 'light' : 'dark';
+  localStorage.setItem(THEME_KEY, next);
+  applyTheme(next);
+}
+applyTheme(localStorage.getItem(THEME_KEY) || 'light');
+
 // ── AUTH GUARD ──────────────────────────────────────────────────────────────
 const SESSION_KEY  = 'pmSim_session';
 const USERS_KEY    = 'pmSim_users';
@@ -807,7 +863,7 @@ function setupTabs() {
   document.querySelectorAll('.tab-btn').forEach(btn => {
     const tab = btn.dataset.tab;
     if (!hasDataForTab(G.saves, tab)) {
-      btn.style.opacity = '0.5';
+      btn.style.opacity = '0.65';
       const sub = btn.querySelector('.tab-sub');
       if (sub) sub.textContent = 'Veri yok · ' + sub.textContent.split('·')[1]?.trim();
     }
