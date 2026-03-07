@@ -187,8 +187,8 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 /* ── SCORECARD DARK SECTION ── */
 :root { --capm:#c9960c; --pmp:#3b82f6; --adv:#a855f7; }
 .sc-wrap {
-  --s1:#161b22; --s2:#21262d; --muted:#7d8590; --dim:#484f58;
-  --text:#e6edf3; --border:rgba(255,255,255,.08);
+  --s1:#161b22; --s2:#21262d; --muted:#a0aec0; --dim:#8b949e;
+  --text:#e6edf3; --border:rgba(255,255,255,.10);
   background:#0d1117; border-radius:10px; color:#e6edf3; overflow:hidden;
 }
 .sc-wrap .tab-row { display:flex; gap:6px; padding:12px 12px 0; }
@@ -217,7 +217,7 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 .skill-cell { flex:1; display:flex; align-items:center; justify-content:space-between; padding:9px 16px; min-width:0; }
 .skill-cell+.skill-cell { border-left:1px solid rgba(255,255,255,.04); }
 .skill-cell.sk-solo { max-width:50%; }
-.skill-label { font-size:12px; color:rgba(255,255,255,.58); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding-right:8px; flex:1; min-width:0; }
+.skill-label { font-size:12px; color:rgba(255,255,255,.82); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding-right:8px; flex:1; min-width:0; }
 .skill-old { font-size:10px; color:var(--dim); font-weight:400; }
 .skill-num { font-size:15px; font-weight:700; font-variant-numeric:tabular-nums; flex-shrink:0; min-width:24px; text-align:right; }
 .sv-none { color:var(--dim); } .sv-weak { color:#cf4444; } .sv-developing { color:#d97a1e; }
@@ -234,13 +234,13 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 .eco-name { color:var(--muted); } .eco-val { font-weight:600; font-variant-numeric:tabular-nums; }
 .dev-item { padding:8px 14px; border-bottom:1px solid rgba(255,255,255,.04); }
 .dev-item:last-child { border-bottom:none; }
-.dev-name { font-size:13px; color:rgba(255,255,255,.5); }
+.dev-name { font-size:13px; color:rgba(255,255,255,.80); }
 .dev-stat { font-size:11px; color:#cf4444; margin-top:2px; }
 .btn-reset { width:100%; background:transparent; border:1px solid var(--border); color:var(--dim); font-size:12px; padding:9px; border-radius:8px; transition:border-color .15s,color .15s; font-family:inherit; cursor:pointer; }
 .btn-reset:hover { border-color:rgba(207,68,68,.4); color:#cf4444; }
 .empty-note { background:var(--s1); border:1px solid var(--border); border-radius:8px; padding:36px 20px; text-align:center; }
-.empty-note h3 { font-size:14px; font-weight:600; color:rgba(255,255,255,.35); margin-bottom:6px; }
-.empty-note p { font-size:12px; color:var(--dim); line-height:1.7; }
+.empty-note h3 { font-size:14px; font-weight:600; color:rgba(255,255,255,.70); margin-bottom:6px; }
+.empty-note p { font-size:12px; color:var(--muted); line-height:1.7; }
 .btn-play { display:inline-block; margin-top:14px; background:#142040; border:1px solid #2355a0; color:#93c5fd; font-size:13px; font-weight:600; padding:9px 22px; border-radius:6px; transition:background .15s; }
 .btn-play:hover { background:#1a2f5a; }
 .loading-note { background:var(--s1); border:1px solid var(--border); border-radius:8px; padding:24px 20px; text-align:center; color:var(--muted); font-size:13px; }
