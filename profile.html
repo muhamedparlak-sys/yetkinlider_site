@@ -840,15 +840,6 @@ function renderRight(profile, stats, saves, tab, scenariosData) {
   const acc = profile.totalDec > 0 ? Math.round(profile.goodDec / profile.totalDec * 100) + '%' : '—';
   const tabColor = tab==='capm'?'ir-gold':tab==='pmp'?'ir-blue':'ir-purple';
   const tabName  = tab==='capm'?'Temel':tab==='pmp'?'Profesyonel':'Uzman';
-  const col = tab==='capm'?'#c9960c':tab==='pmp'?'#3b82f6':'#a855f7';
-
-  let ecoHTML = `<div class="info-panel"><div class="panel-head">Alan Performansı · ${tabName}</div>`;
-  for (const area of AREAS.filter(a => a.type !== 'risk')) {
-    const compStats = area.skills.map(sk => stats[sk.id]||0).filter(v=>v>0);
-    const avg = compStats.length > 0 ? Math.round(compStats.reduce((a,b)=>a+b,0)/compStats.length) : 0;
-    ecoHTML += `<div class="eco-row"><span class="eco-name">${area.label.split('/')[0].trim()}</span><span class="eco-val" style="color:${avg>0?col:'var(--dim)'}">${avg>0?Math.round((avg/20)*100)+'%':'—'}</span></div>`;
-  }
-  ecoHTML += '</div>';
 
   const weak = [];
   for (const area of AREAS) for (const sk of area.skills) { const st = stats[sk.id]||0; if (st >= 1 && st < 4) weak.push({ label:sk.label, stat:st }); }
@@ -863,7 +854,7 @@ function renderRight(profile, stats, saves, tab, scenariosData) {
     <div class="info-row"><span class="ir-label">Aktif Seviye</span><span class="ir-val ${tabColor}">${tabName}</span></div>
   </div>`;
 
-  return `${statsHTML}${ecoHTML}${devHTML}<button class="btn-reset" onclick="confirmReset()">Tüm Kayıtları Sıfırla</button>`;
+  return `${statsHTML}${devHTML}<button class="btn-reset" onclick="confirmReset()">Tüm Kayıtları Sıfırla</button>`;
 }
 
 let G = { saves:[], scenariosData:{}, activeTab:'capm', profile:null };
