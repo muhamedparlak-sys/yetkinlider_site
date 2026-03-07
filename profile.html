@@ -334,16 +334,16 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
     <div class="sc-wrap">
       <div class="tab-row" id="tab-row">
         <button class="tab-btn" data-tab="capm">
-          <span class="tab-cert">CAPM</span>
-          <span class="tab-sub">Giriş Seviyesi · Kolay</span>
+          <span class="tab-cert">Temel</span>
+          <span class="tab-sub">Giriş Düzeyi · Kolay</span>
         </button>
         <button class="tab-btn" data-tab="pmp">
-          <span class="tab-cert">PMP</span>
-          <span class="tab-sub">Orta Seviye · Normal</span>
+          <span class="tab-cert">Profesyonel</span>
+          <span class="tab-sub">Orta Düzey · Normal</span>
         </button>
         <button class="tab-btn" data-tab="adv">
-          <span class="tab-cert">Advanced PMP</span>
-          <span class="tab-sub">İleri Seviye · Zor</span>
+          <span class="tab-cert">Uzman</span>
+          <span class="tab-sub">İleri Düzey · Zor</span>
         </button>
       </div>
       <div class="main-grid" id="main-grid">
@@ -718,7 +718,7 @@ function renderAttr(stats, tab) {
       html += `<div class="risk-section-divider"><span>RİSK YÖNETİMİ YETKİNLİKLERİ</span></div>`;
       riskShown = true;
     }
-    html += `<div class="area-block"><div class="area-head"><span class="area-head-name">${area.label}</span>${area.weight != null ? `<span class="area-head-weight">%${area.weight} ECO</span>` : ''}</div>`;
+    html += `<div class="area-block"><div class="area-head"><span class="area-head-name">${area.label}</span>${area.weight != null ? `<span class="area-head-weight">%${area.weight}</span>` : ''}</div>`;
     const skills = area.skills;
     for (let i = 0; i < skills.length; i += 2) {
       const s1 = skills[i], s2 = skills[i+1];
@@ -741,10 +741,10 @@ function renderRight(profile, stats, saves, tab, scenariosData) {
   const lvl = careerLevel(profile.totalXP);
   const acc = profile.totalDec > 0 ? Math.round(profile.goodDec / profile.totalDec * 100) + '%' : '—';
   const tabColor = tab==='capm'?'ir-gold':tab==='pmp'?'ir-blue':'ir-purple';
-  const tabName  = tab==='capm'?'CAPM':tab==='pmp'?'PMP':'Advanced PMP';
+  const tabName  = tab==='capm'?'Temel':tab==='pmp'?'Profesyonel':'Uzman';
   const col = tab==='capm'?'#c9960c':tab==='pmp'?'#3b82f6':'#a855f7';
 
-  let ecoHTML = `<div class="info-panel"><div class="panel-head">ECO Alan Performansı · ${tabName}</div>`;
+  let ecoHTML = `<div class="info-panel"><div class="panel-head">Alan Performansı · ${tabName}</div>`;
   for (const area of AREAS.filter(a => a.type !== 'risk')) {
     const compStats = area.skills.map(sk => stats[sk.id]||0).filter(v=>v>0);
     const avg = compStats.length > 0 ? Math.round(compStats.reduce((a,b)=>a+b,0)/compStats.length) : 0;
@@ -762,7 +762,7 @@ function renderRight(profile, stats, saves, tab, scenariosData) {
     <div class="info-row"><span class="ir-label">Tamamlanan Senaryo</span><span class="ir-val">${profile.scenarios}</span></div>
     <div class="info-row"><span class="ir-label">Verilen Karar</span><span class="ir-val">${profile.totalDec}</span></div>
     <div class="info-row"><span class="ir-label">İsabetli Karar</span><span class="ir-val ir-green">${acc}</span></div>
-    <div class="info-row"><span class="ir-label">Aktif Karne</span><span class="ir-val ${tabColor}">${tabName}</span></div>
+    <div class="info-row"><span class="ir-label">Aktif Seviye</span><span class="ir-val ${tabColor}">${tabName}</span></div>
   </div>`;
 
   return `${statsHTML}${ecoHTML}${devHTML}<button class="btn-reset" onclick="confirmReset()">Tüm Kayıtları Sıfırla</button>`;
@@ -828,7 +828,7 @@ function renderTab(tab) {
   const tabKey  = TAB_LABEL[tab];
   const attrHTML  = renderAttr(stats, tabKey);
   const rightHTML = renderRight(G.profile, stats, G.saves, tab, G.scenariosData);
-  const emptyHTML = !hasData ? `<div class="empty-note"><h3>Bu seviyede veri yok</h3><p>${tab==='capm'?'Kolay':tab==='pmp'?'Normal':'Zor'} zorluktaki senaryoyu simüle ederek bu karneyi doldur.</p><a href="game.html" class="btn-play">Simülasyonu Başlat</a></div>` : '';
+  const emptyHTML = !hasData ? `<div class="empty-note"><h3>Bu düzeyde veri yok</h3><p>${tab==='capm'?'Kolay':tab==='pmp'?'Normal':'Zor'} zorluktaki senaryoyu simüle ederek bu düzeyi doldur.</p><a href="game.html" class="btn-play">Simülasyonu Başlat</a></div>` : '';
   document.getElementById('main-grid').innerHTML = `<div>${attrHTML}${emptyHTML}</div><div class="right-panel">${rightHTML}</div>`;
 }
 
