@@ -627,6 +627,45 @@ input{font-family:inherit}
           <div class="opt-cell" data-group="role" data-val="Product_Owner" onclick="selectOpt(this,'role')">Ürün Sahibi</div>
         </div>
       </div>
+
+      <div class="setup-row" style="display:block;padding:14px 26px 22px">
+        <p class="setup-row-label" style="margin-bottom:14px">Zorluk</p>
+        <div class="diff-cards">
+          <div class="diff-card" data-group="k_difficulty" data-val="beginner" onclick="selectDiff(this,'k_difficulty')">
+            <div class="diff-icon">
+              <svg width="26" height="22" viewBox="0 0 26 22" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="14" width="6" height="8" rx="1.5" fill="#22c55e"/>
+                <rect x="10" y="8" width="6" height="14" rx="1.5" fill="#22c55e" opacity="0.18"/>
+                <rect x="20" y="2" width="6" height="20" rx="1.5" fill="#22c55e" opacity="0.18"/>
+              </svg>
+            </div>
+            <div class="diff-name">Giriş</div>
+            <div class="diff-sub">Temel kavramlar,<br>doğrusal senaryolar</div>
+          </div>
+          <div class="diff-card" data-group="k_difficulty" data-val="intermediate" onclick="selectDiff(this,'k_difficulty')">
+            <div class="diff-icon">
+              <svg width="26" height="22" viewBox="0 0 26 22" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="14" width="6" height="8" rx="1.5" fill="#f59e0b"/>
+                <rect x="10" y="8" width="6" height="14" rx="1.5" fill="#f59e0b"/>
+                <rect x="20" y="2" width="6" height="20" rx="1.5" fill="#f59e0b" opacity="0.18"/>
+              </svg>
+            </div>
+            <div class="diff-name">Orta</div>
+            <div class="diff-sub">Standart proje zorluğu,<br>çeldirici seçenekler</div>
+          </div>
+          <div class="diff-card" data-group="k_difficulty" data-val="advanced" onclick="selectDiff(this,'k_difficulty')">
+            <div class="diff-icon">
+              <svg width="26" height="22" viewBox="0 0 26 22" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="14" width="6" height="8" rx="1.5" fill="#ef4444"/>
+                <rect x="10" y="8" width="6" height="14" rx="1.5" fill="#ef4444"/>
+                <rect x="20" y="2" width="6" height="20" rx="1.5" fill="#ef4444"/>
+              </svg>
+            </div>
+            <div class="diff-name">İleri</div>
+            <div class="diff-sub">Karmaşık bağlamlar,<br>nüanslı kararlar</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <p class="val-hint" id="hint-k1">Lütfen tüm seçenekleri seçin.</p>
@@ -768,7 +807,7 @@ input{font-family:inherit}
 const S = {
   mode: null,
   career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, approach:{ people:42, process:50, business:8 } },
-  comp:   { dev_approach:null, org_structure:null, role:null, eco_filters:[], sprint_length:null }
+  comp:   { dev_approach:null, org_structure:null, role:null, difficulty:null, eco_filters:[], sprint_length:null }
 };
 
 // ── LABELS ───────────────────────────────────────────────────────────────────
@@ -935,9 +974,10 @@ function nextCareer(step) {
 function nextComp(step) {
   if (step === 1) {
     const da = getOpt('dev_approach'), org = getOpt('org_structure'), rol = getOpt('role');
-    if (!da || !org || !rol) { hint('hint-k1', true); return; }
+    const kdiff = getDiff('k_difficulty');
+    if (!da || !org || !rol || !kdiff) { hint('hint-k1', true); return; }
     hint('hint-k1', false);
-    S.comp.dev_approach = da; S.comp.org_structure = org; S.comp.role = rol;
+    S.comp.dev_approach = da; S.comp.org_structure = org; S.comp.role = rol; S.comp.difficulty = kdiff;
     goPage('page-k2');
   } else if (step === 2) {
     S.comp.eco_filters = getChecked('eco-grid');
@@ -975,6 +1015,7 @@ function renderCompSummary() {
     row(IC.route,    'Yaklaşım',     LBL.dev_approach[k.dev_approach] || k.dev_approach) +
     row(IC.building, 'Organizasyon', LBL.org_structure[k.org_structure] || k.org_structure) +
     row(IC.badge,    'Rol',          LBL.role[k.role] || k.role) +
+    row(IC.zap,      'Zorluk',       LBL.difficulty[k.difficulty] || k.difficulty) +
     row(IC.layers,   'Odak Alanları', tags(k.eco_filters, LBL.eco)) +
     row(IC.clock,    'Sprint',       LBL.sprint[k.sprint_length] || k.sprint_length + ' karar');
 }
@@ -1021,7 +1062,7 @@ function buildPayload() {
       schema_version: '2.1', session_id: uid, created_at: now, mode: 'competency',
       player: { name:'PM', project_name:'Antrenman Sprinti' },
       career_config: null,
-      competency_config: { development_approach: S.comp.dev_approach, org_structure: S.comp.org_structure, role: S.comp.role, eco_filters: S.comp.eco_filters, sprint_length: parseInt(S.comp.sprint_length, 10) },
+      competency_config: { development_approach: S.comp.dev_approach, org_structure: S.comp.org_structure, role: S.comp.role, difficulty: S.comp.difficulty, eco_filters: S.comp.eco_filters, sprint_length: parseInt(S.comp.sprint_length, 10) },
       game_state: {
         current_day: 0, current_phase: 'sprint',
         notifications_total: parseInt(S.comp.sprint_length, 10),
@@ -1322,6 +1363,9 @@ function applyDefaults() {
   const defaultEco = weakDomain || 'all'; // fallback: Karma
   const focusEl = document.querySelector(`#eco-grid .check-cell[data-val="${defaultEco}"]`);
   if (focusEl && !focusEl.classList.contains('selected')) focusEl.classList.add('selected');
+  // ── Competency: zorluk → Orta ──
+  const kdiffEl = document.querySelector('.diff-card[data-group="k_difficulty"][data-val="intermediate"]');
+  if (kdiffEl && !kdiffEl.classList.contains('selected')) selectDiff(kdiffEl, 'k_difficulty');
   // Sync roles with selected dev_approach default (hybrid)
   syncRolesWithApproach('hybrid');
 
