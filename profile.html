@@ -186,7 +186,7 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 html.dark { color-scheme:dark; }
 html.dark body { background:#0d1117; color:#e6edf3; }
 html.dark {
-  --text:#e6edf3; --text-secondary:#8b949e; --text-muted:#7d8590;
+  --text:#e6edf3; --text-secondary:#c9d1d9; --text-muted:#9ca3af;
   --bg:#0d1117; --surface:#161b22; --surface2:#21262d;
   --border:rgba(255,255,255,.10);
 }
@@ -280,6 +280,32 @@ html.dark .profile-badge.dev     { background:rgba(245,158,11,.15); border-color
   .skill-pair { flex-direction:column; }
   .skill-cell+.skill-cell { border-left:none; border-top:1px solid rgba(255,255,255,.04); }
 }
+
+/* ── COLLAPSIBLE AREA CARDS ── */
+.area-card { border-bottom:1px solid var(--border); }
+.area-card:last-child { border-bottom:none; }
+.area-card-head { display:flex; align-items:center; gap:10px; padding:10px 16px; background:var(--s2); border-bottom:1px solid transparent; cursor:pointer; user-select:none; transition:background .15s; }
+.area-card-head:hover { background:rgba(255,255,255,.05); }
+.area-card.open .area-card-head { border-bottom-color:var(--border); }
+.area-card-body { display:none; }
+.area-card.open .area-card-body { display:block; }
+.area-card-info { flex:1; display:flex; align-items:center; gap:10px; min-width:0; }
+.area-chevron { flex-shrink:0; color:var(--dim); transition:transform .25s; }
+.area-card.open .area-chevron { transform:rotate(90deg); }
+.area-overall { font-size:13px; font-weight:700; font-variant-numeric:tabular-nums; flex-shrink:0; }
+
+/* ── SIMULATION HISTORY ── */
+.sim-history-list { display:flex; flex-direction:column; gap:10px; }
+.sim-history-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; }
+.shc-head { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:8px; }
+.shc-title { font-size:14px; font-weight:700; color:var(--text); line-height:1.3; }
+.shc-meta { font-size:12px; color:var(--text-muted); margin-top:3px; }
+.shc-badge { font-size:11px; font-weight:700; padding:4px 12px; border-radius:999px; flex-shrink:0; white-space:nowrap; text-decoration:none; display:inline-block; }
+.shc-badge.completed { background:#f0fdf4; border:1px solid #86efac; color:#166534; }
+.shc-badge.ongoing   { background:#eff6ff; border:1px solid #93c5fd; color:#1d4ed8; }
+.shc-stats { font-size:12px; color:var(--text-muted); display:flex; gap:12px; }
+html.dark .shc-badge.completed { background:rgba(16,185,129,.15); border-color:rgba(16,185,129,.35); color:#6ee7b7; }
+html.dark .shc-badge.ongoing   { background:rgba(59,130,246,.15); border-color:rgba(59,130,246,.35); color:#93c5fd; }
 </style>
 </head>
 <body>
@@ -358,7 +384,7 @@ html.dark .profile-badge.dev     { background:rgba(245,158,11,.15); border-color
   <!-- TABS -->
   <div class="profile-tabs">
     <button class="profile-tab active" data-tab="yetkinlik" onclick="switchTab('yetkinlik')">Yetkinlikler</button>
-    <button class="profile-tab" data-tab="senaryo" onclick="switchTab('senaryo')">Son Senaryo</button>
+    <button class="profile-tab" data-tab="senaryo" onclick="switchTab('senaryo')">Simülasyon Geçmişi</button>
     <button class="profile-tab" data-tab="hesap" onclick="switchTab('hesap')">Hesap</button>
   </div>
 
@@ -767,6 +793,15 @@ function defaultTab(saves) {
 
 function hasDataForTab(saves, tab) { return saves.some(s => (s.difficultyWeight || 3) === TAB_DIFF[tab]); }
 
+function areaOverall(area, stats) {
+  const vals = area.skills.map(sk => stats[sk.id]||0).filter(v=>v>0);
+  return vals.length > 0 ? Math.round(vals.reduce((a,b)=>a+b,0)/vals.length) : 0;
+}
+
+function toggleArea(head) {
+  head.closest('.area-card').classList.toggle('open');
+}
+
 function renderAttr(stats, tab) {
   let html = '<div class="attr-panel">', riskShown = false;
   for (const area of AREAS) {
@@ -774,21 +809,28 @@ function renderAttr(stats, tab) {
       html += `<div class="risk-section-divider"><span>RİSK YÖNETİMİ YETKİNLİKLERİ</span></div>`;
       riskShown = true;
     }
-    html += `<div class="area-block"><div class="area-head"><span class="area-head-name">${area.label}</span>${area.weight != null ? `<span class="area-head-weight">%${area.weight}</span>` : ''}</div>`;
+    const overall = areaOverall(area, stats);
+    const overallCls = overall > 0 ? statClass(overall) : 'sv-none';
+    const overallTxt = overall > 0 ? `${overall}/20` : '—';
+    let skillsHTML = '';
     const skills = area.skills;
     for (let i = 0; i < skills.length; i += 2) {
       const s1 = skills[i], s2 = skills[i+1];
       const st1 = stats[s1.id] || 0;
       const lbl1 = s1.oldLabel ? `${s1.label} <span class="skill-old">(${s1.oldLabel})</span>` : s1.label;
-      html += `<div class="skill-pair"><div class="skill-cell${!s2?' sk-solo':''}" title="${s1.desc[tab]||''}"><span class="skill-label">${lbl1}</span><span class="skill-num ${statClass(st1)}">${st1||'—'}</span></div>`;
+      skillsHTML += `<div class="skill-pair"><div class="skill-cell${!s2?' sk-solo':''}" title="${s1.desc[tab]||''}"><span class="skill-label">${lbl1}</span><span class="skill-num ${statClass(st1)}">${st1||'—'}</span></div>`;
       if (s2) {
         const st2 = stats[s2.id] || 0;
         const lbl2 = s2.oldLabel ? `${s2.label} <span class="skill-old">(${s2.oldLabel})</span>` : s2.label;
-        html += `<div class="skill-cell" title="${s2.desc[tab]||''}"><span class="skill-label">${lbl2}</span><span class="skill-num ${statClass(st2)}">${st2||'—'}</span></div>`;
+        skillsHTML += `<div class="skill-cell" title="${s2.desc[tab]||''}"><span class="skill-label">${lbl2}</span><span class="skill-num ${statClass(st2)}">${st2||'—'}</span></div>`;
       }
-      html += `</div>`;
+      skillsHTML += '</div>';
     }
-    html += '</div>';
+    html += `<div class="area-card"><div class="area-card-head" onclick="toggleArea(this)">
+  <div class="area-card-info"><span class="area-head-name">${area.label}</span>${area.weight != null ? `<span class="area-head-weight">%${area.weight}</span>` : ''}</div>
+  <span class="area-overall ${overallCls}">${overallTxt}</span>
+  <svg class="area-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+</div><div class="area-card-body">${skillsHTML}</div></div>`;
   }
   return html + '</div>';
 }
@@ -857,6 +899,7 @@ async function init() {
   G.profile   = profile;
   setupTabs();
   renderTab(G.activeTab);
+  renderSimHistory();
 }
 
 function setupTabs() {
@@ -951,6 +994,51 @@ function renderDomains() {
   </a>
 </div>`;
   }).join('');
+}
+
+// ── SIMULATION HISTORY ───────────────────────────────────────────────────────
+function renderSimHistory() {
+  const wrap = document.getElementById('lastScenarioWrap');
+  if (!wrap) return;
+  if (G.saves.length === 0) {
+    wrap.innerHTML = '<div class="no-scenario"><p>Henüz bir senaryo oynamadın.</p><br><a href="tailor.html">Senaryo Terzisi\'ne git →</a></div>';
+    return;
+  }
+  const sorted = [...G.saves].sort((a,b) => {
+    const da = a.savedAt || '', db = b.savedAt || '';
+    return db > da ? 1 : db < da ? -1 : 0;
+  });
+  const DIFF_LBL_TAB = { 1:'Temel', 3:'Profesyonel', 5:'Uzman' };
+  let html = '<div class="sim-history-list">';
+  for (const save of sorted) {
+    const scenario = G.scenariosData[save.scenarioId];
+    const answered = save.answered || {};
+    const answeredDecs = Object.entries(answered).filter(([,v]) => v !== 'READ');
+    let completed = false;
+    if (scenario) {
+      const { decisionMap } = buildScenarioMaps(scenario);
+      const allDecIds = Object.keys(decisionMap).map(Number);
+      completed = allDecIds.length > 0 && allDecIds.every(id => answered[id] && answered[id] !== 'READ');
+    }
+    const title = scenario?.title || scenario?.name || save.scenarioId;
+    const level = DIFF_LBL_TAB[save.difficultyWeight] || 'Normal';
+    const date = save.savedAt ? new Date(save.savedAt).toLocaleDateString('tr-TR', {day:'numeric',month:'long',year:'numeric'}) : '';
+    const xp = save.xp || 0;
+    html += `<div class="sim-history-card">
+  <div class="shc-head">
+    <div>
+      <div class="shc-title">${title}</div>
+      <div class="shc-meta">${level}${date ? ' · ' + date : ''}</div>
+    </div>
+    ${completed
+      ? '<span class="shc-badge completed">Tamamlandı</span>'
+      : '<a href="game.html" class="shc-badge ongoing">Devam Et →</a>'}
+  </div>
+  <div class="shc-stats"><span>${answeredDecs.length} karar</span><span>${xp} XP</span></div>
+</div>`;
+  }
+  html += '</div><div style="margin-top:14px;text-align:center"><a class="btn-go-tailor" href="tailor.html"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg> Yeni Senaryo Başlat</a></div>';
+  wrap.innerHTML = html;
 }
 
 // ── LAST SCENARIO ────────────────────────────────────────────────────────────
