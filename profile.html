@@ -79,7 +79,12 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 .profile-email { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
 .profile-meta { display: flex; gap: 12px; flex-wrap: wrap; }
 .profile-badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--surface2); border: 1px solid var(--border); color: var(--text-secondary); }
-.profile-badge.dev { background: #fef3c7; border-color: #fcd34d; color: #92400e; }
+.profile-badge.dev     { background: #fef3c7; border-color: #fcd34d; color: #92400e; }
+.profile-badge.admin   { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
+.profile-badge.editor  { background: #fff7ed; border-color: #fdba74; color: #9a3412; }
+.profile-badge.premium { background: #f5f3ff; border-color: #c4b5fd; color: #5b21b6; }
+.profile-badge.trial   { background: #f0fdf4; border-color: #86efac; color: #166534; }
+.profile-badge.standard{ background: var(--surface2); border-color: var(--border); color: var(--text-muted); }
 
 /* ── TABS ── */
 .profile-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
@@ -491,7 +496,15 @@ function renderProfile() {
   document.getElementById('profileUsername').textContent = '@' + session.username;
   document.getElementById('profileEmail').textContent    = session.email || '';
 
+  const ROLE_CFG = {
+    admin:    { label: 'Admin',    cls: 'admin' },
+    editor:   { label: 'Editör',  cls: 'editor' },
+    premium:  { label: 'Premium', cls: 'premium' },
+    trial:    { label: 'Deneme',  cls: 'trial' },
+  };
   const meta = [];
+  const roleCfg = ROLE_CFG[session.role] || { label: 'Standart', cls: 'standard' };
+  meta.push('<span class="profile-badge ' + roleCfg.cls + '">' + roleCfg.label + '</span>');
   if (session.createdAt) {
     const d = new Date(session.createdAt);
     meta.push('<span class="profile-badge">Üye: ' + d.toLocaleDateString('tr-TR', {year:'numeric',month:'long'}) + '</span>');
