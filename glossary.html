@@ -298,6 +298,10 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
       <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
       Fiyatlar
     </a>
+    <a class="menu-item" href="profile.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>
+      Profilim
+    </a>
     <div class="menu-div"></div>
     <div class="menu-auth-area" id="menuAuth"></div>
   </div>
@@ -388,7 +392,7 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
   if (session) {
     const photo = localStorage.getItem('pmSim_profile_photo');
     const av = photo ? '<img src="' + photo + '" alt="">' : (session.displayName || '?')[0].toUpperCase();
-    navUser.innerHTML = '<div class="nav-av">' + av + '</div><span class="nav-username">' + session.displayName + '</span>';
+    navUser.innerHTML = '<a href="profile.html" style="display:flex;align-items:center;gap:8px;text-decoration:none"><div class="nav-av">' + av + '</div><span class="nav-username">' + session.displayName + '</span></a>';
     menuAuth.innerHTML = '<div class="menu-auth-row"><div class="nav-av">' + av + '</div><span class="menu-auth-name">' + session.displayName + '</span><button class="btn-menu-logout" onclick="localStorage.removeItem(\'pmSim_session\');location.reload()">' + lSvg + ' Çıkış</button></div>';
   } else {
     const ret = encodeURIComponent(location.href);

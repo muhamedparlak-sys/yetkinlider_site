@@ -488,7 +488,7 @@ toggle.addEventListener('change', () => {
   if (session) {
     const photo = localStorage.getItem('pmSim_profile_photo');
     const av = photo ? '<img src="' + photo + '" alt="">' : (session.displayName || '?')[0].toUpperCase();
-    navUser.innerHTML = '<div class="nav-av">' + av + '</div><span class="nav-username">' + session.displayName + '</span>';
+    navUser.innerHTML = '<a href="profile.html" style="display:flex;align-items:center;gap:8px;text-decoration:none"><div class="nav-av">' + av + '</div><span class="nav-username">' + session.displayName + '</span></a>';
     menuAuth.innerHTML = '<div class="menu-auth-row"><div class="nav-av">' + av + '</div><span class="menu-auth-name">' + session.displayName + '</span><button class="btn-menu-logout" onclick="localStorage.removeItem(\'pmSim_session\');location.reload()">' + lSvg + ' Çıkış</button></div>';
   } else {
     const ret = encodeURIComponent(location.href);
