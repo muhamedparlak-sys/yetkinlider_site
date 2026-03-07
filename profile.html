@@ -748,7 +748,7 @@ function computeStats(saves, scenariosData, diffWeight) {
   for (const area of AREAS) for (const sk of area.skills) earned[sk.id] = { e:0, m:0 };
   for (const save of saves) {
     if ((save.difficultyWeight || 3) !== diffWeight) continue;
-    const scenario = scenariosData[save.scenarioId]; if (!scenario) continue;
+    const scenario = scenariosData[save.scenarioId] || scenariosData[save.scenarioFile]; if (!scenario) continue;
     const { decisionMap, decToComp } = buildScenarioMaps(scenario);
     for (const [didStr, optKey] of Object.entries(save.answered || {})) {
       if (optKey === 'READ') continue;
@@ -768,7 +768,7 @@ function computeProfile(saves, scenariosData) {
   let totalXP = 0, totalDec = 0, goodDec = 0, scenarios = 0;
   for (const save of saves) {
     totalXP += save.xp || 0;
-    const scenario = scenariosData[save.scenarioId];
+    const scenario = scenariosData[save.scenarioId] || scenariosData[save.scenarioFile];
     const decisionMap = scenario ? buildScenarioMaps(scenario).decisionMap : {};
     const answered = save.answered || {};
     const answeredDecs = Object.entries(answered).filter(([,v]) => v !== 'READ');
@@ -863,11 +863,10 @@ async function init() {
   const sess = (() => { try { return JSON.parse(localStorage.getItem(SESSION_KEY)||'null'); } catch { return null; } })();
 
   const manifest = await loadManifest();
-  if (manifest) {
-    const ids = manifest.scenarios.map(s => s.id);
-    const loaded = await Promise.all(ids.map(id => loadScenario(id)));
-    ids.forEach((id,i) => { if (loaded[i]) G.scenariosData[id] = loaded[i]; });
-  }
+  const manifestIds = manifest ? manifest.scenarios.map(s => s.id) : [];
+  const allScenIds = [...manifestIds, 'master']; // always include personalized master scenario
+  const loaded = await Promise.all(allScenIds.map(id => loadScenario(id)));
+  allScenIds.forEach((id,i) => { if (loaded[i]) G.scenariosData[id] = loaded[i]; });
 
   if (sess?.username) G.saves = await getUserSaves(sess.username);
 
@@ -1002,24 +1001,32 @@ function renderSimHistory() {
   const DIFF_LBL_TAB = { 1:'Temel', 3:'Profesyonel', 5:'Uzman' };
   let html = '<div class="sim-history-list">';
   for (const save of sorted) {
-    const scenario = G.scenariosData[save.scenarioId];
+    const scenario = G.scenariosData[save.scenarioId] || G.scenariosData[save.scenarioFile];
     const answered = save.answered || {};
     const answeredDecs = Object.entries(answered).filter(([,v]) => v !== 'READ');
     let completed = false;
-    if (scenario) {
+    if (save.scenarioFile === 'master' && scenario) {
+      // Master scenario: completion = dCount reached sections × dChoiceLimit
+      const sections = scenario.sections?.length || 3;
+      const limit = scenario.dChoiceLimit || 5;
+      completed = (save.dCount || 0) >= sections * limit;
+    } else if (scenario) {
       const { decisionMap } = buildScenarioMaps(scenario);
       const allDecIds = Object.keys(decisionMap).map(Number);
       completed = allDecIds.length > 0 && allDecIds.every(id => answered[id] && answered[id] !== 'READ');
     }
-    const title = scenario?.title || scenario?.name || save.scenarioId;
+    const title = save.scenarioTitle || scenario?.title || scenario?.name || save.scenarioId;
     const level = DIFF_LBL_TAB[save.difficultyWeight] || 'Normal';
+    const pmo = PMO_LBL[save.setup?.pmo_type] || '';
+    const approach = APPROACH_LBL[save.setup?.dev_approach] || '';
     const date = save.savedAt ? new Date(save.savedAt).toLocaleDateString('tr-TR', {day:'numeric',month:'long',year:'numeric'}) : '';
+    const metaParts = [level, pmo, approach, date].filter(Boolean);
     const xp = save.xp || 0;
     html += `<div class="sim-history-card">
   <div class="shc-head">
     <div>
       <div class="shc-title">${title}</div>
-      <div class="shc-meta">${level}${date ? ' · ' + date : ''}</div>
+      <div class="shc-meta">${metaParts.join(' · ')}</div>
     </div>
     ${completed
       ? '<span class="shc-badge completed">Tamamlandı</span>'
