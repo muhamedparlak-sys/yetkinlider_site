@@ -176,6 +176,80 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
   .profile-hero { flex-direction: column; align-items: flex-start; gap: 14px; }
   .nav-username { display: none; }
 }
+
+/* ── PROFILE CAREER STATS (below role badge) ── */
+.profile-career-stats { display:flex; gap:18px; flex-wrap:wrap; margin-top:10px; padding-top:10px; border-top:1px solid var(--border); }
+.pcs-item { display:flex; flex-direction:column; gap:2px; }
+.pcs-val { font-size:14px; font-weight:700; color:var(--text); }
+.pcs-val.gold { color:#c9960c; }
+.pcs-lbl { font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); }
+
+/* ── SCORECARD DARK SECTION ── */
+:root { --capm:#c9960c; --pmp:#3b82f6; --adv:#a855f7; }
+.sc-wrap {
+  --s1:#161b22; --s2:#21262d; --muted:#7d8590; --dim:#484f58;
+  --text:#e6edf3; --border:rgba(255,255,255,.08);
+  background:#0d1117; border-radius:10px; color:#e6edf3; overflow:hidden;
+}
+.sc-wrap .tab-row { display:flex; gap:6px; padding:12px 12px 0; }
+.tab-btn { flex:1; background:var(--s1); border:1px solid var(--border); border-radius:8px; padding:10px 14px; text-align:center; transition:border-color .15s,background .15s; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:3px; font-family:inherit; }
+.tab-btn:hover { border-color:rgba(255,255,255,.15); }
+.tab-cert { font-size:12px; font-weight:700; color:var(--muted); transition:color .15s; }
+.tab-sub { font-size:10px; color:var(--dim); }
+.tab-btn[data-tab="capm"].active { border-color:var(--capm); background:rgba(201,150,12,.06); }
+.tab-btn[data-tab="capm"].active .tab-cert { color:var(--capm); }
+.tab-btn[data-tab="pmp"].active { border-color:var(--pmp); background:rgba(59,130,246,.06); }
+.tab-btn[data-tab="pmp"].active .tab-cert { color:var(--pmp); }
+.tab-btn[data-tab="adv"].active { border-color:var(--adv); background:rgba(168,85,247,.06); }
+.tab-btn[data-tab="adv"].active .tab-cert { color:var(--adv); }
+.main-grid { display:grid; grid-template-columns:1fr 256px; gap:10px; align-items:start; padding:10px 12px 12px; }
+.attr-panel { background:var(--s1); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+.area-block { border-bottom:1px solid var(--border); }
+.area-block:last-child { border-bottom:none; }
+.area-head { padding:8px 16px; background:var(--s2); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+.area-head-name { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); }
+.area-head-weight { font-size:10px; color:var(--dim); }
+.risk-section-divider { grid-column:1/-1; margin:20px 0 8px; display:flex; align-items:center; gap:10px; }
+.risk-section-divider span { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.14em; color:#a78bfa; white-space:nowrap; }
+.risk-section-divider::before,.risk-section-divider::after { content:''; flex:1; height:1px; background:rgba(167,139,250,.2); }
+.skill-pair { display:flex; border-bottom:1px solid rgba(255,255,255,.04); }
+.skill-pair:last-child { border-bottom:none; }
+.skill-cell { flex:1; display:flex; align-items:center; justify-content:space-between; padding:9px 16px; min-width:0; }
+.skill-cell+.skill-cell { border-left:1px solid rgba(255,255,255,.04); }
+.skill-cell.sk-solo { max-width:50%; }
+.skill-label { font-size:12px; color:rgba(255,255,255,.58); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding-right:8px; flex:1; min-width:0; }
+.skill-old { font-size:10px; color:var(--dim); font-weight:400; }
+.skill-num { font-size:15px; font-weight:700; font-variant-numeric:tabular-nums; flex-shrink:0; min-width:24px; text-align:right; }
+.sv-none { color:var(--dim); } .sv-weak { color:#cf4444; } .sv-developing { color:#d97a1e; }
+.sv-competent { color:#c9960c; } .sv-proficient { color:#7cba8a; } .sv-expert { color:#27a357; }
+.right-panel { display:flex; flex-direction:column; gap:10px; }
+.info-panel { background:var(--s1); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+.panel-head { padding:8px 14px; background:var(--s2); border-bottom:1px solid var(--border); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); }
+.info-row { display:flex; justify-content:space-between; align-items:center; padding:8px 14px; border-bottom:1px solid rgba(255,255,255,.04); font-size:13px; }
+.info-row:last-child { border-bottom:none; }
+.ir-label { color:var(--muted); } .ir-val { font-weight:600; font-variant-numeric:tabular-nums; color:var(--text); }
+.ir-gold { color:#c9960c; } .ir-green { color:#27a357; } .ir-blue { color:#3b82f6; } .ir-purple { color:#a855f7; }
+.eco-row { display:flex; justify-content:space-between; align-items:center; padding:9px 14px; border-bottom:1px solid rgba(255,255,255,.04); font-size:13px; }
+.eco-row:last-child { border-bottom:none; }
+.eco-name { color:var(--muted); } .eco-val { font-weight:600; font-variant-numeric:tabular-nums; }
+.dev-item { padding:8px 14px; border-bottom:1px solid rgba(255,255,255,.04); }
+.dev-item:last-child { border-bottom:none; }
+.dev-name { font-size:13px; color:rgba(255,255,255,.5); }
+.dev-stat { font-size:11px; color:#cf4444; margin-top:2px; }
+.btn-reset { width:100%; background:transparent; border:1px solid var(--border); color:var(--dim); font-size:12px; padding:9px; border-radius:8px; transition:border-color .15s,color .15s; font-family:inherit; cursor:pointer; }
+.btn-reset:hover { border-color:rgba(207,68,68,.4); color:#cf4444; }
+.empty-note { background:var(--s1); border:1px solid var(--border); border-radius:8px; padding:36px 20px; text-align:center; }
+.empty-note h3 { font-size:14px; font-weight:600; color:rgba(255,255,255,.35); margin-bottom:6px; }
+.empty-note p { font-size:12px; color:var(--dim); line-height:1.7; }
+.btn-play { display:inline-block; margin-top:14px; background:#142040; border:1px solid #2355a0; color:#93c5fd; font-size:13px; font-weight:600; padding:9px 22px; border-radius:6px; transition:background .15s; }
+.btn-play:hover { background:#1a2f5a; }
+.loading-note { background:var(--s1); border:1px solid var(--border); border-radius:8px; padding:24px 20px; text-align:center; color:var(--muted); font-size:13px; }
+@media(max-width:680px) {
+  .main-grid { grid-template-columns:1fr; }
+  .skill-cell.sk-solo { max-width:100%; }
+  .skill-pair { flex-direction:column; }
+  .skill-cell+.skill-cell { border-left:none; border-top:1px solid rgba(255,255,255,.04); }
+}
 </style>
 </head>
 <body>
@@ -238,6 +312,13 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
       <div class="profile-username" id="profileUsername"></div>
       <div class="profile-email" id="profileEmail"></div>
       <div class="profile-meta" id="profileMeta"></div>
+      <div class="profile-career-stats" id="profileCareerStats" style="display:none">
+        <div class="pcs-item"><span class="pcs-val" id="sc-scenarios">0</span><span class="pcs-lbl">Senaryo</span></div>
+        <div class="pcs-item"><span class="pcs-val" id="sc-decisions">0</span><span class="pcs-lbl">Karar</span></div>
+        <div class="pcs-item"><span class="pcs-val" id="sc-accuracy">—</span><span class="pcs-lbl">İsabetli</span></div>
+        <div class="pcs-item"><span class="pcs-val gold" id="sc-xp">0 XP</span><span class="pcs-lbl">Toplam XP</span></div>
+        <div class="pcs-item"><span class="pcs-val gold" id="sc-level-title">PM Stajyeri</span><span class="pcs-lbl">Kariyer Seviyesi</span></div>
+      </div>
     </div>
   </div>
 
@@ -250,7 +331,25 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 
   <!-- YETKİNLİK PANEL -->
   <div class="tab-panel active" id="panel-yetkinlik">
-    <div class="domain-grid" id="domainGrid"></div>
+    <div class="sc-wrap">
+      <div class="tab-row" id="tab-row">
+        <button class="tab-btn" data-tab="capm">
+          <span class="tab-cert">CAPM</span>
+          <span class="tab-sub">Giriş Seviyesi · Kolay</span>
+        </button>
+        <button class="tab-btn" data-tab="pmp">
+          <span class="tab-cert">PMP</span>
+          <span class="tab-sub">Orta Seviye · Normal</span>
+        </button>
+        <button class="tab-btn" data-tab="adv">
+          <span class="tab-cert">Advanced PMP</span>
+          <span class="tab-sub">İleri Seviye · Zor</span>
+        </button>
+      </div>
+      <div class="main-grid" id="main-grid">
+        <div class="loading-note">Yetkinlik verileri yükleniyor…</div>
+      </div>
+    </div>
   </div>
 
   <!-- SENARYO PANEL -->
@@ -356,6 +455,396 @@ menuPanel.querySelectorAll('.menu-item[href]').forEach(a => {
     menuAuth.innerHTML = '<div class="menu-auth-row"><div class="nav-av">' + av + '</div><span class="menu-auth-name">' + session.displayName + '</span><button class="btn-menu-logout" onclick="doLogout()">' + lSvg + ' Çıkış</button></div>';
   }
 })();
+
+// ── SCORECARD DATA & LOGIC ───────────────────────────────────────────────────
+const AREAS = [
+  {
+    id: 'people', label: 'PEOPLE / İNSAN', weight: 42,
+    skills: [
+      { id: 'catisma',        label: 'Çatışma Yönetimi',    oldLabel: 'Çatışma Çözümü',
+        desc: { capm: 'Çatışmanın kaynağını ve aşamasını yorumlar, temel etik kuralları uygular.',
+                pmp:  'Çatışma bağlamını analiz eder; uygun çözümü değerlendirir ve uzlaştırır.',
+                adv:  'Karmaşık çatışmaların kök nedenini analiz eder, takıma mentorluk yapar.' } },
+      { id: 'liderlik',       label: 'Liderlik',             oldLabel: 'Hizmetkar Liderlik',
+        desc: { capm: 'Liderlik stillerini ayırt eder, vizyonun önemini açıklar.',
+                pmp:  'Vizyon belirler, hizmetkar liderliği uygular, takımı motive eder.',
+                adv:  'Hizmetkar liderlik ilkelerini stratejik çalışmayla dengeleyerek kurumsal kültür inşa eder.' } },
+      { id: 'takim_gelisimi', label: 'Takım Gelişimi',       oldLabel: 'Psikolojik Güvenlik',
+        desc: { capm: 'Takım içi rol ve sorumlulukların amacını tanımlar.',
+                pmp:  "Takım performansını KPI'lara göre destekler, paydaşları eğitir ve yetkilendirir.",
+                adv:  'Yüksek performanslı takımları kurar, mentorluk yaparak yetkinlik boşluklarını kapatır.' } },
+      { id: 'eq',             label: 'Duygusal Zeka',        oldLabel: 'Empati',
+        desc: { capm: "EQ'nun takım performansındaki etkisini anlar.",
+                pmp:  'Kişilik göstergelerini analiz ederek iletişimi uyarlar.',
+                adv:  "EQ'yu karmaşık paydaş müzakerelerinde stratejik olarak kullanır." } },
+    ]
+  },
+  {
+    id: 'process', label: 'PROCESS / SÜREÇ', weight: 50,
+    skills: [
+      { id: 'entegrasyon', label: 'Entegrasyon / Planlama', oldLabel: null,
+        desc: { capm: 'Proje ve operasyon farkını ayırt eder, planlama bileşenlerini açıklar.',
+                pmp:  'Alt planları birleştiren entegre planı geliştirir, metodolojiyi seçer.',
+                adv:  'Veri analitiği ve sürdürülebilirliği plana entegre eder, stratejik veri toplar.' } },
+      { id: 'kapsam',      label: 'Kapsam (Agile)',          oldLabel: 'MVP / DoD',
+        desc: { capm: 'WBS ve Backlog kavramlarını tanımlar, kapsamı gözden geçirir.',
+                pmp:  "Gereksinimleri toplar, MVP'yi belirler, Backlog/WBS'i yönetir.",
+                adv:  'Dış çevre değişimlerinin Backlog üzerindeki etkisini değerlendirir.' } },
+      { id: 'zaman',       label: 'Zaman / Çizelge',        oldLabel: 'Kanban / WIP',
+        desc: { capm: 'Kilometre taşı ve görev süresi farkını ayırt eder.',
+                pmp:  'Zaman çizelgesini planlar ve yönetir, varyans analizi yapar.',
+                adv:  'Teslimat temposunu optimize eder, kritik yol risklerini stratejik yönetir.' } },
+      { id: 'maliyet',     label: 'Maliyet / Finans',       oldLabel: 'EVM',
+        desc: { capm: 'Bütçelemenin amacını ve önemini açıklar.',
+                pmp:  'Proje bütçesini planlar ve yönetir, harcamaları takip eder.',
+                adv:  'Finansal rezervleri yönetir, zorlukları öngörür, yönetişimle çalışır.' } },
+      { id: 'kalite',      label: 'Kalite',                 oldLabel: null,
+        desc: { capm: 'Kalite standartlarının önemini anlar.',
+                pmp:  'Kalite yönetim planını uygular, teslimat kalitesini denetler.',
+                adv:  'Ürün ve süreç kalitesini optimize eder, kaizen sistemini kurar.' } },
+      { id: 'risk',        label: 'Risk / Sorun',           oldLabel: 'Belirsizlik Yönetimi',
+        desc: { capm: 'Risk ve sorun arasındaki farkı bilir, risk kaydını kullanır.',
+                pmp:  'Riskleri analiz eder, yanıt stratejileri planlar, sorunları çözer.',
+                adv:  'Risk ve ihtiyat akçesi tahsislerini nicelleştirir, stratejik riskleri izler.' } },
+      { id: 'tedarik',     label: 'Tedarik',                oldLabel: null,
+        desc: { capm: 'Tedarik türlerini ve sözleşme temellerini tanımlar.',
+                pmp:  'Tedarik süreçlerini planlar, satıcıları seçer ve yönetir.',
+                adv:  'Tedarik stratejilerini kurum hedefleriyle hizalar, müzakereleri yürütür.' } },
+      { id: 'kapanis',     label: 'Kapanış / İzleme',      oldLabel: 'Öğrenilmiş Dersler',
+        desc: { capm: 'Kapanış ve geçiş süreçlerini açıklar.',
+                pmp:  'Proje/faz kapanışlarını yönetir, kazanılan dersleri belgeler.',
+                adv:  'Bilgi transferini sağlar, kazanılan dersleri kurumsal hafızaya (OPA) aktarır.' } },
+    ]
+  },
+  {
+    id: 'business', label: 'BUSINESS ENV. / İŞ ORTAMI', weight: 8,
+    skills: [
+      { id: 'uyumluluk',        label: 'Uyumluluk',         oldLabel: null,
+        desc: { capm: 'Etik kuralları senaryolara uygular.',
+                pmp:  'Uyumluluk gereksinimlerini planlar ve yönetir.',
+                adv:  'Proje yönetişim yapısını kurar, eskalasyon yollarını belirler.' } },
+      { id: 'fayda_deger',      label: 'Fayda ve Değer',    oldLabel: 'Değer Teslimi',
+        desc: { capm: 'Projenin bir değişim aracı olduğunu açıklar.',
+                pmp:  'Proje faydalarını ve değerini değerlendirir ve teslim eder.',
+                adv:  'Başarı metriklerini tanımlar, stratejik değer teslimatını maksimize eder.' } },
+      { id: 'kurumsal_degisim', label: 'Kurumsal Değişim',  oldLabel: 'Uyarlama (Tailoring)',
+        desc: { capm: 'Şirket kültürünün projedeki etkisini anlar.',
+                pmp:  'Organizasyonel değişimi destekler.',
+                adv:  'Kurumsal kültürü değerlendirir, değişimin etkisini analiz edip aksiyon alır.' } },
+      { id: 'dis_cevre',        label: 'Dış Çevre Analizi', oldLabel: null,
+        desc: { capm: 'Dış faktörlerin kapsam üzerindeki etkisini fark eder.',
+                pmp:  'İş ortamı değişikliklerini kapsam için değerlendirir.',
+                adv:  "Mevzuat, teknoloji ve pazar değişimlerini sürekli tarar, Backlog'u günceller." } },
+    ]
+  },
+  { id: 'risk_strateji', label: 'STRATEJİ & TANIMLAMA', type: 'risk', weight: null,
+    skills: [
+      { id: 'risk_plan',   label: 'Risk Yönetim Planı',      oldLabel: null,
+        desc: { capm: 'Organizasyonun standart şablonlarını ve metodolojisini kullanır.',
+                pmp:  'Planı projenin karmaşıklığına göre tailoring yaparak uyarlar.',
+                adv:  'Risk stratejisini Kurumsal Risk Yönetimi (ERM) ve portföy hedefleriyle tam entegre eder.' } },
+      { id: 'risk_paydas', label: 'Paydaş & Toleranslar',   oldLabel: null,
+        desc: { capm: 'Temel paydaş listesini çıkarır ve risk sahiplerini belirler.',
+                pmp:  'Güç/İlgi matrisi ile paydaşların risk iştahını ve tutum yanlılıklarını analiz eder.',
+                adv:  'Karmaşık yönetişim yapılarında stratejik risk eşiklerini belirler ve öncelikleri hizalar.' } },
+      { id: 'risk_tanim',  label: 'Risk Belirleme Teknikleri', oldLabel: null,
+        desc: { capm: 'Hazır kontrol listelerini (checklists) ve beyin fırtınasını uygular.',
+                pmp:  'SWOT, Kök Neden Analizi ve Balık Kılçığı (Ishikawa) diyagramlarını uzmanlıkla kullanır.',
+                adv:  'Delphi tekniği ile uzman görüşü süreçlerini yönetir; Siyah Kuğu ve ortaya çıkan riskleri tanımlar.' } },
+    ]
+  },
+  { id: 'risk_analiz', label: 'RİSK ANALİZİ & YANITLAR', type: 'risk', weight: null,
+    skills: [
+      { id: 'risk_nitelik',  label: 'Niteliksel Analiz',    oldLabel: null,
+        desc: { capm: 'Standart Olasılık ve Etki Matrisi ile riskleri puanlar.',
+                pmp:  'Analizdeki önyargıları minimize eder; risklerin aciliyet (urgency) ve yakınlığını değerlendirir.',
+                adv:  'Riskler arası bağlantısallığı (connectivity) analiz eder ve veri kalitesini denetler.' } },
+      { id: 'risk_nicelik',  label: 'Niceliksel Analiz',    oldLabel: null,
+        desc: { capm: 'Beklenen Parasal Değer (EMV) hesaplamalarını temel seviyede yapar.',
+                pmp:  'Karar Ağacı Analizi ve Duyarlılık (Tornado) analizlerini kurgular.',
+                adv:  'Monte Carlo simülasyonu ve FMECA ile bütçe/takvim yedeklerini optimize eder.' } },
+      { id: 'risk_yanit',    label: 'Yanıt Stratejileri',   oldLabel: null,
+        desc: { capm: 'Temel yanıtları (Kaçınma, Azaltma, Aktarma, Kabul) belirler ve uygular.',
+                pmp:  'İkincil ve artık riskleri değerlendirerek Çok Kriterli Karar Analizi ile en uygun yanıtı seçer.',
+                adv:  'Yanıt planlarını WBS veya çevik iş birikimine (Backlog) tam entegre eder.' } },
+    ]
+  },
+  { id: 'risk_izleme_area', label: 'RİSKLERİN İZLENMESİ', type: 'risk', weight: null,
+    skills: [
+      { id: 'risk_izleme',   label: 'Takip, Kontrol & Raporlama', oldLabel: null,
+        desc: { capm: 'Risk listesini günceller ve tetikleyici (trigger) koşulları izler.',
+                pmp:  'Varyans ve Trend Analizi yaparak risk rezervlerinin kullanımını denetler.',
+                adv:  'Bağımsız Risk Denetimleri yürütür; Alınan Dersler üzerinden sürekli iyileştirme sağlar.' } },
+    ]
+  },
+];
+
+const OLD_TO_NEW = { value:'fayda_deger', agile:'kapsam', ethics:'uyumluluk', comms:'catisma', tech:'entegrasyon' };
+const DIFF_WEIGHT = { beginner:1, intermediate:3, advanced:5 };
+const TAB_DIFF    = { capm:1, pmp:3, adv:5 };
+const TAB_LABEL   = { capm:'capm', pmp:'pmp', adv:'adv' };
+
+function statClass(s) {
+  if (s >= 17) return 'sv-expert';
+  if (s >= 13) return 'sv-proficient';
+  if (s >= 8)  return 'sv-competent';
+  if (s >= 4)  return 'sv-developing';
+  if (s >= 1)  return 'sv-weak';
+  return 'sv-none';
+}
+
+function careerLevel(xp) {
+  if (xp >= 120) return { n:5, t:'Kıdemli PM' };
+  if (xp >= 80)  return { n:4, t:'PM Lideri' };
+  if (xp >= 50)  return { n:3, t:'Proje Yöneticisi' };
+  if (xp >= 20)  return { n:2, t:'Junior PM' };
+  return { n:1, t:'PM Stajyeri' };
+}
+
+async function loadManifest() {
+  if (window.__ENV?.SUPABASE_URL) {
+    const storageBase = `${window.__ENV.SUPABASE_URL}/storage/v1/object/public/scenarios`;
+    try { const r = await fetch(`${storageBase}/manifest.json?t=${Date.now()}`); if (r.ok) return r.json(); } catch {}
+  }
+  try { const r = await fetch('data/scenarios/manifest.json'); return r.ok ? r.json() : null; } catch { return null; }
+}
+
+async function loadScenario(id) {
+  if (window.__ENV?.SUPABASE_URL) {
+    const storageBase = `${window.__ENV.SUPABASE_URL}/storage/v1/object/public/scenarios`;
+    try { const r = await fetch(`${storageBase}/${id}.json?t=${Date.now()}`); if (r.ok) return r.json(); } catch {}
+  }
+  try { const r = await fetch(`data/scenarios/${id}.json`); return r.ok ? r.json() : null; } catch { return null; }
+}
+
+function _getLocalSaves(username) {
+  const prefix = `pmSim_save_${username}_`, saves = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (!key?.startsWith(prefix)) continue;
+    try { const d = JSON.parse(localStorage.getItem(key)); if (d) saves.push({ ...d, scenarioId: key.slice(prefix.length) }); } catch {}
+  }
+  return saves;
+}
+
+async function getUserSaves(username) {
+  if (window.__sbFetchUserSaves) {
+    try {
+      const sbSaves = await window.__sbFetchUserSaves();
+      if (sbSaves.length > 0) {
+        sbSaves.forEach(save => {
+          const key = `pmSim_save_${username}_${save.scenarioId}`;
+          const raw = localStorage.getItem(key), local = raw ? JSON.parse(raw) : null;
+          if (!local || (save.savedAt && (!local.savedAt || save.savedAt > local.savedAt))) {
+            localStorage.setItem(key, JSON.stringify(save));
+          }
+        });
+        return sbSaves;
+      }
+    } catch (e) { console.warn('[DB] Kayıtlar alınamadı, local\'den devam:', e.message); }
+  }
+  return _getLocalSaves(username);
+}
+
+function buildScenarioMaps(scenario) {
+  const decisionMap = {};
+  for (const n of (scenario.notifications || [])) {
+    if (n.type === 'decision') decisionMap[n.id] = n.options || [];
+  }
+  const decToComp = {};
+  const comps = scenario.competencies || [];
+  if (comps.length > 0 && comps[0].components) {
+    for (const area of comps) for (const comp of (area.components || [])) for (const did of (comp.decisionIds || [])) decToComp[did] = comp.id;
+  } else {
+    for (const comp of comps) { const newId = OLD_TO_NEW[comp.id]; if (!newId) continue; for (const did of (comp.decisionIds || [])) decToComp[did] = newId; }
+  }
+  return { decisionMap, decToComp };
+}
+
+function computeStats(saves, scenariosData, diffWeight) {
+  const earned = {};
+  for (const area of AREAS) for (const sk of area.skills) earned[sk.id] = { e:0, m:0 };
+  for (const save of saves) {
+    if ((save.difficultyWeight || 3) !== diffWeight) continue;
+    const scenario = scenariosData[save.scenarioId]; if (!scenario) continue;
+    const { decisionMap, decToComp } = buildScenarioMaps(scenario);
+    for (const [didStr, optKey] of Object.entries(save.answered || {})) {
+      if (optKey === 'READ') continue;
+      const did = parseInt(didStr, 10), compId = decToComp[did];
+      if (!compId || !earned[compId]) continue;
+      const options = decisionMap[did] || [];
+      earned[compId].m += Math.max(0, ...options.map(o => o.xp || 0));
+      earned[compId].e += Math.max(0, options.find(o => o.key === optKey)?.xp || 0);
+    }
+  }
+  const stats = {};
+  for (const [id, v] of Object.entries(earned)) stats[id] = v.m > 0 ? Math.min(20, Math.round((v.e / v.m) * 20)) : 0;
+  return stats;
+}
+
+function computeProfile(saves, scenariosData) {
+  let totalXP = 0, totalDec = 0, goodDec = 0, scenarios = 0;
+  for (const save of saves) {
+    totalXP += save.xp || 0;
+    const scenario = scenariosData[save.scenarioId];
+    const decisionMap = scenario ? buildScenarioMaps(scenario).decisionMap : {};
+    const answered = save.answered || {};
+    const answeredDecs = Object.entries(answered).filter(([,v]) => v !== 'READ');
+    totalDec += answeredDecs.length;
+    for (const [didStr, optKey] of answeredDecs) {
+      const options = (decisionMap[parseInt(didStr, 10)] || []);
+      const chosen = options.find(o => o.key === optKey);
+      if (chosen && (chosen.xp || 0) > 0) goodDec++;
+    }
+    const allDecIds = Object.keys(decisionMap).map(Number);
+    if (allDecIds.length > 0 && allDecIds.every(id => answered[id] && answered[id] !== 'READ')) scenarios++;
+  }
+  return { totalXP, totalDec, goodDec, scenarios };
+}
+
+function defaultTab(saves) {
+  const weights = new Set(saves.map(s => s.difficultyWeight || 3));
+  if (weights.has(5)) return 'adv';
+  if (weights.has(3)) return 'pmp';
+  return 'capm';
+}
+
+function hasDataForTab(saves, tab) { return saves.some(s => (s.difficultyWeight || 3) === TAB_DIFF[tab]); }
+
+function renderAttr(stats, tab) {
+  let html = '<div class="attr-panel">', riskShown = false;
+  for (const area of AREAS) {
+    if (area.type === 'risk' && !riskShown) {
+      html += `<div class="risk-section-divider"><span>RİSK YÖNETİMİ YETKİNLİKLERİ</span></div>`;
+      riskShown = true;
+    }
+    html += `<div class="area-block"><div class="area-head"><span class="area-head-name">${area.label}</span>${area.weight != null ? `<span class="area-head-weight">%${area.weight} ECO</span>` : ''}</div>`;
+    const skills = area.skills;
+    for (let i = 0; i < skills.length; i += 2) {
+      const s1 = skills[i], s2 = skills[i+1];
+      const st1 = stats[s1.id] || 0;
+      const lbl1 = s1.oldLabel ? `${s1.label} <span class="skill-old">(${s1.oldLabel})</span>` : s1.label;
+      html += `<div class="skill-pair"><div class="skill-cell${!s2?' sk-solo':''}" title="${s1.desc[tab]||''}"><span class="skill-label">${lbl1}</span><span class="skill-num ${statClass(st1)}">${st1||'—'}</span></div>`;
+      if (s2) {
+        const st2 = stats[s2.id] || 0;
+        const lbl2 = s2.oldLabel ? `${s2.label} <span class="skill-old">(${s2.oldLabel})</span>` : s2.label;
+        html += `<div class="skill-cell" title="${s2.desc[tab]||''}"><span class="skill-label">${lbl2}</span><span class="skill-num ${statClass(st2)}">${st2||'—'}</span></div>`;
+      }
+      html += `</div>`;
+    }
+    html += '</div>';
+  }
+  return html + '</div>';
+}
+
+function renderRight(profile, stats, saves, tab, scenariosData) {
+  const lvl = careerLevel(profile.totalXP);
+  const acc = profile.totalDec > 0 ? Math.round(profile.goodDec / profile.totalDec * 100) + '%' : '—';
+  const tabColor = tab==='capm'?'ir-gold':tab==='pmp'?'ir-blue':'ir-purple';
+  const tabName  = tab==='capm'?'CAPM':tab==='pmp'?'PMP':'Advanced PMP';
+  const col = tab==='capm'?'#c9960c':tab==='pmp'?'#3b82f6':'#a855f7';
+
+  let ecoHTML = `<div class="info-panel"><div class="panel-head">ECO Alan Performansı · ${tabName}</div>`;
+  for (const area of AREAS.filter(a => a.type !== 'risk')) {
+    const compStats = area.skills.map(sk => stats[sk.id]||0).filter(v=>v>0);
+    const avg = compStats.length > 0 ? Math.round(compStats.reduce((a,b)=>a+b,0)/compStats.length) : 0;
+    ecoHTML += `<div class="eco-row"><span class="eco-name">${area.label.split('/')[0].trim()}</span><span class="eco-val" style="color:${avg>0?col:'var(--dim)'}">${avg>0?Math.round((avg/20)*100)+'%':'—'}</span></div>`;
+  }
+  ecoHTML += '</div>';
+
+  const weak = [];
+  for (const area of AREAS) for (const sk of area.skills) { const st = stats[sk.id]||0; if (st >= 1 && st < 4) weak.push({ label:sk.label, stat:st }); }
+  const devHTML = weak.length > 0 ? `<div class="info-panel"><div class="panel-head">Gelişim Alanları</div>${weak.map(sk=>`<div class="dev-item"><div class="dev-name">${sk.label}</div><div class="dev-stat">${sk.stat} / 20 · Temel</div></div>`).join('')}</div>` : '';
+
+  const statsHTML = `<div class="info-panel"><div class="panel-head">Kariyer İstatistikleri</div>
+    <div class="info-row"><span class="ir-label">Toplam XP</span><span class="ir-val ir-gold">${profile.totalXP}</span></div>
+    <div class="info-row"><span class="ir-label">Kariyer Seviyesi</span><span class="ir-val ir-gold">Seviye ${lvl.n} · ${lvl.t}</span></div>
+    <div class="info-row"><span class="ir-label">Tamamlanan Senaryo</span><span class="ir-val">${profile.scenarios}</span></div>
+    <div class="info-row"><span class="ir-label">Verilen Karar</span><span class="ir-val">${profile.totalDec}</span></div>
+    <div class="info-row"><span class="ir-label">İsabetli Karar</span><span class="ir-val ir-green">${acc}</span></div>
+    <div class="info-row"><span class="ir-label">Aktif Karne</span><span class="ir-val ${tabColor}">${tabName}</span></div>
+  </div>`;
+
+  return `${statsHTML}${ecoHTML}${devHTML}<button class="btn-reset" onclick="confirmReset()">Tüm Kayıtları Sıfırla</button>`;
+}
+
+let G = { saves:[], scenariosData:{}, activeTab:'capm', profile:null };
+
+async function init() {
+  const sess = (() => { try { return JSON.parse(localStorage.getItem(SESSION_KEY)||'null'); } catch { return null; } })();
+
+  const manifest = await loadManifest();
+  if (manifest) {
+    const ids = manifest.scenarios.map(s => s.id);
+    const loaded = await Promise.all(ids.map(id => loadScenario(id)));
+    ids.forEach((id,i) => { if (loaded[i]) G.scenariosData[id] = loaded[i]; });
+  }
+
+  if (sess?.username) G.saves = await getUserSaves(sess.username);
+
+  const profile = computeProfile(G.saves, G.scenariosData);
+  const lvl = careerLevel(profile.totalXP);
+  const acc = profile.totalDec > 0 ? Math.round(profile.goodDec/profile.totalDec*100)+'%' : '—';
+
+  // Show career stats in hero
+  const statsEl = document.getElementById('profileCareerStats');
+  if (statsEl) {
+    statsEl.style.display = '';
+    document.getElementById('sc-scenarios').textContent  = profile.scenarios;
+    document.getElementById('sc-decisions').textContent  = profile.totalDec;
+    document.getElementById('sc-accuracy').textContent   = acc;
+    document.getElementById('sc-xp').textContent         = profile.totalXP + ' XP';
+    document.getElementById('sc-level-title').textContent = 'Seviye ' + lvl.n + ' · ' + lvl.t;
+  }
+
+  G.activeTab = defaultTab(G.saves);
+  G.profile   = profile;
+  setupTabs();
+  renderTab(G.activeTab);
+}
+
+function setupTabs() {
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    const tab = btn.dataset.tab;
+    if (!hasDataForTab(G.saves, tab)) {
+      btn.style.opacity = '0.5';
+      const sub = btn.querySelector('.tab-sub');
+      if (sub) sub.textContent = 'Veri yok · ' + sub.textContent.split('·')[1]?.trim();
+    }
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      G.activeTab = tab;
+      renderTab(tab);
+    });
+  });
+  document.querySelector(`.tab-btn[data-tab="${G.activeTab}"]`)?.classList.add('active');
+}
+
+function renderTab(tab) {
+  const diffWeight = TAB_DIFF[tab];
+  const stats   = computeStats(G.saves, G.scenariosData, diffWeight);
+  const hasData = hasDataForTab(G.saves, tab);
+  const tabKey  = TAB_LABEL[tab];
+  const attrHTML  = renderAttr(stats, tabKey);
+  const rightHTML = renderRight(G.profile, stats, G.saves, tab, G.scenariosData);
+  const emptyHTML = !hasData ? `<div class="empty-note"><h3>Bu seviyede veri yok</h3><p>${tab==='capm'?'Kolay':tab==='pmp'?'Normal':'Zor'} zorluktaki senaryoyu simüle ederek bu karneyi doldur.</p><a href="game.html" class="btn-play">Simülasyonu Başlat</a></div>` : '';
+  document.getElementById('main-grid').innerHTML = `<div>${attrHTML}${emptyHTML}</div><div class="right-panel">${rightHTML}</div>`;
+}
+
+async function confirmReset() {
+  if (!confirm('Kariyer istatistiklerini sıfırlamak istediğinden emin misin?\n\nMevcut puanlar gizlenir; geçmiş kayıtlar silinmez, güvenle saklanır.')) return;
+  const sess = (() => { try { return JSON.parse(localStorage.getItem(SESSION_KEY)||'null'); } catch { return null; } })();
+  if (sess?.username) {
+    const prefix = `pmSim_save_${sess.username}_`, archive = `pmSim_archive_${sess.username}_`;
+    const keys = [];
+    for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k?.startsWith(prefix)) keys.push(k); }
+    keys.forEach(k => { localStorage.setItem(archive + k.slice(prefix.length), localStorage.getItem(k)); localStorage.removeItem(k); });
+  }
+  localStorage.removeItem('pmp_career_competency');
+  if (window.__sbArchiveSaves) { try { await window.__sbArchiveSaves(); } catch (e) { console.warn('[DB] Arşiv başarısız:', e.message); } }
+  location.reload();
+}
 
 // ── DOMAIN SCORE LOGIC ──────────────────────────────────────────────────────
 function getEcoHistory() {
@@ -666,9 +1155,22 @@ function switchTab(name) {
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
 renderProfile();
-renderDomains();
 renderLastScenario();
 renderAccount();
+// init() (scorecard) is called by the module script below after Supabase is ready
 </script>
+
+<!-- ── Supabase DB entegrasyonu — init() burada başlatılıyor ────────────── -->
+<script type="module">
+try {
+  const { fetchUserSaves, archiveAllSaves } = await import('/js/db.js');
+  window.__sbFetchUserSaves = fetchUserSaves;
+  window.__sbArchiveSaves   = archiveAllSaves;
+} catch (e) {
+  console.warn('[DB] Supabase modülü yüklenemedi, yerel verilerle devam:', e?.message);
+}
+init();
+</script>
+
 </body>
 </html>
