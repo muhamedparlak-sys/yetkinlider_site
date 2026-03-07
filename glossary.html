@@ -178,7 +178,7 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 /* Geliştirme Yaklaşımı aktif renkleri */
 .filter-btn[data-da="Öngörücü"].active   { background: #dbeafe; border-color: #2563eb; color: #1d4ed8; }
 .filter-btn[data-da="Çevik"].active      { background: #d1fae5; border-color: #059669; color: #047857; }
-.filter-btn[data-da="Evrensel"].active   { background: #e0f2fe; border-color: #0284c7; color: #0369a1; }
+.filter-btn[data-da="Hibrit"].active     { background: #fef3c7; border-color: #d97706; color: #b45309; }
 
 /* ── CRISIS BLOCK INSIDE CARD ── */
 .crisis-block {
@@ -356,9 +356,9 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
       <button class="filter-btn" data-pg="Kapanış"    title="Kapanış süreci">🏁 Kapanış</button>
       <div class="filter-sep"></div>
       <span class="filter-group-lbl">Yaklaşım:</span>
-      <button class="filter-btn" data-da="Öngörücü"  title="Geleneksel / Waterfall">📐 Öngörücü</button>
+      <button class="filter-btn" data-da="Öngörücü"  title="Geleneksel / Predictive">📐 Öngörücü</button>
       <button class="filter-btn" data-da="Çevik"     title="Agile / Adaptive">🔄 Çevik</button>
-      <button class="filter-btn" data-da="Evrensel"  title="Her yaklaşımda kullanılır">🌐 Evrensel</button>
+      <button class="filter-btn" data-da="Hibrit"    title="Hem Predictive hem Agile bağlamında kullanılır">🔀 Hibrit</button>
     </div>
   </div>
 </div>
@@ -527,7 +527,10 @@ function getFiltered() {
   return allTerms.filter(t => {
     if (state.crisis && !t.whenToUse) return false;
     if (state.pg && t.processGroup !== state.pg) return false;
-    if (state.da && t.developmentApproach !== state.da) return false;
+    if (state.da) {
+      const das = Array.isArray(t.developmentApproach) ? t.developmentApproach : [t.developmentApproach];
+      if (!das.includes(state.da)) return false;
+    }
     if (state.cat && t.category !== state.cat) return false;
     if (state.letter) {
       const enOk = (t.term?.[0] || '').toUpperCase() === state.letter;
