@@ -148,6 +148,38 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 .crisis-btn:hover { background: #ffedd5; border-color: #fb923c; }
 .crisis-btn.active { background: #ea580c; border-color: #c2410c; color: #fff; }
 
+/* ── FILTER ROW 2 ── */
+.controls-row2 {
+  display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
+  padding-top: 9px; border-top: 1px solid var(--border);
+  margin-top: 5px; width: 100%;
+}
+.filter-group-lbl {
+  font-size: 10px; font-weight: 700; color: var(--text-muted);
+  letter-spacing: .06em; text-transform: uppercase;
+  white-space: nowrap; margin-right: 2px;
+}
+.filter-sep { width: 1px; height: 20px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
+.filter-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 5px 10px; border-radius: 7px;
+  border: 1px solid var(--border); background: #f8fafc;
+  color: var(--text-muted); font-size: 11.5px; font-weight: 600;
+  cursor: pointer; transition: all .15s; white-space: nowrap;
+  font-family: inherit; line-height: 1;
+}
+.filter-btn:hover { border-color: var(--primary-light); color: var(--primary); background: #f1f5f9; }
+/* Süreç Grubu aktif renkleri */
+.filter-btn[data-pg="Başlatma"].active    { background: #dcfce7; border-color: #16a34a; color: #15803d; }
+.filter-btn[data-pg="Planlama"].active    { background: #dbeafe; border-color: #2563eb; color: #1d4ed8; }
+.filter-btn[data-pg="Yürütme"].active     { background: #fef3c7; border-color: #d97706; color: #b45309; }
+.filter-btn[data-pg="İzleme ve Kontrol"].active { background: #ede9fe; border-color: #7c3aed; color: #6d28d9; }
+.filter-btn[data-pg="Kapanış"].active     { background: #f1f5f9; border-color: #475569; color: #334155; }
+/* Geliştirme Yaklaşımı aktif renkleri */
+.filter-btn[data-da="Öngörücü"].active   { background: #dbeafe; border-color: #2563eb; color: #1d4ed8; }
+.filter-btn[data-da="Çevik"].active      { background: #d1fae5; border-color: #059669; color: #047857; }
+.filter-btn[data-da="Evrensel"].active   { background: #e0f2fe; border-color: #0284c7; color: #0369a1; }
+
 /* ── CRISIS BLOCK INSIDE CARD ── */
 .crisis-block {
   background: #fff7ed; border: 1px solid #fed7aa;
@@ -314,6 +346,20 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
     <button class="crisis-btn" id="crisisBtn" title="Sadece kriz bağlamı olan terimleri göster">🚨 Kriz Bağlamı</button>
     <button class="clear-btn" id="clearBtn" aria-label="Filtreleri temizle">✕ Temizle</button>
     <span class="count-badge" id="countBadge"></span>
+
+    <div class="controls-row2">
+      <span class="filter-group-lbl">Süreç:</span>
+      <button class="filter-btn" data-pg="Başlatma"    title="Başlatma süreci">🚀 Başlatma</button>
+      <button class="filter-btn" data-pg="Planlama"   title="Planlama süreci">📋 Planlama</button>
+      <button class="filter-btn" data-pg="Yürütme"    title="Yürütme süreci">⚙️ Yürütme</button>
+      <button class="filter-btn" data-pg="İzleme ve Kontrol" title="İzleme ve Kontrol süreci">📊 İzleme</button>
+      <button class="filter-btn" data-pg="Kapanış"    title="Kapanış süreci">🏁 Kapanış</button>
+      <div class="filter-sep"></div>
+      <span class="filter-group-lbl">Yaklaşım:</span>
+      <button class="filter-btn" data-da="Öngörücü"  title="Geleneksel / Waterfall">📐 Öngörücü</button>
+      <button class="filter-btn" data-da="Çevik"     title="Agile / Adaptive">🔄 Çevik</button>
+      <button class="filter-btn" data-da="Evrensel"  title="Her yaklaşımda kullanılır">🌐 Evrensel</button>
+    </div>
   </div>
 </div>
 
@@ -381,7 +427,7 @@ const CAT_ICONS = {
 const CAT_ORDER = Object.keys(CAT_ICONS);
 
 let allTerms = [];
-let state = { q: '', cat: '', letter: '', crisis: false };
+let state = { q: '', cat: '', letter: '', crisis: false, pg: '', da: '' };
 
 fetch('data/glossary.json')
   .then(r => r.json())
@@ -442,22 +488,46 @@ document.getElementById('crisisBtn').addEventListener('click', () => {
   document.getElementById('crisisBtn').classList.toggle('active', state.crisis);
   syncClear(); render();
 });
+
+// Süreç Grubu filtre butonları
+document.querySelectorAll('.filter-btn[data-pg]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const val = btn.dataset.pg;
+    state.pg = (state.pg === val) ? '' : val;
+    document.querySelectorAll('.filter-btn[data-pg]').forEach(b => b.classList.toggle('active', b.dataset.pg === state.pg && state.pg !== ''));
+    syncClear(); render();
+  });
+});
+
+// Geliştirme Yaklaşımı filtre butonları
+document.querySelectorAll('.filter-btn[data-da]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const val = btn.dataset.da;
+    state.da = (state.da === val) ? '' : val;
+    document.querySelectorAll('.filter-btn[data-da]').forEach(b => b.classList.toggle('active', b.dataset.da === state.da && state.da !== ''));
+    syncClear(); render();
+  });
+});
+
 document.getElementById('clearBtn').addEventListener('click', () => {
-  state = { q: '', cat: '', letter: '', crisis: false };
+  state = { q: '', cat: '', letter: '', crisis: false, pg: '', da: '' };
   document.getElementById('searchInput').value = '';
   document.getElementById('catSelect').value = '';
   document.getElementById('alphaSelect').value = '';
   document.getElementById('crisisBtn').classList.remove('active');
+  document.querySelectorAll('.filter-btn[data-pg], .filter-btn[data-da]').forEach(b => b.classList.remove('active'));
   syncClear(); render();
 });
 
 function syncClear() {
-  document.getElementById('clearBtn').classList.toggle('visible', !!(state.q || state.cat || state.letter || state.crisis));
+  document.getElementById('clearBtn').classList.toggle('visible', !!(state.q || state.cat || state.letter || state.crisis || state.pg || state.da));
 }
 
 function getFiltered() {
   return allTerms.filter(t => {
     if (state.crisis && !t.whenToUse) return false;
+    if (state.pg && t.processGroup !== state.pg) return false;
+    if (state.da && t.developmentApproach !== state.da) return false;
     if (state.cat && t.category !== state.cat) return false;
     if (state.letter) {
       const enOk = (t.term?.[0] || '').toUpperCase() === state.letter;
