@@ -15,7 +15,9 @@
       "whenToUse": "Takımın işi (teslimatı) 'bitti' diyerek sunduğu ancak müşterinin veya sponsorun 'bu benim istediğim şey değil' diyerek işi reddettiği durumlar. Çözüm: İşe başlamadan önce 'neyin bittiği' konusunda paydaşlarla önceden anlaşmaya varılmış koşullara (kriterlere) bakmaktır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Acting on Hearsay",
@@ -30,7 +32,9 @@
       ],
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Active Listening",
@@ -46,7 +50,9 @@
       "whenToUse": "Özellikle sanal takımlarda, farklı kültürlerden gelen takım üyelerinin veya paydaşların birbirlerini yanlış anladığı, iletişimin koptuğu veya gizli bir öfkenin yaşandığı psikolojik kriz anları. Çözüm: Karşıdakinin mesajını doğru anlamak ve engelleri kaldırmak için aktif dinleme tekniğini kullanmaktır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Activity Attributes",
@@ -61,7 +67,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Actual Cost (AC)",
@@ -78,7 +86,9 @@
       "whenToUse": "Sponsorun gelip 'Bugüne kadar tam olarak ne kadar para harcadık, cebimizden ne kadar nakit çıktı?' diye sorduğu sayısal durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Adaptive Approach",
@@ -96,7 +106,9 @@
       "whenToUse": "Proje başında gereksinimlerin net olmadığı, belirsizliğin ve inovasyon ihtiyacının çok yüksek olduğu, sık sık dış çevre değişikliği yaşanan ortamlar. Çözüm: Uzun vadeli katı planlar yapmak yerine, kısa döngülerle (sprint) geri bildirim alarak planı esnetmektir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Agile",
@@ -114,7 +126,9 @@
       "whenToUse": "Kapsamlı ve kalın dokümantasyonların (şelale) müşteriye değer katmadığı, değişimin çok hızlı olduğu ve takımın işbirliği/şeffaflık içinde kendi kendini yönetmesinin gerektiği karmaşık proje ihtiyaçları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Agile Center of Excellence (ACoE)",
@@ -130,7 +144,9 @@
       "whenToUse": "Organizasyon genelinde birden fazla takımın çevik yaklaşıma geçerken standartları oturtamadığı, takımların yöneticilik ve baskı yerine 'koçluk, mentorluk ve doğrudan destek' alabilecekleri yapısal bir birime ihtiyaç duyduğu kurumsal dönüşüm krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Agile Manifesto",
@@ -145,7 +161,9 @@
       "definitionTR": "2001 yılında yazılım uygulayıcıları tarafından oluşturulan temel bir belgedir. Dört temel değeri ortaya koyar: süreçler ve araçlar yerine bireyler ve etkileşimler; kapsamlı belgelendirme yerine çalışan yazılım; sözleşme müzakeresi yerine müşteri işbirliği; bir planı izlemek yerine değişime yanıt vermek.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "AI Hallucination & Bias",
@@ -153,7 +171,10 @@
       "category": "Risk Management",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel",
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ],
       "definition": "The tendency of AI systems to generate plausible-sounding but factually incorrect outputs (hallucination) or to produce skewed results due to biased training data (bias). In project management, over-reliance on AI-generated plans or analyses without human validation poses a critical risk.",
       "definitionTR": "Yapay zeka sistemlerinin gerçekte doğru olmayan çıktılar üretme (halüsinasyon) ya da önyargılı eğitim verilerinden kaynaklanan çarpık sonuçlar üretme (önyargı) eğilimi. Proje yönetiminde, insan doğrulaması yapılmadan yapay zeka tarafından üretilen plan veya analizlere aşırı güvenmek kritik bir risk oluşturur.",
       "whenToUse": "Proje kararları yapay zeka çıktılarına dayandığında ve insan doğrulaması atlandığında bu risk devreye girer. Yanlış analizler veya gerçekdışı planlar kritik proje hatalarına yol açabilir; her AI çıktısı uzman gözüyle doğrulanmalıdır.",
@@ -177,7 +198,10 @@
       "whenToUse": "Masada birden fazla çözüm seçeneğinin olduğu, olayların nedeninin net anlaşılamadığı, 'risk (bilinen bilinmeyen)' durumundan daha çok 'yön eksikliği' yaşanan durumlar.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Analogous Estimating",
@@ -193,7 +217,9 @@
       "whenToUse": "Projenin henüz çok başında olunduğu, detaylı bilginin bulunmadığı ancak üst yönetimin acilen bir maliyet veya süre tahmini ('kabaca ne kadar sürer?') istediği anlar. Çözüm: Geçmişteki benzer projelerin verilerini (yukarıdan aşağıya) kullanmaktır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Appraisal Cost",
@@ -209,7 +235,9 @@
       "definitionTR": "Ürün veya hizmetlerin kalite standartlarına uygunluğunu ölçmek, değerlendirmek ve denetlemek için katlanılan maliyetlerdir. Test, muayene ve denetim örnek verilebilir. Değerlendirme maliyetleri, Kalite Maliyetinin bir bileşenidir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Artifact",
@@ -224,7 +252,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Assumption",
@@ -239,7 +269,10 @@
       "definitionTR": "Planlama ve risk süreçlerinde, aksine bir kanıt veya gösterge olmaksızın doğru, gerçek veya kesin olarak kabul edilen faktörlerdir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Assumption Log",
@@ -255,7 +288,10 @@
       "whenToUse": "Projenin başında, kanıtlanmamış faktörlerin 'doğru' kabul edilerek yola çıkıldığı ve bu durumların sonradan değişerek projeye risk (tehdit) oluşturup oluşturmadığının takip edilmesi gerektiği anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Authoritarian Forcing",
@@ -270,7 +306,9 @@
       ],
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Backlog Refinement",
@@ -286,7 +324,9 @@
       "definitionTR": "Aşırı karmaşık veya büyük hikayelerin (epic) daha alt parçalara bölünerek detaylandırılmasını sağlayan ve takımın bunları daha hızlı tamamlamasına olanak tanıyan toplantı/çalışmadır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Baseline",
@@ -303,7 +343,9 @@
       "whenToUse": "Proje devam ederken, takımın veya müşterinin projenin orijinal plandan sapıp sapmadığını (gecikme veya bütçe aşımı) ölçmek istediği performans değerlendirme krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Be a Diligent Steward",
@@ -319,7 +361,9 @@
       "definitionTR": "PMBOK® 8. Baskının 12 ilkesinden biridir. Proje yöneticileri ve ekip üyeleri, zaman, para, malzeme ve itibar dahil organizasyonel kaynakları sorumlu birer yönetici gibi yönetir; hem kısa hem uzun vadeli sonuçları gözetarak dürüstlük ve özenle hareket eder.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Behavior-Driven Development (BDD)",
@@ -335,7 +379,9 @@
       "whenToUse": "Yazılım takımının kalite kusurlarını (bug) iş işten geçtikten sonra fark ettiği; bunu önlemek için ürün kodlanmadan önce otomatik testlerin ve simülasyonların yazılarak testlerin 'başarısız olmaya zorlandığı' kalite ve süreç sorunları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Benchmarking",
@@ -350,7 +396,9 @@
       "definitionTR": "En iyi uygulamaları belirlemek ve iyileştirme için fikirler üretmek amacıyla gerçek veya planlanmış proje süreçlerini diğer benzer organizasyonlarınkilerle karşılaştırma işlemidir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Benefit",
@@ -366,7 +414,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Benefit-Cost Ratio (BCR)",
@@ -383,7 +433,9 @@
       "whenToUse": "Masada birden fazla projenin veya çözüm alternatifinin bulunduğu ve yönetimin 'Hangi proje bize harcadığımız paraya karşılık en yüksek finansal cazibeyi/kazancı sağlar?' diye sorduğu karar anları. Çözüm: Oranı 1.0'dan en büyük olanı seçmektir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Benefits Owner",
@@ -399,7 +451,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Benefits Realization",
@@ -416,7 +470,10 @@
       "whenToUse": "Proje başarılı bir şekilde kapanıp ürün teslim edildikten aylar sonra bile 'Biz bu projeyi satışları %20 artırmak için yapmıştık, bu amaca ulaştık mı?' sorusunun izlendiği (satış sonrası) durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Kapanış",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Bid Documents",
@@ -432,7 +489,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Bidder Conference",
@@ -448,7 +507,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Blind Trust in AI",
@@ -456,7 +517,9 @@
       "category": "Risk Management",
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel",
+      "developmentApproach": [
+        "Hibrit"
+      ],
       "definition": "The dangerous anti-pattern of accepting AI-generated outputs—plans, forecasts, or decisions—without critical human review or expert validation. This approach ignores the risk of hallucinations and bias, violates PMI's ethical standards, and can lead to catastrophic project failures.",
       "definitionTR": "Yapay zeka tarafından üretilen plan, tahmin veya kararları eleştirel bir insan incelemesi ya da uzman doğrulaması olmadan kabul etme tehlikeli anti-kalıbı. Bu yaklaşım; halüsinasyon ve önyargı riskini görmezden gelir, PMI etik standartlarını ihlal eder ve projeyi felakete sürükleyebilir.",
       "whenToUse": "Bir ekip üyesi veya yönetici yapay zekanın önerdiği planı sorgusuz sualsiz uygulamak istediğinde bu tehlikeli tutumla karşılaşılır. PMI etiği ve risk yönetimi açısından her zaman yanlış seçenektir; doğru yanıt Human-in-the-Loop ilkesini uygulamaktır.",
@@ -480,7 +543,9 @@
       ],
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Body Language",
@@ -495,7 +560,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Bottom-up Estimating",
@@ -512,7 +579,9 @@
       "whenToUse": "Çok kritik bir projede, hata payının en aza indirilmesi gereken ve maliyetin en yüksek doğrulukla hesaplanmasının zorunlu olduğu durumlar. Çözüm: İşi İş Kırılım Yapısındaki (WBS) en küçük parçalara bölüp tek tek hesaplayarak toplamaktır (Zaman alır ama en doğrusudur).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Brainstorming",
@@ -529,7 +598,9 @@
       "whenToUse": "Projede tamamen yeni bir pazar veya teknoloji ile karşılaşıldığında, takımın riskleri tanımlamakta veya bir probleme çözüm bulmakta tıkandığı ve 'eleştirilmeden, çok sayıda fikre' ihtiyaç duyulan toplantı anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Brainwriting",
@@ -545,7 +616,9 @@
       "whenToUse": "Beyin fırtınası toplantılarında baskın/sesi yüksek çıkan yöneticilerin diğer takım üyelerini bastırdığı (grup düşüncesi / groupthink) ve iyi fikirlerin kaybolduğu; bu yüzden takım üyelerinin fikirlerini konuşarak değil 'sessizce bir kağıda/ekrana yazarak' anonim şekilde paylaşmasının gerektiği iletişim tıkanıklıkları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Budget at Completion (BAC)",
@@ -562,7 +635,9 @@
       "whenToUse": "Proje yöneticisinin tüm onaylanmış bütçelerin toplamını görmek istediği ve gelecekteki olası maliyet sapmalarını hesaplarken kullanacağı temel bütçe (referans noktası) sorulduğunda.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Build Quality Into Processes",
@@ -578,7 +653,9 @@
       "definitionTR": "PMBOK® 8. Baskının 12 ilkesinden biridir. Kaliteyi hem süreçlere hem de teslimat ürünlerine başından itibaren entegre edin. Kalite herkesin sorumluluğudur; önleme, muayene ve sürekli iyileştirme yoluyla elde edilir — sonradan düşünülen ya da ayrı bir ekibin işi değildir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Burndown Chart",
@@ -594,7 +671,9 @@
       "definitionTR": "Tamamlanması gereken veya kalan iş miktarını belirli bir zaman dilimine karşı gösteren ve genellikle çevik projelerde takımın hızını izlemek için kullanılan bir araçtır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Burnup Chart",
@@ -609,7 +688,9 @@
       "definitionTR": "Zamana karşı tamamlanan iş miktarını gösteren, aynı zamanda projenin toplam kapsamındaki değişikliklerin de takip edilmesini sağlayan görsel bir bilgi grafiğidir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Business Case",
@@ -626,7 +707,10 @@
       "whenToUse": "Piyasada aniden yeni bir yasa çıktığında, enflasyon aşırı arttığında veya rakip firma daha iyi bir ürün çıkardığında; 'Bu projeye hala devam etmemiz finansal ve stratejik olarak mantıklı mı?' diye sorgulanan o kritik (Go/No-Go) kararı anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Business Value",
@@ -643,7 +727,9 @@
       "whenToUse": "Çevik bir projede bütçe kısıtlı olduğunda veya zaman daraldığında; Ürün Sahibinin (Product Owner) İş Birikim Listesinde (Backlog) 'İlk olarak hangisini geliştirmeliyiz?' kavgası yaşandığında. Çözüm: Her zaman organizasyona en yüksek İş Değerini katacak özelliği en başa koymaktır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Bypassing Functional Manager",
@@ -658,7 +744,9 @@
       ],
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Cause-and-Effect Diagram",
@@ -674,7 +762,9 @@
       "whenToUse": "Projede bir kalite kusurunun ortaya çıktığı, takımın sadece semptomları (belirtileri) gördüğü ve 'Bu sorunun asıl (kök) nedeni nedir?' sorusuna cevap bulmak için potansiyel nedenleri makine, insan, süreç gibi dallara ayırarak beyin fırtınası yapması gerektiği anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Change Control Board (CCB)",
@@ -690,7 +780,9 @@
       "whenToUse": "Şelale (Predictive) bir projede; müşteri veya sponsorun kilitlenmiş (baseline) kapsama, takvime veya bütçeye etki edecek yeni bir değişiklik istediği durumlar. Kural: Proje yöneticisi etkiyi analiz ettikten sonra kararı (onay/ret) tek başına alamaz, bu kurula (CCB) sunmalıdır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Change Request",
@@ -706,7 +798,9 @@
       "whenToUse": "Geleneksel projede aniden yeni bir yasanın çıkması, zorunlu bir uyumluluk (compliance) kuralının gelmesi veya müşterinin kapsamı değiştirmek istemesi durumlarında; takımın çalışmaya başlamadan önce atması gereken ilk resmi eylem (Dokümantasyon).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Checklist",
@@ -721,7 +815,9 @@
       "whenToUse": "Takım üyelerinin bazı adımları atladığı, süreçlerde tutarsızlıkların (insan hatası) yaşandığı ve proje yöneticisinin 'işin eksiksiz ve standartlara uygun yapıldığını' adım adım doğrulamak için yapılandırılmış bir araca ihtiyaç duyduğu krizler.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Claim",
@@ -737,7 +833,9 @@
       "whenToUse": "Alıcı (proje yöneticisi) ile satıcı (tedarikçi) arasında sözleşme şartları, değişiklikler veya ödemeler konusunda bir anlaşmazlık çıktığında; taraflardan birinin yasal/sözleşmesel olarak ekstra ödeme veya hak talep ettiği dış paydaş çatışmaları.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Cognitive Bias",
@@ -753,7 +851,9 @@
       ],
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Communication Channels Formula",
@@ -768,7 +868,9 @@
       "definitionTR": "Bir projedeki olası iletişim kanalı sayısını hesaplayan formüldür: n(n-1)/2; burada n paydaş sayısıdır. Ekip büyüdükçe kanal sayısı hızla artar; bu durum yapılandırılmış iletişim planlamasının önemini vurgular.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Communication Methods",
@@ -783,7 +885,9 @@
       "definitionTR": "Üç temel iletişim yöntemi: Etkileşimli (iki veya daha fazla taraf arasında gerçek zamanlı değişim, ör. toplantılar ve aramalar); Göndermeli (yanıt beklenmeksizin alıcılara iletilen bilgi, ör. e-postalar ve raporlar); ve Çekmeli (alıcıların isteğe bağlı erişebildiği bilgi, ör. portallar ve depolar).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Communications Management Plan",
@@ -798,7 +902,9 @@
       "definitionTR": "Hangi bilginin iletileceğini, kime, ne sıklıkla, hangi kanallar aracılığıyla ve hangi biçimde aktarılacağını tanımlayan yardımcı bir plandır. Paydaş iletişim gereksinimlerinin proje boyunca sistematik biçimde karşılanmasını sağlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Community of Practice",
@@ -815,7 +921,9 @@
       "whenToUse": "Kilit personelin aniden işten ayrılması veya projeler arası yetkinlik kaybı yaşanması riskine karşı; uzmanların bir araya gelerek organizasyon içinde bilginin düzenli olarak depolanmasını ve aktarılmasını (mentorluk eşliğinde) sağlamak için kurdukları yapı ihtiyacı.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Configuration Management",
@@ -830,7 +938,9 @@
       "definitionTR": "Proje teslimat ürünlerini ve belgelerini yaşam döngüsü boyunca tanımlayan, izleyen ve kontrol eden bir sistemdir. Temel çizgi bütünlüğünü korur ve kontrollü herhangi bir öğedeki değişiklikler için tam bir geçmiş kaydı sağlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Confirmation Bias",
@@ -846,7 +956,9 @@
       ],
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Conflict Resolution Techniques",
@@ -862,7 +974,9 @@
       "definitionTR": "Anlaşmazlıkları çözmek için kullanılan temel PMI yaklaşımları: İşbirliği/Problem Çözme (en iyi), Uzlaşma, Pürüzsüzleştirme, Zorlama ve Kaçınma.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Constraint",
@@ -877,7 +991,10 @@
       "definitionTR": "Proje ekibinin seçeneklerini sınırlayan koşullardır; sabit bir bitiş tarihi, kısıtlı bütçe, yasal gereklilik veya kaynak sınırlaması örnek verilebilir. Varsayımların aksine kısıtlar, inanç değil belirlenmiş gerçeklerdir.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Contingency Reserve",
@@ -894,7 +1011,10 @@
       "whenToUse": "Proje planlamasında önceden tanımlanıp analiz edilen (bilinen-bilinmeyen) bir riskin aniden gerçekleştiği (örn: beklenen kötü hava koşulları nedeniyle işin durması) ve proje yöneticisinin üst yönetime/sponsora gitmeden, kendi yetkisiyle bu zaman/para fonunu kullanması gereken anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Continuous Improvement",
@@ -911,7 +1031,9 @@
       "whenToUse": "Takımın süreçlerde verimsizlik yaşadığı; ürünleri ve süreçleri büyük ve maliyetli adımlarla değil, retrospektifler aracılığıyla 'sürekli ve küçük adımlarla' (incremental) iyileştirmesi gerektiği kültür dönüşümü anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Contract",
@@ -927,7 +1049,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Control Charts",
@@ -943,7 +1067,9 @@
       "whenToUse": "Üretim hattında veya süreçte tekrarlayan kalite sapmalarının yaşandığı, proje yöneticisinin 'sürecin stabil olup olmadığını' veya 'alt ve üst kontrol limitleri içinde çalışıp çalışmadığını' anlamak istediği ölçüm durumları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Cost Baseline",
@@ -958,7 +1084,9 @@
       "definitionTR": "Yönetim rezervi hariç, onaylanmış ve zaman fazlı proje bütçesidir. Projenin herhangi bir noktasındaki beklenen kümülatif maliyeti temsil eder; Kazanılmış Değer Yönetimi ile maliyet performansını ölçmek için referans olarak kullanılır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Cost Management Plan",
@@ -973,7 +1101,9 @@
       "definitionTR": "Proje maliyetlerinin nasıl planlanacağını, tahmin edileceğini, bütçeleneceğini, finanse edileceğini, yönetileceğini, izleneceğini ve kontrol edileceğini belirleyen bir proje yönetim planı bileşenidir. Eşikleri, raporlama biçimlerini ve maliyet performansı ölçüm kriterlerini belirler.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Cost of Quality (COQ)",
@@ -989,7 +1119,9 @@
       "definitionTR": "Hataların azaltılmasına yönelik önleyici maliyetler, değerlendirme maliyetleri (denetimler) ve hem iç hem de dış hatalarla ilgili başarısızlık maliyetlerinin toplamını ifade eder.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Cost Performance Index (CPI)",
@@ -1006,7 +1138,9 @@
       "whenToUse": "Sponsorun gelip 'Harcadığımız her 1 dolar için ne kadarlık değer (iş) üretiyoruz? Maliyet verimliliğimiz nedir?' diye sorduğu finansal analiz anları. (Hesaplanan değer 1.0'ın altındaysa bütçe aşılmıştır).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Cost Reimbursable Contract",
@@ -1022,7 +1156,9 @@
       "whenToUse": "Proje kapsamının en baştan net olarak tanımlanamadığı (yüksek belirsizlik) durumlarda; alıcının risk alarak, satıcıya (tedarikçiye) yaptığı tüm masrafları ve üzerine belli bir kar payını ödemeyi baştan kabul etmek zorunda kaldığı satın alma senaryoları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Cost Variance (CV)",
@@ -1038,7 +1174,9 @@
       "whenToUse": "Proje bütçesinin aşılıp aşılmadığının 'oran (endeks) olarak değil, net para miktarı (dolar) olarak' (CV = EV - AC) görülmek istendiği performans ölçüm krizleri.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Crashing",
@@ -1054,7 +1192,9 @@
       "whenToUse": "Projenin takvimin gerisinde kaldığı (geciktiği) ve proje yöneticisinin teslim tarihine yetişmek için ekstra maliyeti (bütçeyi) göze alarak kritik yoldaki faaliyetlere fazla mesai uyguladığı veya fazladan kaynak/personel eklediği acil durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Create a Collaborative Team Environment",
@@ -1070,7 +1210,9 @@
       "definitionTR": "PMBOK® 8. Baskının 12 ilkesinden biridir. Ortak sahiplenme, psikolojik güvenlik, karşılıklı saygı ve düşünce çeşitliliği ile karakterize edilen işbirlikçi bir proje ekibi ortamı oluşturun. Birbirine güvenen ekipler, silolanmış bireylerin toplamından tutarlı biçimde daha iyi performans gösterir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Critical Path",
@@ -1086,7 +1228,9 @@
       "definitionTR": "Proje başından sonuna kadar uzanan ve minimum proje süresini tanımlayan en uzun bağımlı faaliyetler dizisidir. Kritik yoldaki herhangi bir faaliyetin gecikmesi, projenin tamamlanma tarihini doğrudan geciktirir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Critical Path Method (CPM)",
@@ -1103,7 +1247,9 @@
       "whenToUse": "Projenin tamamlanması için gereken 'en kısa sürenin (minimum sürenin)' hesaplanması ve hangi görevlerin asla gecikmemesi gerektiğinin (sıfır bolluk/float) tespit edilmesi gereken planlama/zamanlama krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Critical Thinking",
@@ -1119,7 +1265,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Crystal Methods",
@@ -1135,7 +1283,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Cumulative Flow Diagram",
@@ -1143,7 +1293,9 @@
       "category": "Agile & Adaptive",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Çevik",
+      "developmentApproach": [
+        "Çevik"
+      ],
       "definition": "An agile visualization tool tracking the number of work items in each workflow stage over time. It helps teams identify bottlenecks, measure cycle time, and monitor throughput. A widening band in any stage signals a blockage requiring immediate attention.",
       "definitionTR": "İş öğelerinin zaman içinde iş akışının her aşamasında ne kadar biriktiğini izleyen çevik görselleştirme aracı. Ekiplerin darboğazları tespit etmesine, döngü süresini ölçmesine ve genel iş akışını izlemesine yardımcı olur. Herhangi bir aşamada genişleyen bant, acil müdahale gerektiren bir tıkanıklığa işaret eder.",
       "related": [
@@ -1167,7 +1319,9 @@
       "definitionTR": "Çevik takımların her gün ilerlemeyi gözden geçirmek, o günkü işleri planlamak ve engelleri tespit etmek için yaptıkları kısa, genellikle 15 dakikalık zaman kutulu senkronizasyon toplantısıdır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Decision Tree Analysis",
@@ -1182,7 +1336,9 @@
       "definitionTR": "Birden fazla seçeneğin olduğu durumlarda, her bir seçeneğin potansiyel maliyetlerini, risklerini ve beklenen faydalarını matematiksel olarak değerlendirmek için kullanılan karar modelleme tekniğidir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Decomposition",
@@ -1199,7 +1355,9 @@
       "whenToUse": "Proje teslimatlarının veya gereksinimlerin (Çevik'te Epic'lerin) zaman/maliyet tahmini yapılamayacak kadar 'büyük ve karmaşık' olduğu; işin daha küçük, kolay yönetilebilir parçalara (iş paketleri veya tasklar) bölünmesinin gerektiği tıkandığınız anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Defensive Behavior (Blaming)",
@@ -1214,7 +1372,9 @@
       ],
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Definition of Done (DoD)",
@@ -1231,7 +1391,9 @@
       "whenToUse": "Çevik takımın ürünü 'bitti' diyerek sunduğu ancak ürün sahibinin veya müşterinin güvenlik, test veya kodlama standartları karşılanmadığı için ürünü reddettiği 'Neye bitti diyoruz?' konulu beklenti uyuşmazlığı (kalite) krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Definition of Ready (DoR)",
@@ -1248,7 +1410,9 @@
       "whenToUse": "Takımın sprint (yineleme) içine aldığı bir kullanıcı hikayesini; detayları, bağımlılıkları veya kabul kriterleri netleşmediği için sprint ortasında tahmin edemeyip (veya geliştiremeyip) işin tıkandığı planlama hataları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Deliverable",
@@ -1264,7 +1428,9 @@
       "definitionTR": "Bir projeyi, fazı veya süreci tamamlamak için üretilen benzersiz, doğrulanabilir ürün, sonuç veya kapasitedir. Teslimatlar somut (belgeler, donanım, yazılım) veya soyut (eğitilmiş personel, iyileştirilmiş süreçler) olabilir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Delivery Performance Domain",
@@ -1280,7 +1446,9 @@
       "definitionTR": "PMBOK® 8. Baskının 8 performans alanından biridir. Paydaş gereksinimlerini karşılayan ve amaçlanan iş sonuçlarıyla değeri elde eden bir biçimde kapsam ve kalite sunmaya ilişkin faaliyetleri ve sorumlulukları ele alır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Delphi Technique",
@@ -1296,7 +1464,9 @@
       "whenToUse": "Önemli bir riskin veya sürenin tahmin edileceği bir toplantıda, odadaki baskın yöneticilerin veya dışa dönük kişilerin diğer takım üyelerini etkilemesini engellemek için, uzmanlardan anonim (gizli) olarak anket veya görüş toplanması gereken durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Demonstrate Leadership",
@@ -1312,7 +1482,9 @@
       "definitionTR": "PMBOK® 8. Baskının 12 ilkesinden biridir. Motivasyon, koçluk, güçlendirme ve vizyon gibi etkin liderlik davranışlarını sergileyin ve teşvik edin. Liderlik yalnızca proje yöneticisiyle sınırlı değildir; ekipteki herkes durumun gerektirdiğinde liderlik edebilir ve etmelidir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Design of Experiments (DOE)",
@@ -1328,7 +1500,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Design Thinking",
@@ -1345,7 +1519,9 @@
       "whenToUse": "Projenin başlangıcında müşterinin tam olarak ne istediğini bilemediği veya piyasanın karmaşık olduğu durumlarda; takımın müşteriyle derin empati kurarak, hızlı prototipler üreterek 'kullanıcı merkezli' yenilikler yaratması gereken belirsizlik anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Development Approach",
@@ -1361,7 +1537,9 @@
       "definitionTR": "Proje teslimat ürünlerini oluşturmak ve geliştirmek için seçilen yöntemdir; tamamen öngörücüden (şelale) tamamen uyarlanabilire (çevik) uzanan bir yelpazeyi kapsar. Seçim; gereksinim istikrarı, teslimat riski, ekip kapasitesi ve kurumsal bağlam tarafından yönlendirilir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Development Approach and Life Cycle Performance Domain",
@@ -1378,7 +1556,9 @@
       "definitionTR": "PMBOK® 8. Baskının 8 performans alanından biridir. Paydaş ihtiyaçlarına ve proje bağlamına en iyi hizmet edecek uygun proje teslimat yaklaşımının (öngörücü, hibrit veya uyarlanabilir) seçilmesini, uygulanmasını ve proje yaşam döngüsünün yapılandırılmasını ele alır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "DevOps",
@@ -1394,7 +1574,9 @@
       "whenToUse": "Yazılım Geliştirme (Dev) ekibinin ürünü hızlıca kodladığı ancak Operasyon/Altyapı (Ops) ekibinin dağıtım/test aşamasında yavaş kaldığı; departmanlar arası silolaşmanın ve otomasyon eksikliğinin projenin teslimatını yavaşlattığı organizasyonel kültür krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Dormancy",
@@ -1410,7 +1592,9 @@
       ],
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Earned Value (EV)",
@@ -1426,7 +1610,9 @@
       "whenToUse": "Projenin ortasında sponsorun gelip 'Şu ana kadar ne kadar para harcadığımızı (AC) sormuyorum, bana şu ana kadar fiziksel olarak tamamladığımız işin parasal karşılığını söyle' dediği performans ölçüm anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Earned Value Management (EVM)",
@@ -1444,7 +1630,9 @@
       "whenToUse": "Yönetimin sizden projenin sadece zamanını veya sadece bütçesini değil; kapsam, zaman ve maliyet verilerini bütünleşik ve objektif bir matematiksel sistemle analiz edip projenin gidişatını raporlamanızı istediği durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Embrace Adaptability & Resilience",
@@ -1460,7 +1648,9 @@
       "definitionTR": "PMBOK® 8. Baskının 12 ilkesinden biridir. Proje hedeflerine yönelik ivmeyi kaybetmeksizin kesintilere, aksaklıklara ve değişikliklere öngörme ve yanıt verme kapasitesi oluşturun. Dayanıklı ekipler şokları emer, hızla öğrenir ve koşullar değiştiğinde çöküp gitmek yerine yaklaşımlarını uyarlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Emotional Intelligence (EI)",
@@ -1477,7 +1667,9 @@
       "whenToUse": "Projenin teslimine çok az süre kala takımın gece geç saatlere kadar çalıştığı, stres ve tükenmişlik (burnout) yaşadığı, üyeler arası bağırışmaların veya pasif-agresif davranışların başladığı yüksek psikolojik kriz anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Enable Change",
@@ -1493,7 +1685,9 @@
       "definitionTR": "PMBOK® 8. Baskının 12 ilkesinden biridir. Amaçlanan faydaları gerçekleştirmek için gerekli olduğunda değişimi benimseyin ve mümkün kılın. Bu, insanları değişime hazırlamayı, geçişi düşünerek yönetmeyi ve organizasyonun mevcut durumdan istenen gelecek duruma geçmesine yardımcı olmayı içerir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Engage with Stakeholders",
@@ -1509,7 +1703,9 @@
       "definitionTR": "PMBOK® 8. Baskının 12 ilkesinden biridir. Proje boyunca paydaşlarla aktif ve proaktif biçimde etkileşim kurun. Çıkarlarını, beklentilerini ve endişelerini anlayarak bunları uygun biçimde ele almak, gerçek değer yaratan sonuçlar üretmek için vazgeçilmezdir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Enterprise Environmental Factors (EEF)",
@@ -1525,7 +1721,10 @@
       "whenToUse": "Proje takımının doğrudan kontrolü altında olmayan; hükümetin aniden yeni bir yasa çıkarması, piyasada enflasyonun patlaması veya şirketin kendi içindeki katı hiyerarşik yapısının projenin ilerlemesini kısıtlamaya başladığı dış/iç krizler.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Epic",
@@ -1542,7 +1741,9 @@
       "whenToUse": "Müşterinin istediği bir gereksinimin tek bir sprint'e sığmayacak kadar devasa ve karmaşık olduğu, takımın tahminleme yapamadığı ve işi 'Ayrıştırma (Decomposition)' ile daha küçük User Story'lere bölmek zorunda kaldığı planlama darboğazları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Escalation",
@@ -1559,7 +1760,9 @@
       "whenToUse": "Çözümü proje yöneticisinin yetkisini, bütçesini veya projenin sınırlarını tamamen aşan bir kriz yaşandığında başvurulacak son çare eylemi.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Estimate at Completion (EAC)",
@@ -1576,7 +1779,9 @@
       "whenToUse": "Projede işler baştaki plandan kötü gitmeye başladığında, sponsorun 'Eski bütçeyi (BAC) unut, mevcut kötü gidişatımızla proje bittiğinde cebimizden toplam ne kadar çıkacak?' diye sorduğu finansal revizyon anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Estimate to Complete (ETC)",
@@ -1591,7 +1796,9 @@
       "definitionTR": "Kalan tüm proje işini tamamlamak için beklenen maliyettir. KDY verilerinden hesaplanırken: ETC = EAC - GM. Performans varsayımları önemli ölçüde değiştiğinde ekip, ETC yi sıfırdan yeniden tahmin edebilir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Expected Monetary Value (EMV)",
@@ -1607,7 +1814,9 @@
       "whenToUse": "Masada birden fazla olası senaryo (tehdit veya fırsat) olduğunda ve yöneticinin Karar Ağacı kullanarak bu senaryoların olasılık (%) ile parasal etkilerini ($) çarpıp matematiksel olarak en doğru yolu bulması gerektiği durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Explicit Knowledge",
@@ -1623,7 +1832,9 @@
       "whenToUse": "Projeye yeni katılan bir üyenin, projenin standartlarını, prosedürlerini, kılavuzlarını veya spesifikasyonlarını hızlıca okuyup öğrenmesi gerektiği veri transferi durumları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "External Dependency",
@@ -1639,7 +1850,9 @@
       ],
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "External Failure Cost",
@@ -1654,7 +1867,9 @@
       "definitionTR": "Ürün müşteriye teslim edildikten sonra keşfedilen kusurlar nedeniyle katlanılan maliyetlerdir. Garanti onarımları, geri çağırmalar, sahada yeniden çalışma ve itibar kaybı bu maliyetlere örnek verilebilir. Bunlar, kalite hatası maliyetlerinin en pahalı kategorisidir.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Extreme Programming (XP)",
@@ -1671,7 +1886,9 @@
       "whenToUse": "Yazılım geliştiren bir takımın sürekli kalite kusurları ürettiği ve 'Eşli programlama (pair programming), önce-test yazma ve sürekli entegrasyon' gibi katı mühendislik pratiklerine ihtiyaç duyduğu süreç krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Fallback Plan",
@@ -1688,7 +1905,9 @@
       "whenToUse": "Önceden öngörülen bir risk gerçekleştiğinde, takımın uyguladığı 'ilk risk yanıt stratejisinin' işe yaramadığı anlaşıldığında, acilen devreye sokulması gereken kurtarma eylemi.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Fast Tracking",
@@ -1704,7 +1923,9 @@
       "whenToUse": "Projenin takvimin çok gerisinde kaldığı ancak elde ekstra adam tutacak veya mesai ödeyecek para olmadığı için, normalde sırayla yapılması gereken işlerin 'artan bir riski göze alarak' aynı anda (paralel) yapılmaya başlandığı acil durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Feature",
@@ -1720,7 +1941,9 @@
       "definitionTR": "Birlikte planlanıp geliştirilebilen, müşteri değeri taşıyan bir ürün kapasitesidir. Özellikler, kullanıcı hikayelerinden büyük ama epiklerden küçüktür ve genellikle bir veya birkaç sprint boyunca teslim edilebilecek anlamlı bir işlevsellik parçasını temsil eder.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Feature-Driven Development (FDD)",
@@ -1737,7 +1960,9 @@
       "whenToUse": "Projenin, tek bir Scrum takımına sığmayacak kadar çok büyük ölçekli bir yazılım projesi olduğu ve işin 'müşteriye değer katan özellik listeleri (features)' üzerinden modellenip yürütülmesinin gerektiği karmaşık mimari durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Finish-to-Finish (FF)",
@@ -1753,7 +1978,9 @@
       "definitionTR": "Ardıl faaliyetin, öncülü bitene kadar bitiremedeceği mantıksal bir ilişkidir. Örneğin, kullanıcı kabul testi, geliştirme tamamlanmadan bitirilemez. FF ilişkileri, Öncelik Diyagram Yönteminde kullanılır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Finish-to-Start (FS)",
@@ -1771,7 +1998,9 @@
       "whenToUse": "PDM kullanılarak bir görev planlaması yaparken, 'Önceki görev (A) tamamen bitmeden, sonraki görevin (B) kesinlikle başlayamayacağı' zorunlu sıralama durumları (Örn: Duvar örülmeden boya yapılamaz).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Fishbowl",
@@ -1787,7 +2016,9 @@
       "whenToUse": "Coğrafi olarak tamamen dağıtık çalışan çevik bir takımın, sanki aynı odadaymış gibi anlık iletişim kuramamaktan ve izolasyondan şikayet ettiği anlarda; video konferans kamerasının tüm mesai boyunca açık bırakılması çözümü.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Fixed-Price Contract",
@@ -1803,7 +2034,9 @@
       "whenToUse": "Şelale projesinde müşteri olarak çalışan şirketin, bütçe aşımı riskini 'tamamen tedarikçiye (satıcıya) yıkmak' istediği ve projenin kapsamının en baştan %100 net olduğu satın alma kararları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Fixed-Price Incentive Fee Contract (FPIF)",
@@ -1818,7 +2051,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Float (Slack)",
@@ -1835,7 +2070,9 @@
       "whenToUse": "Bir takım üyesinin hastalanması veya malzemenin gümrükte takılması nedeniyle bir faaliyetin 3 gün geciktiği, ancak proje yöneticisinin 'Bu gecikme projenin nihai bitiş tarihini kaydırır mı?' diye sorduğu analiz anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Focus on Value",
@@ -1851,7 +2088,9 @@
       "definitionTR": "PMBOK® 8. Baskının 12 ilkesinden biridir. Çalışmaları sürekli olarak en önemli sonuçlarla değerlendirin ve hizalayın. Değer sunmak; zamanında ve bütçe dahilinde teslimattan öte, organizasyona ve paydaşlarına gerçekten fayda sağlayan çıktılar üretmek demektir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Free Float",
@@ -1866,7 +2105,9 @@
       "definitionTR": "Bir faaliyetin, hemen ardından gelen ardıl faaliyetlerin en erken başlangıcını geciktirmeksizin geciktirilebileceği süredir. Serbest bolluk her zaman toplam bolluğa eşit veya daha küçüktür ve yalnızca faaliyetin doğrudan ardıllarıyla ilgilidir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Gantt Chart",
@@ -1883,7 +2124,9 @@
       "whenToUse": "Üst yönetimin veya paydaşların, 'Hangi görev ne zaman başlıyor, ne zaman bitiyor ve projenin genel takvimi nedir?' diye sorduğu ve proje yöneticisinin bu karmaşık verileri 'yatay çubuklar halinde, yüksek seviyeli ve görsel' olarak raporlaması gereken durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Generative AI",
@@ -1899,7 +2142,9 @@
       "whenToUse": "Proje yöneticisinin büyük miktardaki veri/kalite sonuçlarını analiz etmesi, öngörüler sağlaması, karar alma süreçlerini hızlandırması veya metin/kod üreterek inovasyon sürecini desteklemesi gerektiği analiz krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Gold Plating",
@@ -1915,7 +2160,9 @@
       "whenToUse": "Takım üyelerinden birinin 'Müşteriyi daha çok memnun edelim' diyerek, resmi onay almadan ve müşteri istemediği halde ürüne fazladan bir özellik (kod, cila, ekstra rapor) eklediği ve farkında olmadan zaman/para israfı yarattığı kalite ve kapsam ihlali durumları. (Çözüm: Takımı uyar ve sadece onaylanan kapsamı teslim et).",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Governance",
@@ -1932,7 +2179,10 @@
       "whenToUse": "Projenin şirketin stratejik iş hedefleriyle uyuşup uyuşmadığının sorgulandığı, kararların kim tarafından alınacağının, hesap verebilirliğin ve süreç politikalarının netleştirilmesi gerektiği 'kurumsal yapı' krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Herzberg's Two-Factor Theory",
@@ -1948,7 +2198,9 @@
       "whenToUse": "Proje yöneticisinin, takımın maaşını artırdığı veya çalışma koşullarını (hijyen faktörleri) düzelttiği halde takımın hala 'motive olmadığını' gördüğü anlar. (Çözüm: Yalnızca tatminsizliği ortadan kaldırmak yetmez; insanları gerçekten motive etmek için 'başarı, tanınma ve kişisel gelişim/sorumluluk' (motivatörler) sağlamak gerekir).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Human-in-the-Loop",
@@ -1956,7 +2208,10 @@
       "category": "Quality Management",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel",
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ],
       "definition": "A design principle requiring human oversight and validation at critical decision points, especially when AI or automated systems are involved. Ensures that automated outputs are reviewed by qualified experts before being acted upon, reducing the risk of AI hallucinations and biased results.",
       "definitionTR": "Özellikle yapay zeka veya otomatik sistemlerin kullanıldığı durumlarda, kritik karar noktalarında insan denetimi ve doğrulaması gerektiren tasarım ilkesi. Otomatik çıktıların harekete geçilmeden önce yetkili uzmanlar tarafından incelenmesini sağlayarak halüsinasyon ve önyargı riskini azaltır.",
       "whenToUse": "Proje planları, tahminler veya kararlar kısmen ya da tamamen yapay zeka tarafından üretildiğinde uygulanır. Çıktı doğrudan kullanılmadan önce bir uzman tarafından incelenip onaylanmalıdır; bu adım atlanamaz.",
@@ -1981,7 +2236,9 @@
       "whenToUse": "Projenin donanım/yasal kısımları için kesin ve katı bir plana (Şelale/Öngörücü) ihtiyaç duyulurken, yazılım veya kullanıcı arayüzü kısımlarında müşterinin sürekli fikrini değiştirdiği ve esnekliğe (Çevik) ihtiyaç duyulan karmaşık uyarlama (tailoring) durumları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Ignoring the Issue (Doing Nothing)",
@@ -1996,7 +2253,9 @@
       ],
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Immediate Escalation",
@@ -2012,7 +2271,9 @@
       ],
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Impact Mapping",
@@ -2020,7 +2281,9 @@
       "category": "Agile & Adaptive",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik",
+      "developmentApproach": [
+        "Çevik"
+      ],
       "definition": "An agile strategic planning technique creating a visual map linking business goals to actors, impacts, and deliverables. It answers: Why (goal), Who (actors), How (impacts), and What (deliverables). Aligns the product backlog with organizational objectives and prevents building features with no real business value.",
       "definitionTR": "İş hedeflerini aktörler, etkiler ve çıktılarla görsel olarak ilişkilendiren çevik stratejik planlama tekniği. Neden (hedef), Kim (aktörler), Nasıl (etkiler) ve Ne (çıktılar) sorularını yanıtlar. Ürün birikimini organizasyon hedefleriyle hizalar ve gerçek iş değeri üretmeyen özelliklerin geliştirilmesini önler.",
       "related": [
@@ -2045,7 +2308,9 @@
       "whenToUse": "Günlük Scrum (Stand-up) toplantısında takım üyelerinden birinin, dış bir departmanın onay vermemesi, donanımın bozulması veya sunucuya erişememesi nedeniyle 'işimi yapamıyorum' diyerek tıkandığı anlar. (Çözüm: Scrum Master'ın asıl görevi olarak bu engeli derhal ortadan kaldırması).",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Incremental Approach",
@@ -2062,7 +2327,9 @@
       "whenToUse": "Müşterinin veya sponsorun, 'Projenin tamamen bitmesini bekleyemem, hemen kullanıp değer/para kazanmaya (ROI) başlamam lazım' diyerek, ürünün küçük ama çalışan ve kullanılabilir modüllerini erkenden teslim almak istediği pazar baskısı durumları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Information Radiator",
@@ -2079,7 +2346,9 @@
       "whenToUse": "Üst yönetimin veya diğer departmanların sürekli 'Proje ne durumda, takım ne yapıyor?' diyerek takımı rahatsız ettiği ve takımın ilerlemesini (Kanban panosu, burndown chart) herkesin görebileceği büyük fiziksel/dijital ekranlarda şeffafça sergilemesi gereken anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Initiating Process Group",
@@ -2095,7 +2364,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Integrate Sustainability",
@@ -2103,7 +2374,10 @@
       "category": "PMBOK Principles",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel",
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ],
       "definition": "A PMBOK 8th Edition principle emphasizing that project teams should consider long-term environmental, social, and economic impacts when making decisions. Sustainable thinking is woven into project planning and execution, not treated as an afterthought.",
       "definitionTR": "PMBOK 8. Baskı ilkesi; proje ekiplerinin karar alırken uzun vadeli çevresel, sosyal ve ekonomik etkileri göz önünde bulundurması gerektiğini vurgular. Sürdürülebilir düşünce, proje planlama ve yürütme süreçlerine işlenmelidir; sonradan hatırlanan bir ek değil, baştan benimsenen bir perspektiftir.",
       "related": [
@@ -2126,7 +2400,9 @@
       "whenToUse": "Öngörücü (Şelale) bir projede maliyeti, takvimi veya kaliteyi etkileyecek yepyeni bir isteğin geldiği anlar. Kural: Proje yöneticisi bu değişikliğin tüm proje üzerindeki etkisini (zaman, maliyet, risk) değerlendirmeden ve Değişiklik Kontrol Kurulunun (CCB) onayından geçirmeden asla uygulamaya başlayamaz.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Internal Failure Cost",
@@ -2141,7 +2417,9 @@
       "definitionTR": "Ürün müşteriye teslim edilmeden önce keşfedilen kusurları düzeltmek için katlanılan maliyetlerdir. Yeniden çalışma, ıskarta ve yeniden test örnek gösterilebilir. Hataları dahili olarak yakalamak, dış hatadan çok daha az maliyetli olsa da yine de israf teşkil eder.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Internal Rate of Return (IRR)",
@@ -2158,7 +2436,9 @@
       "whenToUse": "Yönetimin masasına yatırım yapılacak birden fazla proje veya çözüm alternatifi geldiği ve 'Hangi proje bize en yüksek finansal cazibeyi (yüzdesel getiriyi) sağlar?' diye sorduğu proje seçimi / İş Gerekçesi (Business Case) değerlendirme anları. (Kural: Her zaman IRR'si en yüksek olan seçilir).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Issue",
@@ -2173,7 +2453,10 @@
       "definitionTR": "Proje hedefleri üzerinde olumsuz etki yaratmamak için çözüme kavuşturulması gereken, halihazırda yaşanan bir sorun, boşluk veya çatışmadır. Sorunlar, risklerden farklı olarak potansiyel gelecek olaylar değil, şu anda yaşanan durumlardır.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Issue Log",
@@ -2189,7 +2472,10 @@
       "whenToUse": "Sadece olma 'ihtimali' olan bir olayın değil; halihazırda gerçekleşmiş, projenin kanamaya başladığı (kilit personelin istifası, makinenin bozulması, tedarikçinin gecikmesi) bir problemin, atlanmaması ve sahibinin atanması için ilk olarak belgelenmesi gereken anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Iterative Approach",
@@ -2206,7 +2492,9 @@
       "whenToUse": "Nihai çözümün veya tasarımın en başta net olarak bilinemediği; müşteriden gelen ardışık geri bildirimlerle (feedback) taslağın tekrar tekrar üzerinden geçilip düzeltilerek (iyileştirilerek) mükemmelleştirilmesi gereken belirsizlik durumları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Kaizen",
@@ -2223,7 +2511,9 @@
       "whenToUse": "Takımın süreçlerde verimsizlik yaşadığı ancak büyük, radikal ve maliyetli bir değişim yapmak için bütçenin olmadığı; bunun yerine takımın her gün kendi süreçlerini 'küçük adımlarla, sürekli iyileştirerek' sorunları kaynağında çözmesinin beklendiği (Retrospektif bağlantılı) durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Kanban",
@@ -2240,7 +2530,9 @@
       "whenToUse": "Takımın aynı anda çok fazla göreve başladığı ancak hiçbirini bitiremediği, süreçte darboğazların (bottleneck) yaşandığı ve takımın iş akışını görselleştirerek bu kaosu çözmeye ihtiyaç duyduğu kriz anları. (AI Çözüm Kuralı: Devam Eden İşleri (WIP) sınırlandır).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Lag",
@@ -2257,7 +2549,9 @@
       "whenToUse": "Zaman çizelgesinde ardışık iki faaliyet arasında fiziksel veya yasal bir zorunluluk (örneğin dökülen betonun kuruması için beklenmesi veya yasal onay için 15 gün geçmesi) nedeniyle, sonraki faaliyetin mecburi olarak bekletilmesi/ertelenmesi gerektiği planlama durumları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Lead",
@@ -2274,7 +2568,9 @@
       "whenToUse": "Projenin takvimin gerisinde kaldığı ve yöneticinin zaman kazanmak için, önceki faaliyet (A) henüz tamamen bitmeden, bir sonraki bağımlı faaliyeti (B) erken başlatarak (üst üste bindirerek) bir risk aldığı 'zaman sıkıştırma' krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Lean",
@@ -2291,7 +2587,9 @@
       "whenToUse": "Süreçlerde çok fazla israfın (waste) olduğu, müşteriye değer katmayan adımların (gereksiz dokümantasyon, aşırı onay mekanizmaları, beklemeler) projeyi yavaşlattığı ve değerin maksimize edilmesi gereken verimsizlik durumları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Lessons Learned",
@@ -2306,7 +2604,10 @@
       "definitionTR": "Hem başarılardan hem de başarısızlıklardan elde edilen ve gelecekteki projeleri iyileştirmek amacıyla yakalanan, paylaşılan ve kullanılan bilgi ve içgörülerdir. Öğrenilmiş dersler yalnızca proje kapanışında değil, sürekli olarak toplanmalıdır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Kapanış",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Lessons Learned Register",
@@ -2322,7 +2623,10 @@
       "whenToUse": "Projede büyük bir hata yapıldığında veya beklenmedik bir kriz çok zekice bir yöntemle çözüldüğünde, takımın 'Şirketteki gelecekteki projelerin veya diğer takımların aynı hataya düşmemesi için' bu bilgiyi projenin kapanmasını beklemeden, anında belgelemesi gerektiği bilgi aktarım anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Kapanış",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Life Cycle Cost",
@@ -2337,7 +2641,9 @@
       "definitionTR": "Bir proje teslimat ürününün edinme, işletme, bakım ve imha maliyetleri dahil tüm operasyonel ömrü boyunca toplam sahip olma maliyetidir. Yaşam döngüsü maliyetini göz önünde bulundurmak, yalnızca proje maliyetlerine bakmaktan daha iyi yatırım kararları almayı sağlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Management Reserve",
@@ -2352,7 +2658,10 @@
       "definitionTR": "Kapsam içinde yer alan ancak tamamen öngörülemeyen 'bilinmeyen-bilinmeyen' riskler için maliyet veya zaman çizelgesi temel çizgisine eklenen, kullanımı için üst yönetimin onayı gereken zaman veya bütçe tamponudur.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Maslow's Hierarchy of Needs",
@@ -2368,7 +2677,9 @@
       "whenToUse": "Takım üyelerinin ofis koşulları (güvenlik) veya maaşları (fizyolojik) ile ilgili temel şikayetleri varken, proje yöneticisinin onlara 'kendini gerçekleştirme' veya 'başarı' vizyonu satarak onları motive etmeye çalıştığı ancak başarısız olduğu uyumsuzluk durumları. (Kural: Alt düzey ihtiyaçlar karşılanmadan üst düzey motive etmez).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "McClelland's Theory of Needs",
@@ -2383,7 +2694,9 @@
       "definitionTR": "Bireysel davranışı yönlendiren üç baskın ihtiyacı tanımlayan bir motivasyon teorisidir: Başarı (zorlu hedeflere ulaşma arzusu), Aidiyet (olumlu ilişkilere ve aidiyet duygusuna duyulan ihtiyaç) ve Güç (başkalarını etkileme dürtüsü). Yöneticiler, her bireyde hangi ihtiyacın baskın olduğunu fark ederek daha etkin biçimde motive edebilir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "McGregor's Theory X and Theory Y",
@@ -2399,7 +2712,9 @@
       "whenToUse": "Organizasyon üst yönetiminin 'insanlar tembeldir, işten kaçar, bu yüzden onlara zorla iş yaptırmalıyız (X Teorisi)' diyerek takıma mikro yönetim uyguladığı; proje yöneticisinin ise takımın 'kendi kendini motive edebilen ve sorumluluk alan (Y Teorisi)' bireyler olduğuna inanarak onları üst yönetimin baskısından koruması gerektiği zihniyet çatışmaları.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Measurement Performance Domain",
@@ -2415,7 +2730,9 @@
       "definitionTR": "PMBOK® 8. Baskının 8 performans alanından biridir. Proje performansını değerlendirme ve gerekli düzeltmeleri uygulama faaliyetlerini ele alır. Etkin ölçüm; salt raporlama amacıyla değil, ilerlemeyi kavramak, eğilimleri belirlemek ve sonuçları öngörmek için anlamlı metrikler kullanır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Micromanagement (Bypassing the Team)",
@@ -2430,7 +2747,9 @@
       ],
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Milestone",
@@ -2447,7 +2766,9 @@
       "whenToUse": "Üst yönetimin veya müşterinin, projenin her bir küçük detayını (Gantt şeması) incelemek istemediği; sadece 'önemli fazların veya kritik ürünlerin (teslimatların) ne zaman biteceğini' yüksek seviyede ve sıfır süreli bir kontrol noktası olarak görmek istediği raporlama/iletişim krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Minimum Marketable Feature (MMF)",
@@ -2464,7 +2785,9 @@
       "whenToUse": "Proje bütçesinin daraldığı veya rakiplerin benzer bir ürünü çıkarmak üzere olduğu durumlarda, müşterinin 'Bunu hemen piyasaya sürüp genel kullanımdan anında para kazanmaya (ROI) başlamalıyız' dediği pazar baskısı durumları. (Not: MVP sadece öğrenmek için test edilirken, MMF satılabilir üründür).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Minimum Viable Product (MVP)",
@@ -2480,7 +2803,9 @@
       "definitionTR": "Müşterilere değer sunmak, pazarın rekabetine ilk giren olmak ve kullanıcı geri bildirimi toplamak amacıyla piyasaya sürülen, sistemin en temel özelliklerini içeren küçük artımlı ilk versiyondur.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Monte Carlo Simulation",
@@ -2495,7 +2820,9 @@
       "definitionTR": "Belirsiz girdiler (süre veya maliyet aralıkları) için olasılık dağılımlarını kullanarak binlerce simüle senaryo çalıştıran ve zamanında veya bütçe dahilinde tamamlanma olasılığını gösteren bir olasılık dağılımı üreten niceliksel risk analizi tekniğidir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Navigate Complexity",
@@ -2511,7 +2838,9 @@
       "definitionTR": "PMBOK® 8. Baskının 12 ilkesinden biridir. Uygun araçları, teknikleri ve yargıyı kullanarak karmaşıklığı tanımlayın, değerlendirin ve aşın. Karmaşık projeler, katı planlar yerine uyarlanabilir yanıtlar gerektiren, öngörülemeyen davranışlar, belirsizlik ve birbirine bağlı faktörler içerir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Net Present Value (NPV)",
@@ -2528,7 +2857,9 @@
       "whenToUse": "Üst yönetimin masasında yatırım yapılacak birden fazla proje seçeneği olduğu ve 'Enflasyonu ve paranın zaman değerini (gelecekteki nakit akışını) hesaba kattığımızda bize en çok parayı hangi proje kazandırır?' diye sorduğu finansal karar anları. (Kural: NPV'si her zaman en büyük olan, sıfırdan büyük olan seçilir).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Network Diagram",
@@ -2546,7 +2877,9 @@
       "whenToUse": "Bir görevde gecikme yaşandığında, takımın 'Bu gecikme projenin son bitiş tarihini etkiler mi, yoksa arada bir bolluk (float) var mı?' sorusuna yanıt bulmak için görevler arasındaki 'mantıksal bağımlılıkları (öncül-ardıl)' görmek istediği analiz krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Opportunity Cost",
@@ -2562,7 +2895,9 @@
       "whenToUse": "Yönetimin A ve B projelerinden sadece birini seçmek zorunda olduğu ve 'A projesini seçersek, vazgeçtiğimiz B projesinden ne kadarlık bir faydayı çöpe atmış (kaybetmiş) olacağız?' diye sorduğu kıyaslama senaryoları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Optimize Risk Responses",
@@ -2578,7 +2913,9 @@
       "definitionTR": "PMBOK® 8. Baskının 12 ilkesinden biridir. Tehditleri ve fırsatları proaktif biçimde tanımlayın, değerlendirin ve yanıtlayın. Risk yönetimi tek seferlik bir etkinlik değil; proje hedeflerini korurken ekiplerin fırsatları da değerlendirmesini sağlayan sürekli bir disiplindir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Organizational Breakdown Structure (OBS)",
@@ -2594,7 +2931,9 @@
       "whenToUse": "İş Kırılım Yapısındaki (WBS) iş paketlerinin, şirketteki 'hangi departmanlara veya organizasyonel birimlere (örn: IT, İK, Pazarlama)' atanacağını görsel olarak eşleştirmek gerektiği planlama anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Organizational Cultural Intelligence",
@@ -2609,7 +2948,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Organizational Process Assets (OPA)",
@@ -2625,7 +2966,10 @@
       "whenToUse": "Yeni bir projeye atanan yöneticinin 'Bu şirkette daha önce benzer projeler nasıl yapılmış, geçmişteki şablonlar, prosedürler ve öğrenilmiş dersler nerede?' diyerek kurumsal hafızaya ihtiyaç duyduğu başlangıç anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Outcome",
@@ -2641,7 +2985,9 @@
       "definitionTR": "Bir proje veya sürecin tamamlanmasıyla elde edilen sonuç veya etki; insanlar, sistemler veya organizasyonlar için koşulda, davranışta veya kapasitede yaşanan değişimdir. Sonuçlar, teslimatlardan daha kapsamlıdır: teslimat çıktıdır, sonuç ise onun sağladığı kalıcı değişimdir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Kapanış",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Pair Programming",
@@ -2657,7 +3003,9 @@
       "whenToUse": "Çevik bir yazılım takımının çok fazla kod hatası (kusur/bug) ürettiği; kod kalitesini artırmak için iki geliştiricinin tek bir bilgisayarda (biri kod yazarken diğerinin anında gözden geçirdiği) çalışmasının gerektiği kalite krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Parametric Estimating",
@@ -2673,7 +3021,9 @@
       "whenToUse": "Projede son derece yüksek doğrulukta bir bütçe tahmini istenildiği ve elde 'metrekare başına maliyet, satır kod başına saat' gibi istatistiksel ve tarihsel verilerin bulunduğu sayısal senaryolar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Pareto Chart",
@@ -2689,7 +3039,9 @@
       "whenToUse": "Projede yüzlerce kusur veya şikayet olduğu, takımın paniğe kapılıp 'İlk önce hangisini çözmeliyiz?' dediği anlar. (AI Çözüm Kuralı: Sorunları en çoktan en aza doğru sırala ve sorunların %80'ine neden olan %20'lik kök nedene odaklan).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Payback Period",
@@ -2705,7 +3057,9 @@
       "definitionTR": "Net nakit girişlerinden başlangıçtaki proje yatırımının geri kazanılması için gereken süredir. Daha kısa geri ödeme süreleri, daha düşük finansal risk ve daha hızlı sermaye geri dönüşü anlamına gelir. Proje seçiminde NBD ve IGO ile birlikte basit bir eleme kriteri olarak kullanılır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Performance Measurement Baseline (PMB)",
@@ -2721,7 +3075,9 @@
       "definitionTR": "Üç temel çizgiyi birleştirerek birleşik bir performans standardı oluşturan entegre kapsam-zaman çizelgesi-maliyet planıdır. PMB, KDY analizinin referansıdır ve yönetim rezervini kapsamaz. Tüm KDY metrikleri gerçek performansı PMB ile karşılaştırır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Phase Gate",
@@ -2737,7 +3093,9 @@
       "whenToUse": "Geleneksel bir projede bir aşamanın (örn: Tasarım) bittiği, bir sonraki aşamaya (örn: Geliştirme) geçmeden önce 'Projeye devam etmeli miyiz, değiştirmeli miyiz, yoksa iptal mi etmeliyiz?' kararının verilmesi için sponsorla/yönetimle yapılan kritik değerlendirme anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Planned Value (PV)",
@@ -2753,7 +3111,9 @@
       "definitionTR": "Belirli bir dönemde bitirilmesi planlanmış ve zamanlanmış iş için başlangıçta yetkilendirilmiş ve ayrılmış olan bütçe miktarıdır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Planning Performance Domain",
@@ -2769,7 +3129,9 @@
       "definitionTR": "PMBOK® 8. Baskının 8 performans alanından biridir. Kapsam, zaman çizelgesi, maliyet, kaynaklar ve risk dahil proje çalışmasını başlangıçta ve sürekli olarak organize edip koordine etmeye yönelik tüm faaliyetleri ele alır; ekibin üzerinde mutabık kalınanı teslim etmesini sağlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Planning Poker",
@@ -2786,7 +3148,9 @@
       "whenToUse": "Çevik takımın bir kullanıcı hikayesinin 'eforunu/karmaşıklığını' tahmin ederken fikir ayrılığına (biri 2 puan, diğeri 13 puan) düştüğü durumlar. (Çözüm: Farklılıkları tartışıp konsensüse/fikir birliğine varana kadar poker kartlarıyla oylamaya devam etmek).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "PMO (Project Management Office)",
@@ -2803,7 +3167,9 @@
       "whenToUse": "Şirketteki farklı projelerin şablon ve metodoloji açısından tutarsız olduğu, projeler arası kaynak çekişmelerinin yaşandığı ve 'kurumsal bir standart, yönetişim ve eğitim' desteği sağlayacak merkezi bir yapıya ihtiyaç duyulan krizler.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Portfolio",
@@ -2819,7 +3185,9 @@
       "definitionTR": "Bir organizasyonun stratejik iş hedeflerine ulaşmak amacıyla bir grup olarak yönetilen projeler, programlar ve operasyonların tamamıdır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Power/Interest Grid",
@@ -2834,7 +3202,9 @@
       "definitionTR": "Paydaşları yetki düzeyleri (güç) ile proje sonuçlarına olan ilgileri (çıkar) temelinde iki eksenli bir ızgaraya yerleştiren bir paydaş haritalama aracıdır. Ortaya çıkan dört kadran, her gruba yönelik katılım ve iletişim çabasının miktarını yönlendirir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Precedence Diagramming Method (PDM)",
@@ -2852,7 +3222,9 @@
       "whenToUse": "Görevleri sıralarken takımın 'Bu görev (B) ancak önceki görev (A) tamamen bittikten sonra başlayabilir (Bitiş-Başlangıç)' gibi dört farklı mantıksal bağımlılığı bir ağ diyagramı (kutu ve oklar) üzerinde kurması gerektiği planlama anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Predictive Approach",
@@ -2869,7 +3241,9 @@
       "whenToUse": "Kapsamın en baştan %100 net olduğu, yasal bir zorunluluğun bulunduğu, fiziksel/katı bir teslimatın yapılacağı (örn: İnşaat) ve 'zaman ve maliyet sapmalarının hiç istenmediği' projelerin metodolojisi seçilirken.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Prevention Cost",
@@ -2885,7 +3259,9 @@
       "definitionTR": "Hataların başlangıçta oluşmasını önlemek için katlanılan maliyetlerdir. Eğitim, süreç tasarımı, standart geliştirme ve tasarım incelemeleri örnek gösterilebilir. Önleme maliyetleri en ekonomik kalite yatırımıdır; bir hatayı erken yakalamak, sonradan düzeltmekten çok daha ucuzdur.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Probability and Impact Matrix",
@@ -2900,7 +3276,9 @@
       "definitionTR": "Belirlenen her riski gerçekleşme olasılığı ve proje hedefleri üzerindeki potansiyel etkinin birleşimiyle puanlayan niteliksel bir risk analizi aracıdır. Riskler, ayrıntılı yanıt stratejisi gerektirenleri önceliklendirmek için bir matrise işlenir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Procurement",
@@ -2916,7 +3294,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Product Backlog",
@@ -2933,7 +3313,9 @@
       "whenToUse": "Çevik bir projede müşterinin yeni bir gereksinim getirdiği anlar. (Kural: CCB'ye gidilmez, müşteri bunu doğrudan Ürün Sahibine iletir ve sadece Ürün Sahibi bu gereksinimi değere göre bu listeye ekleyip sıralayabilir).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Product Owner",
@@ -2950,7 +3332,9 @@
       "whenToUse": "Takımın hangi özelliğin 'en yüksek iş değerine' sahip olduğunu bilemediği, müşteri gereksinimlerinin birbiriyle çeliştiği veya Tamamlanmışın Tanımı (DoD) kriterlerini karşılayan bir ürünün 'nihai kabulünü/redsini' yapacak kişinin arandığı anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Program",
@@ -2966,7 +3350,9 @@
       "definitionTR": "Ortak bir amaca hizmet eden, ancak bireysel olarak yönetildiklerinde elde edilemeyecek düzeyde faydalar sağlamak amacıyla koordineli bir biçimde yönetilen birbiriyle ilişkili projeler bütünüdür.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Progressive Elaboration",
@@ -2981,7 +3367,9 @@
       "definitionTR": "Daha fazla bilgi ve daha doğru tahminler elde edildikçe, bir proje yönetim planındaki ayrıntı düzeyini sürekli ve yinelemeli olarak artırma sürecidir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Project",
@@ -2997,7 +3385,9 @@
       "definitionTR": "Yeni, özgün bir ürün, hizmet veya sonuç yaratmak amacıyla üstlenilen; tanımlanmış bir başlangıcı ve bitişi olan geçici bir girişimdir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Project Charter",
@@ -3013,7 +3403,10 @@
       "definitionTR": "Bir projeyi resmi olarak var eden, projenin temel hedeflerini, iş gerekçesini ve kısıtlarını içeren ve proje yöneticisine organizasyonel kaynakları kullanma yetkisi atayan, sponsor tarafından imzalanan temel belgedir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Project Closure",
@@ -3029,7 +3422,9 @@
       "definitionTR": "Tüm faaliyetlerin resmi olarak tamamlandığı, teslimatların devredildiği, sözleşmelerin kapatıldığı, nihai belgelerin arşivlendiği ve öğrenilmiş derslerin yakalandığı proje yaşam döngüsünün son fazıdır. Kapanış, proje kaynaklarını resmi olarak serbest bırakır ve tüm yükümlülüklerin yerine getirildiğini teyit eder.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Kapanış",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Project Life Cycle",
@@ -3045,7 +3440,9 @@
       "definitionTR": "Bir projenin başlatılmasından, planlanmasına, yürütülmesine ve kapanışına kadar geçtiği birbirini takip eden evreler veya aşamalar dizisidir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Project Management",
@@ -3061,7 +3458,9 @@
       "definitionTR": "Proje gereksinimlerini karşılamak amacıyla proje faaliyetlerine bilgi, beceri, araç ve tekniklerin uygulanmasıdır. Etkin proje yönetimi; paydaşlara değer sunmak için kapsam, zaman çizelgesi, maliyet, kalite, kaynaklar ve risk arasındaki rekabet eden talepleri dengelemek anlamına gelir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Project Management Plan",
@@ -3077,7 +3476,9 @@
       "definitionTR": "Projenin hedeflerine nasıl ulaşacağını; işin nasıl yürütüleceğini, izleneceğini, kontrol edileceğini ve kapatılacağını tanımlayan temel çizgileri ve tüm alt yönetim planlarını barındıran entegre ana dokümandır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Project Manager",
@@ -3093,7 +3494,9 @@
       "definitionTR": "Proje ekibini hedeflere ulaşmada yönetmek üzere atanan bireydir. Projeyi planlama, yürütme, izleme, kontrol etme ve kapatmaktan sorumlu olan proje yöneticisi; rekabet eden paydaş ihtiyaçlarını dengeler ve ekip ile üst yönetim arasında köprü işlevi görür.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Project Roadmap",
@@ -3109,7 +3512,9 @@
       "definitionTR": "Strateji düzeyinde projenin veya ürünün önemli kilometre taşlarını, teslimatlarını ve zamanlamasını gösteren üst düzey bir görsel özetdir. Yol haritası, her yürütme ayrıntısını empoze etmeksizin yönü ve öncelikleri iletir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Project Work Performance Domain",
@@ -3125,7 +3530,9 @@
       "definitionTR": "PMBOK® 8. Baskının 8 performans alanından biridir. Teslimatları verimli biçimde üretmek için gereken proje çalışma süreçlerini oluşturma ve sürdürme faaliyetlerini ele alır. Günlük yürütmeyi, kaynak yönetimini, tedariki ve paydaş iletişimlerini kapsar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Proof of Concept (POC)",
@@ -3142,7 +3549,9 @@
       "whenToUse": "Projede tamamen yeni ve hiç bilinmeyen bir teknolojinin (örn: Yapay Zeka entegrasyonu) kullanılacağı, takımın 'Bu teknoloji bizim altyapımızda gerçekten çalışır mı?' diye şüpheye düştüğü ve büyük yatırım yapmadan önce küçük bir deney/prototip yapılması gerektiği belirsizlik krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Public Reprimand",
@@ -3157,7 +3566,9 @@
       ],
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Punishing the Vendor",
@@ -3173,7 +3584,9 @@
       ],
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "RACI Matrix",
@@ -3189,7 +3602,10 @@
       "whenToUse": "Proje içinde büyük bir iletişim veya yetki karmaşası çıktığında; bir işin yapılmadığı fark edilip takım üyelerinin 'Ben o işin benim sorumluluğumda olduğunu bilmiyordum' veya 'Bu işe ben onay veririm, hayır ben veririm' diyerek çatıştığı (sorumluluk çakışması) krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Request for Proposal (RFP)",
@@ -3205,7 +3621,9 @@
       "whenToUse": "Alıcının (proje yöneticisinin) projenin gereksinimlerini veya problemini tam olarak tanımlayamadığı ve çözümün basit olmadığı durumlarda; satıcılardan/hizmet sağlayıcılardan kendi yaklaşımlarını, niteliklerini ve fiyatlandırmalarını içeren karmaşık/detaylı çözüm önerileri sunmalarının istendiği satın alma başlangıçları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Requirements",
@@ -3221,7 +3639,9 @@
       "definitionTR": "Paydaş ihtiyaçlarını veya sözleşme yükümlülüklerini karşılamak için bir ürün, hizmet veya sonucun sağlaması gereken koşullar veya kapasitelerdir. Gereksinimler, onaylanmış proje kapsamına dahil edilmeden önce ortaya çıkarılır, belgelenir ve doğrulanır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Requirements Traceability Matrix",
@@ -3238,7 +3658,9 @@
       "whenToUse": "Test veya teslimat aşamasında müşterinin 'Benim en başta istediğim şu özellik üründe neden yok?' diye sorduğu ve takımın, o gereksinimin neden iptal edildiğini veya hangi testle doğrulandığını geriye dönük olarak (kökenine inerek) ispatlamak zorunda kaldığı anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Residual Risk",
@@ -3246,7 +3668,10 @@
       "category": "Risk Management",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel",
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ],
       "definition": "The remaining risk that persists after risk response actions have been fully implemented. It represents the acceptable level of risk that the organization or project team consciously chooses to tolerate. Residual risks are documented in the risk register and may be addressed through contingency reserves.",
       "definitionTR": "Risk yanıt eylemleri tümüyle uygulandıktan sonra geriye kalan risk. Organizasyonun veya proje ekibinin bilinçli olarak kabul etmeyi seçtiği tolere edilebilir risk düzeyini temsil eder. Artık riskler risk kaydında belgelenir ve acil durum yedekleriyle karşılanabilir.",
       "whenToUse": "Tüm risk yanıtları uygulandıktan sonra hâlâ var olan risk miktarını ifade etmek için kullanılır. Sıfır risk mümkün olmadığından, artık risk kabul edilir ve izlenir; gerekirse acil durum rezervi ayrılır.",
@@ -3271,7 +3696,9 @@
       "whenToUse": "Kilit bir uzman personelin aynı anda iki farklı kritik göreve atandığı (aşırı yüklendiği - overallocated) ve proje yöneticisinin, 'projenin bitiş tarihinin uzamasını (gecikmeyi) göze alarak' bu kaynağın yükünü insani seviyelere çekmek zorunda kaldığı kapasite krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Resource Smoothing",
@@ -3287,7 +3714,9 @@
       "whenToUse": "Projede kaynakların kullanımında zirveler (dalgalanmalar) olduğu ve optimizasyon gerektiği; ancak yöneticinin 'Projenin bitiş tarihi KESİNLİKLE gecikmemeli' kısıtıyla sadece zaman bolluğu (float) olan faaliyetlerde kaydırma yapabildiği durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Responsibility Assignment Matrix (RAM)",
@@ -3302,7 +3731,9 @@
       "definitionTR": "Proje kapsam bileşenlerini bunları tamamlamaktan sorumlu ekip üyeleri veya gruplarla eşleştiren bir matristir. En yaygın biçimi RACI matrisidir. SAM, her iş paketinin net bir sahibi olmasını ve hesap verebilirliğin açık olmasını sağlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Retrospective",
@@ -3319,7 +3750,9 @@
       "whenToUse": "Çevik bir takımın önceki sprintte sürekli aynı hatayı yaptığı (rework), takım içi iletişim sorunu yaşadığı veya sürecin bozuk olduğu anlaşıldığında; 'Suçlu aramadan, süreci iyileştirmek için' takımın kendi kendine toplanması gereken durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Kapanış",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Risk",
@@ -3335,7 +3768,10 @@
       "definitionTR": "Gerçekleşmesi durumunda projenin hedeflerinden en az biri üzerinde olumlu (fırsat) veya olumsuz (tehdit) etki yaratan belirsiz bir olaydır.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Risk Appetite",
@@ -3350,7 +3786,10 @@
       "definitionTR": "Bir organizasyonun veya paydaşın bir ödül karşılığında kabul etmeye razı olduğu belirsizlik derecesidir. Yüksek risk istahına sahip organizasyonlar potansiyel olarak daha büyük kazanım için daha büyük belirsizliği tolere eder; düşük risk istahına sahip olanlar ise daha öngörülebilir ve muhafazakar sonuçları tercih eder.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Risk Register",
@@ -3367,7 +3806,10 @@
       "whenToUse": "Takımın, paydaşın veya sponsorun gelecekte projenin maliyetini, takvimini veya kalitesini etkileyebilecek olası bir tehlikeyi (örn: havanın bozulma ihtimali, yeni yasa çıkma söylentisi) ilk kez duyduğu ve proje yöneticisinin atması gereken İLK resmi adımın sorulduğu anlar. (Yapay Zeka Doğru Cevap Kuralı: Önce Risk Kaydını Güncelle ve Analiz Et).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Risk Response Strategies",
@@ -3383,7 +3825,9 @@
       "whenToUse": "Tanımlanmış bir tehdidin proje üzerindeki olasılığını veya etkisini düşürmek (Azaltma-Mitigate), tehdidi üçüncü bir tarafa devretmek (Transfer-Sigorta) veya projeyi tehditten tamamen korumak için planı değiştirmek (Kaçınma-Avoid) amacıyla planlanmış eylem arayışları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Rolling Wave Planning",
@@ -3399,7 +3843,9 @@
       "whenToUse": "Projenin çok uzun vadeli (örn: 3 yıl) olduğu ve bilinmezlikler yüzünden takımın projenin tamamını şu an detaylı planlayamadığı; sadece yakın geleceği ince detaylı, uzak geleceyi ise İş Kırılım Yapısında (WBS) çok üst seviye planlamak zorunda kaldığı 'Kademeli Detaylandırma' durumları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Roman Voting",
@@ -3415,7 +3861,9 @@
       "whenToUse": "Takımın acil bir karara veya fikre katılıp katılmadığını çok hızlı bir şekilde (başparmakları yukarı, aşağı veya yana çevirerek) ölçmek ve hızlı fikir birliği sağlamak istendiği anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Salience Model",
@@ -3431,7 +3879,9 @@
       "whenToUse": "Projeye aniden onlarca yeni paydaşın eklendiği, ilişkilerin çok karmaşıklaştığı ve proje yöneticisinin 'Aciliyet, Güç ve Meşruiyet' kriterlerini kullanarak 'İlk olarak hangi paydaşın talebiyle ilgilenmeliyim?' sorusuna yanıt bulması gereken önceliklendirme krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Schedule Baseline",
@@ -3447,7 +3897,9 @@
       "definitionTR": "Belirli bir anda sabitlenen ve yalnızca resmi değişiklik kontrolüyle değiştirilebilen onaylı proje zaman çizelgesi modelinin versiyonudur. Zaman çizelgesi performansını ölçmek ve Zaman Çizelgesi Varyansını hesaplamak için referans olarak kullanılır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Schedule Performance Index (SPI)",
@@ -3464,7 +3916,9 @@
       "whenToUse": "Yönetimin veya sponsorun gelip 'Şu anda projenin zaman açısından verimliliği nedir? Orijinal takvimin neresindeyiz?' diye sorduğu matematiksel raporlama anları. (Not: SPI 1.0'ın altındaysa proje gecikiyordur).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Schedule Variance (SV)",
@@ -3480,7 +3934,9 @@
       "definitionTR": "Kazanılmış Değer'den (EV) Planlanan Değerin (PV) çıkarılmasıyla hesaplanır. Negatif bir zaman çizelgesi sapması, projenin orijinal takvimin gerisinde kaldığı anlamına gelir.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Scope",
@@ -3496,7 +3952,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Scope Baseline",
@@ -3512,7 +3970,9 @@
       "definitionTR": "Resmi kapsam belgelerinin (İKY ve İKY Sözlüğü dahil) onaylanmış versiyonudur; yalnızca değişiklik kontrol prosedürleri kullanılarak değiştirilebilir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Scope Creep",
@@ -3529,7 +3989,9 @@
       "whenToUse": "Müşterinin veya takımın, resmi Değişiklik Kontrol Kurulu (CCB) sürecini atlayarak ürüne 'ufak tefek, iyi niyetli ama onaysız' yeni özellikler eklemeye başladığı ve projenin kontrolsüzce büyüyüp bütçeyi erittiği gizli krizler.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Scrum",
@@ -3546,7 +4008,9 @@
       "definitionTR": "Çalışmayı zaman sınırlı sprintler (1-4 hafta) halinde organize eden ve üç tanımlı rol (Ürün Sahibi, Scrum Master, Geliştirme Ekibi), üç artifakt (Ürün Birikim Listesi, Sprint Birikim Listesi, Artım) ve beş etkinlik (Sprint, Sprint Planlaması, Günlük Scrum, Sprint Incelemesi, Sprint Retrospektifi) içeren çevik çerçevedir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Scrum Master",
@@ -3563,7 +4027,9 @@
       "whenToUse": "Çevik takımın önünde bir engel (impediment / blocker) çıktığında (örn: dış departman test için sunucu vermiyor veya takıma sürekli başka işler kitleniyor); takımın kendi kendine çözemediği bu engelleri ortadan kaldıracak (kalkan olacak) kişiye ihtiyaç duyulduğunda.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Scrum of Scrums",
@@ -3579,7 +4045,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Secondary Risk",
@@ -3587,7 +4055,10 @@
       "category": "Risk Management",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel",
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ],
       "definition": "A new risk that arises as a direct result of implementing a risk response. For example, hiring additional contractors to address a resource shortage may introduce vendor management complexity. Secondary risks must be identified and managed like any other project risk.",
       "definitionTR": "Bir risk yanıtının uygulanmasının doğrudan sonucu olarak ortaya çıkan yeni risk. Örneğin, kaynak yetersizliğini gidermek için ek yüklenici tutmak, tedarikçi yönetimi karmaşıklığı doğurabilir. İkincil riskler, diğer proje riskleri gibi tanımlanmalı ve yönetilmelidir.",
       "whenToUse": "Risk yanıt planlaması yapılırken her yanıt için 'bu yanıt ne tür yeni riskler doğurur?' sorusu sorulmalıdır. Ortaya çıkan ikincil riskler risk kaydına eklenmeli ve izlenmelidir.",
@@ -3612,7 +4083,10 @@
       "whenToUse": "Gelenekselden (Şelale) Çevik (Agile) ortama yeni geçen bir takımda yöneticinin; 'İşi şöyle yapın, böyle yapın' diye dikte etmek yerine, takımın kendi kararlarını alması için onlara alan açması, engellerini kaldırması ve sadece koçluk yapması gereken liderlik dönüşümü anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Service Level Agreement (SLA)",
@@ -3628,7 +4102,9 @@
       "whenToUse": "Dışarıdan alınan bir hizmette (örneğin sunucu kiralama) sadece donanımın tesliminin değil, 'performans ölçümünün ve hizmet kalitesinin' (örneğin %99.9 kesintisiz çalışma garantisi) güvence altına alınması gerektiği sözleşme müzakereleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Six Sigma",
@@ -3644,7 +4120,9 @@
       "definitionTR": "Hata oranlarını milyon fırsatta 3,4 hatanın altına indirerek süreç iyileştirmeyi hedefleyen, veriye dayalı bir kalite metodolojisidir. Mevcut süreçleri iyileştirmek için DMAIC (Tanımla, Olç, Analiz Et, Iyileştir, Kontrol Et), yeni süreçler tasarlamak için ise DMADV kullanır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Spike",
@@ -3661,7 +4139,9 @@
       "whenToUse": "Çevik takımın ürüne tamamen yeni bir teknoloji veya mimari entegre etmesi gerektiği ancak bunun çalışıp çalışmayacağı veya ne kadar efor alacağı hakkında hiçbir fikrinin olmadığı (yüksek belirsizlik/risk) durumlarda; zaman kutulu (time-boxed) bir 'kavram kanıtlama ve araştırma' faaliyeti yapılması gerektiğinde.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Sponsor",
@@ -3678,7 +4158,9 @@
       "whenToUse": "Projede Yönetim Yedeği (Management Reserve) gerektiren bilinmeyen bir felaket yaşandığında, projenin stratejik iş hedeflerinden tamamen saptığı fark edildiğinde (İptal/Devam kararı) veya bir sorunun çözümü proje yöneticisinin yetkisini tamamen aştığında eskalasyon yapılması (yükseltilmesi) gereken krizler.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Sprint",
@@ -3696,7 +4178,9 @@
       "whenToUse": "Müşteri gereksinimlerinin çok sık değiştiği, belirsizliğin yüksek olduğu ve pazarın erken bir değere ihtiyaç duyduğu ortamlarda; işin büyük bir blok halinde değil, 1 ila 4 haftalık kısa ve sabit zaman kutuları içinde çalışan bir parça üretilerek teslim edilmesi gerektiğinde.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Sprint Backlog",
@@ -3712,7 +4196,9 @@
       "definitionTR": "Mevcut sprint için seçilen ürün birikim listesi ogeleri ile bunları tamamlamak ve sprint hedefine ulaşmak için ekin ayrıntılı planını içerir. Sprint birikim listesi geliştirme ekibine aittir ve ilerleme ile anlayış geliştikçe her gün güncellenir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Sprint Planning",
@@ -3728,7 +4214,9 @@
       "definitionTR": "Her sprintin başında ekibin birikim listesi ogeleri seçtiği, bir sprint hedefi üzerinde mutabık kaldığı ve seçilen ogeleri görevlere böldüğü Scrum etkinliğidir. Çıktı, zaman dilimi için gerçekçi ve ulaşılabilir bir kapsamla taahhüt edilmiş bir sprint birikim listesidir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Sprint Retrospective",
@@ -3744,7 +4232,9 @@
       "definitionTR": "Sprint incelemesinden sonra ve bir sonraki sprint başlamadan önce yapılan Scrum etkinliğidir; ekip kendi sürecini ve iş birliği örüntülerini inceler, neyin işe yarayıp neyin yaramadığını belirler ve bir sonraki sprintte en az bir somut iyileştirme taahhüt eder.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Kapanış",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Sprint Review",
@@ -3761,7 +4251,9 @@
       "whenToUse": "Bir sprintin (yinelemenin) sonunda takımın ürettiği çalışan ürün artırımını (increment) paydaşlara ve müşterilere gösterip (demo), onlardan resmi geri bildirim alması ve ürünün yönünü adapte etmesi gereken anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Stacey Complexity Model",
@@ -3777,7 +4269,10 @@
       ],
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Stakeholder",
@@ -3793,7 +4288,10 @@
       "definitionTR": "Bir projenin, programın veya portföyün yürütülmesinden veya nihai sonucundan etkilenebilecek, projeyi etkileyebilecek veya etkilendiğini düşünebilecek her türlü kişi, grup veya kuruluştur.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Stakeholder Engagement Plan",
@@ -3809,7 +4307,9 @@
       "whenToUse": "Projenin başlarında projeyi destekleyen kilit bir paydaşın, projenin ortasında aniden yön değiştirerek direnç göstermeye başladığı, projenin aleyhine çalıştığı veya onayları geciktirdiği 'Davranış/Katılım Değişikliği' krizlerinde güncellenmesi ve incelenmesi gereken ana doküman.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Stakeholder Performance Domain",
@@ -3825,7 +4325,9 @@
       "definitionTR": "PMBOK® 8. Baskının 8 performans alanından biridir. Proje ekibinin proje boyunca paydaşlarla verimli ilişkiler kurmasını, ihtiyaç ve beklentilerini anlamasını, onları uygun biçimde dahil etmesini ve olumlu proje sonuçları sağlamak için katılımlarını yönetmesini ele alır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Stakeholder Register",
@@ -3841,7 +4343,10 @@
       "definitionTR": "Iletişim bilgileri, roller, çıkarlar, beklentiler, etki düzeyleri ve mevcut katılım durumu dahil belirlenen tüm paydaşlar hakkında bilgi içeren bir proje belgesidir. Tüm paydaş yönetimi planlamasının temelidir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Start-to-Finish (SF)",
@@ -3857,7 +4362,9 @@
       "definitionTR": "Ardıl faaliyetin, öncülü başlamadan bitiremedeceği, nadiren kullanılan bir mantıksal ilişkidir. En çok tam zamanında planlama ve vardiya devir teslim senaryolarında görülür.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Start-to-Start (SS)",
@@ -3873,7 +4380,9 @@
       "definitionTR": "Ardıl faaliyetin, öncülü başlamadan başlayamayacağı mantıksal bir ilişkidir. SS ilişkileri, çalışmanın paralel başlayabildiği ancak ardılın öncülün başlamasını beklemek zorunda olduğu durumlarda kullanılır. Örneğin, düzenleme başladıktan sonra yazım başlayabilir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Statement of Work (SOW)",
@@ -3889,7 +4398,9 @@
       "whenToUse": "Dışarıdan ihale yoluyla bir iş yaptırılacağı zaman, satıcıların/tedarikçilerin fiyat teklifi vermeden önce projede ne yapacaklarını tam olarak anlamaları için onlara teslim edilecek 'işin anlatısal (metin tabanlı) detaylı tanımının' sunulması gereken anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Statistical Sampling",
@@ -3906,7 +4417,9 @@
       "whenToUse": "Üretilen ürün veya teslimat sayısının çok fazla olduğu (örn: 5.000 adet sensör) ve kalite takımının her bir parçayı tek tek test edecek zamanı/bütçesi olmadığı için, rastgele bir bölümü (örneklem) seçerek genel kaliteyi doğrulamasının gerektiği kaynak/zaman kısıtları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Status Meetings",
@@ -3921,7 +4434,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Story Mapping",
@@ -3937,7 +4452,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Story Points",
@@ -3954,7 +4471,9 @@
       "whenToUse": "Çevik takımın bir işin büyüklüğünü veya karmaşıklığını 'saat veya gün' gibi mutlak zaman birimleriyle değil; işin eforu, karmaşıklığı ve belirsizliğini tek bir ölçüde birleştirerek göreceli olarak tahmin etmesi (estimation) gereken durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Successor Activity",
@@ -3970,7 +4489,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Summary Activity",
@@ -3985,7 +4506,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Sunk Cost",
@@ -4001,7 +4524,9 @@
       "whenToUse": "Projenin ekonomik olarak uygulanabilirliğini yitirdiği (iş gerekçesini karşılamadığı) durumlarda, karar alıcıların sırf 'projeye şu ana kadar çok fazla para ve zaman harcandığı için' projeye devam etmek istemesi şeklindeki rasyonel olmayan karar hataları.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Kapanış",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "SWOT Analysis",
@@ -4018,7 +4543,9 @@
       "whenToUse": "Projenin başlangıcında veya büyük bir stratejik karar eşiğinde takımın; kurumun veya projenin Güçlü Yönlerini (Strengths), Zayıf Yönlerini (Weaknesses), Fırsatlarını (Opportunities) ve Tehditlerini (Threats) aynı anda analiz etmesi gerektiği bilgi toplama durumları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "T-Shaped Team Member",
@@ -4033,7 +4560,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Tacit Knowledge",
@@ -4048,7 +4577,9 @@
       ],
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Kapanış",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Tailor Your Approach",
@@ -4064,7 +4595,9 @@
       "definitionTR": "PMBOK® 8. Baskının 12 ilkesinden biridir. Proje yaklaşımını, yönetişimi ve süreçleri her projenin özgün bağlamına bilinçli biçimde uyarlayın. Hiçbir metodoloji her duruma uymaz; düşünceli uyarlama titizlik ile esneklik arasındaki doğru dengeyi bulur.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Tailoring",
@@ -4081,7 +4614,10 @@
       "whenToUse": "Proje çok benzersiz bir yapıya sahip olduğunda; örneğin donanım kısmı için kesin ve katı kurallar gerekirken yazılım kısmı için sürekli değişen müşteri istekleri olduğunda. Çözüm: 'Herkese uyan tek bir yöntem' (One-size-fits-all) dayatmak yerine, süreçleri projenin benzersiz bağlamına ve karmaşıklığına göre 'uyarlamak'.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Taking Away Authority",
@@ -4096,7 +4632,9 @@
       ],
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Team Performance Domain",
@@ -4112,7 +4650,9 @@
       "definitionTR": "PMBOK® 8. Baskının 8 performans alanından biridir. Etkin, motive edilmiş ve yüksek performanslı bir proje ekibi geliştirmeye, oluşturmaya ve sürdürmeye ilişkin faaliyetleri ve sorumlulukları ele alır. Liderliği, ekip kültürünü, hesap verebilirliği ve ekip büyümesini kapsar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Technical Debt",
@@ -4128,7 +4668,9 @@
       "definitionTR": "Uygun çözümler yerine kısayollar veya hızlı düzeltmeler uygulandığında oluşan örtük yeniden çalışma maliyetidir. Finansal borç gibi teknik borç da zamanla artan karmaşıklık ve bakım yükü biçiminde faiz biriktirir. Çevik ekipler, geliştirme hızını korumak için teknik borcu aktif biçimde yönetir.",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Test-Driven Development (TDD)",
@@ -4136,7 +4678,9 @@
       "category": "Agile & Adaptive",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik",
+      "developmentApproach": [
+        "Çevik"
+      ],
       "definition": "An agile software development practice where automated tests are written before the actual production code. The cycle follows three steps: Red (write a failing test), Green (write minimum code to pass), Refactor (improve code quality). TDD ensures high code quality, reduces defects, and makes the codebase easier to maintain.",
       "definitionTR": "Otomatik testlerin üretim kodundan önce yazıldığı çevik yazılım geliştirme pratiği. Döngü üç adımdan oluşur: Kırmızı (başarısız testi yaz), Yeşil (testi geçecek minimum kodu yaz), Refactor (kod kalitesini iyileştir). TDD yüksek kod kalitesini garanti eder, hataları azaltır ve kodu daha kolay bakım yapılabilir hale getirir.",
       "related": [
@@ -4160,7 +4704,9 @@
       "definitionTR": "PMBOK® 8. Baskının 12 ilkesinden biridir. Projeyi daha geniş bir sistemin parçası olarak görün; bileşenlerin birbirleriyle ve çevreleriyle nasıl etkileşime girdiğini fark edin. Sistemin bir bölümündeki değişiklikler, öngörülmesi ve yönetilmesi gereken dalgalanma etkileri yaratır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Three-Point Estimate (PERT)",
@@ -4176,7 +4722,9 @@
       "definitionTR": "Ağırlıklı ortalama süre veya maliyet hesaplamak için üç tahmin kullanan bir tahmin tekniğidir: Iyimser (I), En Olası (EO) ve Kötümser (K). PERT formülü: (I + 4xEO + K) bölü 6. Tek noktalı tahminlere kıyasla tahmin belirsizliğini daha iyi hesaba katar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Time and Material Contract",
@@ -4192,7 +4740,9 @@
       "whenToUse": "Kapsamın net olmadığı ancak işe (örneğin dışarıdan acil yazılımcı veya danışman bulmaya) hemen başlanması gereken acil durumlarda; işçilik için saatlik/günlük sabit bir ücretin ödendiği karma satın alma senaryoları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Timeboxing",
@@ -4209,7 +4759,9 @@
       "whenToUse": "Takımın bir görevi veya tasarımı 'mükemmelleştirmek' için gereğinden fazla zaman harcadığı, analiz felci (analysis paralysis) yaşadığı veya toplantıların sürekli uzayarak programı riske attığı zaman kontrol krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "To-Complete Performance Index (TCPI)",
@@ -4225,7 +4777,9 @@
       "whenToUse": "Proje bütçeyi aşmış durumdayken sponsorun gelip, 'Geçmişi boşver, şu andan itibaren projeyi orijinal bütçesi (BAC) içinde bitirebilmemiz için kalan işleri hangi maliyet verimliliğiyle yapmamız gerekiyor?' diye sorduğu 'gelecek hedefi' krizleri.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Tornado Diagram",
@@ -4233,7 +4787,9 @@
       "category": "Risk Management",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü",
+      "developmentApproach": [
+        "Öngörücü"
+      ],
       "definition": "A bar chart used in sensitivity analysis to rank project variables (risks, assumptions) by their potential impact on the project outcome. The highest-impact variables appear at the top, creating a tornado-like shape. Helps project managers prioritize which uncertainties deserve the most attention.",
       "definitionTR": "Duyarlılık analizinde proje değişkenlerini (riskler, varsayımlar) proje sonucu üzerindeki potansiyel etkilerine göre sıralamak için kullanılan çubuk grafik. En yüksek etkili değişkenler en üstte görünür ve bu görünüm tornado benzeri bir şekil oluşturur. Proje yöneticilerinin hangi belirsizliklere öncelik vereceğini belirlemesine yardımcı olur.",
       "related": [
@@ -4257,7 +4813,9 @@
       "whenToUse": "Kritik yolda olmayan (non-critical path) bir faaliyetin aniden geciktiği ve proje yöneticisinin 'Bu faaliyetin gecikmesi, projenin en son teslim tarihini (nihai bitişi) kaydırır mı, elimizde ne kadar esneklik var?' diye analiz yapması gerektiği durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Transparency",
@@ -4273,7 +4831,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Triple Bottom Line",
@@ -4281,7 +4841,10 @@
       "category": "PMBOK Principles",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel",
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ],
       "definition": "A sustainability framework measuring organizational performance across three dimensions: People (social responsibility), Planet (environmental impact), and Profit (economic value). It expands the traditional success metric beyond financial returns to include stakeholder and environmental wellbeing.",
       "definitionTR": "Kurumsal performansı üç boyutta ölçen sürdürülebilirlik çerçevesi: İnsan (sosyal sorumluluk), Gezegen (çevresel etki) ve Kâr (ekonomik değer). Geleneksel başarı ölçütünü finansal getirilerin ötesine taşıyarak paydaş ve çevre refahını da kapsar.",
       "related": [
@@ -4304,7 +4867,9 @@
       "whenToUse": "Yeni kurulan veya yeni bir üyenin katıldığı takımda, kimin ne yapacağı konusunda güç mücadelelerinin başladığı, fikir ayrılıklarının yaşandığı ve takım üyelerinin birbirlerine güvensiz ve çatışmacı yaklaştığı iletişim krizleri (Fırtına/Storming aşaması).",
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "Yürütme",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Uncertainty Performance Domain",
@@ -4320,7 +4885,9 @@
       "definitionTR": "PMBOK® 8. Baskının 8 performans alanından biridir. Proje yaşam döngüsü boyunca belirsizlik, muğlaklık ve karmaşıklıktan kaynaklanan tehdit ve fırsatları belirleme, değerlendirme ve bunlara yanıt verme faaliyetlerini ele alır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "User Story",
@@ -4338,7 +4905,9 @@
       "whenToUse": "Geleneksel ve katı teknik gereksinim dokümanlarının takımı yavaşlattığı, geliştiricilerin 'müşterinin bu özelliği aslında ne için (hangi değer için) istediğini' anlamakta zorlandığı ve gereksinimlerin 'Bir [Kullanıcı] olarak, [Fayda] sağlamak için [Özellik] istiyorum' formatında basitleştirilmesi gerektiği anlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Validation",
@@ -4354,7 +4923,9 @@
       "whenToUse": "Ürünün tüm teknik testleri başarıyla geçtiği halde müşteriye sunulduğunda müşterinin 'Bu benim asıl iş problemimi çözmüyor / Bu benim beklentim değildi' diyerek ürünü reddettiği iş değeri uyuşmazlığı durumları. (Soru: Doğru ürünü mü yaptık?)",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Value",
@@ -4370,7 +4941,10 @@
       "definitionTR": "Bir şeyin bir paydaş veya organizasyon açısından değeri, faydası veya önemidir. PMBOK® 8. Baskıda değer sunmak, proje yönetiminin amacıdır; yalnızca görevlerin tamamlanması değil, finansal getiriler, organizasyonel iyileştirmeler, müşteri memnuniyeti ve sosyal veya çevresel faydaları kapsayan geniş bir anlam taşır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Öngörücü",
+        "Çevik"
+      ]
     },
     {
       "term": "Value Stream Mapping",
@@ -4386,7 +4960,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Vanity Metric",
@@ -4401,7 +4977,9 @@
       ],
       "conceptType": "Soru Kökü/Kriz",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Variance",
@@ -4417,7 +4995,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Variance Analysis",
@@ -4433,7 +5013,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Variance at Completion (VAC)",
@@ -4448,7 +5030,9 @@
       "definitionTR": "Projenin başlangıcında belirlenen Tamamlanma Bütçesi (BAC) ile güncel Tamamlama Tahmini (EAC) arasındaki fark olarak ifade edilen beklenen bütçe açığı veya fazlasının net miktarıdır.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "Velocity",
@@ -4465,7 +5049,9 @@
       "whenToUse": "Ürün sahibinin veya sponsorun, 'İş birikim listesinde kalan tüm bu özellikleri (kapsamı) bitirmeniz yaklalaşık kaç iterasyon / sprint sürer?' diye sorduğu ileriye dönük sürüm planlama (release planning) durumları. (AI Çeldirici Kuralı: İki farklı takımın performansını karşılaştırmak için hız KULLANILAMAZ).",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Verification",
@@ -4482,7 +5068,9 @@
       "whenToUse": "Ürünü müşteriye sunmadan hemen önce, içerideki kalite takımının veya test uzmanlarının 'Ürettiğimiz bu parça, tasarım planındaki ölçülere ve teknik spesifikasyonlara birebir uyuyor mu?' diyerek iç hata kontrolü yaptığı durumlar. (Soru: Ürünü doğru mu yaptık?)",
       "conceptType": "Çözüm/Araç",
       "processGroup": "İzleme ve Kontrol",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Voice of the Customer",
@@ -4499,7 +5087,9 @@
       "whenToUse": "Projenin başlangıcında, müşterinin çok muğlak ve genel arzular (örn: 'Daha hızlı bir sistem istiyorum') ifade ettiği ve takımın bu arzuları ölçülebilir teknik gereksinimlere dönüştürmekte zorlandığı analiz darboğazları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "Voting Techniques",
@@ -4514,7 +5104,9 @@
       ],
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "WBS Dictionary",
@@ -4529,7 +5121,9 @@
       "definitionTR": "İş kırılım yapısındaki her bir iş paketi (bileşen) hakkında ayrıntılı teslimat, faaliyet, zaman çizelgesi ve kabul kriteri bilgileri sağlayan destekleyici belgedir.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     },
     {
       "term": "What-If Scenario Analysis",
@@ -4546,7 +5140,9 @@
       "whenToUse": "Projede birden fazla olumsuz durumun veya krizin (örneğin 'ya tedarikçi iflas ederse ve aynı anda yeni bir yasa çıkarsa') aynı anda olma ihtimalinin proje hedefleri üzerindeki potansiyel etkisini değerlendirmek için alternatif planların test edildiği durumlar.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Evrensel"
+      "developmentApproach": [
+        "Hibrit"
+      ]
     },
     {
       "term": "WIP Limit",
@@ -4562,7 +5158,9 @@
       "definitionTR": "Herhangi bir iş akışı aşamasında aynı anda bulunabilecek iş ogesi sayısını sınırlayan Kanban daki bir kısıttır. WIP limitleri ekibi yeni iş başlatmadan önce mevcut işi bitirmeye zorlar, darboğazları gün yüzüne çıkarır ve tutarlı bir değer akışını sürdürür.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
-      "developmentApproach": "Çevik"
+      "developmentApproach": [
+        "Çevik"
+      ]
     },
     {
       "term": "Work Breakdown Structure (WBS)",
@@ -4579,7 +5177,9 @@
       "whenToUse": "Proje kapsamının çok büyük, belirsiz ve yönetilemez göründüğü; takımın maliyet ve zaman tahminlerini yapabilmek için işi daha küçük, yönetilebilir alt iş paketlerine (ayrıştırma/decomposition) bölmesi gereken planlama anları.",
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
-      "developmentApproach": "Öngörücü"
+      "developmentApproach": [
+        "Öngörücü"
+      ]
     }
   ]
 }
