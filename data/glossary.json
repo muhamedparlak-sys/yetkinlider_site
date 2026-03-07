@@ -148,6 +148,22 @@
       "developmentApproach": "Çevik"
     },
     {
+      "term": "AI Hallucination & Bias",
+      "termTR": "Yapay Zeka Halüsinasyonu ve Önyargısı",
+      "category": "Risk Management",
+      "conceptType": "Soru Kökü/Kriz",
+      "processGroup": "İzleme ve Kontrol",
+      "developmentApproach": "Evrensel",
+      "definition": "The tendency of AI systems to generate plausible-sounding but factually incorrect outputs (hallucination) or to produce skewed results due to biased training data (bias). In project management, over-reliance on AI-generated plans or analyses without human validation poses a critical risk.",
+      "definitionTR": "Yapay zeka sistemlerinin gerçekte doğru olmayan çıktılar üretme (halüsinasyon) ya da önyargılı eğitim verilerinden kaynaklanan çarpık sonuçlar üretme (önyargı) eğilimi. Proje yönetiminde, insan doğrulaması yapılmadan yapay zeka tarafından üretilen plan veya analizlere aşırı güvenmek kritik bir risk oluşturur.",
+      "whenToUse": "Proje kararları yapay zeka çıktılarına dayandığında ve insan doğrulaması atlandığında bu risk devreye girer. Yanlış analizler veya gerçekdışı planlar kritik proje hatalarına yol açabilir; her AI çıktısı uzman gözüyle doğrulanmalıdır.",
+      "related": [
+        "Human-in-the-Loop",
+        "Blind Trust in AI",
+        "Risk"
+      ]
+    },
+    {
       "term": "Ambiguity",
       "termTR": "Belirsizlik / Muğlaklık",
       "category": "Core Concepts",
@@ -433,6 +449,22 @@
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
       "developmentApproach": "Öngörücü"
+    },
+    {
+      "term": "Blind Trust in AI",
+      "termTR": "Yapay Zekaya Körü Körüne Güvenmek",
+      "category": "Risk Management",
+      "conceptType": "Zehir/Çeldirici",
+      "processGroup": "Yürütme",
+      "developmentApproach": "Evrensel",
+      "definition": "The dangerous anti-pattern of accepting AI-generated outputs—plans, forecasts, or decisions—without critical human review or expert validation. This approach ignores the risk of hallucinations and bias, violates PMI's ethical standards, and can lead to catastrophic project failures.",
+      "definitionTR": "Yapay zeka tarafından üretilen plan, tahmin veya kararları eleştirel bir insan incelemesi ya da uzman doğrulaması olmadan kabul etme tehlikeli anti-kalıbı. Bu yaklaşım; halüsinasyon ve önyargı riskini görmezden gelir, PMI etik standartlarını ihlal eder ve projeyi felakete sürükleyebilir.",
+      "whenToUse": "Bir ekip üyesi veya yönetici yapay zekanın önerdiği planı sorgusuz sualsiz uygulamak istediğinde bu tehlikeli tutumla karşılaşılır. PMI etiği ve risk yönetimi açısından her zaman yanlış seçenektir; doğru yanıt Human-in-the-Loop ilkesini uygulamaktır.",
+      "related": [
+        "AI Hallucination & Bias",
+        "Human-in-the-Loop",
+        "Risk"
+      ]
     },
     {
       "term": "Blindly Crashing / Fast-Tracking",
@@ -1104,6 +1136,22 @@
       "conceptType": "Çözüm/Araç",
       "processGroup": "Planlama",
       "developmentApproach": "Çevik"
+    },
+    {
+      "term": "Cumulative Flow Diagram",
+      "termTR": "Kümülatif Akış Diyagramı",
+      "category": "Agile & Adaptive",
+      "conceptType": "Çözüm/Araç",
+      "processGroup": "İzleme ve Kontrol",
+      "developmentApproach": "Çevik",
+      "definition": "An agile visualization tool tracking the number of work items in each workflow stage over time. It helps teams identify bottlenecks, measure cycle time, and monitor throughput. A widening band in any stage signals a blockage requiring immediate attention.",
+      "definitionTR": "İş öğelerinin zaman içinde iş akışının her aşamasında ne kadar biriktiğini izleyen çevik görselleştirme aracı. Ekiplerin darboğazları tespit etmesine, döngü süresini ölçmesine ve genel iş akışını izlemesine yardımcı olur. Herhangi bir aşamada genişleyen bant, acil müdahale gerektiren bir tıkanıklığa işaret eder.",
+      "related": [
+        "Kanban",
+        "WIP Limit",
+        "Information Radiator",
+        "Burndown Chart"
+      ]
     },
     {
       "term": "Daily Scrum",
@@ -1903,6 +1951,22 @@
       "developmentApproach": "Evrensel"
     },
     {
+      "term": "Human-in-the-Loop",
+      "termTR": "İnsan Denetimi / Uzman Doğrulaması",
+      "category": "Quality Management",
+      "conceptType": "Çözüm/Araç",
+      "processGroup": "İzleme ve Kontrol",
+      "developmentApproach": "Evrensel",
+      "definition": "A design principle requiring human oversight and validation at critical decision points, especially when AI or automated systems are involved. Ensures that automated outputs are reviewed by qualified experts before being acted upon, reducing the risk of AI hallucinations and biased results.",
+      "definitionTR": "Özellikle yapay zeka veya otomatik sistemlerin kullanıldığı durumlarda, kritik karar noktalarında insan denetimi ve doğrulaması gerektiren tasarım ilkesi. Otomatik çıktıların harekete geçilmeden önce yetkili uzmanlar tarafından incelenmesini sağlayarak halüsinasyon ve önyargı riskini azaltır.",
+      "whenToUse": "Proje planları, tahminler veya kararlar kısmen ya da tamamen yapay zeka tarafından üretildiğinde uygulanır. Çıktı doğrudan kullanılmadan önce bir uzman tarafından incelenip onaylanmalıdır; bu adım atlanamaz.",
+      "related": [
+        "AI Hallucination & Bias",
+        "Blind Trust in AI",
+        "Quality Management"
+      ]
+    },
+    {
       "term": "Hybrid Approach",
       "category": "Development Approach",
       "definition": "A project delivery method that deliberately combines predictive and adaptive elements, selecting the best practices from each to suit the specific project context. For example, requirements may be gathered predictively while delivery is executed iteratively in sprints.",
@@ -1949,6 +2013,22 @@
       "conceptType": "Zehir/Çeldirici",
       "processGroup": "İzleme ve Kontrol",
       "developmentApproach": "Evrensel"
+    },
+    {
+      "term": "Impact Mapping",
+      "termTR": "Etki Haritalama",
+      "category": "Agile & Adaptive",
+      "conceptType": "Çözüm/Araç",
+      "processGroup": "Planlama",
+      "developmentApproach": "Çevik",
+      "definition": "An agile strategic planning technique creating a visual map linking business goals to actors, impacts, and deliverables. It answers: Why (goal), Who (actors), How (impacts), and What (deliverables). Aligns the product backlog with organizational objectives and prevents building features with no real business value.",
+      "definitionTR": "İş hedeflerini aktörler, etkiler ve çıktılarla görsel olarak ilişkilendiren çevik stratejik planlama tekniği. Neden (hedef), Kim (aktörler), Nasıl (etkiler) ve Ne (çıktılar) sorularını yanıtlar. Ürün birikimini organizasyon hedefleriyle hizalar ve gerçek iş değeri üretmeyen özelliklerin geliştirilmesini önler.",
+      "related": [
+        "Story Mapping",
+        "Product Backlog",
+        "User Story",
+        "Epic"
+      ]
     },
     {
       "term": "Impediment",
@@ -2016,6 +2096,20 @@
       "conceptType": "Çözüm/Araç",
       "processGroup": "Başlatma",
       "developmentApproach": "Evrensel"
+    },
+    {
+      "term": "Integrate Sustainability",
+      "termTR": "Sürdürülebilirliği Entegre Etmek",
+      "category": "PMBOK Principles",
+      "conceptType": "Çözüm/Araç",
+      "processGroup": "Planlama",
+      "developmentApproach": "Evrensel",
+      "definition": "A PMBOK 8th Edition principle emphasizing that project teams should consider long-term environmental, social, and economic impacts when making decisions. Sustainable thinking is woven into project planning and execution, not treated as an afterthought.",
+      "definitionTR": "PMBOK 8. Baskı ilkesi; proje ekiplerinin karar alırken uzun vadeli çevresel, sosyal ve ekonomik etkileri göz önünde bulundurması gerektiğini vurgular. Sürdürülebilir düşünce, proje planlama ve yürütme süreçlerine işlenmelidir; sonradan hatırlanan bir ek değil, baştan benimsenen bir perspektiftir.",
+      "related": [
+        "Triple Bottom Line",
+        "PMBOK Principles"
+      ]
     },
     {
       "term": "Integrated Change Control",
@@ -3147,6 +3241,22 @@
       "developmentApproach": "Öngörücü"
     },
     {
+      "term": "Residual Risk",
+      "termTR": "Artık Risk",
+      "category": "Risk Management",
+      "conceptType": "Soru Kökü/Kriz",
+      "processGroup": "İzleme ve Kontrol",
+      "developmentApproach": "Evrensel",
+      "definition": "The remaining risk that persists after risk response actions have been fully implemented. It represents the acceptable level of risk that the organization or project team consciously chooses to tolerate. Residual risks are documented in the risk register and may be addressed through contingency reserves.",
+      "definitionTR": "Risk yanıt eylemleri tümüyle uygulandıktan sonra geriye kalan risk. Organizasyonun veya proje ekibinin bilinçli olarak kabul etmeyi seçtiği tolere edilebilir risk düzeyini temsil eder. Artık riskler risk kaydında belgelenir ve acil durum yedekleriyle karşılanabilir.",
+      "whenToUse": "Tüm risk yanıtları uygulandıktan sonra hâlâ var olan risk miktarını ifade etmek için kullanılır. Sıfır risk mümkün olmadığından, artık risk kabul edilir ve izlenir; gerekirse acil durum rezervi ayrılır.",
+      "related": [
+        "Secondary Risk",
+        "Risk",
+        "Contingency Reserve"
+      ]
+    },
+    {
       "term": "Resource Leveling",
       "category": "Schedule Management",
       "definition": "A schedule optimization technique that adjusts activity start and finish dates to resolve resource over-allocation. Resource leveling may extend the project duration but ensures no team member or resource is scheduled beyond their capacity in any given time period.",
@@ -3470,6 +3580,22 @@
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
       "developmentApproach": "Çevik"
+    },
+    {
+      "term": "Secondary Risk",
+      "termTR": "İkincil Risk",
+      "category": "Risk Management",
+      "conceptType": "Soru Kökü/Kriz",
+      "processGroup": "Planlama",
+      "developmentApproach": "Evrensel",
+      "definition": "A new risk that arises as a direct result of implementing a risk response. For example, hiring additional contractors to address a resource shortage may introduce vendor management complexity. Secondary risks must be identified and managed like any other project risk.",
+      "definitionTR": "Bir risk yanıtının uygulanmasının doğrudan sonucu olarak ortaya çıkan yeni risk. Örneğin, kaynak yetersizliğini gidermek için ek yüklenici tutmak, tedarikçi yönetimi karmaşıklığı doğurabilir. İkincil riskler, diğer proje riskleri gibi tanımlanmalı ve yönetilmelidir.",
+      "whenToUse": "Risk yanıt planlaması yapılırken her yanıt için 'bu yanıt ne tür yeni riskler doğurur?' sorusu sorulmalıdır. Ortaya çıkan ikincil riskler risk kaydına eklenmeli ve izlenmelidir.",
+      "related": [
+        "Residual Risk",
+        "Risk",
+        "Risk Management"
+      ]
     },
     {
       "term": "Servant Leadership",
@@ -4005,6 +4131,22 @@
       "developmentApproach": "Çevik"
     },
     {
+      "term": "Test-Driven Development (TDD)",
+      "termTR": "Test Odaklı Geliştirme",
+      "category": "Agile & Adaptive",
+      "conceptType": "Çözüm/Araç",
+      "processGroup": "Yürütme",
+      "developmentApproach": "Çevik",
+      "definition": "An agile software development practice where automated tests are written before the actual production code. The cycle follows three steps: Red (write a failing test), Green (write minimum code to pass), Refactor (improve code quality). TDD ensures high code quality, reduces defects, and makes the codebase easier to maintain.",
+      "definitionTR": "Otomatik testlerin üretim kodundan önce yazıldığı çevik yazılım geliştirme pratiği. Döngü üç adımdan oluşur: Kırmızı (başarısız testi yaz), Yeşil (testi geçecek minimum kodu yaz), Refactor (kod kalitesini iyileştir). TDD yüksek kod kalitesini garanti eder, hataları azaltır ve kodu daha kolay bakım yapılabilir hale getirir.",
+      "related": [
+        "Behavior-Driven Development (BDD)",
+        "Pair Programming",
+        "Definition of Done (DoD)",
+        "Continuous Improvement"
+      ]
+    },
+    {
       "term": "Think Systemically",
       "category": "PMBOK Principles",
       "definition": "One of the 12 PMBOK® 8th edition principles. View the project as part of a broader system, recognizing how components interact with each other and with the surrounding environment. Changes in one part of the system create ripple effects that must be anticipated and managed.",
@@ -4086,6 +4228,21 @@
       "developmentApproach": "Öngörücü"
     },
     {
+      "term": "Tornado Diagram",
+      "termTR": "Tornado Grafiği",
+      "category": "Risk Management",
+      "conceptType": "Çözüm/Araç",
+      "processGroup": "Planlama",
+      "developmentApproach": "Öngörücü",
+      "definition": "A bar chart used in sensitivity analysis to rank project variables (risks, assumptions) by their potential impact on the project outcome. The highest-impact variables appear at the top, creating a tornado-like shape. Helps project managers prioritize which uncertainties deserve the most attention.",
+      "definitionTR": "Duyarlılık analizinde proje değişkenlerini (riskler, varsayımlar) proje sonucu üzerindeki potansiyel etkilerine göre sıralamak için kullanılan çubuk grafik. En yüksek etkili değişkenler en üstte görünür ve bu görünüm tornado benzeri bir şekil oluşturur. Proje yöneticilerinin hangi belirsizliklere öncelik vereceğini belirlemesine yardımcı olur.",
+      "related": [
+        "Risk",
+        "Quantitative Risk Analysis",
+        "Variance Analysis"
+      ]
+    },
+    {
       "term": "Total Float",
       "category": "Schedule Management",
       "definition": "The total amount of time an activity can be delayed from its early start without delaying the project end date or violating a schedule constraint. Activities on the critical path have zero total float — any delay directly delays the project.",
@@ -4117,6 +4274,20 @@
       "conceptType": "Çözüm/Araç",
       "processGroup": "Yürütme",
       "developmentApproach": "Evrensel"
+    },
+    {
+      "term": "Triple Bottom Line",
+      "termTR": "Üçlü Kar Hanesi",
+      "category": "PMBOK Principles",
+      "conceptType": "Çözüm/Araç",
+      "processGroup": "Başlatma",
+      "developmentApproach": "Evrensel",
+      "definition": "A sustainability framework measuring organizational performance across three dimensions: People (social responsibility), Planet (environmental impact), and Profit (economic value). It expands the traditional success metric beyond financial returns to include stakeholder and environmental wellbeing.",
+      "definitionTR": "Kurumsal performansı üç boyutta ölçen sürdürülebilirlik çerçevesi: İnsan (sosyal sorumluluk), Gezegen (çevresel etki) ve Kâr (ekonomik değer). Geleneksel başarı ölçütünü finansal getirilerin ötesine taşıyarak paydaş ve çevre refahını da kapsar.",
+      "related": [
+        "Integrate Sustainability",
+        "PMBOK Principles"
+      ]
     },
     {
       "term": "Tuckman's Stages of Team Development",
