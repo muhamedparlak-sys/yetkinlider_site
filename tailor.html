@@ -1117,7 +1117,10 @@ function renderEcoScores() {
   const recText = document.getElementById('eco-rec-text');
   if (recBox && recText && withData.length > 0) {
     const weakest = withData.reduce((a, b) => scores[b] < scores[a] ? b : a);
-    recText.innerHTML = `<strong>Öneri:</strong> Geçmiş verilerine göre en zayıf alan: <strong>${LABELS[weakest]}</strong> (%${scores[weakest]}). Bu alan varsayılan olarak seçildi.`;
+    const _sess = (() => { try { return JSON.parse(localStorage.getItem('pmSim_session') || 'null'); } catch { return null; } })();
+    const _name = _sess?.displayName?.split(' ')[0] || null;
+    const _greet = _name ? `${_name}, aldığın` : 'Aldığın';
+    recText.innerHTML = `${_greet} son kararların yerindeliği ölçüldüğünde aşağıdaki skorlar çıkıyor. Geliştirmeye en açık alan <strong>${LABELS[weakest]}</strong> — bu alanı senin için seçtik.`;
     recBox.style.display = 'flex';
   } else if (recBox) {
     recBox.style.display = 'none';
