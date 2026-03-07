@@ -309,16 +309,12 @@ input{font-family:inherit}
     <div class="setup-card">
       <div class="setup-card-head">
         <h2>Karakterini yarat</h2>
-        <p>PM adın ve proje adın oyun boyunca sana hitap etmek için kullanılır.</p>
+        <p>Proje adı oyun boyunca kullanılır. Sektörüne göre bir öneri hazırladık, istersen değiştirebilirsin.</p>
       </div>
 
       <div class="setup-row">
-        <span class="setup-row-label">PM Adı</span>
-        <input class="setup-text-input" id="pm_name" type="text" placeholder="Ör: Arif Demir" maxlength="40">
-      </div>
-      <div class="setup-row">
         <span class="setup-row-label">Proje Adı</span>
-        <input class="setup-text-input" id="project_name" type="text" placeholder="Ör: Proje Pegasus" maxlength="50">
+        <input class="setup-text-input" id="project_name" type="text" placeholder="Ör: Proje Pegasus" maxlength="50" data-user-edited="false" oninput="this.dataset.userEdited='true'">
       </div>
       <div class="setup-row" style="align-items:start">
         <span class="setup-row-label" style="padding-top:4px">Sektör</span>
@@ -884,7 +880,7 @@ function buildSteppers() {
 function selectOpt(el, group) {
   document.querySelectorAll(`.opt-cell[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
-  // Show/hide custom input for "other" sector
+  // Show/hide custom input + auto-fill project name for sector
   if (group === 'sector') {
     const wrap = document.getElementById('sector-custom-wrap');
     if (wrap) {
@@ -894,6 +890,11 @@ function selectOpt(el, group) {
       } else {
         wrap.classList.remove('show');
       }
+    }
+    // Auto-fill project name unless user has already typed something
+    const proj = document.getElementById('project_name');
+    if (proj && proj.dataset.userEdited !== 'true' && el.dataset.val !== 'other') {
+      proj.value = PROJECT_NAME_DEFAULTS[el.dataset.val] || '';
     }
   }
   // Sync role availability when dev_approach changes
@@ -950,8 +951,9 @@ function nextCareer(step) {
       S.career.sector_custom = null;
     }
     hint('hint-c1', false);
-    S.career.pm_name = (document.getElementById('pm_name').value.trim()) || 'PM';
-    S.career.project_name = (document.getElementById('project_name').value.trim()) || 'Proje';
+    const _s = (() => { try { return JSON.parse(localStorage.getItem('pmSim_session') || 'null'); } catch { return null; } })();
+    S.career.pm_name = _s?.displayName || _s?.username || 'PM';
+    S.career.project_name = (document.getElementById('project_name').value.trim()) || PROJECT_NAME_DEFAULTS[S.career.sector] || 'Proje';
     goPage('page-c2');
   } else if (step === 2) {
     const diff = getDiff('difficulty'), pmo = getOpt('pmo_type'), team = getOpt('team_culture');
@@ -1095,6 +1097,17 @@ function buildCharacters(sector) {
     name, role, personality, stress_level:'medium', relationship_score:65
   }));
 }
+
+// ── PROJECT NAME DEFAULTS PER SECTOR ─────────────────────────────────────────
+const PROJECT_NAME_DEFAULTS = {
+  it:           'Bulut Altyapı Göçü',
+  construction: 'Yeni Ofis Binası Projesi',
+  health:       'Hasta Takip Sistemi',
+  finance:      'Dijital Bankacılık Platformu',
+  defense:      'Güvenli Ağ Altyapısı',
+  education:    'Uzaktan Eğitim Platformu',
+  other:        'Yeni Proje',
+};
 
 // ── ROLE ↔ APPROACH COMPATIBILITY ────────────────────────────────────────────
 const APPROACH_ROLE_COMPAT = {
@@ -1319,13 +1332,7 @@ function applyDefaults() {
   const session      = (() => { try { return JSON.parse(localStorage.getItem('pmSim_session') || 'null'); } catch { return null; } })();
   const lastScenario = (() => { try { return JSON.parse(localStorage.getItem('yetkinlider_scenario') || 'null'); } catch { return null; } })();
 
-  // ── Career: PM name from session ──
-  const pmInput = document.getElementById('pm_name');
-  if (pmInput && !pmInput.value && session?.displayName) {
-    pmInput.value = session.displayName;
-  }
-
-  // ── Career: sector from last scenario or default IT ──
+  // ── Career: sector from last scenario or default IT (selectOpt auto-fills project name) ──
   const defaultSector = lastScenario?.career_config?.sector || 'it';
   const sectorEl = document.querySelector(`.opt-cell[data-group="sector"][data-val="${defaultSector}"]`);
   if (sectorEl && !sectorEl.classList.contains('selected')) selectOpt(sectorEl, 'sector');
