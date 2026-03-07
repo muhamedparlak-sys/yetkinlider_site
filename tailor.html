@@ -1271,8 +1271,12 @@ function applyDefaults() {
   if (sprintEl && !sprintEl.classList.contains('selected')) selectSprint(sprintEl);
 }
 
-// Run defaults on load
-document.addEventListener('DOMContentLoaded', applyDefaults);
+// Run defaults on load; support ?mode=competency URL param
+document.addEventListener('DOMContentLoaded', () => {
+  applyDefaults();
+  const p = new URLSearchParams(location.search).get('mode');
+  if (p === 'competency' || p === 'career') selectMode(p);
+});
 
 // ── START GAME ────────────────────────────────────────────────────────────────
 function startGame() {

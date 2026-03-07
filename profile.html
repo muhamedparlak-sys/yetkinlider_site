@@ -273,6 +273,32 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
   </div>
 </div>
 
+<div class="modal-overlay" id="editWorkModal">
+  <div class="modal-box">
+    <div class="modal-title">İş Bilgileri</div>
+    <label style="font-size:12px;font-weight:600;color:var(--text-muted);display:block;margin-bottom:5px">Firma / Kurum Adı</label>
+    <input class="modal-input" id="editCompanyInput" type="text" maxlength="80" placeholder="Çalıştığın firma veya kurum" style="margin-bottom:12px">
+    <label style="font-size:12px;font-weight:600;color:var(--text-muted);display:block;margin-bottom:5px">Sektör</label>
+    <select class="modal-input" id="editSectorInput">
+      <option value="">— Seçiniz —</option>
+      <option value="it">IT / Yazılım</option>
+      <option value="finance">Finans / Bankacılık</option>
+      <option value="health">Sağlık</option>
+      <option value="construction">İnşaat / Mühendislik</option>
+      <option value="defense">Savunma</option>
+      <option value="education">Eğitim</option>
+      <option value="retail">Perakende / E-Ticaret</option>
+      <option value="energy">Enerji</option>
+      <option value="telecom">Telekomünikasyon</option>
+      <option value="other">Diğer</option>
+    </select>
+    <div class="modal-footer">
+      <button class="btn-modal-cancel" onclick="closeWorkModal()">İptal</button>
+      <button class="btn-modal-save" onclick="saveWork()">Kaydet</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ── AUTH GUARD ──────────────────────────────────────────────────────────────
 const SESSION_KEY  = 'pmSim_session';
@@ -360,9 +386,9 @@ function renderDomains() {
   <div class="dc-score ${cls}">${scoreText}</div>
   <div class="dc-bar-wrap"><div class="dc-bar ${cls}" style="width:${barW}%"></div></div>
   <div class="dc-count">${countText}</div>
-  <a class="dc-train-btn" href="tailor.html">
+  <a class="dc-train-btn" href="tailor.html?mode=competency">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-    Antren et
+    Pratik Yap
   </a>
 </div>`;
   }).join('');
@@ -468,7 +494,10 @@ function renderProfile() {
 }
 
 // ── ACCOUNT CARD ─────────────────────────────────────────────────────────────
+const SECTOR_LABELS = { it:'IT / Yazılım', finance:'Finans / Bankacılık', health:'Sağlık', construction:'İnşaat / Mühendislik', defense:'Savunma', education:'Eğitim', retail:'Perakende / E-Ticaret', energy:'Enerji', telecom:'Telekomünikasyon', other:'Diğer' };
+
 function renderAccount() {
+  const meta = getWorkMeta();
   const card = document.getElementById('accountCard');
   card.innerHTML = `
 <div class="account-row">
@@ -491,6 +520,22 @@ function renderAccount() {
     <strong>E-posta</strong>
   </div>
   <div class="account-row-value">${session.email || '—'}</div>
+</div>
+<div class="account-row">
+  <div class="account-row-label">
+    <strong>Firma / Kurum</strong>
+    <span>Çalıştığın yer</span>
+  </div>
+  <div class="account-row-value" id="accCompany">${meta.company || '—'}</div>
+  <button class="btn-edit" onclick="openWorkModal()">Düzenle</button>
+</div>
+<div class="account-row">
+  <div class="account-row-label">
+    <strong>Sektör</strong>
+    <span>Çalıştığın sektör</span>
+  </div>
+  <div class="account-row-value" id="accSector">${SECTOR_LABELS[meta.sector] || '—'}</div>
+  <button class="btn-edit" onclick="openWorkModal()">Düzenle</button>
 </div>
 <div class="account-row">
   <div class="account-row-label">
@@ -536,6 +581,31 @@ document.getElementById('editModal').addEventListener('click', e => {
 document.getElementById('editNameInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') saveName();
   if (e.key === 'Escape') closeModal();
+});
+
+// ── WORK META (company + sector) ─────────────────────────────────────────────
+function getWorkMeta() {
+  try { return JSON.parse(localStorage.getItem('pmSim_work_meta') || '{}'); } catch { return {}; }
+}
+function openWorkModal() {
+  const meta = getWorkMeta();
+  document.getElementById('editCompanyInput').value = meta.company || '';
+  document.getElementById('editSectorInput').value  = meta.sector  || '';
+  document.getElementById('editWorkModal').classList.add('open');
+  setTimeout(() => document.getElementById('editCompanyInput').focus(), 50);
+}
+function closeWorkModal() {
+  document.getElementById('editWorkModal').classList.remove('open');
+}
+function saveWork() {
+  const company = document.getElementById('editCompanyInput').value.trim();
+  const sector  = document.getElementById('editSectorInput').value;
+  localStorage.setItem('pmSim_work_meta', JSON.stringify({ company, sector }));
+  closeWorkModal();
+  renderAccount();
+}
+document.getElementById('editWorkModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('editWorkModal')) closeWorkModal();
 });
 
 // ── LOGOUT ───────────────────────────────────────────────────────────────────
