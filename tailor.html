@@ -33,7 +33,7 @@ input{font-family:inherit}
 .btn-hub:hover{background:rgba(255,255,255,.14)}
 
 /* ── PAGES ── */
-.page{min-height:calc(100vh - var(--topbar-h));margin-top:var(--topbar-h);display:none;align-items:center;justify-content:center;padding:28px 20px 48px}
+.page{min-height:calc(100vh - var(--topbar-h));margin-top:var(--topbar-h);display:none;align-items:center;justify-content:center;padding:28px 20px 90px}
 .page.flex-start{align-items:flex-start}
 .page.active{display:flex}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
@@ -198,7 +198,7 @@ input{font-family:inherit}
 .info-box-icon{flex-shrink:0;opacity:.65;margin-top:1px}
 
 /* ── NAV BUTTONS ── */
-.wiz-nav{display:flex;align-items:center;gap:12px}
+.wiz-nav{position:fixed;bottom:0;left:0;right:0;display:flex;align-items:center;gap:12px;background:rgba(12,17,26,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.07);padding:14px max(20px,calc(50% - 290px));box-sizing:border-box;z-index:200}
 .wiz-back{background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);font-size:12px;font-weight:600;padding:9px 18px;border-radius:7px;cursor:pointer;transition:all .15s}
 .wiz-back:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8)}
 .wiz-next{background:var(--accent);color:#fff;font-size:14px;font-weight:700;padding:11px 28px;border-radius:8px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:7px;margin-left:auto}
@@ -373,13 +373,13 @@ input{font-family:inherit}
       </div>
     </div>
 
-    <div class="wiz-nav">
-      <button class="wiz-back" onclick="goPage('page-mode')">← Geri</button>
-      <button class="wiz-next career-next" onclick="nextCareer(1)">
-        İleri
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-    </div>
+  </div>
+  <div class="wiz-nav">
+    <button class="wiz-back" onclick="goPage('page-mode')">← Geri</button>
+    <button class="wiz-next career-next" onclick="nextCareer(1)">
+      İleri
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </div>
 
@@ -459,13 +459,13 @@ input{font-family:inherit}
     </div>
 
     <p class="val-hint" id="hint-c2">Lütfen tüm seçenekleri seçin.</p>
-    <div class="wiz-nav">
-      <button class="wiz-back" onclick="goPage('page-c1')">← Geri</button>
-      <button class="wiz-next career-next" onclick="nextCareer(2)">
-        İleri
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-    </div>
+  </div>
+  <div class="wiz-nav">
+    <button class="wiz-back" onclick="goPage('page-c1')">← Geri</button>
+    <button class="wiz-next career-next" onclick="nextCareer(2)">
+      İleri
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </div>
 
@@ -540,13 +540,13 @@ input{font-family:inherit}
     </div>
 
     <p class="val-hint" id="hint-c3">Toplam %100 olmalı.</p>
-    <div class="wiz-nav">
-      <button class="wiz-back" onclick="goPage('page-c2')">← Geri</button>
-      <button class="wiz-next career-next" onclick="nextCareer(3)">
-        Özete Git
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-    </div>
+  </div>
+  <div class="wiz-nav">
+    <button class="wiz-back" onclick="goPage('page-c2')">← Geri</button>
+    <button class="wiz-next career-next" onclick="nextCareer(3)">
+      Özete Git
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </div>
 
@@ -571,13 +571,13 @@ input{font-family:inherit}
       <span>AI, <strong>glossary.json</strong>'daki 284 terimden yalnızca henüz öğretilmemiş olanları hedef seçer. Daha önce doğru seçtiğin kararlar tekrar İlaç olarak çıkmaz; ama Çeldirici olarak karşına gelebilir.</span>
     </div>
 
-    <div class="wiz-nav">
-      <button class="wiz-back" onclick="goPage('page-c3')">← Düzenle</button>
-      <button class="wiz-next start-btn" id="btn-start-career" onclick="startGame()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Maceraya Başla
-      </button>
-    </div>
+  </div>
+  <div class="wiz-nav">
+    <button class="wiz-back" onclick="goPage('page-c3')">← Düzenle</button>
+    <button class="wiz-next start-btn" id="btn-start-career" onclick="startGame()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Maceraya Başla
+    </button>
   </div>
 </div>
 
@@ -665,13 +665,13 @@ input{font-family:inherit}
     </div>
 
     <p class="val-hint" id="hint-k1">Lütfen tüm seçenekleri seçin.</p>
-    <div class="wiz-nav">
-      <button class="wiz-back" onclick="goPage('page-mode')">← Geri</button>
-      <button class="wiz-next" onclick="nextComp(1)">
-        İleri
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-    </div>
+  </div>
+  <div class="wiz-nav">
+    <button class="wiz-back" onclick="goPage('page-mode')">← Geri</button>
+    <button class="wiz-next" onclick="nextComp(1)">
+      İleri
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </div>
 
@@ -758,13 +758,13 @@ input{font-family:inherit}
     </div>
 
     <p class="val-hint" id="hint-k2">Odak alanı ve sprint uzunluğu seçmelisin.</p>
-    <div class="wiz-nav">
-      <button class="wiz-back" onclick="goPage('page-k1')">← Geri</button>
-      <button class="wiz-next" onclick="nextComp(2)">
-        Özete Git
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-    </div>
+  </div>
+  <div class="wiz-nav">
+    <button class="wiz-back" onclick="goPage('page-k1')">← Geri</button>
+    <button class="wiz-next" onclick="nextComp(2)">
+      Özete Git
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
   </div>
 </div>
 
@@ -784,13 +784,13 @@ input{font-family:inherit}
       <div class="summary-body" id="comp-summary"></div>
     </div>
 
-    <div class="wiz-nav">
-      <button class="wiz-back" onclick="goPage('page-k2')">← Düzenle</button>
-      <button class="wiz-next start-btn" onclick="startGame()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Antrenmanı Başlat
-      </button>
-    </div>
+  </div>
+  <div class="wiz-nav">
+    <button class="wiz-back" onclick="goPage('page-k2')">← Düzenle</button>
+    <button class="wiz-next start-btn" onclick="startGame()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Antrenmanı Başlat
+    </button>
   </div>
 </div>
 
