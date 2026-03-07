@@ -122,29 +122,22 @@ input{font-family:inherit}
 .diff-name{font-size:14px;font-weight:700;color:var(--text-inv);margin-bottom:4px}
 .diff-sub{font-size:11px;color:var(--dim);line-height:1.45}
 
-/* ── APPROACH DISTRIBUTION BAR ── */
-.approach-labels{display:flex;margin-bottom:8px}
-.approach-label{flex:1;text-align:center;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+/* ── APPROACH 2-SEGMENT BAR ── */
 .approach-bar{position:relative;height:50px;border-radius:10px;overflow:hidden;display:flex;cursor:col-resize;user-select:none;touch-action:none}
 .approach-seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,.9);position:relative;transition:flex .05s linear;min-width:0}
-.approach-seg.people {background:linear-gradient(135deg,#6366f1,#8b5cf6)}
-.approach-seg.process{background:linear-gradient(135deg,#3b82f6,#06b6d4)}
-.approach-seg.business{background:linear-gradient(135deg,#10b981,#059669)}
-.approach-inputs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
-.approach-input-group{display:flex;flex-direction:column;gap:5px;align-items:center}
-.approach-input-group label{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-.approach-input-row{display:flex;align-items:center;gap:5px}
-.apct-wrap{position:relative}
-.approach-pct-input{width:58px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;color:#fff;font-size:15px;font-weight:700;text-align:center;padding:6px 14px 6px 6px;outline:none;-moz-appearance:textfield}
-.approach-pct-input::-webkit-outer-spin-button,.approach-pct-input::-webkit-inner-spin-button{-webkit-appearance:none}
-.approach-pct-input:focus{border-color:var(--accent)}
-.apct-sign{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:11px;opacity:.45;pointer-events:none}
-.approach-lock-btn{background:none;border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:6px;cursor:pointer;color:rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;transition:all .15s}
-.approach-lock-btn.locked{border-color:#f59e0b;color:#f59e0b;background:rgba(245,158,11,.1)}
-.approach-equal-btn{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:9px 16px;cursor:pointer;color:rgba(255,255,255,.5);font-size:13px;font-weight:500;transition:all .15s}
-.approach-equal-btn:hover{background:rgba(255,255,255,.09);color:#fff}
-.approach-total{text-align:center;margin-top:10px;font-size:12px;color:var(--dim)}
-.approach-total.error{color:#ef4444}
+.approach-seg.ap2-predictive{background:linear-gradient(135deg,#4338ca,#6d28d9)}
+.approach-seg.ap2-agile{background:linear-gradient(135deg,#0891b2,#2563eb)}
+.approach2-zone{text-align:center;margin-bottom:12px}
+.approach2-zone-badge{display:inline-block;font-size:13px;font-weight:700;padding:5px 18px;border-radius:999px;letter-spacing:.03em}
+.approach2-zone-badge.predictive{background:rgba(99,102,241,.12);color:#a5b4fc;border:1px solid rgba(99,102,241,.25)}
+.approach2-zone-badge.hybrid{background:rgba(139,92,246,.12);color:#c4b5fd;border:1px solid rgba(139,92,246,.25)}
+.approach2-zone-badge.agile{background:rgba(6,182,212,.12);color:#67e8f9;border:1px solid rgba(6,182,212,.25)}
+.approach2-side-labels{display:flex;justify-content:space-between;margin-top:10px;font-size:12px;font-weight:600}
+.approach2-presets{display:flex;gap:8px;margin-top:14px}
+.approach2-preset-btn{flex:1;padding:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.5);font-size:12px;font-weight:600;border-radius:7px;cursor:pointer;transition:all .14s}
+.approach2-preset-btn:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)}
+.approach2-handle{position:absolute;top:5px;bottom:5px;width:8px;background:rgba(255,255,255,.95);border-radius:4px;box-shadow:0 1px 6px rgba(0,0,0,.5);transform:translateX(-50%);pointer-events:none;z-index:3;transition:width .1s}
+.approach2-handle::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:2px;height:60%;background:rgba(0,0,0,.25);border-radius:1px;box-shadow:3px 0 0 rgba(0,0,0,.25),-3px 0 0 rgba(0,0,0,.25)}
 
 /* ── BLOCKED OPTION CELLS ── */
 .opt-cell.blocked{opacity:.25;pointer-events:none;text-decoration:line-through;cursor:not-allowed}
@@ -483,63 +476,27 @@ input{font-family:inherit}
 
     <div class="setup-card">
       <div class="setup-card-head">
-        <h2>Yaklaşım Dağılımını Belirle</h2>
-        <p>Senaryo boyunca hangi alana ne kadar odaklanmak istiyorsun? Barı sürükle veya değerleri gir.</p>
+        <h2>Metodoloji Yaklaşımı</h2>
+        <p>Öngörücü ve Çevik arasındaki dengeyi belirle. Ortadaki bölge Hibrit yaklaşımı temsil eder.</p>
       </div>
       <div class="setup-row" style="display:block;padding:18px 26px 24px">
-        <div class="approach-labels">
-          <div class="approach-label" style="color:#a5b4fc">İnsan</div>
-          <div class="approach-label" style="color:#7dd3fc">Süreç</div>
-          <div class="approach-label" style="color:#6ee7b7">İş Ortamı</div>
+        <div class="approach2-zone">
+          <span class="approach2-zone-badge hybrid" id="approach2-badge">Hibrit</span>
         </div>
         <div class="approach-bar" id="approach-bar">
-          <div class="approach-seg people"   id="seg-people"  ></div>
-          <div class="approach-seg process"  id="seg-process" ></div>
-          <div class="approach-seg business" id="seg-business"></div>
+          <div class="approach-seg ap2-predictive" id="ap2-left"></div>
+          <div class="approach-seg ap2-agile"       id="ap2-right"></div>
+          <div class="approach2-handle"              id="ap2-handle"></div>
         </div>
-        <div class="approach-inputs">
-          <div class="approach-input-group">
-            <label style="color:#a5b4fc">İnsan</label>
-            <div class="approach-input-row">
-              <div class="apct-wrap">
-                <input class="approach-pct-input" id="inp-people" type="number" min="0" max="100" value="42" oninput="onApproachInput('people')">
-                <span class="apct-sign">%</span>
-              </div>
-              <button class="approach-lock-btn" id="lock-people" onclick="toggleApproachLock('people')" title="Kilitle">
-                <svg id="lock-people-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              </button>
-            </div>
-          </div>
-          <div class="approach-input-group">
-            <label style="color:#7dd3fc">Süreç</label>
-            <div class="approach-input-row">
-              <div class="apct-wrap">
-                <input class="approach-pct-input" id="inp-process" type="number" min="0" max="100" value="50" oninput="onApproachInput('process')">
-                <span class="apct-sign">%</span>
-              </div>
-              <button class="approach-lock-btn" id="lock-process" onclick="toggleApproachLock('process')" title="Kilitle">
-                <svg id="lock-process-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              </button>
-            </div>
-          </div>
-          <div class="approach-input-group">
-            <label style="color:#6ee7b7">İş Ortamı</label>
-            <div class="approach-input-row">
-              <div class="apct-wrap">
-                <input class="approach-pct-input" id="inp-business" type="number" min="0" max="100" value="8" oninput="onApproachInput('business')">
-                <span class="apct-sign">%</span>
-              </div>
-              <button class="approach-lock-btn" id="lock-business" onclick="toggleApproachLock('business')" title="Kilitle">
-                <svg id="lock-business-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              </button>
-            </div>
-          </div>
+        <div class="approach2-side-labels">
+          <span id="ap2-left-label" style="color:#a5b4fc">Öngörücü · 50%</span>
+          <span id="ap2-right-label" style="color:#67e8f9">50% · Çevik</span>
         </div>
-        <div class="approach-total" id="approach-total">Toplam: 100%</div>
-        <button class="approach-equal-btn" onclick="setEqualApproach()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/></svg>
-          Tam Hibrit — Eşit Dağılım (33 / 34 / 33)
-        </button>
+        <div class="approach2-presets">
+          <button class="approach2-preset-btn" onclick="setApproach2Preset(15)">Öngörücü Ağırlıklı</button>
+          <button class="approach2-preset-btn" onclick="setApproach2Preset(50)">Hibrit</button>
+          <button class="approach2-preset-btn" onclick="setApproach2Preset(85)">Çevik Ağırlıklı</button>
+        </div>
       </div>
     </div>
 
@@ -806,7 +763,7 @@ input{font-family:inherit}
 // ── STATE ────────────────────────────────────────────────────────────────────
 const S = {
   mode: null,
-  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, approach:{ people:42, process:50, business:8 } },
+  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, dev_approach:null },
   comp:   { dev_approach:null, org_structure:null, role:null, difficulty:null, eco_filters:[], sprint_length:null }
 };
 
@@ -966,11 +923,8 @@ function nextCareer(step) {
     S.career.difficulty = diff; S.career.pmo_type = pmo; S.career.team_culture = team;
     goPage('page-c3');
   } else if (step === 3) {
-    const ap = getApproachVals();
-    const total = APPROACH_KEYS.reduce((a,k) => a + ap[k], 0);
-    if (total !== 100) { hint('hint-c3', true); return; }
     hint('hint-c3', false);
-    S.career.approach = ap;
+    S.career.dev_approach = getApproachFromRatio();
     renderCareerSummary();
     goPage('page-c4');
   }
@@ -1012,7 +966,11 @@ function renderCareerSummary() {
     row(IC.zap,      'Zorluk',    LBL.difficulty[c.difficulty] || c.difficulty) +
     row(IC.building, 'PMO',       LBL.pmo_type[c.pmo_type] || c.pmo_type) +
     row(IC.users,    'Takım',     LBL.team_culture[c.team_culture] || c.team_culture) +
-    row(IC.target, 'Yaklaşım', `<span class="sum-tag" style="color:#a5b4fc">İnsan ${c.approach.people}%</span><span class="sum-tag" style="color:#7dd3fc">Süreç ${c.approach.process}%</span><span class="sum-tag" style="color:#6ee7b7">İş Ortamı ${c.approach.business}%</span>`);
+    row(IC.route, 'Yaklaşım', (() => {
+      const lbl = LBL.dev_approach[c.dev_approach] || c.dev_approach || '—';
+      const pred = 100 - approach2Ratio, agile = approach2Ratio;
+      return `<span style="display:inline-flex;align-items:center;gap:8px">${lbl}<span style="display:inline-flex;width:64px;height:8px;border-radius:4px;overflow:hidden;flex-shrink:0"><span style="flex:${pred};background:linear-gradient(135deg,#4338ca,#6d28d9)"></span><span style="flex:${agile};background:linear-gradient(135deg,#0891b2,#2563eb)"></span></span></span>`;
+    })());
 }
 
 function renderCompSummary() {
@@ -1036,7 +994,7 @@ function buildPayload() {
     return {
       schema_version: '2.1', session_id: uid, created_at: now, mode: 'career',
       player: { name: S.career.pm_name, project_name: S.career.project_name, avatar_seed: S.career.pm_name.toLowerCase().replace(/\s+/g,'_') },
-      career_config: { sector: S.career.sector, sector_label: sectorLabel, difficulty: S.career.difficulty, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, approach: S.career.approach },
+      career_config: { sector: S.career.sector, sector_label: sectorLabel, difficulty: S.career.difficulty, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, dev_approach: S.career.dev_approach },
       competency_config: null,
       game_state: {
         current_day: 0, current_phase: 'initiating',
@@ -1194,130 +1152,58 @@ function getWeakestEcoDomain() {
   return scored.reduce((a, b) => b.s < a.s ? b : a).d;
 }
 
-// ── APPROACH DISTRIBUTION ─────────────────────────────────────────────────────
-const APPROACH_KEYS   = ['people', 'process', 'business'];
-const APPROACH_LOCKED = { people: false, process: false, business: false };
+// ── APPROACH 2-SEGMENT BAR ────────────────────────────────────────────────────
+let approach2Ratio = 60; // 0 = pure Öngörücü, 100 = pure Çevik
 
-function getApproachVals() {
-  return {
-    people:   parseInt(document.getElementById('inp-people').value)   || 0,
-    process:  parseInt(document.getElementById('inp-process').value)  || 0,
-    business: parseInt(document.getElementById('inp-business').value) || 0,
-  };
-}
-
-function renderApproach(vals) {
-  APPROACH_KEYS.forEach(k => {
-    const v = Math.max(0, vals[k]);
-    document.getElementById('inp-' + k).value = v;
-    // Use max(v, 0.5) so segments remain visible even at 0%
-    document.getElementById('seg-' + k).style.flex = Math.max(v, 0.5);
-    document.getElementById('seg-' + k).textContent = v > 8 ? v + '%' : '';
-  });
-  const total = APPROACH_KEYS.reduce((a, k) => a + Math.max(0, vals[k]), 0);
-  const el = document.getElementById('approach-total');
-  if (el) { el.textContent = 'Toplam: ' + total + '%'; el.classList.toggle('error', total !== 100); }
-}
-
-function onApproachInput(changed) {
-  const vals = getApproachVals();
-  APPROACH_KEYS.forEach(k => vals[k] = Math.max(0, vals[k]));
-  const lockedSum = APPROACH_KEYS.filter(k => APPROACH_LOCKED[k]).reduce((a, k) => a + vals[k], 0);
-  if (lockedSum > 100) { renderApproach(vals); return; }
-  const adjustable = APPROACH_KEYS.filter(k => k !== changed && !APPROACH_LOCKED[k]);
-  if (!adjustable.length) { renderApproach(vals); return; }
-  const target = 100 - lockedSum - vals[changed];
-  if (target < 0) {
-    vals[changed] = 100 - lockedSum;
-    adjustable.forEach(k => vals[k] = 0);
-  } else {
-    const adjSum = adjustable.reduce((a, k) => a + vals[k], 0);
-    if (adjSum === 0) {
-      const share = Math.floor(target / adjustable.length);
-      adjustable.forEach(k => vals[k] = share);
-      vals[adjustable[adjustable.length - 1]] += target - share * adjustable.length;
-    } else {
-      adjustable.forEach(k => { vals[k] = Math.round((vals[k] / adjSum) * target); });
-      const tot = APPROACH_KEYS.reduce((a, k) => a + vals[k], 0);
-      if (tot !== 100) vals[adjustable[adjustable.length - 1]] += 100 - tot;
-    }
+function renderApproach2(ratio) {
+  approach2Ratio = Math.max(0, Math.min(100, Math.round(ratio)));
+  const pred = 100 - approach2Ratio, agile = approach2Ratio;
+  const lEl = document.getElementById('ap2-left');
+  const rEl = document.getElementById('ap2-right');
+  if (lEl) { lEl.style.flex = Math.max(pred, 1); lEl.textContent = pred > 10 ? pred + '%' : ''; }
+  if (rEl) { rEl.style.flex = Math.max(agile, 1); rEl.textContent = agile > 10 ? agile + '%' : ''; }
+  const handle = document.getElementById('ap2-handle');
+  if (handle) handle.style.left = pred + '%';
+  const lLbl = document.getElementById('ap2-left-label');
+  const rLbl = document.getElementById('ap2-right-label');
+  if (lLbl) lLbl.textContent = 'Öngörücü · ' + pred + '%';
+  if (rLbl) rLbl.textContent = agile + '% · Çevik';
+  const badge = document.getElementById('approach2-badge');
+  if (badge) {
+    let label, cls;
+    if (pred >= 80)       { label = 'Öngörücü'; cls = 'predictive'; }
+    else if (agile >= 80) { label = 'Çevik';    cls = 'agile'; }
+    else                  { label = 'Hibrit';    cls = 'hybrid'; }
+    badge.textContent = label;
+    badge.className = 'approach2-zone-badge ' + cls;
   }
-  renderApproach(vals);
 }
 
-function toggleApproachLock(dim) {
-  APPROACH_LOCKED[dim] = !APPROACH_LOCKED[dim];
-  document.getElementById('lock-' + dim).classList.toggle('locked', APPROACH_LOCKED[dim]);
-  const svg = document.getElementById('lock-' + dim + '-svg');
-  if (svg) svg.innerHTML = APPROACH_LOCKED[dim]
-    ? '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>'
-    : '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a4.9 4.9 0 0 1 4-4.8"/>';
+function getApproachFromRatio() {
+  if (approach2Ratio <= 20) return 'predictive';
+  if (approach2Ratio >= 80) return 'agile';
+  return 'hybrid';
 }
 
-function setEqualApproach() {
-  const unlocked = APPROACH_KEYS.filter(k => !APPROACH_LOCKED[k]);
-  if (!unlocked.length) return;
-  const lockedSum = APPROACH_KEYS.filter(k => APPROACH_LOCKED[k])
-    .reduce((a, k) => a + (parseInt(document.getElementById('inp-' + k).value) || 0), 0);
-  const avail = 100 - lockedSum;
-  const share = Math.floor(avail / unlocked.length);
-  const vals = getApproachVals();
-  unlocked.forEach(k => vals[k] = share);
-  vals[unlocked[unlocked.length - 1]] += avail - share * unlocked.length;
-  renderApproach(vals);
-}
+function setApproach2Preset(agilePct) { renderApproach2(agilePct); }
 
 function initApproachBar() {
   const bar = document.getElementById('approach-bar');
   if (!bar) return;
-  renderApproach({ people: 42, process: 50, business: 8 });
-  let dragHandle = null;
+  renderApproach2(60);
+  bar.addEventListener('mousedown', startDrag2);
+  bar.addEventListener('touchstart', startDrag2, { passive: false });
 
-  bar.addEventListener('mousedown', startDrag);
-  bar.addEventListener('touchstart', startDrag, { passive: false });
-
-  function startDrag(e) {
+  function startDrag2(e) {
     e.preventDefault();
     const rect = bar.getBoundingClientRect();
-    const cx = e.touches ? e.touches[0].clientX : e.clientX;
-    const x = cx - rect.left;
-    const w = rect.width;
-    const v = getApproachVals();
-    const h1x = (v.people / 100) * w;
-    const h2x = ((v.people + v.process) / 100) * w;
-    dragHandle = Math.abs(x - h1x) <= Math.abs(x - h2x) ? 'h1' : 'h2';
-
     function onMove(ev) {
-      const cx2 = ev.touches ? ev.touches[0].clientX : ev.clientX;
-      const pct = Math.round(Math.max(0, Math.min(100, ((cx2 - rect.left) / w) * 100)));
-      const v = getApproachVals();
-      if (dragHandle === 'h1') {
-        const total = v.people + v.process;
-        if (!APPROACH_LOCKED.people && !APPROACH_LOCKED.process) {
-          v.people = Math.max(0, Math.min(total, pct));
-          v.process = total - v.people;
-        } else if (!APPROACH_LOCKED.people) {
-          v.people = Math.max(0, Math.min(100 - v.process - v.business, pct));
-        } else if (!APPROACH_LOCKED.process) {
-          v.process = Math.max(0, pct - v.people);
-          if (!APPROACH_LOCKED.business) v.business = Math.max(0, 100 - v.people - v.process);
-        }
-      } else {
-        const endPct = Math.max(v.people, pct);
-        if (!APPROACH_LOCKED.process && !APPROACH_LOCKED.business) {
-          v.process = Math.max(0, endPct - v.people);
-          v.business = Math.max(0, 100 - v.people - v.process);
-        } else if (!APPROACH_LOCKED.process) {
-          v.process = Math.max(0, 100 - v.people - v.business);
-        } else if (!APPROACH_LOCKED.business) {
-          v.business = Math.max(0, 100 - v.people - v.process);
-        }
-      }
-      renderApproach(v);
+      const cx = ev.touches ? ev.touches[0].clientX : ev.clientX;
+      // drag position = Öngörücü%, so Çevik% = 100 - position
+      const predPct = ((cx - rect.left) / rect.width) * 100;
+      renderApproach2(100 - predPct);
     }
-
     function onUp() {
-      dragHandle = null;
       document.removeEventListener('mousemove', onMove);
       document.removeEventListener('mouseup', onUp);
       document.removeEventListener('touchmove', onMove);
@@ -1353,7 +1239,7 @@ function applyDefaults() {
   const teamEl = document.querySelector('.opt-cell[data-group="team_culture"][data-val="collaborative"]');
   if (teamEl && !teamEl.classList.contains('selected')) selectOpt(teamEl, 'team_culture');
 
-  // ── Career: yaklaşım barını başlat (default: 42/50/8) ──
+  // ── Career: yaklaşım barını başlat (default: Hibrit 50/50) ──
   initApproachBar();
 
   // ── Competency: yaklaşım → Hibrit ──
