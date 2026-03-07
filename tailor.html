@@ -7,10 +7,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --primary:#2f4f60;--primary-light:#5f93c2;
   --accent:#3b82f6;--accent-dark:#2563eb;
-  --text:#1e293b;--text-inv:#f1f5f9;
-  --text-secondary:#94a3b8;--text-muted:#64748b;
+  --text-inv:#f1f5f9;
   --bg:#0f1520;--surface:#141d2e;--surface2:#1a2540;
   --nav-bg:#0d1220;
   --border:rgba(255,255,255,.08);--nav-border:rgba(255,255,255,.07);
@@ -31,7 +29,7 @@ input{font-family:inherit}
 .brand{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
 .brand sup{font-size:.55em;vertical-align:super;opacity:.8}
 .topbar-right{display:flex;align-items:center;gap:8px;margin-left:auto}
-.btn-hub{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:var(--text-inv);font-size:12px;border-radius:6px;padding:6px 12px;transition:background .15s}
+.btn-hub{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:var(--text-inv);font-size:12px;border-radius:6px;padding:6px 12px;transition:background .15s;display:flex;align-items:center;gap:5px}
 .btn-hub:hover{background:rgba(255,255,255,.14)}
 
 /* ── PAGES ── */
@@ -44,19 +42,19 @@ input{font-family:inherit}
 /* ── MODE SELECTION ── */
 #page-mode{background:linear-gradient(135deg,#0f1520 0%,#141d2e 60%,#0d1823 100%)}
 .mode-wrap{width:100%;max-width:560px;text-align:center}
-.mode-logo{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,#3b82f6,#6366f1);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 20px;box-shadow:0 8px 24px rgba(59,130,246,.3)}
+.mode-logo{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,#3b82f6,#6366f1);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 24px rgba(59,130,246,.3)}
 .mode-wrap h1{font-size:26px;font-weight:800;margin-bottom:8px}
 .mode-wrap>p{font-size:14px;color:var(--dim);margin-bottom:28px;line-height:1.6}
 .mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:8px}
 .mode-btn{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.1);border-radius:14px;padding:24px 20px;text-align:left;cursor:pointer;transition:all .18s;position:relative;overflow:hidden}
 .mode-btn:hover{border-color:var(--accent);background:rgba(59,130,246,.08);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.mode-btn.selected{border-color:var(--accent);background:rgba(59,130,246,.12)}
 .mode-btn.career-btn:hover,.mode-btn.career-btn.selected{border-color:#8b5cf6;background:rgba(139,92,246,.1)}
-.m-icon{font-size:30px;margin-bottom:12px;display:block}
+.mode-btn:not(.career-btn):hover,.mode-btn:not(.career-btn).selected{border-color:var(--accent);background:rgba(59,130,246,.1)}
+.m-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;opacity:.85}
 .m-title{font-size:16px;font-weight:700;color:var(--text-inv);margin-bottom:5px}
 .m-desc{font-size:12px;color:var(--dim);line-height:1.55;margin-bottom:14px}
 .m-pills{display:flex;flex-wrap:wrap;gap:5px}
-.m-pill{font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.55);white-space:nowrap}
+.m-pill{font-size:10px;font-weight:600;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);white-space:nowrap}
 .mode-btn.career-btn .m-pill{background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.3);color:#c4b5fd}
 .mode-btn:not(.career-btn) .m-pill{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.3);color:#93c5fd}
 .mode-hint{font-size:12px;color:rgba(255,255,255,.25);margin-top:8px}
@@ -96,18 +94,31 @@ input{font-family:inherit}
 .opt-cell.opt-random{border-style:dashed;color:rgba(255,255,255,.3)}
 .opt-cell.opt-random.selected{background:rgba(139,92,246,.15);border-color:var(--purple);color:#c4b5fd}
 
+/* ── SECTOR CELLS (icon + text stacked) ── */
+.sect-cell{display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px;white-space:normal;font-size:12px;font-weight:500}
+.sect-cell .oc-icon{opacity:.45;transition:opacity .15s;flex-shrink:0}
+.sect-cell:hover .oc-icon,.sect-cell.selected .oc-icon{opacity:.85}
+.sect-other{grid-column:1/-1;flex-direction:row;justify-content:center;gap:8px;font-size:13px;padding:10px 16px;border-style:dashed;color:rgba(255,255,255,.4)}
+.sect-other:hover{color:rgba(255,255,255,.75)}
+.sect-other.selected{color:#c4b5fd}
+
+/* ── SECTOR CUSTOM INPUT ── */
+#sector-custom-wrap{margin-top:8px;display:none}
+#sector-custom-wrap.show{display:block}
+
 /* ── TEXT INPUT ── */
 .setup-text-input{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:7px;padding:9px 12px;color:var(--text-inv);font-size:13px;outline:none;transition:border .15s}
 .setup-text-input:focus{border-color:var(--accent)}
 .setup-text-input::placeholder{color:rgba(255,255,255,.22)}
 
-/* ── DIFF CARDS (big) ── */
+/* ── DIFF CARDS ── */
 .diff-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .diff-card{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.09);border-radius:12px;padding:18px 14px;text-align:center;cursor:pointer;transition:all .15s}
-.diff-card:hover{border-color:var(--accent);background:rgba(59,130,246,.07)}
-.diff-card.selected{border-color:var(--accent);background:rgba(59,130,246,.12)}
-.diff-card.career-sel.selected{border-color:#8b5cf6;background:rgba(139,92,246,.12)}
-.diff-icon{font-size:26px;margin-bottom:8px}
+.diff-card:hover{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.06)}
+.diff-card[data-val="beginner"]:hover,.diff-card[data-val="beginner"].selected{border-color:#22c55e;background:rgba(34,197,94,.1)}
+.diff-card[data-val="intermediate"]:hover,.diff-card[data-val="intermediate"].selected{border-color:#f59e0b;background:rgba(245,158,11,.1)}
+.diff-card[data-val="advanced"]:hover,.diff-card[data-val="advanced"].selected{border-color:#ef4444;background:rgba(239,68,68,.1)}
+.diff-icon{height:34px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:10px}
 .diff-name{font-size:14px;font-weight:700;color:var(--text-inv);margin-bottom:4px}
 .diff-sub{font-size:11px;color:var(--dim);line-height:1.45}
 
@@ -136,24 +147,24 @@ input{font-family:inherit}
 
 /* ── SUMMARY ── */
 .summary-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;margin-bottom:20px}
-.summary-head{padding:14px 22px;border-bottom:1px solid rgba(255,255,255,.07);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:6px}
+.summary-head{padding:14px 22px;border-bottom:1px solid rgba(255,255,255,.07);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:8px}
 .summary-body{padding:4px 0}
 .sum-row{display:flex;align-items:center;gap:12px;padding:11px 22px;border-bottom:1px solid rgba(255,255,255,.04)}
 .sum-row:last-child{border-bottom:none}
-.sum-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0;opacity:.7}
+.sum-icon{width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;opacity:.55}
 .sum-key{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,.35);width:130px;flex-shrink:0}
 .sum-val{font-size:13px;font-weight:600;color:rgba(255,255,255,.85);flex:1}
 .sum-tag{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.55);margin:2px}
 
 /* ── INFO BOX ── */
-.info-box{background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.2);border-radius:10px;padding:12px 16px;font-size:12px;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:20px;display:flex;gap:8px}
-.info-box-icon{flex-shrink:0;opacity:.7}
+.info-box{background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.2);border-radius:10px;padding:12px 16px;font-size:12px;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+.info-box-icon{flex-shrink:0;opacity:.65;margin-top:1px}
 
 /* ── NAV BUTTONS ── */
 .wiz-nav{display:flex;align-items:center;gap:12px}
 .wiz-back{background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);font-size:12px;font-weight:600;padding:9px 18px;border-radius:7px;cursor:pointer;transition:all .15s}
 .wiz-back:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8)}
-.wiz-next{background:var(--accent);color:#fff;font-size:14px;font-weight:700;padding:11px 28px;border-radius:8px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:6px;margin-left:auto}
+.wiz-next{background:var(--accent);color:#fff;font-size:14px;font-weight:700;padding:11px 28px;border-radius:8px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:7px;margin-left:auto}
 .wiz-next:hover:not(:disabled){background:var(--accent-dark);box-shadow:0 4px 14px rgba(59,130,246,.4)}
 .wiz-next:disabled{opacity:.38;cursor:default}
 .wiz-next.career-next{background:#7c3aed}
@@ -191,7 +202,10 @@ input{font-family:inherit}
     YetkinLider<sup>™</sup>
   </a>
   <div class="topbar-right">
-    <button class="btn-hub" onclick="window.location.href='game.html'">← Simülatör</button>
+    <button class="btn-hub" onclick="window.location.href='game.html'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Simülatör
+    </button>
   </div>
 </div>
 
@@ -199,33 +213,47 @@ input{font-family:inherit}
 <!-- ═══════════════════════════════════════════
      PAGE 0 — MOD SEÇİMİ
 ═══════════════════════════════════════════ -->
-<div class="page active" id="page-mode" style="background:linear-gradient(135deg,#0f1520 0%,#141d2e 60%,#0d1823 100%)">
+<div class="page active" id="page-mode">
   <div class="mode-wrap">
-    <div class="mode-logo">🧵</div>
+    <div class="mode-logo">
+      <!-- scissors / tailor icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+        <path d="M20 4L8.12 15.88"/><path d="M14.47 14.48L20 20"/><path d="M8.12 8.12L12 12"/>
+      </svg>
+    </div>
     <h1>Senaryo Terzisi</h1>
     <p>Maceranda nasıl bir yönetici olacaksın?<br>Modunu seç, kalanını biz hallederiz.</p>
 
     <div class="mode-grid">
       <button class="mode-btn career-btn" onclick="selectMode('career')">
-        <span class="m-icon">🎭</span>
+        <div class="m-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+        </div>
         <div class="m-title">Kariyer Senaryosu</div>
         <div class="m-desc">365 gün yaşayan bir proje. Olaylar kronolojik akar, her kararın kümülatif ağırlığı var.</div>
         <div class="m-pills">
-          <span class="m-pill">🕐 365 Gün</span>
-          <span class="m-pill">📰 300 Olay</span>
-          <span class="m-pill">🗺️ Başlatma→Kapanış</span>
-          <span class="m-pill">🎭 Hikaye Tabanlı</span>
+          <span class="m-pill">365 Gün</span>
+          <span class="m-pill">300 Olay</span>
+          <span class="m-pill">Başlatma → Kapanış</span>
+          <span class="m-pill">Hikaye Tabanlı</span>
         </div>
       </button>
       <button class="mode-btn" onclick="selectMode('competency')">
-        <span class="m-icon">🎯</span>
+        <div class="m-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+          </svg>
+        </div>
         <div class="m-title">Yetkinlik Antrenmanı</div>
         <div class="m-desc">Sprint bazlı, odaklı çalışma. Zayıf yönünü seç ve yoğun pratik yap.</div>
         <div class="m-pills">
-          <span class="m-pill">⚡ Sprint Bazlı</span>
-          <span class="m-pill">🔬 ECO Odaklı</span>
-          <span class="m-pill">🎯 Nokta Atışı</span>
-          <span class="m-pill">🔄 Tekrar Edilebilir</span>
+          <span class="m-pill">Sprint Bazlı</span>
+          <span class="m-pill">ECO Odaklı</span>
+          <span class="m-pill">Nokta Atışı</span>
+          <span class="m-pill">Tekrar Edilebilir</span>
         </div>
       </button>
     </div>
@@ -248,24 +276,65 @@ input{font-family:inherit}
       </div>
 
       <div class="setup-row">
-        <span class="setup-row-label">👤 PM Adı</span>
+        <span class="setup-row-label">PM Adı</span>
         <input class="setup-text-input" id="pm_name" type="text" placeholder="Ör: Arif Demir" maxlength="40">
       </div>
       <div class="setup-row">
-        <span class="setup-row-label">📁 Proje Adı</span>
+        <span class="setup-row-label">Proje Adı</span>
         <input class="setup-text-input" id="project_name" type="text" placeholder="Ör: Proje Pegasus" maxlength="50">
       </div>
       <div class="setup-row" style="align-items:start">
-        <span class="setup-row-label" style="padding-top:4px">🌍 Sektör</span>
+        <span class="setup-row-label" style="padding-top:4px">Sektör</span>
         <div>
           <div class="opt-group cols-3">
-            <div class="opt-cell career-sel" data-group="sector" data-val="it" onclick="selectOpt(this,'sector')">💻 IT</div>
-            <div class="opt-cell career-sel" data-group="sector" data-val="construction" onclick="selectOpt(this,'sector')">🏗️ İnşaat</div>
-            <div class="opt-cell career-sel" data-group="sector" data-val="health" onclick="selectOpt(this,'sector')">🏥 Sağlık</div>
-            <div class="opt-cell career-sel" data-group="sector" data-val="finance" onclick="selectOpt(this,'sector')">🏦 Finans</div>
-            <div class="opt-cell career-sel" data-group="sector" data-val="defense" onclick="selectOpt(this,'sector')">✈️ Savunma</div>
-            <div class="opt-cell career-sel" data-group="sector" data-val="education" onclick="selectOpt(this,'sector')">🎓 Eğitim</div>
+
+            <!-- IT -->
+            <div class="opt-cell career-sel sect-cell" data-group="sector" data-val="it" onclick="selectOpt(this,'sector')">
+              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              IT / Yazılım
+            </div>
+
+            <!-- İnşaat -->
+            <div class="opt-cell career-sel sect-cell" data-group="sector" data-val="construction" onclick="selectOpt(this,'sector')">
+              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              İnşaat
+            </div>
+
+            <!-- Sağlık -->
+            <div class="opt-cell career-sel sect-cell" data-group="sector" data-val="health" onclick="selectOpt(this,'sector')">
+              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Sağlık
+            </div>
+
+            <!-- Finans -->
+            <div class="opt-cell career-sel sect-cell" data-group="sector" data-val="finance" onclick="selectOpt(this,'sector')">
+              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Finans
+            </div>
+
+            <!-- Savunma -->
+            <div class="opt-cell career-sel sect-cell" data-group="sector" data-val="defense" onclick="selectOpt(this,'sector')">
+              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Savunma
+            </div>
+
+            <!-- Eğitim -->
+            <div class="opt-cell career-sel sect-cell" data-group="sector" data-val="education" onclick="selectOpt(this,'sector')">
+              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              Eğitim
+            </div>
+
+            <!-- Diğer — full width -->
+            <div class="opt-cell career-sel sect-cell sect-other" data-group="sector" data-val="other" onclick="selectOpt(this,'sector')">
+              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+              Diğer — kendi sektörünü yaz
+            </div>
           </div>
+
+          <div id="sector-custom-wrap">
+            <input class="setup-text-input" id="sector_custom" type="text" placeholder="Sektörünüzü yazın... (Ör: Perakende, Lojistik)" maxlength="50">
+          </div>
+
           <p class="val-hint" id="hint-c1">Bir sektör seçmelisin.</p>
         </div>
       </div>
@@ -273,7 +342,10 @@ input{font-family:inherit}
 
     <div class="wiz-nav">
       <button class="wiz-back" onclick="goPage('page-mode')">← Geri</button>
-      <button class="wiz-next career-next" onclick="nextCareer(1)">İleri →</button>
+      <button class="wiz-next career-next" onclick="nextCareer(1)">
+        İleri
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
   </div>
 </div>
@@ -293,20 +365,41 @@ input{font-family:inherit}
       </div>
 
       <div class="setup-row">
-        <span class="setup-row-label">⚡ Zorluk</span>
+        <span class="setup-row-label">Zorluk</span>
         <div class="diff-cards">
+          <!-- 1 bar — green -->
           <div class="diff-card career-sel" data-group="difficulty" data-val="beginner" onclick="selectDiff(this,'difficulty')">
-            <div class="diff-icon">🟢</div>
+            <div class="diff-icon">
+              <svg width="26" height="22" viewBox="0 0 26 22" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="14" width="6" height="8" rx="1.5" fill="#22c55e"/>
+                <rect x="10" y="8" width="6" height="14" rx="1.5" fill="#22c55e" opacity="0.18"/>
+                <rect x="20" y="2" width="6" height="20" rx="1.5" fill="#22c55e" opacity="0.18"/>
+              </svg>
+            </div>
             <div class="diff-name">Giriş</div>
             <div class="diff-sub">Az çeldirici, net krizler</div>
           </div>
+          <!-- 2 bars — amber -->
           <div class="diff-card career-sel" data-group="difficulty" data-val="intermediate" onclick="selectDiff(this,'difficulty')">
-            <div class="diff-icon">🟡</div>
+            <div class="diff-icon">
+              <svg width="26" height="22" viewBox="0 0 26 22" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="14" width="6" height="8" rx="1.5" fill="#f59e0b"/>
+                <rect x="10" y="8" width="6" height="14" rx="1.5" fill="#f59e0b"/>
+                <rect x="20" y="2" width="6" height="20" rx="1.5" fill="#f59e0b" opacity="0.18"/>
+              </svg>
+            </div>
             <div class="diff-name">Orta</div>
             <div class="diff-sub">Standart PMP zorluğu</div>
           </div>
+          <!-- 3 bars — red -->
           <div class="diff-card career-sel" data-group="difficulty" data-val="advanced" onclick="selectDiff(this,'difficulty')">
-            <div class="diff-icon">🔴</div>
+            <div class="diff-icon">
+              <svg width="26" height="22" viewBox="0 0 26 22" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="14" width="6" height="8" rx="1.5" fill="#ef4444"/>
+                <rect x="10" y="8" width="6" height="14" rx="1.5" fill="#ef4444"/>
+                <rect x="20" y="2" width="6" height="20" rx="1.5" fill="#ef4444"/>
+              </svg>
+            </div>
             <div class="diff-name">İleri</div>
             <div class="diff-sub">Zehir yoğun, anlık baskı</div>
           </div>
@@ -314,20 +407,20 @@ input{font-family:inherit}
       </div>
 
       <div class="setup-row">
-        <span class="setup-row-label">🏢 PMO</span>
+        <span class="setup-row-label">PMO</span>
         <div class="opt-group cols-3">
-          <div class="opt-cell career-sel" data-group="pmo_type" data-val="supportive" onclick="selectOpt(this,'pmo_type')">🤝 Destekleyici</div>
-          <div class="opt-cell career-sel" data-group="pmo_type" data-val="controlling" onclick="selectOpt(this,'pmo_type')">📋 Denetleyici</div>
-          <div class="opt-cell career-sel" data-group="pmo_type" data-val="directive" onclick="selectOpt(this,'pmo_type')">👑 Yönlendirici</div>
+          <div class="opt-cell career-sel" data-group="pmo_type" data-val="supportive" onclick="selectOpt(this,'pmo_type')">Destekleyici</div>
+          <div class="opt-cell career-sel" data-group="pmo_type" data-val="controlling" onclick="selectOpt(this,'pmo_type')">Denetleyici</div>
+          <div class="opt-cell career-sel" data-group="pmo_type" data-val="directive" onclick="selectOpt(this,'pmo_type')">Yönlendirici</div>
         </div>
       </div>
 
       <div class="setup-row">
-        <span class="setup-row-label">👥 Takım</span>
+        <span class="setup-row-label">Takım</span>
         <div class="opt-group cols-3">
-          <div class="opt-cell career-sel" data-group="team_culture" data-val="collaborative" onclick="selectOpt(this,'team_culture')">🌱 Kolaboratif</div>
-          <div class="opt-cell career-sel" data-group="team_culture" data-val="hierarchical" onclick="selectOpt(this,'team_culture')">🏛️ Hiyerarşik</div>
-          <div class="opt-cell career-sel" data-group="team_culture" data-val="autonomous" onclick="selectOpt(this,'team_culture')">🚀 Bağımsız</div>
+          <div class="opt-cell career-sel" data-group="team_culture" data-val="collaborative" onclick="selectOpt(this,'team_culture')">Kolaboratif</div>
+          <div class="opt-cell career-sel" data-group="team_culture" data-val="hierarchical" onclick="selectOpt(this,'team_culture')">Hiyerarşik</div>
+          <div class="opt-cell career-sel" data-group="team_culture" data-val="autonomous" onclick="selectOpt(this,'team_culture')">Bağımsız</div>
         </div>
       </div>
     </div>
@@ -335,7 +428,10 @@ input{font-family:inherit}
     <p class="val-hint" id="hint-c2">Lütfen tüm seçenekleri seçin.</p>
     <div class="wiz-nav">
       <button class="wiz-back" onclick="goPage('page-c1')">← Geri</button>
-      <button class="wiz-next career-next" onclick="nextCareer(2)">İleri →</button>
+      <button class="wiz-next career-next" onclick="nextCareer(2)">
+        İleri
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
   </div>
 </div>
@@ -357,27 +453,27 @@ input{font-family:inherit}
         <div class="check-group" id="goals-grid">
           <div class="check-cell career-sel" data-val="risk_management" onclick="toggleCheck(this,'goals')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">🎲 Risk Yönetimi</div><div class="cc-desc">Risk kaydı, duyarlılık, yanıt stratejileri</div></div>
+            <div><div class="cc-name">Risk Yönetimi</div><div class="cc-desc">Risk kaydı, duyarlılık, yanıt stratejileri</div></div>
           </div>
           <div class="check-cell career-sel" data-val="agile_leadership" onclick="toggleCheck(this,'goals')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">🔄 Çevik Liderlik</div><div class="cc-desc">Scrum, Kanban, retrospektif, servant leadership</div></div>
+            <div><div class="cc-name">Çevik Liderlik</div><div class="cc-desc">Scrum, Kanban, retrospektif, servant leadership</div></div>
           </div>
           <div class="check-cell career-sel" data-val="stakeholder_communication" onclick="toggleCheck(this,'goals')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">🤝 Paydaş & İletişim</div><div class="cc-desc">Paydaş haritası, çatışma, müzakere</div></div>
+            <div><div class="cc-name">Paydaş & İletişim</div><div class="cc-desc">Paydaş haritası, çatışma, müzakere</div></div>
           </div>
           <div class="check-cell career-sel" data-val="evm_cost" onclick="toggleCheck(this,'goals')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">📊 EVM & Maliyet</div><div class="cc-desc">CPI, SPI, EV, kazanılmış değer analizi</div></div>
+            <div><div class="cc-name">EVM & Maliyet</div><div class="cc-desc">CPI, SPI, EV, kazanılmış değer analizi</div></div>
           </div>
           <div class="check-cell career-sel" data-val="scope_quality" onclick="toggleCheck(this,'goals')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">📐 Kapsam & Kalite</div><div class="cc-desc">WBS, kapsam kayması, kalite güvencesi</div></div>
+            <div><div class="cc-name">Kapsam & Kalite</div><div class="cc-desc">WBS, kapsam kayması, kalite güvencesi</div></div>
           </div>
           <div class="check-cell career-sel opt-random" data-val="ai_random" onclick="toggleCheck(this,'goals')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">🎰 AI Seçsin</div><div class="cc-desc">Tüm kavramlar havuza girer, dengeli seçer</div></div>
+            <div><div class="cc-name">AI Seçsin</div><div class="cc-desc">Tüm kavramlar havuza girer, dengeli seçer</div></div>
           </div>
         </div>
       </div>
@@ -386,7 +482,10 @@ input{font-family:inherit}
     <p class="val-hint" id="hint-c3">En az bir hedef seçmelisin.</p>
     <div class="wiz-nav">
       <button class="wiz-back" onclick="goPage('page-c2')">← Geri</button>
-      <button class="wiz-next career-next" onclick="nextCareer(3)">Özete Git →</button>
+      <button class="wiz-next career-next" onclick="nextCareer(3)">
+        Özete Git
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
   </div>
 </div>
@@ -400,18 +499,24 @@ input{font-family:inherit}
     <div class="wizard-steps" id="steps-c4"></div>
 
     <div class="summary-card">
-      <div class="summary-head">🎭 Kariyer Senaryosu — Özet</div>
+      <div class="summary-head">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Kariyer Senaryosu — Özet
+      </div>
       <div class="summary-body" id="career-summary"></div>
     </div>
 
     <div class="info-box">
-      <span class="info-box-icon">ℹ️</span>
+      <svg class="info-box-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       <span>AI, <strong>glossary.json</strong>'daki 284 terimden yalnızca henüz öğretilmemiş olanları hedef seçer. Daha önce doğru seçtiğin kararlar tekrar İlaç olarak çıkmaz; ama Çeldirici olarak karşına gelebilir.</span>
     </div>
 
     <div class="wiz-nav">
       <button class="wiz-back" onclick="goPage('page-c3')">← Düzenle</button>
-      <button class="wiz-next start-btn" id="btn-start-career" onclick="startGame()">🎬 Maceraya Başla</button>
+      <button class="wiz-next start-btn" id="btn-start-career" onclick="startGame()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Maceraya Başla
+      </button>
     </div>
   </div>
 </div>
@@ -431,31 +536,31 @@ input{font-family:inherit}
       </div>
 
       <div class="setup-row">
-        <span class="setup-row-label">🛤️ Yaklaşım</span>
+        <span class="setup-row-label">Yaklaşım</span>
         <div class="opt-group cols-3">
-          <div class="opt-cell" data-group="dev_approach" data-val="predictive" onclick="selectOpt(this,'dev_approach')">📐 Öngörücü</div>
-          <div class="opt-cell" data-group="dev_approach" data-val="agile" onclick="selectOpt(this,'dev_approach')">🔄 Çevik</div>
-          <div class="opt-cell" data-group="dev_approach" data-val="hybrid" onclick="selectOpt(this,'dev_approach')">🔀 Hibrit</div>
+          <div class="opt-cell" data-group="dev_approach" data-val="predictive" onclick="selectOpt(this,'dev_approach')">Öngörücü</div>
+          <div class="opt-cell" data-group="dev_approach" data-val="agile" onclick="selectOpt(this,'dev_approach')">Çevik</div>
+          <div class="opt-cell" data-group="dev_approach" data-val="hybrid" onclick="selectOpt(this,'dev_approach')">Hibrit</div>
         </div>
       </div>
 
       <div class="setup-row">
-        <span class="setup-row-label">🏢 Organizasyon</span>
+        <span class="setup-row-label">Organizasyon</span>
         <div class="opt-group cols-auto">
-          <div class="opt-cell" data-group="org_structure" data-val="functional" onclick="selectOpt(this,'org_structure')">🏛️ Fonksiyonel</div>
-          <div class="opt-cell" data-group="org_structure" data-val="matrix_weak" onclick="selectOpt(this,'org_structure')">⚖️ Zayıf Matris</div>
-          <div class="opt-cell" data-group="org_structure" data-val="matrix_balanced" onclick="selectOpt(this,'org_structure')">🔗 Dengeli Matris</div>
-          <div class="opt-cell" data-group="org_structure" data-val="matrix_strong" onclick="selectOpt(this,'org_structure')">💪 Güçlü Matris</div>
-          <div class="opt-cell" data-group="org_structure" data-val="projectized" onclick="selectOpt(this,'org_structure')">🚀 Proje Odaklı</div>
+          <div class="opt-cell" data-group="org_structure" data-val="functional" onclick="selectOpt(this,'org_structure')">Fonksiyonel</div>
+          <div class="opt-cell" data-group="org_structure" data-val="matrix_weak" onclick="selectOpt(this,'org_structure')">Zayıf Matris</div>
+          <div class="opt-cell" data-group="org_structure" data-val="matrix_balanced" onclick="selectOpt(this,'org_structure')">Dengeli Matris</div>
+          <div class="opt-cell" data-group="org_structure" data-val="matrix_strong" onclick="selectOpt(this,'org_structure')">Güçlü Matris</div>
+          <div class="opt-cell" data-group="org_structure" data-val="projectized" onclick="selectOpt(this,'org_structure')">Proje Odaklı</div>
         </div>
       </div>
 
       <div class="setup-row">
-        <span class="setup-row-label">👔 Rolün</span>
+        <span class="setup-row-label">Rolün</span>
         <div class="opt-group cols-3">
-          <div class="opt-cell" data-group="role" data-val="PM" onclick="selectOpt(this,'role')">🧭 PM</div>
-          <div class="opt-cell" data-group="role" data-val="Scrum_Master" onclick="selectOpt(this,'role')">🛡️ Scrum Master</div>
-          <div class="opt-cell" data-group="role" data-val="Product_Owner" onclick="selectOpt(this,'role')">🎯 Ürün Sahibi</div>
+          <div class="opt-cell" data-group="role" data-val="PM" onclick="selectOpt(this,'role')">PM</div>
+          <div class="opt-cell" data-group="role" data-val="Scrum_Master" onclick="selectOpt(this,'role')">Scrum Master</div>
+          <div class="opt-cell" data-group="role" data-val="Product_Owner" onclick="selectOpt(this,'role')">Ürün Sahibi</div>
         </div>
       </div>
     </div>
@@ -463,7 +568,10 @@ input{font-family:inherit}
     <p class="val-hint" id="hint-k1">Lütfen tüm seçenekleri seçin.</p>
     <div class="wiz-nav">
       <button class="wiz-back" onclick="goPage('page-mode')">← Geri</button>
-      <button class="wiz-next" onclick="nextComp(1)">İleri →</button>
+      <button class="wiz-next" onclick="nextComp(1)">
+        İleri
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
   </div>
 </div>
@@ -483,23 +591,23 @@ input{font-family:inherit}
       </div>
 
       <div class="setup-row" style="display:block;padding:18px 26px">
-        <p class="setup-row-label" style="margin-bottom:10px">🔬 ECO Alanı (çoklu seçim)</p>
+        <p class="setup-row-label" style="margin-bottom:10px">ECO Alanı (çoklu seçim)</p>
         <div class="check-group" id="eco-grid">
           <div class="check-cell" data-val="people" onclick="toggleCheck(this,'eco')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">👥 İnsan</div><div class="cc-desc">Liderlik, çatışma, motivasyon, ekip dinamikleri</div></div>
+            <div><div class="cc-name">İnsan</div><div class="cc-desc">Liderlik, çatışma, motivasyon, ekip dinamikleri</div></div>
           </div>
           <div class="check-cell" data-val="process" onclick="toggleCheck(this,'eco')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">⚙️ Süreç</div><div class="cc-desc">Risk, kapsam, zamanlama, EVM, kalite</div></div>
+            <div><div class="cc-name">Süreç</div><div class="cc-desc">Risk, kapsam, zamanlama, EVM, kalite</div></div>
           </div>
           <div class="check-cell" data-val="business" onclick="toggleCheck(this,'eco')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">🌐 İş Ortamı</div><div class="cc-desc">Strateji, tedarik, uyum, paydaş yönetimi</div></div>
+            <div><div class="cc-name">İş Ortamı</div><div class="cc-desc">Strateji, tedarik, uyum, paydaş yönetimi</div></div>
           </div>
           <div class="check-cell opt-random" data-val="all" onclick="toggleCheck(this,'eco')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">🎲 Karma</div><div class="cc-desc">Üç alanı dengeli karıştır</div></div>
+            <div><div class="cc-name">Karma</div><div class="cc-desc">Üç alanı dengeli karıştır</div></div>
           </div>
         </div>
       </div>
@@ -507,7 +615,7 @@ input{font-family:inherit}
       <hr class="row-div">
 
       <div class="setup-row" style="display:block;padding:14px 26px 20px">
-        <p class="setup-row-label" style="margin-bottom:12px">🎯 Sprint Uzunluğu</p>
+        <p class="setup-row-label" style="margin-bottom:12px">Sprint Uzunluğu</p>
         <div class="sprint-grid">
           <div class="sprint-card" data-val="5" onclick="selectSprint(this)">
             <div class="sprint-num">5</div>
@@ -531,7 +639,10 @@ input{font-family:inherit}
     <p class="val-hint" id="hint-k2">ECO alanı ve sprint uzunluğu seçmelisin.</p>
     <div class="wiz-nav">
       <button class="wiz-back" onclick="goPage('page-k1')">← Geri</button>
-      <button class="wiz-next" onclick="nextComp(2)">Özete Git →</button>
+      <button class="wiz-next" onclick="nextComp(2)">
+        Özete Git
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
   </div>
 </div>
@@ -545,13 +656,19 @@ input{font-family:inherit}
     <div class="wizard-steps" id="steps-k3"></div>
 
     <div class="summary-card">
-      <div class="summary-head">🎯 Yetkinlik Antrenmanı — Özet</div>
+      <div class="summary-head">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        Yetkinlik Antrenmanı — Özet
+      </div>
       <div class="summary-body" id="comp-summary"></div>
     </div>
 
     <div class="wiz-nav">
       <button class="wiz-back" onclick="goPage('page-k2')">← Düzenle</button>
-      <button class="wiz-next start-btn" onclick="startGame()">🎯 Antrenmanı Başlat</button>
+      <button class="wiz-next start-btn" onclick="startGame()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Antrenmanı Başlat
+      </button>
     </div>
   </div>
 </div>
@@ -564,29 +681,43 @@ input{font-family:inherit}
 // ── STATE ────────────────────────────────────────────────────────────────────
 const S = {
   mode: null,
-  career: { pm_name:'', project_name:'', sector:null, difficulty:null, pmo_type:null, team_culture:null, learning_goals:[] },
+  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, learning_goals:[] },
   comp:   { dev_approach:null, org_structure:null, role:null, eco_filters:[], sprint_length:null }
 };
 
 // ── LABELS ───────────────────────────────────────────────────────────────────
 const LBL = {
-  sector:       { it:'💻 IT / Yazılım', construction:'🏗️ İnşaat', health:'🏥 Sağlık', finance:'🏦 Finans', defense:'✈️ Savunma', education:'🎓 Eğitim' },
-  difficulty:   { beginner:'🟢 Giriş', intermediate:'🟡 Orta', advanced:'🔴 İleri' },
-  pmo_type:     { supportive:'🤝 Destekleyici', controlling:'📋 Denetleyici', directive:'👑 Yönlendirici' },
-  team_culture: { collaborative:'🌱 Kolaboratif', hierarchical:'🏛️ Hiyerarşik', autonomous:'🚀 Bağımsız' },
-  goals:        { risk_management:'🎲 Risk Yönetimi', agile_leadership:'🔄 Çevik Liderlik', stakeholder_communication:'🤝 Paydaş & İletişim', evm_cost:'📊 EVM & Maliyet', scope_quality:'📐 Kapsam & Kalite', ai_random:'🎰 AI Seçsin' },
-  dev_approach: { predictive:'📐 Öngörücü', agile:'🔄 Çevik', hybrid:'🔀 Hibrit' },
-  org_structure:{ functional:'🏛️ Fonksiyonel', matrix_weak:'⚖️ Zayıf Matris', matrix_balanced:'🔗 Dengeli Matris', matrix_strong:'💪 Güçlü Matris', projectized:'🚀 Proje Odaklı' },
-  role:         { PM:'🧭 Proje Yöneticisi', Scrum_Master:'🛡️ Scrum Master', Product_Owner:'🎯 Ürün Sahibi' },
-  eco:          { people:'👥 İnsan', process:'⚙️ Süreç', business:'🌐 İş Ortamı', all:'🎲 Karma' },
-  sprint:       { '5':'⚡ Hızlı — 5 karar', '15':'🎯 Normal — 15 karar', '30':'🔬 Derin — 30 karar' }
+  sector:       { it:'IT / Yazılım', construction:'İnşaat', health:'Sağlık', finance:'Finans', defense:'Savunma', education:'Eğitim', other:'Diğer' },
+  difficulty:   { beginner:'Giriş', intermediate:'Orta', advanced:'İleri' },
+  pmo_type:     { supportive:'Destekleyici', controlling:'Denetleyici', directive:'Yönlendirici' },
+  team_culture: { collaborative:'Kolaboratif', hierarchical:'Hiyerarşik', autonomous:'Bağımsız' },
+  goals:        { risk_management:'Risk Yönetimi', agile_leadership:'Çevik Liderlik', stakeholder_communication:'Paydaş & İletişim', evm_cost:'EVM & Maliyet', scope_quality:'Kapsam & Kalite', ai_random:'AI Seçsin' },
+  dev_approach: { predictive:'Öngörücü', agile:'Çevik', hybrid:'Hibrit' },
+  org_structure:{ functional:'Fonksiyonel', matrix_weak:'Zayıf Matris', matrix_balanced:'Dengeli Matris', matrix_strong:'Güçlü Matris', projectized:'Proje Odaklı' },
+  role:         { PM:'Proje Yöneticisi', Scrum_Master:'Scrum Master', Product_Owner:'Ürün Sahibi' },
+  eco:          { people:'İnsan', process:'Süreç', business:'İş Ortamı', all:'Karma' },
+  sprint:       { '5':'Hızlı — 5 karar', '15':'Normal — 15 karar', '30':'Derin — 30 karar' }
+};
+
+// ── SUMMARY ICONS (inline SVG) ────────────────────────────────────────────────
+const IC = {
+  user:     `<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/></svg>`,
+  folder:   `<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z'/></svg>`,
+  globe:    `<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><line x1='2' y1='12' x2='22' y2='12'/><path d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/></svg>`,
+  zap:      `<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>`,
+  building: `<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z'/><path d='M6 12H4a2 2 0 0 0-2 2v8h4'/><path d='M18 9h2a2 2 0 0 1 2 2v11h-4'/></svg>`,
+  users:    `<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/><circle cx='9' cy='7' r='4'/><path d='M23 21v-2a4 4 0 0 0-3-3.87'/><path d='M16 3.13a4 4 0 0 1 0 7.75'/></svg>`,
+  target:   `<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='6'/><circle cx='12' cy='12' r='2'/></svg>`,
+  route:    `<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='6' cy='19' r='3'/><path d='M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15'/><circle cx='18' cy='5' r='3'/></svg>`,
+  badge:    `<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2'/><path d='M9 10h6'/><path d='M9 14h6'/></svg>`,
+  layers:   `<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>`,
+  clock:    `<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><polyline points='12 6 12 12 16 14'/></svg>`,
 };
 
 // ── NAVIGATION ───────────────────────────────────────────────────────────────
 function goPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const el = document.getElementById(id);
-  el.classList.add('active');
+  document.getElementById(id).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -602,7 +733,6 @@ const CAREER_STEPS = ['Kimlik', 'Ortam', 'Hedefler', 'Özet'];
 const COMP_STEPS   = ['Yaklaşım & Rol', 'ECO & Sprint', 'Özet'];
 
 function buildSteppers() {
-  // Career
   [1,2,3,4].forEach(cur => {
     const el = document.getElementById('steps-c' + cur);
     if (!el) return;
@@ -613,7 +743,6 @@ function buildSteppers() {
       return `<span class="wizard-step ${cls}">${n < cur ? '✓ ' : ''}${lbl}</span>${sep}`;
     }).join('');
   });
-  // Comp
   [1,2,3].forEach(cur => {
     const el = document.getElementById('steps-k' + cur);
     if (!el) return;
@@ -630,6 +759,18 @@ function buildSteppers() {
 function selectOpt(el, group) {
   document.querySelectorAll(`.opt-cell[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
+  // Show/hide custom input for "other" sector
+  if (group === 'sector') {
+    const wrap = document.getElementById('sector-custom-wrap');
+    if (wrap) {
+      if (el.dataset.val === 'other') {
+        wrap.classList.add('show');
+        document.getElementById('sector_custom')?.focus();
+      } else {
+        wrap.classList.remove('show');
+      }
+    }
+  }
 }
 
 // ── DIFF CARD SELECT ──────────────────────────────────────────────────────────
@@ -646,7 +787,7 @@ function selectSprint(el) {
 }
 
 // ── MULTI-SELECT (check-cell) ─────────────────────────────────────────────────
-function toggleCheck(el, group) {
+function toggleCheck(el) {
   el.classList.toggle('selected');
 }
 
@@ -672,6 +813,13 @@ function nextCareer(step) {
   if (step === 1) {
     S.career.sector = getOpt('sector');
     if (!S.career.sector) { hint('hint-c1', true); return; }
+    if (S.career.sector === 'other') {
+      const custom = (document.getElementById('sector_custom')?.value || '').trim();
+      if (!custom) { hint('hint-c1', true); return; }
+      S.career.sector_custom = custom;
+    } else {
+      S.career.sector_custom = null;
+    }
     hint('hint-c1', false);
     S.career.pm_name = (document.getElementById('pm_name').value.trim()) || 'PM';
     S.career.project_name = (document.getElementById('project_name').value.trim()) || 'Proje';
@@ -718,36 +866,38 @@ function tags(arr, map) {
 
 function renderCareerSummary() {
   const c = S.career;
+  const sLbl = c.sector === 'other' ? (c.sector_custom || 'Diğer') : (LBL.sector[c.sector] || c.sector);
   document.getElementById('career-summary').innerHTML =
-    row('👤','PM Adı', c.pm_name) +
-    row('📁','Proje Adı', c.project_name) +
-    row('🌍','Sektör', LBL.sector[c.sector] || c.sector) +
-    row('⚡','Zorluk', LBL.difficulty[c.difficulty] || c.difficulty) +
-    row('🏢','PMO', LBL.pmo_type[c.pmo_type] || c.pmo_type) +
-    row('👥','Takım', LBL.team_culture[c.team_culture] || c.team_culture) +
-    row('🎯','Hedefler', tags(c.learning_goals, LBL.goals));
+    row(IC.user,     'PM Adı',    c.pm_name) +
+    row(IC.folder,   'Proje Adı', c.project_name) +
+    row(IC.globe,    'Sektör',    sLbl) +
+    row(IC.zap,      'Zorluk',    LBL.difficulty[c.difficulty] || c.difficulty) +
+    row(IC.building, 'PMO',       LBL.pmo_type[c.pmo_type] || c.pmo_type) +
+    row(IC.users,    'Takım',     LBL.team_culture[c.team_culture] || c.team_culture) +
+    row(IC.target,   'Hedefler',  tags(c.learning_goals, LBL.goals));
 }
 
 function renderCompSummary() {
   const k = S.comp;
   document.getElementById('comp-summary').innerHTML =
-    row('🛤️','Yaklaşım', LBL.dev_approach[k.dev_approach] || k.dev_approach) +
-    row('🏢','Organizasyon', LBL.org_structure[k.org_structure] || k.org_structure) +
-    row('👔','Rol', LBL.role[k.role] || k.role) +
-    row('🔬','ECO Alanları', tags(k.eco_filters, LBL.eco)) +
-    row('🎯','Sprint', LBL.sprint[k.sprint_length] || k.sprint_length + ' karar');
+    row(IC.route,    'Yaklaşım',     LBL.dev_approach[k.dev_approach] || k.dev_approach) +
+    row(IC.building, 'Organizasyon', LBL.org_structure[k.org_structure] || k.org_structure) +
+    row(IC.badge,    'Rol',          LBL.role[k.role] || k.role) +
+    row(IC.layers,   'ECO Alanları', tags(k.eco_filters, LBL.eco)) +
+    row(IC.clock,    'Sprint',       LBL.sprint[k.sprint_length] || k.sprint_length + ' karar');
 }
 
 // ── PAYLOAD BUILDER ───────────────────────────────────────────────────────────
 function buildPayload() {
   const uid = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2);
   const now = new Date().toISOString();
+  const sectorLabel = S.career.sector === 'other' ? S.career.sector_custom : LBL.sector[S.career.sector];
 
   if (S.mode === 'career') {
     return {
       schema_version: '2.1', session_id: uid, created_at: now, mode: 'career',
       player: { name: S.career.pm_name, project_name: S.career.project_name, avatar_seed: S.career.pm_name.toLowerCase().replace(/\s+/g,'_') },
-      career_config: { sector: S.career.sector, sector_label: LBL.sector[S.career.sector], difficulty: S.career.difficulty, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, learning_goals: S.career.learning_goals },
+      career_config: { sector: S.career.sector, sector_label: sectorLabel, difficulty: S.career.difficulty, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, learning_goals: S.career.learning_goals },
       competency_config: null,
       game_state: {
         current_day: 0, current_phase: 'initiating',
@@ -817,8 +967,7 @@ function buildCharacters(sector) {
 function startGame() {
   const payload = buildPayload();
   try { localStorage.setItem('yetkinlider_scenario', JSON.stringify(payload)); } catch(e) {}
-  const btns = document.querySelectorAll('.start-btn');
-  btns.forEach(b => { b.textContent = '⏳ Yükleniyor...'; b.disabled = true; });
+  document.querySelectorAll('.start-btn').forEach(b => { b.innerHTML = 'Yükleniyor...'; b.disabled = true; });
   setTimeout(() => { window.location.href = 'game.html'; }, 380);
 }
 </script>
