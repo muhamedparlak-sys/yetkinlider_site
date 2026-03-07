@@ -2319,6 +2319,24 @@ var Game; Game = (() => {
     const {grade, color} = gameOver ? {grade:'F',color:'#ef4444'} : gradeFromAvg(avgScore);
     const totalDecisions = S.notifs.filter(n => n.type==='decision' && S.answered[n.id]).length;
 
+    // ── Write per-domain stats for tailor.html to read ──
+    if (S.setup?.mode === 'competency' && S.setup?.domain) {
+      const domain = S.setup.domain; // 'people' | 'process' | 'business'
+      const answered = S.notifs.filter(n => n.type === 'decision' && S.answered[n.id] && S.answered[n.id] !== 'READ');
+      if (answered.length > 0) {
+        const outcomes = answered.map(n => {
+          const opt = (n.options||[]).find(o => o.key === S.answered[n.id]);
+          return (opt && opt.xp >= 25) ? 1 : 0;
+        });
+        try {
+          const hist = JSON.parse(localStorage.getItem('yetkinlider_eco_history') || '{}');
+          if (!Array.isArray(hist[domain])) hist[domain] = [];
+          hist[domain] = [...hist[domain], ...outcomes].slice(-200); // keep last 200
+          localStorage.setItem('yetkinlider_eco_history', JSON.stringify(hist));
+        } catch(e) {}
+      }
+    }
+
     // Header
     document.getElementById('karne-av').textContent = (S.name||'?')[0].toUpperCase();
     document.getElementById('karne-player-name').textContent = S.name || 'PM';

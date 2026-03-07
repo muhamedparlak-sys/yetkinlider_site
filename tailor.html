@@ -146,6 +146,19 @@ input{font-family:inherit}
 .approach-total{text-align:center;margin-top:10px;font-size:12px;color:var(--dim)}
 .approach-total.error{color:#ef4444}
 
+/* ── BLOCKED OPTION CELLS ── */
+.opt-cell.blocked{opacity:.25;pointer-events:none;text-decoration:line-through;cursor:not-allowed}
+
+/* ── ECO SCORE BADGES ── */
+.eco-score-badge{font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px;letter-spacing:.02em;white-space:nowrap;flex-shrink:0}
+.eco-score-badge.no-data{color:rgba(255,255,255,.3);background:rgba(255,255,255,.06)}
+.eco-score-badge.green{color:#4ade80;background:rgba(74,222,128,.1)}
+.eco-score-badge.amber{color:#fbbf24;background:rgba(251,191,36,.1)}
+.eco-score-badge.red{color:#f87171;background:rgba(248,113,113,.1)}
+/* ── ECO RECOMMENDATION BOX ── */
+.eco-rec-box{display:flex;gap:9px;align-items:flex-start;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:11px 14px;margin-bottom:12px;font-size:12px;color:rgba(255,255,255,.7);line-height:1.5}
+.eco-rec-icon{flex-shrink:0;margin-top:1px;color:#60a5fa}
+
 /* ── CHECK CELLS (multi-select) ── */
 .check-group{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 .check-cell{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:11px 13px;cursor:pointer;transition:all .15s;text-align:left}
@@ -471,7 +484,7 @@ input{font-family:inherit}
     <div class="setup-card">
       <div class="setup-card-head">
         <h2>Yaklaşım Dağılımını Belirle</h2>
-        <p>Senaryo boyunca hangi boyuta ne kadar odaklanmak istiyorsun? Barı sürükle veya değerleri gir.</p>
+        <p>Senaryo boyunca hangi alana ne kadar odaklanmak istiyorsun? Barı sürükle veya değerleri gir.</p>
       </div>
       <div class="setup-row" style="display:block;padding:18px 26px 24px">
         <div class="approach-labels">
@@ -643,18 +656,40 @@ input{font-family:inherit}
 
       <div class="setup-row" style="display:block;padding:18px 26px">
         <p class="setup-row-label" style="margin-bottom:10px">Odak Alanı (çoklu seçim)</p>
+        <div class="eco-rec-box" id="eco-rec-box" style="display:none">
+          <svg class="eco-rec-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span id="eco-rec-text"></span>
+        </div>
         <div class="check-group" id="eco-grid">
           <div class="check-cell" data-val="people" onclick="toggleCheck(this,'eco')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">İnsan</div><div class="cc-desc">Liderlik, çatışma, motivasyon, ekip dinamikleri</div></div>
+            <div style="flex:1">
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                <div class="cc-name">İnsan</div>
+                <span class="eco-score-badge no-data" id="eco-score-people">—</span>
+              </div>
+              <div class="cc-desc">Liderlik, çatışma, motivasyon, ekip dinamikleri</div>
+            </div>
           </div>
           <div class="check-cell" data-val="process" onclick="toggleCheck(this,'eco')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">Süreç</div><div class="cc-desc">Risk, kapsam, zamanlama, EVM, kalite</div></div>
+            <div style="flex:1">
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                <div class="cc-name">Süreç</div>
+                <span class="eco-score-badge no-data" id="eco-score-process">—</span>
+              </div>
+              <div class="cc-desc">Risk, kapsam, zamanlama, EVM, kalite</div>
+            </div>
           </div>
           <div class="check-cell" data-val="business" onclick="toggleCheck(this,'eco')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">İş Ortamı</div><div class="cc-desc">Strateji, tedarik, uyum, paydaş yönetimi</div></div>
+            <div style="flex:1">
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                <div class="cc-name">İş Ortamı</div>
+                <span class="eco-score-badge no-data" id="eco-score-business">—</span>
+              </div>
+              <div class="cc-desc">Strateji, tedarik, uyum, paydaş yönetimi</div>
+            </div>
           </div>
           <div class="check-cell opt-random" data-val="all" onclick="toggleCheck(this,'eco')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
@@ -821,6 +856,10 @@ function selectOpt(el, group) {
         wrap.classList.remove('show');
       }
     }
+  }
+  // Sync role availability when dev_approach changes
+  if (group === 'dev_approach') {
+    syncRolesWithApproach(el.dataset.val);
   }
 }
 
@@ -1016,6 +1055,84 @@ function buildCharacters(sector) {
   }));
 }
 
+// ── ROLE ↔ APPROACH COMPATIBILITY ────────────────────────────────────────────
+const APPROACH_ROLE_COMPAT = {
+  predictive: ['PM'],
+  agile:      ['PM', 'Scrum_Master', 'Product_Owner'],
+  hybrid:     ['PM', 'Scrum_Master', 'Product_Owner'],
+};
+
+function syncRolesWithApproach(approach) {
+  const allowed = APPROACH_ROLE_COMPAT[approach] || ['PM', 'Scrum_Master', 'Product_Owner'];
+  let needsReselect = false;
+  document.querySelectorAll('.opt-cell[data-group="role"]').forEach(el => {
+    const blocked = !allowed.includes(el.dataset.val);
+    el.classList.toggle('blocked', blocked);
+    if (blocked && el.classList.contains('selected')) {
+      el.classList.remove('selected');
+      needsReselect = true;
+    }
+  });
+  if (needsReselect) {
+    const pm = document.querySelector('.opt-cell[data-group="role"][data-val="PM"]');
+    if (pm) pm.classList.add('selected');
+  }
+}
+
+// ── ECO DOMAIN STATS ──────────────────────────────────────────────────────────
+function getEcoHistory() {
+  try { return JSON.parse(localStorage.getItem('yetkinlider_eco_history') || '{}'); } catch { return {}; }
+}
+
+function computeDomainScore(outcomes) {
+  if (!Array.isArray(outcomes) || outcomes.length < 10) return null;
+  const window = outcomes.length >= 100 ? outcomes.slice(-50) : outcomes.slice(-10);
+  return Math.round(window.reduce((a, b) => a + b, 0) / window.length * 100);
+}
+
+function renderEcoScores() {
+  const hist = getEcoHistory();
+  const DOMAINS = ['people', 'process', 'business'];
+  const LABELS  = { people: 'İnsan', process: 'Süreç', business: 'İş Ortamı' };
+  const scores  = {};
+
+  DOMAINS.forEach(d => {
+    const s = computeDomainScore(hist[d]);
+    scores[d] = s;
+    const badge = document.getElementById('eco-score-' + d);
+    if (!badge) return;
+    if (s === null) {
+      const cnt = (hist[d] || []).length;
+      badge.textContent = cnt > 0 ? `${cnt}/10` : '—';
+      badge.className = 'eco-score-badge no-data';
+    } else {
+      badge.textContent = s + '%';
+      badge.className = 'eco-score-badge ' + (s >= 80 ? 'green' : s >= 50 ? 'amber' : 'red');
+    }
+  });
+
+  // Show recommendation if any domain has enough data
+  const withData = DOMAINS.filter(d => scores[d] !== null);
+  const recBox  = document.getElementById('eco-rec-box');
+  const recText = document.getElementById('eco-rec-text');
+  if (recBox && recText && withData.length > 0) {
+    const weakest = withData.reduce((a, b) => scores[b] < scores[a] ? b : a);
+    recText.innerHTML = `<strong>Öneri:</strong> Geçmiş verilerine göre en zayıf alan: <strong>${LABELS[weakest]}</strong> (%${scores[weakest]}). Bu alan varsayılan olarak seçildi.`;
+    recBox.style.display = 'flex';
+  } else if (recBox) {
+    recBox.style.display = 'none';
+  }
+  return scores;
+}
+
+function getWeakestEcoDomain() {
+  const hist   = getEcoHistory();
+  const DOMAINS = ['people', 'process', 'business'];
+  const scored  = DOMAINS.map(d => ({ d, s: computeDomainScore(hist[d]) })).filter(x => x.s !== null);
+  if (!scored.length) return null; // fall back to 'all'
+  return scored.reduce((a, b) => b.s < a.s ? b : a).d;
+}
+
 // ── APPROACH DISTRIBUTION ─────────────────────────────────────────────────────
 const APPROACH_KEYS   = ['people', 'process', 'business'];
 const APPROACH_LOCKED = { people: false, process: false, business: false };
@@ -1196,9 +1313,14 @@ function applyDefaults() {
   const roleEl = document.querySelector('.opt-cell[data-group="role"][data-val="PM"]');
   if (roleEl && !roleEl.classList.contains('selected')) selectOpt(roleEl, 'role');
 
-  // ── Competency: odak alanı → Süreç ──
-  const focusEl = document.querySelector('#eco-grid .check-cell[data-val="process"]');
+  // ── Competency: odak alanı → en zayıf alan (geçmiş veriye göre) veya Karma ──
+  const ecoScores = renderEcoScores();
+  const weakDomain = getWeakestEcoDomain();
+  const defaultEco = weakDomain || 'all'; // fallback: Karma
+  const focusEl = document.querySelector(`#eco-grid .check-cell[data-val="${defaultEco}"]`);
   if (focusEl && !focusEl.classList.contains('selected')) focusEl.classList.add('selected');
+  // Sync roles with selected dev_approach default (hybrid)
+  syncRolesWithApproach('hybrid');
 
   // ── Competency: sprint → 15 (Normal) ──
   const sprintEl = document.querySelector('.sprint-card[data-val="15"]');
