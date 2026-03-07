@@ -251,7 +251,7 @@ input{font-family:inherit}
         <div class="m-desc">Sprint bazlı, odaklı çalışma. Zayıf yönünü seç ve yoğun pratik yap.</div>
         <div class="m-pills">
           <span class="m-pill">Sprint Bazlı</span>
-          <span class="m-pill">ECO Odaklı</span>
+          <span class="m-pill">Odaklı Pratik</span>
           <span class="m-pill">Nokta Atışı</span>
           <span class="m-pill">Tekrar Edilebilir</span>
         </div>
@@ -389,7 +389,7 @@ input{font-family:inherit}
               </svg>
             </div>
             <div class="diff-name">Orta</div>
-            <div class="diff-sub">Standart PMP zorluğu</div>
+            <div class="diff-sub">Standart proje zorluğu</div>
           </div>
           <!-- 3 bars — red -->
           <div class="diff-card career-sel" data-group="difficulty" data-val="advanced" onclick="selectDiff(this,'difficulty')">
@@ -587,11 +587,11 @@ input{font-family:inherit}
     <div class="setup-card">
       <div class="setup-card-head">
         <h2>Odak alanı ve sprint</h2>
-        <p>Hangi ECO yetkinlik alanına antrenman yapmak istiyorsun?</p>
+        <p>Hangi yetkinlik alanına odaklanmak istiyorsun?</p>
       </div>
 
       <div class="setup-row" style="display:block;padding:18px 26px">
-        <p class="setup-row-label" style="margin-bottom:10px">ECO Alanı (çoklu seçim)</p>
+        <p class="setup-row-label" style="margin-bottom:10px">Odak Alanı (çoklu seçim)</p>
         <div class="check-group" id="eco-grid">
           <div class="check-cell" data-val="people" onclick="toggleCheck(this,'eco')">
             <div class="cc-box"><span class="cc-tick">✓</span></div>
@@ -636,7 +636,7 @@ input{font-family:inherit}
       </div>
     </div>
 
-    <p class="val-hint" id="hint-k2">ECO alanı ve sprint uzunluğu seçmelisin.</p>
+    <p class="val-hint" id="hint-k2">Odak alanı ve sprint uzunluğu seçmelisin.</p>
     <div class="wiz-nav">
       <button class="wiz-back" onclick="goPage('page-k1')">← Geri</button>
       <button class="wiz-next" onclick="nextComp(2)">
@@ -730,7 +730,7 @@ function selectMode(mode) {
 
 // ── STEPPER BUILD ─────────────────────────────────────────────────────────────
 const CAREER_STEPS = ['Kimlik', 'Ortam', 'Hedefler', 'Özet'];
-const COMP_STEPS   = ['Yaklaşım & Rol', 'ECO & Sprint', 'Özet'];
+const COMP_STEPS   = ['Yaklaşım & Rol', 'Odak & Sprint', 'Özet'];
 
 function buildSteppers() {
   [1,2,3,4].forEach(cur => {
@@ -883,7 +883,7 @@ function renderCompSummary() {
     row(IC.route,    'Yaklaşım',     LBL.dev_approach[k.dev_approach] || k.dev_approach) +
     row(IC.building, 'Organizasyon', LBL.org_structure[k.org_structure] || k.org_structure) +
     row(IC.badge,    'Rol',          LBL.role[k.role] || k.role) +
-    row(IC.layers,   'ECO Alanları', tags(k.eco_filters, LBL.eco)) +
+    row(IC.layers,   'Odak Alanları', tags(k.eco_filters, LBL.eco)) +
     row(IC.clock,    'Sprint',       LBL.sprint[k.sprint_length] || k.sprint_length + ' karar');
 }
 
@@ -962,6 +962,63 @@ function buildCharacters(sector) {
     name, role, personality, stress_level:'medium', relationship_score:65
   }));
 }
+
+// ── DEFAULTS ─────────────────────────────────────────────────────────────────
+function applyDefaults() {
+  // Read user session & last scenario
+  const session      = (() => { try { return JSON.parse(localStorage.getItem('pmSim_session') || 'null'); } catch { return null; } })();
+  const lastScenario = (() => { try { return JSON.parse(localStorage.getItem('yetkinlider_scenario') || 'null'); } catch { return null; } })();
+
+  // ── Career: PM name from session ──
+  const pmInput = document.getElementById('pm_name');
+  if (pmInput && !pmInput.value && session?.displayName) {
+    pmInput.value = session.displayName;
+  }
+
+  // ── Career: sector from last scenario or default IT ──
+  const defaultSector = lastScenario?.career_config?.sector || 'it';
+  const sectorEl = document.querySelector(`.opt-cell[data-group="sector"][data-val="${defaultSector}"]`);
+  if (sectorEl && !sectorEl.classList.contains('selected')) selectOpt(sectorEl, 'sector');
+
+  // ── Career: difficulty → Orta ──
+  const diffEl = document.querySelector('.diff-card[data-val="intermediate"]');
+  if (diffEl && !diffEl.classList.contains('selected')) selectDiff(diffEl, 'difficulty');
+
+  // ── Career: PMO → Destekleyici ──
+  const pmoEl = document.querySelector('.opt-cell[data-group="pmo_type"][data-val="supportive"]');
+  if (pmoEl && !pmoEl.classList.contains('selected')) selectOpt(pmoEl, 'pmo_type');
+
+  // ── Career: takım → Kolaboratif ──
+  const teamEl = document.querySelector('.opt-cell[data-group="team_culture"][data-val="collaborative"]');
+  if (teamEl && !teamEl.classList.contains('selected')) selectOpt(teamEl, 'team_culture');
+
+  // ── Career: hedefler → Risk Yönetimi ──
+  const goalEl = document.querySelector('#goals-grid .check-cell[data-val="risk_management"]');
+  if (goalEl && !goalEl.classList.contains('selected')) goalEl.classList.add('selected');
+
+  // ── Competency: yaklaşım → Hibrit ──
+  const daEl = document.querySelector('.opt-cell[data-group="dev_approach"][data-val="hybrid"]');
+  if (daEl && !daEl.classList.contains('selected')) selectOpt(daEl, 'dev_approach');
+
+  // ── Competency: organizasyon → Dengeli Matris ──
+  const orgEl = document.querySelector('.opt-cell[data-group="org_structure"][data-val="matrix_balanced"]');
+  if (orgEl && !orgEl.classList.contains('selected')) selectOpt(orgEl, 'org_structure');
+
+  // ── Competency: rol → PM ──
+  const roleEl = document.querySelector('.opt-cell[data-group="role"][data-val="PM"]');
+  if (roleEl && !roleEl.classList.contains('selected')) selectOpt(roleEl, 'role');
+
+  // ── Competency: odak alanı → Süreç ──
+  const focusEl = document.querySelector('#eco-grid .check-cell[data-val="process"]');
+  if (focusEl && !focusEl.classList.contains('selected')) focusEl.classList.add('selected');
+
+  // ── Competency: sprint → 15 (Normal) ──
+  const sprintEl = document.querySelector('.sprint-card[data-val="15"]');
+  if (sprintEl && !sprintEl.classList.contains('selected')) selectSprint(sprintEl);
+}
+
+// Run defaults on load
+document.addEventListener('DOMContentLoaded', applyDefaults);
 
 // ── START GAME ────────────────────────────────────────────────────────────────
 function startGame() {
