@@ -122,6 +122,30 @@ input{font-family:inherit}
 .diff-name{font-size:14px;font-weight:700;color:var(--text-inv);margin-bottom:4px}
 .diff-sub{font-size:11px;color:var(--dim);line-height:1.45}
 
+/* ── APPROACH DISTRIBUTION BAR ── */
+.approach-labels{display:flex;margin-bottom:8px}
+.approach-label{flex:1;text-align:center;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.approach-bar{position:relative;height:50px;border-radius:10px;overflow:hidden;display:flex;cursor:col-resize;user-select:none;touch-action:none}
+.approach-seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,.9);position:relative;transition:flex .05s linear;min-width:0}
+.approach-seg.people {background:linear-gradient(135deg,#6366f1,#8b5cf6)}
+.approach-seg.process{background:linear-gradient(135deg,#3b82f6,#06b6d4)}
+.approach-seg.business{background:linear-gradient(135deg,#10b981,#059669)}
+.approach-inputs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
+.approach-input-group{display:flex;flex-direction:column;gap:5px;align-items:center}
+.approach-input-group label{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.approach-input-row{display:flex;align-items:center;gap:5px}
+.apct-wrap{position:relative}
+.approach-pct-input{width:58px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;color:#fff;font-size:15px;font-weight:700;text-align:center;padding:6px 14px 6px 6px;outline:none;-moz-appearance:textfield}
+.approach-pct-input::-webkit-outer-spin-button,.approach-pct-input::-webkit-inner-spin-button{-webkit-appearance:none}
+.approach-pct-input:focus{border-color:var(--accent)}
+.apct-sign{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:11px;opacity:.45;pointer-events:none}
+.approach-lock-btn{background:none;border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:6px;cursor:pointer;color:rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;transition:all .15s}
+.approach-lock-btn.locked{border-color:#f59e0b;color:#f59e0b;background:rgba(245,158,11,.1)}
+.approach-equal-btn{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:9px 16px;cursor:pointer;color:rgba(255,255,255,.5);font-size:13px;font-weight:500;transition:all .15s}
+.approach-equal-btn:hover{background:rgba(255,255,255,.09);color:#fff}
+.approach-total{text-align:center;margin-top:10px;font-size:12px;color:var(--dim)}
+.approach-total.error{color:#ef4444}
+
 /* ── CHECK CELLS (multi-select) ── */
 .check-group{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 .check-cell{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:11px 13px;cursor:pointer;transition:all .15s;text-align:left}
@@ -438,7 +462,7 @@ input{font-family:inherit}
 
 
 <!-- ═══════════════════════════════════════════
-     CAREER — STEP 3: ÖĞRENME HEDEFLERİ
+     CAREER — STEP 3: YAKLAŞIM DAĞILIMI
 ═══════════════════════════════════════════ -->
 <div class="page flex-start wiz-page" id="page-c3">
   <div class="wiz-inner">
@@ -446,40 +470,67 @@ input{font-family:inherit}
 
     <div class="setup-card">
       <div class="setup-card-head">
-        <h2>Odak noktanı seç</h2>
-        <p>AI bu tercihle hangi kavramları sana öğreteceğini belirler. Birden fazla seçebilirsin.</p>
+        <h2>Yaklaşım Dağılımını Belirle</h2>
+        <p>Senaryo boyunca hangi boyuta ne kadar odaklanmak istiyorsun? Barı sürükle veya değerleri gir.</p>
       </div>
-      <div class="setup-row" style="display:block;padding:18px 26px">
-        <div class="check-group" id="goals-grid">
-          <div class="check-cell career-sel" data-val="risk_management" onclick="toggleCheck(this,'goals')">
-            <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">Risk Yönetimi</div><div class="cc-desc">Risk kaydı, duyarlılık, yanıt stratejileri</div></div>
+      <div class="setup-row" style="display:block;padding:18px 26px 24px">
+        <div class="approach-labels">
+          <div class="approach-label" style="color:#a5b4fc">İnsan</div>
+          <div class="approach-label" style="color:#7dd3fc">Süreç</div>
+          <div class="approach-label" style="color:#6ee7b7">İş Ortamı</div>
+        </div>
+        <div class="approach-bar" id="approach-bar">
+          <div class="approach-seg people"   id="seg-people"  ></div>
+          <div class="approach-seg process"  id="seg-process" ></div>
+          <div class="approach-seg business" id="seg-business"></div>
+        </div>
+        <div class="approach-inputs">
+          <div class="approach-input-group">
+            <label style="color:#a5b4fc">İnsan</label>
+            <div class="approach-input-row">
+              <div class="apct-wrap">
+                <input class="approach-pct-input" id="inp-people" type="number" min="0" max="100" value="42" oninput="onApproachInput('people')">
+                <span class="apct-sign">%</span>
+              </div>
+              <button class="approach-lock-btn" id="lock-people" onclick="toggleApproachLock('people')" title="Kilitle">
+                <svg id="lock-people-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </button>
+            </div>
           </div>
-          <div class="check-cell career-sel" data-val="agile_leadership" onclick="toggleCheck(this,'goals')">
-            <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">Çevik Liderlik</div><div class="cc-desc">Scrum, Kanban, retrospektif, servant leadership</div></div>
+          <div class="approach-input-group">
+            <label style="color:#7dd3fc">Süreç</label>
+            <div class="approach-input-row">
+              <div class="apct-wrap">
+                <input class="approach-pct-input" id="inp-process" type="number" min="0" max="100" value="50" oninput="onApproachInput('process')">
+                <span class="apct-sign">%</span>
+              </div>
+              <button class="approach-lock-btn" id="lock-process" onclick="toggleApproachLock('process')" title="Kilitle">
+                <svg id="lock-process-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </button>
+            </div>
           </div>
-          <div class="check-cell career-sel" data-val="stakeholder_communication" onclick="toggleCheck(this,'goals')">
-            <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">Paydaş & İletişim</div><div class="cc-desc">Paydaş haritası, çatışma, müzakere</div></div>
-          </div>
-          <div class="check-cell career-sel" data-val="evm_cost" onclick="toggleCheck(this,'goals')">
-            <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">EVM & Maliyet</div><div class="cc-desc">CPI, SPI, EV, kazanılmış değer analizi</div></div>
-          </div>
-          <div class="check-cell career-sel" data-val="scope_quality" onclick="toggleCheck(this,'goals')">
-            <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">Kapsam & Kalite</div><div class="cc-desc">WBS, kapsam kayması, kalite güvencesi</div></div>
-          </div>
-          <div class="check-cell career-sel opt-random" data-val="ai_random" onclick="toggleCheck(this,'goals')">
-            <div class="cc-box"><span class="cc-tick">✓</span></div>
-            <div><div class="cc-name">AI Seçsin</div><div class="cc-desc">Tüm kavramlar havuza girer, dengeli seçer</div></div>
+          <div class="approach-input-group">
+            <label style="color:#6ee7b7">İş Ortamı</label>
+            <div class="approach-input-row">
+              <div class="apct-wrap">
+                <input class="approach-pct-input" id="inp-business" type="number" min="0" max="100" value="8" oninput="onApproachInput('business')">
+                <span class="apct-sign">%</span>
+              </div>
+              <button class="approach-lock-btn" id="lock-business" onclick="toggleApproachLock('business')" title="Kilitle">
+                <svg id="lock-business-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </button>
+            </div>
           </div>
         </div>
+        <div class="approach-total" id="approach-total">Toplam: 100%</div>
+        <button class="approach-equal-btn" onclick="setEqualApproach()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/></svg>
+          Tam Hibrit — Eşit Dağılım (33 / 34 / 33)
+        </button>
       </div>
     </div>
 
-    <p class="val-hint" id="hint-c3">En az bir hedef seçmelisin.</p>
+    <p class="val-hint" id="hint-c3">Toplam %100 olmalı.</p>
     <div class="wiz-nav">
       <button class="wiz-back" onclick="goPage('page-c2')">← Geri</button>
       <button class="wiz-next career-next" onclick="nextCareer(3)">
@@ -681,7 +732,7 @@ input{font-family:inherit}
 // ── STATE ────────────────────────────────────────────────────────────────────
 const S = {
   mode: null,
-  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, learning_goals:[] },
+  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, approach:{ people:42, process:50, business:8 } },
   comp:   { dev_approach:null, org_structure:null, role:null, eco_filters:[], sprint_length:null }
 };
 
@@ -729,7 +780,7 @@ function selectMode(mode) {
 }
 
 // ── STEPPER BUILD ─────────────────────────────────────────────────────────────
-const CAREER_STEPS = ['Kimlik', 'Ortam', 'Hedefler', 'Özet'];
+const CAREER_STEPS = ['Kimlik', 'Ortam', 'Yaklaşım', 'Özet'];
 const COMP_STEPS   = ['Yaklaşım & Rol', 'Odak & Sprint', 'Özet'];
 
 function buildSteppers() {
@@ -831,9 +882,11 @@ function nextCareer(step) {
     S.career.difficulty = diff; S.career.pmo_type = pmo; S.career.team_culture = team;
     goPage('page-c3');
   } else if (step === 3) {
-    S.career.learning_goals = getChecked('goals-grid');
-    if (!S.career.learning_goals.length) { hint('hint-c3', true); return; }
+    const ap = getApproachVals();
+    const total = APPROACH_KEYS.reduce((a,k) => a + ap[k], 0);
+    if (total !== 100) { hint('hint-c3', true); return; }
     hint('hint-c3', false);
+    S.career.approach = ap;
     renderCareerSummary();
     goPage('page-c4');
   }
@@ -874,7 +927,7 @@ function renderCareerSummary() {
     row(IC.zap,      'Zorluk',    LBL.difficulty[c.difficulty] || c.difficulty) +
     row(IC.building, 'PMO',       LBL.pmo_type[c.pmo_type] || c.pmo_type) +
     row(IC.users,    'Takım',     LBL.team_culture[c.team_culture] || c.team_culture) +
-    row(IC.target,   'Hedefler',  tags(c.learning_goals, LBL.goals));
+    row(IC.target, 'Yaklaşım', `<span class="sum-tag" style="color:#a5b4fc">İnsan ${c.approach.people}%</span><span class="sum-tag" style="color:#7dd3fc">Süreç ${c.approach.process}%</span><span class="sum-tag" style="color:#6ee7b7">İş Ortamı ${c.approach.business}%</span>`);
 }
 
 function renderCompSummary() {
@@ -897,7 +950,7 @@ function buildPayload() {
     return {
       schema_version: '2.1', session_id: uid, created_at: now, mode: 'career',
       player: { name: S.career.pm_name, project_name: S.career.project_name, avatar_seed: S.career.pm_name.toLowerCase().replace(/\s+/g,'_') },
-      career_config: { sector: S.career.sector, sector_label: sectorLabel, difficulty: S.career.difficulty, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, learning_goals: S.career.learning_goals },
+      career_config: { sector: S.career.sector, sector_label: sectorLabel, difficulty: S.career.difficulty, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, approach: S.career.approach },
       competency_config: null,
       game_state: {
         current_day: 0, current_phase: 'initiating',
@@ -963,6 +1016,142 @@ function buildCharacters(sector) {
   }));
 }
 
+// ── APPROACH DISTRIBUTION ─────────────────────────────────────────────────────
+const APPROACH_KEYS   = ['people', 'process', 'business'];
+const APPROACH_LOCKED = { people: false, process: false, business: false };
+
+function getApproachVals() {
+  return {
+    people:   parseInt(document.getElementById('inp-people').value)   || 0,
+    process:  parseInt(document.getElementById('inp-process').value)  || 0,
+    business: parseInt(document.getElementById('inp-business').value) || 0,
+  };
+}
+
+function renderApproach(vals) {
+  APPROACH_KEYS.forEach(k => {
+    const v = Math.max(0, vals[k]);
+    document.getElementById('inp-' + k).value = v;
+    // Use max(v, 0.5) so segments remain visible even at 0%
+    document.getElementById('seg-' + k).style.flex = Math.max(v, 0.5);
+    document.getElementById('seg-' + k).textContent = v > 8 ? v + '%' : '';
+  });
+  const total = APPROACH_KEYS.reduce((a, k) => a + Math.max(0, vals[k]), 0);
+  const el = document.getElementById('approach-total');
+  if (el) { el.textContent = 'Toplam: ' + total + '%'; el.classList.toggle('error', total !== 100); }
+}
+
+function onApproachInput(changed) {
+  const vals = getApproachVals();
+  APPROACH_KEYS.forEach(k => vals[k] = Math.max(0, vals[k]));
+  const lockedSum = APPROACH_KEYS.filter(k => APPROACH_LOCKED[k]).reduce((a, k) => a + vals[k], 0);
+  if (lockedSum > 100) { renderApproach(vals); return; }
+  const adjustable = APPROACH_KEYS.filter(k => k !== changed && !APPROACH_LOCKED[k]);
+  if (!adjustable.length) { renderApproach(vals); return; }
+  const target = 100 - lockedSum - vals[changed];
+  if (target < 0) {
+    vals[changed] = 100 - lockedSum;
+    adjustable.forEach(k => vals[k] = 0);
+  } else {
+    const adjSum = adjustable.reduce((a, k) => a + vals[k], 0);
+    if (adjSum === 0) {
+      const share = Math.floor(target / adjustable.length);
+      adjustable.forEach(k => vals[k] = share);
+      vals[adjustable[adjustable.length - 1]] += target - share * adjustable.length;
+    } else {
+      adjustable.forEach(k => { vals[k] = Math.round((vals[k] / adjSum) * target); });
+      const tot = APPROACH_KEYS.reduce((a, k) => a + vals[k], 0);
+      if (tot !== 100) vals[adjustable[adjustable.length - 1]] += 100 - tot;
+    }
+  }
+  renderApproach(vals);
+}
+
+function toggleApproachLock(dim) {
+  APPROACH_LOCKED[dim] = !APPROACH_LOCKED[dim];
+  document.getElementById('lock-' + dim).classList.toggle('locked', APPROACH_LOCKED[dim]);
+  const svg = document.getElementById('lock-' + dim + '-svg');
+  if (svg) svg.innerHTML = APPROACH_LOCKED[dim]
+    ? '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>'
+    : '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a4.9 4.9 0 0 1 4-4.8"/>';
+}
+
+function setEqualApproach() {
+  const unlocked = APPROACH_KEYS.filter(k => !APPROACH_LOCKED[k]);
+  if (!unlocked.length) return;
+  const lockedSum = APPROACH_KEYS.filter(k => APPROACH_LOCKED[k])
+    .reduce((a, k) => a + (parseInt(document.getElementById('inp-' + k).value) || 0), 0);
+  const avail = 100 - lockedSum;
+  const share = Math.floor(avail / unlocked.length);
+  const vals = getApproachVals();
+  unlocked.forEach(k => vals[k] = share);
+  vals[unlocked[unlocked.length - 1]] += avail - share * unlocked.length;
+  renderApproach(vals);
+}
+
+function initApproachBar() {
+  const bar = document.getElementById('approach-bar');
+  if (!bar) return;
+  renderApproach({ people: 42, process: 50, business: 8 });
+  let dragHandle = null;
+
+  bar.addEventListener('mousedown', startDrag);
+  bar.addEventListener('touchstart', startDrag, { passive: false });
+
+  function startDrag(e) {
+    e.preventDefault();
+    const rect = bar.getBoundingClientRect();
+    const cx = e.touches ? e.touches[0].clientX : e.clientX;
+    const x = cx - rect.left;
+    const w = rect.width;
+    const v = getApproachVals();
+    const h1x = (v.people / 100) * w;
+    const h2x = ((v.people + v.process) / 100) * w;
+    dragHandle = Math.abs(x - h1x) <= Math.abs(x - h2x) ? 'h1' : 'h2';
+
+    function onMove(ev) {
+      const cx2 = ev.touches ? ev.touches[0].clientX : ev.clientX;
+      const pct = Math.round(Math.max(0, Math.min(100, ((cx2 - rect.left) / w) * 100)));
+      const v = getApproachVals();
+      if (dragHandle === 'h1') {
+        const total = v.people + v.process;
+        if (!APPROACH_LOCKED.people && !APPROACH_LOCKED.process) {
+          v.people = Math.max(0, Math.min(total, pct));
+          v.process = total - v.people;
+        } else if (!APPROACH_LOCKED.people) {
+          v.people = Math.max(0, Math.min(100 - v.process - v.business, pct));
+        } else if (!APPROACH_LOCKED.process) {
+          v.process = Math.max(0, pct - v.people);
+          if (!APPROACH_LOCKED.business) v.business = Math.max(0, 100 - v.people - v.process);
+        }
+      } else {
+        const endPct = Math.max(v.people, pct);
+        if (!APPROACH_LOCKED.process && !APPROACH_LOCKED.business) {
+          v.process = Math.max(0, endPct - v.people);
+          v.business = Math.max(0, 100 - v.people - v.process);
+        } else if (!APPROACH_LOCKED.process) {
+          v.process = Math.max(0, 100 - v.people - v.business);
+        } else if (!APPROACH_LOCKED.business) {
+          v.business = Math.max(0, 100 - v.people - v.process);
+        }
+      }
+      renderApproach(v);
+    }
+
+    function onUp() {
+      dragHandle = null;
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+      document.removeEventListener('touchmove', onMove);
+      document.removeEventListener('touchend', onUp);
+    }
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+    document.addEventListener('touchmove', onMove, { passive: false });
+    document.addEventListener('touchend', onUp);
+  }
+}
+
 // ── DEFAULTS ─────────────────────────────────────────────────────────────────
 function applyDefaults() {
   // Read user session & last scenario
@@ -992,9 +1181,8 @@ function applyDefaults() {
   const teamEl = document.querySelector('.opt-cell[data-group="team_culture"][data-val="collaborative"]');
   if (teamEl && !teamEl.classList.contains('selected')) selectOpt(teamEl, 'team_culture');
 
-  // ── Career: hedefler → Risk Yönetimi ──
-  const goalEl = document.querySelector('#goals-grid .check-cell[data-val="risk_management"]');
-  if (goalEl && !goalEl.classList.contains('selected')) goalEl.classList.add('selected');
+  // ── Career: yaklaşım barını başlat (default: 42/50/8) ──
+  initApproachBar();
 
   // ── Competency: yaklaşım → Hibrit ──
   const daEl = document.querySelector('.opt-cell[data-group="dev_approach"][data-val="hybrid"]');
