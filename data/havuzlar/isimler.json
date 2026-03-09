@@ -1,0 +1,26 @@
+{
+  "female": [
+    "Elif", "Seda", "Zeynep", "Merve", "Büşra",
+    "Ayşe", "Fatma", "Dilek", "Canan", "Nihan",
+    "Ece", "Pınar", "Aslı", "Hande", "Sibel",
+    "Tuğba", "Rana", "Gül", "Derya", "Yasemin",
+    "Özge", "Cansu", "Melis", "Berna", "Filiz"
+  ],
+  "male": [
+    "Serhat", "Kaan", "Emre", "Bülent", "Ahmet",
+    "Murat", "Mehmet", "Ali", "Oğuz", "Barış",
+    "Can", "Cem", "Tolga", "Serdar", "Uğur",
+    "Volkan", "Onur", "Gökhan", "Taner", "Hakan",
+    "Burak", "Ercan", "Selim", "Tayfun", "Koray"
+  ],
+  "soyadlar": [
+    "Yılmaz", "Kaya", "Demir", "Çelik", "Şahin",
+    "Yıldız", "Yıldırım", "Öztürk", "Aydın", "Özdemir",
+    "Arslan", "Doğan", "Kılıç", "Aslan", "Çetin",
+    "Koç", "Kurt", "Güven", "Çakır", "Polat",
+    "Acar", "Bozkurt", "Bulut", "Duman", "Güneş",
+    "Toprak", "Özcan", "Karaca", "Aksu", "Biçer",
+    "Demirci", "Kaplan", "Keskin", "Korkmaz", "Mutlu",
+    "Erdoğan", "Ünsal", "Bayrak", "Tekin", "Sarı"
+  ]
+}

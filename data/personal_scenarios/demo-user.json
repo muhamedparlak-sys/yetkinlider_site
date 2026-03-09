@@ -1,0 +1,263 @@
+{
+  "user_id": "demo-user-001",
+  "sector": "yazilim",
+  "approach": "cevic",
+  "kadro": [
+    {
+      "name": "Özge",
+      "role": "Frontend Developer",
+      "gender": "female"
+    },
+    {
+      "name": "Serhat",
+      "role": "Ürün Müdürü",
+      "gender": "male"
+    },
+    {
+      "name": "Canan",
+      "role": "Veri Mimarı",
+      "gender": "female"
+    },
+    {
+      "name": "Oğuz",
+      "role": "Full Stack Developer",
+      "gender": "male"
+    },
+    {
+      "name": "Merve",
+      "role": "UX Tasarımcısı",
+      "gender": "female"
+    },
+    {
+      "name": "Hakan",
+      "role": "Frontend Developer",
+      "gender": "male"
+    }
+  ],
+  "dis_kisiler": [
+    {
+      "name": "Cansu",
+      "role": "Müşteri Yetkilisi"
+    },
+    {
+      "name": "Volkan",
+      "role": "Sponsor"
+    },
+    {
+      "name": "Zeynep",
+      "role": "Son Kullanıcı Temsilcisi"
+    }
+  ],
+  "scenarios": [
+    {
+      "mesele_id": "kaynak_erisilemezligi",
+      "reason_id": "dogum_izni",
+      "from": "Yasemin",
+      "fromRole": "İK Uzmanı",
+      "subject": "Güzel haber — Özge bizimle paylaştı",
+      "body": "Merhaba ekip,\n\nÖzge (Frontend Developer) güzel haberini sizinle paylaşmak istedi. Özge bebek bekliyor! Kendisini tebrik edelim.\n\nÖzge yaklaşık 4 ay içinde doğum iznine ayrılacak.",
+      "options": {
+        "medicine": {
+          "text": "Özge'e ayrıca yazıyorum: 'Tebrikler Özge, harika haber! Bir ihtiyacın olursa her zaman buradayım.' Onun dışında planlama sürecini sessizce başlatıyorum — Özge'e henüz bir şey söylemiyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text": "Özge'e yazıyorum: 'Tebrikler Özge! İzin sürecinde projeyi nasıl yönetelim, bir konuşalım mı?'",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text": "İK'ya yazıyorum: 'Özge'in izin planını alabilir miyim, programa işleyeyim.'",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text": "Özge'e yazıyorum: 'Tebrikler! İzne ayrılmadan önce kritik konuları devretmen gerekecek, bir plan yapalım.'",
+          "xp": -20,
+          "isEthical": false
+        }
+      }
+    },
+    {
+      "mesele_id": "yazisiz_scope_degisikligi",
+      "reason_id": "musteri_mail_gayriresmi",
+      "from": "Cansu",
+      "fromRole": "Müşteri Yetkilisi",
+      "subject": "Küçük bir ekleme — Cansu",
+      "body": "Hocam merhaba,\n\nSizi çok fazla yormak istemiyorum ama aklıma bir şey geldi. Listeler alfabetik sıralanabilse kullanışlı olur. Küçük bir şey, ekibinize söylerseniz hallederler diye düşündüm.",
+      "options": {
+        "medicine": {
+          "text": "Merhaba Cansu Hanım/Bey,\n\nGüzel fikir! Bunu değişiklik talebimize alalım — ne kadar sürer, maliyeti var mı kısa bir analiz yapayım, size resmi olarak sunayım. Öyle devam edelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text": "Merhaba Cansu Hanım/Bey,\n\nAnladım, ekiple konuşayım mümkün mü bakayım, size dönerim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text": "Merhaba Cansu Hanım/Bey,\n\nBunu resmi talep olarak iletir misiniz, süreç başlatalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text": "Merhaba Cansu Hanım/Bey,\n\nTabii ki! Hemen ekibe iletiyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      }
+    },
+    {
+      "mesele_id": "kaynak_erisilemezligi",
+      "reason_id": "kisa_hastalik_kendisi",
+      "from": "Hakan",
+      "fromRole": "Frontend Developer",
+      "subject": "Bu hafta gelmeyeceğim",
+      "body": "Hocam merhaba, doktora gittim, boğaz enfeksiyonu çıktı. Bu hafta istirahat raporum var, gelemiyor olacağım. Acil bir şey olursa yazabilirsiniz.",
+      "options": {
+        "medicine": {
+          "text": "Geçmiş olsun Hakan! Hiç merak etme, işleri hallettim. Tam anlamıyla dinlen — sana işle ilgili bir şey sormayacağım bu hafta. Bir ihtiyacın olursa haberdar et.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text": "Geçmiş olsun Hakan. İstirahat et, iyileşince görüşürüz. Tahminen ne zaman dönersin?",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text": "Geçmiş olsun Hakan. Ekibe ilettim, merak etme.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text": "Geçmiş olsun Hakan. Bu hafta kritik bir toplantı var, evden bağlanabilecek durumda mısın?",
+          "xp": -20,
+          "isEthical": false
+        }
+      }
+    },
+    {
+      "mesele_id": "yazisiz_scope_degisikligi",
+      "reason_id": "kullanici_demo_sonrasi",
+      "from": "Volkan",
+      "fromRole": "Sponsor",
+      "subject": "Demo beğendik ama bir şey eklesek",
+      "body": "Hocam demo çok güzeldi, ekibinizi tebrik ederim. Şunu sorsam — sayfa sonuna özet istatistik gelse? Kullanıcılar kesinlikle ister. Küçük bir şey.",
+      "options": {
+        "medicine": {
+          "text": "Teşekkürler, sevindik! Güzel bir fikir. Bunu değişiklik sürecimize alalım — etkisini analiz edip size resmi olarak sunarım, öyle ilerleriz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text": "Teşekkürler! Güzel fikir, teknik ekiple konuşayım ne kadar sürer bakayım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text": "Teşekkürler. Bunu yazılı olarak iletir misiniz, değerlendireyim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text": "Teşekkürler, küçük bir şey, ekleriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      }
+    },
+    {
+      "mesele_id": "kaynak_erisilemezligi",
+      "reason_id": "ruh_sagligi_izni",
+      "from": "Serhat",
+      "fromRole": "Ürün Müdürü",
+      "subject": "Seninle konuşmam gerekiyor",
+      "body": "Hocam, bir süredir kendimi iyi hissetmiyorum. Doktor 2 hafta izin önerdi. Depresyon belirtileri var, ilaç ve dinlenme önerildi. Bunu söylemek çok zordu ama gizlemek istemedim.",
+      "options": {
+        "medicine": {
+          "text": "Söylediğin için gerçekten teşekkür ederim Serhat, cesaret isteyen bir şey bu. Kesinlikle izni al, hiç düşünme. Ne zaman ve nasıl döneceğini sen belirlersin — biz buradayız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text": "Geçmiş olsun Serhat. İzni al, dinlen. Dönünce bir konuşalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text": "Anlıyorum Serhat. İK ile izin sürecini başlatayım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text": "Anlıyorum Serhat. Ama şu an çok kritik bir döneme denk geldi — 2 hafta yerine birkaç günlük izin olmaz mı?",
+          "xp": -20,
+          "isEthical": false
+        }
+      }
+    },
+    {
+      "mesele_id": "yazisiz_scope_degisikligi",
+      "reason_id": "kullanici_demo_sonrasi",
+      "from": "Zeynep",
+      "fromRole": "Son Kullanıcı Temsilcisi",
+      "subject": "Demo beğendik ama bir şey eklesek",
+      "body": "Hocam demo çok güzeldi, ekibinizi tebrik ederim. Şunu sorsam — listelerde toplu seçim özelliği olsa? Kullanıcılar kesinlikle ister. Küçük bir şey.",
+      "options": {
+        "medicine": {
+          "text": "Teşekkürler, sevindik! Güzel bir fikir. Bunu değişiklik sürecimize alalım — etkisini analiz edip size resmi olarak sunarım, öyle ilerleriz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text": "Teşekkürler! Güzel fikir, teknik ekiple konuşayım ne kadar sürer bakayım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text": "Teşekkürler. Bunu yazılı olarak iletir misiniz, değerlendireyim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text": "Teşekkürler, küçük bir şey, ekleriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      }
+    },
+    {
+      "mesele_id": "kaynak_erisilemezligi",
+      "reason_id": "kisa_hastalik_kendisi",
+      "from": "Canan",
+      "fromRole": "Veri Mimarı",
+      "subject": "Bu hafta gelmeyeceğim",
+      "body": "Hocam merhaba, doktora gittim, grip çıktı. Bu hafta istirahat raporum var, gelemiyor olacağım. Acil bir şey olursa yazabilirsiniz.",
+      "options": {
+        "medicine": {
+          "text": "Geçmiş olsun Canan! Hiç merak etme, işleri hallettim. Tam anlamıyla dinlen — sana işle ilgili bir şey sormayacağım bu hafta. Bir ihtiyacın olursa haberdar et.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text": "Geçmiş olsun Canan. İstirahat et, iyileşince görüşürüz. Tahminen ne zaman dönersin?",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text": "Geçmiş olsun Canan. Ekibe ilettim, merak etme.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text": "Geçmiş olsun Canan. Bu hafta kritik bir toplantı var, evden bağlanabilecek durumda mısın?",
+          "xp": -20,
+          "isEthical": false
+        }
+      }
+    }
+  ]
+}

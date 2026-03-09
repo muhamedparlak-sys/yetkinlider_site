@@ -143,3 +143,104 @@ export async function insertExamResult(data) {
 
   if (error) console.error('[DB] Sınav kaydı hatası:', error.message);
 }
+
+// ── user_scenarios ────────────────────────────────────────────────────────────
+
+/**
+ * PSG tarafından üretilen kişisel senaryoyu Supabase'e kaydet/güncelle.
+ * tailor.html'den fire-and-forget olarak çağrılır.
+ * @param {object} scenario  – PSG.generate() çıktısı (session_id alanı olmalı)
+ */
+export async function upsertPersonalScenario(scenario) {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return;
+
+  const scenarioId = scenario.session_id || scenario.id || Date.now().toString(36);
+
+  const { error } = await supabase
+    .from('user_scenarios')
+    .upsert({
+      user_id     : user.id,
+      scenario_id : scenarioId,
+      scenario    : scenario,
+      sector      : scenario.sector     || null,
+      difficulty  : scenario.difficulty || null,
+    }, { onConflict: 'user_id,scenario_id' });
+
+  if (error) console.error('[DB] Kişisel senaryo kayıt hatası:', error.message);
+}
+
+/**
+ * Kullanıcının belirli (ya da en son) kişisel senaryosunu Supabase'den çeker.
+ * game.html'de localStorage'da yoksa cross-device/refresh fallback olarak kullanılır.
+ * @param {string|null} scenarioId  – PSG session_id (null ise en son çekilir)
+ * @returns {Promise<object|null>}
+ */
+export async function fetchPersonalScenario(scenarioId = null) {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return null;
+
+  let query = supabase
+    .from('user_scenarios')
+    .select('scenario')
+    .eq('user_id', user.id);
+
+  if (scenarioId) {
+    query = query.eq('scenario_id', scenarioId);
+  } else {
+    query = query.order('created_at', { ascending: false }).limit(1);
+  }
+
+  const { data, error } = await query.maybeSingle();
+  if (error) { console.warn('[DB] Kişisel senaryo çekme başarısız:', error.message); return null; }
+  return data?.scenario || null;
+}
+
+// ── mesele_tipleri (IP korumalı — Supabase'den okunur) ───────────────────────
+
+/**
+ * Tüm mesele tipi ID'lerini Supabase'den çeker.
+ * PSG'de window.__sbFetchMeseleTipiIds olarak bağlanır.
+ * @returns {Promise<string[]>}
+ */
+export async function fetchMeseleTipiIds() {
+  const { data, error } = await supabase
+    .from('mesele_tipleri')
+    .select('id')
+    .order('id');
+  if (error) { console.warn('[DB] mesele_tipleri ID listesi alınamadı:', error.message); return []; }
+  return (data || []).map(r => r.id);
+}
+
+/**
+ * Belirli bir mesele tipinin tam JSON verisini Supabase'den çeker.
+ * PSG'de window.__sbFetchMeseleTipi olarak bağlanır.
+ * @param {string} id  — örn. 'kaynak_erisilemezligi'
+ * @returns {Promise<object|null>}
+ */
+export async function fetchMeseleTipi(id) {
+  const { data, error } = await supabase
+    .from('mesele_tipleri')
+    .select('data')
+    .eq('id', id)
+    .single();
+  if (error) { console.warn(`[DB] mesele_tipleri[${id}] alınamadı:`, error.message); return null; }
+  return data?.data || null;
+}
+
+// ── glossary_blob ─────────────────────────────────────────────────────────────
+
+/**
+ * Sözlük verisini Supabase'den çeker.
+ * glossary.html'de window.__sbFetchGlossary olarak bağlanır.
+ * @returns {Promise<object|null>}
+ */
+export async function fetchGlossary() {
+  const { data, error } = await supabase
+    .from('glossary_blob')
+    .select('data')
+    .eq('id', 'main')
+    .single();
+  if (error) { console.warn('[DB] Glossary alınamadı:', error.message); return null; }
+  return data?.data || null;
+}

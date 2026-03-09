@@ -1,0 +1,1318 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profilim — YetkinLider</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>if(localStorage.getItem('pmSim_theme')==='dark')document.documentElement.classList.add('dark');</script>
+<style>
+:root {
+  --primary: #2f4f60;
+  --primary-dark: #1f3b49;
+  --primary-light: #5f93c2;
+  --accent: #3b82f6;
+  --accent-dark: #2563eb;
+  --text: #0b1220;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface2: #f1f5f9;
+  --border: #e2e8f0;
+  --radius: 10px;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, system-ui, sans-serif; color: var(--text); background: var(--bg); }
+
+/* ── NAV ── */
+.navbar { background: var(--primary); height: 52px; display: flex; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 6px rgba(0,0,0,.18); }
+.brand-logo { width: 26px; height: 26px; border-radius: 5px; flex-shrink: 0; filter: brightness(0) invert(1); }
+.brand { color: #fff; text-decoration: none; font-weight: 700; font-size: 15px; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+.brand sup { font-size: 9px; vertical-align: super; }
+.nav-spacer { flex: 1; }
+.nav-user { display: flex; align-items: center; gap: 8px; margin-right: 10px; }
+.nav-av { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; overflow: hidden; flex-shrink: 0; }
+.nav-av img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.nav-username { color: rgba(255,255,255,.9); font-size: 13px; font-weight: 600; max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; background: transparent; border: 1px solid rgba(255,255,255,.25); border-radius: 7px; cursor: pointer; padding: 7px 8px; flex-shrink: 0; transition: border-color .15s; }
+.hamburger:hover { border-color: rgba(255,255,255,.45); }
+.hamburger span { display: block; width: 18px; height: 2px; background: #fff; border-radius: 2px; transition: all .2s; }
+.hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu-panel { position: fixed; top: 52px; left: 0; right: 0; background: var(--primary-dark); z-index: 999; max-height: 0; overflow: hidden; transition: max-height .28s ease; box-shadow: 0 8px 24px rgba(0,0,0,.3); }
+.menu-panel.open { max-height: 600px; }
+.menu-inner { padding: 8px 0 12px; }
+.menu-item { display: flex; align-items: center; gap: 12px; padding: 11px 22px; color: rgba(255,255,255,.82); font-size: 14px; font-weight: 500; text-decoration: none; transition: background .14s, color .14s; }
+.menu-item:hover, .menu-item.active { background: rgba(255,255,255,.08); color: #fff; }
+.menu-item.primary { color: #7dd3fc; font-weight: 600; }
+.menu-item.primary:hover { color: #fff; }
+.menu-icon { width: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; opacity: .75; }
+.menu-div { height: 1px; background: rgba(255,255,255,.1); margin: 8px 16px; }
+.menu-auth-area { padding: 4px 0; }
+.menu-auth-row { display: flex; align-items: center; gap: 10px; padding: 10px 22px; }
+.menu-auth-name { color: rgba(255,255,255,.85); font-size: 13px; font-weight: 600; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btn-menu-logout { background: none; border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.6); font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all .14s; }
+.btn-menu-logout:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+.btn-menu-login { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.8); font-size: 13px; font-weight: 500; text-decoration: none; padding: 6px 0; }
+.btn-menu-login:hover { color: #fff; }
+
+/* ── PAGE ── */
+.page-wrap { max-width: 700px; margin: 0 auto; padding: 36px 20px 60px; }
+
+/* ── PROFILE HERO ── */
+.profile-hero { display: flex; align-items: center; gap: 22px; margin-bottom: 32px; }
+.profile-av-wrap { position: relative; flex-shrink: 0; }
+.profile-av { width: 76px; height: 76px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; overflow: hidden; border: 3px solid var(--surface); box-shadow: 0 2px 12px rgba(59,130,246,.25); }
+.profile-av img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.profile-av-edit { position: absolute; inset: 0; border-radius: 50%; background: rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .18s; cursor: pointer; }
+.profile-av-wrap:hover .profile-av-edit { opacity: 1; }
+.profile-av-edit svg { pointer-events: none; }
+#photoInput { display: none; }
+.profile-info { flex: 1; min-width: 0; }
+.profile-name { font-size: 22px; font-weight: 800; color: var(--text); line-height: 1.2; margin-bottom: 3px; }
+.profile-username { font-size: 13px; color: var(--text-muted); margin-bottom: 4px; }
+.profile-email { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+.profile-meta { display: flex; gap: 12px; flex-wrap: wrap; }
+.profile-badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--surface2); border: 1px solid var(--border); color: var(--text-secondary); }
+.profile-badge.dev     { background: #fef3c7; border-color: #fcd34d; color: #92400e; }
+.profile-badge.admin   { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
+.profile-badge.editor  { background: #fff7ed; border-color: #fdba74; color: #9a3412; }
+.profile-badge.premium { background: #f5f3ff; border-color: #c4b5fd; color: #5b21b6; }
+.profile-badge.trial   { background: #f0fdf4; border-color: #86efac; color: #166534; }
+.profile-badge.standard{ background: var(--surface2); border-color: var(--border); color: var(--text-muted); }
+
+/* ── TABS ── */
+.profile-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+.profile-tab { flex: 1; text-align: center; padding: 10px 4px; font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: color .15s, border-color .15s; background: none; border-top: none; border-left: none; border-right: none; margin-bottom: -1px; }
+.profile-tab:hover { color: var(--text); }
+.profile-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── SECTION ── */
+.section { margin-bottom: 28px; }
+.section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.section-title svg { opacity: .7; }
+
+/* ── DOMAIN CARDS ── */
+.domain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+@media (max-width: 540px) { .domain-grid { grid-template-columns: 1fr; } }
+
+.domain-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; transition: border-color .15s, box-shadow .15s; }
+.domain-card:hover { border-color: var(--primary-light); box-shadow: 0 2px 8px rgba(0,0,0,.07); }
+.dc-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.dc-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 15px; }
+.dc-icon.people  { background: #eff6ff; }
+.dc-icon.process { background: #f0fdf4; }
+.dc-icon.business{ background: #fdf4ff; }
+.dc-name { font-size: 13px; font-weight: 700; color: var(--text); }
+.dc-sub  { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+.dc-score { font-size: 26px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+.dc-score.no-data { color: #cbd5e1; font-size: 20px; }
+.dc-score.green  { color: #059669; }
+.dc-score.amber  { color: #d97706; }
+.dc-score.red    { color: #dc2626; }
+
+.dc-bar-wrap { height: 4px; background: var(--surface2); border-radius: 2px; margin-bottom: 8px; overflow: hidden; }
+.dc-bar { height: 100%; border-radius: 2px; transition: width .6s ease; }
+.dc-bar.green  { background: #10b981; }
+.dc-bar.amber  { background: #f59e0b; }
+.dc-bar.red    { background: #ef4444; }
+.dc-bar.no-data{ background: #e2e8f0; width: 0 !important; }
+
+.dc-count { font-size: 11px; color: var(--text-muted); margin-bottom: 12px; }
+.dc-train-btn { width: 100%; padding: 8px; background: none; border: 1px solid var(--border); border-radius: 7px; font-size: 12px; font-weight: 600; color: var(--text-secondary); cursor: pointer; transition: all .14s; display: flex; align-items: center; justify-content: center; gap: 5px; text-decoration: none; }
+.dc-train-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* ── LAST SCENARIO ── */
+.scenario-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+.scenario-card-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+.scenario-mode-badge { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: .05em; }
+.scenario-mode-badge.career    { background: #f5f3ff; border: 1px solid #d8b4fe; color: #7c3aed; }
+.scenario-mode-badge.competency{ background: #eff6ff; border: 1px solid #93c5fd; color: #1d4ed8; }
+.scenario-card-title { font-size: 16px; font-weight: 700; color: var(--text); }
+.scenario-rows { display: grid; grid-template-columns: auto 1fr; gap: 5px 14px; font-size: 13px; margin-bottom: 16px; }
+.scenario-lbl  { color: var(--text-muted); font-weight: 500; white-space: nowrap; }
+.scenario-val  { color: var(--text-secondary); font-weight: 600; }
+.btn-go-tailor { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; transition: background .14s; }
+.btn-go-tailor:hover { background: var(--accent-dark); }
+.no-scenario { color: var(--text-muted); font-size: 13px; padding: 20px 0; text-align: center; }
+.no-scenario a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.no-scenario a:hover { text-decoration: underline; }
+
+/* ── ACCOUNT ── */
+.account-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.account-row { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-bottom: 1px solid var(--border); }
+.account-row:last-child { border-bottom: none; }
+.account-row-label { flex: 1; }
+.account-row-label strong { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.account-row-label span  { font-size: 12px; color: var(--text-muted); }
+.account-row-value { font-size: 13px; color: var(--text-secondary); font-weight: 500; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btn-edit { background: none; border: 1px solid var(--border); color: var(--text-secondary); font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 6px; cursor: pointer; transition: all .14s; white-space: nowrap; }
+.btn-edit:hover { border-color: var(--accent); color: var(--accent); }
+.btn-danger { background: none; border: 1px solid #fca5a5; color: #dc2626; font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all .14s; display: flex; align-items: center; gap: 5px; }
+.btn-danger:hover { background: #dc2626; border-color: #dc2626; color: #fff; }
+
+/* ── EDIT NAME MODAL ── */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity .2s; }
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-box { background: var(--surface); border-radius: 14px; padding: 24px; width: 100%; max-width: 360px; box-shadow: 0 20px 60px rgba(0,0,0,.25); transform: translateY(10px); transition: transform .2s; }
+.modal-overlay.open .modal-box { transform: translateY(0); }
+.modal-title { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+.modal-input { width: 100%; padding: 10px 13px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; color: var(--text); background: var(--bg); transition: border-color .14s; }
+.modal-input:focus { outline: none; border-color: var(--accent); }
+.modal-footer { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+.btn-modal-cancel { background: none; border: 1px solid var(--border); color: var(--text-muted); font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 7px; cursor: pointer; }
+.btn-modal-save   { background: var(--accent); border: none; color: #fff; font-size: 13px; font-weight: 700; padding: 8px 20px; border-radius: 7px; cursor: pointer; transition: background .14s; }
+.btn-modal-save:hover { background: var(--accent-dark); }
+
+@media (max-width: 480px) {
+  .profile-hero { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .nav-username { display: none; }
+}
+
+/* ── THEME TOGGLE ── */
+.theme-toggle { background:transparent; border:1px solid rgba(255,255,255,.25); border-radius:7px; cursor:pointer; padding:7px 8px; flex-shrink:0; color:#fff; display:flex; align-items:center; justify-content:center; transition:border-color .15s; margin-right:6px; }
+.theme-toggle:hover { border-color:rgba(255,255,255,.5); }
+
+/* ── DARK MODE ── */
+html.dark { color-scheme:dark; }
+html.dark body { background:#0d1117; color:#e6edf3; }
+html.dark {
+  --text:#e6edf3; --text-secondary:#c9d1d9; --text-muted:#9ca3af;
+  --bg:#0d1117; --surface:#161b22; --surface2:#21262d;
+  --border:rgba(255,255,255,.10);
+}
+html.dark .profile-career-stats { border-top-color:var(--border); }
+html.dark .profile-tabs { border-color:var(--border); }
+html.dark .sc-wrap { background:transparent; border-radius:0; }
+html.dark .sc-wrap .tab-row { padding-left:0; padding-right:0; }
+html.dark .main-grid { padding-left:0; padding-right:0; }
+html.dark .scenario-card,.scenario-card-title { color:var(--text); }
+html.dark .account-row { border-bottom-color:var(--border); }
+html.dark .modal-box { background:var(--surface); }
+html.dark .modal-input { background:var(--surface2); border-color:var(--border); color:var(--text); }
+html.dark .modal-overlay { background:rgba(0,0,0,.65); }
+/* badge dark variants */
+html.dark .profile-badge.admin   { background:rgba(239,68,68,.15);  border-color:rgba(239,68,68,.35);  color:#fca5a5; }
+html.dark .profile-badge.editor  { background:rgba(249,115,22,.15); border-color:rgba(249,115,22,.35); color:#fdba74; }
+html.dark .profile-badge.premium { background:rgba(168,85,247,.15); border-color:rgba(168,85,247,.35); color:#c4b5fd; }
+html.dark .profile-badge.trial   { background:rgba(16,185,129,.15); border-color:rgba(16,185,129,.35); color:#6ee7b7; }
+html.dark .profile-badge.dev     { background:rgba(245,158,11,.15); border-color:rgba(245,158,11,.35); color:#fcd34d; }
+
+/* ── PROFILE CAREER STATS (below role badge) ── */
+.profile-career-stats { display:flex; gap:18px; flex-wrap:wrap; margin-top:10px; padding-top:10px; border-top:1px solid var(--border); }
+.pcs-item { display:flex; flex-direction:column; gap:2px; }
+.pcs-val { font-size:14px; font-weight:700; color:var(--text); }
+.pcs-val.gold { color:#c9960c; }
+.pcs-lbl { font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); }
+
+/* ── SCORECARD DARK SECTION ── */
+:root { --capm:#c9960c; --pmp:#3b82f6; --adv:#a855f7; }
+.sc-wrap {
+  --s1:#161b22; --s2:#21262d; --muted:#a0aec0; --dim:#8b949e;
+  --text:#e6edf3; --border:rgba(255,255,255,.10);
+  background:#0d1117; border-radius:10px; color:#e6edf3; overflow:hidden;
+}
+.sc-wrap .tab-row { display:flex; gap:6px; padding:12px 12px 0; }
+.tab-btn { flex:1; background:var(--s1); border:1px solid var(--border); border-radius:8px; padding:10px 14px; text-align:center; transition:border-color .15s,background .15s; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:3px; font-family:inherit; }
+.tab-btn:hover { border-color:rgba(255,255,255,.15); }
+.tab-cert { font-size:12px; font-weight:700; color:rgba(255,255,255,.78); transition:color .15s; }
+.tab-sub { font-size:10px; color:var(--muted); }
+.tab-btn[data-tab="capm"].active { border-color:var(--capm); background:rgba(201,150,12,.06); }
+.tab-btn[data-tab="capm"].active .tab-cert { color:var(--capm); }
+.tab-btn[data-tab="pmp"].active { border-color:var(--pmp); background:rgba(59,130,246,.06); }
+.tab-btn[data-tab="pmp"].active .tab-cert { color:var(--pmp); }
+.tab-btn[data-tab="adv"].active { border-color:var(--adv); background:rgba(168,85,247,.06); }
+.tab-btn[data-tab="adv"].active .tab-cert { color:var(--adv); }
+.main-grid { display:grid; grid-template-columns:1fr 256px; gap:10px; align-items:start; padding:10px 12px 12px; }
+.attr-panel { background:var(--s1); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+.area-block { border-bottom:1px solid var(--border); }
+.area-block:last-child { border-bottom:none; }
+.area-head { padding:8px 16px; background:var(--s2); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+.area-head-name { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); }
+.area-head-weight { font-size:10px; color:var(--dim); }
+.risk-section-divider { grid-column:1/-1; margin:20px 0 8px; display:flex; align-items:center; gap:10px; }
+.risk-section-divider span { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.14em; color:#a78bfa; white-space:nowrap; }
+.risk-section-divider::before,.risk-section-divider::after { content:''; flex:1; height:1px; background:rgba(167,139,250,.2); }
+.skill-pair { display:flex; border-bottom:1px solid rgba(255,255,255,.04); }
+.skill-pair:last-child { border-bottom:none; }
+.skill-cell { flex:1; display:flex; align-items:center; justify-content:space-between; padding:9px 16px; min-width:0; }
+.skill-cell+.skill-cell { border-left:1px solid rgba(255,255,255,.04); }
+.skill-cell.sk-solo { max-width:50%; }
+.skill-label { font-size:12px; color:rgba(255,255,255,.82); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding-right:8px; flex:1; min-width:0; }
+.skill-old { font-size:10px; color:var(--dim); font-weight:400; }
+.skill-num { font-size:15px; font-weight:700; font-variant-numeric:tabular-nums; flex-shrink:0; min-width:24px; text-align:right; }
+.sv-none { color:var(--dim); } .sv-weak { color:#cf4444; } .sv-developing { color:#d97a1e; }
+.sv-competent { color:#c9960c; } .sv-proficient { color:#7cba8a; } .sv-expert { color:#27a357; }
+.right-panel { display:flex; flex-direction:column; gap:10px; }
+.info-panel { background:var(--s1); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+.panel-head { padding:8px 14px; background:var(--s2); border-bottom:1px solid var(--border); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); }
+.info-row { display:flex; justify-content:space-between; align-items:center; padding:8px 14px; border-bottom:1px solid rgba(255,255,255,.04); font-size:13px; }
+.info-row:last-child { border-bottom:none; }
+.ir-label { color:var(--muted); } .ir-val { font-weight:600; font-variant-numeric:tabular-nums; color:var(--text); }
+.ir-gold { color:#c9960c; } .ir-green { color:#27a357; } .ir-blue { color:#3b82f6; } .ir-purple { color:#a855f7; }
+.eco-row { display:flex; justify-content:space-between; align-items:center; padding:9px 14px; border-bottom:1px solid rgba(255,255,255,.04); font-size:13px; }
+.eco-row:last-child { border-bottom:none; }
+.eco-name { color:var(--muted); } .eco-val { font-weight:600; font-variant-numeric:tabular-nums; }
+.dev-item { padding:8px 14px; border-bottom:1px solid rgba(255,255,255,.04); }
+.dev-item:last-child { border-bottom:none; }
+.dev-name { font-size:13px; color:rgba(255,255,255,.80); }
+.dev-stat { font-size:11px; color:#cf4444; margin-top:2px; }
+.btn-reset { width:100%; background:transparent; border:1px solid var(--border); color:var(--dim); font-size:12px; padding:9px; border-radius:8px; transition:border-color .15s,color .15s; font-family:inherit; cursor:pointer; }
+.btn-reset:hover { border-color:rgba(207,68,68,.4); color:#cf4444; }
+.empty-note { background:var(--s1); border:1px solid var(--border); border-radius:8px; padding:36px 20px; text-align:center; }
+.empty-note h3 { font-size:14px; font-weight:600; color:rgba(255,255,255,.70); margin-bottom:6px; }
+.empty-note p { font-size:12px; color:var(--muted); line-height:1.7; }
+.btn-play { display:inline-block; margin-top:14px; background:#142040; border:1px solid #2355a0; color:#93c5fd; font-size:13px; font-weight:600; padding:9px 22px; border-radius:6px; transition:background .15s; }
+.btn-play:hover { background:#1a2f5a; }
+.loading-note { background:var(--s1); border:1px solid var(--border); border-radius:8px; padding:24px 20px; text-align:center; color:var(--muted); font-size:13px; }
+@media(max-width:680px) {
+  .main-grid { grid-template-columns:1fr; }
+  .skill-cell.sk-solo { max-width:100%; }
+  .skill-pair { flex-direction:column; }
+  .skill-cell+.skill-cell { border-left:none; border-top:1px solid rgba(255,255,255,.04); }
+}
+
+/* ── COLLAPSIBLE AREA CARDS ── */
+.area-card { border-bottom:1px solid var(--border); }
+.area-card:last-child { border-bottom:none; }
+.area-card-head { display:flex; align-items:center; gap:10px; padding:10px 16px; background:var(--s2); border-bottom:1px solid transparent; cursor:pointer; user-select:none; transition:background .15s; }
+.area-card-head:hover { background:rgba(255,255,255,.05); }
+.area-card.open .area-card-head { border-bottom-color:var(--border); }
+.area-card-body { display:none; }
+.area-card.open .area-card-body { display:block; }
+.area-card-info { flex:1; display:flex; align-items:center; gap:10px; min-width:0; }
+.area-chevron { flex-shrink:0; color:var(--dim); transition:transform .25s; }
+.area-card.open .area-chevron { transform:rotate(90deg); }
+.area-overall { font-size:13px; font-weight:700; font-variant-numeric:tabular-nums; flex-shrink:0; }
+
+/* ── SIMULATION HISTORY ── */
+.sim-history-list { display:flex; flex-direction:column; gap:10px; }
+.sim-history-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; }
+.shc-head { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:8px; }
+.shc-title { font-size:14px; font-weight:700; color:var(--text); line-height:1.3; }
+.shc-meta { font-size:12px; color:var(--text-muted); margin-top:3px; }
+.shc-badge { font-size:11px; font-weight:700; padding:4px 12px; border-radius:999px; flex-shrink:0; white-space:nowrap; text-decoration:none; display:inline-block; }
+.shc-badge.completed { background:#f0fdf4; border:1px solid #86efac; color:#166534; }
+.shc-badge.ongoing   { background:#eff6ff; border:1px solid #93c5fd; color:#1d4ed8; }
+.shc-stats { font-size:12px; color:var(--text-muted); display:flex; gap:12px; }
+html.dark .shc-badge.completed { background:rgba(16,185,129,.15); border-color:rgba(16,185,129,.35); color:#6ee7b7; }
+html.dark .shc-badge.ongoing   { background:rgba(59,130,246,.15); border-color:rgba(59,130,246,.35); color:#93c5fd; }
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <a class="brand" href="index.html"><img src="logo.png" class="brand-logo" alt="YetkinLider">YetkinLider<sup>&#8482;</sup></a>
+  <div class="nav-spacer"></div>
+  <div class="nav-user" id="navUser"></div>
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Tema değiştir">
+    <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-inner">
+    <a class="menu-item primary" href="game.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+      Liderlik Simülasyonu
+    </a>
+    <a class="menu-item" href="exam.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="m9 12 2 2 4-4"/></svg></span>
+      Sınav Simülatörü
+    </a>
+    <a class="menu-item" href="glossary.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+      Liderlik Sözlüğü
+    </a>
+    <a class="menu-item" href="flashcards.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="13" rx="2"/><path d="M4 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2"/></svg></span>
+      Öğrenme Kartları
+    </a>
+    <a class="menu-item" href="blog.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+      Blog
+    </a>
+    <a class="menu-item" href="pricing.html">
+      <span class="menu-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+      Fiyatlar
+    </a>
+    <div class="menu-div"></div>
+    <div class="menu-auth-area" id="menuAuth"></div>
+  </div>
+</div>
+
+<!-- ── PAGE ── -->
+<div class="page-wrap">
+
+  <!-- PROFILE HERO -->
+  <div class="profile-hero">
+    <div class="profile-av-wrap">
+      <div class="profile-av" id="profileAv">?</div>
+      <div class="profile-av-edit" onclick="document.getElementById('photoInput').click()" title="Fotoğraf değiştir">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      </div>
+      <input type="file" id="photoInput" accept="image/*" onchange="handlePhotoUpload(event)">
+    </div>
+    <div class="profile-info">
+      <div class="profile-name" id="profileName">—</div>
+      <div class="profile-username" id="profileUsername"></div>
+      <div class="profile-email" id="profileEmail"></div>
+      <div class="profile-meta" id="profileMeta"></div>
+      <div class="profile-career-stats" id="profileCareerStats" style="display:none">
+        <div class="pcs-item"><span class="pcs-val" id="sc-scenarios">0</span><span class="pcs-lbl">Senaryo</span></div>
+        <div class="pcs-item"><span class="pcs-val" id="sc-decisions">0</span><span class="pcs-lbl">Karar</span></div>
+        <div class="pcs-item"><span class="pcs-val" id="sc-accuracy">—</span><span class="pcs-lbl">İsabetli</span></div>
+        <div class="pcs-item"><span class="pcs-val gold" id="sc-xp">0 XP</span><span class="pcs-lbl">Toplam XP</span></div>
+        <div class="pcs-item"><span class="pcs-val gold" id="sc-level-title">PM Stajyeri</span><span class="pcs-lbl">Kariyer Seviyesi</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="profile-tabs">
+    <button class="profile-tab active" data-tab="yetkinlik" onclick="switchTab('yetkinlik')">Yetkinlikler</button>
+    <button class="profile-tab" data-tab="senaryo" onclick="switchTab('senaryo')">Simülasyon Geçmişi</button>
+    <button class="profile-tab" data-tab="hesap" onclick="switchTab('hesap')">Hesap</button>
+  </div>
+
+  <!-- YETKİNLİK PANEL -->
+  <div class="tab-panel active" id="panel-yetkinlik">
+    <div class="sc-wrap">
+      <div class="tab-row" id="tab-row">
+        <button class="tab-btn" data-tab="capm">
+          <span class="tab-cert">Temel</span>
+          <span class="tab-sub">Giriş Düzeyi · Kolay</span>
+        </button>
+        <button class="tab-btn" data-tab="pmp">
+          <span class="tab-cert">Profesyonel</span>
+          <span class="tab-sub">Orta Düzey · Normal</span>
+        </button>
+        <button class="tab-btn" data-tab="adv">
+          <span class="tab-cert">Uzman</span>
+          <span class="tab-sub">İleri Düzey · Zor</span>
+        </button>
+      </div>
+      <div class="main-grid" id="main-grid">
+        <div class="loading-note">Yetkinlik verileri yükleniyor…</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SENARYO PANEL -->
+  <div class="tab-panel" id="panel-senaryo">
+    <div id="lastScenarioWrap"></div>
+  </div>
+
+  <!-- HESAP PANEL -->
+  <div class="tab-panel" id="panel-hesap">
+    <div class="account-card" id="accountCard"></div>
+  </div>
+
+</div>
+
+<!-- EDIT NAME MODAL -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal-box">
+    <div class="modal-title">Görünen Adı Değiştir</div>
+    <input class="modal-input" id="editNameInput" type="text" maxlength="40" placeholder="Adın ve soyadın">
+    <div class="modal-footer">
+      <button class="btn-modal-cancel" onclick="closeModal()">İptal</button>
+      <button class="btn-modal-save" onclick="saveName()">Kaydet</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="editWorkModal">
+  <div class="modal-box">
+    <div class="modal-title">Kişisel Bilgiler</div>
+    <label style="font-size:12px;font-weight:600;color:var(--text-muted);display:block;margin-bottom:5px">Firma / Kurum Adı</label>
+    <input class="modal-input" id="editCompanyInput" type="text" maxlength="80" placeholder="Çalıştığın firma veya kurum" style="margin-bottom:12px">
+    <label style="font-size:12px;font-weight:600;color:var(--text-muted);display:block;margin-bottom:5px">Sektör</label>
+    <select class="modal-input" id="editSectorInput" style="margin-bottom:12px">
+      <option value="">— Seçiniz —</option>
+      <option value="it">IT / Yazılım</option>
+      <option value="finance">Finans / Bankacılık</option>
+      <option value="health">Sağlık</option>
+      <option value="construction">İnşaat / Mühendislik</option>
+      <option value="defense">Savunma</option>
+      <option value="education">Eğitim</option>
+      <option value="retail">Perakende / E-Ticaret</option>
+      <option value="energy">Enerji</option>
+      <option value="telecom">Telekomünikasyon</option>
+      <option value="other">Diğer</option>
+    </select>
+    <label style="font-size:12px;font-weight:600;color:var(--text-muted);display:block;margin-bottom:5px">Cinsiyet</label>
+    <select class="modal-input" id="editGenderInput" style="margin-bottom:12px">
+      <option value="">— Seçiniz —</option>
+      <option value="male">Erkek</option>
+      <option value="female">Kadın</option>
+      <option value="other">Diğer</option>
+      <option value="prefer_not">Belirtmek istemiyorum</option>
+    </select>
+    <label style="font-size:12px;font-weight:600;color:var(--text-muted);display:block;margin-bottom:5px">Doğum Tarihi</label>
+    <input class="modal-input" id="editBirthdateInput" type="date" style="margin-bottom:4px">
+    <div class="modal-footer">
+      <button class="btn-modal-cancel" onclick="closeWorkModal()">İptal</button>
+      <button class="btn-modal-save" onclick="saveWork()">Kaydet</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── THEME ─────────────────────────────────────────────────────────────────────
+const THEME_KEY = 'pmSim_theme';
+function applyTheme(theme) {
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+  const icon = document.getElementById('themeIcon');
+  if (!icon) return;
+  if (theme === 'dark') {
+    // Sun icon — click to go light
+    icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+    document.getElementById('themeToggle').title = 'Açık moda geç';
+  } else {
+    // Moon icon — click to go dark
+    icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    document.getElementById('themeToggle').title = 'Koyu moda geç';
+  }
+}
+function toggleTheme() {
+  const next = (localStorage.getItem(THEME_KEY) || 'light') === 'dark' ? 'light' : 'dark';
+  localStorage.setItem(THEME_KEY, next);
+  applyTheme(next);
+}
+applyTheme(localStorage.getItem(THEME_KEY) || 'light');
+
+// ── AUTH GUARD ──────────────────────────────────────────────────────────────
+const SESSION_KEY  = 'pmSim_session';
+const USERS_KEY    = 'pmSim_users';
+
+function getSession() { try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch { return null; } }
+function setSession(s) { localStorage.setItem(SESSION_KEY, JSON.stringify(s)); }
+
+let session = getSession();
+if (!session || !session.username) {
+  location.href = 'index.html?auth=1&return=' + encodeURIComponent(location.href);
+}
+
+// ── NAVBAR ──────────────────────────────────────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const menuPanel = document.getElementById('menuPanel');
+hamburger.addEventListener('click', () => {
+  const open = menuPanel.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', open);
+});
+document.addEventListener('click', e => {
+  if (!hamburger.contains(e.target) && !menuPanel.contains(e.target)) {
+    menuPanel.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+});
+menuPanel.querySelectorAll('.menu-item').forEach(a => {
+  a.addEventListener('click', () => { menuPanel.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); });
+});
+menuPanel.querySelectorAll('.menu-item[href]').forEach(a => {
+  if (a.getAttribute('href') === 'profile.html') a.classList.add('active');
+});
+(function() {
+  const navUser  = document.getElementById('navUser');
+  const menuAuth = document.getElementById('menuAuth');
+  const lSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>';
+  if (session) {
+    const photo = localStorage.getItem('pmSim_profile_photo');
+    const av = photo ? '<img src="' + photo + '" alt="">' : (session.displayName || '?')[0].toUpperCase();
+    navUser.innerHTML = '<div class="nav-av">' + av + '</div><span class="nav-username">' + session.displayName + '</span>';
+    menuAuth.innerHTML = '<div class="menu-auth-row"><div class="nav-av">' + av + '</div><span class="menu-auth-name">' + session.displayName + '</span><button class="btn-menu-logout" onclick="doLogout()">' + lSvg + ' Çıkış</button></div>';
+  }
+})();
+
+// ── SCORECARD DATA & LOGIC ───────────────────────────────────────────────────
+const AREAS = [
+  {
+    id: 'people', label: 'PEOPLE / İNSAN', weight: 42,
+    skills: [
+      { id: 'catisma',        label: 'Çatışma Yönetimi',    oldLabel: 'Çatışma Çözümü',
+        desc: { capm: 'Çatışmanın kaynağını ve aşamasını yorumlar, temel etik kuralları uygular.',
+                pmp:  'Çatışma bağlamını analiz eder; uygun çözümü değerlendirir ve uzlaştırır.',
+                adv:  'Karmaşık çatışmaların kök nedenini analiz eder, takıma mentorluk yapar.' } },
+      { id: 'liderlik',       label: 'Liderlik',             oldLabel: 'Hizmetkar Liderlik',
+        desc: { capm: 'Liderlik stillerini ayırt eder, vizyonun önemini açıklar.',
+                pmp:  'Vizyon belirler, hizmetkar liderliği uygular, takımı motive eder.',
+                adv:  'Hizmetkar liderlik ilkelerini stratejik çalışmayla dengeleyerek kurumsal kültür inşa eder.' } },
+      { id: 'takim_gelisimi', label: 'Takım Gelişimi',       oldLabel: 'Psikolojik Güvenlik',
+        desc: { capm: 'Takım içi rol ve sorumlulukların amacını tanımlar.',
+                pmp:  "Takım performansını KPI'lara göre destekler, paydaşları eğitir ve yetkilendirir.",
+                adv:  'Yüksek performanslı takımları kurar, mentorluk yaparak yetkinlik boşluklarını kapatır.' } },
+      { id: 'eq',             label: 'Duygusal Zeka',        oldLabel: 'Empati',
+        desc: { capm: "EQ'nun takım performansındaki etkisini anlar.",
+                pmp:  'Kişilik göstergelerini analiz ederek iletişimi uyarlar.',
+                adv:  "EQ'yu karmaşık paydaş müzakerelerinde stratejik olarak kullanır." } },
+    ]
+  },
+  {
+    id: 'process', label: 'PROCESS / SÜREÇ', weight: 50,
+    skills: [
+      { id: 'entegrasyon', label: 'Entegrasyon / Planlama', oldLabel: null,
+        desc: { capm: 'Proje ve operasyon farkını ayırt eder, planlama bileşenlerini açıklar.',
+                pmp:  'Alt planları birleştiren entegre planı geliştirir, metodolojiyi seçer.',
+                adv:  'Veri analitiği ve sürdürülebilirliği plana entegre eder, stratejik veri toplar.' } },
+      { id: 'kapsam',      label: 'Kapsam (Agile)',          oldLabel: 'MVP / DoD',
+        desc: { capm: 'WBS ve Backlog kavramlarını tanımlar, kapsamı gözden geçirir.',
+                pmp:  "Gereksinimleri toplar, MVP'yi belirler, Backlog/WBS'i yönetir.",
+                adv:  'Dış çevre değişimlerinin Backlog üzerindeki etkisini değerlendirir.' } },
+      { id: 'zaman',       label: 'Zaman / Çizelge',        oldLabel: 'Kanban / WIP',
+        desc: { capm: 'Kilometre taşı ve görev süresi farkını ayırt eder.',
+                pmp:  'Zaman çizelgesini planlar ve yönetir, varyans analizi yapar.',
+                adv:  'Teslimat temposunu optimize eder, kritik yol risklerini stratejik yönetir.' } },
+      { id: 'maliyet',     label: 'Maliyet / Finans',       oldLabel: 'EVM',
+        desc: { capm: 'Bütçelemenin amacını ve önemini açıklar.',
+                pmp:  'Proje bütçesini planlar ve yönetir, harcamaları takip eder.',
+                adv:  'Finansal rezervleri yönetir, zorlukları öngörür, yönetişimle çalışır.' } },
+      { id: 'kalite',      label: 'Kalite',                 oldLabel: null,
+        desc: { capm: 'Kalite standartlarının önemini anlar.',
+                pmp:  'Kalite yönetim planını uygular, teslimat kalitesini denetler.',
+                adv:  'Ürün ve süreç kalitesini optimize eder, kaizen sistemini kurar.' } },
+      { id: 'risk',        label: 'Risk / Sorun',           oldLabel: 'Belirsizlik Yönetimi',
+        desc: { capm: 'Risk ve sorun arasındaki farkı bilir, risk kaydını kullanır.',
+                pmp:  'Riskleri analiz eder, yanıt stratejileri planlar, sorunları çözer.',
+                adv:  'Risk ve ihtiyat akçesi tahsislerini nicelleştirir, stratejik riskleri izler.' } },
+      { id: 'tedarik',     label: 'Tedarik',                oldLabel: null,
+        desc: { capm: 'Tedarik türlerini ve sözleşme temellerini tanımlar.',
+                pmp:  'Tedarik süreçlerini planlar, satıcıları seçer ve yönetir.',
+                adv:  'Tedarik stratejilerini kurum hedefleriyle hizalar, müzakereleri yürütür.' } },
+      { id: 'kapanis',     label: 'Kapanış / İzleme',      oldLabel: 'Öğrenilmiş Dersler',
+        desc: { capm: 'Kapanış ve geçiş süreçlerini açıklar.',
+                pmp:  'Proje/faz kapanışlarını yönetir, kazanılan dersleri belgeler.',
+                adv:  'Bilgi transferini sağlar, kazanılan dersleri kurumsal hafızaya (OPA) aktarır.' } },
+    ]
+  },
+  {
+    id: 'business', label: 'BUSINESS ENV. / İŞ ORTAMI', weight: 8,
+    skills: [
+      { id: 'uyumluluk',        label: 'Uyumluluk',         oldLabel: null,
+        desc: { capm: 'Etik kuralları senaryolara uygular.',
+                pmp:  'Uyumluluk gereksinimlerini planlar ve yönetir.',
+                adv:  'Proje yönetişim yapısını kurar, eskalasyon yollarını belirler.' } },
+      { id: 'fayda_deger',      label: 'Fayda ve Değer',    oldLabel: 'Değer Teslimi',
+        desc: { capm: 'Projenin bir değişim aracı olduğunu açıklar.',
+                pmp:  'Proje faydalarını ve değerini değerlendirir ve teslim eder.',
+                adv:  'Başarı metriklerini tanımlar, stratejik değer teslimatını maksimize eder.' } },
+      { id: 'kurumsal_degisim', label: 'Kurumsal Değişim',  oldLabel: 'Uyarlama (Tailoring)',
+        desc: { capm: 'Şirket kültürünün projedeki etkisini anlar.',
+                pmp:  'Organizasyonel değişimi destekler.',
+                adv:  'Kurumsal kültürü değerlendirir, değişimin etkisini analiz edip aksiyon alır.' } },
+      { id: 'dis_cevre',        label: 'Dış Çevre Analizi', oldLabel: null,
+        desc: { capm: 'Dış faktörlerin kapsam üzerindeki etkisini fark eder.',
+                pmp:  'İş ortamı değişikliklerini kapsam için değerlendirir.',
+                adv:  "Mevzuat, teknoloji ve pazar değişimlerini sürekli tarar, Backlog'u günceller." } },
+    ]
+  },
+  { id: 'risk_strateji', label: 'STRATEJİ & TANIMLAMA', type: 'risk', weight: null,
+    skills: [
+      { id: 'risk_plan',   label: 'Risk Yönetim Planı',      oldLabel: null,
+        desc: { capm: 'Organizasyonun standart şablonlarını ve metodolojisini kullanır.',
+                pmp:  'Planı projenin karmaşıklığına göre tailoring yaparak uyarlar.',
+                adv:  'Risk stratejisini Kurumsal Risk Yönetimi (ERM) ve portföy hedefleriyle tam entegre eder.' } },
+      { id: 'risk_paydas', label: 'Paydaş & Toleranslar',   oldLabel: null,
+        desc: { capm: 'Temel paydaş listesini çıkarır ve risk sahiplerini belirler.',
+                pmp:  'Güç/İlgi matrisi ile paydaşların risk iştahını ve tutum yanlılıklarını analiz eder.',
+                adv:  'Karmaşık yönetişim yapılarında stratejik risk eşiklerini belirler ve öncelikleri hizalar.' } },
+      { id: 'risk_tanim',  label: 'Risk Belirleme Teknikleri', oldLabel: null,
+        desc: { capm: 'Hazır kontrol listelerini (checklists) ve beyin fırtınasını uygular.',
+                pmp:  'SWOT, Kök Neden Analizi ve Balık Kılçığı (Ishikawa) diyagramlarını uzmanlıkla kullanır.',
+                adv:  'Delphi tekniği ile uzman görüşü süreçlerini yönetir; Siyah Kuğu ve ortaya çıkan riskleri tanımlar.' } },
+    ]
+  },
+  { id: 'risk_analiz', label: 'RİSK ANALİZİ & YANITLAR', type: 'risk', weight: null,
+    skills: [
+      { id: 'risk_nitelik',  label: 'Niteliksel Analiz',    oldLabel: null,
+        desc: { capm: 'Standart Olasılık ve Etki Matrisi ile riskleri puanlar.',
+                pmp:  'Analizdeki önyargıları minimize eder; risklerin aciliyet (urgency) ve yakınlığını değerlendirir.',
+                adv:  'Riskler arası bağlantısallığı (connectivity) analiz eder ve veri kalitesini denetler.' } },
+      { id: 'risk_nicelik',  label: 'Niceliksel Analiz',    oldLabel: null,
+        desc: { capm: 'Beklenen Parasal Değer (EMV) hesaplamalarını temel seviyede yapar.',
+                pmp:  'Karar Ağacı Analizi ve Duyarlılık (Tornado) analizlerini kurgular.',
+                adv:  'Monte Carlo simülasyonu ve FMECA ile bütçe/takvim yedeklerini optimize eder.' } },
+      { id: 'risk_yanit',    label: 'Yanıt Stratejileri',   oldLabel: null,
+        desc: { capm: 'Temel yanıtları (Kaçınma, Azaltma, Aktarma, Kabul) belirler ve uygular.',
+                pmp:  'İkincil ve artık riskleri değerlendirerek Çok Kriterli Karar Analizi ile en uygun yanıtı seçer.',
+                adv:  'Yanıt planlarını WBS veya çevik iş birikimine (Backlog) tam entegre eder.' } },
+    ]
+  },
+  { id: 'risk_izleme_area', label: 'RİSKLERİN İZLENMESİ', type: 'risk', weight: null,
+    skills: [
+      { id: 'risk_izleme',   label: 'Takip, Kontrol & Raporlama', oldLabel: null,
+        desc: { capm: 'Risk listesini günceller ve tetikleyici (trigger) koşulları izler.',
+                pmp:  'Varyans ve Trend Analizi yaparak risk rezervlerinin kullanımını denetler.',
+                adv:  'Bağımsız Risk Denetimleri yürütür; Alınan Dersler üzerinden sürekli iyileştirme sağlar.' } },
+    ]
+  },
+];
+
+const OLD_TO_NEW = { value:'fayda_deger', agile:'kapsam', ethics:'uyumluluk', comms:'catisma', tech:'entegrasyon' };
+const DIFF_WEIGHT = { beginner:1, intermediate:3, advanced:5 };
+const TAB_DIFF    = { capm:1, pmp:3, adv:5 };
+const TAB_LABEL   = { capm:'capm', pmp:'pmp', adv:'adv' };
+
+function statClass(s) {
+  if (s >= 17) return 'sv-expert';
+  if (s >= 13) return 'sv-proficient';
+  if (s >= 8)  return 'sv-competent';
+  if (s >= 4)  return 'sv-developing';
+  if (s >= 1)  return 'sv-weak';
+  return 'sv-none';
+}
+
+function careerLevel(xp) {
+  if (xp >= 120) return { n:5, t:'Kıdemli PM' };
+  if (xp >= 80)  return { n:4, t:'PM Lideri' };
+  if (xp >= 50)  return { n:3, t:'Proje Yöneticisi' };
+  if (xp >= 20)  return { n:2, t:'Junior PM' };
+  return { n:1, t:'PM Stajyeri' };
+}
+
+async function loadManifest() {
+  if (window.__ENV?.SUPABASE_URL) {
+    const storageBase = `${window.__ENV.SUPABASE_URL}/storage/v1/object/public/scenarios`;
+    try { const r = await fetch(`${storageBase}/manifest.json?t=${Date.now()}`); if (r.ok) return r.json(); } catch {}
+  }
+  try { const r = await fetch('data/scenarios/manifest.json'); return r.ok ? r.json() : null; } catch { return null; }
+}
+
+async function loadScenario(id) {
+  if (window.__ENV?.SUPABASE_URL) {
+    const storageBase = `${window.__ENV.SUPABASE_URL}/storage/v1/object/public/scenarios`;
+    try { const r = await fetch(`${storageBase}/${id}.json?t=${Date.now()}`); if (r.ok) return r.json(); } catch {}
+  }
+  try { const r = await fetch(`data/scenarios/${id}.json`); return r.ok ? r.json() : null; } catch { return null; }
+}
+
+function _getLocalSaves(username) {
+  const prefix = `pmSim_save_${username}_`, saves = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (!key?.startsWith(prefix)) continue;
+    try { const d = JSON.parse(localStorage.getItem(key)); if (d) saves.push({ ...d, scenarioId: key.slice(prefix.length) }); } catch {}
+  }
+  return saves;
+}
+
+async function getUserSaves(username) {
+  if (window.__sbFetchUserSaves) {
+    try {
+      const sbSaves = await window.__sbFetchUserSaves();
+      if (sbSaves.length > 0) {
+        sbSaves.forEach(save => {
+          const key = `pmSim_save_${username}_${save.scenarioId}`;
+          const raw = localStorage.getItem(key), local = raw ? JSON.parse(raw) : null;
+          if (!local || (save.savedAt && (!local.savedAt || save.savedAt > local.savedAt))) {
+            localStorage.setItem(key, JSON.stringify(save));
+          }
+        });
+        return sbSaves;
+      }
+    } catch (e) { console.warn('[DB] Kayıtlar alınamadı, local\'den devam:', e.message); }
+  }
+  return _getLocalSaves(username);
+}
+
+function buildScenarioMaps(scenario) {
+  const decisionMap = {};
+  for (const n of (scenario.notifications || [])) {
+    if (n.type === 'decision') decisionMap[n.id] = n.options || [];
+  }
+  const decToComp = {};
+  const comps = scenario.competencies || [];
+  if (comps.length > 0 && comps[0].components) {
+    for (const area of comps) for (const comp of (area.components || [])) for (const did of (comp.decisionIds || [])) decToComp[did] = comp.id;
+  } else {
+    for (const comp of comps) { const newId = OLD_TO_NEW[comp.id]; if (!newId) continue; for (const did of (comp.decisionIds || [])) decToComp[did] = newId; }
+  }
+  return { decisionMap, decToComp };
+}
+
+function computeStats(saves, scenariosData, diffWeight) {
+  const earned = {};
+  for (const area of AREAS) for (const sk of area.skills) earned[sk.id] = { e:0, m:0 };
+  for (const save of saves) {
+    if ((save.difficultyWeight || 3) !== diffWeight) continue;
+    const scenario = scenariosData[save.scenarioId] || scenariosData[save.scenarioFile]; if (!scenario) continue;
+    const { decisionMap, decToComp } = buildScenarioMaps(scenario);
+    for (const [didStr, optKey] of Object.entries(save.answered || {})) {
+      if (optKey === 'READ') continue;
+      const did = parseInt(didStr, 10), compId = decToComp[did];
+      if (!compId || !earned[compId]) continue;
+      const options = decisionMap[did] || [];
+      earned[compId].m += Math.max(0, ...options.map(o => o.xp || 0));
+      earned[compId].e += Math.max(0, options.find(o => o.key === optKey)?.xp || 0);
+    }
+  }
+  const stats = {};
+  for (const [id, v] of Object.entries(earned)) stats[id] = v.m > 0 ? Math.min(20, Math.round((v.e / v.m) * 20)) : 0;
+  return stats;
+}
+
+function computeProfile(saves, scenariosData) {
+  let totalXP = 0, totalDec = 0, goodDec = 0, scenarios = 0;
+  for (const save of saves) {
+    totalXP += save.xp || 0;
+    const scenario = scenariosData[save.scenarioId] || scenariosData[save.scenarioFile];
+    const decisionMap = scenario ? buildScenarioMaps(scenario).decisionMap : {};
+    const answered = save.answered || {};
+    const answeredDecs = Object.entries(answered).filter(([,v]) => v !== 'READ');
+    totalDec += answeredDecs.length;
+    for (const [didStr, optKey] of answeredDecs) {
+      const options = (decisionMap[parseInt(didStr, 10)] || []);
+      const chosen = options.find(o => o.key === optKey);
+      if (chosen && (chosen.xp || 0) > 0) goodDec++;
+    }
+    const allDecIds = Object.keys(decisionMap).map(Number);
+    if (allDecIds.length > 0 && allDecIds.every(id => answered[id] && answered[id] !== 'READ')) scenarios++;
+  }
+  return { totalXP, totalDec, goodDec, scenarios };
+}
+
+function defaultTab(saves) {
+  const weights = new Set(saves.map(s => s.difficultyWeight || 3));
+  if (weights.has(5)) return 'adv';
+  if (weights.has(3)) return 'pmp';
+  return 'capm';
+}
+
+function hasDataForTab(saves, tab) { return saves.some(s => (s.difficultyWeight || 3) === TAB_DIFF[tab]); }
+
+function areaOverall(area, stats) {
+  const vals = area.skills.map(sk => stats[sk.id]||0).filter(v=>v>0);
+  return vals.length > 0 ? Math.round(vals.reduce((a,b)=>a+b,0)/vals.length) : 0;
+}
+
+function toggleArea(head) {
+  head.closest('.area-card').classList.toggle('open');
+}
+
+function renderAttr(stats, tab) {
+  let html = '<div class="attr-panel">', riskShown = false;
+  for (const area of AREAS) {
+    if (area.type === 'risk' && !riskShown) {
+      html += `<div class="risk-section-divider"><span>RİSK YÖNETİMİ YETKİNLİKLERİ</span></div>`;
+      riskShown = true;
+    }
+    const overall = areaOverall(area, stats);
+    const overallCls = overall > 0 ? statClass(overall) : 'sv-none';
+    const overallTxt = overall > 0 ? `${overall}/20` : '—';
+    let skillsHTML = '';
+    const skills = area.skills;
+    for (let i = 0; i < skills.length; i += 2) {
+      const s1 = skills[i], s2 = skills[i+1];
+      const st1 = stats[s1.id] || 0;
+      const lbl1 = s1.oldLabel ? `${s1.label} <span class="skill-old">(${s1.oldLabel})</span>` : s1.label;
+      skillsHTML += `<div class="skill-pair"><div class="skill-cell${!s2?' sk-solo':''}" title="${s1.desc[tab]||''}"><span class="skill-label">${lbl1}</span><span class="skill-num ${statClass(st1)}">${st1||'—'}</span></div>`;
+      if (s2) {
+        const st2 = stats[s2.id] || 0;
+        const lbl2 = s2.oldLabel ? `${s2.label} <span class="skill-old">(${s2.oldLabel})</span>` : s2.label;
+        skillsHTML += `<div class="skill-cell" title="${s2.desc[tab]||''}"><span class="skill-label">${lbl2}</span><span class="skill-num ${statClass(st2)}">${st2||'—'}</span></div>`;
+      }
+      skillsHTML += '</div>';
+    }
+    html += `<div class="area-card"><div class="area-card-head" onclick="toggleArea(this)">
+  <div class="area-card-info"><span class="area-head-name">${area.label}</span>${area.weight != null ? `<span class="area-head-weight">%${area.weight}</span>` : ''}</div>
+  <span class="area-overall ${overallCls}">${overallTxt}</span>
+  <svg class="area-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+</div><div class="area-card-body">${skillsHTML}</div></div>`;
+  }
+  return html + '</div>';
+}
+
+function renderRight(profile, stats, saves, tab, scenariosData) {
+  const lvl = careerLevel(profile.totalXP);
+  const acc = profile.totalDec > 0 ? Math.round(profile.goodDec / profile.totalDec * 100) + '%' : '—';
+  const tabColor = tab==='capm'?'ir-gold':tab==='pmp'?'ir-blue':'ir-purple';
+  const tabName  = tab==='capm'?'Temel':tab==='pmp'?'Profesyonel':'Uzman';
+
+  const weak = [];
+  for (const area of AREAS) for (const sk of area.skills) { const st = stats[sk.id]||0; if (st >= 1 && st < 4) weak.push({ label:sk.label, stat:st }); }
+  const devHTML = weak.length > 0 ? `<div class="info-panel"><div class="panel-head">Gelişim Alanları</div>${weak.map(sk=>`<div class="dev-item"><div class="dev-name">${sk.label}</div><div class="dev-stat">${sk.stat} / 20 · Temel</div></div>`).join('')}</div>` : '';
+
+  const statsHTML = `<div class="info-panel"><div class="panel-head">Kariyer İstatistikleri</div>
+    <div class="info-row"><span class="ir-label">Toplam XP</span><span class="ir-val ir-gold">${profile.totalXP}</span></div>
+    <div class="info-row"><span class="ir-label">Kariyer Seviyesi</span><span class="ir-val ir-gold">Seviye ${lvl.n} · ${lvl.t}</span></div>
+    <div class="info-row"><span class="ir-label">Tamamlanan Senaryo</span><span class="ir-val">${profile.scenarios}</span></div>
+    <div class="info-row"><span class="ir-label">Verilen Karar</span><span class="ir-val">${profile.totalDec}</span></div>
+    <div class="info-row"><span class="ir-label">İsabetli Karar</span><span class="ir-val ir-green">${acc}</span></div>
+    <div class="info-row"><span class="ir-label">Aktif Seviye</span><span class="ir-val ${tabColor}">${tabName}</span></div>
+  </div>`;
+
+  return `${statsHTML}${devHTML}<button class="btn-reset" onclick="confirmReset()">Tüm Kayıtları Sıfırla</button>`;
+}
+
+let G = { saves:[], scenariosData:{}, activeTab:'capm', profile:null };
+
+async function init() {
+  const sess = (() => { try { return JSON.parse(localStorage.getItem(SESSION_KEY)||'null'); } catch { return null; } })();
+
+  const manifest = await loadManifest();
+  const manifestIds = manifest ? manifest.scenarios.map(s => s.id) : [];
+  const allScenIds = [...manifestIds, 'master']; // always include personalized master scenario
+  const loaded = await Promise.all(allScenIds.map(id => loadScenario(id)));
+  allScenIds.forEach((id,i) => { if (loaded[i]) G.scenariosData[id] = loaded[i]; });
+
+  if (sess?.username) G.saves = await getUserSaves(sess.username);
+
+  const profile = computeProfile(G.saves, G.scenariosData);
+  const lvl = careerLevel(profile.totalXP);
+  const acc = profile.totalDec > 0 ? Math.round(profile.goodDec/profile.totalDec*100)+'%' : '—';
+
+  // Show career stats in hero
+  const statsEl = document.getElementById('profileCareerStats');
+  if (statsEl) {
+    statsEl.style.display = '';
+    document.getElementById('sc-scenarios').textContent  = profile.scenarios;
+    document.getElementById('sc-decisions').textContent  = profile.totalDec;
+    document.getElementById('sc-accuracy').textContent   = acc;
+    document.getElementById('sc-xp').textContent         = profile.totalXP + ' XP';
+    document.getElementById('sc-level-title').textContent = 'Seviye ' + lvl.n + ' · ' + lvl.t;
+  }
+
+  G.activeTab = defaultTab(G.saves);
+  G.profile   = profile;
+  setupTabs();
+  renderTab(G.activeTab);
+  renderSimHistory();
+}
+
+function setupTabs() {
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    const tab = btn.dataset.tab;
+    if (!hasDataForTab(G.saves, tab)) {
+      btn.style.opacity = '0.65';
+      const sub = btn.querySelector('.tab-sub');
+      if (sub) sub.textContent = 'Veri yok · ' + sub.textContent.split('·')[1]?.trim();
+    }
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      G.activeTab = tab;
+      renderTab(tab);
+    });
+  });
+  document.querySelector(`.tab-btn[data-tab="${G.activeTab}"]`)?.classList.add('active');
+}
+
+function renderTab(tab) {
+  const diffWeight = TAB_DIFF[tab];
+  const stats   = computeStats(G.saves, G.scenariosData, diffWeight);
+  const hasData = hasDataForTab(G.saves, tab);
+  const tabKey  = TAB_LABEL[tab];
+  const attrHTML  = renderAttr(stats, tabKey);
+  const rightHTML = renderRight(G.profile, stats, G.saves, tab, G.scenariosData);
+  const emptyHTML = !hasData ? `<div class="empty-note"><h3>Bu düzeyde veri yok</h3><p>${tab==='capm'?'Kolay':tab==='pmp'?'Normal':'Zor'} zorluktaki senaryoyu simüle ederek bu düzeyi doldur.</p><a href="game.html" class="btn-play">Simülasyonu Başlat</a></div>` : '';
+  document.getElementById('main-grid').innerHTML = `<div>${attrHTML}${emptyHTML}</div><div class="right-panel">${rightHTML}</div>`;
+}
+
+async function confirmReset() {
+  if (!confirm('Kariyer istatistiklerini sıfırlamak istediğinden emin misin?\n\nMevcut puanlar gizlenir; geçmiş kayıtlar silinmez, güvenle saklanır.')) return;
+  const sess = (() => { try { return JSON.parse(localStorage.getItem(SESSION_KEY)||'null'); } catch { return null; } })();
+  if (sess?.username) {
+    const prefix = `pmSim_save_${sess.username}_`, archive = `pmSim_archive_${sess.username}_`;
+    const keys = [];
+    for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k?.startsWith(prefix)) keys.push(k); }
+    keys.forEach(k => { localStorage.setItem(archive + k.slice(prefix.length), localStorage.getItem(k)); localStorage.removeItem(k); });
+  }
+  localStorage.removeItem('pmp_career_competency');
+  if (window.__sbArchiveSaves) { try { await window.__sbArchiveSaves(); } catch (e) { console.warn('[DB] Arşiv başarısız:', e.message); } }
+  location.reload();
+}
+
+// ── DOMAIN SCORE LOGIC ──────────────────────────────────────────────────────
+function getEcoHistory() {
+  try { return JSON.parse(localStorage.getItem('yetkinlider_eco_history') || '{}'); } catch { return {}; }
+}
+function computeDomainScore(outcomes) {
+  if (!Array.isArray(outcomes) || outcomes.length < 10) return null;
+  const win = outcomes.length >= 100 ? outcomes.slice(-50) : outcomes.slice(-10);
+  return Math.round(win.reduce((a, b) => a + b, 0) / win.length * 100);
+}
+
+const DOMAINS = [
+  { key: 'people',   label: 'İnsan',     sub: 'Liderlik, çatışma, motivasyon',   icon: '👥', cls: 'people'   },
+  { key: 'process',  label: 'Süreç',     sub: 'Entegrasyon, risk, kalite',        icon: '⚙️', cls: 'process'  },
+  { key: 'business', label: 'İş Ortamı', sub: 'Uyumluluk, değer, değişim',       icon: '🌍', cls: 'business' },
+];
+
+function scoreClass(s) {
+  if (s === null) return 'no-data';
+  if (s >= 80) return 'green';
+  if (s >= 50) return 'amber';
+  return 'red';
+}
+
+function renderDomains() {
+  const hist = getEcoHistory();
+  const grid = document.getElementById('domainGrid');
+  grid.innerHTML = DOMAINS.map(d => {
+    const outcomes = hist[d.key] || [];
+    const score    = computeDomainScore(outcomes);
+    const cls      = scoreClass(score);
+    const barW     = score !== null ? score : 0;
+    const scoreText = score !== null ? score + '%' : (outcomes.length > 0 ? outcomes.length + '/10' : '—');
+    const countText = outcomes.length > 0
+      ? outcomes.length + ' karar' + (score !== null ? (outcomes.length >= 100 ? ' · son 50 karardan' : ' · son 10 karardan') : ' · henüz 10 karar bekleniyor')
+      : 'Henüz karar yok';
+    return `<div class="domain-card">
+  <div class="dc-header">
+    <div class="dc-icon ${d.cls}">${d.icon}</div>
+    <div><div class="dc-name">${d.label}</div><div class="dc-sub">${d.sub}</div></div>
+  </div>
+  <div class="dc-score ${cls}">${scoreText}</div>
+  <div class="dc-bar-wrap"><div class="dc-bar ${cls}" style="width:${barW}%"></div></div>
+  <div class="dc-count">${countText}</div>
+  <a class="dc-train-btn" href="tailor.html?mode=competency">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    Pratik Yap
+  </a>
+</div>`;
+  }).join('');
+}
+
+// ── SIMULATION HISTORY ───────────────────────────────────────────────────────
+function renderSimHistory() {
+  const wrap = document.getElementById('lastScenarioWrap');
+  if (!wrap) return;
+  if (G.saves.length === 0) {
+    wrap.innerHTML = '<div class="no-scenario"><p>Henüz bir senaryo oynamadın.</p><br><a href="tailor.html">Senaryo Terzisi\'ne git →</a></div>';
+    return;
+  }
+  const sorted = [...G.saves].sort((a,b) => {
+    const da = a.savedAt || '', db = b.savedAt || '';
+    return db > da ? 1 : db < da ? -1 : 0;
+  });
+  const DIFF_LBL_TAB = { 1:'Temel', 3:'Profesyonel', 5:'Uzman' };
+  let html = '<div class="sim-history-list">';
+  for (const save of sorted) {
+    const scenario = G.scenariosData[save.scenarioId] || G.scenariosData[save.scenarioFile];
+    const answered = save.answered || {};
+    const answeredDecs = Object.entries(answered).filter(([,v]) => v !== 'READ');
+    let completed = false;
+    if (save.scenarioFile === 'master' && scenario) {
+      // Master scenario: completion = dCount reached sections × dChoiceLimit
+      const sections = scenario.sections?.length || 3;
+      const limit = scenario.dChoiceLimit || 5;
+      completed = (save.dCount || 0) >= sections * limit;
+    } else if (scenario) {
+      const { decisionMap } = buildScenarioMaps(scenario);
+      const allDecIds = Object.keys(decisionMap).map(Number);
+      completed = allDecIds.length > 0 && allDecIds.every(id => answered[id] && answered[id] !== 'READ');
+    }
+    const title = save.scenarioTitle || scenario?.title || scenario?.name || save.scenarioId;
+    const level = DIFF_LBL_TAB[save.difficultyWeight] || 'Normal';
+    const pmo = PMO_LBL[save.setup?.pmo_type] || '';
+    const approach = APPROACH_LBL[save.setup?.dev_approach] || '';
+    const date = save.savedAt ? new Date(save.savedAt).toLocaleDateString('tr-TR', {day:'numeric',month:'long',year:'numeric'}) : '';
+    const metaParts = [level, pmo, approach, date].filter(Boolean);
+    const xp = save.xp || 0;
+    html += `<div class="sim-history-card">
+  <div class="shc-head">
+    <div>
+      <div class="shc-title">${title}</div>
+      <div class="shc-meta">${metaParts.join(' · ')}</div>
+    </div>
+    ${completed
+      ? '<span class="shc-badge completed">Tamamlandı</span>'
+      : '<a href="game.html" class="shc-badge ongoing">Devam Et →</a>'}
+  </div>
+  <div class="shc-stats"><span>${answeredDecs.length} karar</span><span>${xp} XP</span></div>
+</div>`;
+  }
+  html += '</div><div style="margin-top:14px;text-align:center"><a class="btn-go-tailor" href="tailor.html"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg> Yeni Senaryo Başlat</a></div>';
+  wrap.innerHTML = html;
+}
+
+// ── LAST SCENARIO ────────────────────────────────────────────────────────────
+const SECTOR_LBL   = { it:'IT / Yazılım', construction:'İnşaat', health:'Sağlık', finance:'Finans', defense:'Savunma', education:'Eğitim', other:'Diğer' };
+const DIFF_LBL     = { beginner:'Giriş', intermediate:'Orta', advanced:'İleri' };
+const PMO_LBL      = { supportive:'Destekleyici', controlling:'Denetleyici', directive:'Yönlendirici' };
+const TEAM_LBL     = { collaborative:'Kolaboratif', hierarchical:'Hiyerarşik', autonomous:'Bağımsız' };
+const APPROACH_LBL = { predictive:'Öngörücü', agile:'Çevik', hybrid:'Hibrit' };
+const ROLE_LBL     = { PM:'Proje Müdürü', Scrum_Master:'Scrum Master', Product_Owner:'Ürün Sahibi' };
+const DOMAIN_LBL   = { people:'İnsan', process:'Süreç', business:'İş Ortamı', all:'Karma' };
+
+function renderLastScenario() {
+  const wrap = document.getElementById('lastScenarioWrap');
+  let sc;
+  try { sc = JSON.parse(localStorage.getItem('yetkinlider_scenario') || 'null'); } catch { sc = null; }
+
+  if (!sc) {
+    wrap.innerHTML = '<div class="no-scenario"><p>Henüz bir senaryo oynamadın.</p><br><a href="tailor.html">Senaryo Terzisi\'ne git →</a></div>';
+    return;
+  }
+
+  const isCareer = sc.mode === 'career';
+  const c = isCareer ? sc.career_config : sc.competency_config;
+  const badge = isCareer
+    ? '<span class="scenario-mode-badge career">Kariyer Senaryosu</span>'
+    : '<span class="scenario-mode-badge competency">Yetkinlik Antrenmanı</span>';
+
+  let rows = '';
+  if (isCareer) {
+    rows += `<div class="scenario-lbl">Proje</div><div class="scenario-val">${c.project_name || '—'}</div>`;
+    rows += `<div class="scenario-lbl">Sektör</div><div class="scenario-val">${SECTOR_LBL[c.sector] || c.sector}</div>`;
+    rows += `<div class="scenario-lbl">Zorluk</div><div class="scenario-val">${DIFF_LBL[c.difficulty] || c.difficulty}</div>`;
+    rows += `<div class="scenario-lbl">PMO</div><div class="scenario-val">${PMO_LBL[c.pmo_type] || c.pmo_type}</div>`;
+    rows += `<div class="scenario-lbl">Yaklaşım</div><div class="scenario-val">${APPROACH_LBL[c.dev_approach] || c.dev_approach}</div>`;
+  } else {
+    rows += `<div class="scenario-lbl">Rol</div><div class="scenario-val">${ROLE_LBL[c.role] || c.role}</div>`;
+    rows += `<div class="scenario-lbl">Odak Alanı</div><div class="scenario-val">${DOMAIN_LBL[c.eco_domain] || c.eco_domain}</div>`;
+    rows += `<div class="scenario-lbl">Zorluk</div><div class="scenario-val">${DIFF_LBL[c.difficulty] || c.difficulty}</div>`;
+    rows += `<div class="scenario-lbl">Sprint</div><div class="scenario-val">${c.sprint_length} hafta</div>`;
+  }
+
+  wrap.innerHTML = `<div class="scenario-card">
+  <div class="scenario-card-head">${badge}</div>
+  <div class="scenario-rows">${rows}</div>
+  <a class="btn-go-tailor" href="tailor.html">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    Yeni Senaryo Başlat
+  </a>
+</div>`;
+}
+
+// ── PROFILE PHOTO UPLOAD ──────────────────────────────────────────────────────
+function handlePhotoUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    // Resize to max 256px to keep localStorage small
+    const img = new Image();
+    img.onload = function() {
+      const MAX = 256;
+      const scale = Math.min(1, MAX / Math.max(img.width, img.height));
+      const canvas = document.createElement('canvas');
+      canvas.width  = Math.round(img.width  * scale);
+      canvas.height = Math.round(img.height * scale);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+      localStorage.setItem('pmSim_profile_photo', dataUrl);
+      renderProfile();
+    };
+    img.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+  e.target.value = '';
+}
+
+// ── PROFILE HERO ─────────────────────────────────────────────────────────────
+function renderProfile() {
+  if (!session) return;
+  const photo = localStorage.getItem('pmSim_profile_photo');
+  const avEl  = document.getElementById('profileAv');
+  if (photo) {
+    avEl.innerHTML = '<img src="' + photo + '" alt="">';
+  } else {
+    avEl.textContent = (session.displayName || session.username || '?')[0].toUpperCase();
+  }
+  document.getElementById('profileName').textContent     = session.displayName || session.username;
+  document.getElementById('profileUsername').textContent = '@' + session.username;
+  document.getElementById('profileEmail').textContent    = session.email || '';
+
+  const ROLE_CFG = {
+    admin:    { label: 'Admin',    cls: 'admin' },
+    editor:   { label: 'Editör',  cls: 'editor' },
+    premium:  { label: 'Premium', cls: 'premium' },
+    trial:    { label: 'Deneme',  cls: 'trial' },
+  };
+  const meta = [];
+  const roleCfg = ROLE_CFG[session.role] || { label: 'Standart', cls: 'standard' };
+  meta.push('<span class="profile-badge ' + roleCfg.cls + '">' + roleCfg.label + '</span>');
+  if (session.createdAt) {
+    const d = new Date(session.createdAt);
+    meta.push('<span class="profile-badge">Üye: ' + d.toLocaleDateString('tr-TR', {year:'numeric',month:'long'}) + '</span>');
+  }
+  if (session.devMode) {
+    meta.push('<span class="profile-badge dev">Dev Modu</span>');
+  }
+  document.getElementById('profileMeta').innerHTML = meta.join('');
+}
+
+// ── ACCOUNT CARD ─────────────────────────────────────────────────────────────
+const SECTOR_LABELS = { it:'IT / Yazılım', finance:'Finans / Bankacılık', health:'Sağlık', construction:'İnşaat / Mühendislik', defense:'Savunma', education:'Eğitim', retail:'Perakende / E-Ticaret', energy:'Enerji', telecom:'Telekomünikasyon', other:'Diğer' };
+
+function renderAccount() {
+  const meta = getWorkMeta();
+  const card = document.getElementById('accountCard');
+  card.innerHTML = `
+<div class="account-row">
+  <div class="account-row-label">
+    <strong>Görünen Ad</strong>
+    <span>Simülasyonlarda görünen ismin</span>
+  </div>
+  <div class="account-row-value" id="accName">${session.displayName || '—'}</div>
+  <button class="btn-edit" onclick="openModal()">Düzenle</button>
+</div>
+<div class="account-row">
+  <div class="account-row-label">
+    <strong>Kullanıcı Adı</strong>
+    <span>Giriş için kullanılan ad</span>
+  </div>
+  <div class="account-row-value">${session.username}</div>
+</div>
+<div class="account-row">
+  <div class="account-row-label">
+    <strong>E-posta</strong>
+  </div>
+  <div class="account-row-value">${session.email || '—'}</div>
+</div>
+<div class="account-row">
+  <div class="account-row-label">
+    <strong>Firma / Kurum</strong>
+    <span>Çalıştığın yer</span>
+  </div>
+  <div class="account-row-value" id="accCompany">${meta.company || '—'}</div>
+  <button class="btn-edit" onclick="openWorkModal()">Düzenle</button>
+</div>
+<div class="account-row">
+  <div class="account-row-label">
+    <strong>Sektör</strong>
+    <span>Çalıştığın sektör</span>
+  </div>
+  <div class="account-row-value" id="accSector">${SECTOR_LABELS[meta.sector] || '—'}</div>
+  <button class="btn-edit" onclick="openWorkModal()">Düzenle</button>
+</div>
+<div class="account-row">
+  <div class="account-row-label">
+    <strong>Cinsiyet</strong>
+  </div>
+  <div class="account-row-value">${{male:'Erkek',female:'Kadın',other:'Diğer',prefer_not:'Belirtmek istemiyorum'}[meta.gender] || '—'}</div>
+  <button class="btn-edit" onclick="openWorkModal()">Düzenle</button>
+</div>
+<div class="account-row">
+  <div class="account-row-label">
+    <strong>Doğum Tarihi</strong>
+  </div>
+  <div class="account-row-value">${meta.birthdate ? new Date(meta.birthdate).toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric'}) : '—'}</div>
+  <button class="btn-edit" onclick="openWorkModal()">Düzenle</button>
+</div>
+<div class="account-row">
+  <div class="account-row-label">
+    <strong>Oturumu Kapat</strong>
+    <span>Bu cihazdan çıkış yap</span>
+  </div>
+  <button class="btn-danger" onclick="doLogout()">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    Çıkış Yap
+  </button>
+</div>`;
+}
+
+// ── EDIT NAME ────────────────────────────────────────────────────────────────
+function openModal() {
+  document.getElementById('editNameInput').value = session.displayName || '';
+  document.getElementById('editModal').classList.add('open');
+  setTimeout(() => document.getElementById('editNameInput').focus(), 50);
+}
+function closeModal() {
+  document.getElementById('editModal').classList.remove('open');
+}
+function saveName() {
+  const val = document.getElementById('editNameInput').value.trim();
+  if (!val) return;
+  session.displayName = val;
+  setSession(session);
+  // Also update in users array
+  try {
+    const users = JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
+    const idx   = users.findIndex(u => u.username === session.username);
+    if (idx >= 0) { users[idx].displayName = val; localStorage.setItem(USERS_KEY, JSON.stringify(users)); }
+  } catch {}
+  closeModal();
+  renderProfile();
+  renderAccount();
+  // Update navbar
+  document.getElementById('navUser').querySelector('.nav-username').textContent = val;
+}
+document.getElementById('editModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('editModal')) closeModal();
+});
+document.getElementById('editNameInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') saveName();
+  if (e.key === 'Escape') closeModal();
+});
+
+// ── WORK META (company + sector) ─────────────────────────────────────────────
+function getWorkMeta() {
+  try { return JSON.parse(localStorage.getItem('pmSim_work_meta') || '{}'); } catch { return {}; }
+}
+function openWorkModal() {
+  const meta = getWorkMeta();
+  document.getElementById('editCompanyInput').value   = meta.company   || '';
+  document.getElementById('editSectorInput').value    = meta.sector    || '';
+  document.getElementById('editGenderInput').value    = meta.gender    || '';
+  document.getElementById('editBirthdateInput').value = meta.birthdate || '';
+  document.getElementById('editWorkModal').classList.add('open');
+  setTimeout(() => document.getElementById('editCompanyInput').focus(), 50);
+}
+function closeWorkModal() {
+  document.getElementById('editWorkModal').classList.remove('open');
+}
+function saveWork() {
+  const company   = document.getElementById('editCompanyInput').value.trim();
+  const sector    = document.getElementById('editSectorInput').value;
+  const gender    = document.getElementById('editGenderInput').value;
+  const birthdate = document.getElementById('editBirthdateInput').value;
+  localStorage.setItem('pmSim_work_meta', JSON.stringify({ company, sector, gender, birthdate }));
+  closeWorkModal();
+  renderAccount();
+}
+document.getElementById('editWorkModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('editWorkModal')) closeWorkModal();
+});
+
+// ── LOGOUT ───────────────────────────────────────────────────────────────────
+function doLogout() {
+  localStorage.removeItem(SESSION_KEY);
+  location.href = 'index.html';
+}
+
+// ── TABS ─────────────────────────────────────────────────────────────────────
+function switchTab(name) {
+  document.querySelectorAll('.profile-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tab === name);
+  });
+  document.querySelectorAll('.tab-panel').forEach(p => {
+    p.classList.toggle('active', p.id === 'panel-' + name);
+  });
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+renderProfile();
+renderLastScenario();
+renderAccount();
+// init() (scorecard) is called by the module script below after Supabase is ready
+</script>
+
+<!-- ── Supabase DB entegrasyonu — init() burada başlatılıyor ────────────── -->
+<script type="module">
+try {
+  const { fetchUserSaves, archiveAllSaves } = await import('/js/db.js');
+  window.__sbFetchUserSaves = fetchUserSaves;
+  window.__sbArchiveSaves   = archiveAllSaves;
+} catch (e) {
+  console.warn('[DB] Supabase modülü yüklenemedi, yerel verilerle devam:', e?.message);
+}
+init();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+{
+  "yazilim": [
+    "Backend Developer", "Frontend Developer", "Full Stack Developer",
+    "Veri Mimarı", "DevOps Mühendisi", "Mobil Geliştirici",
+    "QA Mühendisi", "Yazılım Mimarı", "Güvenlik Uzmanı",
+    "Veri Bilimcisi", "UX Tasarımcısı", "Ürün Müdürü",
+    "Scrum Master", "Business Analyst", "Sistem Analisti"
+  ],
+  "insaat": [
+    "Saha Mühendisi", "Şantiye Şefi", "Statik Uzmanı",
+    "Mimar", "Mekanik Mühendis", "Elektrik Mühendisi",
+    "İş Güvenliği Uzmanı", "Proje Koordinatörü",
+    "Metraj Uzmanı", "Altyapı Mühendisi", "Peyzaj Mimarı"
+  ],
+  "saglik": [
+    "Klinik Koordinatör", "Hemşire", "Tıbbi Sekreter",
+    "Medikal Cihaz Uzmanı", "Hastane Bilgi Sistemleri Uzmanı",
+    "Kalite Güvence Uzmanı", "Satın Alma Uzmanı",
+    "İdari Koordinatör", "Biyomedikal Teknisyen"
+  ],
+  "finans": [
+    "Risk Analisti", "Portföy Yöneticisi", "Uyumluluk Uzmanı",
+    "Fintech Geliştirici", "Veri Analisti", "Muhasebe Uzmanı",
+    "İç Denetçi", "Hazine Uzmanı", "Kredi Analisti"
+  ],
+  "uretim": [
+    "Üretim Planlama Uzmanı", "Kalite Kontrol Mühendisi",
+    "Tedarik Zinciri Uzmanı", "Bakım Mühendisi",
+    "Süreç İyileştirme Uzmanı", "Operasyon Koordinatörü",
+    "Endüstri Mühendisi", "Depo Yöneticisi"
+  ],
+  "perakende": [
+    "Mağaza Operasyon Uzmanı", "Tedarik Zinciri Analisti",
+    "E-ticaret Uzmanı", "Müşteri Deneyimi Uzmanı",
+    "Kategori Yöneticisi", "Lojistik Koordinatörü",
+    "Satış Analisti", "Görsel Merchandiser"
+  ],
+  "savunma": [
+    "Sistem Mühendisi", "Donanım Uzmanı", "Yazılım Mühendisi",
+    "Test ve Değerlendirme Uzmanı", "Entegrasyon Mühendisi",
+    "Teknik Ressam", "Saha Destek Mühendisi",
+    "Kalite Güvence Mühendisi", "Tedarik Uzmanı"
+  ],
+  "egitim": [
+    "İçerik Tasarımcısı", "Eğitim Teknolojisi Uzmanı",
+    "Koordinatör", "Ölçme-Değerlendirme Uzmanı",
+    "Akademik Danışman", "Platform Geliştirici",
+    "İçerik Editörü", "Proje Koordinatörü"
+  ]
+}

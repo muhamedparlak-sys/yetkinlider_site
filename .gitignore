@@ -25,3 +25,15 @@ Thumbs.db
 # Python (mevcut .py scriptler için)
 __pycache__/
 *.pyc
+
+# ── Ticari IP — GitHub'da yayınlanmaz, Supabase'de tutulur ──────────────────
+# Mesele tipi şablonları (PSG içerik motoru)
+data/mesele-tipleri/
+# Sözlük (glossary)
+data/glossary.json
+# Migration scriptleri (service key içerebilir)
+scripts/mesele_batch_*.sql
+scripts/glossary_insert.sql
+scripts/insert_mesele_tipleri.sql
+scripts/insert_glossary.sql
+scripts/*.b64

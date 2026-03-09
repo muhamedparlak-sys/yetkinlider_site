@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Demo Yükleniyor...</title>
+<style>
+  body { background: #0f1520; color: #f1f5f9; font-family: system-ui; display: flex;
+         align-items: center; justify-content: center; height: 100vh; margin: 0; flex-direction: column; gap: 16px; }
+  .spin { width: 40px; height: 40px; border: 3px solid rgba(255,255,255,.1);
+          border-top-color: #3b82f6; border-radius: 50%; animation: s 0.8s linear infinite; }
+  @keyframes s { to { transform: rotate(360deg); } }
+  p { color: rgba(255,255,255,.4); font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="spin"></div>
+<p>Demo senaryo yükleniyor...</p>
+<script>
+  const save = {
+    scenarioId: 'personal-demo',
+    scenarioTitle: 'Kariyer Simülasyonu — Demo',
+    scenarioFile: 'personal-demo',
+    sectionId: 1,
+    totalDecisions: 7,
+    difficultyWeight: 1,
+    answered: {},
+    xp: 0,
+    dCount: 0,
+    shuffles: {},
+    pendingKey: {},
+    dayBatches: [],
+    dayIndex: 0
+  };
+  // demo session (game.html auth gate'ini geç)
+  localStorage.setItem('pmSim_session', JSON.stringify({ username: 'guest', displayName: 'Demo Kullanıcı' }));
+  // guest save key
+  localStorage.setItem('pmSim_save_guest_personal-demo', JSON.stringify(save));
+  // temizle
+  localStorage.removeItem('yetkinlider_scenario');
+
+  setTimeout(() => { window.location.href = 'game.html'; }, 600);
+</script>
+</body>
+</html>

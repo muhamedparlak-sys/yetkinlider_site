@@ -1,0 +1,258 @@
+{
+  "id": "personal-demo",
+  "title": "Kariyer Simülasyonu — Demo",
+  "notifications": [
+    {
+      "id": 1,
+      "type": "decision",
+      "section": 1,
+      "time": "9:00",
+      "from": "Yasemin",
+      "fromRole": "İK Uzmanı",
+      "subject": "Güzel haber — Özge bizimle paylaştı",
+      "body": "Merhaba ekip,\n\nÖzge (Frontend Developer) güzel haberini sizinle paylaşmak istedi. Özge bebek bekliyor! Kendisini tebrik edelim.\n\nÖzge yaklaşık 4 ay içinde doğum iznine ayrılacak.",
+      "options": [
+        {
+          "key": "A",
+          "text": "Özge'e ayrıca yazıyorum: 'Tebrikler Özge, harika haber! Bir ihtiyacın olursa her zaman buradayım.' Onun dışında planlama sürecini sessizce başlatıyorum — Özge'e henüz bir şey söylemiyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Özge'e yazıyorum: 'Tebrikler Özge! İzin sürecinde projeyi nasıl yönetelim, bir konuşalım mı?'",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "İK'ya yazıyorum: 'Özge'in izin planını alabilir miyim, programa işleyeyim.'",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Özge'e yazıyorum: 'Tebrikler! İzne ayrılmadan önce kritik konuları devretmen gerekecek, bir plan yapalım.'",
+          "xp": -20,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "decision",
+      "section": 1,
+      "time": "9:47",
+      "from": "Cansu",
+      "fromRole": "Müşteri Yetkilisi",
+      "subject": "Küçük bir ekleme — Cansu",
+      "body": "Hocam merhaba,\n\nSizi çok fazla yormak istemiyorum ama aklıma bir şey geldi. Listeler alfabetik sıralanabilse kullanışlı olur. Küçük bir şey, ekibinize söylerseniz hallederler diye düşündüm.",
+      "options": [
+        {
+          "key": "A",
+          "text": "Merhaba Cansu Hanım/Bey,\n\nGüzel fikir! Bunu değişiklik talebimize alalım — ne kadar sürer, maliyeti var mı kısa bir analiz yapayım, size resmi olarak sunayım. Öyle devam edelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Merhaba Cansu Hanım/Bey,\n\nAnladım, ekiple konuşayım mümkün mü bakayım, size dönerim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Merhaba Cansu Hanım/Bey,\n\nBunu resmi talep olarak iletir misiniz, süreç başlatalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Merhaba Cansu Hanım/Bey,\n\nTabii ki! Hemen ekibe iletiyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "decision",
+      "section": 1,
+      "time": "10:34",
+      "from": "Hakan",
+      "fromRole": "Frontend Developer",
+      "subject": "Bu hafta gelmeyeceğim",
+      "body": "Hocam merhaba, doktora gittim, boğaz enfeksiyonu çıktı. Bu hafta istirahat raporum var, gelemiyor olacağım. Acil bir şey olursa yazabilirsiniz.",
+      "options": [
+        {
+          "key": "A",
+          "text": "Geçmiş olsun Hakan! Hiç merak etme, işleri hallettim. Tam anlamıyla dinlen — sana işle ilgili bir şey sormayacağım bu hafta. Bir ihtiyacın olursa haberdar et.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Geçmiş olsun Hakan. İstirahat et, iyileşince görüşürüz. Tahminen ne zaman dönersin?",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Geçmiş olsun Hakan. Ekibe ilettim, merak etme.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Geçmiş olsun Hakan. Bu hafta kritik bir toplantı var, evden bağlanabilecek durumda mısın?",
+          "xp": -20,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "decision",
+      "section": 1,
+      "time": "11:21",
+      "from": "Volkan",
+      "fromRole": "Sponsor",
+      "subject": "Demo beğendik ama bir şey eklesek",
+      "body": "Hocam demo çok güzeldi, ekibinizi tebrik ederim. Şunu sorsam — sayfa sonuna özet istatistik gelse? Kullanıcılar kesinlikle ister. Küçük bir şey.",
+      "options": [
+        {
+          "key": "A",
+          "text": "Teşekkürler, sevindik! Güzel bir fikir. Bunu değişiklik sürecimize alalım — etkisini analiz edip size resmi olarak sunarım, öyle ilerleriz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Teşekkürler! Güzel fikir, teknik ekiple konuşayım ne kadar sürer bakayım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Teşekkürler. Bunu yazılı olarak iletir misiniz, değerlendireyim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Teşekkürler, küçük bir şey, ekleriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "decision",
+      "section": 1,
+      "time": "12:08",
+      "from": "Serhat",
+      "fromRole": "Ürün Müdürü",
+      "subject": "Seninle konuşmam gerekiyor",
+      "body": "Hocam, bir süredir kendimi iyi hissetmiyorum. Doktor 2 hafta izin önerdi. Depresyon belirtileri var, ilaç ve dinlenme önerildi. Bunu söylemek çok zordu ama gizlemek istemedim.",
+      "options": [
+        {
+          "key": "A",
+          "text": "Söylediğin için gerçekten teşekkür ederim Serhat, cesaret isteyen bir şey bu. Kesinlikle izni al, hiç düşünme. Ne zaman ve nasıl döneceğini sen belirlersin — biz buradayız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Geçmiş olsun Serhat. İzni al, dinlen. Dönünce bir konuşalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Anlıyorum Serhat. İK ile izin sürecini başlatayım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Anlıyorum Serhat. Ama şu an çok kritik bir döneme denk geldi — 2 hafta yerine birkaç günlük izin olmaz mı?",
+          "xp": -20,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "decision",
+      "section": 1,
+      "time": "12:55",
+      "from": "Zeynep",
+      "fromRole": "Son Kullanıcı Temsilcisi",
+      "subject": "Demo beğendik ama bir şey eklesek",
+      "body": "Hocam demo çok güzeldi, ekibinizi tebrik ederim. Şunu sorsam — listelerde toplu seçim özelliği olsa? Kullanıcılar kesinlikle ister. Küçük bir şey.",
+      "options": [
+        {
+          "key": "A",
+          "text": "Teşekkürler, sevindik! Güzel bir fikir. Bunu değişiklik sürecimize alalım — etkisini analiz edip size resmi olarak sunarım, öyle ilerleriz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Teşekkürler! Güzel fikir, teknik ekiple konuşayım ne kadar sürer bakayım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Teşekkürler. Bunu yazılı olarak iletir misiniz, değerlendireyim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Teşekkürler, küçük bir şey, ekleriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "decision",
+      "section": 1,
+      "time": "13:42",
+      "from": "Canan",
+      "fromRole": "Veri Mimarı",
+      "subject": "Bu hafta gelmeyeceğim",
+      "body": "Hocam merhaba, doktora gittim, grip çıktı. Bu hafta istirahat raporum var, gelemiyor olacağım. Acil bir şey olursa yazabilirsiniz.",
+      "options": [
+        {
+          "key": "A",
+          "text": "Geçmiş olsun Canan! Hiç merak etme, işleri hallettim. Tam anlamıyla dinlen — sana işle ilgili bir şey sormayacağım bu hafta. Bir ihtiyacın olursa haberdar et.",
+          "xp": 30,
+          "isEthical": true
+        },
+        {
+          "key": "B",
+          "text": "Geçmiş olsun Canan. İstirahat et, iyileşince görüşürüz. Tahminen ne zaman dönersin?",
+          "xp": 10,
+          "isEthical": true
+        },
+        {
+          "key": "C",
+          "text": "Geçmiş olsun Canan. Ekibe ilettim, merak etme.",
+          "xp": 5,
+          "isEthical": true
+        },
+        {
+          "key": "D",
+          "text": "Geçmiş olsun Canan. Bu hafta kritik bir toplantı var, evden bağlanabilecek durumda mısın?",
+          "xp": -20,
+          "isEthical": false
+        }
+      ]
+    }
+  ]
+}

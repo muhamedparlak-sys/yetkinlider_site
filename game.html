@@ -1002,7 +1002,9 @@ var Game; Game = (() => {
     const key = getSaveKey();
     if(!key) return;
     const data = {
-      scenarioId: S.scenario.id, scenarioTitle: S.scenario.title || S.scenario.id, sectionId: S.sectionId,
+      scenarioId: S.scenario.id, scenarioTitle: S.scenario.title || S.scenario.id,
+      scenarioFile: S.scenario._sourceFile,
+      sectionId: S.sectionId,
       totalDecisions: S.notifs.filter(n => n.type === 'decision').length,
       difficultyWeight: getDifficultyWeight(S.setup?.difficulty),
       answered: S.answered, xp: S.xp, dCount: S.dCount,
@@ -1260,6 +1262,12 @@ var Game; Game = (() => {
     const saves = findUserSaves();
     renderWelcomeScreen(session, saves);
 
+    // ── Tailor.html'den gelen kişisel senaryo yapılandırması ──────────────
+    const _tc = (() => { try { return JSON.parse(localStorage.getItem('yetkinlider_scenario')||'null'); } catch { return null; } })();
+    if (_tc?.mode === 'career' && _tc.career_config?.sector && _tc.career_config?.difficulty) {
+      autoStartFromTailor(_tc);
+    }
+
     // Hamburger menü
     document.getElementById('btn-hamburger').onclick = e => { e.stopPropagation(); toggleMenu(); };
     document.getElementById('menu-auth-btn').onclick = () => { closeMenu(); openAuthOverlay(); };
@@ -1423,6 +1431,132 @@ var Game; Game = (() => {
     const match = (S.manifest?.scenarios||[]).find(s => s.sector === sector && s.difficulty === diff);
     if (!match) { alert('Bu kombinasyon için henüz senaryo yok.'); return; }
     loadScenario(match.id);
+  }
+
+  // ── KİŞİSEL SENARYO (Tailor bridge) ──────────────────────────────────────
+  async function autoStartFromTailor(cfg) {
+    const cc = cfg.career_config;
+    S.mode = 'career';
+    S.name = cfg.player?.name || S.name;
+    updateAuthButtons();
+    S.setup = {
+      difficulty:   cc.difficulty,
+      sector:       cc.sector,
+      sector_label: cc.sector_label || cc.sector,
+      pmo_type:     cc.pmo_type,
+      team_culture: cc.team_culture,
+      dev_approach: cc.dev_approach,
+      project_name: cfg.player?.project_name || '',
+      player_name:  cfg.player?.name || S.name,
+      session_id:   cfg.session_id,
+    };
+    localStorage.removeItem('yetkinlider_scenario');
+    await loadMasterScenario();
+  }
+
+  async function loadMasterScenario() {
+    try {
+      // Kişisel senaryo: PSG tarafından üretilmişse önce onu kullan
+      const _personalRaw = (() => { try { return JSON.parse(localStorage.getItem('pmSim_personal_scenario') || 'null'); } catch { return null; } })();
+      if (_personalRaw && _personalRaw.notifications?.length) {
+        localStorage.removeItem('pmSim_personal_scenario');
+        _personalRaw._sourceFile = 'personal';
+        S.scenario  = _personalRaw;
+        S.notifs    = _personalRaw.notifications;
+        document.title = (_personalRaw.title || 'Simülasyon') + ' — YetkinLider';
+        beginPlay();
+        return;
+      }
+
+      // Supabase fallback: career modunda localStorage yoksa (cross-device / refresh)
+      if (S.mode === 'career' && window.__sbFetchPersonalScenario) {
+        try {
+          const _sid = S.setup?.session_id || null;
+          const _sbScenario = await window.__sbFetchPersonalScenario(_sid);
+          if (_sbScenario && _sbScenario.notifications?.length) {
+            _sbScenario._sourceFile = 'personal';
+            S.scenario = _sbScenario;
+            S.notifs   = _sbScenario.notifications;
+            document.title = (_sbScenario.title || 'Simülasyon') + ' — YetkinLider';
+            beginPlay();
+            return;
+          }
+        } catch(e) {
+          console.warn('[PSG←SB] Supabase kişisel senaryo çekme başarısız:', e.message);
+        }
+      }
+
+      // Fallback: master.json yükle
+      let raw;
+      if (window.__sbFetchScenario) {
+        try { raw = await window.__sbFetchScenario('master'); } catch {}
+      }
+      if (!raw) {
+        const r = await fetch('data/scenarios/master.json');
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        raw = await r.json();
+      }
+      raw._sourceFile = 'master';
+      S.scenario = applyPersonalization(raw, S.setup);
+      beginPlay();
+    } catch (e) {
+      alert('Kişisel senaryo yüklenemedi: ' + e.message);
+      show('screen-career');
+    }
+  }
+
+  function applyPersonalization(scenario, setup) {
+    const sc = JSON.parse(JSON.stringify(scenario));
+
+    // ── 1. Pool filtering ────────────────────────────────────────────────
+    if (sc.pools && setup) {
+      const poolIds = new Set([
+        ...(sc.pools.core                              || []),
+        ...(sc.pools[`pmo_${setup.pmo_type}`]         || []),
+        ...(sc.pools[`approach_${setup.dev_approach}`]|| []),
+        ...(sc.pools[`team_${setup.team_culture}`]    || []),
+        ...(sc.pools[`sector_${setup.sector}`]        || []),
+        ...(sc.pools[`diff_${setup.difficulty}`]      || []),
+      ]);
+      sc.notifications = sc.notifications.filter(n => n.type === 'story' || poolIds.has(n.id));
+    }
+
+    // ── 2. Template variables ────────────────────────────────────────────
+    const PMO_LBL  = { supportive:'Destekleyici PMO', controlling:'Denetleyici PMO', directive:'Yönlendirici PMO' };
+    const APP_LBL  = { predictive:'Öngörücü Yaklaşım', agile:'Çevik Yaklaşım', hybrid:'Hibrit Yaklaşım' };
+    const TEAM_LBL = { collaborative:'Kolaboratif takım', hierarchical:'Hiyerarşik takım', autonomous:'Özerk takım' };
+    const DIFF_LBL = { beginner:'Giriş Düzeyi', intermediate:'Orta Düzey', advanced:'İleri Düzey' };
+    const vars = {
+      '{{player_name}}':      setup.player_name || S.name || 'Proje Müdürü',
+      '{{project_name}}':     setup.project_name || 'Stratejik Proje',
+      '{{sector_label}}':     setup.sector_label || setup.sector || 'sektörünüz',
+      '{{company}}':          setup.sector_label || 'Şirket',
+      '{{pmo_label}}':        PMO_LBL[setup.pmo_type]    || 'PMO Birimi',
+      '{{approach_label}}':   APP_LBL[setup.dev_approach]  || 'proje yönteminiz',
+      '{{team_label}}':       TEAM_LBL[setup.team_culture] || 'takımınız',
+      '{{difficulty_label}}': DIFF_LBL[setup.difficulty]   || '',
+    };
+    const replaceVars = str => {
+      if (typeof str !== 'string') return str;
+      for (const [k, v] of Object.entries(vars)) str = str.replaceAll(k, v);
+      return str;
+    };
+    sc.title   = replaceVars(sc.title);
+    sc.company = replaceVars(sc.company);
+    for (const n of (sc.notifications || [])) {
+      n.from     = replaceVars(n.from);
+      n.fromRole = replaceVars(n.fromRole);
+      n.subject  = replaceVars(n.subject);
+      n.body     = replaceVars(n.body);
+      for (const o of (n.options || [])) {
+        o.text     = replaceVars(o.text);
+        o.feedback = replaceVars(o.feedback);
+      }
+    }
+
+    // ── 3. Benzersiz oturum ID'si ────────────────────────────────────────
+    sc.id = setup.session_id ? `master-${setup.session_id.slice(0, 8)}` : 'master';
+    return sc;
   }
 
   // ── DEV MODE ──────────────────────────────────────────────────────────────
@@ -2333,6 +2467,24 @@ var Game; Game = (() => {
     const {grade, color} = gameOver ? {grade:'F',color:'#ef4444'} : gradeFromAvg(avgScore);
     const totalDecisions = S.notifs.filter(n => n.type==='decision' && S.answered[n.id]).length;
 
+    // ── Write per-domain stats for tailor.html to read ──
+    if (S.setup?.mode === 'competency' && S.setup?.domain) {
+      const domain = S.setup.domain; // 'people' | 'process' | 'business'
+      const answered = S.notifs.filter(n => n.type === 'decision' && S.answered[n.id] && S.answered[n.id] !== 'READ');
+      if (answered.length > 0) {
+        const outcomes = answered.map(n => {
+          const opt = (n.options||[]).find(o => o.key === S.answered[n.id]);
+          return (opt && opt.xp >= 25) ? 1 : 0;
+        });
+        try {
+          const hist = JSON.parse(localStorage.getItem('yetkinlider_eco_history') || '{}');
+          if (!Array.isArray(hist[domain])) hist[domain] = [];
+          hist[domain] = [...hist[domain], ...outcomes].slice(-200); // keep last 200
+          localStorage.setItem('yetkinlider_eco_history', JSON.stringify(hist));
+        } catch(e) {}
+      }
+    }
+
     // Header
     document.getElementById('karne-av').textContent = (S.name||'?')[0].toUpperCase();
     document.getElementById('karne-player-name').textContent = S.name || 'PM';
@@ -2441,14 +2593,15 @@ window.Game = Game;
 <!-- ── Supabase entegrasyonu (Storage + DB) ────────────────────────────── -->
 <script type="module">
 import { fetchScenario, manifestUrl } from '/js/storage.js';
-import { upsertGameSave, fetchUserSaves } from '/js/db.js';
+import { upsertGameSave, fetchUserSaves, fetchPersonalScenario } from '/js/db.js';
 
 // ── Storage bağlantıları ─────────────────────────────────────────────────
 window.__sbFetchScenario = fetchScenario;
 window.__sbManifestUrl   = manifestUrl();
 
 // ── DB bağlantıları ──────────────────────────────────────────────────────
-window.__sbUpsertSave = upsertGameSave;
+window.__sbUpsertSave            = upsertGameSave;
+window.__sbFetchPersonalScenario = fetchPersonalScenario;
 
 // ── Cross-device senkronizasyon ──────────────────────────────────────────
 // Supabase'deki kayıtları localStorage ile birleştir, welcome screen'i güncelle
