@@ -454,10 +454,23 @@ const PSG = (() => {
     ]);
 
     // Mesele tipi JSON'larını paralel yükle (Supabase öncelikli)
+    // Promise.allSettled kullanılıyor: tek bir hata tüm yüklemeyi çökertmesin
     const meseleTipleri = {};
-    await Promise.all(meseleTipiIds.map(async id => {
-      meseleTipleri[id] = await fetchMeseleTipi(id);
+    const _mtResults = await Promise.allSettled(meseleTipiIds.map(async id => {
+      const data = await fetchMeseleTipi(id);
+      return { id, data };
     }));
+    let _loadedCount = 0;
+    _mtResults.forEach(r => {
+      if (r.status === 'fulfilled' && r.value?.data) {
+        meseleTipleri[r.value.id] = r.value.data;
+        _loadedCount++;
+      }
+    });
+    console.log(`[PSG] Mesele tipleri: ${_loadedCount}/${meseleTipiIds.length} yüklendi`);
+    if (_loadedCount === 0) {
+      throw new Error('Hiç mesele tipi yüklenemedi — lütfen giriş yapın veya bağlantınızı kontrol edin');
+    }
 
     const rng      = makeRng(seedFromString(session_id));
     const soyadlar = isimler.soyadlar || [];

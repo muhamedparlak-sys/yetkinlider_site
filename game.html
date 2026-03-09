@@ -1158,10 +1158,24 @@ var Game; Game = (() => {
 
   async function resumeSave(saveData) {
     try {
-      const r = await fetch(`data/scenarios/${saveData.scenarioId}.json`);
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      S.scenario    = await r.json();
-      S.notifs      = S.scenario.notifications || [];
+      let scenario;
+      if (saveData.scenarioFile === 'personal' || String(saveData.scenarioId || '').startsWith('personal-')) {
+        // Kişisel senaryo: Supabase'den çek
+        if (typeof window.__sbFetchPersonalScenario === 'function') {
+          scenario = await window.__sbFetchPersonalScenario(saveData.scenarioId);
+        }
+        if (!scenario) {
+          alert('Kişisel senaryo bulunamadı. Senaryo Terzisi\'nden yeni bir senaryo oluşturun.');
+          return;
+        }
+        scenario._sourceFile = 'personal';
+      } else {
+        const r = await fetch(`data/scenarios/${saveData.scenarioId}.json`);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        scenario = await r.json();
+      }
+      S.scenario    = scenario;
+      S.notifs      = scenario.notifications || [];
       S.name        = saveData.name || S.name;
       S.setup       = saveData.setup || {};
       S.sectionId   = saveData.sectionId || 1;
