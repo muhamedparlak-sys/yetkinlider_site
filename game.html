@@ -464,21 +464,21 @@ a{color:inherit;text-decoration:none}
 .lvl-orta{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.25)}
 .lvl-ileri{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25)}
 /* ── INTRO SCREENS ──────────────────────────────────────────────────────── */
-#screen-intro{background:#080c14;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:40px 24px;overflow-y:auto}
-.intro-stage{max-width:520px;width:100%;display:flex;flex-direction:column}
-.intro-step-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.18);text-align:center;margin-bottom:44px}
-.intro-body{display:flex;flex-direction:column;gap:18px;min-height:160px;animation:introFadeIn .45s ease}
-@keyframes introFadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.intro-p{font-size:15px;line-height:1.75;color:rgba(255,255,255,.8);font-weight:400}
-.intro-p.inner{font-style:italic;color:rgba(255,255,255,.38);font-size:14px}
-.intro-p.question{font-size:17px;font-weight:600;color:#f1f5f9;margin-top:4px}
-.intro-p.strong{color:rgba(255,255,255,.92);font-weight:500}
-.intro-dots{display:flex;gap:6px;justify-content:center;margin:28px 0 20px}
-.intro-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s}
-.intro-dot.active{background:rgba(255,255,255,.55)}
-.intro-skip-label{display:none;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.3);cursor:pointer;user-select:none;margin-top:16px}
+#screen-intro{background:#080c14;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:48px 32px;overflow-y:auto}
+.intro-stage{max-width:680px;width:100%;display:flex;flex-direction:column;text-align:center}
+.intro-step-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.22em;color:rgba(255,255,255,.42);text-align:center;margin-bottom:56px}
+.intro-body{display:flex;flex-direction:column;gap:28px;min-height:200px;animation:introFadeIn .5s ease;text-align:center}
+@keyframes introFadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.intro-p{font-size:19px;line-height:1.85;color:rgba(255,255,255,.88);font-weight:400}
+.intro-p.inner{font-style:italic;color:rgba(255,255,255,.52);font-size:16px}
+.intro-p.question{font-size:26px;font-weight:700;color:#ffffff;margin-top:14px;letter-spacing:-.01em}
+.intro-p.strong{color:#ffffff;font-weight:600;font-size:20px;letter-spacing:-.005em}
+.intro-dots{display:flex;gap:7px;justify-content:center;margin:40px 0 26px}
+.intro-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15);transition:background .3s}
+.intro-dot.active{background:rgba(255,255,255,.75)}
+.intro-skip-label{display:none;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.32);cursor:pointer;user-select:none;margin-top:16px}
 .intro-skip-label input{accent-color:rgba(99,179,237,.7);cursor:pointer}
-.intro-skip-label:hover{color:rgba(255,255,255,.5)}
+.intro-skip-label:hover{color:rgba(255,255,255,.55)}
 
 /* Footer */
 .karne-footer{width:100%;max-width:760px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -520,9 +520,6 @@ a{color:inherit;text-decoration:none}
 <body>
 
 <div id="topbar">
-  <button id="btn-hamburger" class="btn-hamburger">
-    <span></span><span></span><span></span>
-  </button>
   <a class="brand" href="index.html"><img src="logo.png" class="brand-logo" alt="YetkinLider">YetkinLider<sup style="font-size:.55em;vertical-align:super;opacity:.8">&#8482;</sup></a>
   <div class="topbar-right">
     <div id="game-clock" class="game-clock hidden">
@@ -541,13 +538,16 @@ a{color:inherit;text-decoration:none}
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
       <span id="btn-intro-label">Devam</span>
     </button>
+    <button id="btn-hamburger" class="btn-hamburger">
+      <span></span><span></span><span></span>
+    </button>
   </div>
   <!-- Açılır Menü -->
   <div id="topbar-menu" class="topbar-menu hidden">
     <div class="menu-user">
       <div class="menu-av" id="menu-av">?</div>
       <div class="menu-user-info">
-        <div class="menu-name" id="menu-name">Giriş yapılmadı</div>
+        <a class="menu-name" id="menu-name" href="profile.html" style="text-decoration:none;color:inherit">Giriş yapılmadı</a>
         <div class="menu-sub" id="menu-sub"></div>
       </div>
     </div>
@@ -570,9 +570,9 @@ a{color:inherit;text-decoration:none}
       Kaydetmeden Çık
     </button>
     <div class="menu-divider"></div>
-    <a class="menu-item" href="scorecard.html">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      Yetkinlik Kartı
+    <a class="menu-item" href="profile.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Profilim
     </a>
     <button class="menu-item">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -1158,10 +1158,24 @@ var Game; Game = (() => {
 
   async function resumeSave(saveData) {
     try {
-      const r = await fetch(`data/scenarios/${saveData.scenarioId}.json`);
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      S.scenario    = await r.json();
-      S.notifs      = S.scenario.notifications || [];
+      let scenario;
+      if (saveData.scenarioFile === 'personal' || String(saveData.scenarioId || '').startsWith('personal-')) {
+        // Kişisel senaryo: Supabase'den çek
+        if (typeof window.__sbFetchPersonalScenario === 'function') {
+          scenario = await window.__sbFetchPersonalScenario(saveData.scenarioId);
+        }
+        if (!scenario) {
+          alert('Kişisel senaryo bulunamadı. Senaryo Terzisi\'nden yeni bir senaryo oluşturun.');
+          return;
+        }
+        scenario._sourceFile = 'personal';
+      } else {
+        const r = await fetch(`data/scenarios/${saveData.scenarioId}.json`);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        scenario = await r.json();
+      }
+      S.scenario    = scenario;
+      S.notifs      = scenario.notifications || [];
       S.name        = saveData.name || S.name;
       S.setup       = saveData.setup || {};
       S.sectionId   = saveData.sectionId || 1;
@@ -1526,8 +1540,15 @@ var Game; Game = (() => {
     const APP_LBL  = { predictive:'Öngörücü Yaklaşım', agile:'Çevik Yaklaşım', hybrid:'Hibrit Yaklaşım' };
     const TEAM_LBL = { collaborative:'Kolaboratif takım', hierarchical:'Hiyerarşik takım', autonomous:'Özerk takım' };
     const DIFF_LBL = { beginner:'Giriş Düzeyi', intermediate:'Orta Düzey', advanced:'İleri Düzey' };
+    // Cinsiyete göre kibarca hitap (Hanım / Bey)
+    const _apGender  = (() => { try { return JSON.parse(localStorage.getItem('pmSim_work_meta') || '{}').gender || ''; } catch { return ''; } })();
+    const _apRawName = setup.player_name || S.name || 'Proje Müdürü';
+    const _apFirst   = _apRawName.split(' ')[0];
+    const _apPolite  = _apGender === 'female' ? `${_apFirst} Hanım`
+                     : _apGender === 'male'   ? `${_apFirst} Bey`
+                     : _apRawName;
     const vars = {
-      '{{player_name}}':      setup.player_name || S.name || 'Proje Müdürü',
+      '{{player_name}}':      _apPolite,
       '{{project_name}}':     setup.project_name || 'Stratejik Proje',
       '{{sector_label}}':     setup.sector_label || setup.sector || 'sektörünüz',
       '{{company}}':          setup.sector_label || 'Şirket',
@@ -1825,51 +1846,50 @@ var Game; Game = (() => {
   // ── INTRO SCREENS ─────────────────────────────────────────────────────────
   const INTRO_SCREENS = [
     { label: 'Karşılama', lines: [
-      { t: 'Birçok istekli arasından sıyrıldınız. Beklentiler de o oranda yüksek.' },
-      { t: 'Heyecan yersiz değil. Ama sandalyeye oturduğunuzda sorumluluk da oturur.' },
-      { t: 'Pozisyon cazip. Yük ağır. İkisi birlikte gelir.', c: 'strong' },
+      { t: 'Birçok aday arasından sıyrılıp buraya geldiniz. Beklentilerimiz de tam olarak bu oranda yüksek.' },
+      { t: 'Heyecanlanmanız yersiz değil. Ancak o koltuğa oturduğunuz an, sorumluluğun tüm ağırlığını omuzlarınızda hissedeceksiniz.' },
+      { t: 'Pozisyon son derece cazip, yük ise bir o kadar ağır. İkisi her zaman birlikte gelir.', c: 'strong' },
       { t: 'Hazır mısınız?', c: 'question' },
     ]},
     { label: 'Gerçekler', lines: [
-      { t: 'Sınavlarda tek doğru cevap vardır. Burada hayat var.' },
-      { t: 'Her kararın bütçeye, ekibe veya itibara yansıyan bir bedeli var.' },
-      { t: 'Hata yapanı koruyan mekanizma yok. Sizi bekleyen de değil.', c: 'strong' },
-      { t: 'Bunu şimdiden bilmek değer.', c: 'inner' },
+      { t: 'Sınavlarda tek bir doğru cevap vardır. Burada ise gerçek hayat...' },
+      { t: 'Alacağınız her kararın bütçeye, takıma veya kurumsal itibara yansıyan somut bir bedeli olacak.' },
+      { t: 'Burada hataları örtecek bir güvenlik ağı yok. Sizi kurtaracak kimse de yok.', c: 'strong' },
+      { t: 'Bunu en başından bilmenizde fayda var.', c: 'inner' },
     ]},
     { label: 'Kurallar', lines: [
-      { t: 'Sıra sizden gelmiyor. Geleni çözmek durumundasınız.' },
-      { t: 'Boş bırakıp geçilemez. Geri dönüş yok.' },
-      { t: 'Yardım alabilirsiniz, ama bu değerlendirmeye girer.', c: 'strong' },
-      { t: 'Hepsi kasıtlı.', c: 'inner' },
+      { t: 'Burada istediğiniz sorudan başlayamazsınız. Alıştığınızın aksine olayların sırasını siz belirleyemezsiniz.' },
+      { t: 'Sorunları erteleyemez veya boş bırakıp geçemezsiniz. Emin olmadığınıza sonra geri dönemezsiniz.' },
+      { t: 'Karar alırken danışabilirsiniz; ancak inisiyatif kullanımınız liderlik değerlendirmenizin parçasıdır.', c: 'strong' },
+      { t: 'Her zorluk kasıtlı tasarlandı. Her şeyi başkasına soracaksanız sizi neden işe aldık?', c: 'inner' },
     ]},
     { label: 'Kararlar', lines: [
-      { t: 'Tek doğru yoktur. En iyi seçenek her zaman vardır.' },
-      { t: 'Doğrularınız için takdir, yanlışlarınız için sonuç.' },
-      { t: 'Fark yaratan, doğru olanı seçmek değil — neden öyle seçtiğinizi bilmektir.', c: 'strong' },
-      { t: 'Onu bulmak için buradasınız.', c: 'inner' },
+      { t: 'Tek bir mutlak doğru yoktur; ancak şartlara en uygun "en iyi" seçenek daima vardır.' },
+      { t: 'Doğrularınız için madalya takmayız. Üzgünüm. Zaten doğrusunu bildiğinizden emin olduğumuz için buradasınız.' },
+      { t: 'Yanlışlar tabii ki olur. Hiçbirimiz mükemmel değiliz.', c: 'strong' },
+      { t: 'Ama yanlış var yanlış var...', c: 'inner' },
     ]},
     { label: 'Sınırlar', lines: [
-      { t: 'Etik dışı bir karar aldığınızda süreç durabilir. Kalıcı olarak.' },
-      { t: 'Her kararın bir süresi var. Zaman baskısı tesadüf değil, tasarım.' },
-      { t: 'Süreyi her seferinde aşarsanız sorulur: sizi neden işe aldık?', c: 'strong' },
-      { t: 'Bunu hiç yaşamayacağımızı umuyorum.', c: 'inner' },
+      { t: 'Etik dışı bir karar aldığınızda sistem sizin için durabilir. Hem de kalıcı olarak.' },
+      { t: 'Ayrıca her meselenin bir karar süresi vardır.' },
+      { t: 'Zamanı yönetemez ve sürekli kararsız kalırsanız, o koltukta neden oturduğunuz sorgulanmaya başlar.', c: 'strong' },
+      { t: 'Bu noktaya hiç gelmeyeceğimizi umuyorum.', c: 'inner' },
     ]},
     { label: 'Değerlendirme', lines: [
-      { t: 'Puanınız önemli, ama göstergenin tamamı değil.' },
-      { t: 'Öğrenme hızınız, hata örüntüleriniz, tepki süreniz de izlenir.' },
-      { t: 'Yanlıştan sonra ne yaptığınız, yanlışın kendisinden çok şey anlatır.', c: 'strong' },
-      { t: 'Bunu bilen az, yapan daha da az.', c: 'inner' },
+      { t: 'Sürekli ve tutarlı bilinçli kararlarınız sizi öne çıkardığında bunu inkâr etmeyiz. Ancak tablonun tamamı bundan ibaret değildir.' },
+      { t: 'Arka planda öğrenme hızınız, hata örüntüleriniz ve stres altındaki tepki süreniz sürekli izlenir.' },
+      { t: 'Yanlış bir karardan sonra attığınız adım, o yanlışın kendisinden çok daha fazla şey anlatır.', c: 'strong' },
+      { t: 'Bu gerçeği bilen azdır, uygulayabilen ise çok daha az.', c: 'inner' },
     ]},
     { label: 'Kültür', lines: [
-      { t: 'Mükemmel olmak beklenmez. Gelişiyor olmak beklenir.' },
-      { t: 'Eksiklerimizi söyleriz. Nedenlerini birlikte buluruz.' },
-      { t: 'Burada yetkinlik bir hedef değil, günlük bir alışkanlıktır.', c: 'strong' },
-      { t: 'Aramıza hoş geldiniz.', c: 'inner' },
+      { t: 'Sizden kusursuz olmanız beklenmez; hatalarınızdan ders alıp sürekli gelişiyor olmanız beklenir.' },
+      { t: 'Eksikliklerimizle yüzleşir, kök nedenlerini birlikte buluruz.' },
+      { t: 'Burada yetkinlik ulaşılacak bir hedef değil, her gün uygulanan bir liderlik refleksidir.', c: 'strong' },
     ]},
     { label: 'Son', lines: [
       { t: 'Başka sorunuz?', c: 'question' },
       { t: 'Ben de öyle tahmin etmiştim.', c: 'inner' },
-      { t: 'Ekibiniz sizi bekliyor.' },
+      { t: 'Takımınız sizi bekliyor.' },
       { t: 'Kariyeriniz başlasın.', c: 'strong' },
     ]},
   ];
@@ -1919,8 +1939,8 @@ var Game; Game = (() => {
   function _typewriterLines(lines, els) {
     if (_typewriterCancel) { _typewriterCancel(); _typewriterCancel = null; }
     let cancelled = false;
-    const CHAR_MS  = 22;  // karakter başına ms (okuma hızından tık hızlı)
-    const LINE_MS  = 260; // satırlar arası duraklama
+    const CHAR_MS  = 18;  // karakter başına ms
+    const LINE_MS  = 380; // satırlar arası duraklama (sinematik etki)
 
     _typewriterCancel = () => {
       cancelled = true;

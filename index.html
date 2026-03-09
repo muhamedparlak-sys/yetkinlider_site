@@ -485,6 +485,20 @@ footer strong { color: rgba(255,255,255,.85); }
   </div>
 </div>
 
+<!-- CİNSİYET TAMAMLAMA MODALI -->
+<div id="gender-prompt-overlay" style="display:none;position:fixed;inset:0;background:rgba(10,14,23,.92);backdrop-filter:blur(16px);z-index:1060;align-items:center;justify-content:center;padding:20px">
+  <div style="background:#141d2e;border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:44px 36px;width:100%;max-width:380px;color:#f1f5f9;text-align:center">
+    <div style="font-size:30px;margin-bottom:18px">👋</div>
+    <h3 style="font-size:21px;font-weight:700;margin-bottom:10px">Bir adım kaldı</h3>
+    <p style="font-size:14px;color:rgba(255,255,255,.56);line-height:1.7;margin-bottom:32px">Simülasyonda size uygun şekilde hitap edebilmemiz için cinsiyetinizi belirtin.</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <button onclick="window._setGender('female')" style="padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#f1f5f9;font-size:15px;font-weight:500;cursor:pointer">Kadın</button>
+      <button onclick="window._setGender('male')" style="padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#f1f5f9;font-size:15px;font-weight:500;cursor:pointer">Erkek</button>
+      <button onclick="window._setGender('other')" style="padding:10px 16px;border-radius:12px;border:none;background:transparent;color:rgba(255,255,255,.36);font-size:13px;cursor:pointer">Belirtmek istemiyorum</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ── HAMBURGER + MENU PANEL ─────────────────────────────────────────────────────
 const hamburger = document.getElementById('hamburger');
@@ -758,10 +772,37 @@ window.sbSignup = signupWithEmail;  // doRegister() tarafından kullanılır
 
 // ── Supabase kullanıcısını localStorage formatına eşle ───────────────────
 const _SK = 'pmSim_session';
+
+// Türkçe Title Case: i→İ, ı→I duyarlı
+function _toTrTitleCase(str) {
+  if (!str) return str;
+  return str.toLocaleLowerCase('tr-TR').replace(/(^|\s|-)(\S)/g, (_, s, c) => s + c.toLocaleUpperCase('tr-TR'));
+}
+
+// Cinsiyet girilmemişse profil tamamlama ekranını göster
+function _showGenderPrompt() {
+  try {
+    const el = document.getElementById('gender-prompt-overlay');
+    if (!el || el.style.display === 'flex') return;
+    const meta = JSON.parse(localStorage.getItem('pmSim_work_meta') || '{}');
+    if (!meta.gender) el.style.display = 'flex';
+  } catch {}
+}
+window._setGender = function(gender) {
+  try {
+    const meta = JSON.parse(localStorage.getItem('pmSim_work_meta') || '{}');
+    meta.gender = gender;
+    localStorage.setItem('pmSim_work_meta', JSON.stringify(meta));
+  } catch {}
+  const el = document.getElementById('gender-prompt-overlay');
+  if (el) el.style.display = 'none';
+};
+
 async function _syncSupabaseUser(user) {
-  const name = user.user_metadata?.full_name
-            || user.user_metadata?.name
-            || user.email.split('@')[0];
+  const rawName = user.user_metadata?.full_name
+               || user.user_metadata?.name
+               || user.email.split('@')[0];
+  const name = _toTrTitleCase(rawName);
 
   // Profiles tablosundan rolü çek
   let role = 'user';
@@ -785,6 +826,9 @@ async function _syncSupabaseUser(user) {
   }));
   if (typeof updateNav === 'function') updateNav();
 
+  // Cinsiyet kaydedilmemişse tamamlama ekranını göster
+  _showGenderPrompt();
+
   // Google OAuth sonrası return URL varsa yönlendir
   const retUrl = sessionStorage.getItem('_authReturn');
   if (retUrl) { sessionStorage.removeItem('_authReturn'); window.location.href = retUrl; }
@@ -793,6 +837,7 @@ async function _syncSupabaseUser(user) {
 // ── doLogout sarmalayıcı: hem Supabase hem localStorage temizler ──────────
 const _origLogout = window.doLogout;
 window.doLogout = async function () {
+  if (!confirm('Çıkış yapmak istediğinizden emin misiniz?')) return;
   await logoutSupabase();
   localStorage.removeItem(_SK);
   if (typeof _origLogout === 'function') _origLogout();
