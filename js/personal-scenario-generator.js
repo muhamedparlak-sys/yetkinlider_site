@@ -445,6 +445,13 @@ const PSG = (() => {
       totalDecisions = 180,
     } = config;
 
+    // Cinsiyete göre kibarca hitap (Hanım / Bey)
+    const _pgGender = (() => { try { return JSON.parse(localStorage.getItem('pmSim_work_meta') || '{}').gender || ''; } catch { return ''; } })();
+    const _pgFirst  = player_name.split(' ')[0];
+    const _playerPolite = _pgGender === 'female' ? `${_pgFirst} Hanım`
+                        : _pgGender === 'male'   ? `${_pgFirst} Bey`
+                        : player_name;
+
     // Kaynakları paralel yükle (havuzlar yerel kalır; mesele tipleri Supabase'den)
     const [isimler, roller, meseleTipiIds, loreTpls] = await Promise.all([
       fetchJson('data/havuzlar/isimler.json'),
@@ -509,7 +516,7 @@ const PSG = (() => {
 
     const absenceMap      = new Map();
     const reasonUseCounts = {};
-    const baseVars        = { player_name, project_name, mappedSector };
+    const baseVars        = { player_name: _playerPolite, project_name, mappedSector };
 
     // ── Hoşgeldiniz bildirimleri (her senaryo bunlarla başlar) ──────────────
     const hrPool   = kadro.filter(k => k.gender === 'female');
@@ -521,13 +528,13 @@ const PSG = (() => {
         type: 'story', phase: 'baslangic', phaseLabel: 'Başlatma', section: 1,
         from: hrPerson.fullName, fromRole: 'İK Uzmanı',
         subject: `${project_name} — Hoş Geldiniz`,
-        body: `Sayın ${player_name},\n\n${project_name} projesine Proje Yöneticisi olarak atandınız. Ekibinize ve proje belgelerine bugün itibarıyla erişiminiz tanımlanmıştır.\n\nEkip tanışma toplantısı ve oryantasyon programı önümüzdeki günlerde planlanacaktır. Herhangi bir sorunuz olursa lütfen bizimle iletişime geçin.\n\nBaşarılar dileriz.`,
+        body: `Sayın ${_playerPolite},\n\n${project_name} projesine Proje Yöneticisi olarak atandınız. Ekibinize ve proje belgelerine bugün itibarıyla erişiminiz tanımlanmıştır.\n\nEkip tanışma toplantısı ve oryantasyon programı önümüzdeki günlerde planlanacaktır. Herhangi bir sorunuz olursa lütfen bizimle iletişime geçin.\n\nBaşarılar dileriz.`,
       },
       {
         type: 'story', phase: 'baslangic', phaseLabel: 'Başlatma', section: 1,
         from: sponsor.fullName, fromRole: sponsor.role,
         subject: `${project_name} — İlk Mesajım`,
-        body: `Sayın ${player_name},\n\n${project_name} için sizi seçtiğimizden son derece memnunum. Bu proje kurumumuz açısından stratejik öneme sahip ve doğru elde olduğuna inanıyorum.\n\nHer türlü destek ve kaynağa erişiminiz var. Önceliklerinizi ve ihtiyaçlarınızı benimle paylaşmaktan çekinmeyin.\n\nBaşarılar.`,
+        body: `Sayın ${_playerPolite},\n\n${project_name} için sizi seçtiğimizden son derece memnunum. Bu proje kurumumuz açısından stratejik öneme sahip ve doğru elde olduğuna inanıyorum.\n\nHer türlü destek ve kaynağa erişiminiz var. Önceliklerinizi ve ihtiyaçlarınızı benimle paylaşmaktan çekinmeyin.\n\nBaşarılar.`,
       },
     ];
     let globalIdx = allNotifications.length; // 2'den başla

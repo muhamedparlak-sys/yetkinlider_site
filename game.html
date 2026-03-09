@@ -1540,8 +1540,15 @@ var Game; Game = (() => {
     const APP_LBL  = { predictive:'Öngörücü Yaklaşım', agile:'Çevik Yaklaşım', hybrid:'Hibrit Yaklaşım' };
     const TEAM_LBL = { collaborative:'Kolaboratif takım', hierarchical:'Hiyerarşik takım', autonomous:'Özerk takım' };
     const DIFF_LBL = { beginner:'Giriş Düzeyi', intermediate:'Orta Düzey', advanced:'İleri Düzey' };
+    // Cinsiyete göre kibarca hitap (Hanım / Bey)
+    const _apGender  = (() => { try { return JSON.parse(localStorage.getItem('pmSim_work_meta') || '{}').gender || ''; } catch { return ''; } })();
+    const _apRawName = setup.player_name || S.name || 'Proje Müdürü';
+    const _apFirst   = _apRawName.split(' ')[0];
+    const _apPolite  = _apGender === 'female' ? `${_apFirst} Hanım`
+                     : _apGender === 'male'   ? `${_apFirst} Bey`
+                     : _apRawName;
     const vars = {
-      '{{player_name}}':      setup.player_name || S.name || 'Proje Müdürü',
+      '{{player_name}}':      _apPolite,
       '{{project_name}}':     setup.project_name || 'Stratejik Proje',
       '{{sector_label}}':     setup.sector_label || setup.sector || 'sektörünüz',
       '{{company}}':          setup.sector_label || 'Şirket',
