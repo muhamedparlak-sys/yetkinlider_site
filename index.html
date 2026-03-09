@@ -837,6 +837,7 @@ async function _syncSupabaseUser(user) {
 // ── doLogout sarmalayıcı: hem Supabase hem localStorage temizler ──────────
 const _origLogout = window.doLogout;
 window.doLogout = async function () {
+  if (!confirm('Çıkış yapmak istediğinizden emin misiniz?')) return;
   await logoutSupabase();
   localStorage.removeItem(_SK);
   if (typeof _origLogout === 'function') _origLogout();

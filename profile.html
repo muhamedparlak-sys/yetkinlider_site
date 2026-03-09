@@ -87,6 +87,12 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
 .profile-badge.trial   { background: #f0fdf4; border-color: #86efac; color: #166534; }
 .profile-badge.standard{ background: var(--surface2); border-color: var(--border); color: var(--text-muted); }
 
+/* ── OVERALL BADGE ── */
+.profile-overall { flex-shrink:0; text-align:center; display:none; }
+.po-ring { width:72px; height:72px; border-radius:50%; border:3px solid var(--accent); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; }
+.po-val { font-size:22px; font-weight:800; color:var(--accent); line-height:1; }
+.po-lbl { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--text-muted); }
+
 /* ── TABS ── */
 .profile-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
 .profile-tab { flex: 1; text-align: center; padding: 10px 4px; font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: color .15s, border-color .15s; background: none; border-top: none; border-left: none; border-right: none; margin-bottom: -1px; }
@@ -217,14 +223,20 @@ html.dark .profile-badge.dev     { background:rgba(245,158,11,.15); border-color
 /* ── SCORECARD DARK SECTION ── */
 :root { --capm:#c9960c; --pmp:#3b82f6; --adv:#a855f7; }
 .sc-wrap {
+  --s1:#f1f5f9; --s2:#e2e8f0; --muted:#64748b; --dim:#94a3b8;
+  --text:#0b1220; --border:rgba(0,0,0,.10);
+  background:var(--surface,#fff); border-radius:10px; color:#0b1220; overflow:hidden;
+}
+html.dark .sc-wrap {
   --s1:#161b22; --s2:#21262d; --muted:#a0aec0; --dim:#8b949e;
   --text:#e6edf3; --border:rgba(255,255,255,.10);
-  background:#0d1117; border-radius:10px; color:#e6edf3; overflow:hidden;
+  background:#0d1117; color:#e6edf3;
 }
 .sc-wrap .tab-row { display:flex; gap:6px; padding:12px 12px 0; }
 .tab-btn { flex:1; background:var(--s1); border:1px solid var(--border); border-radius:8px; padding:10px 14px; text-align:center; transition:border-color .15s,background .15s; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:3px; font-family:inherit; }
-.tab-btn:hover { border-color:rgba(255,255,255,.15); }
-.tab-cert { font-size:12px; font-weight:700; color:rgba(255,255,255,.78); transition:color .15s; }
+.tab-btn:hover { border-color:rgba(0,0,0,.18); }
+html.dark .tab-btn:hover { border-color:rgba(255,255,255,.15); }
+.tab-cert { font-size:12px; font-weight:700; color:var(--text); transition:color .15s; }
 .tab-sub { font-size:10px; color:var(--muted); }
 .tab-btn[data-tab="capm"].active { border-color:var(--capm); background:rgba(201,150,12,.06); }
 .tab-btn[data-tab="capm"].active .tab-cert { color:var(--capm); }
@@ -375,8 +387,12 @@ html.dark .shc-badge.ongoing   { background:rgba(59,130,246,.15); border-color:r
         <div class="pcs-item"><span class="pcs-val" id="sc-scenarios">0</span><span class="pcs-lbl">Senaryo</span></div>
         <div class="pcs-item"><span class="pcs-val" id="sc-decisions">0</span><span class="pcs-lbl">Karar</span></div>
         <div class="pcs-item"><span class="pcs-val" id="sc-accuracy">—</span><span class="pcs-lbl">İsabetli</span></div>
-        <div class="pcs-item"><span class="pcs-val gold" id="sc-xp">0 XP</span><span class="pcs-lbl">Toplam XP</span></div>
-        <div class="pcs-item"><span class="pcs-val gold" id="sc-level-title">PM Stajyeri</span><span class="pcs-lbl">Kariyer Seviyesi</span></div>
+      </div>
+    </div>
+    <div class="profile-overall" id="profileOverall">
+      <div class="po-ring">
+        <span class="po-val" id="poVal">—</span>
+        <span class="po-lbl">Overall</span>
       </div>
     </div>
   </div>
@@ -797,6 +813,12 @@ function areaOverall(area, stats) {
   const vals = area.skills.map(sk => stats[sk.id]||0).filter(v=>v>0);
   return vals.length > 0 ? Math.round(vals.reduce((a,b)=>a+b,0)/vals.length) : 0;
 }
+// Ağırlıklı genel skor — 0-100 arası (people×42 + process×50 + business×8 = 100)
+function computeOverall(stats) {
+  const weighted = AREAS.filter(a => a.weight).reduce((s, a) => s + areaOverall(a, stats) * a.weight, 0);
+  const totalW   = AREAS.filter(a => a.weight).reduce((s, a) => s + a.weight, 0);
+  return totalW > 0 ? Math.min(100, Math.round(weighted / totalW * 5)) : 0;
+}
 
 function toggleArea(head) {
   head.closest('.area-card').classList.toggle('open');
@@ -836,25 +858,11 @@ function renderAttr(stats, tab) {
 }
 
 function renderRight(profile, stats, saves, tab, scenariosData) {
-  const lvl = careerLevel(profile.totalXP);
-  const acc = profile.totalDec > 0 ? Math.round(profile.goodDec / profile.totalDec * 100) + '%' : '—';
-  const tabColor = tab==='capm'?'ir-gold':tab==='pmp'?'ir-blue':'ir-purple';
-  const tabName  = tab==='capm'?'Temel':tab==='pmp'?'Profesyonel':'Uzman';
-
   const weak = [];
   for (const area of AREAS) for (const sk of area.skills) { const st = stats[sk.id]||0; if (st >= 1 && st < 4) weak.push({ label:sk.label, stat:st }); }
   const devHTML = weak.length > 0 ? `<div class="info-panel"><div class="panel-head">Gelişim Alanları</div>${weak.map(sk=>`<div class="dev-item"><div class="dev-name">${sk.label}</div><div class="dev-stat">${sk.stat} / 20 · Temel</div></div>`).join('')}</div>` : '';
 
-  const statsHTML = `<div class="info-panel"><div class="panel-head">Kariyer İstatistikleri</div>
-    <div class="info-row"><span class="ir-label">Toplam XP</span><span class="ir-val ir-gold">${profile.totalXP}</span></div>
-    <div class="info-row"><span class="ir-label">Kariyer Seviyesi</span><span class="ir-val ir-gold">Seviye ${lvl.n} · ${lvl.t}</span></div>
-    <div class="info-row"><span class="ir-label">Tamamlanan Senaryo</span><span class="ir-val">${profile.scenarios}</span></div>
-    <div class="info-row"><span class="ir-label">Verilen Karar</span><span class="ir-val">${profile.totalDec}</span></div>
-    <div class="info-row"><span class="ir-label">İsabetli Karar</span><span class="ir-val ir-green">${acc}</span></div>
-    <div class="info-row"><span class="ir-label">Aktif Seviye</span><span class="ir-val ${tabColor}">${tabName}</span></div>
-  </div>`;
-
-  return `${statsHTML}${devHTML}<button class="btn-reset" onclick="confirmReset()">Tüm Kayıtları Sıfırla</button>`;
+  return `${devHTML}<button class="btn-reset" onclick="confirmReset()">Tüm Kayıtları Sıfırla</button>`;
 }
 
 let G = { saves:[], scenariosData:{}, activeTab:'capm', profile:null };
@@ -871,7 +879,6 @@ async function init() {
   if (sess?.username) G.saves = await getUserSaves(sess.username);
 
   const profile = computeProfile(G.saves, G.scenariosData);
-  const lvl = careerLevel(profile.totalXP);
   const acc = profile.totalDec > 0 ? Math.round(profile.goodDec/profile.totalDec*100)+'%' : '—';
 
   // Show career stats in hero
@@ -881,8 +888,6 @@ async function init() {
     document.getElementById('sc-scenarios').textContent  = profile.scenarios;
     document.getElementById('sc-decisions').textContent  = profile.totalDec;
     document.getElementById('sc-accuracy').textContent   = acc;
-    document.getElementById('sc-xp').textContent         = profile.totalXP + ' XP';
-    document.getElementById('sc-level-title').textContent = 'Seviye ' + lvl.n + ' · ' + lvl.t;
   }
 
   G.activeTab = defaultTab(G.saves);
@@ -919,6 +924,14 @@ function renderTab(tab) {
   const rightHTML = renderRight(G.profile, stats, G.saves, tab, G.scenariosData);
   const emptyHTML = !hasData ? `<div class="empty-note"><h3>Bu düzeyde veri yok</h3><p>${tab==='capm'?'Kolay':tab==='pmp'?'Normal':'Zor'} zorluktaki senaryoyu simüle ederek bu düzeyi doldur.</p><a href="game.html" class="btn-play">Simülasyonu Başlat</a></div>` : '';
   document.getElementById('main-grid').innerHTML = `<div>${attrHTML}${emptyHTML}</div><div class="right-panel">${rightHTML}</div>`;
+  // Overall badge güncelle
+  const overall = computeOverall(stats);
+  const overallEl = document.getElementById('profileOverall');
+  const valEl     = document.getElementById('poVal');
+  if (overallEl && valEl) {
+    valEl.textContent = overall > 0 ? overall : '—';
+    overallEl.style.display = overall > 0 ? 'block' : 'none';
+  }
 }
 
 async function confirmReset() {
@@ -1281,6 +1294,7 @@ document.getElementById('editWorkModal').addEventListener('click', e => {
 
 // ── LOGOUT ───────────────────────────────────────────────────────────────────
 function doLogout() {
+  if (!confirm('Çıkış yapmak istediğinizden emin misiniz?')) return;
   localStorage.removeItem(SESSION_KEY);
   location.href = 'index.html';
 }
