@@ -421,15 +421,23 @@ const CAT_ORDER = Object.keys(CAT_ICONS);
 let allTerms = [];
 let state = { q: '', cat: '', letter: '', crisis: false, pg: '', da: '' };
 
-fetch('data/glossary.json')
-  .then(r => r.json())
-  .then(data => {
-    allTerms = data.terms.sort((a, b) => a.term.localeCompare(b.term, 'tr'));
-    document.getElementById('totalPill').textContent = allTerms.length + ' terim';
-    buildCatSelect();
-    buildAlphaSelect();
-    render();
-  });
+// Supabase'den yükle (IP koruması); fallback: yerel dosya
+(async () => {
+  let data = null;
+  if (typeof window.__sbFetchGlossary === 'function') {
+    try { data = await window.__sbFetchGlossary(); } catch(e) { console.warn('[Glossary] SB hatası:', e.message); }
+  }
+  if (!data) {
+    // Fallback: yerel dosya (dev ortamı)
+    const r = await fetch('data/glossary.json');
+    data = await r.json();
+  }
+  allTerms = data.terms.sort((a, b) => a.term.localeCompare(b.term, 'tr'));
+  document.getElementById('totalPill').textContent = allTerms.length + ' terim';
+  buildCatSelect();
+  buildAlphaSelect();
+  render();
+})();
 
 function buildCatSelect() {
   const cats = [...new Set(allTerms.map(t => t.category))];
@@ -651,6 +659,12 @@ function jumpTo(name) {
     }, 100);
   }
 }
+</script>
+
+<!-- ── Supabase: glossary IP koruması ───────────────────────────────────── -->
+<script type="module">
+import { fetchGlossary } from '/js/db.js';
+window.__sbFetchGlossary = fetchGlossary;
 </script>
 </body>
 </html>

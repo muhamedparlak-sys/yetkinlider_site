@@ -1442,6 +1442,37 @@ var Game; Game = (() => {
 
   async function loadMasterScenario() {
     try {
+      // Kişisel senaryo: PSG tarafından üretilmişse önce onu kullan
+      const _personalRaw = (() => { try { return JSON.parse(localStorage.getItem('pmSim_personal_scenario') || 'null'); } catch { return null; } })();
+      if (_personalRaw && _personalRaw.notifications?.length) {
+        localStorage.removeItem('pmSim_personal_scenario');
+        _personalRaw._sourceFile = 'personal';
+        S.scenario  = _personalRaw;
+        S.notifs    = _personalRaw.notifications;
+        document.title = (_personalRaw.title || 'Simülasyon') + ' — YetkinLider';
+        beginPlay();
+        return;
+      }
+
+      // Supabase fallback: career modunda localStorage yoksa (cross-device / refresh)
+      if (S.mode === 'career' && window.__sbFetchPersonalScenario) {
+        try {
+          const _sid = S.setup?.session_id || null;
+          const _sbScenario = await window.__sbFetchPersonalScenario(_sid);
+          if (_sbScenario && _sbScenario.notifications?.length) {
+            _sbScenario._sourceFile = 'personal';
+            S.scenario = _sbScenario;
+            S.notifs   = _sbScenario.notifications;
+            document.title = (_sbScenario.title || 'Simülasyon') + ' — YetkinLider';
+            beginPlay();
+            return;
+          }
+        } catch(e) {
+          console.warn('[PSG←SB] Supabase kişisel senaryo çekme başarısız:', e.message);
+        }
+      }
+
+      // Fallback: master.json yükle
       let raw;
       if (window.__sbFetchScenario) {
         try { raw = await window.__sbFetchScenario('master'); } catch {}
@@ -2548,14 +2579,15 @@ window.Game = Game;
 <!-- ── Supabase entegrasyonu (Storage + DB) ────────────────────────────── -->
 <script type="module">
 import { fetchScenario, manifestUrl } from '/js/storage.js';
-import { upsertGameSave, fetchUserSaves } from '/js/db.js';
+import { upsertGameSave, fetchUserSaves, fetchPersonalScenario } from '/js/db.js';
 
 // ── Storage bağlantıları ─────────────────────────────────────────────────
 window.__sbFetchScenario = fetchScenario;
 window.__sbManifestUrl   = manifestUrl();
 
 // ── DB bağlantıları ──────────────────────────────────────────────────────
-window.__sbUpsertSave = upsertGameSave;
+window.__sbUpsertSave            = upsertGameSave;
+window.__sbFetchPersonalScenario = fetchPersonalScenario;
 
 // ── Cross-device senkronizasyon ──────────────────────────────────────────
 // Supabase'deki kayıtları localStorage ile birleştir, welcome screen'i güncelle
