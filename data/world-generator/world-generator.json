@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "versiyon": "1.0",
+    "versiyon": "1.1",
     "ad": "YetkinLider Dünya Üreteci",
     "aciklama": "Oyun motoru her yeni kariyer başlatıldığında bu havuzlardan rastgele seçim yaparak benzersiz bir dünya kurar. Statik senaryo değil, dinamik kombinasyon makinesi.",
     "kombinasyon_tahmini": "~800M+ (sektör × firma × müşteri × org × metodoloji × bütçe × kadro)",
@@ -701,6 +701,8 @@
         "aciklama": "Yüksek teknik yetkinlik, düşük değişim esnekliği. 'Ben bunu daha iyi bilirim' modeli. Güçlü ama ego kırılganlığı var.",
         "beceri_aralik": [75, 92],
         "burnout_limiti_aralik": [55, 70],
+        "guven_seviyesi_aralik": [50, 65],
+        "_guven_notu": "Teknik otoritesi yüksek ama PM'e güven çabuk erir; ego sarsılırsa KAPSAM krizi tetikler.",
         "etik_durus": "Yapıcı",
         "sadakat_aralik": [45, 65],
         "etki_gucu_aralik": [70, 90],
@@ -718,6 +720,8 @@
         "aciklama": "Düşük deneyim, yüksek motivasyon. Her şeye 'evet' der. Burnout riski en yüksek karakter. Korunmazsa önce performansı düşer, sonra ayrılır.",
         "beceri_aralik": [40, 65],
         "burnout_limiti_aralik": [30, 50],
+        "guven_seviyesi_aralik": [75, 90],
+        "_guven_notu": "PM'e kör güven; söyleneni yapar. Güven 40'ın altına düşerse sessiz istifaya gider — bu en sert kayıp.",
         "etik_durus": "Yapıcı",
         "sadakat_aralik": [70, 90],
         "etki_gucu_aralik": [20, 40],
@@ -735,6 +739,8 @@
         "aciklama": "Hem teknik derinlik hem süreç anlayışı var. Şirketin yedek kaynağı yok. Hastalanırsa veya ayrılırsa birden fazla alan durur.",
         "beceri_aralik": [70, 85],
         "burnout_limiti_aralik": [65, 80],
+        "guven_seviyesi_aralik": [60, 78],
+        "_guven_notu": "Değerinin farkında; tanınmadığında güveni rakam taleplere dönüşür. Güven korunursa en stabil kaynak.",
         "etik_durus": "Değişken",
         "sadakat_aralik": [55, 75],
         "etki_gucu_aralik": [65, 80],
@@ -752,6 +758,8 @@
         "aciklama": "Yüksek teknik yetkinlik, düşük iletişim becerileri. Kararlarını yazıya dökmez. Bilgi adası riskinin en büyük kaynağı.",
         "beceri_aralik": [80, 95],
         "burnout_limiti_aralik": [70, 85],
+        "guven_seviyesi_aralik": [45, 62],
+        "_guven_notu": "Duygusal güven düşük ama kurumsal bağlılık güçlü. Güven 35'e düşerse ILETISIM_KAPANIS krizleri patlar.",
         "etik_durus": "Yapıcı",
         "sadakat_aralik": [60, 80],
         "etki_gucu_aralik": [50, 65],
@@ -769,6 +777,8 @@
         "aciklama": "Süreç ve metodoloji konusunda uzman. Ekip dinamiklerini iyi okur. Zaman zaman süreç kurguya aşırı bağlı, esneklik sınırlı.",
         "beceri_aralik": [65, 80],
         "burnout_limiti_aralik": [70, 88],
+        "guven_seviyesi_aralik": [65, 82],
+        "_guven_notu": "Süreç ihlalleri güvenini sarsar; PM süreçleri bypass ederse ekip dinamiklerini kaybeder.",
         "etik_durus": "Yapıcı",
         "sadakat_aralik": [65, 85],
         "etki_gucu_aralik": [60, 75],
@@ -786,6 +796,8 @@
         "aciklama": "Alan uzmanlığı yüksek, bağlılık düşük. Kendi çıktısını üretip ayrılmaya hazır. Uzun vadeli teknik sorumluluğu almaz.",
         "beceri_aralik": [70, 90],
         "burnout_limiti_aralik": [80, 95],
+        "guven_seviyesi_aralik": [35, 55],
+        "_guven_notu": "Transaksiyonel ilişki; güven sözleşme bedeline göre değişir. KAPSAM krizinde ilk güvensiz karakter olur.",
         "etik_durus": "Değişken",
         "sadakat_aralik": [20, 40],
         "etki_gucu_aralik": [55, 75],
@@ -803,6 +815,8 @@
         "aciklama": "Birden fazla projeye atanmış; kapasitesinin üzerinde iş taşıyor. Yüksek becerili ama zaman kısıtlı. Darboğaz yaratır.",
         "beceri_aralik": [72, 88],
         "burnout_limiti_aralik": [40, 60],
+        "guven_seviyesi_aralik": [50, 68],
+        "_guven_notu": "Başlangıçta güven yüksek; ancak teslim eksikliği güveni hızla tüketir. PM'in en büyük hayal kırıklığı kaynağı.",
         "etik_durus": "Değişken",
         "sadakat_aralik": [50, 70],
         "etki_gucu_aralik": [70, 85],
@@ -986,6 +1000,7 @@
     "zorunlu_arketip_listesi": ["CTR01", "IPR01"],
     "_not_zorunlu": "Dirençli Kıdemli (CTR01) ve Vizyoner Sponsor (IPR01) her senaryoda mutlaka bulunmalı. Dramaturjik temel bunlar.",
     "kural_burnout_dengesi": "Çekirdek takımda burnout_limiti < 50 olan karakter sayısı en fazla 1 olmalı.",
+    "kural_guven_dengesi":   "Başlangıç guven_seviyesi < 45 olan karakter sayısı en fazla 2 olmalı. Drama dengesi için en az 1 yüksek güvenli (>70) karakter gerekir.",
     "kural_etik_dengesi":    "Takımın en az 1 'Yapıcı' etik profilli üyesi olmalı.",
     "kural_cinsiyet_dengesi": "Kadın/erkek oranı %30/%70 ile %70/%30 arasında kalmalı.",
     "isim_atama_kaynak": "data/havuzlar/isimler.json",
@@ -1016,6 +1031,43 @@
       "teknik":       "proje_havuzu.teknik_karmasiklik_havuzu[n].kriz_kategori_modifiyeri"
     },
 
+    "nedensellik_zinciri": {
+      "_aciklama": "Oyuncunun geçmiş kararları sonraki perdelerin kriz ağırlıklarını dinamik olarak değiştirir. Statik matris değil; eylem × sonuç zinciri.",
+
+      "poison_secim_etkisi": {
+        "_aciklama": "Her etik ihlal (poison seçim) ilerleyen perdelerde uyumluluk ve paydaş krizlerini ağırlaştırır. 'Bugün kestirip attığın köprüler yarın seni durdurur.'",
+        "ilk_poison_sonrasi_perde_3_4_modifiyeri": {
+          "PAYDAS_YONETISIM": "+0.35 (her poison için, maks +1.40)",
+          "RISK_DIS_CEVRE":   "+0.25 (her poison için, maks +1.00)"
+        },
+        "kritik_esik_3_poison": {
+          "tetiklenen_olay": "Perde 3'te otomatik 'Sponsorun Güveni Sarsıldı' krizi (PAYDAS_YONETISIM kategorisi)",
+          "etki": "IPR01 (Vizyoner Sponsor) güven_seviyesi -30 düşer; sonraki bütçe kararı olumsuz yönelir"
+        },
+        "kritik_esik_5_poison": {
+          "tetiklenen_olay": "Perde 4'te zorunlu 'Proje İtibar Denetimi' krizi (RISK_DIS_CEVRE kategorisi)",
+          "etki": "Sezon sonu notunda 'Etik Liderlik' yetkinliği sıfır puan alır"
+        }
+      },
+
+      "kapsam_yonetim_etkisi": {
+        "_aciklama": "Zayıf kapsam kararları (distractor veya poison) KAPSAM krizlerini zincirleme büyütür.",
+        "art_arda_2_kapsam_poison": "Bir sonraki KAPSAM meselesinin ağırlığı ×1.5 olur",
+        "kaynak_yonetim_ihmali": "KAYNAK_EKIP poison seçimleri Perde 2'de burnout krizini öne çeker: burnout_limiti eşiği -10 düşer"
+      },
+
+      "guven_zinciri": {
+        "_aciklama": "Karakterlerin guven_seviyesi oyuncu kararlarına göre dinamik değişir. Güven 0'a düşen karakter projeyi terk eder.",
+        "guven_artiran_kararlar": "medicine seçimi → ilgili karakterin guven_seviyesi +5",
+        "guven_azaltan_kararlar": "poison seçimi → tüm çekirdek ekibin guven_seviyesi -3; ilgili karakterin -8",
+        "guven_esigi_kriteri": {
+          "40_altinda": "Karakter pasif direnç gösterir; tetiklenen_mesele_kategorileri'nden kriz olasılığı +20%",
+          "20_altinda": "Karakter Perde 3 veya 4'te ayrılır → KAYNAK_EKIP otomatik krizi tetikler",
+          "0": "Anlık istifa; senaryo içinde değiştirilemez kayıp"
+        }
+      }
+    },
+
     "perde_kısitlamalari": {
       "PERDE_1_ay_1_3": {
         "agirlikli_kategoriler": ["KAPSAM", "PAYDAS_YONETISIM", "KAYNAK_EKIP"],
@@ -1036,6 +1088,46 @@
         "agirlikli_kategoriler": ["KALITE_TEKNIK", "ILETISIM_KAPANIS", "PAYDAS_YONETISIM"],
         "yasakli_kategoriler":  ["KAYNAK_EKIP"],
         "_aciklama": "Kapanış ve hesaplaşma. Ekip çatışması değil, teslimat krizi."
+      }
+    }
+  },
+
+  "sezon_gecis_mekanizmalari": {
+    "_aciklama": "Bir kariyer sezonu (12 aylık proje) biterken oyuncunun aldığı kararlar sonraki sezonu doğrudan etkiler. Bu mekanizma sezonlar arası süreklilik ve öğrenme döngüsünü kurar.",
+
+    "donem_dersleri": {
+      "_aciklama": "Her sezon sonunda oyuncu 3 kritik ders kaydeder. Bu dersler sonraki sezonda başlangıç avantajları veya dezavantajları üretir.",
+      "ders_kayit_yontemi": "Sezon kapanışında oyuncu 'Retrospektif' ekranında 3 kritik karar seçer ve kısa not yazar.",
+      "kayit_yapilirsa": {
+        "bonus": "Sonraki sezonda ilgili kriz kategorisinde başlangıç ağırlığı ×0.8 (kriz %20 daha az sık gelir)",
+        "karakter_etkisi": "Dersi yazan PM'e güvenen karakterlerin guven_seviyesi +5 başlar",
+        "sezon_acilis_olayi": "Yok — proje normal başlar"
+      },
+      "kayit_yapilmazsa": {
+        "ceza": "Sonraki sezonda ilk Perde'de 'Bilgi Açığı Krizi' otomatik tetiklenir (ILETISIM_KAPANIS kategorisi)",
+        "kriz_aciklamasi": "Önceki projeden ders çıkarılmadığı için aynı hatalar erken gündeme gelir. Yeni ekip, geçmişi bilmiyor.",
+        "ek_ceza": "ILETISIM_KAPANIS kriz ağırlığı tüm sezon boyunca +0.3 kalır"
+      }
+    },
+
+    "karakter_surekliligi": {
+      "_aciklama": "Bazı karakterler sezonlar arasında taşınır; geçmişte yaşanan güven/burnout birikmesi sıfırlanmaz.",
+      "sureklilk_esigi": "guven_seviyesi >= 60 AND burnout < burnout_limiti*0.7 olan karakterler bir sonraki sezonda %40 olasılıkla tekrar karşına çıkar",
+      "hafıza_etkisi": {
+        "yuksek_guven_gecmis": "Önceki sezonda guven 70'in üzerinde biten karakter, yeni sezonda +10 başlangıç güveni ile gelir",
+        "dusuk_guven_gecmis":  "Önceki sezonda guven 30'un altında biten karakter, yeni sezonda -15 başlangıç güveni ile gelir — 'Seni hatırlıyorum' etkisi"
+      }
+    },
+
+    "itibar_puani": {
+      "_aciklama": "Sezon sonu XP + etik skoru = itibar puanı. Bu puan sonraki sezonda oyuncunun başlangıç konumunu belirler.",
+      "yuksek_itibar_80_ustu": {
+        "avantaj": "Yeni sezon başında IPR01 (Sponsor) başlangıç güveni +15",
+        "ek_avantaj": "İlk Perde'de bütçe ve kaynak müzakeresi 1 kez otomatik lehte sonuçlanır"
+      },
+      "dusuk_itibar_40_alti": {
+        "dezavantaj": "Yeni sezon başında Sponsor guven_seviyesi -20 ile başlar",
+        "ek_dezavantaj": "İlk Perde'de 'Geçmiş Proje Gölgesi' zayıf sinyal krizi gelir (PAYDAS_YONETISIM)"
       }
     }
   },
