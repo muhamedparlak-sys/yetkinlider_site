@@ -286,10 +286,11 @@ const PSG = (() => {
     const senderType = reason.sender || 'self';
 
     // Konu (bildirim gönderilen kişi) — sender'dan farklı olabilir
-    let charName = '', charRole = '';
+    let charName = '', charRole = '', charGender = 'any', charFirstName = '';
     if (['client', 'sponsor', 'end_user'].includes(senderType)) {
       const dk = senderType === 'client' ? disKisiler[0] : senderType === 'sponsor' ? disKisiler[1] : disKisiler[2];
       charName = dk.fullName; charRole = dk.role;
+      charGender = dk.gender || 'any'; charFirstName = dk.firstName || charName.split(' ')[0];
     } else {
       const g    = reason.gender || 'any';
       const pool = activeKadro(kadro, globalIdx, absenceMap).filter(k => g === 'any' || k.gender === g);
@@ -297,9 +298,14 @@ const PSG = (() => {
         ? randChoice(pool, rng)
         : randChoice(activeKadro(kadro, globalIdx, absenceMap), rng) || randChoice(kadro, rng);
       charName = m?.fullName || ''; charRole = m?.role || '';
+      charGender = m?.gender || 'any'; charFirstName = m?.firstName || charName.split(' ')[0];
     }
+    // {name_polite} = "Serdar Bey" / "Elif Hanım" — selamlama için doğal Türkçe hitap formu
+    const charPolite = charGender === 'female' ? `${charFirstName} Hanım`
+                     : charGender === 'male'   ? `${charFirstName} Bey`
+                     : charFirstName;
 
-    const vars = { ...baseVars, name: charName, role: charRole, duration, month: 'Kasım', ...bodyVars };
+    const vars = { ...baseVars, name: charName, name_polite: charPolite, name_first: charFirstName, role: charRole, duration, month: 'Kasım', ...bodyVars };
 
     // Mesajı gerçekte kimin gönderdiği
     let fromName, fromRole;
@@ -332,12 +338,15 @@ const PSG = (() => {
     }
 
     // Seçenekler + geribildirim
+    // optionVars: seçenek metinlerinde {name} → kibar hitap ("Serdar Bey" / "Elif Hanım")
+    // subject/body şablonlarında {name} → tam ad korunur (farklı anlam)
+    const optionVars = { ...vars, name: charPolite };
     const options = OPTION_ORDER.map(key => {
       const opt = reason.options?.[key];
       if (!opt) return null;
       return {
         key:         OPTION_KEYS[key],
-        text:        fill(opt.text_template, vars),
+        text:        fill(opt.text_template, optionVars),
         xp:          opt.xp,
         isEthical:   opt.isEthical,
         consequence: makeConsequence(key, vars, kadro, disKisiler, rng),
@@ -445,11 +454,10 @@ const PSG = (() => {
       totalDecisions = 180,
     } = config;
 
-    // Cinsiyete göre kibarca hitap (Hanım / Bey)
+    // Cinsiyete göre kibarca hitap (Hanım / Bey) — tam ad kullanılır
     const _pgGender = (() => { try { return JSON.parse(localStorage.getItem('pmSim_work_meta') || '{}').gender || ''; } catch { return ''; } })();
-    const _pgFirst  = player_name.split(' ')[0];
-    const _playerPolite = _pgGender === 'female' ? `${_pgFirst} Hanım`
-                        : _pgGender === 'male'   ? `${_pgFirst} Bey`
+    const _playerPolite = _pgGender === 'female' ? `${player_name} Hanım`
+                        : _pgGender === 'male'   ? `${player_name} Bey`
                         : player_name;
 
     // Kaynakları paralel yükle (havuzlar yerel kalır; mesele tipleri Supabase'den)
@@ -516,7 +524,7 @@ const PSG = (() => {
 
     const absenceMap      = new Map();
     const reasonUseCounts = {};
-    const baseVars        = { player_name: _playerPolite, project_name, mappedSector };
+    const baseVars        = { player_name, project_name, mappedSector };
 
     // ── Hoşgeldiniz bildirimleri (her senaryo bunlarla başlar) ──────────────
     const hrPool   = kadro.filter(k => k.gender === 'female');
@@ -528,13 +536,13 @@ const PSG = (() => {
         type: 'story', phase: 'baslangic', phaseLabel: 'Başlatma', section: 1,
         from: hrPerson.fullName, fromRole: 'İK Uzmanı',
         subject: `${project_name} — Hoş Geldiniz`,
-        body: `Sayın ${_playerPolite},\n\n${project_name} projesine Proje Yöneticisi olarak atandınız. Ekibinize ve proje belgelerine bugün itibarıyla erişiminiz tanımlanmıştır.\n\nEkip tanışma toplantısı ve oryantasyon programı önümüzdeki günlerde planlanacaktır. Herhangi bir sorunuz olursa lütfen bizimle iletişime geçin.\n\nBaşarılar dileriz.`,
+        body: `Sayın ${_playerPolite},\n\n${project_name} projesinde Proje Yöneticisi olarak görevlendirildiniz. Ekibinize ve proje belgelerine bugün itibarıyla erişiminiz tanımlanmıştır.\n\nEkip tanışma toplantısı ve oryantasyon programı önümüzdeki günlerde düzenlenecektir. Herhangi bir sorunuz olursa benimle iletişime geçebilirsiniz.\n\nBaşarılar dileriz.`,
       },
       {
         type: 'story', phase: 'baslangic', phaseLabel: 'Başlatma', section: 1,
         from: sponsor.fullName, fromRole: sponsor.role,
         subject: `${project_name} — İlk Mesajım`,
-        body: `Sayın ${_playerPolite},\n\n${project_name} için sizi seçtiğimizden son derece memnunum. Bu proje kurumumuz açısından stratejik öneme sahip ve doğru elde olduğuna inanıyorum.\n\nHer türlü destek ve kaynağa erişiminiz var. Önceliklerinizi ve ihtiyaçlarınızı benimle paylaşmaktan çekinmeyin.\n\nBaşarılar.`,
+        body: `Sayın ${_playerPolite},\n\n${project_name} için sizi tercih ettiğimizden son derece memnunum. Bu proje kurumumuz açısından stratejik öneme sahip; ekibimizin doğru liderle yola çıktığına inanıyorum.\n\nHer türlü destek ve kaynağa erişiminiz mevcut. Önceliklerinizi ve ihtiyaçlarınızı doğrudan benimle paylaşmaktan çekinmeyin.\n\nBaşarılar.`,
       },
     ];
     let globalIdx = allNotifications.length; // 2'den başla
