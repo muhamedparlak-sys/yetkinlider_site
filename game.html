@@ -19,6 +19,7 @@
 <meta name="twitter:description" content="Gerçekçi proje senaryolarında kritik kararlar ver. PMP® yetkinliklerini geliştir.">
 <meta name="twitter:image" content="https://yetkinlider.com/logo.png">
 <script src="/config.js"></script>
+<script src="js/narrative-engine.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -871,7 +872,9 @@ var Game; Game = (() => {
     notifs:[], answered:{}, xp:0, dCount:0, activeId:null, sectionId:1,
     skipConfirm: false, shuffles:{}, pendingKey:{},
     revealedIds: new Set(), dayBatches: [], dayIndex: 0, gameDate: null,
-    hasUnsavedChanges: false
+    hasUnsavedChanges: false,
+    // Narrative Engine — Hero Journey × Karma Kuyruğu
+    pendingCrises: [], ordealFired: false, charState: {}
   };
   let _pendingChoose = null;
   let _pendingLeave = null;
@@ -2050,11 +2053,51 @@ var Game; Game = (() => {
     updateContinueBtn();
   }
 
+  // Karma kuyruğundaki bir krizi bu section'a çek (gelecekteki notif'ten öne al)
+  function _injectCrisisNotification(crisis, secId) {
+    const candidate = S.notifs.find(n =>
+      n.mesele_id === crisis.mesele_id &&
+      (n.section || 0) > secId &&
+      !S.answered[n.id]
+    );
+    if(candidate) {
+      candidate.section = secId;
+      candidate._crisis_context = crisis.reason_context;
+      console.log(`[NE] Kriz öne çekildi: ${crisis.mesele_id} → section ${secId} | ${crisis.reason_context}`);
+    }
+  }
+
   function loadSection(secId) {
     S.sectionId = secId;
     const sec = (S.scenario.sections||[]).find(s=>s.id===secId);
+
+    // ── Narrative Engine: perde geçişi işlemleri ──────────────────────────────
+    if(typeof NarrativeEngine !== 'undefined' && secId > 1) {
+      NarrativeEngine.tickPendingCrises(S);
+      const readyCrises = NarrativeEngine.drainReadyCrises(S);
+      readyCrises.forEach(crisis => _injectCrisisNotification(crisis, secId));
+
+      // Ordeal (En Büyük Sınav) tetikleme kontrolü
+      const currentPhase = sec?.pm_faz || 'yurutme';
+      if(!S.ordealFired && NarrativeEngine.shouldTriggerOrdeal(S, currentPhase)) {
+        const ordeal = NarrativeEngine.buildOrdealNotification(S);
+        ordeal.section = secId;
+        ordeal.time = '09:00';
+        S.notifs.push(ordeal);
+        S.ordealFired = true;
+        console.log('[NE] ORDEAL tetiklendi → section', secId);
+      }
+
+      // Perde bilgisi — list-sub'a Hero Journey etiketini ekle
+      const perde = NarrativeEngine.getHeroPerde(secId);
+      const perdeLabel = perde ? ` · ${perde.label}` : '';
+      document.getElementById('list-sub').textContent = (sec?.iteration || '') + perdeLabel;
+    } else {
+      document.getElementById('list-sub').textContent = sec?.iteration || '';
+    }
+    // ──────────────────────────────────────────────────────────────────────────
+
     document.getElementById('list-title').textContent = S.scenario.title || 'Bildirimler';
-    document.getElementById('list-sub').textContent = sec?.iteration || '';
     document.getElementById('nav-iter')?.textContent && (document.getElementById('nav-iter').textContent = sec?.iteration || ('İterasyon '+secId));
     const sectionNotifs = S.notifs.filter(n=>n.section===secId);
     S.dayBatches = computeBatches(sectionNotifs);
@@ -2288,6 +2331,8 @@ var Game; Game = (() => {
     if(!n) return;
     const opt=(n.options||[]).find(o=>o.key===key);
     if(opt){ S.xp+=(opt.xp||0); if(key==='D') S.dCount++; updateXP(); }
+    // Narrative Engine: triggers'ı işle (Karma/Borç Kuyruğu)
+    if(typeof NarrativeEngine !== 'undefined') NarrativeEngine.processTriggers(n, key, S);
     renderDetail(n); refreshItem(id);
     // Otomatik kayıt: her 3 karar sonrası
     const decCount = Object.values(S.answered).filter(v => v !== 'READ').length;
