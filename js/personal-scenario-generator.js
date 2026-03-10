@@ -349,6 +349,7 @@ const PSG = (() => {
         text:        fill(opt.text_template, optionVars),
         xp:          opt.xp,
         isEthical:   opt.isEthical,
+        triggers:    opt.triggers || [],   // Karma kuyruğu için — NarrativeEngine.processTriggers() okur
         consequence: makeConsequence(key, vars, kadro, disKisiler, rng),
       };
     }).filter(Boolean);

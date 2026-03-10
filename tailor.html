@@ -222,6 +222,84 @@ input{font-family:inherit}
   .sum-key{width:100px}
 }
 </style>
+<style>
+/* ── SENARYO PREVIEW OVERLAY ─────────────────────────────── */
+#scenario-preview-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(10,10,20,0.92);
+  backdrop-filter: blur(8px);
+  overflow-y: auto;
+  padding: 24px 16px 48px;
+  animation: fadeInOverlay .25s ease;
+}
+#scenario-preview-overlay.active { display: flex; align-items: flex-start; justify-content: center; }
+@keyframes fadeInOverlay { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+.sp-card {
+  background: #13161f;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  max-width: 560px; width: 100%;
+  margin-top: 32px;
+  padding: 32px 28px 28px;
+  color: #e8eaf0;
+}
+.sp-badge {
+  display: inline-block;
+  font-size: 11px; font-weight: 600; letter-spacing:.08em;
+  padding: 3px 10px; border-radius: 20px;
+  background: rgba(99,102,241,.2); color: #a5b4fc;
+  margin-bottom: 16px;
+}
+.sp-title { font-size: 22px; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
+.sp-meta  { font-size: 13px; color: #8891a8; margin-bottom: 24px; }
+.sp-section { margin-bottom: 20px; }
+.sp-section-label { font-size: 11px; font-weight: 600; letter-spacing: .08em; color: #6b7280; text-transform: uppercase; margin-bottom: 10px; }
+.sp-team { display: flex; flex-wrap: wrap; gap: 8px; }
+.sp-member {
+  display: flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,.05); border-radius: 8px;
+  padding: 7px 12px; font-size: 13px;
+}
+.sp-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: linear-gradient(135deg,#4f46e5,#7c3aed);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+.sp-member-name { font-weight: 600; color: #e2e8f0; }
+.sp-member-role { font-size: 11px; color: #8891a8; }
+.sp-challenges { display: flex; flex-direction: column; gap: 7px; }
+.sp-challenge {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,.04); border-radius: 8px;
+  padding: 9px 12px; font-size: 13px; color: #cbd5e1;
+}
+.sp-challenge-icon { font-size: 16px; flex-shrink: 0; }
+.sp-challenge-hidden { color: #4b5563; font-style: italic; }
+.sp-stats { display: flex; gap: 16px; flex-wrap: wrap; }
+.sp-stat {
+  background: rgba(255,255,255,.04); border-radius: 8px;
+  padding: 10px 14px; flex: 1; min-width: 100px; text-align: center;
+}
+.sp-stat-value { font-size: 22px; font-weight: 700; color: #a5b4fc; }
+.sp-stat-label { font-size: 11px; color: #6b7280; margin-top: 2px; }
+.sp-start-btn {
+  width: 100%; margin-top: 28px;
+  padding: 15px; border-radius: 12px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff; font-size: 16px; font-weight: 700; letter-spacing: .02em;
+  transition: opacity .2s, transform .1s;
+}
+.sp-start-btn:hover { opacity: .9; transform: translateY(-1px); }
+.sp-start-btn:active { transform: translateY(0); }
+.sp-start-btn:disabled { opacity: .5; cursor: default; }
+.sp-karma-note {
+  margin-top: 16px; padding: 11px 14px; border-radius: 8px;
+  background: rgba(245,158,11,.08); border-left: 3px solid #f59e0b;
+  font-size: 12px; color: #d97706; line-height: 1.5;
+}
+</style>
 <script src="js/personal-scenario-generator.js"></script>
 </head>
 <body>
@@ -1310,11 +1388,15 @@ async function startGame() {
           console.warn('[PSG→SB] Supabase kayıt başarısız:', e.message)
         );
       }
+      // Preview ekranını göster — kullanıcı "Maceraya Başla" ile ilerler
+      const previewShown = showScenarioPreview(scenario);
+      if (previewShown) return; // Preview açıldı, otomatik yönlendirme yok
     } catch(e) {
       console.warn('[PSG] Senaryo üretilemedi, master.json kullanılacak:', e.message);
     }
   }
 
+  // Kariyer modu dışında (veya PSG yoksa) doğrudan yönlendir
   setTimeout(() => { window.location.href = 'game.html'; }, 120);
 }
 
@@ -1336,6 +1418,135 @@ window.__sbUpsertPersonalScenario = upsertPersonalScenario;
 // PSG mesele tipi verilerini Supabase'den okur (ticari IP koruması)
 window.__sbFetchMeseleTipi    = fetchMeseleTipi;
 window.__sbFetchMeseleTipiIds = fetchMeseleTipiIds;
+</script>
+
+<!-- ── SENARYO PREVIEW OVERLAY ───────────────────────────────────────────── -->
+<div id="scenario-preview-overlay">
+  <div class="sp-card" id="sp-card-inner"></div>
+</div>
+
+<script>
+// ── Mesele ID → Türkçe etiket + ikon ────────────────────────────────────────
+const MESELE_LABELS = {
+  kaynak_erisilemezligi:     { tr: 'Kaynak Erişilemiyor',        icon: '🔒' },
+  yazisiz_scope_degisikligi: { tr: 'Yazısız Kapsam Değişikliği', icon: '📝' },
+  kilit_kisi_bagimlilik:     { tr: 'Kilit Kişi Bağımlılığı',     icon: '🔑' },
+  kapsam_belirsizligi:       { tr: 'Kapsam Belirsizliği',        icon: '🌫️' },
+  paydas_erisim_sorunu:      { tr: 'Paydaş Erişim Sorunu',       icon: '📵' },
+  performans_geriligi:       { tr: 'Performans Gerilemesi',       icon: '📉' },
+  takim_catismasi:           { tr: 'Takım Çatışması',            icon: '⚡' },
+  gorev_gecikmesi:           { tr: 'Görev Gecikmesi',            icon: '⏰' },
+  milestone_baskisi:         { tr: 'Milestone Baskısı',          icon: '🎯' },
+  teknik_borc:               { tr: 'Teknik Borç',                icon: '💸' },
+  bilgi_adasi:               { tr: 'Bilgi Adası',                icon: '🏝️' },
+  maliyet_asimi_riski:       { tr: 'Maliyet Aşımı Riski',        icon: '💰' },
+  gereksinim_catismasi:      { tr: 'Gereksinim Çatışması',       icon: '⚔️' },
+  gizli_kapsam_kabulu:       { tr: 'Gizli Kapsam Kabulü',        icon: '🤫' },
+  patron_degisikligi:        { tr: 'Patron Değişikliği',         icon: '🔄' },
+  paydas_catismasi:          { tr: 'Paydaş Çatışması',           icon: '🤝' },
+  dis_etki_mudahalesi:       { tr: 'Dış Etki Müdahalesi',        icon: '🌐' },
+};
+
+const DEV_APPROACH_LABELS = {
+  agile:    'Agile', hybrid: 'Hibrit', waterfall: 'Waterfall',
+  scrum: 'Scrum', kanban: 'Kanban',
+};
+
+function showScenarioPreview(scenario) {
+  const overlay = document.getElementById('scenario-preview-overlay');
+  const card    = document.getElementById('sp-card-inner');
+  if (!overlay || !card || !scenario) return false;
+
+  // Benzersiz mesele tiplerini çıkar (ilk 4 göster, geri kalanlar gizli)
+  const allMeseleIds = [...new Set(
+    (scenario.notifications || [])
+      .filter(n => n.type === 'decision' && n.mesele_id)
+      .map(n => n.mesele_id)
+  )];
+  const SHOW_MAX = 4;
+  const shownMeseles  = allMeseleIds.slice(0, SHOW_MAX);
+  const hiddenCount   = Math.max(0, allMeseleIds.length - SHOW_MAX);
+
+  const decisionCount = (scenario.notifications || []).filter(n => n.type === 'decision').length;
+  const estHours      = Math.round(decisionCount / 30); // ~30 karar/saat tahmin
+  const devLabel      = DEV_APPROACH_LABELS[scenario.dev_approach] || scenario.dev_approach || 'Hibrit';
+  const sectorLabel   = scenario.sector_label || scenario.sector || '';
+
+  // Ekip kartları (max 6)
+  const kadroHtml = (scenario.kadro || []).slice(0, 6).map(k => {
+    const initials = k.fullName.split(' ').map(p => p[0]).join('').slice(0,2).toUpperCase();
+    return `<div class="sp-member">
+      <div class="sp-avatar">${initials}</div>
+      <div><div class="sp-member-name">${k.fullName}</div><div class="sp-member-role">${k.role}</div></div>
+    </div>`;
+  }).join('');
+
+  // Zorluk kartları
+  const challengeHtml = shownMeseles.map(mid => {
+    const info = MESELE_LABELS[mid] || { tr: mid.replace(/_/g,' '), icon: '⚠️' };
+    return `<div class="sp-challenge">
+      <span class="sp-challenge-icon">${info.icon}</span>
+      <span>${info.tr}</span>
+    </div>`;
+  }).join('') + (hiddenCount > 0
+    ? `<div class="sp-challenge sp-challenge-hidden">
+        <span class="sp-challenge-icon">🔮</span>
+        <span>+${hiddenCount} gizli zorluk daha seni bekliyor…</span>
+       </div>` : '');
+
+  card.innerHTML = `
+    <div class="sp-badge">Senaryo Hazır</div>
+    <div class="sp-title">${scenario.title || scenario.project_name || 'Proje'}</div>
+    <div class="sp-meta">${sectorLabel} · ${devLabel}</div>
+
+    <div class="sp-section">
+      <div class="sp-section-label">Ekibiniz</div>
+      <div class="sp-team">${kadroHtml}</div>
+    </div>
+
+    <div class="sp-section">
+      <div class="sp-section-label">Karşılaşacağınız Zorluklar</div>
+      <div class="sp-challenges">${challengeHtml}</div>
+    </div>
+
+    <div class="sp-section">
+      <div class="sp-section-label">Senaryo İstatistikleri</div>
+      <div class="sp-stats">
+        <div class="sp-stat">
+          <div class="sp-stat-value">${decisionCount}</div>
+          <div class="sp-stat-label">Karar</div>
+        </div>
+        <div class="sp-stat">
+          <div class="sp-stat-value">${(scenario.kadro||[]).length}</div>
+          <div class="sp-stat-label">Ekip Üyesi</div>
+        </div>
+        <div class="sp-stat">
+          <div class="sp-stat-value">${allMeseleIds.length}</div>
+          <div class="sp-stat-label">Mesele Tipi</div>
+        </div>
+        <div class="sp-stat">
+          <div class="sp-stat-value">~${estHours}s</div>
+          <div class="sp-stat-label">Süre</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sp-karma-note">
+      ⚡ Dikkat: Verdiğin her yanlış karar ilerleyen perdede bir kriz olarak geri dönebilir.
+    </div>
+
+    <button class="sp-start-btn" onclick="launchGame()">Maceraya Başla →</button>
+  `;
+
+  overlay.classList.add('active');
+  return true;
+}
+
+function launchGame() {
+  const btn = document.querySelector('.sp-start-btn');
+  if (btn) { btn.disabled = true; btn.textContent = 'Yükleniyor…'; }
+  window.location.href = 'game.html';
+}
 </script>
 </body>
 </html>
