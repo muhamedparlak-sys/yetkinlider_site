@@ -228,6 +228,9 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
     <a class="sidebar-link" data-page="add-scenario" onclick="switchPage('add-scenario')">
       <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg> Senaryo Planla
     </a>
+    <a class="sidebar-link" data-page="users" onclick="switchPage('users')">
+      <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Kullanıcılar
+    </a>
     <div class="sidebar-section">Sistem</div>
     <a class="sidebar-link" href="game.html">
       <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg> Simülasyona Git
@@ -483,6 +486,57 @@ body { font-family: Inter, system-ui, sans-serif; color: var(--text); background
         <h2>Planlanan Senaryolar</h2>
         <p>Kaydedilmiş plan kayıtları. Bu liste yönetici için bir ödev listesi işlevi görür.</p>
         <div id="sc-plan-list" style="margin-top:12px"></div>
+      </div>
+    </div>
+
+    <!-- KULLANICILAR -->
+    <div id="page-users" class="page">
+      <div class="page-header">
+        <h1>Kullanıcılar</h1>
+        <p>Kayıtlı üyeler, roller ve kullanım istatistikleri</p>
+      </div>
+
+      <div class="stat-row" id="users-summary-row">
+        <div class="stat-card accent">
+          <div class="stat-value" id="stat-total-users">—</div>
+          <div class="stat-label">Toplam Üye</div>
+        </div>
+        <div class="stat-card success">
+          <div class="stat-value" id="stat-active-users">—</div>
+          <div class="stat-label">Aktif Oynayan</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-total-decisions-all">—</div>
+          <div class="stat-label">Toplam Karar</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-total-xp-all">—</div>
+          <div class="stat-label">Toplam XP</div>
+        </div>
+      </div>
+
+      <div class="form-card" style="margin-top:20px;overflow-x:auto">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <h2 style="margin:0">Üye Listesi</h2>
+          <button class="btn-secondary" onclick="loadUsersPage()" style="padding:6px 14px;font-size:12px">↻ Yenile</button>
+        </div>
+        <div id="users-loading" style="color:var(--dim);font-size:13px;padding:20px 0">Yükleniyor…</div>
+        <table id="users-table" style="display:none;width:100%;border-collapse:collapse;font-size:13px">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border)">
+              <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dim)">Kullanıcı</th>
+              <th style="text-align:left;padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dim)">E-posta</th>
+              <th style="padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dim)">Rol</th>
+              <th style="padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dim)">XP</th>
+              <th style="padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dim)">Kararlar</th>
+              <th style="padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dim)">Senaryo</th>
+              <th style="padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dim)">~Süre</th>
+              <th style="padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dim)">Son Aktif</th>
+              <th style="padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dim)">Katılım</th>
+            </tr>
+          </thead>
+          <tbody id="users-tbody"></tbody>
+        </table>
       </div>
     </div>
 
@@ -1337,6 +1391,146 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
 }
+</script>
+
+<!-- ── Kullanıcı Yönetimi ────────────────────────────────────────────────── -->
+<script type="module">
+import { fetchAllUsers, fetchUserGameStats, fetchUserExamStats, updateUserRole } from '/js/db.js';
+
+// switchPage('users') çağrıldığında sayfayı yükle
+const _origSwitchPage = window.switchPage;
+window.switchPage = function(id) {
+  _origSwitchPage(id);
+  if (id === 'users') loadUsersPage();
+};
+
+function _relativeTime(isoStr) {
+  if (!isoStr) return '—';
+  const diff = Date.now() - new Date(isoStr).getTime();
+  const mins  = Math.floor(diff / 60000);
+  const hours = Math.floor(mins / 60);
+  const days  = Math.floor(hours / 24);
+  if (days > 0)  return days + ' gün önce';
+  if (hours > 0) return hours + ' saat önce';
+  if (mins > 0)  return mins + ' dk önce';
+  return 'Az önce';
+}
+
+function _formatDate(isoStr) {
+  if (!isoStr) return '—';
+  return new Date(isoStr).toLocaleDateString('tr-TR', { day:'numeric', month:'short', year:'numeric' });
+}
+
+function _approxMinutes(saves) {
+  let total = 0;
+  for (const s of saves) {
+    if (s.created_at && s.updated_at) {
+      const ms = new Date(s.updated_at) - new Date(s.created_at);
+      if (ms > 0 && ms < 86400000) total += ms; // max 24 saat / senaryo
+    }
+  }
+  const mins = Math.round(total / 60000);
+  if (mins < 1)   return '< 1 dk';
+  if (mins < 60)  return mins + ' dk';
+  return Math.round(mins / 60) + ' sa';
+}
+
+function _roleColor(role) {
+  if (role === 'admin')  return '#f97316';
+  if (role === 'editor') return '#3b82f6';
+  return 'var(--dim)';
+}
+
+window.loadUsersPage = async function() {
+  const loadEl  = document.getElementById('users-loading');
+  const tableEl = document.getElementById('users-table');
+  const tbody   = document.getElementById('users-tbody');
+  loadEl.style.display  = 'block';
+  tableEl.style.display = 'none';
+  tbody.innerHTML = '';
+
+  const users = await fetchAllUsers();
+
+  // Tüm kullanıcıların oyun istatistiklerini paralelde çek
+  const statsArr = await Promise.all(users.map(u => fetchUserGameStats(u.id)));
+
+  let totalDecisions = 0, totalXp = 0, activeCount = 0;
+
+  for (let i = 0; i < users.length; i++) {
+    const u     = users[i];
+    const saves = statsArr[i];
+    const xp    = saves.reduce((s, r) => s + (r.xp || 0), 0);
+    const decs  = saves.reduce((s, r) => {
+      try { return s + Object.keys(r.answered || {}).length; } catch(e) { return s; }
+    }, 0);
+    const scenCount = saves.length;
+    const approxTime = _approxMinutes(saves);
+    const lastActive = u.updated_at;
+
+    totalXp += xp;
+    totalDecisions += decs;
+    if (saves.length > 0) activeCount++;
+
+    // Mevcut admin oturumunun rolünü bul (rol değişikliği yetkisi kontrolü için)
+    const sessionRole = (() => {
+      try { return JSON.parse(localStorage.getItem('pmSim_session') || '{}').role || 'user'; } catch(e) { return 'user'; }
+    })();
+    const canChangeRole = sessionRole === 'admin';
+
+    const tr = document.createElement('tr');
+    tr.style.borderBottom = '1px solid rgba(255,255,255,.05)';
+    tr.innerHTML = `
+      <td style="padding:10px 10px;white-space:nowrap">
+        <div style="font-weight:600;color:var(--text)">${u.display_name || '—'}</div>
+      </td>
+      <td style="padding:10px 10px;color:var(--dim);font-size:12px">${u.email || '—'}</td>
+      <td style="padding:10px 10px;text-align:center">
+        ${canChangeRole
+          ? `<select data-uid="${u.id}" onchange="window._changeRole(this)"
+               style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:${_roleColor(u.role)};font-size:11px;font-weight:700;padding:3px 6px;cursor:pointer">
+               <option value="user"   ${u.role==='user'   ? 'selected' : ''}>user</option>
+               <option value="editor" ${u.role==='editor' ? 'selected' : ''}>editor</option>
+               <option value="admin"  ${u.role==='admin'  ? 'selected' : ''}>admin</option>
+             </select>`
+          : `<span style="font-size:11px;font-weight:700;color:${_roleColor(u.role)}">${u.role || 'user'}</span>`
+        }
+      </td>
+      <td style="padding:10px 10px;text-align:center;font-weight:600;color:var(--accent)">${xp > 0 ? xp.toLocaleString() : '—'}</td>
+      <td style="padding:10px 10px;text-align:center">${decs > 0 ? decs : '—'}</td>
+      <td style="padding:10px 10px;text-align:center">${scenCount > 0 ? scenCount : '—'}</td>
+      <td style="padding:10px 10px;text-align:center;color:var(--dim);font-size:12px">${approxTime}</td>
+      <td style="padding:10px 10px;text-align:center;color:var(--dim);font-size:12px">${_relativeTime(lastActive)}</td>
+      <td style="padding:10px 10px;text-align:center;color:var(--dim);font-size:12px">${_formatDate(u.created_at)}</td>
+    `;
+    tbody.appendChild(tr);
+  }
+
+  // Özet istatistikler
+  document.getElementById('stat-total-users').textContent     = users.length;
+  document.getElementById('stat-active-users').textContent    = activeCount;
+  document.getElementById('stat-total-decisions-all').textContent = totalDecisions > 0 ? totalDecisions.toLocaleString() : '0';
+  document.getElementById('stat-total-xp-all').textContent   = totalXp > 0 ? totalXp.toLocaleString() : '0';
+
+  loadEl.style.display  = 'none';
+  tableEl.style.display = 'table';
+};
+
+window._changeRole = async function(selectEl) {
+  const uid     = selectEl.dataset.uid;
+  const newRole = selectEl.value;
+  selectEl.disabled = true;
+  try {
+    await updateUserRole(uid, newRole);
+    selectEl.style.color = _roleColor(newRole);
+    window.showToast && showToast('Rol güncellendi: ' + newRole);
+  } catch(e) {
+    alert('Rol güncellenemedi: ' + e.message);
+    selectEl.value = selectEl.dataset.prev || 'user';
+  } finally {
+    selectEl.disabled = false;
+    selectEl.dataset.prev = newRole;
+  }
+};
 </script>
 
 <!-- ── Supabase Storage entegrasyonu ───────────────────────────────────── -->

@@ -228,6 +228,64 @@ export async function fetchMeseleTipi(id) {
   return data?.data || null;
 }
 
+// ── admin: kullanıcı yönetimi ─────────────────────────────────────────────────
+
+/**
+ * Tüm kullanıcı profillerini çeker (sadece admin/editor görebilir — RLS korumalı).
+ * @returns {Promise<object[]>}
+ */
+export async function fetchAllUsers() {
+  const { data, error } = await supabase
+    .from('profiles')
+    .select('id, display_name, email, role, created_at, updated_at')
+    .order('created_at', { ascending: false });
+  if (error) { console.warn('[DB] Admin kullanıcı listesi alınamadı:', error.message); return []; }
+  return data || [];
+}
+
+/**
+ * Belirli bir kullanıcının tüm oyun kayıtlarını çeker (admin RLS gerekli).
+ * @param {string} userId
+ * @returns {Promise<object[]>}
+ */
+export async function fetchUserGameStats(userId) {
+  const { data, error } = await supabase
+    .from('game_saves')
+    .select('xp, d_count, answered, total_decisions, completed, created_at, updated_at, scenario_title')
+    .eq('user_id', userId)
+    .is('archived_at', null);
+  if (error) { console.warn('[DB] Kullanıcı oyun istatistikleri alınamadı:', error.message); return []; }
+  return data || [];
+}
+
+/**
+ * Belirli bir kullanıcının sınav sonuçlarını çeker (admin RLS gerekli).
+ * @param {string} userId
+ * @returns {Promise<object[]>}
+ */
+export async function fetchUserExamStats(userId) {
+  const { data, error } = await supabase
+    .from('exam_results')
+    .select('score, correct, total, time_used, created_at')
+    .eq('user_id', userId)
+    .order('created_at', { ascending: false });
+  if (error) { console.warn('[DB] Kullanıcı sınav istatistikleri alınamadı:', error.message); return []; }
+  return data || [];
+}
+
+/**
+ * Bir kullanıcının rolünü günceller (sadece admin yapabilir — RLS korumalı).
+ * @param {string} userId
+ * @param {'user'|'editor'|'admin'} newRole
+ */
+export async function updateUserRole(userId, newRole) {
+  const { error } = await supabase
+    .from('profiles')
+    .update({ role: newRole, updated_at: new Date().toISOString() })
+    .eq('id', userId);
+  if (error) throw new Error(error.message);
+}
+
 // ── glossary_blob ─────────────────────────────────────────────────────────────
 
 /**
