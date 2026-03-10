@@ -1548,7 +1548,7 @@ var Game; Game = (() => {
                      : _apGender === 'male'   ? `${_apFirst} Bey`
                      : _apRawName;
     const vars = {
-      '{{player_name}}':      _apPolite,
+      '{{player_name}}':      _apRawName,
       '{{project_name}}':     setup.project_name || 'Stratejik Proje',
       '{{sector_label}}':     setup.sector_label || setup.sector || 'sektörünüz',
       '{{company}}':          setup.sector_label || 'Şirket',
@@ -1846,51 +1846,49 @@ var Game; Game = (() => {
   // ── INTRO SCREENS ─────────────────────────────────────────────────────────
   const INTRO_SCREENS = [
     { label: 'Karşılama', lines: [
-      { t: 'Birçok aday arasından sıyrılıp buraya geldiniz. Beklentilerimiz de tam olarak bu oranda yüksek.' },
-      { t: 'Heyecanlanmanız yersiz değil. Ancak o koltuğa oturduğunuz an, sorumluluğun tüm ağırlığını omuzlarınızda hissedeceksiniz.' },
-      { t: 'Pozisyon son derece cazip, yük ise bir o kadar ağır. İkisi her zaman birlikte gelir.', c: 'strong' },
-      { t: 'Hazır mısınız?', c: 'question' },
+      { t: 'Bu platform, gerçek iş ortamını yansıtan bir liderlik değerlendirme simülasyonudur.' },
+      { t: 'Karşılaşacağınız durumlar; kurumsal hayatta proje yöneticilerinin fiilen yaşadığı meselelere dayanmaktadır.' },
+      { t: 'Kararlarınız ekip yönetimi, paydaş ilişkileri ve iş sonuçları üzerinde doğrudan etki gösterecektir.', c: 'strong' },
+      { t: 'Başlamadan önce birkaç temel bilgi.', c: 'inner' },
     ]},
-    { label: 'Gerçekler', lines: [
-      { t: 'Sınavlarda tek bir doğru cevap vardır. Burada ise gerçek hayat...' },
-      { t: 'Alacağınız her kararın bütçeye, takıma veya kurumsal itibara yansıyan somut bir bedeli olacak.' },
-      { t: 'Burada hataları örtecek bir güvenlik ağı yok. Sizi kurtaracak kimse de yok.', c: 'strong' },
-      { t: 'Bunu en başından bilmenizde fayda var.', c: 'inner' },
+    { label: 'Gerçekçilik', lines: [
+      { t: 'Gerçek projelerde her kararın zamana, bütçeye veya kurumsal itibare yansıyan somut bir bedeli vardır.' },
+      { t: 'Bu simülasyon da aynı kuralla işlemektedir: tercihleriniz ölçülecek, sonuçları izlenecektir.' },
+      { t: 'Kararın ardından gelen sorumluluk, kararın kendisi kadar belirleyicidir.', c: 'strong' },
+      { t: 'Bunu başından bilmenizde fayda var.', c: 'inner' },
     ]},
-    { label: 'Kurallar', lines: [
-      { t: 'Burada istediğiniz sorudan başlayamazsınız. Alıştığınızın aksine olayların sırasını siz belirleyemezsiniz.' },
-      { t: 'Sorunları erteleyemez veya boş bırakıp geçemezsiniz. Emin olmadığınıza sonra geri dönemezsiniz.' },
-      { t: 'Karar alırken danışabilirsiniz; ancak inisiyatif kullanımınız liderlik değerlendirmenizin parçasıdır.', c: 'strong' },
-      { t: 'Her zorluk kasıtlı tasarlandı. Her şeyi başkasına soracaksanız sizi neden işe aldık?', c: 'inner' },
+    { label: 'Yapı', lines: [
+      { t: 'İş hayatında gündemleri istediğiniz sıraya koymak her zaman mümkün olmaz.' },
+      { t: 'Bu platformda da olayların sırasını siz belirleyemezsiniz. Her mesele kendi zamanında karşınıza çıkar.' },
+      { t: 'Kararları ertelemek veya yarım bırakmak da bir tercihtir; ve değerlendirmeye dahildir.', c: 'strong' },
+      { t: 'İnisiyatif kullanımınız liderlik profilinizin ayrılmaz bir parçasıdır.', c: 'inner' },
     ]},
     { label: 'Kararlar', lines: [
-      { t: 'Tek bir mutlak doğru yoktur; ancak şartlara en uygun "en iyi" seçenek daima vardır.' },
-      { t: 'Doğrularınız için madalya takmayız. Üzgünüm. Zaten doğrusunu bildiğinizden emin olduğumuz için buradasınız.' },
-      { t: 'Yanlışlar tabii ki olur. Hiçbirimiz mükemmel değiliz.', c: 'strong' },
-      { t: 'Ama yanlış var yanlış var...', c: 'inner' },
+      { t: 'Her durumun mutlak doğru bir cevabı yoktur; ancak koşullara en uygun yaklaşım her zaman belirlenebilir.' },
+      { t: 'Değerlendirme yalnızca sonuçlara değil, karar sürecinizin kalitesine de dayanmaktadır.' },
+      { t: 'Etkili karar: doğru zamanda, doğru gerekçeyle ve gerekli cesaretle alınan karardır.', c: 'strong' },
     ]},
     { label: 'Sınırlar', lines: [
-      { t: 'Etik dışı bir karar aldığınızda sistem sizin için durabilir. Hem de kalıcı olarak.' },
-      { t: 'Ayrıca her meselenin bir karar süresi vardır.' },
-      { t: 'Zamanı yönetemez ve sürekli kararsız kalırsanız, o koltukta neden oturduğunuz sorgulanmaya başlar.', c: 'strong' },
-      { t: 'Bu noktaya hiç gelmeyeceğimizi umuyorum.', c: 'inner' },
+      { t: 'Etik ihlal içerdiği değerlendirilen tercihler simülasyonu sonlandırabilir.' },
+      { t: 'Her kararın ayrıca bir süresi vardır. Belirsizliği yönetmek, liderliğin temel becerilerinden biridir.' },
+      { t: 'Kararsız kalmak çoğu zaman yanlış bir karardan daha yüksek bir maliyete neden olur.', c: 'strong' },
     ]},
     { label: 'Değerlendirme', lines: [
-      { t: 'Sürekli ve tutarlı bilinçli kararlarınız sizi öne çıkardığında bunu inkâr etmeyiz. Ancak tablonun tamamı bundan ibaret değildir.' },
-      { t: 'Arka planda öğrenme hızınız, hata örüntüleriniz ve stres altındaki tepki süreniz sürekli izlenir.' },
-      { t: 'Yanlış bir karardan sonra attığınız adım, o yanlışın kendisinden çok daha fazla şey anlatır.', c: 'strong' },
-      { t: 'Bu gerçeği bilen azdır, uygulayabilen ise çok daha az.', c: 'inner' },
+      { t: 'Performansınız; karar kalitesi, öğrenme hızı ve baskı altındaki tutarlılık eksenlerinde izlenmektedir.' },
+      { t: 'Hata sonrası sergilenen yaklaşım, hatanın kendisinden çok daha fazla şey anlatır.' },
+      { t: 'Nihai değerlendirme bu tablonun tamamına göre yapılır.', c: 'strong' },
+      { t: 'Yalnızca sonuçlara bakılmaz.', c: 'inner' },
     ]},
-    { label: 'Kültür', lines: [
-      { t: 'Sizden kusursuz olmanız beklenmez; hatalarınızdan ders alıp sürekli gelişiyor olmanız beklenir.' },
-      { t: 'Eksikliklerimizle yüzleşir, kök nedenlerini birlikte buluruz.' },
-      { t: 'Burada yetkinlik ulaşılacak bir hedef değil, her gün uygulanan bir liderlik refleksidir.', c: 'strong' },
+    { label: 'Gelişim', lines: [
+      { t: 'Bu platform; mükemmel olmayı değil, sürekli gelişmeyi hedefleyen bir öğrenme ortamıdır.' },
+      { t: 'Güçlü yönleriniz kadar geliştirme alanlarınız da değerlidir.' },
+      { t: 'Yetkinlik; ulaşılacak bir hedef değil, her gün uygulanan bir liderlik refleksidir.', c: 'strong' },
     ]},
-    { label: 'Son', lines: [
+    { label: 'Başlangıç', lines: [
       { t: 'Başka sorunuz?', c: 'question' },
-      { t: 'Ben de öyle tahmin etmiştim.', c: 'inner' },
-      { t: 'Takımınız sizi bekliyor.' },
-      { t: 'Kariyeriniz başlasın.', c: 'strong' },
+      { t: 'Beklediğimiz yanıt bu.', c: 'inner' },
+      { t: 'Ekibiniz hazır, proje sizi bekliyor.' },
+      { t: 'Başarılar.', c: 'strong' },
     ]},
   ];
   let _introStep = 0;
@@ -1916,6 +1914,15 @@ var Game; Game = (() => {
     body.innerHTML = s.lines
       .map(l => `<p class="intro-p${l.c ? ' '+l.c : ''}"></p>`)
       .join('');
+    // Layout shift önlemi: tam metni geçici doldur, yükseklikleri ölç, sonra temizle
+    Array.from(body.querySelectorAll('p')).forEach((el, i) => {
+      el.textContent = s.lines[i].t;
+    });
+    body.offsetHeight; // reflow zorla
+    Array.from(body.querySelectorAll('p')).forEach(el => {
+      el.style.minHeight = el.offsetHeight + 'px';
+      el.textContent = '';
+    });
     // Dots
     document.getElementById('intro-dots').innerHTML = INTRO_SCREENS
       .map((_,i) => `<div class="intro-dot${i===_introStep?' active':''}"></div>`)
@@ -1939,8 +1946,8 @@ var Game; Game = (() => {
   function _typewriterLines(lines, els) {
     if (_typewriterCancel) { _typewriterCancel(); _typewriterCancel = null; }
     let cancelled = false;
-    const CHAR_MS  = 18;  // karakter başına ms
-    const LINE_MS  = 380; // satırlar arası duraklama (sinematik etki)
+    const CHAR_MS  = 32;  // karakter başına ms (okunabilir hız)
+    const LINE_MS  = 550; // satırlar arası duraklama
 
     _typewriterCancel = () => {
       cancelled = true;
