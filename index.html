@@ -347,7 +347,7 @@ footer strong { color: rgba(255,255,255,.85); }
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       Liderlik Simülasyonuna Başla
     </a>
-    <div class="hero-note">Yetkinliklerini sınamak için <a href="index.html?auth=1" style="color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:3px">ücretsiz kayıt ol</a></div>
+    <div class="hero-note">Yetkinliklerini sınamak için <a href="#" onclick="openAuth('register'); return false;" style="color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:3px">ücretsiz kayıt ol</a></div>
   </div>
 </section>
 
@@ -804,16 +804,24 @@ async function _syncSupabaseUser(user) {
                || user.email.split('@')[0];
   const name = _toTrTitleCase(rawName);
 
-  // Profiles tablosundan rolü çek
+  // Profiles tablosundan rolü çek; display_name + email'i upsert et
   let role = 'user';
   try {
     const { supabase } = await import('/js/supabaseClient.js');
-    const { data } = await supabase
+    // Önce mevcut rolü oku (üzerine yazmamak için)
+    const { data: existing } = await supabase
       .from('profiles')
       .select('role')
       .eq('id', user.id)
       .single();
-    if (data?.role) role = data.role;
+    if (existing?.role) role = existing.role;
+    // display_name ve email'i güncelle (role'a dokunmadan)
+    await supabase.from('profiles').upsert({
+      id          : user.id,
+      display_name: name,
+      email       : user.email,
+      role        : existing?.role || 'user',  // mevcut rolü koru
+    }, { onConflict: 'id' });
   } catch(e) { /* sessiz başarısız — role=user kalır */ }
 
   localStorage.setItem(_SK, JSON.stringify({
