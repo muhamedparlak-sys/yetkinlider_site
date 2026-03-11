@@ -2330,7 +2330,7 @@ var Game; Game = (() => {
     const n=S.notifs.find(x=>x.id===id);
     if(!n) return;
     const opt=(n.options||[]).find(o=>o.key===key);
-    if(opt){ S.xp+=(opt.xp||0); if(key==='D') S.dCount++; updateXP(); }
+    if(opt){ S.xp+=(opt.xp||0); if(opt.isEthical===false) S.dCount++; updateXP(); }
     // Narrative Engine: triggers'ı işle (Karma/Borç Kuyruğu)
     if(typeof NarrativeEngine !== 'undefined') NarrativeEngine.processTriggers(n, key, S);
     renderDetail(n); refreshItem(id);

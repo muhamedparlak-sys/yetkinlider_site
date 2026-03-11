@@ -20,7 +20,8 @@ const PSG = (() => {
   // ── Sabitler ─────────────────────────────────────────────────────────────────
   const BASE_HOUR    = 9;
   const OPTION_ORDER = ['medicine', 'distractor_1', 'distractor_2', 'poison'];
-  const OPTION_KEYS  = { medicine: 'A', distractor_1: 'B', distractor_2: 'C', poison: 'D' };
+  const DISPLAY_KEYS = ['A', 'B', 'C', 'D'];
+  // Not: OPTION_KEYS kaldırıldı — seçenekler artık her soruda rastgele karıştırılır
 
   // Faz tanımları — decisions + loreCount toplamı tüm senaryo hacmini belirler
   const PHASES = [
@@ -341,16 +342,23 @@ const PSG = (() => {
     // optionVars: seçenek metinlerinde {name} → kibar hitap ("Serdar Bey" / "Elif Hanım")
     // subject/body şablonlarında {name} → tam ad korunur (farklı anlam)
     const optionVars = { ...vars, name: charPolite };
-    const options = OPTION_ORDER.map(key => {
-      const opt = reason.options?.[key];
+    // Şıkları karıştır — medicine her zaman en uzun/ilk olmasın
+    const shuffledOrder = [...OPTION_ORDER];
+    for (let i = shuffledOrder.length - 1; i > 0; i--) {
+      const j = Math.floor(rng() * (i + 1));
+      [shuffledOrder[i], shuffledOrder[j]] = [shuffledOrder[j], shuffledOrder[i]];
+    }
+    const options = shuffledOrder.map((optType, idx) => {
+      const opt = reason.options?.[optType];
       if (!opt) return null;
       return {
-        key:         OPTION_KEYS[key],
+        key:         DISPLAY_KEYS[idx],   // A/B/C/D — rastgele sıraya göre
+        type:        optType,             // 'medicine' | 'distractor_1' | 'distractor_2' | 'poison'
         text:        fill(opt.text_template, optionVars),
         xp:          opt.xp,
         isEthical:   opt.isEthical,
-        triggers:    opt.triggers || [],   // Karma kuyruğu için — NarrativeEngine.processTriggers() okur
-        consequence: makeConsequence(key, vars, kadro, disKisiler, rng),
+        triggers:    opt.triggers || [],   // Karma kuyruğu için
+        consequence: makeConsequence(optType, vars, kadro, disKisiler, rng),
       };
     }).filter(Boolean);
 
