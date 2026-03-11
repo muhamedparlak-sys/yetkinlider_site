@@ -1,0 +1,299 @@
+{
+  "mesele_id": "takim_catismasi",
+  "meseleTR": "Takım Çatışması",
+  "compatible_terms": [
+    "team conflict",
+    "interpersonal conflict",
+    "team friction",
+    "team dysfunction"
+  ],
+  "reasons": [
+    {
+      "reason_id": "TAC-01",
+      "reasonTR": "İki kıdemli üye arasında teknik görüş çatışması",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{uye_a} ile {uye_b} arasında {konu} konusunda ciddi teknik görüş ayrılığı var. İkisi de kendi yaklaşımının doğru olduğunu savunuyor ve iletişim gerginleşiyor. Sprint tıkandı.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "uye_a": [
+          "Ali Bey",
+          "Can Bey",
+          "Mert Bey"
+        ],
+        "uye_b": [
+          "Emre Bey",
+          "Burak Bey",
+          "Serkan Bey"
+        ],
+        "konu": [
+          "mikroservis vs monolitik mimari",
+          "NoSQL vs ilişkisel veri tabanı",
+          "test stratejisi"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nTeknik görüş ayrılığını yapılandırılmış biçimde çözeceğim. Her iki tarafın yaklaşımının artı ve eksilerini nesnel kriterlere göre (performans, ölçeklenebilirlik, maliyet, ekip bilgisi) değerlendiren kısa bir teknik inceleme oturumu düzenliyorum. Karar için teknik ölçütler belirleyip gerekirse üçüncü bir uzmanın görüşünü de alacağız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\n{uye_a} daha kıdemli; onun görüşünü esas alıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nTeknik tartışmalar sağlıklıdır; zamanla çözülür.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nHer ikisini de doğru kabul edip iki paralel yaklaşımı birlikte deneyelim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Teknik görüş çatışmaları doğal ve değerlidir; ancak kişisel çatışmaya dönüşmeden önce yapılandırılmış karar alma süreçleriyle çözülmelidir. PM, kıdem veya sese değil nesnel teknik kriterlere dayalı karar verme kültürünü oluşturmalıdır. Çözümsüz bırakılan çatışmalar takım verimliliğini ve motivasyonunu kalıcı biçimde düşürür."
+    },
+    {
+      "reason_id": "TAC-02",
+      "reasonTR": "Ekip üyesiyle performans sorunu",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{uye} son {sure} içinde taahhüt ettiği görevleri tamamlayamıyor. Ekip bu durumdan etkileniyor; diğerleri fazladan yük taşıyor. Ne yapmalıyım?",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "uye": [
+          "Ali Bey",
+          "Merve Hanım",
+          "Can Bey"
+        ],
+        "sure": [
+          "iki sprint",
+          "üç haftadır",
+          "son ayda"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\n{uye} ile özel, destekleyici bir bire-bir görüşme yapıyorum. Gecikmeler teknik zorluktan mı, kişisel durumdan mı yoksa görev netliği eksikliğinden mi kaynaklanıyor? Kök nedeni öğrenmeden çözüm üretmek zor. Ardından net beklentiler ve destek planı belirliyorum. Eğer sorun devam ederse İK sürecini işleteceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkibe bu kişinin görevlerini paylaşacağımı bildiriyorum; görevleri yeniden dağıtıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\n{uye}'nin performansı ekibi etkiliyorsa bu konuyu toplantıda açık konuşabiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nPerformans sorunları birkaç sprint sonra kendiliğinden çözülür; müdahale etmiyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Performans sorunları erken ve doğrudan ele alınmalıdır; geç müdahale ekip motivasyonunu ve proje kalitesini olumsuz etkiler. Bire-bir görüşme ve kök neden analizi, disiplin sürecinden önce yapılması gereken temel adımdır. PM, ekip üyelerini hesap verebilirlik ve destek dengesinde yönetmelidir."
+    },
+    {
+      "reason_id": "TAC-03",
+      "reasonTR": "Uzak ve yüz yüze ekip üyeleri arasında sürtüşme",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nYüz yüze ve uzak çalışan ekip üyeleri arasında {sorun} sorunu yaşanıyor. Uzak çalışanlar dışlandıklarını hissediyor; yüz yüze ekip ise bilgi paylaşımının yavaşladığını söylüyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "sorun": [
+          "bilgi paylaşım eşitsizliği",
+          "toplantı erişimi eşitsizliği",
+          "sosyal dışlanma hissi"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nHibrit takım dinamiğini yeniden düzenliyorum. Tüm toplantıları 'uzak birinci' modelde yapılandırıyorum: herkes kameradan bağlanıyor, kararlar yazılı kanalda da paylaşılıyor. Bilgi paylaşım protokollerini yazılı olarak belirleyip ekiple mutabık kalıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nUzak çalışanlar ofis dinamiğine daha fazla uyum sağlamalı.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nYüz yüze ekibin informal iletişimini kısıtlamak verimliliği düşürür.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nUzak çalışanlar ayrı bir toplantı yapıp ardından özet paylaşabilir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Hibrit takım yönetimi özel bir yapı ve kasıtlı eşitlik gerektirir. 'Uzak birinci' (remote first) yaklaşımı, uzak ekip üyelerinin bilgiye ve kararlara eşit erişimini sağlar. PM, hibrit toplantı protokollerini ve bilgi paylaşım standartlarını açıkça belirlemeli ve tutarlı biçimde uygulamalıdır."
+    },
+    {
+      "reason_id": "TAC-04",
+      "reasonTR": "Ekipler arası sorumluluk çatışması",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{gorev} görevinin kimin sorumluluğunda olduğu konusunda {ekip_a} ile {ekip_b} arasında çatışma var. İkisi de bu görevi 'bize ait değil' diyor; görev sahipsiz kalıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "gorev": [
+          "test ortamı kurulumu",
+          "production hata düzeltme",
+          "entegrasyon belgesi güncelleme"
+        ],
+        "ekip_a": [
+          "geliştirme ekibi",
+          "backend takımı",
+          "platform ekibi"
+        ],
+        "ekip_b": [
+          "operasyon ekibi",
+          "QA ekibi",
+          "altyapı ekibi"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nSahipsiz görev riski kritik. Bu görev için hangi ekibin sorumlu olduğunu netleştiren bir RACI (Responsible, Accountable, Consulted, Informed) tablosu oluşturuyorum ve her iki ekip lideriyle mutabık kalacağım. Sorumluluk belirsizliği projenin başında giderilmesi gereken bir kapsam sorunudur.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nGörevi her iki ekibe de atıyorum; biri bir şekilde halleder.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nBu görevi bizzat üstleniyorum; iki ekip anlaşamıyorsa PM devreye girmeli.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nHer iki ekip de haklı; görev gerçekten belirsiz bölgede. Şimdilik bekleyelim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Sorumluluk belirsizliği proje risklerinin en kaçınılabilir olanlarından biridir. RACI matrisi veya benzeri sorumluluk çerçeveleri, proje başlangıcında tüm paydaşlarla mutabık kalınarak oluşturulmalıdır. PM, sahipsiz görevleri ilk gördüğünde proaktif biçimde sorumluluğu netleştirmelidir."
+    },
+    {
+      "reason_id": "TAC-05",
+      "reasonTR": "Ekipte iletişim kopukluğu",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nEkip üyeleri {konu} konusunda birbirini yeterince bilgilendirmiyor. Bu durum {sonuc} sorununa yol açıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "konu": [
+          "kod değişiklikleri",
+          "engeller ve blokerlar",
+          "teslim tarihi güncellemeleri"
+        ],
+        "sonuc": [
+          "çakışan geliştirme",
+          "beklenmedik gecikmeler",
+          "sürpriz entegrasyon hataları"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nİletişim alışkanlığını yapısal olarak güçlendiriyorum. Daily standups'ın içeriğini netleştiriyorum (dün ne yapıldı, bugün ne yapılacak, ne engelliyor?) ve Slack/Teams'te bilgilendirme kanalları oluşturuyorum. Ekip anlaşması (working agreement) güncelleyerek iletişim beklentilerini yazılı hale getiriyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip gerektiğinde iletişim kurar; fazla yapılandırma öğrenciliği engeller.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nDaha sık toplantı yaparsak iletişim sorununu çözeriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nEkip bireysel sorumluluğunu bilmeli; iletişim sorununu ben çözemem.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "İletişim kopuklukları çoğunlukla bireysel hatadan değil, net protokol eksikliğinden kaynaklanır. Ekip anlaşmaları (working agreements) ve yapılandırılmış günlük standups, iletişim beklentilerini açık hale getirir. PM, araç ve alışkanlık olarak iletişim altyapısını kurmalı; süreci insanlara bırakmamalıdır."
+    },
+    {
+      "reason_id": "TAC-06",
+      "reasonTR": "Kişisel çatışma ekip bütünlüğünü etkiliyor",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{uye_a} ile {uye_b} arasındaki kişisel gerilim iş ortamına yansıyor. Diğer ekip üyeleri de bu durumdan rahatsız; atmosfer bozuldu.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "uye_a": [
+          "Ali Bey",
+          "Can Bey",
+          "Mert Bey"
+        ],
+        "uye_b": [
+          "Merve Hanım",
+          "Selin Hanım",
+          "Ayşe Hanım"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nHer iki kişiyle ayrı ayrı özel görüşme yapıyorum; durumu dinlemek ve profesyonel beklentileri netleştirmek için. Ardından iş birliği protokollerine odaklanan ortak bir toplantı planlıyorum. Sorun devam ederse İK ve üst yönetimi sürece dahil edeceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip kendi arasında çözür; müdahale etmek durumu kötüleştirebilir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nBu konuyu takım toplantısında açık olarak tartışalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nBirini projeden çıkarmak gerekebilir; çatışmayı sürdürmek verimsiz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kişisel çatışmalar zamanında müdahale edilmezse ekip kültürünü kalıcı biçimde zedeler. PM, duygusal zekâyla yaklaşmalı, taraf tutmadan her iki tarafı dinlemeli ve profesyonel davranış standartlarını net biçimde ortaya koymalıdır. İK ve üst yönetimi zamanında dahil etmek hem yasal hem de organizasyonel açıdan önemlidir."
+    }
+  ]
+}

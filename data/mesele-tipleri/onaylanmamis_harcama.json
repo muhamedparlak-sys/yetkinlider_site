@@ -1,0 +1,462 @@
+{
+  "mesele_id": "onaylanmamis_harcama",
+  "meseleTR": "Onaylanmamış Harcama",
+  "compatible_terms": [
+    "cost_management",
+    "procurement_management",
+    "change_control",
+    "integrated_change_control",
+    "procurement_control",
+    "internal_control",
+    "cost_governance"
+  ],
+  "reasons": [
+    {
+      "reason_id": "alt_yuklenici_onaysız",
+      "reasonTR": "Alt Yükleniciye Onaysız İş Verildi",
+      "weight": 9,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Alt yüklenici kullanımında bir sorunum var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, size söylemem gereken bir şey var. {alt_yuklenici_durumu} Onay almadan yaptım çünkü {gerekçe} Yanlış mı davrandım bilmiyorum, ama artık söylememek doğru gelmiyor.",
+      "body_vars": {
+        "alt_yuklenici_durumu": [
+          "Geçen ay bir alt yükleniciye iş verdim, onay almadım.",
+          "Yazılım testlerinin bir bölümünü dış firmaya yaptırdım.",
+          "Tasarım revizyon işini yetkisiz bir taşerona devrettim.",
+          "Bakım hizmetlerini sözleşme dışı bir firmaya sipariş ettim."
+        ],
+        "gerekçe": [
+          "zaman baskısı vardı ve normal süreç uzun geliyor.",
+          "acil bir durum çıkmıştı ve sizi bulamadım.",
+          "tedarikçi halihazırda bizimle çalışıyordu, formalite gerekmez sandım.",
+          "bütçe açığı yoktu, sorun olmaz düşündüm."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}, bunu söylemek cesaret ister. Şimdi yapılan işi ve ödemeyi kayıt altına almamız gerekiyor — usulsüzlük olduğu için bunu ihale birimime bildirip düzeltici süreç başlatıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Alt yüklenici kullanımı sözleşme ve tedarik politikamıza tabi — prosedür dışı bu hizmet alımını tedarik ekibine raporlıyorum. İleride benzer durumlarda acil onay sürecimiz var, kullanabilirsin.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Yapılan işi ve maliyeti kayıt altına alalım — resmi sözleşme imzalanmamış olsa da hizmet alındığı için fatura gelmeden belgeleme yapalım. Bir daha böyle durumda önce beni ara.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kabul edilemez {name_polite}. Onaysız alt yüklenici kullanımı tedarik politikamızın açık ihlali — bu hizmeti iptal edip bedeli senden karşılamamı isteyebiliriz. İnsan kaynaklarını da dahil etmek zorunda kalabilirim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Onaysız alt yüklenici kullanımı Sayıştay'ın İBB raporunda B30 bulgusunda kayıtlara geçen bir iç kontrol sorunudur. PMI tedarik yönetimi her alt yüklenicinin sözleşme çerçevesinde yetkilendirilmesini gerektirir. PM'in görevi sorunları gizlemeden düzeltici süreç başlatmak ve sistemik çözüm geliştirmektir."
+    },
+    {
+      "reason_id": "harcama_limiti_asildi",
+      "reasonTR": "Harcama Limiti Fark Edilmeden Aşıldı",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Harcamalarımda bir düzensizlik fark ettim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, muhasebe raporu geldiğinde fark ettim: {limit_sorunu} Kasıtlı değildi ama onay almam gerekirdi. Nasıl toparlarız?",
+      "body_vars": {
+        "limit_sorunu": [
+          "Bu çeyrek harcama limitimin yüzde on üzerine çıkmışım.",
+          "Ekipman alımında yetki sınırımı aşmışım, fark etmemişim.",
+          "Yazılım lisans yenileme faturası limiti aştı, imzaladım.",
+          "Danışmanlık ödemesi toplam limite dahil edilmemişti, aşım oluştu."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Fark edip bildirdiğin için teşekkürler {name_polite}. Muhasebe ile birlikte aşımın kalemlerini inceliyorum — ne kadar, hangi onay seviyesinin gerektirdiğini belirleyelim. Retroaktif onay almamız gerekecek.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Harcama limitlerini aşan her kalem için geriye dönük onay süreci var — bu aşımı muhasebe ve tedarik birimiyle birlikte belgeleyelim. Bir daha olmaması için uyarı mekanizması kuralım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Aşımın büyüklüğüne göre onay mercii farklı olabilir — muhasebe birimiyle konuşup gerekli adımları atacağım. Endişelenme, düzeltilebilir bir durum bu.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Yetki sınırını aşmak ciddi bir prosedür ihlali {name_polite}. Bu durumu üst yönetime raporlıyorum ve senden bir açıklama notu istiyorum — ileride benzer bir hata olursa disiplin süreci işletilmek zorunda kalabiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Harcama limit ihlalleri iç kontrol zafiyetinin göstergesidir ve kamu kurumlarında Sayıştay denetimlerinde öne çıkar. PMI maliyet yönetimi her harcamanın bütçe bazlı yetki çerçevesinde onaylanmasını gerektirir. PM'in görevi sistemi düzeltmek ve ekibe yetki limitlerini net öğretmektir."
+    },
+    {
+      "reason_id": "acil_satin_alma_usulsüz",
+      "reasonTR": "Acil Gerekçesiyle Onaysız Satın Alındı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Acil durumda yaptığım alım hakkında konuşmam lazım",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, geçen {zaman} içinde {acil_alim} yapmak zorunda kaldım. {gerekçe} Onay almak için zamanım yoktu. Şimdi ne yapalım?",
+      "body_vars": {
+        "zaman": [
+          "hafta",
+          "ay",
+          "iki gün",
+          "üç gün"
+        ],
+        "acil_alim": [
+          "acil donanım alımı",
+          "yazılım lisansı yenilemesi",
+          "teknik destek sözleşmesi",
+          "ekipman tamiri"
+        ],
+        "gerekçe": [
+          "Sistem çöktü ve müşteri SLA'ı tehlikeye girdi.",
+          "Test ortamı kapandı, canlıya geçemiyorduk.",
+          "Kritik güvenlik açığı kapanması gerekiyordu.",
+          "Sunucu arızası projeyi tümden durduracaktı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Zor bir durumda hızlı hareket ettiğini görüyorum {name_polite}. Yapılan alımı retroaktif olarak kayıt altına almamız gerekiyor — faturayı, gerekçeyi ve onay alamama nedenini belgeleyelim. Acil onay prosedürümüzü de gözden geçirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Acil satın alma prosedürümüz var — bu alımı geriye dönük o süreçle belgeleyelim. Harcama tutarına göre hangi onay merciini atlattığımıza bakıyorum, düzeltici adım atıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Alımın gerekçesi makul görünüyor ama prosedürel olarak onaysız kalmış. Muhasebe ve tedarik birimine bildirip belgeleme yapalım — ileride acil onay için SMS veya mail yetkilendirmesi alabilirsin.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kabul edilemez {name_polite}. Acil durum onay prosedürünü devre dışı bırakmak için geçerli bir neden değil — bu alımın bedelini kendi bütçen karşılayacak, üst yönetime de bildiriyorum bu ihlali.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Acil alımlar bile kurumsal onay zincirini takip etmelidir. Sayıştay Adana raporunda B4 bulgusu iç kontrol mekanizmalarının işlevsiz kaldığını göstermektedir. PMI tedarik yönetimi, acil durum prosedürlerinin önceden tanımlanmasını ve belgelenmiş yetki sınırları içinde kalınmasını gerektirir."
+    },
+    {
+      "reason_id": "fatura_geriye_dönük",
+      "reasonTR": "Fatura Geriye Dönük Kesildi",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Geçmiş dönem faturası konusunda bir sorunum var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {tedarikci} geçen {sure} boyunca yaptığı iş için {tutar} tutarında fatura gönderdi. {sorun} Bunu nasıl kayıt altına alacağız?",
+      "body_vars": {
+        "tedarikci": [
+          "danışmanımız",
+          "bakım firması",
+          "yazılım şirketi",
+          "dış uzman"
+        ],
+        "sure": [
+          "üç aylık",
+          "altı aylık",
+          "iki aylık",
+          "dört aylık"
+        ],
+        "tutar": [
+          "önemli miktarda",
+          "ciddi bir",
+          "beklenmedik bir",
+          "yüksek bir"
+        ],
+        "sorun": [
+          "Sözleşme imzalanmamıştı, el sıkışmayla çalışıyorduk.",
+          "Hizmet alındığında ihale süreci henüz bitmemişti.",
+          "Bütçe kalemi yoktu, hizmet yine de devam etmişti.",
+          "Onay bekleniyordu ama beklenmeksizin iş yapılmıştı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, durumu kavradım. Önce bu hizmetin ne zaman kararlaştırıldığını ve kimin onayladığını belgeleyelim — geriye dönük fatura için muhasebe ve tedarik birimini dahil etmeliyiz. Prosedürel süreç başlatıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Tamam {name_polite}. Geriye dönük faturaları işleme sürecimiz var — hizmetin gerçekleştirildiğini doğrulayan belgeler ve yetkili imza gerekecek. Tedarik birimini döngüye alıp adımları atacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Anladım {name_polite}. Faturayı mevcut dönem bütçesinden karşılayabilir miyiz önce kontrol edeyim — bütçe yeterliyse muhasebe onayıyla geçirebiliriz, yoksa üst yönetim onayı gerekecek.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kabul edilemez {name_polite}. Sözleşmesiz verilen hizmet için fatura ödeyemeyiz — hukuk birimini dahil ediyorum. Bu süreçte seni de ifade vermek üzere çağırabilirler, hazırlıklı ol.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Geriye dönük fatura kesilmesi kamu kurumlarında Sayıştay bulgularında sıkça karşılaşılan bir usul sorunudur. PMI tedarik yönetimi, her hizmet alımının öncesinde sözleşmenin tamamlanmasını şart koşar. PM, hukuki ve finansal riskleri minimize etmek için hizmet başlamadan önce sözleşme sürecini tamamlamalıdır."
+    },
+    {
+      "reason_id": "sözleşme_dışı_iş",
+      "reasonTR": "Sözleşme Dışı İş Yaptırıldı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Sözleşme kapsamı dışında bir iş yaptırdım",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, size açık olmam gerekiyor. {sozlesme_sorunu} Müşterinin talebi üzerine hareket ettim ama sonradan düşündüm ve bu bizi riske atıyor olabilir.",
+      "body_vars": {
+        "sozlesme_sorunu": [
+          "Tedarikçimize sözleşme dışı ek özellik geliştirttim.",
+          "Alt yüklenicimize kapsam dışı teknik destek verdirttim.",
+          "Donanım tedarikçisine kurulum dışı eğitim aldırdım.",
+          "Yazılım firmasına lisans dışı özelleştirme yaptırdım."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu anlattığın için teşekkürler {name_polite}. Bu ek iş için değişiklik talebi açmamız ve tedarikçiyle ek sözleşme imzalamamız gerekiyor — müşteriye de ne kadar ek ücret yansıyacağını netleştirmeliyiz. Hemen başlıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Sözleşme dışı iş yaptırıldığında iki risk var — tedarikçiyle fiyat anlaşmazlığı ve müşteriyle kapsam anlaşmazlığı. Değişiklik kontrol sürecini başlatıp her iki tarafı da döngüye alıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Müşterinin talebini yazılı olarak alalım önce — talep belgelendikten sonra değişiklik talebi açabiliriz ve tedarikçiyle ek sözleşme müzakeresi yaparız. Şimdilik çalışmayı durduralım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kabul edilemez {name_polite}. Sözleşme dışı iş yaptırarak hem firmamızı hem tedarikçiyi hukuki riske attın — bu işi durduruyor ve müşteriyle yapılan yazışmaların tamamını talep ediyorum. Hukuk birimi de dahil olacak.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Sözleşme dışı iş yaptırılması Sayıştay İBB raporundaki B18 bulgusunda 'proje dışı imalat' olarak kayıtlara geçen bir kontrol sorunudur. PMI kapsam yönetimi her değişikliğin Integrated Change Control süreciyle onaylanmasını gerektirir. PM'in müşteri baskısı altında bile değişiklik kontrolünü uygulaması kritik bir PM yetkinliğidir."
+    },
+    {
+      "reason_id": "tek_imzayla_ödeme",
+      "reasonTR": "İkili İmza Zorunluluğu Atlandı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Onay matrisinden sapma konusunda itirafım var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {ödeme_durumu} {neden} Standart prosedür ikili imza gerektiriyor ama o an başka seçenek görmedim. Bu durumu nasıl düzeltiriz?",
+      "body_vars": {
+        "ödeme_durumu": [
+          "Geçen hafta bir tedarikçi ödemesini tek imzamla onayladım.",
+          "İki gün önce ekipman alımını tek başıma yetkilendirdim.",
+          "Yazılım güncellemesi için tek imzayla ödeme emri verdim.",
+          "Bakım sözleşmesi ödemesini ikinci imza almadan geçirdim."
+        ],
+        "neden": [
+          "İkinci imza yetkilisi izindeydi.",
+          "Zaman baskısı altındaydım, gecikme kabul edilemezdi.",
+          "Küçük bir tutar sandım, limit içinde kalır diye düşündüm.",
+          "Muhasebe kapanmadan yetişmesi gerekiyordu."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Bu ödemeyi muhasebe birimi ve iç denetime bildirmemiz gerekiyor — retroaktif onay almak için süreç var, birlikte yürütelim. İzin dönemlerinde imza yetkisi devrini de çözelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bu ödemeyi iç denetime bildirmek zorundayım — retroaktif ikinci imza için prosedür var. İleride acil durumlarda ikinci yetkilinin yedeği kim olacak bunu netleştirelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Tutarın büyüklüğüne bakıyorum — eğer limit içindeyse muhasebe açıklamasıyla geçebilir. Ama ikinci imzayı almak için varsa o kişiyle konuşmamı ister misin, hâlâ yapılabilir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu ciddi bir prosedür ihlali {name_polite}. İç denetimi hemen bilgilendiriyorum — tek imza yetkisi olmayan bir ödeme iç kontrol açığı demek. İleride bu ödeme denetimde çıkarsa açıklama yapman gerekecek.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "İkili imza zorunluluğu iç kontrol sisteminin temel güvencesidir ve Sayıştay denetimlerinde kontrol edilen birincil kalemlerden biridir. PMI maliyet yönetimi yetki matrisine uyumu gerektirir. PM'in görevi ikili imza sistemini korumak ve acil durumlarda geçici yetki devri mekanizmasını önceden kurmaktır."
+    },
+    {
+      "reason_id": "bütçe_kalemi_yanlış",
+      "reasonTR": "Yanlış Bütçe Kaleminden Harcandı",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Bütçe kalemi sınıflandırmasında hata yaptım",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {harcama} konusunda bir sınıflandırma hatası yaptığımı fark ettim. {hata_detay} Bu hata nasıl düzeltilir?",
+      "body_vars": {
+        "harcama": [
+          "Donanım alımını",
+          "Danışmanlık giderini",
+          "Yazılım lisansını",
+          "Eğitim harcamasını"
+        ],
+        "hata_detay": [
+          "Sermaye gideri olan alımı operasyonel gider olarak geçirdim.",
+          "Proje bütçesinden değil genel gider kaleminden ödetttim.",
+          "IT yatırımı olan alımı bakım bütçesine yazdırdım.",
+          "Dış danışman giderini iç personel maliyeti olarak sınıflandırdım."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Fark edip bildirdiğin için teşekkürler {name_polite}. Muhasebe birimi yanlış sınıflandırmaları düzeltebilir — doğru kaleme aktarım için bir düzeltme fişi açmamız gerekiyor. Bütçe kodlarını da birlikte gözden geçirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Muhasebe birimini döngüye alıyorum — düzeltme için her iki kalemin de yöneticisi onay vermeli. Etkilenen bütçe kalemlerinin son durumunu da birlikte kontrol edelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Hata anlaşılabilir, bütçe kodları karmaşık olabiliyor. Muhasebe ile konuşup düzeltici kayıt açalım — ileride rehber bir tablo yapayım mı, hangi harcama hangi kaleme giriyor diye.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu tür sınıflandırma hataları kasıt olmasa bile denetimde sorun yaratır {name_polite}. Düzeltme kaydı açılacak ama bu hatanın tekrarlanmaması için seni muhasebe eğitimine yönlendireceğim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Harcama sınıflandırma hataları mali tabloların güvenilirliğini etkiler ve kamu kurumlarında denetim bulgusuna yol açabilir. PMI maliyet yönetimi, harcamaların doğru WBS iş paketlerine ve maliyet kalemlerine atanmasını gerektirir. PM'in görevi bütçe kodlarını ekibine öğretmek ve izleme mekanizması kurmaktır."
+    },
+    {
+      "reason_id": "önceki_dönem_harcama",
+      "reasonTR": "Önceki Dönem Harcaması Bu Döneme Yansıdı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Dönem dışı harcama konusunda bir sorun var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {dönem_sorunu} Bu fatura bu dönem bütçemize yansıdı ama aslında {gerçek_dönem} yapılan bir hizmet için. Ne yapalım?",
+      "body_vars": {
+        "dönem_sorunu": [
+          "Önceki mali yılda alınan hizmetin faturası şimdi geldi.",
+          "Geçen çeyreğe ait bakım bedeli bu ay faturalandı.",
+          "Eski dönem danışmanlık ödemesi geç kesildi.",
+          "Kapanmış bir projede kullanılan lisansın faturası şimdi çıktı."
+        ],
+        "gerçek_dönem": [
+          "geçen mali yılda",
+          "üç ay önce",
+          "önceki çeyrekte",
+          "geçen yıl sonunda"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Dönemler arası harcama sorunları için muhasebe birimi standart prosedürler uygulayabilir — hizmetin gerçekleşme tarihini belgeleyelim ve düzeltici kayıt açalım. Tedarikçiden resmi doğrulama alalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Tamam {name_polite}. Muhasebe birimini bilgilendiriyorum — geçmiş döneme ait harcamaların bu döneme yansıması tahakkuk muhasebesi açısından düzeltme gerektirir. Doğru dönem ile eşleştirme için belgeler hazırlayalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Anladım {name_polite}. Tutara göre dönemsel etkisi değişir — önemli bir tutar değilse muhasebe bu döneme mahsup edebilir. Tedarikçiyle fatura tarihini görüşmek de bir seçenek, şimdi konuşuyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu dönem bütçesi bu tür sürpriz faturalara kapalı {name_polite}. Tedarikçiye faturayı iptal ettirip doğru döneme kesmelerini talep edin — bütçemizi etkileyecek işlemleri önceden bildirmeleri şart.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Dönemler arası harcama kayıtlamaları mali raporların güvenilirliğini etkiler. PMI maliyet yönetimi harcamaların fiili gerçekleşme dönemine göre raporlanmasını gerektirir. PM'in görevi tedarikçi faturalama takvimini sözleşme dönemleriyle uyumlu hâle getirmek ve sürpriz faturaların önüne geçmektir."
+    },
+    {
+      "reason_id": "kapsamdışı_personel_harcaması",
+      "reasonTR": "Kapsam Dışı Personel Harcaması Yapıldı",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Proje bütçesinden yapılan bir harcama hakkında",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, proje bütçesinden {harcama_türü} ödemesi yapıldığını fark ettim. {kapsam_sorunu} Bu harcama nasıl ele alınmalı?",
+      "body_vars": {
+        "harcama_türü": [
+          "proje dışı bir danışmanın",
+          "başka birimden gelen uzmanın",
+          "sözleşme kapsamı dışındaki eğitimin",
+          "kapsam dışı teknik destek"
+        ],
+        "kapsam_sorunu": [
+          "Ancak bu kişi bizim proje kapsamında yer almıyordu.",
+          "Bu hizmet WBS'de tanımlı değil, onay almadan eklendi.",
+          "Sözleşme bu personeli kapsamıyor ama ödeme yapılmış.",
+          "İş paketine atanmamış biri proje bütçesinden maaş aldı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu konuyu gündeme getirdiğin için teşekkürler {name_polite}. Söz konusu harcamanın ne kadar, hangi onay sürecinden geçtiğini inceliyorum — kapsam dışıysa tedarik ve muhasebe birimlerini döngüye alarak düzeltici işlem yapacağız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Proje bütçesinden kapsam dışı harcama yapılmasını iç kontrol birimi incelemeli — bu tür tutarsızlıkları muhasebe kayıtlarıyla karşılaştıracak bir denetim talebi oluşturacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Önce bu kişinin proje kapsamında görev yapıp yapmadığını netleştirelim — belgelenmiş bir onay varsa harcama meşrulaşabilir. Araştırıp döneceğim, bekle.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kabul edilemez {name_polite}. Kapsam dışı personel proje bütçesinden ödenemez — bu harcamayı yapan yöneticiyi dahil ederek derhal iç denetime bildiriyorum. Benzer hataların tespiti için bütçe incelemesi isteyeceğim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kapsam dışı personel harcamaları Sayıştay denetimlerinde sıkça rastlanan bir maliyet yönetimi sorunudur. PMI maliyet kontrolü, her harcamanın onaylı WBS iş paketine ve bütçe kalemine bağlı olmasını gerektirir. PM, kapsam dışı talepleri değişiklik kontrolü olmadan bütçeye yansıtmamalıdır."
+    }
+  ]
+}

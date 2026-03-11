@@ -1,0 +1,365 @@
+{
+  "mesele_id": "teslimat_sonrasi_kriz",
+  "meseleTR": "Teslimat Sonrasi Kriz",
+  "compatible_terms": [
+    "project_closure",
+    "lessons_learned",
+    "stakeholder_management",
+    "risk_management",
+    "change_management",
+    "user_adoption",
+    "post_implementation_review"
+  ],
+  "reasons": [
+    {
+      "reason_id": "sistem_çöküşü_devreye_alımdan_sonra",
+      "reasonTR": "Sistem Devreye Alım Sonrası Çöktü",
+      "weight": 9,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Sistem devreye alındıktan sonra çöktü",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, bugün yaşananlar için son derece üzgünüm. {çöküş_detay} Kullanıcılarımız mağdur oldu ve sisteme olan güven sarsıldı.",
+      "body_vars": {
+        "çöküş_detay": [
+          "Sistem devreye alındıktan iki saat sonra tamamen çöktü.",
+          "Canlı geçiş sonrası kritik bir modül hata verdi.",
+          "Yük altında sistem beklenmedik biçimde durdu.",
+          "Veri migrasyonu sonrasında sistemde ciddi tutarsızlıklar oluştu."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu durumun ciddiyetinin farkındayım {name_polite}. Şu an önceliğim sistemi en kısa sürede çalışır hale getirmek — teknik ekip üzerinde çalışıyor. Saatte bir durum güncellemesi göndereceğim. Kök neden analizi sonrası gerçekçi çözüm planı sunacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Acil bir müdahale ekibi kurdum — önce sistemi restore edelim. Canlı ortam loglarını inceliyoruz ve kök nedeni tespit etmeye çalışıyoruz. Üzgünüm bu deneyim için.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Geri alma (rollback) seçeneği hazır mı değerlendiriyorum — önceki kararlı versiyona dönmek sistemi hızla ayağa kaldırabilir. Sonra düzgünce test edip tekrar çıkış yaparız.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu bizim sorumluluğumuzda değil {name_polite}. Sistem testlerimizi geçti, müşteri ortamı bu yükü kaldıracak altyapıya sahip değildi. Altyapı hazırlığı konusunda sizi uyarmıştık.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Teslimat sonrası krizler genellikle yetersiz geçiş planlaması ve test yetersizliğinin sonucudur. PMI, devreye alma sürecinin geri alma planı (rollback plan) dahil kapsamlı hazırlık gerektirdiğini belirtir. PM'in görevi müşteriyle birlikte kriz iletişim planı ve eskalasyon sürecini devreye alma öncesinde tanımlamaktır."
+    },
+    {
+      "reason_id": "kullanıcı_direnci_yüksek",
+      "reasonTR": "Kullanıcılar Yeni Sistemi Reddediyor",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Kullanıcılar yeni sistemi kullanmak istemiyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, dürüst olayım: {direnç_belirtisi} Ekibimizin büyük çoğunluğu eski yönteme dönmek istiyor.",
+      "body_vars": {
+        "direnç_belirtisi": [
+          "çalışanlarım yeni sistemi kullanmıyor, eskiye dönüyorlar.",
+          "eğitimlere katılmalarına rağmen sistemi benimseyemediler.",
+          "kullanıcılar sürekli şikayet ediyor, verimlilik düştü.",
+          "destek taleplerimiz teslimattan bu yana beş katına çıktı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu geri bildirimi paylaşmanız için teşekkürler {name_polite}. Kullanıcı direnci değişim yönetiminin yetersiz kaldığına işaret ediyor — hangi konularda en fazla zorluk yaşandığını anlayalım. Hedefe yönelik ek eğitim ve destek planı hazırlıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Kullanıcı deneyimini yakından izleyelim — en fazla şikayet gelen özellikleri önceliklendirip iyileştirelim. Şampiyon kullanıcılar belirleyip akran desteği sistemi kurabiliriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Hızlı bir kullanıcı anketi yapalım — zorluk noktalarını doğrudan onlardan öğrenelim. Bu verilerle hem sistem iyileştirmesi hem ek eğitim planlayabiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Kullanıcı direnci değişime karşı doğal bir tepki {name_polite}. Bir süre sonra alışacaklar — zorla kabul ettirmeye çalışmak işe yaramaz, kendi kendine uyum sağlarlar. Sabırlı olun.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kullanıcı direnci proaktif değişim yönetimi olmadığında kaçınılmazdır. PMI, değişim yönetiminin proje planına dahil edilmesini ve kullanıcı hazırlığının teslimattan önce değerlendirilmesini önerir. PM'in görevi teslimattan önce şampiyon kullanıcıları belirlemek ve değişim etki analizini yapmaktır."
+    },
+    {
+      "reason_id": "veri_göçü_hatası",
+      "reasonTR": "Veri Migrasyonu Sonrası Tutarsızlıklar Çıktı",
+      "weight": 9,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Veri taşıma sonrası tutarsızlıklar var",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, veri migrasyonundan sonra {tutarsızlık_türü} gördük. {etki} Bu konuyu acilen çözüme kavuşturmamız gerekiyor.",
+      "body_vars": {
+        "tutarsızlık_türü": [
+          "kayıt sayımlarında tutarsızlıklar",
+          "tarih alanlarında hatalar",
+          "bazı kayıtların kaybolması",
+          "ilişkisel verilerin bozulması"
+        ],
+        "etki": [
+          "Raporlarımız yanlış çıkıyor.",
+          "Kritik tarihsel verilere ulaşamıyoruz.",
+          "Operasyonel süreçlerimiz sekteye uğradı.",
+          "Kullanıcılar hatalı sonuçlarla karşılaşıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu durumun ciddiyetini kabul ediyorum {name_polite}. Veri bütünlüğü acil öncelik — etkilenen kayıtların kapsamını belirliyoruz. Kaynak sisteme erişim hâlâ var mı, varsa karşılaştırmalı analiz başlatıyorum. Sizi günlük olarak bilgilendireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Migrasyon sürecini izleme kayıtlarını inceliyorum — hangi adımda veri kaybı veya bozulması oldu tespit etmeye çalışıyoruz. Etkilenen kayıtları restore edecek bir plan hazırlıyoruz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Kaynak sistemden yeniden migrasyon yapmak gerekebilir — bu için kaynak sistemi değiştirmeden tutmanız kritik. Tam kapsam analizini bugün içinde bitireceğim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Migrasyon senaryolarını test ettik ve onaylandı {name_polite}. Buradaki tutarsızlıklar kaynak sistemdeki veri kalite sorunlarından kaynaklanıyor olabilir — önce kaynak verinin durumunu birlikte değerlendirmeliyiz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Veri migrasyonu hataları önceki geçiş testlerinin yetersizliğini gösterir. PMI, migrasyon süreçlerinin tam veri doğrulaması ve geri alma planı içermesini gerektirir. PM'in görevi migrasyon öncesinde veri kalitesini değerlendirmek ve migrasyon sonrası kapsamlı doğrulama planı hazırlamaktır."
+    },
+    {
+      "reason_id": "eğitim_yetersiz_kaldı",
+      "reasonTR": "Eğitim Kullanıcılara Yetmedi",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Verilen eğitimler yetersiz kaldı",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, eğitimlere katıldık ama {eğitim_sorunu} Kullanıcılarımız sistemi verimli kullanamıyor.",
+      "body_vars": {
+        "eğitim_sorunu": [
+          "içerik soyut kaldı, gerçek iş senaryolarıyla örneklenmedi.",
+          "eğitim çok kısa sürdü, yetişemedik.",
+          "teorik anlatım güçlüydü ama pratik uygulama eksikti.",
+          "eğitim sonrası hemen canlıya geçince pekiştirme olmadı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu geri bildirimi paylaşmanız çok değerli {name_polite}. Eğitim içeriğini gözden geçirip gerçek iş senaryolarına dayalı pratik alıştırmalar ekleyelim — kısa süreli yüz yüze veya online seanslar planlıyorum. Nerede en fazla zorluk var?",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Kullanıcı başına hızlı başvuru kılavuzu hazırlayabilirim — sık yapılan görevler için adım adım görsel rehber. Bunu destek masası ile birleştirirsek kullanım oranı artar.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Deneyimli kullanıcıları eğitici olarak görevlendirelim — akran öğrenmesi hem daha hızlı hem daha pratik sonuç verir. Şampiyon kullanıcı programı kuralım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Sözleşmede belirtilen eğitim verildik {name_polite}. Ek eğitim talebi ek hizmet kapsamına giriyor — bu konuyu değerlendirip fiyatlandırabiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yetersiz eğitim kullanıcı benimsemesini engelleyen en önemli faktörlerden biridir. PMI, eğitim planlamasının kullanıcı hazırlık değerlendirmesine ve öğrenme stillerine göre tasarlanmasını önerir. PM'in görevi eğitimi teslimattan önce ve sonra destekleyecek bir öğrenme sürekliliği planı oluşturmaktır."
+    },
+    {
+      "reason_id": "performans_beklentilerin_altında",
+      "reasonTR": "Sistem Gerçek Yükte Performans Gösteremiyor",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Sistem gerçek kullanımda beklentiyi karşılamıyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, sistem devreye alındığında {performans_sorunu} ortaya çıktı. Gerçek kullanım koşullarında beklentimizi karşılamıyor.",
+      "body_vars": {
+        "performans_sorunu": [
+          "tepki süreleri kabul edilemez seviyelere ulaştı",
+          "belirli saatlerde sistem ağırlaşıyor",
+          "eş zamanlı kullanıcı yükünde sorun çıktı",
+          "büyük veri hacminde raporlar çok yavaş üretiliyor"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu durumu bildirdiğiniz için teşekkürler {name_polite}. Sistem üzerinde derhal performans analizi başlatıyorum — darboğazları tespit edip kısa vadeli iyileştirme ve uzun vadeli çözüm seçenekleri sunacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Performans analizi ve yük testi yapıyorum — gerçek kullanım profilini anlamak kritik. Darboğazları bulduktan sonra optimizasyon planı hazırlayacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Geçici çözüm olarak yoğun saatleri yayacak bir kullanım planı önerebilir miyim — darboğaz zamanlarında yükü dağıtmak kısa vadede rahatlatabilir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Sözleşmedeki performans kriterleri test ortamında karşılandı {name_polite}. Gerçek kullanım profili tahmin edilenden farklı çıktı — bu altyapı boyutlandırmasıyla ilgili ve müşteri tarafı sorumluluğunda.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Teslimat sonrası performans sorunları yeterli yük testi yapılmadığının göstergesidir. PMI, performans kriterlerinin sözleşmede ölçülebilir biçimde tanımlanmasını ve kabul testlerinde gerçek kullanım koşullarının simüle edilmesini gerektirir. PM'in görevi kabul kriterlerini tüm boyutlarıyla belirlemektir."
+    },
+    {
+      "reason_id": "destek_kapasitesi_yetersiz",
+      "reasonTR": "Devreye Alım Sonrası Destek Kapasitesi Yetersiz",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Destek taleplerimize yetişemiyorsunuz",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, sistem devreye alındığından bu yana {destek_sorunu} Ekibimiz çözüm beklerken üretimini yapamıyor.",
+      "body_vars": {
+        "destek_sorunu": [
+          "destek taleplerimiz günlerce yanıtsız kalıyor.",
+          "destek ekibinin kapasitesi bu talep hacmine yetmiyor.",
+          "aynı sorunlara defalarca çözüm arıyoruz.",
+          "birinci seviye destek sorunları çözmeden ikinciye yönlendiriyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu durumun sizin için yarattığı zorluğu anlıyorum {name_polite}. Devreye alım sonrası destek kapasitemi artırıyorum — öncelikli bir hattı kuyruğunuza açıyorum ve açık talepleri bugün içinde değerlendiriyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Destek taleplerinizi öncelikli kuyruğa alıyorum ve ayrı bir destek noktası oluşturuyorum — ayrıca sık sorulan soruları kapsayan bir FAQ rehberi hazırlayacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Destek kapasitesini artırmak için geçici kaynak ekliyorum — bu sorunların kaynağını anlarsak kök neden çözümü ile talepler azalır. Sizi haftalık olarak bilgilendireceğim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Destek kapasitesi sözleşmede tanımlı SLA çerçevesinde yönetiliyor {name_polite}. SLA koşullarını karşılıyoruz — ek öncelikli destek ek hizmet sözleşmesi gerektiriyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Devreye alım sonrası destek yoğunluğu geçiş hazırlığının yetersizliğini yansıtır. PMI, devreye alım sonrası bir hypercare dönemi planlanmasını ve destek kapasitesinin bu döneme göre hesaplanmasını önerir. PM'in görevi teslimattan önce destek yükünü tahmin etmek ve bu yük için kaynak ayırmaktır."
+    },
+    {
+      "reason_id": "eski_yeni_sistem_paralel_zorunlu",
+      "reasonTR": "Eski ve Yeni Sistem Paralel Çalışmak Zorunda Kaldı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Yeni sisteme geçişi tamamlayamıyoruz",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, geçiş planımıza göre eski sistemi kapatmış olmalıydık ama {gecikmesi_nedeni} Şimdi her iki sistemi paralel çalıştırıyoruz, bu sürdürülebilir değil.",
+      "body_vars": {
+        "gecikmesi_nedeni": [
+          "bazı iş süreçleri yeni sistemde henüz tam çalışmıyor.",
+          "kritik modüller hâlâ eksik.",
+          "kullanıcılar tam geçişe hazır hissetmiyor.",
+          "veri migrasyonu tamamlanamadı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, paralel çalışma ek yük yaratıyor. Geçişi engelleyen kritik maddelerin listesini birlikte çıkaralım — her birine çözüm planı ve süre koyalım. Eski sistemi kapatmak için net bir tarih hedefleyelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Paralel çalışma planını net bir kesin geçiş tarihi ile sınırlayalım — bu tarihe kadar ne tamamlanmalı bunu listeleyelim ve sorumlu atayalım. Her hafta ilerleme takibi yapacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Eski sistemi kısmen kapatmak mümkün mü bakalım — tamamlanan modüller için eski sistem erişimini kapatıp kalan için bir süre daha açık bırakalım. Kademeli geçiş olabilir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Paralel çalışma geçiş riskini azaltmak için stratejik bir kararsa makul {name_polite}. Fakat bu ek maliyet yaratıyor — paralel çalışmanın uzaması sözleşme kapsamı dışında ek çalışma anlamına geldiğini belirtmek isterim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Zorunlu paralel çalışma yetersiz geçiş planlamasının bedelidir. PMI, geçiş planının paralel çalışma süresini, eski sistemin kapatma kriterlerini ve kesim (cutover) tarihi risk değerlendirmesini içermesini gerektirir. PM'in görevi paralel çalışma süresini sınırlayacak net kriterler belirlemektir."
+    },
+    {
+      "reason_id": "lessons_learned_ihmal_edildi",
+      "reasonTR": "Proje Kapanışı Yaşananlardan Ders Çıkarmadan Kapandı",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Bu projeden ders çıkarmayı atlayamayız",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, projeyi teknik olarak kapattık ama {ihmal} Bu büyük bir fırsat kaybı.",
+      "body_vars": {
+        "ihmal": [
+          "lessons learned toplantısı yapılmadı.",
+          "proje değerlendirme raporu yazılmadı.",
+          "ekip başarı ve başarısızlıkları paylaşmadan dağıldı.",
+          "müşteriden resmi geri bildirim alınmadı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Haklısınız {name_polite}. Ekip henüz tamamen dağılmadan bir retrospektif toplantısı planlıyorum — başarıları, iyileştirme alanlarını ve önerileri belgeleyeceğiz. Bu hafta sonuna kadar toplantı davetiyeleri gönderiyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Yazılı geri bildirim formu hazırlayıp her ekip üyesine gönderebilirim — online format asenkron olarak tamamlanabilir. Müşteriden de ayrıca geri bildirim toplayacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Kısa bir PM değerlendirme raporu hazırlayayım — en önemli öğrenilenleri ve önerileri özetleyelim. Gelecekte referans olacak belge daha iyi olur.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Ekip dağıldı, lessons learned için toplamak artık zor {name_polite}. Herkes bir sonraki projeye geçti — bu proje bitti, ileri bakmalıyız. Değerlendirmeyi bir sonraki projede baştan yaparız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Lessons learned olmadan her proje aynı hatalarla başlar. PMI, formel kapanış değerlendirmesini proje başarısının ölçütlerinden biri olarak tanımlar. PM'in görevi öğrenilenleri sistematik olarak kaydetmek ve kurumsal bilgi tabanını zenginleştirmektir."
+    }
+  ]
+}

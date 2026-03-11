@@ -1,0 +1,480 @@
+{
+  "mesele_id": "tedarikci_sorunu",
+  "meseleTR": "Tedarikci Sorunu",
+  "compatible_terms": [
+    "procurement_management",
+    "contract_management",
+    "vendor_management",
+    "supply_chain",
+    "make_or_buy",
+    "procurement_control",
+    "supplier_risk"
+  ],
+  "reasons": [
+    {
+      "reason_id": "tedarikçi_teslimat_gecikti",
+      "reasonTR": "Tedarikçi Teslim Tarihini Kaçırdı",
+      "weight": 9,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Tedarikçimiz teslimat tarihini tutturamadı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {tedarikçi_türü} teslim tarihi {gecikme_süresi} geçti ama {durum} Bu gecikme kritik yolumu etkiliyor.",
+      "body_vars": {
+        "tedarikçi_türü": [
+          "yazılım geliştirme firmamız",
+          "donanım tedarikçimiz",
+          "danışmanlık firmamız",
+          "sistem entegrasyon ortağımız"
+        ],
+        "gecikme_süresi": [
+          "iki hafta",
+          "bir ay",
+          "on gün",
+          "üç hafta"
+        ],
+        "durum": [
+          "teslimat hâlâ gelmedi.",
+          "belirsiz bir tarih veriyorlar.",
+          "her hafta süre uzuyor.",
+          "iletişimleri zayıfladı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu takip etmen iyi oldu {name_polite}. Tedarikçiyle acil bir durum toplantısı ayarlamak istiyorum — gerçek durumu ve yeni taahhüdü anlayalım. Sözleşmedeki gecikme yaptırım maddelerini de inceliyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Tedarikçiye resmi yazılı bildirim gönderiyorum — sözleşmede belirlenen teslim tarihini, gecikmenin projemize etkisini ve beklediğimiz düzeltici eylemi açıkça belirtiyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Alternatif tedarikçi araştırmasına başlayalım — eğer mevcut tedarikçi makul sürede teslim edemezse planımız hazır olsun. Bu bizi müzakereden güçlü kılar.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu tedarikçi güvenilmez çıktı {name_polite}. Sözleşmeyi feshedip tüm yatırımımızı geri isteriz — hukuki süreç başlatıyorum ve yönetimi bilgilendiriyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Tedarikçi gecikmeleri Sayıştay İBB B30 bulgusunda alt yüklenici yönetim zafiyeti olarak kayıt altına alınmıştır. PMI tedarik yönetimi, sözleşmelerin gecikme yaptırımlarını (SLA, penalties) içermesini ve tedarikçi performansının düzenli izlenmesini gerektirir. PM'in görevi tedarikçi sorunlarını erken tespit edip müzakereyle çözüme kavuşturmaktır."
+    },
+    {
+      "reason_id": "tedarikçi_kalite_sorunu",
+      "reasonTR": "Tedarikçi Kalite Standartlarını Karşılamıyor",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Tedarikçiden gelen ürün kalite beklentisini karşılamıyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {tedarikçiden_gelen} inceledim ve {kalite_sorun} Kabul edersek ilerleyen aşamalarda ciddi sorunlarla karşılaşabiliriz.",
+      "body_vars": {
+        "tedarikçiden_gelen": [
+          "yazılım modülünü",
+          "teknik teslimatı",
+          "donanım bileşenini",
+          "analiz raporunu"
+        ],
+        "kalite_sorun": [
+          "belirlenen standartları karşılamıyor.",
+          "test senaryolarının yüzde otuzunu başarısız geçiyor.",
+          "sözleşmede tanımlı gereksinimlere uymuyor.",
+          "ciddi teknik eksiklikler içeriyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu fark edip bildirmen önemli {name_polite}. Kalite sorununu belgeleyelim ve tedarikçiye resmi geri bildirim verelim — sözleşmedeki kalite gereksinimleri referans alarak düzeltme talebi yapıyorum ve süre belirtiyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Kalite kabul kriterlerimizi referans alarak tedarikçiye detaylı bir hata listesi hazırlıyorum — her kalemin sözleşmeye atıfla belgelenmesi önemli. Düzeltme sürecini izleyeceğim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Tedarikçiyle birlikte kalite sorunlarını gözden geçirelim — bazı sorunlar yanlış anlama kaynaklı olabilir. Teknik toplantı yapıp her birini netleştirelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu teslimatı reddedip sözleşmeyi feshediyoruz {name_polite}. Tedarikçi standartların altında ürün teslim etti — zararı tazminat olarak talep edeceğiz. Hukuk birimini haberdar ediyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Tedarikçi kalite sorunları Sayıştay'ın kamu ihaleleri denetimlerinde sıkça yer alan bir yönetim başarısızlığıdır. PMI tedarik yönetimi, teslimatlardaki kalite kriterlerinin sözleşmede ölçülebilir biçimde tanımlanmasını ve kabul testlerinin şeffaf yapılmasını gerektirir. PM'in görevi kalite sorunlarını yazılı olarak belgeleyen bir süreç yönetmektir."
+    },
+    {
+      "reason_id": "tek_kaynak_bağımlılığı",
+      "reasonTR": "Tek Tedarikçiye Bağımlılık Risk Yarattı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Tek tedarikçiye olan bağımlılığımız risk oluşturdu",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {tedarikçi_sorunu} yaşıyoruz. {bağımlılık} Bu bağımlılık projeyi ciddi riske soktu.",
+      "body_vars": {
+        "tedarikçi_sorunu": [
+          "kilit tedarikçimiz çeşitli nedenlerle teslimat yapamıyor",
+          "tek tedarikçimiz fiyatını ikiye katladı",
+          "ana tedarikçimizin hizmet kalitesi belirgin biçimde düştü",
+          "kritik tedarikçimiz el değiştiriyor"
+        ],
+        "bağımlılık": [
+          "Alternatif tedarikçimiz yok.",
+          "Sadece bu firmadan alabileceğimiz özel bir bileşen söz konusu.",
+          "Yıllar içinde bu firmaya tam bağımlı hale geldik.",
+          "Değiştirmek yüksek geçiş maliyeti anlamına geliyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu bağımlılık riskini artık kayıt altına alıyoruz {name_polite}. Kısa vadede tedarikçiyle müzakere kapasitemizi güçlendirirken, orta vadede ikinci tedarikçi geliştirme sürecini başlatıyorum. Acil geçici planı da oluşturalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Tek tedarikçi riski gerçekleştiğinde hasar büyük oluyor. Acilen alternatif tedarikçi araştırması başlatıyorum — geçiş maliyeti ve süresini anlayalım. Bu riski de kayıt altına alıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Kısa vadede mevcut tedarikçiyle krizi yönetelim. Uzun vadede tedarikçi portföyünü çeşitlendirme planını sponsora önereceğim — bu stratejik bir karar.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Tek tedarikçiyle çalışmak maliyet tasarrufu sağlıyordu {name_polite}. Bu risk önceden biliniyordu ama karar verilmişti. Şimdi bu kararın bedelini ödüyoruz — ama bu PM hatası değil kurumsal karar.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Tek kaynak bağımlılığı tedarik zinciri risk yönetiminin en kritik konularından biridir. PMI, kritik tedarikçiler için ikincil kaynak geliştirme ve alternatif tedarikçi anlaşmaları yapılmasını önerir. PM'in görevi tek kaynak riskini risk kaydına almak ve çeşitlendirme için üst yönetimi bilinçlendirmektir."
+    },
+    {
+      "reason_id": "tedarikçi_iflas_etti",
+      "reasonTR": "Tedarikçi İflasa Gitti",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Tedarikçimiz iflas sürecine girdi",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {tedarikçi_türü} iflas başvurusunda bulundu. {etki} Bu durumu nasıl yönetiriz?",
+      "body_vars": {
+        "tedarikçi_türü": [
+          "kilit yazılım sağlayıcımız",
+          "kritik donanım tedarikçimiz",
+          "önemli bir danışmanlık firmamız",
+          "ana hizmet sağlayıcımız"
+        ],
+        "etki": [
+          "Teslim edilmesi gereken ürünler askıda kaldı.",
+          "Sözleşme taahhütleri belirsizleşti.",
+          "Erişim ve lisanslarımız tehlikeye girdi.",
+          "Ödediğimiz avans geri gelmeyebilir."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu ciddi bir gelişme {name_polite}. Hukuk ekibini hemen döngüye alıyorum — iflas sürecinde haklarımızı nasıl koruruz. Alternatifleri araştırıyorum ve paydaşları bilgilendirme zamanlamasını planlıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Önce hukuki durumu netleştirelim — iflas yöneticisiyle iletişim, ödeme ve teslimat haklarımız ne. Acil geçici çözüm için alternatif tedarikçi araştırması da başlıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Kısa vadeli triage: hangi teslimatlar kritik yolda, bunlar için acil alternatif bulmak şart. Kritik olmayan teslimatlar için biraz zaman var. Öncelik sırasını belirleyeyim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu riski sigortalamamıştık {name_polite}. İflas haberi beklenmedik — avansımızı geri alamayabiliriz. Hukuk konusu tamamen avukatlarımızda, proje açısından yeni tedarikçi bulmaktan başka çare yok.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Tedarikçi iflası en yıkıcı tedarik zinciri risklerinden biridir. PMI, kritik tedarikçiler için finansal sağlık izleme ve ikincil kaynak planlaması yapılmasını önerir. PM'in görevi tedarikçi iflas riskini risk kaydında tanımlamak ve işin sürekliliği için yedek plan hazırlamaktır."
+    },
+    {
+      "reason_id": "tedarikçi_gizlilik_ihlali",
+      "reasonTR": "Tedarikçi Gizlilik Yükümlülüğünü İhlal Etti",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Tedarikçi gizlilik sözleşmesini ihlal etti",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {tedarikçi_türü} proje bilgilerini {ihlal} Gizlilik sözleşmemiz açıkça bu durumu yasaklıyor.",
+      "body_vars": {
+        "tedarikçi_türü": [
+          "danışmanlık firmamız",
+          "yazılım geliştirme ortağımız",
+          "dış uzmanımız",
+          "alt yüklenicimiz"
+        ],
+        "ihlal": [
+          "üçüncü bir tarafla paylaştığını öğrendik.",
+          "herkese açık platformlarda yayımladığını fark ettik.",
+          "rakibimizle tartıştığını duyumsadık.",
+          "kamuya açık bir etkinlikte ifşa ettiğini duyduk."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu çok ciddi bir durum {name_polite}. Hukuk ekibini hemen bilgilendiriyorum — gizlilik ihlalini belgeleyelim, kanıtları koruyalım. Tedarikçiye resmi ihlal bildirimi göndereceğiz ve sözleşmedeki yaptırımları değerlendireceğiz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. İhlal delillerini belgeleyelim — bu hukuki süreçte kritik. Müşterimizi de bilgilendirmemiz gerekebilir; etkilenen bilginin niteliğine göre yasal yükümlülüklerimizi hukuk ekibiyle değerlendireceğim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Önce hasarı anlayalım — ne tür bilgi paylaşıldı, kim bildi, ne zaman oldu. Bu değerlendirmeden sonra hukuki adım stratejisini belirleyeceğiz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Tedarikçi sözleşmesini feshediyor ve tazminat davası açıyoruz {name_polite}. Bu açıkça sözleşme ihlali — anında hukuki süreç başlatıyorum. Bu konuyu üst yönetim de bilmeli.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Gizlilik ihlalleri fikri mülkiyet ve rekabet güvencesi açısından kritik risktir. PMI, tedarikçi seçiminde güvenilirlik değerlendirmesinin ve NDA/gizlilik sözleşmelerinin zorunlu tutulmasını gerektirir. PM'in görevi gizlilik gereksinimlerini sözleşmeye açıkça yazmak ve ihlal durumunda hızla hareket etmektir."
+    },
+    {
+      "reason_id": "tedarikçi_kapsam_anlaşmazlığı",
+      "reasonTR": "Tedarikçiyle Kapsam Anlaşmazlığı Çıktı",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Tedarikçi kapsam dışı ek bedel istiyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {tedarikçi_türü} {talep} gerekçesiyle ek bedel talep ediyor. {sözleşme_durumu} Bunu nasıl yönetiriz?",
+      "body_vars": {
+        "tedarikçi_türü": [
+          "yazılım geliştirme firması",
+          "danışmanlık firmamız",
+          "sistem entegrasyon ortağımız",
+          "test firması"
+        ],
+        "talep": [
+          "kapsam dışında olduğunu düşündükleri işler",
+          "gereksinimlerin başlangıçta netleşmediğini",
+          "yineleme nedeniyle ekstra efor harcandığını",
+          "müşteri değişikliklerinin ekstra iş yarattığını"
+        ],
+        "sözleşme_durumu": [
+          "Sözleşme bu konuda muğlak kalmış.",
+          "Sözleşme bu durumu açıkça tanımlıyor.",
+          "Sözel bir anlaşma vardı ama yazıya geçirilmedi.",
+          "Change Request kayıtları var ama bedel konuşulmamıştı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlaşmazlığı anlıyorum {name_polite}. Sözleşme ve onaylı kapsam belgeleri referansımız — bunları inceliyorum. Tedarikçiyle karşılıklı anlayışla çözüme ulaşmayı hedefliyorum, hukuki süreç son seçeneğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Her iki tarafın görüşünü yazılı belgeleyip ortak toplantıda tartışalım — hangi çalışmanın kapsam içinde sayıldığını, neyin değişiklik talebine dönüştüğünü netleştirelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Anlaşmazlıkta orta yol aramak mümkün — kısmen haklı her iki taraf da olabilir. Müzakere masasına oturalım, ilişkiyi koruyarak çözüm bulalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Tedarikçi talepleri sözleşme sınırları içinde değerlendirilmeli {name_polite}. Kapsam dışı iş için tek kuruş ödemeyiz — sözleşmeyi detaylı inceleyip haklarımızı hukuk ekibiyle değerlendireceğiz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Tedarikçi kapsam anlaşmazlıkları belirsiz sözleşme dilinden ve gereksinimlerdeki değişikliklerden kaynaklanır. PMI tedarik yönetimi, kapsam değişikliklerinin anında belgelenmesini ve Change Control sürecinden geçirilmesini gerektirir. PM'in görevi sözleşme döneminde her değişikliği kayıt altına alan bir pratik oluşturmaktır."
+    },
+    {
+      "reason_id": "tedarikçi_personel_değişimi",
+      "reasonTR": "Tedarikçi Anahtar Personeli Değiştirdi",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Tedarikçinin kilit personeli değişti",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {tedarikçi_türü} projeye atanan {kritik_kişi} değişti. {etki} Bu değişikliğe razı olmamız doğru mu?",
+      "body_vars": {
+        "tedarikçi_türü": [
+          "ana geliştirme partnerimiz",
+          "danışmanlık firmamız",
+          "proje yönetim danışmanı firması",
+          "entegrasyon ortağımız"
+        ],
+        "kritik_kişi": [
+          "proje liderini",
+          "mimarı",
+          "kıdemli geliştiricisini",
+          "konu uzmanını"
+        ],
+        "etki": [
+          "Yeni kişinin deneyim seviyesi daha düşük görünüyor.",
+          "Bilgi aktarımı yetersiz yapılacak kaygısı taşıyorum.",
+          "Müşteri bu kişiyle güven ilişkisi kurmuştu.",
+          "Teknik bilgi birikimi şimdi risk altında."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu doğru tespit ettin {name_polite}. Sözleşmede kilit personel onayı maddesi var mı kontrol edeyim — varsa bu değişikliği onaylamamak hakkımız. Tedarikçiyle görüşeceğim, gerekirse sözleşme haklarımızı kullanacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Sözleşmede kilit personel değişikliği için bildirim ve onay maddesi mevcut mu inceliyorum. Yeni kişiyle bir değerlendirme toplantısı talep ederim — yeterliliği göreyim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Yeni kişiye kısa bir bilgi transferi süreci talep edelim — eski kişinin çakışma süresinde birlikte çalışmasını istiyoruz. Bu makul bir talep.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Tedarikçi personel değiştirme hakkına sahip {name_polite}. Bunu kontrol edemeyiz — yeni kişiyle çalışmak zorundayız. Sorun çıkarsa o zaman konuşuruz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Tedarikçi anahtar personel değişikliği sözleşme yönetiminde kritik bir kontrol noktasıdır. PMI, kritik personelin sözleşmede tanımlanmasını ve değişiklik öncesinde müşteri onayı alınmasını gerektirir. PM'in görevi bu sözleşme koşulunu başlangıçta tanımlamak ve değişiklikleri aktif takip etmektir."
+    },
+    {
+      "reason_id": "tedarikçi_iletişim_koptu",
+      "reasonTR": "Tedarikçiyle İletişim Koptu",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Tedarikçimizle iletişim kesildi",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {tedarikçi_türü} ile {süre} süredir iletişim kuramıyorum. {çabalar} Ciddi endişe duyuyorum.",
+      "body_vars": {
+        "tedarikçi_türü": [
+          "ana yazılım geliştirme firmamız",
+          "kritik tedarikçimiz",
+          "sistem entegrasyon ortağımız",
+          "dış uzman firmamız"
+        ],
+        "süre": [
+          "bir haftadır",
+          "on gündür",
+          "beş gündür",
+          "iki haftadır"
+        ],
+        "çabalar": [
+          "E-posta, telefon ve mesaj gönderdim, yanıt yok.",
+          "Birden fazla kişiye ulaşmaya çalıştım, başaramadım.",
+          "Ofislerini aradım, bağlanamadım.",
+          "Şirketin web sitesi de erişilemez görünüyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu endişe verici {name_polite}. Tedarikçinin bilinen adreslerine fiziksel iletişim dahil tüm kanalları deneyeceğim. Paralelde sözleşmedeki temerrüt ve fesih maddelerini inceliyorum. Yedek tedarikçi araştırması başlatıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Tedarikçiye resmi yazılı ihtarname göndereceğim — belirli sürede yanıt gelmezse sözleşmedeki hakları işleteceğimi bildireceğim. Bu durumu hukuk birimi de bilmeli.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Tedarikçiyle başka bağlantı noktaları var mı araştırayım — eski çalışanlar, iş ortakları aracılığıyla ulaşmak mümkün mü. Aynı anda alternatif araştırmayı da başlatıyoruz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kadar beklersek zaman kaybederiz {name_polite}. Hemen tedarikçiyi feshedip başka bir firma buluyoruz — hayatta olmayan bir tedarikçi için beklemeye devam etmek anlamsız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Tedarikçiyle iletişim kopması kurumsal risk veya iflas sinyali olabilir. PMI tedarik yönetimi, tedarikçi temerrüt senaryoları için sözleşmesel hakların ve aksiyon planının önceden tanımlanmasını gerektirir. PM'in görevi iletişim kopukluğunu erken tespit edip hızla hareket etmektir."
+    },
+    {
+      "reason_id": "çoklu_tedarikçi_koordinasyonu",
+      "reasonTR": "Çoklu Tedarikçi Koordinasyonunda Sorun Çıktı",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Birden fazla tedarikçi arasında koordinasyon sorunu var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {tedarikçi_sayısı} çalışan tedarikçimiz var ve {koordinasyon_sorunu} Bu durum teslimatlarda gecikmeye ve kalite sorunlarına yol açıyor.",
+      "body_vars": {
+        "tedarikçi_sayısı": [
+          "üç ayrı",
+          "dört farklı",
+          "birden fazla",
+          "çok sayıda"
+        ],
+        "koordinasyon_sorunu": [
+          "birbirleriyle koordinasyon kurmuyorlar.",
+          "kendi aralarında arayüz gereksinimlerini anlaşamadılar.",
+          "entegrasyon noktalarında çakışmalar oluşuyor.",
+          "sorumluluk sınırları belirsiz kalıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu koordinasyon sorunu ciddi {name_polite}. Tüm tedarikçileri bir araya getiren bir entegrasyon yönetim toplantısı düzenliyorum — sorumluluk sınırları, arayüz gereksinimleri ve iletişim protokolünü birlikte netleştirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Tedarikçiler arası RACI matrisi oluşturalım — kim neyi teslim eder, kimin çıktısı kimin girdisi olur, net olsun. Benim koordinasyon rolümü de belgeleyeyim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Her tedarikçi için birincil iletişim noktası belirleyelim ve haftada bir entegrasyon toplantısı koyalım — sorunları bu forumda tartışıp çözelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Tedarikçilerin kendi aralarında koordine olması gerekiyor {name_polite}. Onların iletişim sorununu yönetmek benim görevim değil — her firma kendi işini bilmeli. Gerekirse sözleşmede koordinasyon yükümlülükleri var mı inceliyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Çoklu tedarikçi koordinasyonu PM'in en karmaşık yönetim görevlerinden biridir. PMI tedarik yönetimi, tedarikçiler arası arayüz gereksinimlerinin, sorumluluk sınırlarının ve iletişim protokollerinin sözleşmelerde açıkça tanımlanmasını gerektirir. PM'in görevi tedarikçiler arası köprü rolü oynamaktır."
+    }
+  ]
+}

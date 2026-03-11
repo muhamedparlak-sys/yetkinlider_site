@@ -1,0 +1,324 @@
+{
+  "mesele_id": "gereksinim_catismasi",
+  "meseleTR": "Gereksinim Çatışması",
+  "compatible_terms": [
+    "requirement conflict",
+    "conflicting requirements",
+    "contradictory requirements",
+    "requirement inconsistency"
+  ],
+  "reasons": [
+    {
+      "reason_id": "GER-01",
+      "reasonTR": "İki paydaşın birbiriyle çelişen gereksinimleri",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "client",
+      "subject_template": "{ozellik} konusunda çelişen beklentiler",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nIT güvenlik ekibimiz {ozellik} için {gereksinim_a} istiyor. Operasyon ekibimiz ise aynı konuda {gereksinim_b} talep ediyor. Bu iki gereksinim birbiriyle çelişiyor. Nasıl ilerlemeliyiz?\n\nBekliyoruz.",
+      "body_vars": {
+        "ozellik": [
+          "kimlik doğrulama sistemi",
+          "veri erişim yönetimi",
+          "sistem loglaması"
+        ],
+        "gereksinim_a": [
+          "çok faktörlü doğrulama zorunlu",
+          "rol bazlı erişim kısıtlaması",
+          "tüm erişim loglanmalı"
+        ],
+        "gereksinim_b": [
+          "tek tuşla giriş kolaylığı",
+          "herkese açık erişim",
+          "minimum log tutulmalı"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, çelişen gereksinimleri anlıyorum. Her gereksinimin arkasındaki temel iş ihtiyacını tespit etmek için her iki tarafla kısa görüşmeler yapıyorum. Ardından her iki ihtiyacı dengeleyen seçenekleri (güvenlik seviyesi-kullanım kolaylığı dengesi) somut biçimde sunacağım ve ortak karar için toplantı önereceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, güvenlik her zaman önce gelir; IT güvenlik ekibinin gereksinimi esas alıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, operasyon ekibi daha fazla kullanıcıyı etkiliyor; onların gereksinimini önceliklendiriyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, her iki gereksinimi de karşılayan teknik bir çözüm bulabiliriz; deneyelim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Çelişen gereksinimler, karar vericilerin önünde netleştirilmeli ve PM bu süreci yapılandırmalıdır. Her gereksinimin arkasındaki ihtiyacı (neden istiyor?) anlamak, yüzeysel çatışmaların altındaki ortak zemini bulmayı sağlar. PM, taraf tutmaktan kaçınarak nesnel analiz ve seçenek sunumuyla karar sürecini kolaylaştırmalıdır."
+    },
+    {
+      "reason_id": "GER-02",
+      "reasonTR": "Performans ve güvenlik gereksinimleri çatışması",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{bileşen} bileşeninde performans ve güvenlik gereksinimleri birbiriyle çelişiyor. {performans_talebi} yaparsak güvenlik standartlarını karşılayamıyoruz; {guvenlik_talebi} yaparsak performans hedeflerimizi kaçırıyoruz.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "bileşen": [
+          "API katmanı",
+          "veri şifreleme modülü",
+          "oturum yönetimi"
+        ],
+        "performans_talebi": [
+          "önbellekleme etkinleştirirsek",
+          "şifrelemeyi gevşetirsek",
+          "oturum süresini uzatırsak"
+        ],
+        "guvenlik_talebi": [
+          "her istekte tam doğrulama yapmak",
+          "AES-256 şifreleme zorunlu tutmak",
+          "oturum süresini kısaltmak"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBu trade-off'u sponsor ve güvenlik ekibiyle paylaşmam gerekiyor. Her iki gereksinimin iş riskini sayısal olarak ortaya koyuyorum: performans kaybının kullanıcı deneyimine etkisi ve güvenlik açığının maliyet riski. Bu karşılaştırmayı sunup bilinçli bir kabul kararı almalarını sağlayacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nPerformans öncelikli; güvenlik standartlarını sonraki versiyonda karşılarız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nGüvenlik öncelikli; performans kabul edilebilir bir trade-off.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nHer ikisini de karşılayan bir çözüm teknik olarak mümkün; ekip yol bulacak.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Performans-güvenlik denklemi mimari kararların en kritik noktalarından biridir. PM, bu trade-off'ları kendi başına çözmek yerine paydaşlara somut veri sunarak bilinçli karar almalarını sağlamalıdır. Risk matrisi ve maliyet-fayda analizi bu kararı destekleyen temel araçlardır."
+    },
+    {
+      "reason_id": "GER-03",
+      "reasonTR": "Mevzuat ve iş süreci gereksinimleri çatışması",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nYeni {mevzuat} gereğince {zorunluluk} yapmamız gerekiyor. Ama bu durum mevcut {is_sureci} iş sürecimizle çelişiyor. İkisini aynı anda karşılamak teknik olarak çok zor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "mevzuat": [
+          "KVKK güncelleme",
+          "e-Devlet entegrasyon standardı",
+          "sektörel denetim yönetmeliği"
+        ],
+        "zorunluluk": [
+          "tüm kullanıcı verilerini yurt içinde depolamak",
+          "merkezi kimlik doğrulama kullanmak",
+          "erişim loglarını 5 yıl saklamak"
+        ],
+        "is_sureci": [
+          "bulut mimarimiz",
+          "dağıtık kimlik doğrulama sistemimiz",
+          "veri temizleme politikamız"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nHukuk ve teknik ekibi birlikte bir değerlendirme toplantısına davet ediyorum. Mevzuat zorunluluklarını karşılamanın farklı yollarını (mimari değişiklik, süreç güncelleme, geçici çözüm) ve her birinin maliyetini analiz edeceğiz. Compliance'ı geciktirmek ceza riskini artırır; bu nedenle hızlı aksiyon planı oluşturmak önceliğimiz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nMevzuat zorunlu; iş sürecini mevzuata uygun olarak revize etmeliyiz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nMevzuat yoruma açık; hukuk ekibinden daha esnek bir yorum talep edelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nYurt içi depolama maliyetli; mevcut bulut yapıyı kullanmaya devam edip denetim geldiğinde çözüm üretiriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Mevzuat uyumu (compliance) zaman baskısı altında yönetilmesi gereken kritik bir risk kategorisidir. PM, hukuki gereksinimleri iş gereksinimleriyle çatışıyor olsa bile hayata geçirme planını hızla oluşturmalıdır. Denetim gelene kadar bekleme stratejisi ciddi ceza ve itibar risklerine yol açar."
+    },
+    {
+      "reason_id": "GER-04",
+      "reasonTR": "Farklı versiyonlardaki gereksinim tutarsızlığı",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{belge_v1} ile {belge_v2} sürümleri arasında {alan} konusunda tutarsızlık var. Ekip hangi sürümü esas alacağını bilmiyor; yanlış sürüme göre geliştirme riski var.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "belge_v1": [
+          "v1.2 gereksinim belgesi",
+          "Ocak ayı iş analizi",
+          "ilk sistem tasarımı"
+        ],
+        "belge_v2": [
+          "v2.0 gereksinim belgesi",
+          "Mart ayı güncellemesi",
+          "revize sistem tasarımı"
+        ],
+        "alan": [
+          "veri akış modeli",
+          "kullanıcı rol yapısı",
+          "sistem entegrasyon noktaları"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBelge tutarsızlığını hemen gideriyorum. Paydaşlarla teyit ederek hangi sürümün geçerli olduğunu netleştiriyorum; geçersiz sürümü arşivliyor ve ekibe resmi geçerli sürümü bildiriyorum. Bundan sonra belge versiyonlamasını merkezi bir havuzda yönetip yetkisiz güncellemeyi önleyeceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEn son tarihli belge geçerlidir; ekibe v2.0'ı kullanmalarını söylüyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nHer iki belgedeki gereksinimler arasında birini seçip devam edeceğiz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nEkip kendi yargısıyla hangi sürümün daha mantıklı olduğunu seçebilir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Belge versiyonlama kaosu proje ekiplerinde yaygın bir verimsizlik kaynağıdır. PM, tek bir resmi gereksinim kaynağı (single source of truth) belirlemeli, eski versiyonları arşivlemeli ve değişiklikleri değişiklik günlüğü ile izlemelidir. Merkezi belge yönetim sistemi (Confluence, SharePoint vb.) bu sorunu köklü biçimde çözer."
+    },
+    {
+      "reason_id": "GER-05",
+      "reasonTR": "Fonksiyonel ve fonksiyonel olmayan gereksinim çatışması",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{ozellik} özelliği için {fonk_ger} gereksinimini karşılamak istersek {fon_dis_ger} gereksinimini ihlal ediyoruz. Özellikle {etki} konusunda ciddi bir denge problemi var.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "ozellik": [
+          "arama motoru",
+          "veri görselleştirme",
+          "gerçek zamanlı senkronizasyon"
+        ],
+        "fonk_ger": [
+          "kapsamlı sonuç döndürme",
+          "büyük veri setini render etme",
+          "tüm değişiklikleri anlık yansıtma"
+        ],
+        "fon_dis_ger": [
+          "3 saniye altı yanıt süresi",
+          "2 saniye altı sayfa yükleme",
+          "maksimum %5 CPU kullanımı"
+        ],
+        "etki": [
+          "yanıt süresi",
+          "bellek kullanımı",
+          "bant genişliği"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBu teknik dengelemi sponsor ve ürün sahibiyle paylaşmam gerekiyor. Hangi gereksinimin iş değerinin daha yüksek olduğunu analiz edip somut seçenekler sunacağım: kısmi fonksiyonellik, performans iyileştirme yatırımı veya gereksinim revizyonu. Teknik kararı iş bağlamına oturtmak PM'in görevidir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nFonksiyonel gereksinim önceliklidir; performans iyileştirmesini sonra hallederiz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nTeknik ekip en iyi trade-off'u kendisi bilir; onlara bırakıyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nPerformans gereksinimini biraz gevşetirsek her ikisini de karşılayabiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Fonksiyonel ve fonksiyonel olmayan gereksinimler arasındaki denge, mimari kararları doğrudan etkiler. PM, bu trade-off'ları teknik ekibin değil paydaşların karar vermesi gereken bir konu olarak çerçevelemeli ve seçenekleri iş diliyle anlatmalıdır. 'Sonra hallederiz' yaklaşımı teknik borcu artırır."
+    },
+    {
+      "reason_id": "GER-06",
+      "reasonTR": "Regresyon korkusu — yeni gereksinim eski özelliği bozuyor",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nMüşterinin yeni talep ettiği {yeni_ozellik} özelliği, mevcut {eski_ozellik} özelliğimizle doğrudan çakışıyor. Birini eklemek diğerini bozuyor; regresyon riski yüksek.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "yeni_ozellik": [
+          "çok kiracılı veri izolasyonu",
+          "granüler rol yönetimi",
+          "gerçek zamanlı veri akışı"
+        ],
+        "eski_ozellik": [
+          "merkezi veri havuzu",
+          "basit iki rol yapısı",
+          "toplu veri işleme"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nRegresyon riskini teyit ettim. Yeni özelliğin mevcut sisteme etkisini analiz eden kapsamlı bir regresyon test planı hazırlıyorum. Bunu müşteri ve ürün sahibiyle paylaşarak ya geçiş planı oluşturacağız ya da eski özelliği kademeli emekli edeceğiz. Değişiklik yönetimi planı da hazırlıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nYeni özelliği ekleyelim; mevcut kullanıcıları etkiliyorsa onları yönlendiririz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nEski özelliği koruyalım; yeni özellik kapsam dışı kalabilir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nHer ikisini bir arada destekleyen geçici bir yama geliştirebiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yeni gereksinimler eski işlevselliği etkilediğinde kapsamlı regresyon testi ve geçiş planı zorunludur. PM, regresyon riskini müşteri ve paydaşlarla şeffaf biçimde paylaşmalı ve geçiş stratejisini birlikte belirlemelidir. Yamalar ve geçici çözümler teknik borcu artırır; köklü çözüm her zaman tercih edilmelidir."
+    }
+  ]
+}

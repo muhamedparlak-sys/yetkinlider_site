@@ -1,0 +1,529 @@
+{
+  "mesele_id": "iletisim_kopuklugu",
+  "meseleTR": "Iletisim Kopuklugu",
+  "compatible_terms": [
+    "communication_management",
+    "stakeholder_management",
+    "communication_plan",
+    "raci",
+    "information_radiator",
+    "meeting_management",
+    "escalation_path"
+  ],
+  "reasons": [
+    {
+      "reason_id": "rapor_cevapsız_kaldı",
+      "reasonTR": "Gönderilen Rapor Yanıtsız Kaldı",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Raporlarım hakkında bir endişem var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {rapor_türü} gönderdim ama {yanıtsızlık_süresi} geçmesine rağmen geri dönüş alamadım. {endişe} Nasıl ilerleyelim?",
+      "body_vars": {
+        "rapor_türü": [
+          "haftalık durum raporunu",
+          "risk güncellememi",
+          "test sonuçlarını",
+          "milestone tamamlama raporunu"
+        ],
+        "yanıtsızlık_süresi": [
+          "üç gün",
+          "beş gün",
+          "bir hafta",
+          "iki hafta"
+        ],
+        "endişe": [
+          "Kritik bir karar bu rapora bağlı.",
+          "Onay bekliyorum ama ilerliyemiyorum.",
+          "Raporun görülüp görülmediğini bilmiyorum.",
+          "Bu konuda adım atmam gerekiyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu paylaştığın için teşekkürler {name_polite}. İletişim kopukluğunun nedenini anlamak lazım — raporlar nereye gidiyor, kim görüyor, kim yanıtlamalı? Bunu netleştirip iletişim planını gözden geçireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Yanıtsız raporlara farklı bir takip mekanizması kuralım — teslim alındı bildirimi ve yanıt bekleme süresi belirleyelim. RACI matrisinde 'onaylayan' rolünü netleştirelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bu raporları farklı bir kanaldan iletmeyi dene — e-posta yerine direkt mesaj veya toplantı isteği gönder. Önemli raporlarda görsel özet eklemek de dikkat çekebilir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Raporunu görmezden gelmek kabul edilemez {name_polite}. Bu durumu doğrudan üst yönetime eskalasyon yaparak bildiriyorum — yanıtsız iletişim bir proje yönetim başarısızlığı ve sonuçlardan yönetim sorumlu.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yanıtsız raporlar iletişim sisteminin işlevsizliğine işaret eder. PMI İletişim Yönetimi, her iletişim kaleminin kime, hangi sıklıkla ve hangi kanaldan gideceğini planlamayı gerektirir. PM'in görevi raporlama kanallarının etkinliğini izlemek ve tıkanan noktaları düzeltmektir."
+    },
+    {
+      "reason_id": "toplantı_kararları_kayboldu",
+      "reasonTR": "Toplantı Kararları Kayıt Altına Alınmadı",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Toplantı kararları konusunda bir sorunumuz var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {toplantı_konusu} toplantısında aldığımız {karar_türü} kararı şimdi tartışma konusu. {sorun} Nasıl çözelim?",
+      "body_vars": {
+        "toplantı_konusu": [
+          "teknik tasarım",
+          "paydaş",
+          "önceliklendirme",
+          "bütçe revizyon"
+        ],
+        "karar_türü": [
+          "kritik bir",
+          "önemli bir",
+          "değişiklik",
+          "teslim tarihi"
+        ],
+        "sorun": [
+          "Tutanak tutulmadı, herkes farklı şey söylüyor.",
+          "Farklı taraflar farklı şeyi hatırlıyor.",
+          "Bir taraf o kararın alındığını kabul etmiyor.",
+          "Yazılı kayıt olmadığı için uygulama başlatılamıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu durumun altını çizdiğin için teşekkürler {name_polite}. Bundan sonra her toplantının sonunda beş dakika ayırıp kararları sesli olarak özetleyip katılımcılara onaylattıracağım — ve yazılı form göndereceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Toplantı tutanağı tutmak standart bir proje yönetim pratiği — kararları, sorumlulukları ve tarihleri kayıt altına alan bir şablon oluşturalım. Katılımcılara otomatik gönderilsin.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Şu an için tartışmalı kararı e-posta ile tüm taraflara sorayım — herkes kendi anladığını yazılı ifade etsin, sonra en yakın yoruma sahibiz. Yeniden bir toplantı yapalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kadar basit bir şeyi yapamamak proje olgunluk seviyesini gösteriyor {name_polite}. Tutanak tutmak senin sorumluluğundaydı — bu hatanın bedeli projeye yansıyacak ve proje sonundaki değerlendirmede yer alacak.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Toplantı tutanakları proje kararlarının resmi kaydıdır ve anlaşmazlıkları önler. PMI, her toplantının aksiyonlar, kararlar ve katılımcıları içeren tutanakla belgelenmesini gerektirir. PM'in görevi toplantı yönetim alışkanlıklarını sistemleştirmek ve karar hafızasını korumaktır."
+    },
+    {
+      "reason_id": "paydaş_habersiz_kaldı",
+      "reasonTR": "Kritik Paydaş Bilgiye Ulaşamadı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Paydaş bilgi akışında ciddi bir eksik var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {paydaş_rolü} ile bugün konuştuğumda anlaşıldı ki {bilgi_boşluğu} Bundan hiç haberdar olmamış. Bu durumu nasıl düzeltebiliriz?",
+      "body_vars": {
+        "paydaş_rolü": [
+          "müşteri temsilcisi",
+          "sponsorumuz",
+          "teknik komite",
+          "son kullanıcı birimi"
+        ],
+        "bilgi_boşluğu": [
+          "kapsam değişikliğimizden",
+          "teslim tarihinin ötelenmesinden",
+          "teknik tasarım kararından",
+          "bütçe revizyonundan"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu önemli bir tespiti paylaşman iyi oldu {name_polite}. İletişim planımızı hemen gözden geçireceğim — hangi paydaş hangi bilgiyi ne zaman almalı, eksik bağlantıları bulup düzelteyim. Etkilenen paydaşa da ben ulaşayım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Paydaş kayıt defterimizi ve iletişim matrisimizi güncelleyeyim — hangi paydaşın hangi konu hakkında bilgilendirilmesi gerektiği açıkça tanımlanmalı. Bunu bu hafta tamamlıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Önce bu paydaşa geçmiş kararları özetleyen bir özet paket hazırlayıp gönderelim — sonra düzenli iletişim döngüsüne dahil edilmesini sağlayalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu paydaşın habersiz kalması kabul edilemez {name_polite}. Bilgi akışı boşlukları proje başarısını tehlikeye atıyor — şimdi bu paydaşla acil toplantı ayarlıyorum ve bunun neden olduğunu senin açıklamandan dinlemek istiyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Paydaş iletişim eksikliği proje başarısızlıklarının önde gelen nedenlerinden biridir. PMI Paydaş Yönetimi, her paydaşın bilgi ihtiyacının ve iletişim tercihinin belirlenmesini gerektirir. PM'in görevi iletişim planını paydaş değişikliklerine göre güncel tutmaktır."
+    },
+    {
+      "reason_id": "farklı_versiyon_karmaşası",
+      "reasonTR": "Farklı Belge Versiyonları Kullanılıyor",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Belge versiyon karmaşası sorun yaratıyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {belge_türü} konusunda ciddi bir karışıklık var. {versiyon_sorunu} Hangi versiyonu esas alacağımızı bilmiyoruz.",
+      "body_vars": {
+        "belge_türü": [
+          "gereksinim dokümanı",
+          "teknik tasarım",
+          "proje planı",
+          "test senaryoları"
+        ],
+        "versiyon_sorunu": [
+          "Farklı ekipler farklı versiyonu esas alıyor.",
+          "Son versiyonu herkes farklı yerden indirdi.",
+          "Değişiklik yapılmış ama eski versiyon paylaşılmaya devam etti.",
+          "Versiyon numarası yoktu, hangi versiyon güncel bilinmiyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu durumu görmen iyi oldu {name_polite}. Merkezi bir belge yönetim deposu kuruyoruz — tek bir kaynak, versiyon kontrollü ve tüm ekibin erişebildiği. Eski versiyonları arşivleyip güncel olanı net işaretleyeceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Belge yönetim sistemi olmadan bu sorun tekrarlanacak. Bu hafta içinde ortak bir platform belirleyip versiyonlama kurallarını yazıyorum — eski dosyaları temizleyip herkes aynı kaynaktan çalışacak.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Şu an için doğru versiyonu net olarak etiketleyip tüm ekibe duyuruyorum — eski versiyonları sildiğimizi ve tek kaynaktan çalışmamız gerektiğini belirtiyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu karışıklık önlenebilirdi {name_polite}. Belge yönetimi temel bir proje kontrolü — versiyon kaosunun proje risklerine ne kadar yol açabileceğini düşünün. Bunu proje sonrası değerlendirmede kayıt altına alacağım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Belge versiyon karmaşası bilgi yönetimi eksikliğinin göstergesidir. PMI, tüm proje belgelerinin merkezi bir sistemde, versiyonlanmış ve kontrollü şekilde tutulmasını gerektirir. PM'in görevi tek gerçek kaynağı belirleyip ekibi bu sistemle çalıştırmaktır."
+    },
+    {
+      "reason_id": "karar_habersiz_geri_alındı",
+      "reasonTR": "Karar Takıma Söylenmeden Değiştirildi",
+      "weight": 9,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Önemli bir karar değişikliğinden habersizdiniz",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, sizi bilgilendirmeyi atladım özür dilerim. {karar_durumu} Bunu geçen hafta düşündük ama size iletmeyi unuttuk. Nasıl etkiliyor çalışmalarınızı?",
+      "body_vars": {
+        "karar_durumu": [
+          "Teknik mimari kararı değiştirildi.",
+          "Teslim kapsamı revize edildi.",
+          "Öncelik sıralaması yeniden yapıldı.",
+          "Hedef platform değiştirildi."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, bu tür kararların takıma iletilmesi kritik. Değişikliğin kapsamını ve nedenini öğrenip takımıma aktaracağım — ilerleyen süreçte karar değişikliklerinin iletişim akışını netleştirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bu değişiklik proje planını nasıl etkiliyor analiz edeyim — etkilenen aktiviteler, takvim ve bütçe açısından sapmayı hesaplayıp size raporlayayım. Değişiklik kaydını da açıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Bu değişiklik bizim için ne anlam ifade ediyor netleştirelim — takıma aktarmadan önce değişikliğin etkilerini tam olarak anlamak istiyorum. Yarın konuşabilir miyiz?",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Böyle önemli kararları takıma iletmemek ciddi bir iletişim başarısızlığı {name_polite}. Ekip bu bilgiyle çalışıyordu ve çabası boşa gidebilir — proje komitesine bu iletişim kopukluğunu raporlayacağım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Karar değişikliklerinin tüm etkilenen paydaşlara zamanında iletilmesi iletişim yönetiminin temel sorumluluğudur. PMI, değişikliklerin Integrated Change Control süreci kapsamında belgelenmesini ve tüm taraflara bildirilmesini şart koşar. PM'in görevi habersiz kalan tarafları koruyan bir eskalasyon mekanizması kurmaktır."
+    },
+    {
+      "reason_id": "yanlış_bilgi_yayıldı",
+      "reasonTR": "Yanlış Bilgi Paydaşlara Ulaştı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Yanlış bilgi paydaşlara gitti — acil müdahale lazım",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, fark ettim ki {yanlış_bilgi} paydaşlara iletildi. Bu bilgi doğru değil. {kaynak} Ne yapabiliriz?",
+      "body_vars": {
+        "yanlış_bilgi": [
+          "projenin tamamlandığına dair",
+          "yanlış bir teslim tarihiyle",
+          "hatalı bir bütçe rakamıyla",
+          "gerçekleşmemiş bir onay kararıyla ilgili"
+        ],
+        "kaynak": [
+          "Kimin ilettiğini tam bilmiyorum.",
+          "E-posta zincirinden yanlış anlaşılmış olabilir.",
+          "Ara bir kişi özetlemiş ama hatalı aktarmış.",
+          "Eski bir taslak belge paylaşılmış."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, hemen müdahale edelim. Etkilenen paydaşlara düzeltme mesajı göndereceğim — özür dileyerek doğru bilgiyi netleştirecek, kaynağını açıklayan bir iletişim hazırlıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Düzeltme mesajını hazırlıyorum — yanlış bilginin nedenini araştırmak ve benzer hataları önlemek için iletişim onay sürecimizi gözden geçireceğim. Önemli iletişimlere onay adımı ekleyelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Paydaşlara resmi bir düzeltme göndermeden önce içeriği birlikte onaylayalım — yanlış bilginin etkisini ve kimlere ulaştığını da belirleyelim. Hep birlikte ele alalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu ciddi bir iletişim hatası {name_polite}. Yanlış bilgi vermek güven kaybına neden olur — kimlere gittiğini tespit edip teker teker arayıp özür dileyin. Bu olayı proje değerlendirme raporuna ekleyeceğim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yanlış bilgi yayılması iletişim kontrolünün yetersizliğini gösterir. PMI iletişim yönetimi önemli mesajların onay sürecinden geçmesini ve doğrulanmış bilgilerin paylaşılmasını gerektirir. PM'in görevi hızlı düzeltme ile güveni yeniden inşa etmektir."
+    },
+    {
+      "reason_id": "ekipler_arası_kopukluk",
+      "reasonTR": "İki Ekip Birbirinden Habersiz Çalışıyor",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "İki ekip arasında bilgi akışı yok",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {ekip_a} ile {ekip_b} birbirinden habersiz çalıştığını fark ettim. {kopukluk_sonucu} Bu durumun düzeltilmesi gerekiyor.",
+      "body_vars": {
+        "ekip_a": [
+          "geliştirme ekibi",
+          "ön yüz ekibi",
+          "altyapı ekibi",
+          "iş analizi grubu"
+        ],
+        "ekip_b": [
+          "test ekibi",
+          "arka yüz ekibi",
+          "güvenlik ekibi",
+          "müşteri tarafı"
+        ],
+        "kopukluk_sonucu": [
+          "Entegrasyon noktasında ciddi uyumsuzluk çıktı.",
+          "İki ekip çakışan bir özelliği ayrı ayrı geliştirdi.",
+          "Birinin kararı diğerinin çalışmasını geçersiz kıldı.",
+          "Koordinasyonsuzluk nedeniyle iki hafta boşa harcandı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu önemli bir tespit {name_polite}. İki ekip arasına köprü görevi yapacak düzenli bir senkronizasyon toplantısı koyuyorum — yüz yüze ya da sanal, haftada bir yeterlice. Ortak iletişim kanalı da oluşturacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Çalışma alanları örtüşen ekipler için RACI matrisini güncelleyeyim — kimin kimi ne zaman bilgilendirmesi gerektiği net olmalı. Bağımlılıkları da resmi olarak kayıt altına alıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. İki ekibi bir araya getiren bir gösteri toplantısı yapalım — herkes ne yapıyor, nasıl bağlantılı, birlikte görelim. Bu iletişim açığını kapatmanın en hızlı yolu bu.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu koordinasyonsuzluk kabul edilemez {name_polite}. İki ekip aynı projede çalışıp birbirinden habersiz olmak proje yönetim başarısızlığı — her iki ekip liderini bir araya getirip senden hesap soracağım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Ekipler arası iletişim kopukluğu koordinasyon başarısızlığından doğar. Sayıştay Ankara raporundaki B23 bulgusu kurumlar arası koordinasyonsuzluğu projelerin bütçe ve zaman kayıplarının kaynağı olarak göstermektedir. PM'in görevi ekipler arası bağımlılıkları RACI matrisiyle netleştirip düzenli senkronizasyon kurmaktır."
+    },
+    {
+      "reason_id": "sponsora_geç_bilgi_verildi",
+      "reasonTR": "Sponsora Geç Bilgi Verildi",
+      "weight": 9,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Sponsoru zamanında bilgilendiremedim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {sorun_konusu} konusunda sponsoru {gecikme_süresi} geç bilgilendirdim. {sonuç} Bu benim hatam ve çözümünü sizinle düşünmek istedim.",
+      "body_vars": {
+        "sorun_konusu": [
+          "kritik bir teknik sorun",
+          "teslim tarihinin ötelenmesi",
+          "maliyet aşımı riski",
+          "risk gerçekleşmesi"
+        ],
+        "gecikme_süresi": [
+          "bir hafta",
+          "on gün",
+          "beş gün",
+          "iki hafta"
+        ],
+        "sonuç": [
+          "Sponsor şimdi çok geç öğrendi ve kızgın.",
+          "Kararını değiştirebilirdi ama fırsatı kaçtı.",
+          "Paydaşlar yanlış beklentiye girmişti.",
+          "Üst yönetim sürprize uğradı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}, bu zor bir kabul. Şimdi sponsoru tam bilgiyle düzgünce bilgilendirelim — gecikmenin nedenini de açıklayıp eskalasyon sürecimizi birlikte gözden geçirelim. Bir daha olmaması için.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Geç bilgilendirmenin ne tür kararları etkilediğini analiz edip sponsora özlü bir güncelleme hazırlayalım — hem mevcut durumu hem de önerilen çözümü içersin. Ben de sürece dahil olabilirim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Sponsora bir brifinG yapalım — geç kalmış ama hâlâ doğru bilgiyle konuşmak hiç bilgi vermemekten iyidir. Bir araya gelin ve beni de döngüye alın.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu ihmal ciddi sonuçlar doğurabilir {name_polite}. Sponsor geç öğrendiğinde güven kaybolur — bu tür bilgi gecikmelerini proje yönetim başarısızlığı olarak kayıt altına alıyorum. Eskalasyon protokolünü yeniden yazacağım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Sponsoru zamanında bilgilendirme proje yönetiminin temel sorumluluklarındandır. PMI, kritik bilgiler için iletişim planında açık eskalasyon yolları belirlenmesini gerektirir. PM'in görevi olumsuz haberi erken iletmek ve paydaşın bilgiye dayanarak karar verebilmesini sağlamaktır."
+    },
+    {
+      "reason_id": "müşteri_beklentisi_farklı",
+      "reasonTR": "Müşteri Farklı Bir Şey Beklediğini Söylüyor",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Teslimat beklentimiz farklı çıktı",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {teslimat_öğesi} teslim aldığımızda farklı bir şey beklediğimizi fark ettik. {beklenti_farkı} Bunu nasıl çözeriz?",
+      "body_vars": {
+        "teslimat_öğesi": [
+          "son tasarımı",
+          "demo versiyonunu",
+          "analiz raporunu",
+          "entegrasyon modülünü"
+        ],
+        "beklenti_farkı": [
+          "Bizim anladığımızla sizin anlattığınız birbirinden çok farklı.",
+          "Gereksinim belgesindeki dil farklı yorumlandı.",
+          "Prototipi onaylarken net olmayan noktalar vardı.",
+          "Kullanıcı hikayelerindeki kabul kriterleri yeterli değildi."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Geri bildiriminizi aldım {name_polite}, teşekkürler. Beklenti farkının kaynağını anlamak lazım — gereksinim belgelerini, onay toplantı tutanaklarını gözden geçirelim, sonra ne yapılabileceğini birlikte konuşalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Beklenti farkını resmi olarak kayıt altına alalım — gereksinim yönetim süreci ve onay mekanizmamızı değerlendirip kalan teslimatlar için netleştirilmiş kabul kriterlerini birlikte yazalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Hangi noktalarda beklenti farklılığı var, bunu somutlaştıralım — her noktada müzakere ederek uzlaşı bulalım. Kalan işleri bu netlikle tamamlayabiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Sözleşme ve onaylı gereksinim belgesi bizim temel referansımız {name_polite}. Teslimatlarda sözleşmeye uygunluk varsa ek talepler Change Request sürecine dahil edilmeli — aksi durumda ek maliyet müzakeresi gerekir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Müşteri beklenti farklılığı iletişim ve gereksinim yönetimi eksikliğini yansıtır. PMI, kabul kriterlerinin başlangıçta müşteriyle birlikte belirlenmesini ve her teslimat için yazılı onay alınmasını gerektirir. PM'in görevi beklenti yönetimini proje başından sonuna kesintisiz sürdürmektir."
+    },
+    {
+      "reason_id": "gecikmeli_risk_bildirimi",
+      "reasonTR": "Risk 220 Gün Sonra Bildirildi",
+      "weight": 9,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Çok geç fark ettim ve bildiremedim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {risk_türü} riskini fark etmiştim ama {gecikme_süresi} bu konuyu size getiremedim. {sonuç} Bu benim en büyük pişmanlığım bu projede.",
+      "body_vars": {
+        "risk_türü": [
+          "teknik bir",
+          "maliyet",
+          "takvim",
+          "paydaş ilişkisi"
+        ],
+        "gecikme_süresi": [
+          "iki aydır",
+          "altı haftadır",
+          "üç aydır",
+          "çok uzun süredir"
+        ],
+        "sonuç": [
+          "Şimdi çok daha büyük bir sorun haline geldi.",
+          "Erken söylesem çözülebilirdi.",
+          "Fırsatı kaçırdım, düzeltmek zorlaştı.",
+          "Müşteri de öğrendi ve güven kırıldı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Dürüstlüğün için gerçekten teşekkürler {name_polite}, bu söylemek için cesaret ister. Şimdi önemli olan nerede olduğumuzu anlamak — riski birlikte değerlendirelim ve erken uyarı kültürü oluşturmak için ne yapabileceğimizi konuşalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Riski şimdi tam olarak belgeleyelim — etki ve olasılık analizi yapalım, kalan seçenekler neler. Sonra eskalasyon sürecini gözden geçirelim, bir daha kimse bu kadar beklemek zorunda kalmasın.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Şu an için riski yönetmeye odaklanıyoruz — geç bildirim neden oldu tartışması sonraya bırakalım. Risk kayıt defterine alıyorum ve çözüm seçeneklerine bakıyoruz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kadar geç bildirmek ciddi bir profesyonel hata {name_polite}. Sayıştay raporlarında 220 gün gecikmeli bildirim bulgu olarak yer alır — bu proje yönetim olgunluk skorunu doğrudan etkiler. Bu olayı resmi değerlendirme raporuna ekleyeceğim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Sayıştay İBB raporundaki B29 bulgusu 220 günlük gecikmeli bildirim vakasını proje başarısızlığının en kritik nedenlerinden biri olarak kayıt altına almıştır. PMI risk yönetimi, risklerin periyodik inceleme toplantılarında tartışılmasını ve erken bildirimi teşvik eden psikolojik güvenlik ortamı oluşturulmasını gerektirir. PM'in görevi 'kötü haberi taşıyıcıyı koruyarak' bir kültür inşa etmektir."
+    }
+  ]
+}

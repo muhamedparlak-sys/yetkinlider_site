@@ -1,0 +1,416 @@
+{
+  "mesele_id": "kayitli_risk_gerceklesti",
+  "meseleTR": "Kayitli Risk Gerceklesti",
+  "compatible_terms": [
+    "risk_management",
+    "risk_register",
+    "issue_log",
+    "contingency_plan",
+    "risk_response",
+    "earned_value_management",
+    "lessons_learned"
+  ],
+  "reasons": [
+    {
+      "reason_id": "risk_gerçekleşti_plan_hazır",
+      "reasonTR": "Kayıtlı Risk Gerçekleşti, Plan Uygulamaya Geçiyor",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Risk kayıtlı riskimiz gerçekleşti",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {risk_konusu} riski gerçekleşti. {etki} Risk yanıt planımızı devreye alıyorum ama sizi bilgilendirmek istedim.",
+      "body_vars": {
+        "risk_konusu": [
+          "tedarikçi teslimat",
+          "takvim kayması",
+          "kaynak kaybı",
+          "teknik entegrasyon"
+        ],
+        "etki": [
+          "Planın yaklaşık iki haftalık etkisi olabilir.",
+          "Bütçeyi yaklaşık yüzde on etkiliyor.",
+          "Üç kritik aktivite etkilendi.",
+          "Müşteri milestoneuna yansıyacak."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Zamanında bildirmen iyi oldu {name_polite}. Yanıt planımızı devreye alıyoruz — contingency önlemlerini uygulayalım. Paydaşları bilgilendirme zamanlamasını birlikte değerlendirelim ve risk kaydını güncelleyelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Tanımladığımız risk yanıt stratejisini uyguluyorum — contingency bütçesi ve zaman tamponu yeterli mi kontrol edeyim. Paydaş bildirimini hazırlıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Risk yanıt planındaki adımları tek tek uygulayalım — kimin ne yapacağını netleştirelim. Kalan riskler listesini de gözden geçirelim, benzer tetikleyiciler var mı.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu riski risk kaydında görmüştüm ama gerçekleşeceğini tahmin etmemiştim {name_polite}. Risk değerlendirmemiz hatalı çıkmış anlaşılan — yanıt planı yeterli mi emin değilim, üst yönetime danışmam gerekiyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kayıtlı riskin gerçekleşmesi hem proaktif risk yönetiminin önemini hem de yanıt planının değerini doğrular. PMI, her tanımlanmış risk için tetikleyici koşulları ve yanıt adımlarını önceden hazırlamayı gerektirir. PM'in görevi risk gerçekleştiğinde hızla ve planlı hareket etmektir."
+    },
+    {
+      "reason_id": "risk_zamanında_bildirildi",
+      "reasonTR": "Risk Kaydedildi Ama Takibi Yapılmadı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Risk kayıt altına alındı ama gereken yapılmadı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {risk_konusu} riskini {süre} önce risk kaydına almıştık. Ama {ihmal} Şimdi risk gerçekleşti ve hazır değiliz.",
+      "body_vars": {
+        "risk_konusu": [
+          "tedarikçi gecikmesi",
+          "kaynak boşluğu",
+          "teknik bağımlılık",
+          "paydaş değişikliği"
+        ],
+        "süre": [
+          "iki ay",
+          "altı hafta",
+          "üç ay",
+          "bir ay"
+        ],
+        "ihmal": [
+          "yanıt planı hazırlanmadı.",
+          "tetikleyici koşullar izlenmedi.",
+          "risk review toplantılarında atlandı.",
+          "olasılık değişti ama güncellenmedi."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu durumu doğrudan paylaştığın için teşekkürler {name_polite}. Risk izleme sürecimizde bir açık var — şimdi önce mevcut durumu yönetelim, sonra risk takip sürecimizi nasıl iyileştiririz birlikte düşünelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Risk gerçekleştiğinde yanıt yoksa etki büyüyor. Şu an için acil etki analizi yapıp seçenekleri değerlendireyim — risk reviewları daha sistematik yapacağız bundan sonra.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Acil yanıt için mevcut seçeneklere bakıyorum — contingency rezervi var mı, alternatif plan ne olabilir, bunları hızlıca değerlendireceğim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Risk kaydına almak yeterliydi {name_polite}, takip eksikliği kabul edilemez. Risk reviewları yapmak senin sorumluluğundaydı — bu ihmal sonuçlarından hesap sormak zorundayım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Risklerin kaydedilmesi ancak düzenli takiple anlam kazanır. PMI, risk reviewlarının düzenli proje toplantılarının gündemine alınmasını gerektirir. PM'in görevi risk kaydının canlı bir belge olmasını sağlamak ve tetikleyici koşulları izleyerek erken müdahaleyi mümkün kılmaktır."
+    },
+    {
+      "reason_id": "yanıt_planı_yetersiz",
+      "reasonTR": "Risk Yanıt Planı Yeterli Değildi",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Risk yanıt planımız yeterli çıkmadı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {risk_konusu} riski gerçekleşti ve planımızı uyguladım ama {yetersizlik} Daha fazlasına ihtiyacımız var.",
+      "body_vars": {
+        "risk_konusu": [
+          "tedarikçi teslimat gecikmesi",
+          "kritik kaynak ayrılması",
+          "teknik bağımlılık hatası",
+          "düzenleyici değişiklik"
+        ],
+        "yetersizlik": [
+          "etki beklediğimizden çok daha büyük çıktı.",
+          "yanıt planı bu senaryoyu kapsamıyordu.",
+          "contingency bütçesi yetersiz kaldı.",
+          "planın uygulanması için zaman aşımına uğradık."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu şeffaf paylaşman iyi oldu {name_polite}. Şimdi ek yanıt seçeneklerine bakıyoruz — yönetim yedeği, kapsam daralması veya takvim uzatması arasında en mantıklısını paydaşlarla birlikte değerlendirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Risk yanıt planı yetersiz kaldıysa gerçek etki tahminimiz hatalıydı demek — şimdi gerçekçi etki analizini yapalım ve revize bir yanıt planı hazırlayalım. Sponsoru da sürece dahil edelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Mevcut hasarı kontrol altına almak birinci öncelik — sonra planı neden eksik kaldı analiz ederiz. Risk değerlendirme metodolojimizi de gözden geçirelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Risk yanıt planını sen yazmıştın {name_polite}, yetersiz çıkması senin hatanı gösteriyor. Bu durumu yönetmek benim ek yük olmakla birlikte — bu dersi unutmamanı bekliyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Risk yanıt planlarının gerçekçi senaryo analizine dayanması gerekir. PMI, en iyi, olası ve en kötü senaryolar için yanıt planları geliştirilmesini ve yanıt planlarının düzenli olarak güncellenmesini önerir. PM'in görevi yanıt planının yeterliliğini senaryo testleriyle doğrulamaktır."
+    },
+    {
+      "reason_id": "ikincil_risk_ortaya_çıktı",
+      "reasonTR": "Risk Yanıtı Yeni Risk Yarattı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Risk yanıtı yeni bir risk doğurdu",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {ana_risk} riskine karşı {yanıt_eylemi} uyguladım. Ama bu karar {ikincil_risk} yol açtı. Ne yapmalıyız?",
+      "body_vars": {
+        "ana_risk": [
+          "tedarikçi gecikmesi",
+          "kaynak eksikliği",
+          "teknik sorun"
+        ],
+        "yanıt_eylemi": [
+          "alternatif tedarikçiye geçiş",
+          "takım üyelerini hızlandırma",
+          "hızlı bir teknik yama"
+        ],
+        "ikincil_risk": [
+          "kalite sorunlarına",
+          "ekip yorgunluğuna",
+          "başka bir bileşende hataya"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu tespiti erken paylaşman çok değerli {name_polite}. İkincil riski hemen risk kaydına alalım ve bu yeni durumu yönetmek için bir yanıt planı oluşturalım. Sponsoru da bilgilendirmemiz gerekecek.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. İkincil risk tanımladığımız riskler arasında mıydı kontrol edeyim — değilse hemen kayıt altına alıp değerlendiriyorum. Risk yanıt kararlarının ikincil etkilerini de izlememiz gerekiyor.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. İkincil riski sınırlamak için ne yapabiliriz bakalım — önce oluşan hasarı kontrol edelim. Karar sürecimizi de belgeleyelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Riski yönetirken yeni risk yaratmak proje yönetim becerisini sorgulattırıyor {name_polite}. Kararlar alınmadan önce ikincil etkilerin değerlendirilmesi gerekiyordu — bu hatadan ders çıkarmanı bekliyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Risk yanıtları kendi ikincil risklerini yaratabilir. PMI, her yanıt eyleminin olası ikincil ve artık risklerinin değerlendirilmesini gerektirir. PM'in görevi risk yanıt kararlarını çok boyutlu değerlendirmek ve izleme planını güncellemektir."
+    },
+    {
+      "reason_id": "risk_tetikleyici_gözden_kaçtı",
+      "reasonTR": "Risk Tetikleyicisi Fark Edilmedi",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Risk tetikleyicisini zamanında göremedin",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {risk_konusu} riski için tetikleyici koşulların {tetikleyici} olduğunu belgelemiştik. Ama bunlar gerçekleştiğinde fark edemedim.",
+      "body_vars": {
+        "risk_konusu": [
+          "tedarikçi performansı",
+          "takvim sapması",
+          "kaynak bağlılığı",
+          "teknik bağımlılık"
+        ],
+        "tetikleyici": [
+          "erken sinyaller vermesine rağmen",
+          "belirtilerin göründüğünü",
+          "uyarı işaretlerinin görünmesine rağmen",
+          "döngüsel şikayetlere rağmen"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu dürüstlük için teşekkürler {name_polite}. Risk izleme mekanizmamızı güçlendirmemiz gerekiyor — belki göstergeler çok geniş tanımlandı. Tetikleyicileri somut, ölçülebilir hale getirelim ve kim izleyecek netleştirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Tetikleyicilerin gözden kaçması durumu için bir erken uyarı paneli kuralım — sayısal eşikler ve otomatik bildirimler ekleyelim. Risk reviewları için daha yapılandırılmış format kullanalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Şu an için hasar sınırlama önlemlerini alıyoruz. Sonra tetikleyici izleme sistemimizi nasıl güçlendiririz birlikte tasarlayalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Risk tetikleyicilerini gözden kaçırmak dikkat eksikliğini gösteriyor {name_polite}. Risk yönetiminde bu temel bir sorumluluk — bundan böyle haftalık risk değerlendirme raporunu bana iletmeni bekliyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Risk tetikleyicilerinin somut ve izlenebilir olarak tanımlanması proaktif risk yönetiminin temelidir. PMI, her riskin ölçülebilir bir erken uyarı göstergesi içermesini önerir. PM'in görevi tetikleyici koşulları belirleyip bu göstergelerin kim tarafından, ne sıklıkla izleneceğini netleştirmektir."
+    },
+    {
+      "reason_id": "fırsat_riski_kaçtı",
+      "reasonTR": "Fırsat Olarak Tanımlanan Risk Değerlendirilemedi",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Belirlediğimiz fırsatı kaçırdık",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {fırsat} olarak risk kaydımızda yer alıyordu. {koşul} Fırsatı değerlendiremedik.",
+      "body_vars": {
+        "fırsat": [
+          "Piyasada erken çıkış avantajı",
+          "Ucuza gelen kıdemli kaynak",
+          "İndirimli lisans fırsatı",
+          "Ortaklık teklifi"
+        ],
+        "koşul": [
+          "Karar süreci uzadı ve pencere kapandı.",
+          "Onay beklerkern süre geçti.",
+          "Başka önceliklere odaklanınca kaçırdık.",
+          "Fırsat koşullarını zamanında doğrulayamadık."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Pişmanlığını anlıyorum {name_polite}. Fırsat risklerini de tehditlere benzer şekilde izlemek gerekiyor — gelecekte fırsat penceresi kapanmadan önce nasıl hızlı karar alabiliriz bunu değerlendirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bu deneyimden çıkarımla: fırsat riskleri için daha hızlı karar süreci tanımlayalım. Belirli eşiğin altında kalan fırsatlarda PM seviyesinde karar verilebilsin.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Kaçan fırsatı sistematik olarak belgeleyelim — neden kaçırdık, ne yapabilirdik. Bu lessons learned kaydı gelecekte değerli olur.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Fırsat kaçması hayatın gerçeği {name_polite}. Her fırsatı yakalamak mümkün değil — önemli olan tehditleri yönetmek. Bu konuda enerjimizi harcamamıza gerek yok.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Risk yönetimi sadece tehditleri değil fırsatları da kapsar. PMI risk yönetimi, pozitif risklere (fırsatlara) karşı yanıt stratejileri olarak sömürme, paylaşma, geliştirme ve kabul etme seçeneklerini tanımlar. PM'in görevi fırsat pencerelerini izlemek ve hızlı karar için gerekli yetki çerçevesini oluşturmaktır."
+    },
+    {
+      "reason_id": "risk_iletişimi_yetersiz",
+      "reasonTR": "Risk Gerçekleşince Paydaşlar Hazırlıksız Yakalandı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Risk gerçekleşince paydaşlar sürprizle karşılaştı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {risk_konusu} gerçekleştiğinde {paydaş_durumu} Riski biliyorduk ama nasıl ilerlediğimizi yeterince iletmemiştik.",
+      "body_vars": {
+        "risk_konusu": [
+          "tedarikçi başarısızlığı",
+          "kritik kaynak kaybı",
+          "teknik kriz",
+          "regülasyon değişikliği"
+        ],
+        "paydaş_durumu": [
+          "müşteri çok kötü tepki verdi, habersizdi.",
+          "sponsor sürprizle karşılaştı ve kızgın.",
+          "üst yönetim neden önceden bilgilendirilmediğini sorguluyor.",
+          "paydaşlar güven duygusu kaybetti."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu açıkça paylaşman önemli {name_polite}. Risk iletişim planımızda bir eksik var — kritik risklerin durumunu düzenli raporlara dahil etmemiz gerekiyordu. Paydaşları şimdi bilgilendirip güveni yeniden inşa edelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Risk iletişimi paydaş yönetiminin kritik bir parçası. Bundan sonra risk kayıtlarından seçilen kritik riskler durum raporuna eklenecek — paydaşlar sürpriz yaşamamalı.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Şu an için etkilenen paydaşlarla birebir görüşme yapayım — empati kurarak durumu açıklayayım ve güveni yeniden inşa etmek için ne yapacağımızı netleştirelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Paydaşlara sürekli risk raporlamak onları gereksiz kaygılandırır {name_polite}. Risk gerçekleşince bilgilendirmek daha doğru bir yaklaşım — sürpriz olmadı, zamanında bilgi verdik sayılır.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Paydaşların risk iletişiminden mahrum bırakılması güven krizine neden olur. PMI, kritik risklerin durum raporlarına dahil edilmesini ve paydaşların risk toleransına göre bilgilendirilmesini gerektirir. PM'in görevi 'sürpriz ortadan kaldırmak' prensibiyle proaktif risk iletişimi yürütmektir."
+    },
+    {
+      "reason_id": "risk_bütçesi_tükendi",
+      "reasonTR": "Tüm Contingency Rezervi Kullanıldı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Contingency bütçemiz tamamen tükendi",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, projenin {aşama} aşamasındayız ama {contingency_durumu} Kalan süreçte herhangi bir risk gerçekleşirse karşılayacak rezervimiz yok.",
+      "body_vars": {
+        "aşama": [
+          "yürütme",
+          "orta",
+          "son",
+          "ikinci"
+        ],
+        "contingency_durumu": [
+          "contingency bütçemiz tamamen tükendi.",
+          "risk karşılığı olarak ayırdığımız tüm rezerv harcandı.",
+          "tüm risk bütçesi üç büyük risk tarafından eridi.",
+          "yönetim yedek bütçeye de başvurmak zorunda kaldık."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu şeffaf paylaşman kritik {name_polite}. Rezervsiz kalan projeyi yönetmek daha dikkatli risk takibi gerektirir — kalan riskler listesini yeniden değerlendirelim, hangilerini azaltabiliriz. Sponsora da durumu bildirmeliyiz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Kalan risk exposür'ünü analiz edip öncelik sıralaması yapayım — gerçekleşme olasılığı yüksek riskler için proaktif önlem alalım. Yönetim rezervinden ek contingency talep etmeli miyiz değerlendirelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Tüm kalan aktiviteleri risk açısından gözden geçirelim — gereksiz karmaşıklığı azaltıp riski düşürelim. Rezerv olmadan en güvenli yolu izlemek gerekiyor.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Contingency bütçesinin bu kadar hızlı tükenmesi risk değerlendirmesinde ciddi başarısızlık gösteriyor {name_polite}. Bu proje artık son derece kırılgan — üst yönetimi bugün bilgilendireceğim ve proje devamı hakkında karar alacağız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Contingency bütçesinin tükenmesi risk profilinin başlangıçta yetersiz değerlendirildiğini gösterir. PMI, contingency rezervinin proje boyunca izlenmesini ve tükenme riskinde yönetim yedeğine zamanında başvurulmasını gerektirir. PM'in görevi risk bütçesini proaktif yönetmek ve kritik eşiğe ulaşıldığında hemen eskalasyon yapmaktır."
+    }
+  ]
+}

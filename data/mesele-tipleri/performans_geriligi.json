@@ -1,0 +1,979 @@
+{
+  "mesele_id": "performans_geriligi",
+  "meseleTR": "Performans Geriligi",
+  "compatible_terms": [
+    "performance_improvement_plan", "pip", "talent_management", "coaching",
+    "one_on_one", "feedback_loop", "okr", "kpi", "employee_engagement", "burnout"
+  ],
+  "reasons": [
+    {
+      "reason_id": "tukenmislik_belirtileri",
+      "reasonTR": "Tükenmişlik Belirtileri",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Son zamanlarda zorlanıyorum",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, bu mesajı yazmak için uzun süre bekledim. {donem} bir şeyler değişti bende ve artık gizleyemiyorum — {belirti} Verimimin düştüğünü kendim de fark ediyorum, bu beni üzüyor. Ekibi zorlamak istemiyorum ama sessiz kalmak da olmuyordu.",
+      "body_vars": {
+        "donem": [
+          "Birkaç aydır",
+          "Bu son sprintten beri",
+          "Projenin yoğunlaştığı dönemden beri",
+          "Geçen aydan bu yana"
+        ],
+        "belirti": [
+          "sabah işe başlamak bile zorlanıyorum.",
+          "konsantrasyonum çok dağılıyor.",
+          "ne yapsam yeterince iyi hissetmiyorum.",
+          "işten zevk alamaz oldum."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, mesajını şimdi okudum. Bu kadar zor bir şeyi paylaşmak gerçekten cesaret ister. Saat 14:00'de 30 dakikalığına müsait misin? Başka gündem yok — sadece seni dinlemek istiyorum, sonrasına birlikte karar veririz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum — ama bu noktada süreci yapılandırmamız gerekiyor. Bir Performans Geliştirme Planı (PIP) başlatalım bu hafta. Yarın 10:00'de müsait misin? Son sprint'teki hedef sapmalarını belgeler, 30 günlük iyileştirme takvimi çıkarırız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Hemen sprint backlog'una bakıyorum — bu haftaki ağır item'larından bir kısmını Emre'ye devrediyorum. Fazla mesai beklentim yok bu hafta. Görevler hallolur; toparlandığında konuşuruz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, mesajını okudum. Şu an çok yoğun bir dönemden geçiyoruz, herkes benzer baskıyı hissediyor. Teslimat haftasını birlikte aşalım — Cuma biter bitmez konuşuruz. Şimdi odaklanmamız lazım, sana güveniyoruz.",
+          "xp": -20,
+          "isEthical": false,
+          "triggers": [
+            { "target_issue": "kilit_kisi_bagimlilik", "delay_phase": 2, "reason_context": "Tükenmişlik sinyali görmezden gelindi; kilit ekip üyesi sonraki fazda projeden ayrılmak zorunda kaldı." },
+            { "target_character_effect": { "character_id": "K1", "burnout_increase": 25 } }
+          ]
+        }
+      },
+      "root_cause_lesson": "Tükenmişlik (Burnout) bir performans değil, bir sistem sorunudur. PMI'ya göre ilk tepki Aktif Dinleme (Active Listening) ve empatidir — PIP ise disiplin sürecinin aracıdır, tükenmişlik bağlamında yanlış sinyal verir. Psikolojik güvenlik (Psychological Safety) ortamı ancak PM'in 'dinlemeyi' önceliklendirmesiyle kurulur."
+    },
+    {
+      "reason_id": "kisisel_sorun_aile",
+      "reasonTR": "Kişisel Aile Sorunu",
+      "weight": 5,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Seninle konuşmam gerekiyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, bunu söylemek çok kolay değildi ama dayanamadım. {aile_durumu} Evde bu kadar ağır bir şey yaşarken işe odaklanmak gerçekten çok zor. Verimim etkileniyor — bunu gizlemeye çalıştım ama artık söylemeden edemedim.",
+      "body_vars": {
+        "aile_durumu": [
+          "Eşimle çok zor bir dönemden geçiyoruz.",
+          "Annemle/babamla ilgili ciddi bir durum var, çok endişeliyim.",
+          "Evde çok stresli bir süreç yaşıyoruz.",
+          "Ailemde ciddi bir sağlık krizi var."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, böyle bir şeyi benimle paylaşman kolay değildi — teşekkür ederim. Bu süreçte yanında olmak istiyorum. Bugün ya da yarın 20 dakikan var mı? Ne işine yarar birlikte konuşalım — esnek saat, geçici yük azaltma, her seçenek masada.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, duyduğuma çok üzüldüm. Bu tür dönemlerde şirketin EAP (Çalışan Destek Programı) faydalı olabilir — HR'dan detaylı bilgi alabilirsin. İzin kullanmak istersen de süreci birlikte başlatabiliriz. Nasıl devam etmek istersin?",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Bu hafta hangi görevlerde aksaklık olabilir, birlikte bakabilir miyiz? Kritik teslimatlara odaklanırsın, geri kalanları erteleme ya da devretme seçeneğini değerlendirelim. Proje açısından da sağlıklı bir plan çıkaralım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, duyduğuma üzüldüm. Ama iş hayatında kişisel ve profesyoneli ayırt etmemiz gerekiyor. Proje kritik bir dönemde — bu haftayı birlikte geçirelim, durumu daha sakin bir zamanda konuşuruz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "PMI'ya göre ekip üyelerinin kişisel krizleri doğrudan verimlilik üzerinde etkisi olan yönetim konularıdır. PM'in rolü terapi değil, yapısal destek sunmaktır: esnek çalışma, geçici yük azaltma, EAP yönlendirme. Empati olmadan sunulan 'çözüm', çözüm değil; baskıdır."
+    },
+    {
+      "reason_id": "kisisel_sorun_saglik",
+      "reasonTR": "Bildirilmemiş Sağlık Sorunu",
+      "weight": 4,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Sizi bilgilendirmek istedim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, bunu söylemek uzun zamandır zihnimi meşgul ediyordu. {saglik_durumu} Gizlemeye çalıştım ama işimi etkilemeye başladığı için artık söylemem gerektiğini düşündüm. Nasıl devam edeceğimizi birlikte konuşabilir miyiz?",
+      "body_vars": {
+        "saglik_durumu": [
+          "kronik bir rahatsızlıkla mücadele ediyorum.",
+          "bazı testler ve tedaviler sürecim var.",
+          "sağlık sorunum iş yükü arttığında nüksediyor.",
+          "düzenli doktor kontrollerim işi ara ara aksatıyor."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu güveni gösterdiğin için gerçekten teşekkür ederim. Sağlık her şeyden önce gelir. Bu hafta içinde 15-20 dakika oturalım — esnek çalışma saati, geçici yük düzenlemesi, ne seni destekler birlikte düşünürüz. Sen söyle, ben organize ederim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, duyduğuma üzüldüm. Doktor randevuları veya tedavi sürecin için raporlu izin kullanabilirsin — HR sürecini başlatabiliriz. Sağlık izin haklarını araştırıp seni bilgilendireyim. Gerekirse ek izin talebi de yapabiliriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Bu dönemde kritik teslimatlarda bir backup plan oluşturalım — hem sen nefes al, hem proje devam etsin. Hangi görevler baskı yaratıyor, onları önce konuşalım. Planı buna göre güncelleriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, paylaşman doğru oldu. Ama şu an projenin çok kritik bir dönemindeyiz. Bu rolü sürdürüp sürdüremeyeceğimizi birlikte netleştirmemiz gerekiyor — beklenen kapasiteyi karşılayamazsan alternatifleri değerlendirmeliyiz.",
+          "xp": -20,
+          "isEthical": false,
+          "triggers": [
+            { "target_issue": "takim_catismasi", "delay_phase": 1, "reason_context": "Sağlık sorunu bulunan ekip üyesine yapılan baskı takım içi güven krizine neden oldu." },
+            { "target_character_effect": { "character_id": "K1", "loyalty_change": -3, "burnout_increase": 20 } }
+          ]
+        }
+      },
+      "root_cause_lesson": "Sağlık beyanları PM için yasal ve etik hassasiyet içerir — kişisel mahremiyet hakkı, ayrımcılık riski ve kurumsal yükümlülükler söz konusudur. PM'in doğru sorusu 'performansı yeterli mi?' değil, 'nasıl destek olabilirim?' sorusudur. Servant Leadership'te birey tehdit değil, destek görür."
+    },
+    {
+      "reason_id": "yanlis_gorev_eslestirme",
+      "reasonTR": "Yanlış Görev Eşleştirme",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Görevim hakkında dürüst olmam gerekiyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, bunu söylemek garip gelecek ama uzun süre içimde taşıdım. {gorev} konusunda ne kadar çabalasam bir türlü hevesle yapamıyorum. {neden} İyi yapmak istiyorum ama bu işi sürüklenerek yapıyorum — ve bu hem beni hem sonuçları etkiliyor.",
+      "body_vars": {
+        "gorev": [
+          "üstlendiğim teknik görevi",
+          "müşteri iletişimi gerektiren bu rolü",
+          "veri analizini içeren bu görevi",
+          "dokümantasyon ağırlıklı bu işi"
+        ],
+        "neden": [
+          "Bu benim doğal güçlü alanım değil sanırım.",
+          "İlgi duymadığım bir alan ve bu işimi etkiliyor.",
+          "Çok uğraşıyorum ama istediğim verimi alamıyorum.",
+          "Becerilerimin başka yerde daha iyi kullanılacağını hissediyorum."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu farkındalığı benimle paylaşman değerli — kolay bir şey değildi. Bu hafta 20 dakikan var mı? Güçlü olduğun yerler neler, nereye hevesle koşuyorsun — birlikte konuşalım. Görev dağılımına oradan bakarız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Bazen yeni bir alana alışmak zaman alıyor. Birkaç sprint daha dene — pratik yaptıkça çoğu şey yerine oturuyor. Takıldığın yerlerde bana haber ver, destek olabilirim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Bu alanda bir iç eğitim veya online kurs işe yarayabilir mi? Beceri boşluğu varsa onu kapatalım önce. Bütçe imkânları varsa eğitimi organize edebilirim — hangi konuda eksik hissediyorsun?",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, bu görevi başta gönüllü olarak üstlenmiştin. Şimdi geri adım atmak hem ekibi hem takvimi olumsuz etkiler. Bu dönemde planlı değişiklik yapamayız — odaklanman ve mevcut göreve devam etmen gerekiyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kişi-görev uyumu (Person-Job Fit) hem verimliliği hem de motivasyonu doğrudan belirler. PMI'ya göre PM, ekip üyelerinin güçlü yönlerini keşfedip görev dağılımıyla hizalamalıdır. 'Pratik yapınca alışırsın' yaklaşımı uyumsuzluğu örtbas eder; uzun vadede tükenmişlik ve düşük kalite üretir."
+    },
+    {
+      "reason_id": "yeni_teknoloji_zorlugu",
+      "reasonTR": "Yeni Teknoloji Zorluğu",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "{teknoloji} konusunda ciddi takıldım",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, bunu daha önce söylemem gerekiyordu belki ama kabul etmek zor geldi. {teknoloji} konusunda ciddi biçimde takıldım. {zorluk} Durumu gizlersem daha kötü olacak, o yüzden şimdi söylüyorum.",
+      "body_vars": {
+        "teknoloji": [
+          "yeni framework'ü kullanmak",
+          "bu cloud mimarisini uygulamak",
+          "API entegrasyonunu yapmak",
+          "bu test altyapısını kurmak"
+        ],
+        "zorluk": [
+          "Dokümantasyon yetersiz, çok zaman araştırmaya gidiyor.",
+          "Örnekler yeterli değil, her şeyi deneme yanılmayla yapıyorum.",
+          "Öğrenme eğrisi çok dik, daha önce hiç kullanmadım.",
+          "Stack Overflow bile yeterli çözüm üretemiyor bu konuda."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, erkenden haber verdiğin için iyi ki söyledin. Yeni bir teknolojide tıkanmak çok normal — bu senin başarısızlığın değil. Sana bir mentor veya dış kaynak ayarlayabilir miyim bakıyorum. Takvimi de realiteye göre yeniden değerlendireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Bu görevin bir teslim tarihi var — bana ne kadar süre gerektiğini söyle, planı buna göre güncelleyeyim. Gerekirse hafta sonu da çalışmayı göz önünde bulundur, mümkün müdür sana göre?",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Resmi dokümantasyona veya Udemy gibi platformlara bakabilirsin. Ekipte aynı teknolojiyi bilen varsa ona da danış. Takıldıkça bana bildir; bu süreç için 1 hafta daha tanıyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, ekibin diğer üyeleri bu teknolojiyle çalışıyor ve benzer sorunlar yaşamıyor. Muhtemelen daha fazla zaman ayırmak gerekiyor — mesai saatlerinin dışında da çalışmayı deneyebilirsin. Takvim sıkışıyor, bu süreç uzayamaz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yeni teknoloji benimsemesinde 'öğrenme süresi' planlanmamışsa, bu bir proje planlama hatasıdır — kişinin başarısızlığı değil. PMI Kaynak Yönetimi'ne göre PM, gerekli eğitimi, mentoru ve zaman dilimini organize etmekle yükümlüdür. 'Diğerleri yapıyor' yaklaşımı öğrenme ortamını zehirler ve güveni yok eder."
+    },
+    {
+      "reason_id": "takim_catismasi_etkisi",
+      "reasonTR": "Ekip Çatışmasının Etkisi",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Ekip dinamiği işimi etkiliyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, bu konuyu söylemek kolay değil ama {catisma_durumu} Toplantılarda oturmak bile zor hale geldi. Bu ortamda konsantre olmakta gerçekten güçlük çekiyorum.",
+      "body_vars": {
+        "catisma_durumu": [
+          "bir ekip üyesiyle aramız çok gerildi ve iş birliği yapamıyoruz.",
+          "takımda süregelen bir gerginlik var ve bu beni etkiliyor.",
+          "toplantılardaki atmosfer çok ağır, verimli çalışamıyorum.",
+          "bir meslektaşımla yaşanan anlaşmazlık hâlâ çözülmedi."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bunu benimle paylaşman cesaret ister. Bu tür dinamikler kimseyi etkilemeden kalmıyor. Ben ayrı ayrı konuşmak istiyorum — önce seninle, sonra ilgili kişiyle. Durumu anlamadan adım atmak doğru olmaz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Biraz daha detay verebilir misin — hangi kişi veya durum, tam olarak ne yaşandı? Bağlamı anlamadan müdahale etmek zor; önce durumu netleştirelim, sonra adım atalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, zor bir durum bu. O kişiyle doğrudan konuşmayı denedin mi? Bazen birebir açık bir konuşma çözüm getirebiliyor. Arıyorsan bu yolu dene önce, sonra beni de döngüde tut.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, profesyonel olmak gerekiyor. Kişisel çatışmaları iş performansına yansıtmamak bu ortamın temel beklentisi. Bu konuyu bir kenara bırakıp mevcut görevlerine odaklanman lazım şimdilik.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Ekip çatışmaları PMI'ya göre Leas Çatışma Modeli'nde değerlendirilir: Seviye 1-2 ekip içi çözülebilir, Seviye 3-4 PM müdahalesi gerektirir. 'Profesyonelce davranın' (Smoothing/Yatıştırma) yaklaşımı sorunu örtbas eder. PM aktif arabulucu rolüne geçmeden çatışma kendiliğinden çözülmez."
+    },
+    {
+      "reason_id": "geri_bildirim_eksikligi",
+      "reasonTR": "Geri Bildirim Eksikliği",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Nasıl gittiğimi bilmiyorum",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, uzun zamandır {gorev_alani} üzerinde çalışıyorum ama doğru yolda olup olmadığımı gerçekten bilmiyorum. {belirsizlik} Bu belirsizlikte ilerlemeye çalışmak çok yorucu.",
+      "body_vars": {
+        "gorev_alani": [
+          "bu modül",
+          "müşteri gereksinimleri",
+          "tasarım",
+          "bu özellik"
+        ],
+        "belirsizlik": [
+          "Yaptığım şey doğru mu bilmiyorum.",
+          "Kimse bir şey söylemedi, doğru mu yanlış mı anlamadım.",
+          "Revizyona mı ihtiyaç var, ilerliyor muyum — bilmiyorum.",
+          "Beklentiyi karşılıyor muyum hiç emin değilim."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu mesaj için teşekkür ederim — ve özür dilerim. Bu belirsizliği yaratmak benim hatam. Bu hafta içinde seni çağıracağım; yaptıklarına birlikte bakacağız, net bir geri bildirim vereceğim. Ve bundan sonra düzenli 1:1 ayarlarız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Genel olarak iyi gidiyor — devam et. Özellikle merak ettiğin bir konu varsa sor, yardımcı olurum. Şu an yoğunum ama mesaj atarsan dönerim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Hangi konularda özellikle geri bildirim istiyorsun — önce bana söyle, ona göre konuşalım. Her şey için değil, öncelikli meselene odaklanabiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, bir sorun olsaydı sana söylerdim. Soru oluştuğunda sen de sorabilirsin — beklemek zorunda değilsin. Şu an iyi gidiyorsun, merak etme.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Düzenli geri bildirim (Feedback Loop) PMI ve Agile'da temel bir yönetim pratiğidir. PM'in 'sorun olsaydı söylerdim' tutumu sessiz kalmayı güvenli hale getirir; bu ise erken sinyallerin kaybolmasına yol açar. 1:1 görüşmeleri reaktif değil, proaktif ve düzenli olmalıdır."
+    },
+    {
+      "reason_id": "hedef_belirsizligi",
+      "reasonTR": "Hedef Belirsizliği",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Hedeflerim konusunda netleşmek istiyorum",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {donem} geçiyor ve hâlâ {hedef_belirsizligi} Ne üretmem bekleniyor tam olarak bilmiyorum — ve bu belirsizlikte doğru işi yapıp yapmadığımı da bilemiyorum. Bir yönlendirme çok işime yarayacak.",
+      "body_vars": {
+        "donem": [
+          "Üzerinde çalıştığım görevin birkaç haftası",
+          "Bu çeyrekte epey zaman",
+          "Yeni dönemin başından beri epey süre"
+        ],
+        "hedef_belirsizligi": [
+          "başarı kriterleri net değil, neyi tamamlamış sayacağız bilmiyorum.",
+          "tam olarak ne üretmem bekleniyor anlamadım.",
+          "öncelikler ve hedefler sürekli değişiyor.",
+          "hangi çıktının benden beklendiği hâlâ belirsiz."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu mesaj benim için önemli bir uyarı — teşekkür ederim. Yarın ya da öbür gün 30 dakikan var mı? Net hedefler ve başarı kriterleri belirleme konuşması yapalım. Bundan sonra her sprint başında hizalanacağız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Hedeflerini yazılı olarak sana göndereyim bu hafta. Okuduğunda anlamadığın bir şey olursa sor. Bu şekilde en azından kâğıt üstünde netlik sağlarız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Sence hedeflerin ne olmalı — düşüncelerini paylaşır mısın? Beklentiyi birlikte şekillendirelim, belki senin perspektifin eksik olan boyutu tamamlar.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, başlangıçta neyin bekleneceğini konuşmuştuk. Artık daha fazla açıklama beklemeden kendi inisiyatifinle ilerlemen gerekiyor — proaktiflik bu rolün temel beklentilerinden biri.",
+          "xp": -20,
+          "isEthical": false,
+          "triggers": [
+            { "target_issue": "kapsam_belirsizligi", "delay_phase": 1, "reason_context": "Hedef belirsizliği çözülmedi; takımın ürettiği çıktılar kapsam dışına çıktı." }
+          ]
+        }
+      },
+      "root_cause_lesson": "Hedef belirsizliği PMI PMBOK'ta Kapsam Yönetimi'nin yetersizliğinin bir semptomudur. Başarı kriterlerinin (acceptance criteria) net tanımlanmamış olması, üretilen çıktıların kapsam dışına çıkmasına zemin hazırlar. PM'in 'başlangıçta konuştuk' yanıtı sorumluluktan kaçmaktır; netleştirme süreci sürekli devam etmelidir."
+    },
+    {
+      "reason_id": "oncelik_karisikligi",
+      "reasonTR": "Öncelik Karışıklığı",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Açık görevlerim arasında kayboldum",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, şu an {gorev_sayisi} görevim açık ve {karisiklik} Nereden başlayacağımı, neyi bekleteceğimi gerçekten bilemiyorum. Yardım edebilir misin?",
+      "body_vars": {
+        "gorev_sayisi": [
+          "sekizden fazla",
+          "ondan fazla",
+          "altı farklı"
+        ],
+        "karisiklik": [
+          "hangisi önce, hangisi bekleyebilir hiç bilmiyorum.",
+          "her biri 'acil' olarak işaretlenmiş durumda.",
+          "farklı paydaşlardan farklı öncelik sinyalleri geliyor.",
+          "hepsi aynı anda bitmesini bekliyor sanki."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu tablo gerçekten karmaşık — çözmek benim işim. Bugün yarım saatin var mı? Görevleri birlikte sıralayalım: ne şimdi, ne bu sprint sonunda, ne ertelenebilir. Aynı anda bu kadarını iyi yapman beklenemez.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. En kısa sürede bitmesi gereken hangisi — onu söyle, ona odaklan. Geri kalanını sonra konuşuruz. Şu an için en kritik teslimata kilitlenel.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Listeyi bana gönder — öncelik sırasını yazayım. Sen o sıraya göre ilerle, güncelleme gerekirse haber veririm.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, hepsi önemli. Zamanı doğru yönetmek bu rolün temel sorumluluğu — önceliklendirmeyi kendin yapman gerekiyor. Karar veremiyorsan paydaşlardan bilgi al.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Önceliklendirme karmaşası çoğu zaman PM'in net bir öncelik çerçevesi sunmadaki başarısızlığından kaynaklanır — ekip üyesinin zaman yönetiminden değil. PMI'ya göre PM, iş listesini (backlog) paydaşlarla hizalayarak net öncelik sıralaması üretmekle yükümlüdür. 'Kendin yönet' yanıtı bu yükümlülükten kaçmaktır."
+    },
+    {
+      "reason_id": "uzaktan_calisma_uyum",
+      "reasonTR": "Uzaktan Çalışmaya Uyum",
+      "weight": 5,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Uzaktan çalışmaya alışmakta zorlanıyorum",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, uzaktan çalışma düzenine geçtiğimizden beri {zorluk} Ofis ortamında çok daha verimliydim. Bu durumu nasıl çözebileceğimi düşünüyorum ama tek başıma çıkış bulamadım.",
+      "body_vars": {
+        "zorluk": [
+          "evde konsantrasyonu sağlamakta zorlanıyorum.",
+          "ekipten kopuk hissediyorum ve motive olmak güçleşiyor.",
+          "günlük rutini oluşturmak çok zorlaştı.",
+          "iş ve özel yaşam sınırı ortadan kalktı, verimim düştü."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, paylaştığın için teşekkürler. Uzaktan çalışma herkes için aynı işlemez — bu senin zayıflığın değil. Haftaya birlikte oturalım: neyin yardımcı olacağını konuşalım. Karma düzenleme, farklı toplantı ritmi — ne işe yarar, birlikte deneyelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Verimlilik için bazı pratik tüyolar paylaşabilirim — Pomodoro tekniği, zaman blokları gibi yöntemler çok işe yarıyor. Uygulamak istersen biraz daha anlatabilirim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Haftada birkaç gün ofise gelme imkânın var mı? Karma modele geçebiliriz — ofis günlerin daha üretken olabilir. HR ile konuşabiliriz bu konuda.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, ekibin diğer üyeleri uzaktan gayet iyi çalışıyor. Bu düzene alışmak gerekiyor — adaptasyon da iş hayatının bir parçası. Biraz zaman tanı kendine, oturur.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Uzaktan çalışma performans farklılığı yaratabilir; bu, kişinin yetersizliği değil, çalışma koşullarının uyumsuzluğu sorunudur. PMI ve Agile, PM'in ekip çalışma koşullarını optimize etme sorumluluğunu vurgular. 'Diğerleri uyum sağladı' yaklaşımı bireysel ihtiyaçları görmezden gelen tek boyutlu bir yönetim anlayışıdır."
+    },
+    {
+      "reason_id": "yeni_ise_giris_sureci",
+      "reasonTR": "Yeni İşe Giriş Süreci",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "third_party",
+      "subject_template": "{name}'in uyum süreci biraz zorluyor",
+      "from_role_template": "Ekip Üyesi",
+      "body_template": "Hocam, {name}'le çalışıyorum ama {zorluk} Sizi rahatsız etmek istemedim ama durumu bilmeniz gerekiyor diye düşündüm.",
+      "body_vars": {
+        "zorluk": [
+          "üstlendiği görevlerde beklediğimizden yavaş ilerliyor.",
+          "bazı temel konularda hâlâ sorular soruyor, alışamıyor.",
+          "proje bağlamını kavramakta zorlandığını görüyorum.",
+          "toplantılarda çok geri planda kalıyor, katkı sunamıyor."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Bildirdiğin için teşekkürler. Bu bilginin senden geldiğini {name_polite}'e söylemeyeceğim — bu aramızda kalsın. Ben onunla ayrıca birebir konuşacağım. Aynı zamanda onboarding sürecimizi gözden geçireyim, belki eksikler bende.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum. {name_polite}'e doğrudan hangi konularda zorlandığını sorayım — bağlamı netleştirmek lazım. Durumu birlikte anladıktan sonra nasıl destek olacağımıza karar veririz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Teşekkürler. {name_polite} için hızlandırılmış bir onboarding toplantısı ayarlasam ve yanına bir mentor koysam yardımcı olur mu? Ekipten uygun birini düşünüyor musun?",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu süre geçtikten sonra hâlâ uyum sağlayamamışsa sorun var demektir. {name_polite}'e açık bir konuşma yapayım ve beklentileri net koyayım — aksi halde bu iş yürümez.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yeni işe giriş (Onboarding) sürecinin başarısı büyük ölçüde sisteme bağlıdır, bireyin kapasitesine değil. PMI'ya göre PM, performans sorunlarına destekleyici bağlamda erken müdahale etmelidir. Üçüncü taraf bildirimlerinde gizlilik ve güven kritik etik ilkelerdir — kişinin ismini söylemeden hareket etmek doğru yaklaşımdır."
+    },
+    {
+      "reason_id": "yonetim_degisikligi_etkisi",
+      "reasonTR": "Yönetim Değişikliğinin Etkisi",
+      "weight": 5,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Adapte olmakta zorlanıyorum",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, eski çalışma düzenime çok alışmıştım ve {degisim} Bu geçiş sürecinde verimim etkileniyor — dürüst olmak istedim.",
+      "body_vars": {
+        "degisim": [
+          "yeni yönetim tarzına alışmak zaman alıyor.",
+          "beklentiler ve süreçler birden çok değişti.",
+          "önceki PM ile çok uyumlu çalışıyorduk, şimdi her şey farklı hissettiriyor.",
+          "yeni öncelikler ve metodoloji henüz oturmuş değil."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, açıkça söylemen cesaret istiyor — teşekkürler. Bu hafta seninle oturalım: çalışma tarzım ve beklentilerim hakkında açıkça konuşalım. Neyi daha net yapabilirim, senden duymak istiyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Yeni süreci ve beklentileri özetleyen bir doküman hazırlayayım — okuduktan sonra soruların olursa konuşuruz. Bu şekilde en azından yazılı bir referans noktamız olur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Neler değişmiş, hangisine alışmak en zor geliyor — bana söyle. Oradan başlayalım, adım adım üstesinden geliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, her değişiklikte uyum sağlamak gerekiyor. Bu iş hayatının bir parçası — pozitif bir bakış açısıyla yaklaşsan daha hızlı alışırsın. Herkes geçiyor bu süreçten.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yönetim değişikliği geçişleri PMI Değişim Yönetimi kapsamındadır ve PM'in aktif köprü kurma sorumluluğu içerir. 'Bu iş hayatının parçası' tutumu Change Resistance'ı görmezden gelir. Etkin PM geçiş döneminde daha fazla iletişim, netlik ve empati gösterir — daha az değil."
+    },
+    {
+      "reason_id": "dikkat_dagitici_paralel",
+      "reasonTR": "Dikkat Dağıtıcı Paralel Sorumluluk",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Paralel işler konsantrasyonumu bozuyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, şu an {paralel_is} Bu proje için yeterince kafa açamıyorum, verimim düşüyor. Bu durumu nasıl çözeceğimizi düşünmek istedim.",
+      "body_vars": {
+        "paralel_is": [
+          "hem bu projeye hem de başka bir projeye aynı anda katkı sağlamam bekleniyor.",
+          "kendi departmanımdan da sorumluluklar geliyor, ikisi çakışıyor.",
+          "yeni katılan birine mentorluk da yapıyorum, odağım bölünüyor.",
+          "bakım/destek görevleri de bende, proje işi arka planda kalıyor."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, çok önemli bir şeyi paylaştın. Birden fazla öncelik arasında bölünmek kaliteyi ve morali düşürüyor. Hemen bakalım — neleri düşürebiliriz, ne başkasına taşınabilir. Bu karışıklığı çözme sorumluluğu bende.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Her işe haftada kaç saat ayırıyorsun — bir breakdown verir misin? Rakamları görünce daha net konuşabiliriz, önce bunu anlamam lazım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Zaman blokları oluşturmak yardımcı olabilir — sabah derin çalışma, öğleden sonra toplantılar gibi. Ajanda görüşelim, birlikte bir yapı kuralım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, bu iş hayatının gerçeği. Herkes birden fazla şeyi aynı anda yönetiyor — bu rolün beklentilerinden biri. Zamanı daha iyi organize ederek üstesinden gelebilirsin.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Paralel görev çakışması (Context Switching) verimliliği %40'a kadar düşürebilir. PMI'ya göre PM, ekip üyelerinin kapasite sınırlarını çapraz paydaşlarla müzakere etmek ve çatışan öncelikleri çözmekle yükümlüdür. 'Herkes yapıyor' yanıtı sistemik bir sorunu bireye yükler."
+    },
+    {
+      "reason_id": "over_engineering",
+      "reasonTR": "Aşırı Mükemmeliyetçilik",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "third_party",
+      "subject_template": "{name}'in teslimatlarda gecikmeler oluşuyor",
+      "from_role_template": "Ekip Üyesi",
+      "body_template": "Hocam, {name}'in yaptığı işler kaliteli ama {sorun} Süreç açısından sizi bilgilendireyim istedim.",
+      "body_vars": {
+        "sorun": [
+          "her şeyi yeniden yazıyor, 'yeterince iyi değil' diye teslim etmiyor.",
+          "önemsiz detaylara çok takılıyor, öncelikli olanlar gecikiyor.",
+          "mükemmel olmak için sürekli revize yapıyor, bitmek bilmiyor.",
+          "teslim etmesi gereken şeyleri 'daha iyi hale getireyim' diye bekletiyor."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Bildirdiğin için teşekkürler. {name_polite} kaliteli iş çıkarıyor, bu değerli — ama 'iyi'nin 'mükemmel'in düşmanı olmadığını konuşmam gerekiyor. Bunu 1:1'de açık ve yapıcı bir şekilde ele alacağım; kabul kriterleri netleştirme dahil.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum. {name_polite}'e doğrudan neden geciktiğini sorayım — kendi ağzından duymak daha net bir tablo verir. Sonra ona göre adım atarız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam. Kabul kriterleri (definition of done) daha net yazılırsa bu tür gecikmeler azalır mı sence? Bir deneme yapalım, önümüzdeki sprint'te netleştirelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}'e söyle: teslim tarihleri sabit. İş mükemmel değil, zamanında teslim edilmek zorunda. Sürekli revize etmek kabul edilebilir değil — bu konuda net ol.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Aşırı mükemmeliyetçilik genellikle belirsiz kabul kriterleri veya psikolojik güvensizlikten kaynaklanır. PM'in yanıtı baskı değil, netlik olmalıdır: 'Done = Done' tanımını oturtmak ve 'iyi yeteri kadar iyidir' ilkesini güvenli ortamda konuşmak. Geri bildirim üçüncü taraf üzerinden değil, PM'den doğrudan verilmelidir."
+    },
+    {
+      "reason_id": "iletisim_zorluklari",
+      "reasonTR": "İletişim Zorlukları",
+      "weight": 5,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "hr",
+      "subject_template": "{name} ile iletişim konusunda",
+      "from_role_template": "İK Uzmanı",
+      "body_template": "Merhaba, {name} ile ilgili bazı geri bildirimler aldık. {sorun} Sizin bu konuda değerlendirmenizi merak ettim.",
+      "body_vars": {
+        "sorun": [
+          "Ekip üyeleri zaman zaman iletişim kurmakta güçlük çektiklerini ifade etti.",
+          "Yazılı iletişimde yanlış anlamalar yaşandığına dair geri dönüşler var.",
+          "Toplantılarda katkı sağlamakta zorlandığına dair birkaç gözlem geldi.",
+          "Bazı ekip üyeleri {name}'in mesajlarını anlamlandırmakta güçlük çektiğini belirtti."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Bilgilendirdiğiniz için teşekkürler. {name_polite} ile ayrıca konuşacağım — önce ihtiyaçlarını anlamak istiyorum. Dil desteği, yapılandırılmış iletişim kanalları veya farklı format işe yarayabilir. Birlikte ne gerektiğine bakacağız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum. Şirket bünyesinde {name_polite} için dil eğitimi imkânı var mı — inceleyip bilgi alabilir miyiz? Bu destek süreci ne kadar sürer, ne tür bir müfredat izlenir?",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Anlıyorum. Bir 'buddy' sistemi veya iletişim kolaylaştırıcı düzeni işe yarayabilir. Ekipten uygun birini belirleyip {name_polite}'e yönlendirsem nasıl olur?",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}'in bu rolde devam edip edemeyeceğini netleştirmemiz gerekiyor. İletişim becerisi geliştirilemiyorsa ekip verimliliği zarar görüyor — bu konuda somut bir adım atmamız lazım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "İletişim güçlükleri farklı kültürel bağlam, dil, nöro-çeşitlilik veya yapısal eksikliklerden kaynaklanabilir; PM, semptom yerine köke bakmalıdır. 'Devam edip edemez?' sorusu bu aşamada ayrımcılık riski taşır. PMI Kapsayıcı Liderlik (Inclusive Leadership) ilkesi, anlama ve desteklemeyi ön planda tutar."
+    },
+    {
+      "reason_id": "over_commitment",
+      "reasonTR": "Aşırı Söz Verme",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Her şeyi yetiştirmeye çalışıyorum ama olmayacak",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, söz verdiğim her şeyi tutmak istiyorum ama {durum} Hepsini yetiştiremeyeceğimi anladım — erken söylemek istedim.",
+      "body_vars": {
+        "durum": [
+          "birden fazla şeye aynı anda evet dedim ve kapasitemin üstüne çıktım.",
+          "bazı işler sandığımdan çok büyüdü ve zamanım kalmadı.",
+          "çok şey üstlendim, hepsini kaliteli yapmak mümkün değil.",
+          "verdiğim sözlerin toplamı gerçekçi değilmiş, şimdi fark ettim."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, erken söylemen çok doğru bir karar. Taahhütlere birlikte bakalım — neleri yeniden müzakere edebiliriz, ne başkasına taşınabilir? Bunu da birlikte çözeriz. 'Hayır' demek de bir yetkinliktir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Hangileri kesinlikle bitmeli, hangileri bekleyebilir — bana söyle. Kritik olanları belirleyip diğerlerini erteleyelim. Öncelik sırasını sen belirle.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Bundan sonra taahhüt vermeden önce benimle konuş — kapasiteni birlikte değerlendirelim. Bu sefere bu tabloyu birlikte çözelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, söz verdiysen tutman gerekiyor. Taahhüt vermeden önce kapasiteni düşünmen gerekiyordu — bu deneyimden ders çıkarmalısın. Şimdi ne yapabileceğine bakalım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Aşırı söz verme (Over-commitment) çoğu zaman 'hayır' diyemeyen kültürün veya PM'in net kapasiteyi izlememesinin sonucudur. PMI'ya göre PM, ekip kapasitesini paydaşlara karşı savunmakla yükümlüdür. Ceza değil, sistem düzeltmesi gerekir."
+    },
+    {
+      "reason_id": "motivasyon_kaybi_terfi",
+      "reasonTR": "Beklenen Terfi Gerçekleşmedi",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Açıkçası motivasyonum düştü",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, dürüst olmak istiyorum. {beklenti_durumu} Bu durum motivasyonumu ciddi etkiledi ve işime yansımaya başladı.",
+      "body_vars": {
+        "beklenti_durumu": [
+          "Terfi bekliyordum ama olmadı ve nedenini anlamlandıramadım.",
+          "Bu dönem için terfi konuşmuştuk, geri bildirim almak istiyorum.",
+          "Uzun zamandır yoğun çalışıyorum ama kariyer ilerlememde bir hareket yok.",
+          "Katkımın fark edilmediğini hissediyorum."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, paylaşman cesaret istiyor — teşekkürler. Bu hayal kırıklığı çok anlaşılır. Seninle dürüstçe konuşalım — şu an ne durumda olduğumuzu açıkça paylaşayım, kariyer ilerleme yolunu birlikte değerlendirelim. Bu hafta müsait misin?",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Terfi kriterleri konusunda HR ile görüşmeni öneririm — süreci net anlamak için faydalı olur. Resmi değerlendirme döneminde bu konular ele alınır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Sonraki değerlendirme dönemi için neler yapman gerektiğini konuşalım — hedeflerini şimdiden netleştirelim. Beklentileri yazılı olarak belgeleyelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, terfi için daha yapacakların var. Şu an odaklanman gereken şey performansını artırmak — bunun sonuçları kendiliğinden gelir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kariyer ilerlemesi bekleyişleri PMI Motivasyon Teorileri (Maslow, Herzberg) bağlamında güçlü bir çıktı motivatörüdür. PM'in 'daha çalış, gelir' yaklaşımı belirsizliği ve hayal kırıklığını büyütür. Şeffaf, zamanında ve dürüst bir kariyer konuşması — sonuç ne olursa olsun — güveni korur."
+    },
+    {
+      "reason_id": "motivasyon_kaybi_maas",
+      "reasonTR": "Maaş ve Takdir Sorunu",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Çok dürüst olmak istiyorum",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {maas_durumu} Bu konu motivasyonumu etkilediğini artık kabul etmeliyim. Nasıl bir yol izleyebiliriz?",
+      "body_vars": {
+        "maas_durumu": [
+          "piyasa araştırması yaptım ve ücretimin ciddi altında kaldığını gördüm.",
+          "aynı seviyedeki arkadaşlarımla kıyaslandığımda takdirin yeterli olmadığını hissediyorum.",
+          "verdiğim emek ve mevcut ücret arasındaki dengesizlik giderek daha belirgin hale geliyor.",
+          "ücret değerlendirmesinde uzun zamandır bir ilerleme olmadı."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu konuyu açmak cesaret ister — teşekkürler. Haklı bir beklenti bu. HR ile konuşacağım ve savunuculuğunu yapacağım. Söz veremem ama süreç boyunca şeffaf olacağım. Bu haftanın sonuna kadar dönüyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Resmi ücret değerlendirme süreci yaklaşıyor — o dönemde bu konu değerlendirilecek. Şimdi için net bir şey söyleyemem ama değerlendirme zamanı haber veririm.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. HR ile konuşmak istersen toplantı ayarlayabilirim — doğrudan süreci onlarla yürütebilirsin. Konuşmak istediğinde söyle.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, bu konuşma için şimdi doğru zaman değil. İşine odaklanman ve değerlendirildiğinde sonuçlar kendiliğinden ortaya çıkar — sabır önemli.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Ücret adaleti Herzberg Hijyen Faktörleri arasındadır — eksikliği motivasyonu direkt düşürür. PM'in 'zamanı değil' yanıtı hem şeffaflık hem de savunuculuk sorumluluğundan kaçmaktır. PM her zaman söz veremez; ama her zaman dürüst olmalı ve savunuculuk yapmalıdır."
+    },
+    {
+      "reason_id": "is_tanimi_belirsizligi",
+      "reasonTR": "İş Tanımı Belirsizliği",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Rolümün sınırlarından emin değilim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {tanim_sorunu} Bu belirsizlik hem verimliliğimi hem de motivasyonumu etkiliyor — netlik çok işime yarayacak.",
+      "body_vars": {
+        "tanim_sorunu": [
+          "ne yapıp ne yapmamam gerektiği zaman zaman çok bulanıklaşıyor.",
+          "başka ekip üyesiyle sorumluluklar çakışıyor, kim ne yapmalı net değil.",
+          "bazı kararları kendi başıma mı almalıyım, yoksa size mi sormalıyım bilmiyorum.",
+          "rolüm sürekli genişliyor ama buna karşılık gelen bir netlik gelmiyor."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, haklı bir soru bu ve çözmek benim sorumluluğum. Bu hafta oturalım — rol kapsamını, karar yetkilerini ve örtüşme alanlarını netleştirelim, yazılı hale getirelim. Belirsizlik hem seni hem de projeyi yavaşlatıyor.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. İş tanımı dokümanına birlikte bakalım — orada netlik var mı kontrol edelim. Gerekliyse güncelleme talep ederiz HR üzerinden.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Hangi konular en çok karışıyor — bana söyle, oradan başlayalım. En kritik belirsizliği çözelim önce, geri kalanı zamanla netleşir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, rolün yeterince açık. Emin olmadığın bir şey olunca sor — beklemek zorunda değilsin. Proaktif olmak bu pozisyonun temel beklentisi.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Rol belirsizliği (Role Ambiguity) PMI'ya göre proje risk kayıtlarına alınması gereken bir konudur. PM, görev sınırlarını, karar yetkilerini ve örtüşme alanlarını proaktif olarak belgelemeli ve paylaşmalıdır. 'Yeterince açık' yanıtı sorumluluktan kaçmaktır."
+    },
+    {
+      "reason_id": "toplanti_asiri_yuku",
+      "reasonTR": "Toplantı Aşırı Yükü",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Toplantılar üretim zamanımı yiyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {toplanti_durumu} Gerçek işi yapmak için yeterli zaman bulamıyorum, verimim düşüyor. Bu konuda bir şeyler yapabilir miyiz?",
+      "body_vars": {
+        "toplanti_durumu": [
+          "haftam neredeyse tamamen toplantılarla dolu.",
+          "günde dört ya da beş toplantım var, odaklanma bloğum hiç kalmıyor.",
+          "katılmam gerekmeyen toplantılara da davet ediliyorum ve reddedemiyorum.",
+          "sabah 9'dan akşam 6'ya kadar toplantıdan toplantıya koşuyorum."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, çok haklı bir uyarı bu. Toplantı yükünü birlikte gözden geçirelim — hangileri zorunlu, hangilerine asenkron katılabilirsin, hangilerini iptal edelim. Odaklanma bloklarını birlikte koruyalım; bu hafta içinde bakalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Toplantı listeni paylaş bana — hangilerini atlayabileceğine birlikte bakalım. Sana göre 'isteğe bağlı' olanlar için onay almak gerekip gerekmediğine bakacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. İsteğe bağlı toplantıları reddetmek senin hakkın — bunu kullanabilirsin. Hangi toplantılara katılmak zorunda olduğunu belirlersek kalanları yönetmek daha kolay olur.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, toplantılar iş sürecinin parçası. Daha aktif ve hazırlıklı katılım sağlarsan toplantılar daha verimli geçer ve zaman kaybetmiş hissetmezsin.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Toplantı aşırı yükü (Meeting Overload) Agile'da 'israf' (waste) kategorisindedir ve üretim zamanını doğrudan kırpar. PM/Scrum Master, gereksiz toplantıları önlemek ve asenkron iletişimi teşvik etmekle yükümlüdür. 'Toplantılar zorunlu' yanıtı bu sorumluluğu ekip üyesine devirir."
+    },
+    {
+      "reason_id": "remote_izolasyonu",
+      "reasonTR": "Uzaktan Çalışma İzolasyonu",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Ekipten kopuk hissediyorum",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, uzaktan çalıştığım için {izolasyon_durumu} Bu durum motivasyonumu ve verimliliğimi etkiliyor — ekibin bir parçası olduğumu hissedemiyorum.",
+      "body_vars": {
+        "izolasyon_durumu": [
+          "ekibin non-resmi iletişiminden tamamen kopuk kaldım.",
+          "kararlar alınıyor ama ben döngünün dışında kalıyorum.",
+          "bilginin nasıl aktığını takip edemiyorum, önemli şeyleri kaçırıyorum.",
+          "ekiple gerçek bir bağ kuramadım, yalnız çalışıyorum gibi hissediyorum."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu çok önemli bir geri bildirim — teşekkür ederim. Uzaktan çalışanları döngü içinde tutmak benim sorumluluğum ve bunu yapamadıysam özür dilerim. İletişim kanallarımızı ve ritüellerimizi bu hafta birlikte yeniden tasarlayalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Bundan sonra daha sık video görüşmesi ayarlayalım — haftada en az iki kez check-in yapalım. Bu bağlantıyı güçlendirir mi sence?",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Ekiple yüz yüze buluşma etkinliklerine katılım için destek olabilirim — seyahat veya organizasyon konusunda yardımcı olurum. Böyle bir fırsat çıkınca bildirelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, uzaktan çalışma proaktiflik gerektiriyor. Döngü içinde olmak için kendin çaba göstermelisin — kanalları takip et, mesaj at, toplantılara katıl. Bu adımları atarsan bağlantı kendiliğinden kurulur.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Uzaktan çalışan ekip üyelerinin dışlanma hissi PMI'ya göre takım bütünlüğünü ve performansını etkileyen yönetim sorunudur. Sorumluluk bireye değil, PM'e aittir: asenkron kanallar, eşit görünürlük fırsatları ve dahil edici iletişim ritüelleri PM'in tasarlaması gereken yapılardır."
+    },
+    {
+      "reason_id": "kisisel_hedef_uyumsuzlugu",
+      "reasonTR": "Kişisel Kariyer Hedefi Uyumsuzluğu",
+      "weight": 3,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Kariyer hedeflerim hakkında konuşmak istiyorum",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {kariyer_durumu} Bunu sizinle açıkça konuşmak istedim çünkü bu belirsizlik işimi ve motivasyonumu etkiliyor.",
+      "body_vars": {
+        "kariyer_durumu": [
+          "uzun vadede bu alanda kariyer yapmak isteyip istemediğimden emin değilim.",
+          "farklı bir uzmanlık alanına yönelmek istediğimi fark ettim.",
+          "bu sektörün bana uzun vadede uygun olup olmadığını sorgulamaya başladım.",
+          "kariyer hedeflerimle mevcut rolüm arasında giderek artan bir uyumsuzluk hissediyorum."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, çok cesur ve dürüst bir paylaşım — teşekkür ederim. Bu tür sorgulamalar değerli. Bu hafta 30 dakikan var mı? Neye yönelmek istiyorsun, bu pozisyon veya şirket içinde bir yol var mı — birlikte bakalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anlıyorum. Ne tür bir kariyer hayal ediyorsun — biraz daha anlat. Bağlamı anladıktan sonra sana nasıl yönlendirme yapabileceğimi daha iyi görürüm.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, anlıyorum. Bir süre daha düşün ve tekrar konuşalım — bu kararlar aceleyle alınmaz. Hazır hissedince kapım açık.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, eğer bu rolde kalmak istemiyorsan alternatifleri değerlendirmek durumunda kalabiliriz. Ekibin sana bağımlı olduğu kritik bir dönemde bu konuşmayı açmak planlamayı zorlaştırıyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kariyer uyumsuzluğu (Career Misalignment) erken tespit edildiğinde hem birey hem organizasyon için yönetilebilir. PM'in 'zamanlama kötü' yanıtı güven kırıcıdır ve dürüstlüğü cezalandırır. PMI Servant Leadership'te PM, bireyin uzun vadeli gelişimini kısa vadeli proje ihtiyacının önüne koyar."
+    }
+  ]
+}

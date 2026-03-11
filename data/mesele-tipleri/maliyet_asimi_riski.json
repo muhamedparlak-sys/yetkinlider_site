@@ -1,0 +1,505 @@
+{
+  "mesele_id": "maliyet_asimi_riski",
+  "meseleTR": "Maliyet Aşımı Riski",
+  "compatible_terms": [
+    "cost_management",
+    "earned_value_management",
+    "cost_forecasting",
+    "to_complete_performance_index",
+    "risk_management",
+    "contingency_reserve",
+    "cost_baseline"
+  ],
+  "reasons": [
+    {
+      "reason_id": "evm_uyarı_sinyal",
+      "reasonTR": "EVM Analizi Maliyet Aşımı Sinyali Veriyor",
+      "weight": 9,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Haftalık EVM raporunda dikkat çeken bir durum var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, bu haftaki EVM analizini tamamladım ve {evm_durumu} Bu trendi görmezden gelemezdim, sizinle paylaşmak istedim.",
+      "body_vars": {
+        "evm_durumu": [
+          "CPI değerimiz 0.85'e düştü, plan altında gidiyoruz.",
+          "SV negatife döndü, bütçe tüketiminde sapma var.",
+          "EAC hesabım başlangıç bütçesinin yüzde on beşi üzerinde çıkıyor.",
+          "TCPI değeri 1.2 oldu, kalan işi çok verimli yapmamız gerekiyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Zamanında uyarın için teşekkürler. Maliyet aşımının hangi iş paketlerinden kaynaklandığını analiz ediyorum — sorunun odağını bulduktan sonra contingency rezervini ve kapsam seçeneklerini birlikte değerlendireceğiz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum. CPI ve SPI değerlerini sponsorla paylaşıyorum — sapmanın kökünü bulmak için Kaizou analizi yapıyorum. Kalan iş için gerçekçi ETC hesabı çıkarıp plana yansıtacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Anlıyorum. Contingency rezervimizin ne kadarının kaldığına bakıyorum — rezervden karşılanabiliyorsa sponsor onayıyla kullanabiliriz. Önce rezerv yeterliliğini kontrol edeyim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kadar geç haber verdin {name_polite}. Şimdi maliyet aşımını paydaşlara açıklamak zorundayım ve bu projenin güvenilirliğine zarar veriyor — ilerleyen haftalarda iki günde bir rapor isteyeceğim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "EVM, maliyet sapmasını erken tespit etmenin en güçlü araçlarından biridir. PMI, CPI ve SPI değerlerinin düzenli izlenmesini ve eşik değerlerin aşıldığında eskalasyon yapılmasını gerektirir. PM'in görevi sapmayı erken bildirip önlem almak, gizlemek değildir."
+    },
+    {
+      "reason_id": "kapsam_değişikliği_maliyeti",
+      "reasonTR": "Onaylı Kapsam Değişikliği Düşünüldüğünden Pahalı Çıktı",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Onaylanan değişiklik beklediğimizden maliyetli oldu",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {kapsam_detay} onayladığımız değişiklik için gerçekçi maliyet tahmini çıkardım. {tahmin_sorunu} Nasıl ilerleyeceğiz?",
+      "body_vars": {
+        "kapsam_detay": [
+          "Müşterinin ekleme istediği özellik için",
+          "Geçen ay approve ettiğimiz entegrasyon için",
+          "Sponsor'ın talep ettiği ek modül için",
+          "Yeni yasal gereklilik için yaptığımız değişiklik"
+        ],
+        "tahmin_sorunu": [
+          "Tahminin iki katı çıktı, bütçede karşılığı yok.",
+          "Alt yüklenici fiyatı çok yüksek geldi, alternatif bulmak lazım.",
+          "Teknik karmaşıklık başlangıçta anlaşılamadı, gerçek maliyet çok farklı.",
+          "Ek kaynak gereği ortaya çıktı, mevcut bütçe karşılamıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Gerçekçi tahmini çıkardığın için teşekkürler {name_polite}. Bu farkı müşteri ve sponsorla şeffaf paylaşmamız gerekiyor — bütçe artışı, kapsam daralması veya erteleme seçeneklerini birlikte değerlendireceğiz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bu değişikliğin maliyet etkisini formal değişiklik talebine yansıtıyorum — Change Control Board onayı gelmeden işe başlamayalım. Sponsora güncel maliyet projeksiyonu sunuyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Alternatif daha ucuz çözümler var mı araştıralım — tedarikçi müzakeresi veya kapsam sadeleştirmesi ile maliyeti kabul edilebilir seviyeye çekebilir miyiz bakalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu değişiklik onaylandığında maliyet tahminin doğru çıkması gerekiyordu {name_polite}. Şimdi müşteriye ek bedel mi söyleyeceğiz? Bu güven kaybına neden olur — tahmin hatalarının cezai yansıması olacak.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kapsam değişikliklerinin maliyet etkisi kapsamlı analiz yapılmadan onaylanmamalıdır. PMI entegre değişiklik kontrolü, her değişiklik talebinin maliyet, takvim ve risk etkisinin değerlendirilmesini gerektirir. PM'in görevi değişiklik öncesinde gerçekçi tahmin yapmak ve paydaşların bilinçli karar vermesini sağlamaktır."
+    },
+    {
+      "reason_id": "kaynak_maliyet_artışı",
+      "reasonTR": "Kaynak Birim Maliyeti Beklenmedik Arttı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Kaynak maliyetlerimizde beklenmedik artış var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {kaynak_türü} birim maliyetleri başlangıçta öngördüğümüzden çok daha yüksek çıktı. {artis_nedeni} Bu oran devam ederse bütçeyi aşacağız.",
+      "body_vars": {
+        "kaynak_türü": [
+          "Kıdemli geliştirici",
+          "Proje yönetim danışmanı",
+          "Uzman test mühendisi",
+          "Altyapı ekibi"
+        ],
+        "artis_nedeni": [
+          "İşgücü piyasasında ciddi talep artışı var, ücretler yükseldi.",
+          "Uzman bulmanın güçlüğü yüzünden ajans komisyonu şişti.",
+          "Kıdemli kaynak gereksinimi öngörüldüğünden yüksek çıktı.",
+          "Fazla mesai nedeniyle aylık maliyet planın üstüne çıktı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu belgeledin iyi oldu {name_polite}. Maliyet artışının ne kadar süreceğini analiz edip sponsora raporluyorum — kalan süre için revize bütçe tahmini yapıp kapsam veya kaynak seçeneklerini sunacağız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Birim maliyet artışını EAC hesabıma yansıtıyorum — revize tamamlanma tahmini ve bütçe sapmasını bu hafta içinde sponsorla paylaşıyorum. Contingency durumuna da bakıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Daha uygun maliyetli kaynak seçenekleri var mı araştıralım — daha az kıdemli kaynaklarla bazı görevler yapılabilir mi, hibrit bir yapı kurabilir miyiz bakalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu maliyet artışını neden bu kadar geç bildirdin {name_polite}? Şimdi bütçe revizyonu için sponsorla zor bir görüşme yapmak zorundayım — bu tür gelişmeleri aylık değil haftalık raporlamanı bekliyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kaynak birim maliyeti artışı proje bütçesini baskı altına alan en yaygın faktörlerden biridir. PMI maliyet yönetimi piyasa dalgalanmalarını risk olarak tanımlamayı ve reserve analizi yapmayı gerektirir. PM'in görevi sapmaları erken raporlayıp alternatif kaynak stratejisi sunmaktır."
+    },
+    {
+      "reason_id": "taşeron_maliyet_aşımı",
+      "reasonTR": "Taşeron Sözleşme Üstü Maliyet İstedi",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Taşerondan sözleşme üstü ödeme talebi geldi",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {taseron_adi} sözleşme tutarının üzerinde ek ödeme talep ediyor. {talep_gerekçesi} Sözleşmede bu duruma ilişkin bir madde var ama yorumlanması tartışmalı.",
+      "body_vars": {
+        "taseron_adi": [
+          "Yazılım geliştirme firmamız",
+          "Sistem entegrasyon taşeronumuz",
+          "Test ve kalite firması",
+          "Donanım kurulum ekibi"
+        ],
+        "talep_gerekçesi": [
+          "Kapsam netleşirken ek iş ortaya çıktığını söylüyorlar.",
+          "Gereksinimlerin değiştiğini ve ekstra efor harcadıklarını belirtiyorlar.",
+          "Müşterinin sonradan eklediği istekleri sözleşme dışı sayıyorlar.",
+          "Yinelemeli süreçte ortaya çıkan ek yazışma maliyetini istiyorlar."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu anlıyorum {name_polite}. Sözleşmeyi hukuk ekibiyle birlikte inceliyorum — ek talebin hangi maddelerden beslendiğini, geçerli savunmanın ne olduğunu netleştirelim. Taşeronla müzakere öncesinde hukuki konumumuzu belirliyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Ek talebin dayandığı çalışmaların belgelerini toplayalım — gerçekten kapsam dışı iş mi yapıldı, yoksa sözleşme yorumunda anlaşmazlık mı var, bunu netleştirelim. Sonra müzakere masasına otururuz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Ek talebi kısmen kabul edip kalan miktar üzerinde uzlaşı arayabiliriz — ilişkiyi korurken bütçe etkisini minimize etmeye çalışalım. Taşeronla toplantı kuralım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kabul edilemez {name_polite}. Taşerona sözleşme dışı tek kuruş ödemeyiz — ek talepleri yazılı olarak reddediyoruz ve ihtilaf maddesini işletiyoruz. Hukuk birimini hemen dahil et.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Taşeron maliyet talepleri kamu projelerinde Sayıştay bulgularında öne çıkan bir tedarik yönetimi sorunudur. PMI sözleşme yönetimi, her ek talep için değişiklik kontrol sürecinin işletilmesini gerektirir. PM'in görevi hem ilişkiyi korumak hem de sözleşme sınırlarını savunmaktır."
+    },
+    {
+      "reason_id": "başlangıç_tahmini_hatalı",
+      "reasonTR": "Başlangıç Maliyet Tahmini Gerçeği Yansıtmıyordu",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Başlangıç tahminin hatalı olduğunu fark ettim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, projenin {aşama} aşamasında oturup düşündüm ve başlangıçta yaptığım maliyet tahminin {hata_türü} Şu anki eğilim devam ederse bütçeyi ciddi aşacağız.",
+      "body_vars": {
+        "aşama": [
+          "yürütme",
+          "planlama sonu",
+          "ikinci",
+          "orta"
+        ],
+        "hata_türü": [
+          "çok iyimser olduğunu görüyorum.",
+          "bazı kritik kalemleri atladığını fark ettim.",
+          "benzer proje verilerine değil varsayımlara dayandığını anlıyorum.",
+          "analojik tahmin yaparken önemli farkları göz ardı ettiğimi gördüm."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Şu anda elimizdeki verilerle bottom-up tahmin yaparak gerçekçi EAC oluşturalım — farkı ve etkisini sponsorla açık paylaşmamız gerekiyor. Bu sürece ben de katılacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Mevcut verilerle revize tamamlanma tahmini çıkaralım — sapma oranı ne kadar, contingency rezervi karşılıyor mu, kapsam ayarı gerekiyor mu, hep birlikte değerlendirelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Önce hangi kalemlerde tahmin hatası olduğunu belgeleyelim — bu hem şimdiki durumu açıklar hem de gelecek projeler için ders çıkarmamızı sağlar. Sonra revize bütçeyi hazırlayalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kadar geç fark etmek kabul edilemez {name_polite}. Başlangıçta yapılan tahmin hatası şimdi sponsora açıklanmak zorunda — bu proje güvenilirliğimize ciddi zarar verebilir. Üst yönetimle toplantı ayarlıyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Tahmin hataları proje başarısızlıklarının en önemli nedenlerinden biridir. PMI Kılavuzu, maliyet tahminlerinin benzer proje verileri, uzman değerlendirmesi ve parametrik yöntemlerle doğrulanmasını önerir. PM'in görevi hataları erken kabul edip revize tahminle paydaşları bilgilendirmektir."
+    },
+    {
+      "reason_id": "öngörülemeyen_teknik_sorun",
+      "reasonTR": "Öngörülemeyen Teknik Sorun Ek Maliyet Yarattı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Teknik bir sorun beklenmedik maliyet yarattı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {teknik_sorun} bu durum çözüm için beklenmedik kaynak gerektirdi. {maliyet_etkisi} Risk kaydımızda yoktu, nasıl ilerleriz?",
+      "body_vars": {
+        "teknik_sorun": [
+          "Eski sistemi entegre ederken belgesiz API keşfettik,",
+          "Test aşamasında kritik güvenlik açığı bulundu,",
+          "Altyapı migrasyonunda beklenmedik veri tutarsızlıkları çıktı,",
+          "Üçüncü parti kütüphanede lisans değişikliği zorunlu hale geldi,"
+        ],
+        "maliyet_etkisi": [
+          "Hızlı çözüm için uzman danışman tutmak gerekti.",
+          "Yeniden geliştirme süreci bütçe planı üzerinde ek yük yarattı.",
+          "İki hafta ek çalışma ve dışarıdan destek bütçeyi aştı.",
+          "Alternatif çözüm mevcut bütçenin yüzde on beşini aşıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu belgeledin iyi oldu {name_polite}. Bu beklenmedik riski risk kaydına alıyoruz ve contingency rezervinden karşılanıp karşılanamayacağını analiz ediyorum. Sponsora bilinçli karar vermesi için seçenekleri sunacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bu teknik sorunun maliyet etkisini sapma raporu olarak belgeleyelim — bilinen riski olmayan ek harcamalar için sponsor onaylı contingency kullanımı en doğru yol.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bu sorunu risk kaydına kayıt ediyorum. Çözüm seçeneklerini maliyet ve süre açısından değerlendirelim — en ekonomik çözümü bulup bütçe etkisini minimize edelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu riski neden önceden göremedik {name_polite}? Risk analizi yapılsaydı bu sürprizle karşılaşmazdık — şimdi sponsor karşısında zor duruma düştük. Risk yönetim sürecinizi gözden geçireceğim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Öngörülemeyen teknik riskler için contingency rezervi ayrılması PMI risk yönetiminin temel ilkelerinden biridir. Teknik borçlar ve eski sistem belirsizlikleri sistematik risk tanımlama ile önceden yönetilebilir. PM'in görevi teknik riskleri erken tanımlamak ve çözüm alternatifleri hazır tutmaktır."
+    },
+    {
+      "reason_id": "ekip_devir_maliyeti",
+      "reasonTR": "Ekip Rotasyonu Beklenmedik Maliyet Yarattı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Ekip değişimi düşünülenden pahalı oldu",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, son dönemdeki {çıkış_durumu} proje maliyetlerimizi olumsuz etkiledi. {maliyet_kalemi} Bu trend devam ederse bütçe hedefimizi tutturmak zorlaşacak.",
+      "body_vars": {
+        "çıkış_durumu": [
+          "iki kıdemli geliştirici ayrılması",
+          "üç takım üyesinin başka projeye geçmesi",
+          "kritik uzmanlık alanındaki çıkışlar",
+          "beklenmedik istifalar"
+        ],
+        "maliyet_kalemi": [
+          "İşe alım, oryantasyon ve hız kazanma süreci bütçemizi etkiledi.",
+          "Yeni kişilerin öğrenme eğrisi fazla mesai maliyeti yarattı.",
+          "Kıdemli danışman kullanımı zorunlu hale geldi, maliyeti yüksek.",
+          "Bilgi transferi için harcanan süre verimliliği ve bütçeyi olumsuz etkiledi."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu aktarman iyi oldu {name_polite}. Ekip rotasyonu maliyetini risk kaydına alıyorum — işe alım ve oryantasyon giderlerini maliyet tabanına yansıtmamız ve contingency rezervini gözden geçirmemiz gerekiyor.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bu ek maliyeti EAC hesabıma yansıtıyorum — sponsora güncel bütçe projeksiyonunu ve ekip istikrarını sağlamak için önerileri sunacağım. Rotasyon riskini de kayıt altına alıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Önce mevcut ekibi stabilize etmeye odaklanalım — elde tutma riski olan kimler var bunu değerlendirelim. Maliyet kayıplarını durdurmak en kısa yol bence.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kadar çıkış görmezden gelinemez {name_polite}. Ekip yönetimindeki zafiyetler nedeniyle bütçe hedefini tutturmak zorlaşıyor — insan kaynakları ile bir oturum planlamam gerekiyor, rotasyonun nedenleri araştırılmalı.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Ekip devir hızı proje maliyetlerini doğrudan artıran önemli bir insan kaynakları riskidir. PMI kaynak yönetimi, ekip bağlılığını destekleyen elde tutma stratejilerini ve çıkış riskini risk kaydına almayı gerektirir. PM'in görevi ekip motivasyonunu izleyerek ayrılmaları önceden öngörmektir."
+    },
+    {
+      "reason_id": "entegrasyon_beklenenden_pahalı",
+      "reasonTR": "Sistem Entegrasyonu Bütçeyi Aşıyor",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Entegrasyon maliyeti beklentilerin çok üzerine çıktı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {sistem_türü} entegrasyonu bütçelemesi yaparken {tahmin_hatası} Gerçek maliyetler çok farklı çıkıyor ve bu ciddi bir bütçe baskısı yaratıyor.",
+      "body_vars": {
+        "sistem_türü": [
+          "ERP",
+          "CRM",
+          "legacy sistem",
+          "üçüncü parti API"
+        ],
+        "tahmin_hatası": [
+          "teknik karmaşıklığı yeterince değerlendiremedim.",
+          "belgelenmemiş veri modeli bizi şaşırttı.",
+          "çevik entegrasyon yöntemi ek iterasyon gerektirdi.",
+          "eski sistemin kısıtları çözüm mimarisini zorlaştırdı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu şeffaf paylaştığın için teşekkürler {name_polite}. Entegrasyon maliyetinin gerçek tablosunu çıkaralım — hangi kalemler şişiyor, alternatifleri var mı analiz edip sponsora seçenekli sunum yapacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Entegrasyon sapmasını contingency bütçesiyle karşılamak mümkün mü hesap edeyim — karşılanamıyorsa kapsam kısıtlaması veya bütçe revizyonu için CCB'ye gideceğiz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Entegrasyon yaklaşımında daha ekonomik alternatifler var mı araştıralım — daha az özellik entegre etsek, belirli modülleri sonraya bıraksak maliyet düşer mi bakalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu tahmin hatasını daha önce fark etmen gerekirdi {name_polite}. Entegrasyon karmaşıklığını gözden kaçırmak ciddi bir planlama başarısızlığı — sponsora nasıl açıklayacağımı planlamak için vakit kaybetmeden bir araya gelelim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Sistem entegrasyon maliyeti tahminleri teknik karmaşıklık nedeniyle sıklıkla hatalı çıkabilir. PMI, entegrasyon projelerinde belirsizlik payının ve uzman değerlendirmesinin bütçeye dahil edilmesini önerir. PM'in görevi gerçek maliyetler ortaya çıktıkça erken müdahale etmek ve alternatifler sunmaktır."
+    },
+    {
+      "reason_id": "contingency_tükeniyor",
+      "reasonTR": "Contingency Rezervi Kritik Seviyeye Düştü",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Contingency rezervi kritik seviyede uyarısı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {rezerv_durumu} Bu oran devam ederse önümüzdeki {süre} içinde contingency rezervimiz tükenecek. {kalan_riskler} Bu konuda ne yapmalıyız?",
+      "body_vars": {
+        "rezerv_durumu": [
+          "Contingency bütçemizin yüzde yetmiş beşi harcandı.",
+          "Risk giderleri için ayırdığımız rezerv yüzde on beşe düştü.",
+          "Bu çeyrek beklenmedik maliyetler rezervi büyük ölçüde eritti.",
+          "Risk karşılıklarımız planlananın çok üzerinde kullanılıyor."
+        ],
+        "süre": [
+          "iki hafta",
+          "on gün",
+          "üç hafta",
+          "bir ay"
+        ],
+        "kalan_riskler": [
+          "Henüz gerçekleşmemiş risklerimiz de var üstelik.",
+          "Risk kayıtlarında birkaç olası etki daha var.",
+          "Kapalı olmayan bazı sorunlarımız mevcut.",
+          "Kalan sprint'lerde de risk var."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Erken uyarın için teşekkürler {name_polite}. Kalan riskleri ve olası maliyetlerini yeniden değerlendiriyorum — yönetim yedek rezervinden ek contingency talebi için sponsorla acil görüşme ayarlamamız gerekiyor.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Kalan risk exposür'ünü analiz edip hangilerini azaltabileceğimize bakıyorum — gerçekleşme ihtimali düşük risklerin contingency paylarını küçültebiliriz. Sponsora sunacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Kalan projeyi en az riskli yolda tamamlamak için aktivite setini sadeleştirelim — gereksiz karmaşıklığı ortadan kaldırıp riski düşürelim. Rezervi en kritik işler için saklayalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu reservin bu kadar hızlı erimesi risk yönetiminde ciddi bir başarısızlık {name_polite}. Şimdi rezervsiz devam etmek demek — maliyet aşımında tüm sorumluluk sende olacak. Bunu üst yönetime bildireceğim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Contingency rezervinin erken tükenmesi kötü risk tahminini ya da yetersiz risk izlemeyi gösterir. PMI, reserve analizi ve risk yeniden değerlendirmesini düzenli proje kontrol sürecinin parçası yapar. PM'in görevi rezervi erken raporlamak ve yönetim yedeği için zamanında talep açmaktır."
+    },
+    {
+      "reason_id": "gecikme_maliyet_artışı",
+      "reasonTR": "Proje Gecikmesi Dolaylı Maliyet Yarattı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Gecikmenin yarattığı dolaylı maliyetleri değerlendirdim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, projedeki {gecikme_süresi} gecikme düşündüğümüzden fazla maliyet yarattı. {dolaylı_maliyet} Bu ek yükü bütçeye nasıl yansıtmalıyız?",
+      "body_vars": {
+        "gecikme_süresi": [
+          "iki aylık",
+          "altı haftalık",
+          "üç aylık",
+          "bir aylık"
+        ],
+        "dolaylı_maliyet": [
+          "Uzayan geliştirme için sabit kaynak maliyeti birikti.",
+          "Kiralık ortam ücretleri beklenenden uzun dönem için ödendi.",
+          "Ekibin fazla mesaisi ciddi ek maliyete dönüştü.",
+          "Fırsat maliyeti hesaplandığında gerçek zarar çok büyük."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu analiz ettiğin için teşekkürler {name_polite}. Bu dolaylı maliyetleri resmi maliyet sapmasi raporu olarak belgeleyelim — gecikmenin kök nedenini de dahil ederek sponsora sunuyorum. Kalan süreç için düzeltici plan hazırlıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Dolaylı maliyet etkisini EAC hesabıma dahil ediyorum — revize bütçe ve tamamlanma tahminiyle sponsoru bilgilendiriyorum. Gecikme nedenini de risk kaydına ekliyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Dolaylı maliyetleri minimize etmek için kalan süreç hızlandırılabilir mi bakıyorum — kaynak eklemek veya paralel yürütme ile telafi mümkün olabilir. Önce seçenekleri değerlendireyim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Gecikme maliyetinin bu kadar büyük olması proje yönetimindeki zafiyeti gösteriyor {name_polite}. Takvim sapmaları için erken müdahale edilseydi bu tabloya gelmezdik — kalan süre için haftalık izleme toplantısı zorunlu hale getiriyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Proje gecikmesi sadece takvim kaybı değil, doğrudan ve dolaylı maliyet artışı demektir. PMI, gecikme maliyetinin risk kaydında tanımlanmasını ve kontrol önlemlerinin proaktif alınmasını gerektirir. PM'in görevi gecikmenin kök nedenini çözmek ve dolaylı maliyetleri şeffaf raporlamaktır."
+    }
+  ]
+}

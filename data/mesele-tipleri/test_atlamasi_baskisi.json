@@ -1,0 +1,377 @@
+{
+  "mesele_id": "test_atlamasi_baskisi",
+  "meseleTR": "Test Atlamasi Baskisi",
+  "compatible_terms": [
+    "quality_management",
+    "test_planning",
+    "schedule_compression",
+    "risk_management",
+    "definition_of_done",
+    "acceptance_criteria",
+    "agile_testing"
+  ],
+  "reasons": [
+    {
+      "reason_id": "teslim_tarihini_kurtarmak",
+      "reasonTR": "Test Atlanıp Teslim Tarihine Yetişelim Baskısı",
+      "weight": 9,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Teslim tarihi için test süreci kısaltılabilir mi",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {zaman_baskısı} altındayız. {öneri} Riski kabul etmek zorunda kalabiliriz bu sefer.",
+      "body_vars": {
+        "zaman_baskısı": [
+          "ciddi bir takvim",
+          "yönetimden büyük bir",
+          "müşteri tarafından gelen sert",
+          "kaçınılması mümkün olmayan bir"
+        ],
+        "öneri": [
+          "Test süresini yarıya indirsek olmaz mı?",
+          "Sadece kritik senaryoları test etsek yeterli olmaz mı?",
+          "Test aşamasını atlayıp müşteriye canlıda test ettirsek?",
+          "Belgelemeyi sonraya bırakıp şimdi çıkışa geçsek?"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum baskıyı {name_polite}. Test atlamak takvim kazandırır ama canlıda hata riski yaratır — müşteriyle birlikte riski değerlendirmek istiyorum. Risk bazlı bir test planı yaparsam hangi senaryolar kesinlikle kapsamalı onu netleştirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Test süresini kısaltabiliriz ama tamamen atlamamalıyız — en yüksek riskli yolları (happy path + kritik hata senaryoları) test edip geri kalanları canlı izleme ile telafi edelim. Riski yazılı belgeleyelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Smoke test ve regresyon testinin kritik setini yapıp çıkış verebilirim — kapsamlı test sonraki iterasyona ertelenebilir. Ama müşteri bu tradeoff'u onaylamalı.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Test sürecini atlayarak çıkış yaparız {name_polite}. Canlıda hata çıkarsa daha sonra düzeltiriz — teslim tarihi her şeyin önünde, müşteri beklediğini görürse daha hoşgörülü olur.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Test atlaması kısa vadede takvim kazandırdığı yanılsamasını yaratır. PMI kalite yönetimi, kalite güvence süreçlerinin test bütçesiyle birlikte başlangıçta planlanmasını gerektirir. Canlıda bulunan hatanın maliyeti test süresinin birkaç katına ulaşabilir; PM bu tradeoff'u verilere dayalı sunmalıdır."
+    },
+    {
+      "reason_id": "müşteri_test_atlamak_istiyor",
+      "reasonTR": "Müşteri Test Sürecini Kısaltmak İstiyor",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Test süreci zaman alıyor, kısaltabilir miyiz",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, biliyor musunuz sistemi bir an önce devreye almamız gerekiyor. {gerekçe} Test süreci bu noktada bizi yavaşlatıyor.",
+      "body_vars": {
+        "gerekçe": [
+          "Düzenleyici kuruma erken raporlamamız var.",
+          "Mevsimsel yoğunluk başlamadan hazır olmalıyız.",
+          "Rakiplerimiz öne geçti, erken piyasaya çıkmak kritik.",
+          "Yönetim kurulu beklentisi var, öteleme mümkün değil."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum aciliyeti {name_polite}. Test sürecini kısaltmanın yerine riski birlikte değerlendirip önceliklendirelim — en kritik iş senaryolarını test edip kalan testleri canlı izleme ile tamamlayabiliriz. Tradeoff'u belgeleyelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Kabul testi kapsamını müşteri onaylı minimum set'e indirebiliriz — kapsamlı testleri sonraki aşamaya erteleyip ilk çıkışta kritik işlevleri doğrulayalım. Bu kararı yazılı onayınızla ilerleyelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Test süreci kısaltılabilir ama tamamen atlanamaz. Bir smoke test yapalım — temel akışlar çalışıyorsa kısmi çıkış verebiliriz. Kısmi çıkışın kapsamını birlikte tanımlayalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Sizi duyuyorum {name_polite}, o zaman testsiz çıkalım. Ama belirteyim: canlıda hata çıkarsa düzeltme süresi ve maliyeti sözleşme kapsamı dışında olacak — bu konuda mutabık kalmamız gerekiyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Müşteri baskısıyla test süreçlerini atlamak kalite-hız ikilemine düşmektir. PMI, 'Definition of Done' kriterlerinin değişiklik kontrolü olmadan atlanmamasını gerektirir. PM'in görevi riski veri ve örneklerle somutlaştırarak müşterinin bilinçli karar vermesini sağlamaktır."
+    },
+    {
+      "reason_id": "üst_yönetim_baskısı",
+      "reasonTR": "Üst Yönetim Teslim İçin Test Sürecini Sorgular",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "sponsor",
+      "subject_template": "Test süreci bu kadar uzun mu sürmeli",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, yönetimden baskı var. {sorgu} Test sürecini kısaltmanın bir yolunu bulmamız gerekiyor.",
+      "body_vars": {
+        "sorgu": [
+          "Neden bu kadar uzun test ediyorsunuz?",
+          "Rakiplerimiz bu kadar test yapmadan çıkış yapıyor.",
+          "Müşteri şikayeti olmadan da çıkabilirsiniz.",
+          "Bu test süreci aşırıya kaçmıyor mu?"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum baskıyı {name_polite}. Test süresi ile çıkan hata maliyeti arasındaki ilişkiyi rakamlarla göstereyim — önceki projelerdeki hata düzeltme maliyetleriyle karşılaştıralım. Veriyle konuşalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Test kapsamını risk bazlı daraltabiliriz — hangi işlevler kritik, hangiler düşük riskli, bunu kategorize edip sadece yüksek risk alanlarını test ederiz. Böylece süre azalır.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Mevcut test sürecimizi gözden geçireyim — otomasyonla hızlandırılabilecek alanlar var mı bakıyorum. Manuel test yerine otomatik test daha verimli çalışabilir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Sorun yok {name_polite}. Test sürecini kısaltırız, hafta sonunda çıkış yaparız. Canlıda problem çıkarsa sonradan hallederiz — mevcut süreci savunmak zorunda değiliz, yönetimin kararına uyarız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Üst yönetimin test sürecini sorgulaması genellikle maliyeti görüp faydayı görmemesinden kaynaklanır. PMI, kalite maliyetini (Cost of Quality) yönetimle paylaşmayı öncelikli bir proje yönetim sorumluluğu olarak tanımlar. PM'in görevi test yatırımının getiri oranını veriyle savunmak ve bilinçli tradeoff yapılmasını sağlamaktır."
+    },
+    {
+      "reason_id": "acil_hotfix_testi",
+      "reasonTR": "Acil Düzeltme Testsiz Canlıya Alındı",
+      "weight": 9,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Hotfix'i test etmeden canlıya aldım",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {acil_durum} nedeniyle {aksiyon} aldım. Test yapmak için vaktim yoktu. Şimdi sonucu izliyorum ama endişeleniyorum.",
+      "body_vars": {
+        "acil_durum": [
+          "müşteriler sisteme erişemiyordu",
+          "kritik bir süreç takıldı",
+          "üretim veritabanı hata verdi",
+          "SLA ihlali kaçınılmaz görünüyordu"
+        ],
+        "aksiyon": [
+          "acil bir hotfix canlıya",
+          "geçici bir yamayı production'a",
+          "bilinmemekle birlikte bir konfigürasyon değişikliğini",
+          "hızlı bir veri düzeltmesini"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu durumda hızlı hareket etmek gerekiyordu anlıyorum {name_polite}. Şimdi değişikliğin etkisini izleyelim — herhangi bir beklenmedik davranış var mı. Sonra bu tür durumlar için ön onaylı hotfix sürecimizi gözden geçirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Acil düzeltme prosedürlerimizi gözden geçirelim — minimum ama hızlı bir test seti tanımlayalım, kritik hotfix'lerde bile birkaç temel test yapılabilir. Bu testi 15-30 dakikaya sıkıştırmanın yolu var.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Şu an canlı sistemi yakından izliyorum. Bu deneyimden yola çıkarak acil durum test protokolü hazırlayalım — basit ama hızlı bir checklist en az riski garantiler.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Testsiz canlıya almak hiçbir koşulda kabul edilemez {name_polite}. Sistemin bozulması durumunda bu kararın sorumluluğu sende — bundan sonra acil değişiklik için bile iki kişiden onay almak zorundasın.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Acil hotfix'ler bile minimum test gerektirir. PMI, acil değişiklikler için 'emergency change control' prosedürü tanımlanmasını gerektirir. PM'in görevi en basit haliyle bir test checklistini acil durum prosedürüne dahil etmek ve sıfır test değişikliklerini engellemektir."
+    },
+    {
+      "reason_id": "performans_testi_atlandı",
+      "reasonTR": "Performans Testi Kapsama Dahil Edilmedi",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Performans testini kapsamı dışında bıraktım",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, fonksiyonel testlerimizi tamamladık ve çıkışa geçtik. Ama {performans_sorunu} Performans testini kapsam dışında tutmuştum.",
+      "body_vars": {
+        "performans_sorunu": [
+          "canlıda yük altında sistem ağırlaştı.",
+          "eş zamanlı kullanıcı sayısı artınca sorun çıktı.",
+          "pik dönemde sistem cevap süresi kabul edilemez seviyelere ulaştı.",
+          "büyük veri setinde süre beklentinin beş katına çıktı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu önemli bir tespit {name_polite}. Performans sorununu hemen analiz edelim — canlı ortamda kabul edilemez ise acil mitigasyon adımları atalım. Sonra bir sonraki sürüm için performans testini test kapsamına mutlaka ekleyelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Performans testinin ihmal edilmesi sık yapılan bir planlama hatası — şimdi gerçek yük altında benchmarking yapalım. Sorunlu alanları optimize edip bir sonraki sürümde düzeltelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Performans sınırını tespit edip müşteriye önceden bildireyim — kabul edilemez seviyelere geldiğinde ne yapacağımızı beraber belirleyelim. Geçici olarak kullanıcı sınırlaması koyabilir miyiz bakalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Performans testi başlangıçta kapsama alınmalıydı {name_polite}. Bu atlamadan dolayı şimdi hem müşteriye hem yönetime açıklamak zorundayız — bir daha test planı hazırlarken performansı mutlaka dahil etmeni bekliyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Performans testi ihmal edilmesi canlı ortamda ölçeklenebilirlik krizine yol açar. PMI kalite planlaması, performans, yük ve dayanıklılık testlerini test planına dahil etmeyi gerektirir. PM'in görevi test kapsamını hem fonksiyonel hem operasyonel boyutlarıyla tanımlamaktır."
+    },
+    {
+      "reason_id": "güvenlik_testi_atlandı",
+      "reasonTR": "Güvenlik Testi Kapsam Dışında Bırakıldı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Güvenlik testini yapmadan çıkış yaptık",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, teslim baskısı nedeniyle güvenlik testini kapsama almadım. {güvenlik_bulgusu} Bu durumu size söylemek zorundaydım.",
+      "body_vars": {
+        "güvenlik_bulgusu": [
+          "Şimdi bir güvenlik açığı bulunduğuna dair bir sinyal geldi.",
+          "Harici bir güvenlik araştırmacısı açık bildirdi.",
+          "Penetrasyon testi şimdi talep ediliyor ama testsiz çıktık.",
+          "Regülasyon denetimi güvenlik test raporunu istiyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Güvenlik açığını hemen değerlendirmeliyiz — etki alanını anlayıp acil önlem alalım. Bunu hukuk ve güvenlik birimlerine de bildirmemiz gerekebilir. Şimdi hızlı hareket.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Acil güvenlik taraması başlatıyorum — kritik açıklar tespit edilirse önce bunları kapatacağız. Güvenlik testini bundan sonra 'Definition of Done' kriterine eklemek zorundayız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Dışarıdan bir güvenlik firmasını hemen angaje edelim — bağımsız penetrasyon testi hem açıkları bulur hem müşterimize güvence verir. Bütçe onayını alacağım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu ciddi bir hata {name_polite}. Güvenlik testini atlamak hem teknik hem hukuki risk — kullanıcı verisi etkilenirse yasal sonuçları olabilir. Bu ihmalin hesabı verilmek zorunda, üst yönetimi bugün bilgilendiriyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Güvenlik testinin atlanması GDPR, KVKK gibi yasal düzenlemeler kapsamında kurumsal sorumluluk doğurabilir. PMI, güvenlik gereksinimlerinin ve testlerinin proje kapsamına başlangıçta dahil edilmesini gerektirir. PM'in görevi güvenlik testini vazgeçilmez bir teslim kriteri olarak tanımlamaktır."
+    },
+    {
+      "reason_id": "regresyon_testi_kapsam_dışı",
+      "reasonTR": "Regresyon Testi Kısaltıldı Yeni Hata Çıktı",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Kısaltılan regresyon testi yeni hatayı kaçırdı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, teslim baskısı nedeniyle regresyon test setimizi kısalttık. {sonuç} Bu kararın maliyetini şimdi ödüyoruz.",
+      "body_vars": {
+        "sonuç": [
+          "Eski bir özellik bozuldu ve müşteri fark etti.",
+          "Kısaltılan sette yer almayan bir senaryo üretimde sorun yarattı.",
+          "Regresyon testi atladığımız alan canlıda hata verdi.",
+          "Müşteri ortamında yeni birleşim sorunu ortaya çıktı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu açıkça paylaşman iyi oldu {name_polite}. Hatayı hemen düzeltelim — sonra bu deneyimle 'kabul edilebilir minimum regresyon seti'ni birlikte tanımlayalım. Hangi senaryolar asla atlanmamalı bunu belgeleyelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Regresyon kapsam kısaltması riski belgelenmemişse bu bir süreç açığı — kısaltma kararlarında risk ve onay kaydı tutmaya başlayalım. Düzeltme planını hazırlıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bu tür durumlar için minimum regresyon seti tanımlayalım — zaman baskısında bile asla atlanmaması gereken temel testler olacak. Bu seti birlikte oluşturalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Regresyon testini kısaltmak riskti ve sonucu böyle oldu {name_polite}. Baskı altında kalite kısayollarına gitmek proje yönetim sorumluluğumu zayıflatıyor — bir daha bu kararı tek başına almaman için süreç değişikliği yapacağım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Regresyon testinin kapsam kısıtlaması bilinçli risk kabulü gerektirir ve yazılı belgelenmesi şarttır. PMI, tüm test kapsam kısıtlamalarının risk tablosu olarak kayıt altına alınmasını gerektirir. PM'in görevi kısaltılan test kapsamının hangi riskleri artırdığını somutlaştırmak ve paydaşların bu riski kabullenmesini sağlamaktır."
+    },
+    {
+      "reason_id": "kullanıcı_kabul_testi_atlandı",
+      "reasonTR": "Kullanıcı Kabul Testi Yapılmadan Canlıya Geçildi",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "UAT yapmadan sistemi devreye almak zorunda kaldık",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, biraz zor bir konuyu konuşmak istiyorum. {neden} nedeniyle kullanıcı kabul testini yapamadan sistemi devreye aldık. {şimdi_ne} Ne yapabiliriz?",
+      "body_vars": {
+        "neden": [
+          "Takvim baskısı",
+          "Personel eksikliği",
+          "Müşteri onay gecikmeleri",
+          "Ortam hazırlık sorunu"
+        ],
+        "şimdi_ne": [
+          "Şimdi gerçek kullanıcılar şikayetler bildiriyor.",
+          "Sistem çalışıyor ama kullanıcılar alışamadı.",
+          "Bazı iş süreçleri düşündüğümüzden karmaşık çıktı.",
+          "Kullanıcı eğitimi yetersiz kaldı görünüşe göre."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, bu dürüst bir iletişim. UAT geçilemeden yapılan devreye alma her zaman risk taşır — şimdi kullanıcı geri bildirimlerini sistematik topladım. Kısa bir destek dönemi başlatıp sorunları hızla kapatalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Kullanıcı sorunlarını acele topla ve önceliklendireyim — kritik olanlar hemen çözülsün, kalanlar bir düzeltme sürümüne alınsın. Destek masası kapasitesini artırabiliriz kısa vadede.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Erken devreye alma deneyimini bir hypercare dönemi olarak ele alalım — yoğun destek ile kullanıcıları sistemle buluşturalım. Bu süreçte sistematik veri toplarsak iyileştirme önceliklerimiz netleşir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "UAT yapılmadan devreye almak sözleşme gerekliliklerini ihlal ediyor {name_polite}. Şikayetleri düzeltmek ek maliyete yol açıyor — UAT'ı öteleme kararının bedeli tarafınızda olacak.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kullanıcı kabul testi, ürünün gerçek kullanım koşullarında doğrulandığı kritik bir kalite kapısıdır. PMI, UAT'ın proje kabul kriterleri arasında yer almasını ve müşteri onayı olmadan tamamlanmış sayılmamasını gerektirir. PM'in görevi UAT'ı proje planına yeterli süre ve kaynak ayırarak dahil etmektir."
+    }
+  ]
+}

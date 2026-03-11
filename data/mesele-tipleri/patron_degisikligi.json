@@ -1,0 +1,383 @@
+{
+  "mesele_id": "patron_degisikligi",
+  "meseleTR": "Patron Degisikligi",
+  "compatible_terms": [
+    "stakeholder_management",
+    "change_management",
+    "organizational_change",
+    "sponsor_management",
+    "stakeholder_engagement",
+    "project_charter",
+    "relationship_management"
+  ],
+  "reasons": [
+    {
+      "reason_id": "yeni_sponsor_öncelikleri_farklı",
+      "reasonTR": "Yeni Sponsor Farklı Önceliklere Sahip",
+      "weight": 9,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "sponsor",
+      "subject_template": "Projeye yeni bakış açısıyla yaklaşmak istiyorum",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, biliyorum proje bir süredirdir belirli bir yönde ilerliyor. {yeni_bakış} Seninle bu konuşmayı yapmak istedim.",
+      "body_vars": {
+        "yeni_bakış": [
+          "Ben biraz farklı bir yaklaşım benimsemek istiyorum.",
+          "Öncelik sıralamasını yeniden değerlendirmek gerekiyor bence.",
+          "Projenin mevcut kapsamı şu anki stratejimizle tam uyuşmuyor.",
+          "Hedefe ulaşmanın daha verimli bir yolu olduğunu düşünüyorum."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, bakış açınızı öğrenmek istiyorum. Mevcut durumu ve taahhütleri aktardıktan sonra sizin vizyonunuzu dinlemek isterim — birlikte nasıl ilerleyebileceğimizi değerlendirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Projenin mevcut durumunu, tamamlanan çalışmaları ve varılan taahhütleri bir brifinG olarak hazırlıyorum — bu bilgiyle karar vermeniz daha sağlıklı olur. Toplantı ayarlayalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Sizin vizyonunuzu ve mevcut durumu karşılaştıran bir analiz yapayım — hangi alanlarda uyum var, nerede değişiklik gerekiyor somut gösterelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Yeni sponsor gelmeden önce her şeyi karara bağlamıştık {name_polite}. Değişiklikler proje planını altüst eder — tüm paydaşlar onaylı planı değiştirmek için ikna edilmeli, bu kolay değil.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Sponsor değişikliği proje sürecinde en önemli paydaş değişikliklerinden biridir. PMI, yeni sponsorun projeye dahil edilmesini ve mevcut taahhütler ile yeni beklentilerin uyumluluğunun değerlendirilmesini gerektirir. PM'in görevi yeni sponsoru hızla bilgilendirerek güven inşa etmek ve varsa değişiklikleri resmi süreçte yönetmektir."
+    },
+    {
+      "reason_id": "müdür_değişimi_beklenti_değişti",
+      "reasonTR": "Yönetici Değişikliği Beklenti Boşluğu Yarattı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Sizinle çalışmaya başlamak heyecan verici",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, ekibinize ve projeye yeni katıldım. {ilk_gözlem} Başlamadan önce bazı şeyleri anlamak isterim.",
+      "body_vars": {
+        "ilk_gözlem": [
+          "Bazı süreçler beklediğimden farklı görünüyor.",
+          "Raporlama formatı öngördüğümden farklı.",
+          "Ekip dinamikleri alışkın olduğumdan biraz farklı.",
+          "Kapsam beklediğimden geniş görünüyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hoş geldiniz {name_polite}. Projenin mevcut durumunu kapsamlı şekilde aktarmaktan memnuniyet duyarım — başlangıç noktanızdan buradaki yolculuğu, kararları ve taahhütleri paylaşayım. Nasıl çalışmak istediğinizi de dinlemek isterim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Size kapsamlı bir brifinG hazırlayacağım — projenin geçmişi, mevcut durumu ve önümüzdeki dönemin planları. Ayrıca sizin tercih ettiğiniz raporlama ve iletişim formatını da öğrenelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Bu hafta bir başlangıç toplantısı yapalım — projeyi tanıyın, ekiple tanışın. Sorularınızı aldıkça kılavuz olabilirim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Yeni bir yönetici proje ortasında işleri değiştirebilir {name_polite}. Bu risk önceden yaşadık — sizi hızla bilgilendirip uyumu sağlamalıyız. Ama değişiklik talepleri resmi süreçten geçmeli.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yönetici değişikliği proje ortasında ilişki bağlamını kırar ve beklenti boşluğu yaratır. PMI, paydaş değişikliklerinin proje kayıtlarına işlenmesini ve yeni paydaşın proje bağlamına hızla dahil edilmesini gerektirir. PM'in görevi değişim döneminde sürekliliği sağlamak ve yeni yöneticiyi proaktif şekilde bilgilendirmektir."
+    },
+    {
+      "reason_id": "kurum_yapısı_değişti",
+      "reasonTR": "Organizasyonel Değişim Proje Sahipliğini Etkiledi",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Organizasyonel değişim projeyi doğrudan etkiliyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {org_değişimi} gerçekleşti. Bu durum {proje_etkisi} Birlikte nasıl ilerleyeceğimizi konuşmalıyız.",
+      "body_vars": {
+        "org_değişimi": [
+          "birim yeniden yapılandırma",
+          "üst yönetim rotasyonu",
+          "iki departmanın birleşmesi",
+          "proje sahibi birimin değişmesi"
+        ],
+        "proje_etkisi": [
+          "proje sponsorluğu ve sahipliği belirsizleşti.",
+          "bütçe onay zinciri değişti.",
+          "proje ekibinin bir kısmı farklı birime geçti.",
+          "önceliklerimiz gözden geçirilmek isteniyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Organizasyonel değişimde belirsizlik doğal — önce yeni yapıyı ve proje üzerindeki etkisini netleştirelim. Yeni karar mekanizmasını öğrenip proje sürekliliğini güvence altına alalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bu değişiklik proje charter'ında güncelleme gerektiriyor — yeni sponsoru, onay zincirini ve paydaş haritasını güncelleyeceğim. Etkilenen paydaşlarla ayrı ayrı toplantı planlıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Mevcut proje durumunu ve kritik kararları belgeleyen bir özet hazırlayayım — yeni yapı içinde kime sunmam gerektiğini ve onay süreçlerini netleştirelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Organizasyonel değişim PM kontrolü dışında {name_polite}. Yeni yapı netleşene kadar bekliyoruz — belirsizlik ortamında büyük kararlar almak doğru değil. Durumu izliyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Organizasyonel değişiklikler proje sponsor ve paydaş yapısını kökten değiştirebilir. PMI, paydaş değişikliklerinin proje kayıtlarına yansıtılmasını ve yeni otoritelerle hızlı ilişki kurulmasını gerektirir. PM'in görevi örgütsel belirsizlikte projeyi stabilize etmek ve yeni otorite yapısına uyum sağlamaktır."
+    },
+    {
+      "reason_id": "politika_değişimi_öncelik",
+      "reasonTR": "Kurumsal Politika Değişimi Proje Önceliğini Etkiledi",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "sponsor",
+      "subject_template": "Kurumsal politika değişikliği projemizi etkiliyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {politika_değişimi} kararı alındı. Bu karar {proje_etkisi} Bu durumu birlikte ele almamız gerekiyor.",
+      "body_vars": {
+        "politika_değişimi": [
+          "yazılım yatırımlarını dondurma",
+          "dışarıdan hizmet alımını kısıtlama",
+          "bulut önceliği",
+          "maliyet tasarrufu zorunluluğu"
+        ],
+        "proje_etkisi": [
+          "projenin bütçesini doğrudan etkiliyor.",
+          "planlı geliştirmeleri kısıtlıyor.",
+          "mevcut tedarik yaklaşımımızı değiştiriyor.",
+          "proje kapsamını revize etmemizi gerektiriyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Bu politika değişikliğinin projemize etkisini analiz edeyim — hangi teslimatlara devam edebiliriz, neler ertelenmeli ya da revize edilmeli. Seçeneklerle birlikte geliyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bu değişikliği Change Request olarak kayıt altına alıyorum ve etki analizini tamamlıyorum — kapsam, takvim ve maliyet açısından sonuçları gösterip onayınıza sunacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Yeni politikayla en uyumlu proje yaklaşımını belirleyelim — mevcut planı politika çerçevesine uyarlayabiliriz. Seçenekleri hazırlıyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu politika değişikliği proje başarısını riske atıyor {name_polite}. Projenin başarısız olması durumunda sorumluluğun kurumsal politika kararında olduğunu kayıt altına alıyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kurumsal politika değişikliklerinin projeler üzerindeki etkisi PMI çevresel faktörler (EEF) kapsamında değerlendirilir. PM'in görevi politika değişikliklerini proaktif izleyerek proje planını zamanında uyarlamak ve paydaşları bilinçlendirmektir."
+    },
+    {
+      "reason_id": "proje_sahibi_çatışması",
+      "reasonTR": "Eski ve Yeni Proje Sahibi Çatışıyor",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Eski ve yeni yöneticiler farklı yönlendiriyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {çatışma_durumu} Birbirinden farklı talimatlar alıyorum ve hangisini uygulamalıyım bilmiyorum.",
+      "body_vars": {
+        "çatışma_durumu": [
+          "eski yöneticim hâlâ yönlendirme yapıyor ama yeni yöneticim var.",
+          "iki birim arasındaki otoriteri kim belirsiz.",
+          "eski sponsor proje kararlarına müdahil olmaya devam ediyor.",
+          "matriks yapıda iki yöneticiden çakışan talimatlar geliyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu çok zor bir durum {name_polite}. Bu çatışmayı PM olarak çözmek benim görevim değil — iki yöneticiyi bir araya getirip resmi otorite hattını netleştirmeliyiz. Bunu kolaylaştırmak için adım atacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Proje charter'ında onay otoritesini yeniden netleştirelim — iki sponsor durumunda eskalasyon mekanizması tanımlanmalı. Bu konuyu her iki yöneticiye de yazılı olarak iletiyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bu çatışmayı belgeleyip her iki tarafa da aynı anda yazılı olarak bildiriyorum — hangisinin kararına uyacağımı netleştirmeliyim. Bir toplantı ayarlayalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Çelişkili talimatlar aldığımda hiç birini uygulamıyorum {name_polite}. Talimatlar netleşene kadar proje durdurulur — bu karar belirsizliğini çözmek yönetimin sorumluluğu.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Çakışan otorite proje yönetimini felç eder. PMI, proje charter'ının resmi otorite hiyerarşisini açıkça tanımlamasını gerektirir. PM'in görevi otorite belirsizliğini kurumsal karar mekanizmasına taşıyarak çözmek ve proje sürekliliğini korumaktır."
+    },
+    {
+      "reason_id": "müşterin_kurumu_değişti",
+      "reasonTR": "Müşterin Kurumu Satın Alındı veya Birleşti",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Kurumumuz önemli bir değişimden geçiyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, bilmiyor olabilirsiniz ama {kurum_değişimi} Bu değişim {proje_etkisi} Durumu birlikte değerlendirmek istedim.",
+      "body_vars": {
+        "kurum_değişimi": [
+          "şirketimiz satın alındı.",
+          "iki bölüm birleştirildi.",
+          "kurumsal yeniden yapılanma yaşıyoruz.",
+          "üst yönetimimiz tamamen değişti."
+        ],
+        "proje_etkisi": [
+          "projenin sahipliği ve önceliği değişebilir.",
+          "bütçe kararları yeniden değerlendirilebilir.",
+          "proje kapsamı revize edilmek istenebilir.",
+          "proje ertelenebilir veya iptal edilebilir."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, büyük bir değişim sürecinden geçiyorsunuz. Bu dönemde sizi en iyi nasıl destekleyebileceğimi düşüneyim — proje devam edecekse ne gerekiyor, ertelenecekse neye ihtiyaç var netleştirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Kurumsal değişim süreci projeyi belirsizleştiriyor — bu değişimin proje kararları açısından size bir kesinlik kazandıracağı bir zaman dilimine kadar kritik konularda bekleme yapabilir miyiz?",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Bu dönemde proje tarafından vereceğimiz kararları minimuma indirelim — değişim tamamlandıktan sonra yeni yapıyla birlikte yönü netleştirelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Müşteri kurumunun değişmesi sözleşmesel durumu belirsizleştirir {name_polite}. Yeni yapıda sözleşmenin geçerliliğini hukuk ekibimizle değerlendirmemiz gerekiyor — proje devam kararı alınana kadar yükümlülüklerimiz askıda.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Müşteri kurumunun satın alınması veya birleşmesi proje sahipliğini ve önceliğini köklü değiştirebilir. PMI, paydaş kayıtlarının ve iletişim planlarının güncellenmesini gerektirir. PM'in görevi değişim sürecinde müşteriyle yakın iletişimi sürdürmek ve yeni yapıya uyum sağlamaktır."
+    },
+    {
+      "reason_id": "yeni_üst_yönetim_projeyi_sorguluyor",
+      "reasonTR": "Yeni Üst Yönetim Projenin Değerini Sorguluyor",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "sponsor",
+      "subject_template": "Projenin devam edip etmeyeceğini değerlendiriyorum",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, yeni görevime başladığımda portföyü inceledim. {sorgu} Bu konuyu açık konuşmak istedim.",
+      "body_vars": {
+        "sorgu": [
+          "Bu projenin iş değeri konusunda sorularım var.",
+          "Yatırımın getirisi beklentilerimi karşılıyor mu emin değilim.",
+          "Projenin stratejik önemi tartışmalı görünüyor.",
+          "Devam maliyeti ile beklenen faydayı yeniden değerlendirmek istiyorum."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, sizi bilgilendirmekten memnuniyet duyarım. Projenin bugüne kadar sağladığı değeri, tamamlanan çalışmaları ve kalan faydaları somut olarak sunacağım. Karar sizin — ama bilgiye dayalı karar için elimdeki tüm verileri paylaşacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Projenin iş gerekçesini (business case) mevcut verilerle güncelleyip size sunacağım — tamamlanan yatırım, kalan çalışma ve beklenen getiri net görünsün. Karar için ihtiyaç duyduğunuz her veriyi sağlayacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Bir sunum hazırlayayım — proje ilerleme durumu, elde edilen değer ve kalan fırsatlar. Sizin perspektifinizden hangi bilgi en kritik, onu öne çıkararım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Proje devam etmeli {name_polite}. Çok fazla yatırım yapıldı, geri dönmek daha pahalı olur. Durdurmak hem maliyet hem prestij kaybı — bunu üst yönetimle kuvvetlice savunmalıyız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yeni üst yönetimin proje değerini sorgulaması doğal bir değerlendirme sürecidir. PMI, proje iş gerekçesinin periyodik gözden geçirilmesini gerektirir. PM'in görevi karar vericiyi veriyle donatmak ve projenin sürdürülmesi ya da durdurulması kararını bilinçli şekilde vermesini sağlamaktır."
+    },
+    {
+      "reason_id": "eski_patronun_kararları_iptal",
+      "reasonTR": "Önceki Yöneticinin Kararları Geri Alındı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Önceki yöneticinin kararlarını yeniden değerlendiriyorum",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, görevime başladığımda {eski_karar} fark ettim. {sorun} Bu kararı yeniden değerlendirmek istiyorum.",
+      "body_vars": {
+        "eski_karar": [
+          "belirli bir tedarikçiyle yapılan anlaşmayı",
+          "seçilen teknik yaklaşımı",
+          "uzun vadeli sözleşme taahhüdünü",
+          "onaylanmış kapsam değişikliğini"
+        ],
+        "sorun": [
+          "Bu karara nasıl gelindiğini anlamak istiyorum.",
+          "Kararın gerekçesi yeterli değil bence.",
+          "Bu karar bence tekrar gözden geçirilmeli.",
+          "Daha iyi bir alternatif var gibi görünüyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Söz konusu kararın nasıl alındığını, hangi alternatiflerin değerlendirildiğini ve ne tür taahhütler bağlandığını aktarabilirim. Bunları paylaştıktan sonra kararı değerlendirmeniz daha sağlıklı olur.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Kararın geçmişini belgeleme kayıtlarıyla paylaşıyorum — bağlı taahhütler, sözleşme durumu ve değiştirmenin maliyetini net gösterelim. Sonra birlikte değerlendiririz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Mevcut durumu ve değiştirmenin olası etkilerini analiz edeyim — sizin için bir seçenek karşılaştırması hazırlayayım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Eski yöneticinin kararları onaylanmış süreçlerle alınmıştı {name_polite}. Geri almak hem maliyetli hem zaman kaybı — değişikliği savunmak için güçlü bir gerekçe olmalı. Aksi halde devam etmek daha mantıklı.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yeni yöneticilerin önceki kararları sorgulaması organizasyonel değişimin doğal bir parçasıdır. PMI, proje kararlarının belgelenmesini ve değişiklik gerekçelerinin kayıt altına alınmasını gerektirir. PM'in görevi yeni yöneticiyi bağlamla donatmak ve kararların mantığını aktarmaktır."
+    }
+  ]
+}

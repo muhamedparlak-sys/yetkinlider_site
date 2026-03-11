@@ -1,0 +1,282 @@
+{
+  "mesele_id": "cakisan_gorevlendirme",
+  "meseleTR": "Çakışan Görevlendirme",
+  "compatible_terms": [
+    "double booking",
+    "conflicting assignments",
+    "resource conflict",
+    "scheduling conflict"
+  ],
+  "reasons": [
+    {
+      "reason_id": "CAK-01",
+      "reasonTR": "Aynı kaynak iki kritik göreve aynı anda atanmış",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{isim}, aynı anda hem {gorev_a} hem de {gorev_b} görevine %100 atanmış durumda. Bu fiziksel olarak mümkün değil; ikisinden birini seçmek ya da kapasite yeniden düzenlemek gerekiyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "isim": [
+          "Ali Bey",
+          "Can Bey",
+          "Mert Bey"
+        ],
+        "gorev_a": [
+          "kritik müşteri entegrasyonu",
+          "güvenlik denetimi desteği",
+          "mimari tasarım"
+        ],
+        "gorev_b": [
+          "acil üretim hatası çözme",
+          "yeni ekip üyesi mentorluk",
+          "müşteri demo hazırlığı"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nÇift atamayı tespit ettim; derhal çözüyorum. Her iki görevin iş değeri ve aciliyetini değerlendirip {isim} ile birlikte gerçekçi bir önceliklendirme yapıyorum. İkinci göreve yedek kaynak belirleyip paydaşları etkilenen teslimattan haberdar ediyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\n{isim} ikisini birden yapabilir; sadece daha verimli çalışması gerekiyor.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nHangisi daha önemliyse onu seçsin; kendisi karar verebilir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nİki görevi de tamamlayana kadar çalışma saatlerini uzatabilir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kaynak çakışması (double booking) en sık yapılan proje planlama hatalarından biridir. Kaynak yönetim araçları (resource calendar) kullanılarak proje başında tespit edilmelidir. PM, her görevlendirmede mevcut kapasiteyi kontrol etmeli ve gerçekçi olmayan atamalar yapmaktan kaçınmalıdır."
+    },
+    {
+      "reason_id": "CAK-02",
+      "reasonTR": "Proje ve operasyonel görev çakışması",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{isim}, hem proje görevlerimizi hem de {operasyonel_gorev} operasyonel görevini aynı hafta yürütmek zorunda. Takvimde bu durum planlanmamıştı; hangisine odaklanacağını bilmiyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "isim": [
+          "Ali Bey",
+          "Merve Hanım",
+          "Can Bey"
+        ],
+        "operasyonel_gorev": [
+          "aylık sistem bakım penceresi",
+          "yıllık denetim hazırlığı",
+          "müşteri şikâyet yönetimi"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nProje ve operasyon kapasitesi çakışmasını PMO ve ilgili birimlerle birlikte çözüyorum. {isim}'in bu haftaki proje taahhütlerini revize ediyorum ve operasyonel görevi yürütmesi için gereken zamanı sprint planından çıkarıyorum. Paydaşları etkilenen proje görevinden haberdar ediyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nProje önceliği; operasyonel görevi erteleyebilir mi?",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nHer ikisini de yarım yapabilir; ikisi de tamamlanır.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nOperasyonel görev düzenli; proje görevi ertelenebilir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Proje ve operasyon kapasitelerinin ayrı izlenmesi kaynak planlamasının temel pratiğidir. PM, ekip üyelerinin operasyonel yükümlülüklerini sprint kapasitesine dahil etmeli ve sürpriz çakışmaları önlemelidir. Çakışma olduğunda paydaşlara şeffaf iletişim ve revize plan sunulması gerekir."
+    },
+    {
+      "reason_id": "CAK-03",
+      "reasonTR": "Eğitim veya konferans ile proje teslim tarihinin çakışması",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{isim}, {tarih} tarihinde hem {egitim} eğitimine katılacak hem de {teslim} teslimattan sorumlu. İkisi aynı hafta çakışıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "isim": [
+          "Ali Bey",
+          "Merve Hanım",
+          "Can Bey"
+        ],
+        "tarih": [
+          "bu Pazartesi",
+          "gelecek hafta",
+          "Nisan başında"
+        ],
+        "egitim": [
+          "sertifika programı",
+          "teknik konferans",
+          "yönetici gelişim programı"
+        ],
+        "teslim": [
+          "müşteri demo",
+          "sprint review",
+          "teknik kabul testi"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\n{isim} ile öncelikleri değerlendiriyorum: eğitim kaydırılabilir mi, teslim ertelenebilir mi, yoksa teslimda yedek kaynak kullanılabilir mi? Seçenekleri {isim} ve paydaşlarla birlikte netleştirip etkiyi minimize eden çözümü uyguluyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEğitim önemli; teslimi biraz erteleyebiliriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nTeslim öncelikli; eğitimi atlayabilir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\n{isim} iki şeyi birden idare edebilir; problem değil.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Bireysel kapasite planlaması hem proje hem de bireysel gelişim görevlerini kapsamalıdır. PM, eğitim ve konferans programlarını sprint planlamasında görünür kılmalı ve çakışmaları önceden tespit etmelidir. Kişisel gelişim fırsatlarını proje takviminden bağımsız ele almak uzun vadede ekip motivasyonunu destekler."
+    },
+    {
+      "reason_id": "CAK-04",
+      "reasonTR": "İki projenin aynı kaynağı talep etmesi",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{proje_a} projesi de {proje_b} projesi de {isim}'i kritik görev için talep ediyor. İkisi de aynı tarihte teslim veriyor. {isim}'in seçim yapması gerekiyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "proje_a": [
+          "dijital dönüşüm",
+          "altyapı modernizasyon",
+          "entegrasyon"
+        ],
+        "proje_b": [
+          "müşteri portalı",
+          "analitik platform",
+          "mobil uygulama"
+        ],
+        "isim": [
+          "Ali Bey",
+          "Merve Hanım",
+          "Can Bey"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBu önceliklendirme kararı PMO düzeyinde alınmalı. Her iki projenin iş değeri, teslim riski ve {isim}'in hangi göreve daha kritik katkı sağladığını analiz ediyorum. Bulguları PMO'ya sunuyorum; benim düzeyimi aşan bu kararı kurumsal öncelikler çerçevesinde vermelerini bekliyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\n{isim}'i kendi projeme atıyorum; diğer proje başka birini bulur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\n{isim} iki projeye de yarım kapasite çalışabilir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\n{isim}'in kendisi seçim yapsın; baskı yapmak istemiyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Çoklu proje kaynak çatışması portföy yönetimi düzeyinde çözülmelidir. PM, tek taraflı kaynak kararları vermek yerine PMO'ya veri sunarak önceliklendirmeyi desteklemelidir. Birey üzerinde baskı oluşturmak ve yarım kapasite çalışma, kalite ve motivasyon açısından en kötü çözümdür."
+    },
+    {
+      "reason_id": "CAK-05",
+      "reasonTR": "Toplantı çakışması kritik karar sürecini engelliyor",
+      "weight": 5,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{karar_vericiler} kişileri bu hafta {tarih} günü hem {toplanti_a} hem de {toplanti_b} toplantısına davetli. Karar alınması gereken {konu} konusu ikisini de kapsıyor; biri kaçırılırsa süreç tıkanacak.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "karar_vericiler": [
+          "sponsor ve teknik direktör",
+          "müşteri ve PM",
+          "ekip liderleri"
+        ],
+        "tarih": [
+          "Salı",
+          "Perşembe",
+          "Cuma"
+        ],
+        "toplanti_a": [
+          "proje yönlendirme kurulu",
+          "teknik tasarım gözden geçirme",
+          "risk değerlendirme"
+        ],
+        "toplanti_b": [
+          "bütçe planlama oturumu",
+          "operasyonel inceleme",
+          "stratejik planlama"
+        ],
+        "konu": [
+          "bütçe ve teknik karar",
+          "kaynak ve kapsam",
+          "önceliklendirme"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nİki toplantının çakıştığını görüyorum. Karar alma sürecini tıkamamak için toplantılardan birini farklı zamana almayı önereceğim; mümkün değilse kritik karar noktaları için asenkron bir gözden geçirme süreci tasarlıyorum. Karar vericilerin her iki toplantıya katılımını optimize eden bir yapı öneriyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nKarar vericiler ikisine de katılsın; yorucu olur ama gerekli.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nDaha az önemli toplantıyı iptal edelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nKarar toplantısını sonraki haftaya erteleyelim; bu hafta mümkün değil.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Toplantı çakışmaları karar alma süreçlerini engellediğinde PM proaktif yeniden planlama yapmalıdır. Asenkron karar alma araçları (anket, yazılı onay, asenkron video) fiziksel toplantı zorunluluğunu azaltabilir. PM, kritik karar vericilerin takvimlerini gözetecek planlama alışkanlıkları geliştirmelidir."
+    }
+  ]
+}

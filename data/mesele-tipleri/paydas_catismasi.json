@@ -1,0 +1,335 @@
+{
+  "mesele_id": "paydas_catismasi",
+  "meseleTR": "Paydaş Çatışması",
+  "compatible_terms": [
+    "stakeholder conflict",
+    "competing interests",
+    "sponsor disagreement",
+    "stakeholder alignment"
+  ],
+  "reasons": [
+    {
+      "reason_id": "PAY-01",
+      "reasonTR": "İki sponsorun çelişen talepleri",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "sponsor",
+      "subject_template": "Proje yönü — karar bekliyorum",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nFinans direktörü {alan} konusunda {talep_fin} istiyor. Benim talebim ise {talep_ben}. İkinizi de memnun etmek zor olabilir ama bir yol bulmanız gerekiyor.\n\nBeklemedeyim.",
+      "body_vars": {
+        "alan": [
+          "sistem mimarisi",
+          "raporlama formatı",
+          "veri saklama süresi"
+        ],
+        "talep_fin": [
+          "minimum bulut harcaması ile basit yapı",
+          "sadece özet rapor",
+          "kısa saklama süresi"
+        ],
+        "talep_ben": [
+          "tam ölçeklenebilir platform",
+          "ayrıntılı drill-down analiz",
+          "uzun arşiv süresi"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, her iki talebi ve temel gerekçelerini anlıyorum. İki seçenek arasındaki maliyet-fayda karşılaştırmasını somut verilerle ortaya koyacağım ve her senaryonun proje hedeflerine etkisini göstereceğim. Ortak bir karar toplantısı düzenleyerek her iki tarafın önceliklere göre bilinçli seçim yapmasını sağlamak istiyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, durumu anlıyorum. Finans direktörünün daha güçlü bütçe kontrolü olduğunu düşündüğümden onun yönünde ilerliyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, her iki talebi de karşılayan karma bir çözüm tasarlayabiliriz; biraz daha süre verin, hazırlayacağım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, bu kararı vermek benim görevim değil. Siz ve finans direktörü anlaşınca bana bildirin; o yönde ilerliyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Paydaş çatışmaları PM tarafından fasilitasyon ile yönetilmeli; PM taraf tutarak değil, her iki tarafın önceliklerini ve kısıtları şeffaf biçimde ortaya koyarak ortak karar sürecini kolaylaştırmalıdır. PMBOK paydaş yönetimi, çelişen talepleri belgeleyip karar vericilere seçenek matrisi sunmayı önerir."
+    },
+    {
+      "reason_id": "PAY-02",
+      "reasonTR": "Müşteri ile teknik ekip çatışması",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "client",
+      "subject_template": "Teknik ekip kararlarından memnun değiliz",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nTeknik ekibiniz {karar} kararını aldı. Bu karar bizim {beklenti} beklentimizle çelişiyor. Ekiple doğrudan görüşmek yerine sizin aracılık yapmanızı istiyorum.\n\nBeklemedeyim.",
+      "body_vars": {
+        "karar": [
+          "mikro-servis mimarisine geçme",
+          "veritabanı şemasını değiştirme",
+          "API versiyonunu yükseltme"
+        ],
+        "beklenti": [
+          "mevcut entegrasyonlarımızın çalışmaya devam etmesi",
+          "performans artışı",
+          "minimum değişiklik"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, endişenizi duyduk ve ciddiye alıyoruz. Teknik ekiple bugün bu konuyu masaya yatırıyorum; kararın arkasındaki gerekçeleri ve alternatifleri netleştireceğim. Size hem teknik kararın gerekçesini hem de olası uyum çözümlerini sunacak bir toplantı ayarlayacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, teknik kararlar ekibin uzmanlık alanı; ben müdahale etmek istemiyorum ama sizi bilgilendireceğim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, endişenizi teknik ekibe ilettim. Onlar en uygun çözümü bulacak; sizi haberdar edeceğim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, teknik ekip doğru karar aldı. Bu alandaki teknik uzmanlıkları benden fazla; karar değişmeyecek.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "PM, teknik kararlar ile müşteri beklentileri arasında köprü kurma sorumluluğuna sahiptir; 'teknik ekip bilir' diyerek müşteri tarafını ihmal etmek güven kaybına yol açar. Etkin paydaş yönetimi, teknik kararların etkilerini müşteri diline çevirerek ortak anlayış oluşturmayı ve gerektiğinde alternatifler sunmayı içerir."
+    },
+    {
+      "reason_id": "PAY-03",
+      "reasonTR": "Birimler arası kaynak çatışması",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "manager",
+      "subject_template": "{kaynak} kaynağı konusunda anlaşmazlık",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nIT departmanı sizin projeniz için tahsis ettiğimiz {kaynak} kaynağını başka bir proje için talep ediyor. Her iki proje de öncelikli. Bu durumu nasıl çözeceksiniz?\n\nBilgilerinize.",
+      "body_vars": {
+        "kaynak": [
+          "kıdemli geliştirici",
+          "sunucu altyapısı",
+          "test mühendisi"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, kaynak çatışmasını anlıyorum. Her iki projenin takvim ve kapsam gereksinimlerini karşılaştıran kısa bir etki analizi hazırlıyorum. Bu analizi PMO'ya sunarak öncelik kararının üst yönetim düzeyinde verilmesini talep edeceğim; çünkü bu karar proje yöneticisi seviyesini aşıyor.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, kaynağı bırakmayı kabul ediyorum; projemizi daha az kritik kaynaklarla yönetirim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, IT departmanıyla doğrudan görüşüp uzlaşmaya çalışacağım; sizin devreye girmenize gerek yok.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, her iki projenin kaynak ihtiyacını karşılamak için çalışma saatlerini genişletebiliriz; ekip fazla mesai yapabilir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kaynak çatışmaları PMO veya portföy yönetimi düzeyinde çözülmeli; PM tek taraflı karar vermekten kaçınmalıdır. Etki analizi (hangi proje ne kaybeder) sunarak karar vericilere somut seçenekler sunmak, bilinçli önceliklendirmeyi mümkün kılar. Fazla mesai gibi geçici çözümler ekip tükenmişliğine ve kalite sorunlarına yol açar."
+    },
+    {
+      "reason_id": "PAY-04",
+      "reasonTR": "Son kullanıcı direnci",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nKullanıcılar {modul} modülündeki değişikliklere direnç gösteriyor. {gerekce} gerekçesiyle yeni sistemi kullanmayı reddediyorlar. Değişim yönetimi planımız yetersiz kalıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "modul": [
+          "raporlama",
+          "onay akışı",
+          "görev takip"
+        ],
+        "gerekce": [
+          "eski sistemin daha hızlı olduğu",
+          "yeni arayüzü öğrenmek istemedikleri",
+          "iş süreçlerini değiştirmek istemedikleri"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nKullanıcı direncini ciddiye alıyorum; bu değişim yönetiminin yetersiz kaldığının işareti. Pilot kullanıcılarla odak grubu toplantısı yapıp temel şikayetleri dinliyorum, ardından özelleştirilmiş eğitim ve geçiş desteği planı hazırlıyorum. Ayrıca kullanıcı geri bildirimlerini sisteme yansıtmak için ürün ekibiyle görüşeceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nKullanıcılara eğitim materyalleri gönderdim; sistemi öğrenmeleri zaman alacak, sabırlı olmak gerekiyor.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nKullanıcı direnci beklenen bir durum; birkaç hafta içinde alışırlar. Şimdilik baskı yapmayalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nYöneticilere kullanıcıların yeni sistemi kullanmasını zorunlu kılmalarını söyleyebiliriz; zorunluluk olunca direniş azalır.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Değişim yönetimi (Change Management) proje teslimından önce başlamalı; teknik çözüm hazır olsa bile kullanıcı benimsemesi olmadan proje başarısı ölçülemez. PM, kullanıcı direncinin kökenini (korku, beceri eksikliği, iş akışı uyumsuzluğu) tespit ederek hedefli önlemler almalıdır. Zorlama kısa vadede uyum sağlarsa da uzun vadede motivasyon ve kalite düşüşüne yol açar."
+    },
+    {
+      "reason_id": "PAY-05",
+      "reasonTR": "Sponsorun ekibe doğrudan müdahalesi",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nSponsor {isim_bey/hanim}, ekibimizle benim bilgim olmadan toplantı yapıp {direktif} direktifini verdi. Ekip şimdi ne yapacağını bilmiyor; iki farklı yönlendirme var.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "isim_bey/hanim": [
+          "Bey",
+          "Hanım"
+        ],
+        "direktif": [
+          "öncelikleri değiştirmelerini",
+          "hafta sonu çalışmalarını",
+          "bazı özellikleri çıkarmalarını"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nEkip üyeleriyle kısa bir durum toplantısı yapıp iletişim kanalını netleştiriyorum: tüm direktifler proje yöneticisi üzerinden geçecek. Sponsor ile saygılı ama net bir görüşme yaparak bu iletişim modelini paylaşacağım ve koordinasyonun neden önemli olduğunu anlatacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nSponsoru doğrudan düzeltemem; ekibe her iki talebi de karşılamaya çalışmalarını söylüyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nSponsorun direktiflerini proje planına ekliyorum ve eski öncelikler iptal oluyor.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nEkip sponsoru dinledi; bu olumlu bir şey. Sponsor isteklerini resmi plan haline getirmeden hayata geçiriyoruz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Sponsor veya üst yönetimin ekiple doğrudan iletişimi PM otoritesini zayıflatır ve koordinasyon sorunlarına yol açar. PM, iletişim protokollerini projenin başında tüm paydaşlarla yazılı olarak belirlemelidir. Doğrudan müdahale olduğunda PM, saygılı ve yapıcı biçimde iletişim kanallarını yeniden tanımlamalıdır."
+    },
+    {
+      "reason_id": "PAY-06",
+      "reasonTR": "Kullanıcı temsilcisi ile iş birimi çatışması",
+      "weight": 5,
+      "max_per_scenario": 1,
+      "gender": "female",
+      "sender": "manager",
+      "subject_template": "Gereksinim konusunda anlaşmazlık",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nKullanıcı temsilcisi {ozellik} özelliğini talep ediyor. İş birimi müdürü ise bu özelliğin {gerekce} gerekçesiyle eklenmemesini istiyor. İkisi arasında arabuluculuk yapın lütfen.\n\nSaygılarımla.",
+      "body_vars": {
+        "ozellik": [
+          "veri dışa aktarma",
+          "eski sistem entegrasyonu",
+          "özelleştirilmiş dashboard"
+        ],
+        "gerekce": [
+          "bütçe dışında kaldığı",
+          "güvenlik riski oluşturduğu",
+          "önceliksiz olduğu"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, her iki tarafın önceliklerini daha iyi anlamak için ayrı ayrı görüşme yapacağım. Ardından özelliğin iş değerini, maliyetini ve güvenlik etkisini somut verilerle bir analiz belgesine dönüştüreceğim. Ortak bir toplantıda her iki tarafın seçenekleri görmesini ve bilinçli karar vermesini kolaylaştıracağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, kullanıcı temsilcisinin talebi doğru görünüyor; o özelliği scope'a ekliyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, iş birimi müdürünün yetkisi daha yüksek; özelliği kapsam dışı bırakıyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, bu karar beni değil, onları ilgilendiriyor. Onlar anlaşınca bildirir misiniz?",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "PM, paydaş çatışmalarında taraf tutmak yerine nesnel arabulucu rolü üstlenmelidir. Gereksinim anlaşmazlıklarında iş değeri, maliyet ve risk verileri sunmak, duygusal tartışmaları olgusal zemine taşır ve daha sağlıklı kararlar alınmasını sağlar. Bu yaklaşım aynı zamanda PM'in tarafsızlığını ve profesyonelliğini korur."
+    },
+    {
+      "reason_id": "PAY-07",
+      "reasonTR": "Yatırımcı baskısı",
+      "weight": 6,
+      "max_per_scenario": 1,
+      "gender": "male",
+      "sender": "sponsor",
+      "subject_template": "Yatırımcı toplantısı — proje temsili",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nYatırımcı grubumuz projeyi yerinde görmek istiyor. {beklenti} beklentisi var. Proje gerçekte bu beklentiyi karşılamıyorsa nasıl sunacağız?\n\nDüşüncelerinizi merak ediyorum.",
+      "body_vars": {
+        "beklenti": [
+          "ilk fazın tamamlandığı",
+          "demo-hazır bir ürün olduğu",
+          "belirli KPI'ların tutturulduğu"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, durumu anlıyorum. Projenin gerçek durumunu dürüstçe yansıtan ve aynı zamanda tamamlanan başarıları öne çıkaran bir sunum hazırlıyorum. Tamamlanmamış alanları da kalan takvimle birlikte göstereceğim. Yatırımcılara şeffaf bir tablo sunmak uzun vadeli güveni korumanın en iyi yolu.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, yatırımcıları memnun etmek için hazır olmayan bazı özellikleri demo'da 'tamamlandı' olarak gösterebiliriz; sonra tamamlarız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, sunum konusunda iletişim departmanıyla çalışmanızı öneririm; bu tür tanıtımlar onların uzmanlık alanı.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, yatırımcıları endişelendirmemek için geride kalan konuları paylaşmayalım; güçlü yönlere odaklanabiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yatırımcılara yanıltıcı bilgi sunmak yasal ve etik riskler doğurduğu gibi uzun vadede kurumsal itibarı ciddi biçimde zedeler. PM, gerçek proje durumunu şeffaf biçimde paylaşmalı ve tamamlananları başarı olarak, devam edenleri ise takvimle birlikte net şekilde sunmalıdır. Dürüst iletişim kısa vadeli hayal kırıklığı yaratabilir ama uzun vadeli güveni inşa eder."
+    }
+  ]
+}

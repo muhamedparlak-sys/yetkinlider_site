@@ -1,0 +1,552 @@
+{
+  "mesele_id": "kaynak_erisilemezligi",
+  "meseleTR": "Kaynak Erişilemezliği",
+  "triggers_absence_default": true,
+  "compatible_terms": [
+    "resource_planning", "contingency_reserve", "risk_register",
+    "schedule_compression", "succession_planning", "knowledge_management",
+    "team_development", "resource_leveling"
+  ],
+  "reasons": [
+    {
+      "reason_id": "dogum_izni",
+      "reasonTR": "Doğum İzni",
+      "weight": 2,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "hr",
+      "duration": { "type": "range", "options": ["3 ay", "4 ay", "5 ay", "6 ay"] },
+      "subject_template": "Güzel haber — {name} bizimle paylaştı",
+      "from_role": "İK Uzmanı",
+      "body_template": "Merhaba ekip,\n\n{name} ({role}) güzel haberini sizinle paylaşmak istedi. {name} bebek bekliyor! Kendisini tebrik edelim.\n\n{name} yaklaşık {duration} içinde doğum iznine ayrılacak.",
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}'e ayrıca yazıyorum: 'Tebrikler {name_polite}, harika haber! Bir ihtiyacın olursa her zaman buradayım.' Onun dışında planlama sürecini sessizce başlatıyorum — {name_polite}'e henüz bir şey söylemiyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}'e yazıyorum: 'Tebrikler {name_polite}! İzin sürecinde kritik bilgileri nasıl aktaralım, uygun bir zamanda konuşalım mı? Sana kolaylık sağlamak istiyorum.'",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "İK'ya yazıyorum: '{name_polite}'in planlanan izin tarihlerini alabilir miyim, takvimimize işleyeyim ve kaynak planlamasını başlatayım.'",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}'e yazıyorum: 'Tebrikler! İzne ayrılmadan önce kritik konuları devretmen gerekecek, bir devir teslim planı yapalım bu hafta.'",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Doğum izni haberi önce kutlama, sonra plan gerektiren bir andır. PMI'ya göre kaynak planlaması (resource planning) çalışanın değil, PM'in sorumluluğundadır. Çalışana iş kaygısı yüklemek psikolojik güvenliği (psychological safety) zedeler ve etik dışıdır."
+    },
+    {
+      "reason_id": "babalik_izni",
+      "reasonTR": "Babalık İzni",
+      "weight": 2,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "duration": { "type": "range", "options": ["2 hafta", "3 hafta", "4 hafta"] },
+      "subject_template": "Bir haberim var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, güzel bir haberim var — bebeğimiz geliyor! {month}'de doğum bekliyoruz. Sizi önceden bilgilendirmek istedim ki plan yapabilesiniz. Babalık iznimi almayı düşünüyorum, {duration} kadar.",
+      "options": {
+        "medicine": {
+          "text_template": "Harika haber {name_polite}, çok tebrik ederim! Babalık iznini kesinlikle al — bu zamanlar geri gelmiyor. Birlikte nasıl planlayabiliriz konuşuruz, ama önce bu haberi kutlayalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Tebrikler {name_polite}! Hangi tarihler arası izin düşünüyorsun, programa işleyeyim. Bir devir teslim listesi çıkarmak ister misin, yardımcı olurum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tebrikler {name_polite}. {duration}lık izni İK ile birlikte netleştirelim — resmi süreci başlatalım, planlama tarafını ben hallederim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Tebrikler {name_polite}. {month} biraz kritik bir dönem, {duration} izni kısaltabilir miyiz? Yarı zamanlı bir çözüm bulabilir miyiz acaba?",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Babalık izni çalışanın yasal hakkıdır ve PM bu hakkı kullanmasını kolaylaştırmakla yükümlüdür. Projenin 'kritik dönemi' bu hakkı kısıtlamak için geçerli bir gerekçe değildir. Kaynak planlaması PM'in sorumluluğudur; çalışandan fedakârlık beklemek etik ihlaldir."
+    },
+    {
+      "reason_id": "askerlik",
+      "reasonTR": "Askerlik",
+      "weight": 1,
+      "max_per_scenario": 1,
+      "gender": "male",
+      "sender": "self",
+      "duration": { "type": "fixed", "value": "12 ay" },
+      "subject_template": "Bir şey söylemem lazımdı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam bugün bizzat gelip söylemek istedim. Askerlik ertelemem bu yıl doldu, {month} başında gitmem gerekiyor. 12 ay. Erken haber vereyim ki plan yapabilesiniz.",
+      "options": {
+        "medicine": {
+          "text_template": "Hayırlı olsun {name_polite}! Erken söylediğin için teşekkürler. Birlikte güzel bir çıkış süreci yaparız, her konuda desteğim var. Önce sen kafanı topla, sonra oturup konuşuruz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hayırlı olsun {name_polite}. {month} öncesinde kritik görevleri birlikte planlayalım — devir teslim listesi çıkaralım, zamanımız var, rahat olalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hayırlı olsun {name_polite}. Boşluğu nasıl kapatacağımı düşünmem gerekiyor açıkçası — ama önce bu haberini sindireyim, sonra oturur konuşuruz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hayırlı olsun {name_polite}. Erteleme imkânı gerçekten kalmadı mı, proje açısından çok kritik bir dönem — bir araştırdın mı?",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Askerlik yasal bir yükümlülüktür ve çalışanın PM'e karşı iyilik olarak haber vermesi değil, güven duyduğu için haber vermesi anlamına gelir. Erteleme sorgulamak etik ve hukuki açıdan ciddi bir ihlaldir. PM'in görevi bu süreçle birlikte kaynak planlamasını güncellemektir."
+    },
+    {
+      "reason_id": "kisa_hastalik_kendisi",
+      "reasonTR": "Kısa Hastalık (Kendisi Yazıyor)",
+      "weight": 8,
+      "max_per_scenario": 5,
+      "gender": "any",
+      "sender": "self",
+      "duration": { "type": "fixed", "value": "bu hafta" },
+      "subject_template": "Bu hafta gelmeyeceğim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam merhaba, doktora gittim, {hastalik} çıktı. Bu hafta istirahat raporum var, gelemiyor olacağım. Acil bir şey olursa yazabilirsiniz.",
+      "body_vars": {
+        "hastalik": ["grip", "nezle", "bulaşıcı hastalık", "bronşit", "boğaz enfeksiyonu"]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Geçmiş olsun {name_polite}! Hiç merak etme, işleri hallettim. Tam anlamıyla dinlen — sana işle ilgili bir şey sormayacağım bu hafta. Bir ihtiyacın olursa haberdar et.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Geçmiş olsun {name_polite}. İstirahat et, iyileşince görüşürüz. Tahminen ne zaman dönersin diye sormak istiyorum — sadece planlama için, acil bir şey yok.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Geçmiş olsun {name_polite}. Ekibe ilettim, merak etme — bu haftalık görevleri düzenledim. Dön döne iyileş.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Geçmiş olsun {name_polite}. Bu hafta kritik bir toplantı var, evden telefonla bağlanabilecek durumda mısın? Kısa bir katılım yeterli olur.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Hasta çalışandan iş katkısı beklemek hem etik hem de sağlık açısından zararlıdır. PMI kaynak yönetimi, bireysel hastalık gibi kısa süreli beklenmedik kayıplar için acil durum arabelleği (contingency reserve) tanımlar. PM'in görevi bu boşluğu ekip içinde kapamaktır."
+    },
+    {
+      "reason_id": "kisa_hastalik_ucuncu_kisi",
+      "reasonTR": "Kısa Hastalık (Üçüncü Kişi Haber Veriyor)",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "third_party",
+      "duration": { "type": "fixed", "value": "bu hafta" },
+      "subject_template": "{name} bu hafta hastanelik oldu",
+      "from_role_template": "Ekip Üyesi",
+      "body_template": "Hocam, {name}'den haber aldım. {hastalik} imiş, bu hafta gelemeyecek. Sizi bilgilendireyim dedim.",
+      "body_vars": {
+        "hastalik": ["grip olmuş", "hastaneye kaldırılmış", "ameliyat olmuş", "kaza geçirmiş"]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Geçmiş olsun dileklerimi ilet. Bir ihtiyaçları var mı sor. Ben de arayıp geçmiş olsun diyeceğim — ama sakın işle ilgili bir şey sorma. Bir gelişme olursa bana ilet, görevleri ben düzenliyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Geçmiş olsun ilet. Ne zaman döneceğini öğrenebilir misin, planlama için soruyorum — kendisi rahat hissederse tabii, zorlama.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Geçmiş olsun ilet. Bu haftalık görevlerini sen üstlenir misin, ekiple paylaşayım mı? Yük fazla olursa ikiye böleriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Geçmiş olsun ilet. Kimler hangi işi üstlenir konuşun, ne zaman döneceğini de öğren — teslim tarihleri yaklaşıyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Hasta çalışanın üçüncü kişi aracılığıyla iş sorumluluklarına yönlendirilmesi psikolojik güvenliği doğrudan zedeler. PM, haberi alan taraf olarak önce insani tepkiyi (geçmiş olsun, ihtiyaç var mı) vermelidir. Görev yeniden dağıtımı PM'in kendi görevi olup çalışana yüklenemez."
+    },
+    {
+      "reason_id": "cocuk_hastaligi",
+      "reasonTR": "Çocuk Hastalığı / Okul Kapandı",
+      "weight": 6,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "duration": { "type": "range", "options": ["bugün", "birkaç gün", "bu hafta"] },
+      "subject_template": "Bugün gelmeyeceğim — çocuk hasta",
+      "from_role_template": "{role}",
+      "body_template": "Hocam merhaba, {cocuk_durum}. Bakacak kimse yok, evde kalmam gerekiyor. Uzaktan bağlanmaya çalışırım ama garantileyemem.",
+      "body_vars": {
+        "cocuk_durum": [
+          "çocuğum hastalandı",
+          "kreş bugün kapandı, acil",
+          "okulda salgın var, çocukları almamı istediler",
+          "çocuğum ateşlendi, gece hastaneye gittik"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Merak etme {name_polite}, çocuğuna bak. Uzaktan bağlanmaya hiç zorlanma — iyileşsin, gerisini hallederiz. Bugünkü işleri ben düzenliyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Geçmiş olsun {name_polite}. Eğer kritik bir şeyin varsa sabah kısa bir mesajla bana yaz, halledelim — gerisi bekleyebilir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}, takvime işledim. Ekibi bilgilendiriyorum, merak etme — çocuğuna odaklan.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Anladım {name_polite}. Yine de bugünkü toplantıya en azından telefonla bağlanabilir misin? 30 dakika, kısaltabiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Çocuk bakımı acil durum kaynaklanabilir bir risk değil, ebeveynliğin gerçekliğidir. PMI kaynak planlaması bu tür öngörülemeyen yoklukları için esneklik mekanizmaları önerir. Çalışandan toplantıya katılımını beklemek hem etik hem verimlilik açısından yanlıştır."
+    },
+    {
+      "reason_id": "uzun_hastalik",
+      "reasonTR": "Uzun Süreli Hastalık / Ameliyat",
+      "weight": 2,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "duration": { "type": "range", "options": ["4 hafta", "6 hafta", "8 hafta", "3 ay"] },
+      "subject_template": "Size bir şey söylemem gerekiyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, doktordan kötü haber geldi. {hastalik} gerekiyor, süreç {duration} sürecekmiş. Bilmenizi istedim.",
+      "body_vars": {
+        "hastalik": ["ameliyat", "yoğun tedavi", "uzun istirahat"]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Geçmiş olsun {name_polite}, iyi ki söyledin. Önce sen iyileş, gerisini konuşuruz. Ne zaman dönebileceğini şu an düşünme bile — hazır olunca görüşürüz, buradayım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Geçmiş olsun {name_polite}. Süreç ne kadar sürer, bir fikrin var mı? Sadece genel bir fikir — planlama için soruyorum, baskı değil.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Geçmiş olsun {name_polite}. İK ile koordine edelim, izin sürecini birlikte başlatalım — resmi prosedürü takip edelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Geçmiş olsun {name_polite}. Takvim çok sıkışık — iyileşince en kısa sürede dönmeni bekliyoruz. Süreç ne kadar uzarsa proje o kadar etkileniyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Uzun süreli hastalık PMI risk kaydında 'yüksek etki, düşük olasılık' kategorisine girer ve kaynak arabelleği (contingency reserve) bu risk için tasarlanmıştır. Çalışana iyileşme baskısı uygulamak etik ihlaldir. PM'in görevi uzun vadeli kaynak planlamasını güncellemektir."
+    },
+    {
+      "reason_id": "ruh_sagligi_izni",
+      "reasonTR": "Ruh Sağlığı İzni / Burnout",
+      "weight": 3,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "duration": { "type": "range", "options": ["2 hafta", "3 hafta", "1 ay"] },
+      "subject_template": "Seninle konuşmam gerekiyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, bir süredir kendimi iyi hissetmiyorum. Doktor {duration} izin önerdi. {ruh_durum} Bunu söylemek çok zordu ama gizlemek istemedim.",
+      "body_vars": {
+        "ruh_durum": [
+          "Tükenmişlik sendromu tanısı koydular.",
+          "Kaygı bozukluğu başladı, tedavi gerekiyor.",
+          "Depresyon belirtileri var, ilaç ve dinlenme önerildi."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Söylediğin için gerçekten teşekkür ederim {name_polite}, cesaret isteyen bir şey bu. Kesinlikle izni al, hiç düşünme. Ne zaman ve nasıl döneceğini sen belirlersin — biz buradayız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Geçmiş olsun {name_polite}. İzni al, dinlen, kafanı dağıt. Dönünce bir konuşalım — şu an istersen bunları düşünme bile.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Anlıyorum {name_polite}. İK ile izin sürecini hemen başlatayım — resmi prosedürü takip edelim, sen sadece iyileşmeye odaklan.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Anlıyorum {name_polite}. Ama şu an çok kritik bir döneme denk geldi — {duration} yerine birkaç günlük izin olmaz mı? Sonra tekrar değerlendiririz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Ruh sağlığı izni tıbbi bir gereksinimdir ve proje gerekçesiyle kısıtlanamaz. Tükenmişlik bir performans sorunu değil, sistem ve çevre kaynaklı bir sağlık sorunudur. PM'in görevi destek vermek ve psikolojik güvenliği (psychological safety) korumaktır — müzakere etmek değil."
+    },
+    {
+      "reason_id": "yillik_izin",
+      "reasonTR": "Yıllık İzin",
+      "weight": 5,
+      "max_per_scenario": 6,
+      "gender": "any",
+      "sender": "self",
+      "duration": { "type": "range", "options": ["1 hafta", "2 hafta", "10 gün"] },
+      "subject_template": "İzin talebim var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {izin_zamani} {duration} izin almak istiyorum. {izin_neden} Uygun mu?",
+      "body_vars": {
+        "izin_zamani": ["önümüzdeki ay", "bayram döneminde", "yaz tatilinde", "aralık başında"],
+        "izin_neden": ["Tatil planladım.", "Aile ziyareti var.", "Biriktirdiğim izinleri kullanmak istiyorum.", ""]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Tabii {name_polite}, hak ettin! Birlikte takvime bakalım — en uygun dönem hangisi olur konuşalım. Planını yap, biz de hazırlanırız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Tamam {name_polite}. Kritik teslimattan önce veya sonra olsun diye birlikte düşünelim — takvimde en iyi pencereyi bulalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Olur {name_polite}, takvime işleyeyim. İK'ya da bildireyim, resmi süreci başlatalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, o dönem çok doluyuz — {duration} yerine daha kısa tutabilir misin? Ya da biraz ötelersek takvim daha rahat olur.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yıllık izin yasal bir hak olup PM bu hakkı kolaylaştırmakla yükümlüdür. PMI kaynak planlaması, bilinen izin dönemlerini içeren bir kaynak takvimi oluşturmayı içerir. 'Proje yoğun' gerekçesiyle izin kısıtlamak hem etik ihlaldir hem de uzun vadede çalışan bağlılığını zedeler."
+    },
+    {
+      "reason_id": "egitim_kisa",
+      "reasonTR": "Kısa Eğitim / Konferans",
+      "weight": 4,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "duration": { "type": "range", "options": ["3 gün", "1 hafta", "10 gün"] },
+      "subject_template": "Eğitim fırsatı — katılabilir miyim?",
+      "from_role_template": "{role}",
+      "body_template": "Hocam merhaba, {egitim} var {duration} süreliğine. Katılmak istiyorum, uygun mu?",
+      "body_vars": {
+        "egitim": [
+          "ilgimi çeken bir konferans",
+          "alanımla ilgili bir sertifika eğitimi",
+          "şirketin sponsor olduğu bir workshop",
+          "sektörel bir zirve"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Kesinlikle git {name_polite}! Harika fırsat. Birlikte kısa bir plan yapalım — {duration}lık yokluğunu rahatlıkla hallederiz. Kayıt için ne gerekiyor, söyle halledelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Git tabii {name_polite}. Ama önce mevcut işleri birbirine bağla — devir teslim notu çıkar, kritik bağımlılıkları belgele.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}, programa işleyeyim. İK'ya da bildireyim, gideceğin tarihler netleşince bana dön.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Şu an çok kritik bir dönem {name_polite}, eğitimi erteleyebilir misin? Bir sonraki turunda tekrar değerlendiririz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Çalışan gelişimi (team development) PMI kaynak yönetiminin temel bileşenidir. Eğitim fırsatlarını proje yoğunluğunu gerekçe göstererek reddetmek hem ekip motivasyonunu hem de uzun vadeli proje kapasitesini olumsuz etkiler. PM'in görevi bu tür fırsatları mümkün kılmaktır."
+    },
+    {
+      "reason_id": "egitim_uzun",
+      "reasonTR": "Uzun Süreli Eğitim / MBA",
+      "weight": 2,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "duration": { "type": "range", "options": ["3 ay", "4 ay", "6 ay"] },
+      "subject_template": "Büyük bir fırsat — görüşmek isterim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, size danışmak istiyorum. {egitim} için {duration}lık bir program teklifi geldi. Çok iyi bir fırsat ama projeyi de düşünmeden karar veremem.",
+      "body_vars": {
+        "egitim": [
+          "yurt dışı eğitim",
+          "üniversite burs programı",
+          "şirket destekli MBA"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Bu tür fırsatlar nadir {name_polite}, kesinlikle değerlendir. Önce senin kararın — hazır olunca birlikte hem proje hem eğitim için bir plan yaparız. Ne düşünüyorsun?",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Çok iyi bir fırsat {name_polite}. İK ile süreç nasıl işler önce onu netleştirelim — şirket destekli ise onay süreci var, ona göre planlayalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Güzel ama projeye etkisini değerlendirmem gerekiyor {name_polite} — birkaç gün içinde sana dönerim. Karar vermeden biraz bekle.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Projenin bu aşamasında bırakmak çok zor olur {name_polite}, bir sonraki yıla erteleyemez misin? Kapsamlı bir geçiş olmadan böyle bir süreç başlatamayız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Uzun süreli eğitim fırsatları çalışanın kariyer gelişimini destekler ve şirkete de değer katar. PM'in 'projeye etki' hesabını çalışanın önüne koyması ilişkiyi zedeler. Kaynak planlaması PM'in sorumluluğundadır; çalışandan fırsatı ertelemesini beklemek etik sınırı zorlar."
+    },
+    {
+      "reason_id": "baska_projeye_gecici_gorev",
+      "reasonTR": "Başka Projeye Geçici Görevlendirme",
+      "weight": 3,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "internal",
+      "duration": { "type": "range", "options": ["2 hafta", "1 ay", "2 ay"] },
+      "subject_template": "{name} hakkında — kısa bir görüşelim",
+      "from_role_template": "Departman Müdürü",
+      "body_template": "Hocam merhaba, {name}'i {duration} için başka bir projeye almamız gerekiyor. Acil bir ihtiyaç doğdu. Projenizi nasıl etkiler, konuşalım mı?",
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum, tabii konuşalım. {name_polite}'in şu an kritik bir görevde olduğunu biliyorsunuz — {duration}lık boşluk için bir plan yapmamız gerekecek. Ne zaman müsaitsiniz?",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Tamam, {name_polite}'in mevcut görevlerini kimin üstleneceğine bakalım. Bir devir süreci planlayalım — geçişi düzenli yapalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Anladım. {name_polite}'e bilgi vereyim, ona göre hazırlık yapalım. Ne zaman ayrılması gerekiyor, tarihi netleştirelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Olmaz, şu an çok kritik bir dönem — {name_polite}'i veremem. Başka birini düşünün, proje buna izin vermiyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kaynak paylaşımı (resource sharing) çok projeli ortamlarda yaygın bir gerçekliktir. PM'in bu isteği bloke etmesi organizasyonel ilişkileri ve PM'in güvenilirliğini zedeler. Doğru yaklaşım koşulları müzakere etmek, takvim ve kapsam etkisini net ortaya koymak ve ortak bir çözüm bulmaktır."
+    },
+    {
+      "reason_id": "istifa_baska_is",
+      "reasonTR": "İstifa — Başka İş Teklifi",
+      "weight": 3,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "duration": { "type": "range", "options": ["2 hafta", "3 hafta", "4 hafta"] },
+      "subject_template": "Sizinle yüz yüze konuşabilir miyim?",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, zor bir karar verdim. Başka bir teklif aldım ve kabul etmeye karar verdim. {duration} içinde ayrılmam gerekiyor. Bu süreci sizinle birlikte doğru yönetmek istiyorum.",
+      "options": {
+        "medicine": {
+          "text_template": "Çok memnun oldum senin için {name_polite}, hayırlı olsun! Bu kararın ne kadar zor olduğunu biliyorum. Birlikte iyi bir çıkış süreci yapalım — referans için de her zaman buradayım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "İyi şanslar {name_polite}. Birlikte iyi bir devir teslim planı yapalım — bilgi transferini düzenli halledelim, ekibe de iyi geçiş olsun.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "İyi şanslar {name_polite}. Son ayrılış tarihin netleştirelim — programa işleyeyim, ona göre hazırlık yapalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Neden daha önce söylemedin {name_polite}? Bu zamanlama çok kötü — projeyi ciddi etkiler. Hiç düşünmeden karar mı verdin?",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "İstifa PMI'ya göre kaynak riski (resource risk) olarak önceden planlanmalıdır. Tek kişiye bağımlı kritik görevler (single point of failure) risk kaydında tutulmalıdır. İstifa eden çalışana kızgınlık göstermek hem etik dışıdır hem de kalan sürede sağlıklı bir devir süreci yürütülmesini imkânsızlaştırır."
+    },
+    {
+      "reason_id": "vefat_yas_izni",
+      "reasonTR": "Yakın Kaybı / Yas İzni",
+      "weight": 1,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "duration": { "type": "range", "options": ["1 hafta", "2 hafta"] },
+      "subject_template": "Bir acı haberim var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {yakin_kayip}. {duration} izin almam gerekiyor. Özür dilerim bu dönem için.",
+      "body_vars": {
+        "yakin_kayip": [
+          "annem geçirdi, çok beklenmedik oldu",
+          "babam hayatını kaybetti",
+          "eşimin annesi vefat etti, destek olmam gerekiyor"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Başın sağ olsun {name_polite}, çok üzüldüm. Hiç merak etme, her şeyi hallederiz. Sen ailenle ol, gerisini düşünme — buradayız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Başın sağ olsun {name_polite}. İzni al, acil bir şey olursa sana yazarım — ama sadece gerçekten acil olursa.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Başın sağ olsun {name_polite}. İK'ya bildireyim, resmi yas izni sürecini başlatalım — sen sadece ailenle ol.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Başın sağ olsun {name_polite}. Bu hafta kritik bir teslim var — en azından sabah kısa bir bakış yapabilir misin? Yarım saat bile yeter.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yas dönemi, iş katkısı beklentisinin tamamen askıya alındığı yegâne durumlardandır. Bu durumda çalışana herhangi bir iş yükü iletmek ağır bir etik ihlaldir. PM'in tek sorumluluğu insani destek vermek ve iş yükünü kendi başına yeniden düzenlemektir."
+    }
+  ]
+}

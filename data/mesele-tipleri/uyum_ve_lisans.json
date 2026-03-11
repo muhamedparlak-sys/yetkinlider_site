@@ -1,0 +1,370 @@
+{
+  "mesele_id": "uyum_ve_lisans",
+  "meseleTR": "Uyum ve Lisans",
+  "compatible_terms": [
+    "compliance_management",
+    "legal_requirements",
+    "regulatory_compliance",
+    "intellectual_property",
+    "data_privacy",
+    "license_management",
+    "audit"
+  ],
+  "reasons": [
+    {
+      "reason_id": "lisans_gereksinimi_atlantı",
+      "reasonTR": "Yazılım Lisansı Gereksinimi Gözden Kaçtı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Lisans gereksinimini atladım",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {lisans_konusu} kullanıyoruz ama {sorun} Bunu daha önce kontrol etmem gerekirdi.",
+      "body_vars": {
+        "lisans_konusu": [
+          "açık kaynak kütüphaneyi",
+          "üçüncü parti bir bileşeni",
+          "ticari bir API'yi",
+          "hazır bir framework'ü"
+        ],
+        "sorun": [
+          "lisans koşulları ticari kullanıma izin vermiyor.",
+          "bu lisans kapsamındaki ürünü kapatık kaynak yapamayız.",
+          "lisans gereksinimi ek ücret gerektiriyor.",
+          "lisans alanımız bu kullanım biçimini kapsamıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Fark edip bildirmen önemli {name_polite}. Önce durumun tam kapsamını anlayalım — hukuk ve lisans ekibine danışacağım. Alternatif çözüm (lisanslı sürüm satın alma veya bileşen değiştirme) seçeneklerini hızlıca değerlendireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Lisans uyumsuzluğu hukuki risk — hukuk ekibini hemen döngüye alıyorum. Bu arada söz konusu bileşeni ürün dışında izole edelim. Lisans uyumlu alternatifleri araştırıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bu bileşenin lisansını satın almak ne kadara gelir hızlıca araştırayım — eğer makul fiyatlıysa en hızlı çözüm bu olabilir. Bütçe etkisini sponsorla paylaşacağım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu ciddi bir hata {name_polite}. Proje bu lisansı zaten kullanıyor ve değiştirmek çok maliyetli — hukuki süreçle karşılaşmadan önce hızlı bir çözüm bulmak gerekiyor. Konuyu hukuk biriminden saklamak daha uygun olmaz mıydı?",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Lisans uyumsuzluğu fikri mülkiyet hukuku kapsamında kurumsal sorumluluk doğurabilir. Sayıştay e-Nabız BT denetiminde lisans yönetimi eksikliği sistematik bir risk faktörü olarak tespit edilmiştir. PM'in görevi kullanılan tüm yazılım bileşenlerinin lisans denetimini proje başında yapmak ve yazılım bileşeni eklenirken lisans kontrolünü zorunlu kılmaktır."
+    },
+    {
+      "reason_id": "kvkk_gdpr_gereksinimi",
+      "reasonTR": "KVKK veya GDPR Gereksinimi Göz Ardı Edildi",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Veri koruma gereksinimleri karşılanmıyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {veri_konusu} konusunda bir eksiklik fark ettim. {uyum_sorunu} Bu durumu acilen düzeltmemiz gerekiyor.",
+      "body_vars": {
+        "veri_konusu": [
+          "kişisel veri işleme sürecimiz",
+          "kullanıcı verisinin depolanması",
+          "veri transfer mekanizmaları",
+          "çerez ve takip politikamız"
+        ],
+        "uyum_sorunu": [
+          "KVKK gereksinimleriyle uyumsuz görünüyor.",
+          "Veri saklama süreleri yasal sınırı aşıyor.",
+          "Açık rıza mekanizması eksik.",
+          "Veri işleme amacı açıklanmamış."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu tespiti zamanında yaptın {name_polite}. Uyum eksikliği hukuki risk oluşturabilir — hukuk ve veri güvenliği ekibini döngüye alıyorum. Hangi gereksinimlerin karşılanmadığını netleştirelim, sonra düzeltme planı yapalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. KVKK uyum gereksinimleri listesi çıkaralım — hangisi acil, hangisi orta vadeli. Uyum ekibiyle bir değerlendirme toplantısı yapıp öncelik sırasını belirleyeceğim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bir veri koruma etki değerlendirmesi (DPIA) başlatıyorum — bu hem gereksinimleri netleştirir hem de uyum yolunu gösterir. Bu çalışmaya bir danışman dahil edebiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Mevcut sistemde KVKK uyumu tam değil ama çalışıyor {name_polite}. Denetim gelirse o zaman düzeltiriz — şu an öncelik yeni özellik geliştirmek. Hukuki risk küçük görünüyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kişisel veri koruma mevzuatı ihlalleri ciddi idari para cezası ve itibar kaybı riskini beraberinde getirir. PMI, uyum gereksinimlerinin proje başından itibaren kapsama dahil edilmesini gerektirir. PM'in görevi veri gizliliği gereksinimlerini 'Definition of Done' kriterine eklemek ve uyumu proje süresince izlemektir."
+    },
+    {
+      "reason_id": "denetim_talebi",
+      "reasonTR": "Denetim Talebi Geldi, Belgelerimiz Eksik",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "İç denetim belge talep etti, eksikliklerimiz var",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {denetim_türü} kapsamında {belge_talebi} talep edildi. {eksiklik} Bu durumu acilen ele almamız gerekiyor.",
+      "body_vars": {
+        "denetim_türü": [
+          "iç denetim",
+          "Sayıştay",
+          "regülasyon denetimi",
+          "ISO sertifikasyon"
+        ],
+        "belge_talebi": [
+          "proje belgeleri ve kayıtlar",
+          "tedarik dosyaları",
+          "onay süreçleri",
+          "maliyet raporları"
+        ],
+        "eksiklik": [
+          "Birçok belgede eksiklik var.",
+          "Onay kayıtları tutulmamış.",
+          "Bazı kararların belgeleri yok.",
+          "Süreç uyum kayıtları yetersiz."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Denetim önceliğimiz — eksik belgeler için hemen bir tamamlama planı yapalım. Hangisi kritik yol üzerinde, nereden başlamamız gerekiyor birlikte belirleyelim. Ne kadar süremiz var?",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Eksik belgeleri listeleyip sorumluluk atayalım — kim neyi ne zamana kadar tamamlıyor. Denetimde 'belge yoktu ama gerçekleşti' demek yetersiz kalır, belgeleme tamamlanmalı.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Eksik belgeler için geriye dönük hazırlık yapabiliriz — gerçekleşen kararları ve onayları kayıt altına alalım. Bu dürüst ve yapıcı bir yaklaşım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Denetim için belgeler eksikse savunmaya geçmek yerine denetçilerle şeffaf olalım {name_polite}. 'Belgeler eksik ama süreçler uygun yürütüldü' demek daha inandırıcı olur — gizlemeye çalışmak durumu kötüleştirir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Denetim hazırlıksız yakalanmak proje yönetim olgunluğunun düşük olduğunu gösterir. Sayıştay denetimlerinde belge eksikliği düzenli olarak bulgu konusu olmaktadır. PM'in görevi proje boyunca sürekli belgeleme kültürünü oturtmak ve denetim izine hazırlıklı olmaktır."
+    },
+    {
+      "reason_id": "uyumsuz_prosedür_uygulandı",
+      "reasonTR": "Onaylı Prosedür Dışında Hareket Edildi",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Kurumun onaylı prosedürünü atladım",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {prosedür_türü} ile ilgili onaylı prosedürü uygulamadım. {gerekçe} Bu durumu açıklamam gerekiyor.",
+      "body_vars": {
+        "prosedür_türü": [
+          "değişiklik yönetimi",
+          "tedarik onay",
+          "proje başlatma",
+          "kaynak talep"
+        ],
+        "gerekçe": [
+          "Zaman baskısıyla prosedürü atlama kararı aldım.",
+          "Prosedür bu durum için çok ağır geldi.",
+          "Durumun aciliyetini hatalı değerlendirdim.",
+          "Prosedürün bizi engellediğini düşündüm."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Bu durumu kayıt altına almamız gerekiyor — prosedür dışı eylem uyum riski yaratır. Retroaktif onay mümkün mü ve sonuçları nasıl minimize ederiz birlikte değerlendirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Prosedür dışı hareketin yarattığı riski hemen değerlendireyim — iç denetimi bilgilendirmem gerekebilir. Aynı durumun tekrarlanmaması için prosedür iyileştirme önerisi yapabiliriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bu eylemi en az zararla kayıt altına almak için yol arıyorum. Acil durum prosedürü var mı, retroaktif onay mümkün mü inceleyelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Onaylı prosedürü atlamak ciddi bir disiplin sorunudur {name_polite}. Bu durumu iç denetime bildirmek zorundayım — süreç ihlalleri kurumun kontrol mekanizmalarını zayıflatır. Bunun sonuçlarını bilmelisin.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Prosedür ihlalleri kurumsal kontrol sistemlerini zayıflatır. PMI, değişiklik kontrol prosedürlerinin istisnasız uygulanmasını gerektirir. PM'in görevi mevcut prosedürü aksayan noktalarda iyileştirici önerilerle güncellemek, uyumsuz kısayollara başvurmamaktır."
+    },
+    {
+      "reason_id": "fikri_mülkiyet_sorunu",
+      "reasonTR": "Fikri Mülkiyet Sahipliği Netleşmedi",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Proje çıktılarının fikri mülkiyet sahipliği belirsiz",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {çıktı_türü} için fikri mülkiyet sahipliği konusunu müşteriyle netleştirmedim. {sorun} Bu konuyu artık açıkça konuşmamız gerekiyor.",
+      "body_vars": {
+        "çıktı_türü": [
+          "geliştirdiğimiz yazılım modülünü",
+          "hazırladığımız tasarım varlıklarını",
+          "oluşturduğumuz veri modellerini",
+          "yazdığımız analiz raporlarını"
+        ],
+        "sorun": [
+          "Müşteri bunların tamamen onlara ait olduğunu düşünüyor.",
+          "Biz bazı bileşenleri başka projelerde kullanmak istiyoruz.",
+          "Alt tedarikçi kendi telif haklarını iddia ediyor.",
+          "Sözleşme bu konuda muğlak bırakılmış."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu konuyu gündeme getirmen iyi oldu {name_polite}. Sözleşmede fikri mülkiyet maddelerine bakalım — hukuk ekibi bu konuda bizi yönlendirecek. Müşteriyle de bu tartışmayı şeffaf yürütmek gerekiyor.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Hukuk ekibini döngüye alıyorum — fikri mülkiyet belirsizliği potansiyel bir anlaşmazlık tohumu. Sözleşme revizyonu veya ek bir mutabakat mektubu gerekebilir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Müşteriyle bu konuyu diplomatik biçimde ele alalım — her iki tarafın beklentilerini öğrenip orta yolu bulalım. Amaç ilişkiyi koruyarak netlik sağlamak.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Fikri mülkiyet müşteriye ait sayılır {name_polite}. Onlar para ödedi, ürün onların — bunu tartışmak ilişkiyi gereksiz yere zorlamaz. Hukuki risk almadan teslim edelim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Fikri mülkiyet sahipliğinin netleştirilmemesi proje kapanışında ciddi anlaşmazlıklara yol açabilir. PMI, fikri mülkiyet koşullarının sözleşmede başlangıçta açıkça tanımlanmasını gerektirir. PM'in görevi bu konuyu proje başında hukuk ekibiyle birlikte sözleşmeye yazdırmaktır."
+    },
+    {
+      "reason_id": "ihracat_kontrol_uyumu",
+      "reasonTR": "İhracat veya İthalat Uyum Gereksinimi",
+      "weight": 5,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "İhracat kontrol mevzuatı konusunda uyarı geldi",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {ihracat_konusu} konusunda bir uyum gereksinimi olduğunu fark ettim. {etki} Bu konuda danışmanlık almamız gerekiyor.",
+      "body_vars": {
+        "ihracat_konusu": [
+          "kullandığımız yazılım teknolojisinin ihracat kısıtlı olduğu",
+          "belirli ülkelere hizmet vermenin lisans gerektirdiği",
+          "çift kullanımlı teknoloji kapsamına girdiğimiz",
+          "uluslararası ticaret kısıtlamalarının etkilediği"
+        ],
+        "etki": [
+          "Bazı müşterilerimize hizmet verme hakkımız kısıtlanabilir.",
+          "Mevcut ürün bazı pazarlarda satışa sunulamayabilir.",
+          "Ek bir izin süreci gerekiyor.",
+          "Cezai yaptırım riski taşıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Bu konu ticaret hukuku uzmanlığı gerektiriyor — hukuk birimini ve gerekirse dış danışman desteğini alıyorum. Proje kapsamımızı bu gereksinim çerçevesinde gözden geçireceğiz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. İhracat kontrol uyumu için önce etki alanını netleştirmek gerekiyor — hangi ülkeler, hangi teknolojiler. Hukuk ekibiyle acil bir değerlendirme toplantısı ayarlıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Bu konuda dış danışman desteği değerli olacak — uzman görüşü alıp uyum yolunu netleştirelim. Bu önemli bir risk, acele etmeyelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "İhracat kontrol uyumu çok teknik bir konu {name_polite}. Hukuk bölümü zaten biliyor olmalı — bu konuyu onlara bırakıyorum, benim proje yönetim alanım dışında.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "İhracat kontrol uyumsuzluğu kurumsal ve kişisel hukuki sorumluluk doğurabilir. PMI, projenin tüm geçerli yasal ve düzenleyici gereksinimleri karşılamasını gerektirir. PM'in görevi projenin yasal çerçevesini başlangıçta değerlendirmek ve uzman desteğini zamanında almaktır."
+    },
+    {
+      "reason_id": "uyum_açığı_denetimde_tespit",
+      "reasonTR": "Uyum Açığı Denetimde Ortaya Çıktı",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Denetim bir uyum açığı tespit etti",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {denetim_türü} sonucunda {bulgu} tespit edildi. {beklenti} Bu konuyu acilen ele almamız gerekiyor.",
+      "body_vars": {
+        "denetim_türü": [
+          "iç denetim",
+          "Sayıştay denetimi",
+          "regülasyon denetimi",
+          "ISO denetimi"
+        ],
+        "bulgu": [
+          "süreç uyumsuzluğu",
+          "kontrol açığı",
+          "belge eksikliği",
+          "prosedür ihlali"
+        ],
+        "beklenti": [
+          "Düzeltici eylem planı bekleniyor.",
+          "Bulguya 30 gün içinde yanıt verilmesi şart.",
+          "Yönetim onaylı bir aksiyon planı gerekiyor.",
+          "Bir sonraki denetimde kapatılmış olması bekleniyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Denetim bulgusunu ciddiye alıyoruz — hemen kök neden analizi yapıyorum. Düzeltici eylem planını süre içinde hazırlayıp onayınıza sunacağım. Süreç baştan sona şeffaf yürütülecek.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bulgunun kapsamını anlayalım — kaç proje etkiliyor, sistematik mi yoksa izole mi. Düzeltici plan hazırlıkları başlıyor, süre takibini de yapacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Bu bulguyu kapatmak için ne gerektiğini detaylı anlayayım — sonra eylemi kim yapacak, ne zamana kadar, nasıl doğrulanacak planı çıkartacağım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Denetim bulguları çok abartılıyor bazen {name_polite}. Bu bulgu bizim doğrudan çalışma biçimimizi etkilemiyor — yanıt verip kapatırız ama büyük bir değişiklik yapmaya gerek yok.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Denetim bulguları kurumsal kontrol mekanizmalarının zayıf noktalarını gösterir. PMI, denetim bulgularının kök neden analizi ile ele alınmasını ve sistematik düzeltici eylemle kapatılmasını gerektirir. PM'in görevi denetim bulgusunu savunmacı değil yapıcı bir tutumla karşılamak ve kalıcı düzeltme sağlamaktır."
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "mesele_id": "bilgi_adasi",
+  "meseleTR": "Bilgi Adası",
+  "compatible_terms": [
+    "knowledge silo",
+    "information silo",
+    "knowledge hoarding",
+    "isolated knowledge"
+  ],
+  "reasons": [
+    {
+      "reason_id": "BAD-01",
+      "reasonTR": "Kritik bilgi tek kişide kilitli",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{alan} konusundaki tüm bilgi {uzman} kişisinde. Yazılı belge yok, süreç aktarımı hiç yapılmadı. Bu kişi {risk} durumuna girdi; proje ciddi risk altında.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "alan": [
+          "legacy sistem entegrasyonu",
+          "veritabanı yönetimi",
+          "müşteri gereksinim geçmişi"
+        ],
+        "uzman": [
+          "Ali Bey",
+          "Merve Hanım",
+          "Can Bey"
+        ],
+        "risk": [
+          "ayrılma sürecine",
+          "uzun izne",
+          "hastalığa"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBu riski hemen aciliyetle ele alıyorum. {uzman} ile bu hafta acil bilgi transferi seansları başlatıyorum; süreçleri, karar geçmişini ve kritik bilgileri yazılı olarak belgeleyeceğiz. En az bir yedek kişiyi bu alanda yetkilendirme sürecini de başlatıyorum. Takvim gecikmesi riski olmakla birlikte bu adım zorunlu.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\n{uzman} bu bilgiyi uzun yıllardır taşıyor; şimdi devredebilir mi emin değilim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\n{uzman} ayrılana kadar devam edelim; sonra hallederiz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nBilgi transferi çok zaman alır; {uzman} olmadan işi donduruyoruz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Bilgi adaları proje sürekliliği için en ciddi risklerden biridir; Sayıştay denetimleri de hakedis gecikmesi ve personel bilgi kaybı sorunlarını bu çerçevede değerlendirmektedir. PM, kritik bilgilerin paylaşılmasını kurumsal kültür olarak yerleştirmeli ve belgelenmemiş uzmanlığı risk kaydına almalıdır."
+    },
+    {
+      "reason_id": "BAD-02",
+      "reasonTR": "Departmanlar arası bilgi paylaşım eksikliği",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{dept_a} ile {dept_b} departmanları birbirinden habersiz çalışıyor. {dept_a}'nın {bilgi} bilgisi, {dept_b}'nin aldığı kararları doğrudan etkiliyor ama bu bilgi paylaşılmıyor. Çakışan çalışmalar ve çelişen çıktılar oluşuyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "dept_a": [
+          "geliştirme ekibi",
+          "test ekibi",
+          "mimari ekip"
+        ],
+        "dept_b": [
+          "iş analizi ekibi",
+          "operasyon ekibi",
+          "destek ekibi"
+        ],
+        "bilgi": [
+          "sistem değişiklik kararları",
+          "test bulguları",
+          "mimari kısıtlar"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBölümler arası koordinasyon eksikliğini yapısal olarak çözüyorum. Haftalık kısa bir senkronizasyon toplantısı ve ortak bilgi paylaşım platformu (Confluence/Wiki) oluşturuyorum. Her iki ekipten birer irtibat kişisi belirleyerek bilgi akışını düzenleyeceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nHer departman kendi işine odaklanmalı; fazla paylaşım karmaşaya yol açar.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nÇakışmalar çıktıkça düzeltiriz; şimdi resmi yapı kurmak vakit kaybı.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nDepertmanlar arasındaki iletişimi email zinciriyle yönetebiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Bilgi siloları (information silos) takımlar arası koordinasyon eksikliğinin en belirgin belirtisidir. PM, bilgi paylaşım mekanizmalarını (ortak toplantılar, wiki, çapraz ekip gözden geçirme) proaktif biçimde kurmalıdır. Çakışan çalışma ve çelişen çıktılar hem kaynak israfı hem de kalite riski yaratır."
+    },
+    {
+      "reason_id": "BAD-03",
+      "reasonTR": "Geçmiş karar gerekçelerinin belgelenmemesi",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nMevcut {karar} kararının neden alındığını kimse bilmiyor. Belge yok, toplantı notu yok. Şimdi bu kararı değiştirip değiştirmeyeceğimizi tartışıyoruz ama geçmişi bilmeden sağlıklı karar veremiyoruz.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "karar": [
+          "mimari yapı seçimi",
+          "tedarikçi seçimi",
+          "teknoloji stack tercih"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nGeçmişi belgeleme konusunda eksiğiz; bunu kabul edip çözüme odaklanıyorum. Mevcut karar için eldeki tüm bilgileri (e-postalar, slack geçmişi, proje kayıtları) bir araya toplayarak en iyi bilgi ile kararı yeniden değerlendiriyorum. Bundan sonra tüm önemli kararlar ADR (Architecture Decision Record) formatında belgelenecek.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nGeçmiş kararı değiştirmeyelim; nedenini bilmesek de bu şekilde çalışıyor.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nSorumluluk alan kişiyi bulup neden bu kararı aldığını soralım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nGeçmiş kararlar tartışılmaz; devam ediyoruz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Karar gerekçelerinin belgelenmemesi kurumsal hafızayı zayıflatır ve özellikle ekip değişimlerinde ciddi yeniden çalışma maliyetlerine yol açar. ADR (Architecture Decision Record) ve proje karar günlüğü gibi basit araçlar bu sorunu sistematik olarak çözer. PM, karar toplantılarının yazılı özet ile kapanmasını bir ekip standardı haline getirmelidir."
+    },
+    {
+      "reason_id": "BAD-04",
+      "reasonTR": "Müşteri tarihçesi bilgisi kayboldu",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nMüşteriyle {sure} önce {karar} kararı alınmış ama şimdiki ekipte bunu bilen kimse yok. Müşteri bu kararı referans alarak yeni gereksinimler türetiyor; biz ise neden kabul ettiğimizi bilmiyoruz.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "sure": [
+          "6 ay",
+          "1 yıl",
+          "iki yıl"
+        ],
+        "karar": [
+          "belirli entegrasyon mimarisi",
+          "spesifik veri standardı",
+          "özel raporlama formatı"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nMüşteri tarihçesini yeniden inşa etmek için eski ekip üyeleriyle görüşüyorum ve tüm erişebildiğim kayıtları tarıyorum. Müşteriye de nazikçe o dönemi sormayı planlıyorum. Bu deneyimden çıkardığım ders: müşteri iletişim arşivi ve karar günlüğü sistemimizi güçlendireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nMüşteriye kararı neden aldığımızı bilmediğimizi açık söyleyelim; şeffaflık iyidir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nMevcut gereksinimle devam ediyoruz; geçmiş karar nasıl olsa bağlayıcı değil.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nMüşteri arşivini kendisi paylaşsın; bu bizim sorunumuz değil.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kurumsal hafıza (institutional memory) proje sürekliliği için kritiktir. Ekip değişimlerinde müşteri ilişkisi tarihçesi, geçmiş kararlar ve öğrenilen dersler sistematik biçimde belgelenmeli ve devredilmelidir. CRM sistemleri veya proje bilgi tabanı bu kaybı önleyen temel araçlardır."
+    },
+    {
+      "reason_id": "BAD-05",
+      "reasonTR": "Teknik belge eksikliği",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{bileşen} bileşeninin teknik belgeleri yok veya çok eski. Yeni ekip üyeleri bu bileşeni anlamak için çok zaman harcıyor ve hata riski artıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "bileşen": [
+          "ödeme entegrasyon katmanı",
+          "kimlik doğrulama modülü",
+          "veri senkronizasyon servisi"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nDokümantasyon borcunu kabul ediyorum; hemen çözüme geçiyorum. Bu bileşeni en iyi bilen ekip üyesiyle bir 'documentation sprint' planlıyorum; temel teknik belgeler, API referansı ve mimari kararlar bu sprint içinde tamamlanacak. Sonrasında kod değişikliklerinde belge güncelleme zorunluluğunu ekip standardı olarak belirliyoruz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip zaten bileşeni çalıştırıyor; belgeye gerek var mı?",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nBelgeleme sonraki büyük versiyona bırakılabilir; şimdi özellik geliştirmek öncelikli.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nYeni üyeler kodu okuyarak öğrenebilir; bu en iyi öğrenme yöntemi.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Teknik belge eksikliği özellikle ekip değişimlerinde ve mevcut kodu değiştirirken ciddi risk oluşturur. 'Kod kendi kendini belgeler' yaklaşımı karmaşık iş kuralları ve entegrasyon noktaları için yetersizdir. PM, belgelemeyi teslim kriterlerinin (DoD — Definition of Done) ayrılmaz parçası haline getirmelidir."
+    },
+    {
+      "reason_id": "BAD-06",
+      "reasonTR": "Öğrenilen derslerin paylaşılmaması",
+      "weight": 5,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nGeçen ay yaşadığımız {sorun} sorunu, daha önce {diger_proje} projesinde de yaşanmış. Ama o deneyim hiç belgelenmemiş; aynı hatayı yeniden yaptık.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "sorun": [
+          "tedarikçi iletişim kopukluğu",
+          "kapsam belirsizliği krizi",
+          "test ortamı gecikmesi"
+        ],
+        "diger_proje": [
+          "önceki entegrasyon projemiz",
+          "geçen yılki dönüşüm projesi",
+          "iki yıl önceki platform projesi"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nAynı hatayı tekrarlamak maliyetli. Sprint retrospektif sürecimizi güçlendirerek öğrenilen dersleri merkezi bir havuzda (lessons learned registry) belgelemeye başlıyorum. Her proje kapanışında bu havuzu güncelleyeceğiz ve yeni projelerin başında bu kayıtları gözden geçireceğiz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nHer proje farklı; öğrenilen dersler genellikle diğer projelere uygulanamaz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nRetrospectiflerde zaten bu konuşuluyor; yeterli.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nAynı hatayı yaptık; ekibi daha dikkatli olmaya davet ederim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Öğrenilen dersler (lessons learned) proje kapanışında belgelenip organizasyon bilgi tabanına aktarılmalıdır. PMI PMBOK, öğrenilen dersleri proje yönetiminin temel bilgi alanı olarak tanımlar. Aynı hataların tekrarlanması kurumsal verimsizliğin göstergesidir; sistematik bilgi yönetimi bu döngüyü kırar."
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "mesele_id": "takvim_degisikligi",
+  "meseleTR": "Takvim Değişikliği",
+  "compatible_terms": [
+    "schedule change",
+    "timeline change",
+    "date change",
+    "rescheduling"
+  ],
+  "reasons": [
+    {
+      "reason_id": "TAK-01",
+      "reasonTR": "Sponsor tarafından tek taraflı tarih değişikliği",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "sponsor",
+      "subject_template": "{proje_adi} — yeni teslim tarihi",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nYönetim kararıyla {proje_adi} projesinin teslim tarihi {eski_tarih} tarihinden {yeni_tarih} tarihine alındı. Planlama buna göre revize edilsin.\n\nBilgilerinize.",
+      "body_vars": {
+        "proje_adi": [
+          "sistem modernizasyon",
+          "dijital dönüşüm",
+          "entegrasyon"
+        ],
+        "eski_tarih": [
+          "30 Nisan",
+          "15 Mayıs",
+          "1 Haziran"
+        ],
+        "yeni_tarih": [
+          "15 Mart",
+          "1 Nisan",
+          "15 Nisan"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, tarih değişikliğini aldım. Yeni tarihe ulaşmak için kapsam, kaynak ve kalite üzerindeki etkileri analiz ediyorum. Ek kaynak, kapsam küçültme veya paralel çalışma gibi seçenekleri maliyet ve risk değerlendirmeleriyle birlikte size sunacağım. Revize planı müzakere etmek için toplantı önerisinde bulunuyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, yeni tarihi aldım. Ekip hızlanacak; ne gerekirse yapacağız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, revize planı hazırlıyorum. Bazı özellikleri sonraki versiyona bırakmak gerekebilir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, bu tarih değişikliği mümkün değil; proje ekibi yeni tarihi kabul etmiyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Tek taraflı tarih değişiklikleri kapsam, kaynak ve kalite dengesini bozar; PM bu dengeyi korumak için seçenekleri analitik biçimde sunmalıdır. 'Her şeyi yapacağız' taahhüdü gerçekçi değilse ekip tükenmişliği ve kalite sorunlarına yol açar. Değişiklik Kontrol Süreci (Change Control) tarih değişikliklerini de kapsamalıdır."
+    },
+    {
+      "reason_id": "TAK-02",
+      "reasonTR": "Taşınma veya altyapı hazırlık gecikmesi",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{ortam} ortamı {tarih} tarihinde hazır olmayacak. Ekibimizin bu ortama ihtiyacı var; gecikmede kalırsak sprint planımız bozulacak.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "ortam": [
+          "test sunucusu",
+          "üretim altyapısı",
+          "bulut ortamı"
+        ],
+        "tarih": [
+          "sprint başlangıcında",
+          "bu haftanın sonunda",
+          "Cuma günü"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nGecikmeli ortam hazırlığını IT ekibiyle takibe aldım; öncelik seviyesini artırmaları için resmi talep oluşturuyorum. Bu süreçte ortama ihtiyaç duymayan görevleri sprint önüne alacağım. Gecikme uzarsa takvim etkisini sponsora bildirip alternatif çözüm önereceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nOrtak geliştirme ortamında çalışmaya devam edelim; ayrı test ortamı zorunlu değil.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nOrta hazırlık gecikiyorsa bu sprint'i duraklatalım ve IT bekliyoruz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nIT ekibine sürekli e-posta atmak yerine bekleyebiliriz; sonunda hazır olacaklar.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Altyapı bağımlılıkları proje takvimine dahil edilmeli ve proaktif olarak izlenmelidir. 'Bekliyoruz' yaklaşımı sprint hızını ve ekip verimliliğini düşürür. PM, altyapı gecikmesini erken tespit edip bağımsız görevlerle doldurabilecek bir yedek iş havuzu (backlog buffer) bulundurmalıdır."
+    },
+    {
+      "reason_id": "TAK-03",
+      "reasonTR": "Çoklu proje aynı tarihe denk geldi",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nBirden fazla projenin teslim tarihi {tarih} haftasına denk geldi. Ekibimizin kaynakları bu yoğunluğu kaldırmıyor; önceliklendirme yapmadan ilerleyemeyiz.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "tarih": [
+          "Mart sonu",
+          "Nisan ortası",
+          "Haziran başı"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nKaynak çatışmasını net biçimde görüyorum. Her projenin iş değeri ve teslim riski karşılaştırmasını çıkarıp PMO'ya sunacağım. Birlikte öncelik kırma veya takvim kaydırma kararı alırsak etkilenen paydaşlara zamanında bildireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip multitasking yapar; birden fazla teslim aynı anda mümkün.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nEn kritik projeye odaklanıp diğerlerini sessizce erteleyebiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nEkibe fazla mesai onayı alıp tüm projeleri zamanında teslim edelim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kaynak çakışması (resource contention) portföy düzeyinde yönetilmelidir; PM, kendi projesinin önceliğini PMO ve üst yönetimle müzakere etmeli, tek taraflı karar vermemelidir. Çoklu projelerde multitasking verimliliği azaltır ve kaliteyi düşürür; bilinçli önceliklendirme daha iyi sonuç verir."
+    },
+    {
+      "reason_id": "TAK-04",
+      "reasonTR": "Kritik kaynak izni/hastalık gecikmesi",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{uzman_rol} rolündeki {isim}, {sure} süreyle {neden} nedeniyle müsait değil. Bu kişi olmadan {gorev} görevi ilerleyemez; takvimde ciddi açık oluşacak.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "uzman_rol": [
+          "baş geliştirici",
+          "test mühendisi",
+          "UX tasarımcı"
+        ],
+        "isim": [
+          "Ali Bey",
+          "Merve Hanım",
+          "Can Bey"
+        ],
+        "sure": [
+          "2 hafta",
+          "1 ay",
+          "bu sprint"
+        ],
+        "neden": [
+          "izin",
+          "hastalık",
+          "eğitim programı"
+        ],
+        "gorev": [
+          "API entegrasyon",
+          "güvenlik testi",
+          "kullanıcı arayüzü tasarımı"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nDurumu anlıyorum. {gorev} görevi için kısa vadeli kaynak seçeneklerini araştırıyorum: ekip içi geçici yetkilendirme, dış danışman desteği veya görev yeniden dağılımı. Mevcut sprint planını revize edip en az etki ile ilerleme seçeneğini size sunacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\n{isim} yerine başka biri görevi alsın; öğrenerek ilerler.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nBu görevi şimdilik bekletip {isim} geri dönünce devam ederiz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\n{isim}'e izni sırasında bağlanıp görev için yardım isteyebiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kritik kaynak kaybı durumunda PM yedek plan (contingency plan) devreye almalıdır. 'Bekliyoruz' yaklaşımı takvimi dondurur ve sprint hızını düşürür. Proje planlamasında her kritik rol için yedek yetkinlik planı hazır olmalı; bu plan kaynak ayrılığı, çapraz eğitim veya dış kaynak seçeneklerini içermelidir."
+    },
+    {
+      "reason_id": "TAK-05",
+      "reasonTR": "Müşteri taraflı değişiklik takvimi baskısı",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "client",
+      "subject_template": "Takvim hakkında önemli bilgi",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nBizim taraftaki {karar_mekanizması} kararı nedeniyle kabul testlerini {tarih} tarihine çekmemiz gerekiyor. Bu talebin fizibilitesini değerlendirir misiniz?\n\nTeşekkürler.",
+      "body_vars": {
+        "karar_mekanizması": [
+          "bütçe dönem sonu",
+          "stratejik öncelik değişikliği",
+          "iç denetim takvimi"
+        ],
+        "tarih": [
+          "iki hafta öne",
+          "10 gün öne",
+          "bir ay öne"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, talebinizi anlıyorum. {tarih} tarihine çekmenin kapsam ve kalite üzerindeki etkisini analiz ediyorum. Gerçekçi seçenekleri — tam kapsam mı kısmi kapsam mı — sizinle paylaşacağım ve ortak karar almak için toplantı öneriyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, müşteri talep edince tarihi öne çekeriz; ekip hızlanacak.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, talebi değerlendiriyorum; mümkün olmayacaksa size bildiririm.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, takvimi öne çekmek mümkün değil; sözleşmede belirtilen tarih bağlayıcı.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Müşteri kaynaklı takvim değişiklikleri etki analizi yapılmadan kabul edilmemelidir. PM, yeni tarihin fizibilitesini somut verilerle değerlendirip müşteriye seçenekler sunmalıdır. Sözleşme tarihleri bağlayıcı olsa bile müzakere etmek ve trade-off'ları netleştirmek PM'in sorumluluğundadır."
+    },
+    {
+      "reason_id": "TAK-06",
+      "reasonTR": "Dış faktör (doğal olay, pandemi vb.) kaynaklı gecikme",
+      "weight": 5,
+      "max_per_scenario": 1,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{olay} nedeniyle {sure} boyunca ekip uzaktan çalışmak zorunda kalacak veya çalışamayacak. Bu durum {etki} etkisi yaratacak.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "olay": [
+          "kötü hava koşulları",
+          "altyapı kesintisi",
+          "beklenmedik sosyal durum"
+        ],
+        "sure": [
+          "bu hafta",
+          "iki hafta",
+          "belirsiz süre"
+        ],
+        "etki": [
+          "sprint hızında düşüş",
+          "iletişim kopukluğu",
+          "test ortamına erişim sorunları"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nEkip güvenliği her şeyden önce geliyor; uzaktan çalışma protokollerini hemen aktive ediyorum. Uzaktan yürütülebilecek görevleri ön plana alarak sprint planını revize ediyorum ve takvim etkisini paydaşlara şeffaf biçimde bildiriyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip mümkün olduğunca çalışmaya devam etsin; telafi ederiz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nBu durumda takvim gecikmesi kaçınılmaz; paydaşlar anlayışla karşılar.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nTüm görevleri duraklatıp durum normale dönene kadar bekleyelim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Beklenmedik dış etkenler proje risk kaydında 'dış risk' kategorisinde yer almalıdır. İş sürekliliği planı (Business Continuity Plan) uzaktan çalışma protokollerini ve alternatif iş akışlarını içermelidir. PM, kriz döneminde ekip güvenliğini ön planda tutarak sürdürülebilir çalışma modeline geçişi yönetmeli ve paydaşlarla şeffaf iletişim kurmalıdır."
+    }
+  ]
+}

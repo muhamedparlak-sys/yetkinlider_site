@@ -1,0 +1,523 @@
+{
+  "mesele_id": "gorev_gecikmesi",
+  "meseleTR": "Görev Gecikmesi",
+  "compatible_terms": [
+    "schedule_compression", "critical_path", "earned_value_management",
+    "risk_register", "issue_log", "project_monitoring", "wbs"
+  ],
+  "reasons": [
+    {
+      "reason_id": "kisi_soylemekten_cekindi",
+      "reasonTR": "Kişi Gecikmeyi Söylemekten Çekindi",
+      "weight": 9,
+      "max_per_scenario": 5,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Bir şeyi söylemem gerekiyordu aslında",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, özür dilerim ama {gorev} konusunda biraz geri kaldım. {gecikme_nedeni} Daha erken söylemedim için çok üzgünüm.",
+      "body_vars": {
+        "gorev": [
+          "API entegrasyonu",
+          "test sürecini",
+          "tasarım teslimini",
+          "analiz raporunu",
+          "veritabanı modellemesini"
+        ],
+        "gecikme_nedeni": [
+          "Düzeleceğini düşünüyordum ama olmadı.",
+          "Söylemek istemedim, hallederim dedim.",
+          "Küçük bir engel sandım ama büyüdü.",
+          "Hayal kırıklığı yaratmaktan korktum."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Söylediğin için teşekkürler {name_polite}, cesaret istiyor bu. Şimdi nerede olduğumuza birlikte bakalım — neler engel oldu, nasıl çözebiliriz konuşalım. Erken söylenmiş geç söylenmiş'ten her zaman iyidir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Ne zaman bitirebilirsin, gerçekçi bir tarih verir misin? Planı güncellemem lazım, buna göre paydaşlara döneyim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Engel neydi, nasıl hallederiz bakalım — çözümü birlikte düşünelim. Gerekirse başka biri destek verir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Neden bu kadar bekledin {name_polite}? Bu bizi çok zor durumda bıraktı — teslim tarihi yaklaşıyor. Bir daha böyle olmamalı.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Gecikmeyi söylemekten çekinme, psikolojik güvenlik (psychological safety) eksikliğinin göstergesidir. PMI proje ortamında 'erken uyarı kültürü' oluşturmak PM'in sorumluluğundadır. Çalışanı azarlamak bir sonraki gecikmede de söylememesine yol açar."
+    },
+    {
+      "reason_id": "status_toplantida_ortaya_cikti",
+      "reasonTR": "Durum Toplantısında Ortaya Çıktı",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Toplantıdaki konuya dair",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, toplantıda söylediğim yüzde oranı biraz iyimserdi, özür dilerim. {gorev} aslında sanıldığı kadar ilerlemedi. {engel} Bunu nasıl ele alalım?",
+      "body_vars": {
+        "gorev": [
+          "Backend tarafı",
+          "Test kapsamı",
+          "Entegrasyon süreci",
+          "Dokümantasyon"
+        ],
+        "engel": [
+          "Teknik bir engele takıldım.",
+          "Bağımlılık çözülmedi henüz.",
+          "Beklediğimden daha karmaşık çıktı.",
+          "Başka işler araya girdi."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "İyi ki söyledin {name_polite}. Gerçek durumu bilmek, iyimser tahminle devam etmekten çok daha değerli. Neyin engel olduğunu birlikte anlayalım — çözüm için ne yapabiliriz bakalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Gerçekçi bir bitiş tarihi verir misin? Takvimi güncelleyeyim, paydaşlara da ileteyim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bunu paydaşlara bildirmem gerekecek — hazırlanayım. Sana nasıl destek verebileceğimi de konuşalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Toplantıda gerçekçi olmalıydın {name_polite}. Bu bizi zor duruma soktu — bir daha böyle olmasın, durum raporları gerçeği yansıtmalı.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Durum toplantısında iyimser rapor verilmesi 'Earned Value Management' (EVM) eksikliğiyle doğrudan ilişkilidir. PM, gerçekçi ilerleme ölçümü için SPI (Schedule Performance Index) gibi nesnel metrikler kullanmalıdır. Çalışanı azarlamak yerine neden iyimser rapor verildiğini anlamak, sistemik sorunu çözer."
+    },
+    {
+      "reason_id": "ucuncu_kisi_haber_verdi",
+      "reasonTR": "Üçüncü Kişi Haber Verdi",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "third_party",
+      "subject_template": "{name}'in durumu hakkında",
+      "from_role_template": "Ekip Üyesi",
+      "body_template": "Hocam, {name}'in durumunu merak ettim, kısa konuştuk. {durum} Size de söylemem gerektiğini düşündüm.",
+      "body_vars": {
+        "durum": [
+          "Görev beklenenden çok daha büyük çıkmış, panikte.",
+          "Bir teknik engele takılmış, kimseye söyleyememiş.",
+          "İki gündür aynı yerde dönüp duruyor, bize sormaktan çekinmiş.",
+          "Aslında çok geri olduğunu ama söyleyemediğini ima etti."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Bilgilendirdiğin için teşekkürler {name_polite}. {name_polite}'e ulaşacağım — ama sakın 'PM bildi' deme. Ben normal bir check-in gibi açayım konuyu, rahat konuşabilsin.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. {name_polite}'e doğrudan sorayım — ne durumda olduğunu öğrenirim, gerekirse yardım ederiz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Teşekkürler {name_polite}. Yarınki toplantıda durumu sorarım — orada konuşmak daha doğal olur, o şekilde açayım konuyu.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Neden daha önce bildirmedin {name_polite}? {name_polite} ile konuşacağım — bu gecikmeler kabul edilemez, ekibi bilgilendirmeliydi.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Üçüncü kişiden öğrenilen bilgiler dikkatli kullanılmalıdır. Kaynağı ifşa etmek kişiler arası güveni zedeler. PM'in görevi bilgiyi geçici bir giriş noktası olarak kullanmak, konuyu gizlice açmak ve kişiyi rahatlatmaktır — kaynağı açığa çıkarmak değil."
+    },
+    {
+      "reason_id": "teknik_engel_ani",
+      "reasonTR": "Ani Teknik Engel",
+      "weight": 8,
+      "max_per_scenario": 5,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Ciddi bir engele takıldım",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {gorev} konusunda beklenmedik bir sorunla karşılaştım. {teknik_sorun} Bu haftalık planımı etkileyecek, sizi bilgilendireyim istedim.",
+      "body_vars": {
+        "gorev": [
+          "API entegrasyonunda",
+          "veritabanı migrasyonunda",
+          "performans testinde",
+          "güvenlik yapılandırmasında"
+        ],
+        "teknik_sorun": [
+          "Kullandığımız kütüphanede beklenmedik bir hata var.",
+          "Test ortamı beklendiği gibi davranmıyor.",
+          "Üçüncü taraf servis yanıt vermiyor.",
+          "Veri formatı belgelenmemiş şekilde çalışıyor."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Bildirdiğin için teşekkürler {name_polite}. Neye takıldığını anlat — birlikte çözüm üretelim. Gerekirse başka biri destek verir veya önceliği yeniden düzenleriz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Çözüm için ne lazım, listeyi çıkar bir. Gerekli kaynakları veya erişimleri ben temin ederim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Ne kadar uzayacağını tahmin edebiliyor musun? Takvimi güncelleyeyim ve paydaşları önceden bilgilendireyim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Anladım {name_polite} ama teslim tarihi sabit — çözümü bulman gerekiyor. Hafta sonu da çalışmanı bekliyorum, bu kritik.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Teknik engeller PMI risk kaydında 'teknik risk' kategorisine girer. Erken bildirim PM'in takvimi ve öncelikleri proaktif yönetmesini sağlar. Fazla mesai baskısı uzun vadede hem kaliteyi hem motivasyonu düşürür; PM'in görevi engeli kaldırmak için kaynak sağlamaktır, baskı değil."
+    },
+    {
+      "reason_id": "bagimlilik_gec_fark_edildi",
+      "reasonTR": "Bağımlılık Geç Fark Edildi",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Bir bağımlılık fark ettim — önemli",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {gorev} üzerinde çalışırken fark ettim ki {bagimlilik} Bunu planlamaya dahil etmemiştik sanırım. Bu durumda {etki}",
+      "body_vars": {
+        "gorev": [
+          "ödeme modülünde",
+          "raporlama sisteminde",
+          "kullanıcı yönetiminde",
+          "entegrasyon katmanında"
+        ],
+        "bagimlilik": [
+          "önce veri taşımasının tamamlanması gerekiyor.",
+          "önce güvenlik onayı alınması şart.",
+          "önce müşterinin ortam yapılandırması gerekiyor.",
+          "önce başka bir modülün tamamlanması lazım."
+        ],
+        "etki": [
+          "bu haftalık planımı sıfırdan revize etmem gerekebilir.",
+          "takvimimiz ciddi etkilenecek.",
+          "birkaç günlük gecikme kaçınılmaz görünüyor."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Fark ettiğin ve bildirdiğin için iyi ki {name_polite}. Bu bağımlılığı birlikte ele alalım — en kısa yoldan nasıl çözebiliriz? Gerekirse takvimi güncelleyip paydaşları bilgilendiririm.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bağımlı olan tarafa ulaşayım, ne zaman hazır olur öğrenelim — ona göre takvimi güncelleriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. En iyimser takvim değişikliği ne olur, bir hesaplayalım — paydaşlara iletmeden önce seçeneklerimizi görelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bunu neden daha önce fark etmedin {name_polite}? Bu riski baştan görmemiz gerekirdi — planlama aşamasında gözden kaçırılmış.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Bağımlılık analizi (dependency mapping) WBS ve network diyagramının temel çıktısıdır. Geç fark edilen bağımlılıklar planlama sürecinin yetersizliğini gösterir — bireysel hatayı değil. PM'in görevi bağımlılıkları görünür kılmak ve erken uyarı kültürünü korumaktır."
+    },
+    {
+      "reason_id": "tahmin_hatasi_kapsam_buyudu",
+      "reasonTR": "İş Tahmin Edilenden Büyük Çıktı",
+      "weight": 8,
+      "max_per_scenario": 5,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Tahminim tutmadı, görüşelim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {gorev} için verdiğim {sure} tahmini tutmayacak. {buyume_nedeni} Gerçekçi bir süre için konuşmamız gerekiyor.",
+      "body_vars": {
+        "gorev": [
+          "bu özelliğin geliştirilmesi",
+          "test süreci",
+          "veri modeli tasarımı",
+          "arayüz implementasyonu"
+        ],
+        "sure": [
+          "3 günlük",
+          "1 haftalık",
+          "5 günlük"
+        ],
+        "buyume_nedeni": [
+          "İşin kapsamı açıldıkça büyüdü.",
+          "Birden fazla edge case çıktı.",
+          "Belge eksikliği nedeniyle çok zaman araştırmaya harcadım.",
+          "Kullandığım teknoloji beklendiği gibi davranmadı."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Teşekkürler {name_polite}, erken haber vermek doğru karar. Neyin büyüdüğünü birlikte anlayalım önce — sonra gerçekçi bir plan yapalım. Bunları öğrenmek bir sonraki tahmin için de çok değerli.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Şu an neredeyiz, ne kadar daha lazım — gerçekçi bir tarih ver. Takvimi güncelleyeyim, paydaşları önceden bilgilendireyim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Kapsamı kısmak mümkün mü, bunu da değerlendirelim — belki önce MVP çıkarırız, gerisi sonraya kalır.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Teklif ederken neden gerçekçi tahmin vermiyorsunuz {name_polite}? Bu bizi müşteri nezdinde zor duruma soktu — bir daha bu olmak için ne yapacaksın?",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Tahmin hatası bireysel bir başarısızlık değil, çoğunlukla gereksinim belirsizliğinin ya da teknik belirsizliğin yansımasıdır. PMI EVM (Earned Value Management) bu sapmaları SPI ve CPI metrikleriyle nesnel olarak ölçer. PM'in görevi sapmaları anlayıp bir sonraki planlama döngüsünü iyileştirmektir — sorumlu aramak değil."
+    },
+    {
+      "reason_id": "onay_asilı_kaldı",
+      "reasonTR": "Onay Beklerken İş Askıda Kaldı",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Onay bekliyorum, iş duruyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {gorev} için {onay_sahibi}'ndan onay bekliyorum. {bekleme_suresi} önce ilettim ama henüz yanıt yok. Bu yüzden ilerleyemiyorum.",
+      "body_vars": {
+        "gorev": [
+          "tasarımın onaylanması",
+          "teknik mimarinin onayı",
+          "erişim izinlerinin açılması",
+          "bütçe onayı"
+        ],
+        "onay_sahibi": [
+          "ürün müdüründen",
+          "müşteriden",
+          "güvenlik ekibinden",
+          "direktörden"
+        ],
+        "bekleme_suresi": [
+          "3 gün",
+          "2 gün",
+          "Geçen hafta"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Anladım {name_polite}, bilgilendirdiğin için iyi oldu. Ben {onay_sahibi} ulaşacağım — bekleyiş neden uzuyor öğreneyim, çözüme kavuşturalım. Sen bu süreçte paralel ilerleyebileceğin bir şey var mı, birlikte düşünelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Ben {onay_sahibi} bir hatırlatma yapayım — kopyama al, yazışma kayıtlarda olsun.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bu süreçte paralel çalışabileceğin başka iş var mı — listeyi çıkar, bağımsız ilerleyebileceğin ne varsa girelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Onayı bekleme, devam et — sonradan onaylarsın. Zaten ufak bir şey, proje için gerekli.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Onay süreçleri PMI proje yönetim planının parçasıdır ve onay sahibi, bekleme süresi ve eskalasyon yolu önceden tanımlanmalıdır. 'Sonradan onaylarsın' yaklaşımı yönetişim ve uyum (compliance) açısından ciddi risk taşır. PM'in görevi onay sürecini aktif olarak takip etmek ve tıkananları çözmektir."
+    },
+    {
+      "reason_id": "status_guncellenmemis",
+      "reasonTR": "Durum Güncellemesi Yapılmadı, Gecikme Fark Edilmedi",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Takip araçlarını güncelleme konusunda konuşalım",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {player_name}, {gorev} görevindeki gerçek ilerleme {arac}'daki bilginin çok gerisinde. {sorun} Fark ettiğimde bildirmek istedim.",
+      "body_vars": {
+        "gorev": [
+          "frontend geliştirme görevi",
+          "test otomasyon süreci",
+          "veri entegrasyon görevi",
+          "dokümantasyon kalemi"
+        ],
+        "arac": [
+          "Jira'daki",
+          "proje panosundaki",
+          "haftalık rapordaki",
+          "dashboard'daki"
+        ],
+        "sorun": [
+          "Yüzde seksen gösteriyordu ama gerçekte yüzde kırk civarındayız.",
+          "Tamamlandı olarak işaretlenmiş ama testler geçmedi.",
+          "Güncellemeler üç gündür yapılmamış, süreç belirsiz kaldı.",
+          "Sadece ben bakınca fark ettim, yoksa kimse bilmeyecekti."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Fark ettiğin ve bildirdiğin için teşekkürler {name_polite}. Şimdi gerçek durumu birlikte değerlendirelim — ne kadar süre gerekiyor, takvimi nasıl etkiliyor bakalım. Durum güncellemesi için nasıl bir alışkanlık oluşturabiliriz de konuşalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Gerçek durumu paylaşır mısın, planı güncelleyeyim. Aradaki farkı paydaşlara da doğru şekilde ileteyim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bundan sonrası için günlük kısa güncelleme alışkanlığı koyalım — 2 satır yeterli, takip aracında görelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kabul edilemez {name_polite}. Durum güncelleme yapmak temel bir sorumluluk — neden yapmıyorsunuz? Bundan sonra günlük zorunlu hale getiriyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Durum güncellemelerinin yapılmaması çoğunlukla araç karmaşıklığı veya kültürel baskı nedeniyle gerçekleşir — kötü niyet değil. PMI proje izleme (project monitoring) sürecinde bilgi toplama mekanizmaları çalışanı yük olarak hissettirmemelidir. PM'in görevi sistemin işlemesini sağlamak, suçlamak değil."
+    },
+    {
+      "reason_id": "harici_bagimlilik_gelmedi",
+      "reasonTR": "Dış Tarafın Teslim Etmesi Gereken Şey Gelmedi",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Dış taraftan beklediğimiz gelmiyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {gorev} görevi için {kaynak}'dan {beklenen} bekliyoruz. {bekleme_suresi} olmasına rağmen henüz gelişme yok. Bu durum ilerlememizi tamamen durduruyor.",
+      "body_vars": {
+        "gorev": [
+          "entegrasyon geliştirme",
+          "veri migrasyonu",
+          "test senaryoları hazırlama",
+          "güvenlik değerlendirmesi"
+        ],
+        "kaynak": [
+          "tedarikçiden",
+          "müşteri teknik ekibinden",
+          "üçüncü taraf servis sağlayıcıdan",
+          "iş ortağından"
+        ],
+        "beklenen": [
+          "API dokümantasyonunu",
+          "test verilerini",
+          "erişim bilgilerini",
+          "teknik şartnameyi"
+        ],
+        "bekleme_suresi": [
+          "İki hafta",
+          "On gün",
+          "Üç iş günü"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Bu engeli bilmek önemli, iyi ki bildirdin {name_polite}. Ben {kaynak} doğrudan ulaşacağım — gecikmenin nedenini anlayalım, bir tarih alalım. Bu süreçte paralel ilerleyebileceğimiz alan var mı, birlikte düşünelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. {kaynak} bir hatırlatma maili daha atalım — kopyama al. İki haftadır bekliyorsak resmi bir eskalasyon uygun olabilir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bu riski proje günlüğüne işleyelim ve paydaşlara bildireyim — gecikmenin projemize etkisini şeffaf paylaşalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bir şekilde devam edin {name_polite}, gelince entegre ederiz. Bu kadar beklemeye gerek yok — eldeki bilgiyle ilerleyin.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Harici bağımlılıklar PMI risk kaydında 'dış bağımlılık riski' olarak tanımlanır ve SLA (Service Level Agreement) ile eskalasyon yolu baştan belirlenmelidir. 'Gelince entegre ederiz' yaklaşımı teknik borç ve yeniden çalışmaya (rework) zemin hazırlar. PM bu tür bağımlılıkları proaktif olarak yönetmelidir."
+    },
+    {
+      "reason_id": "yanlis_anladi",
+      "reasonTR": "Kişi İşi Farklı Anladı, Yeniden Başlaması Gerekti",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Görev hakkında kritik bir yanlış anlama yaşandı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {gorev} görevini {ne_yapti}. Ancak bugün fark ettim ki {yanlis_anlasilan} Bu durumda yaptıklarımı geri alıp baştan başlamam gerekebilir. Nasıl ilerleyelim?",
+      "body_vars": {
+        "gorev": [
+          "arayüz geliştirme",
+          "raporlama modülü",
+          "kullanıcı yönetim sistemi",
+          "veri işleme süreci"
+        ],
+        "ne_yapti": [
+          "iki gün boyunca geliştirdim",
+          "neredeyse tamamladım",
+          "prototip hazırladım",
+          "test senaryolarını yazdım"
+        ],
+        "yanlis_anlasilan": [
+          "istenilen tamamen farklı bir yaklaşım gerektiriyormuş.",
+          "mobil değil web tarafı için yapılması gerekiyormuş.",
+          "kullanılacak teknoloji stack değişmişmiş, kimse bildirmemiş.",
+          "gereksinim belgesinin eski versiyonunu okumuşum."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Bunu fark etmen ve bildirmen doğru adım {name_polite}. Hemen kısa bir netleştirme toplantısı yapalım — gereksinimleri birlikte geçelim. Bir sonraki görevlendirmede daha kapsamlı kickoff yapalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Doğru gereksinimi netleştir ve işe devam et — elimizdeki belgelerin güncel versiyonuna bak, oradan ilerle.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Yapılanların ne kadarı kurtarılabilir, bir değerlendirelim — hiçbir şeyi atmadan önce yeniden kullanılabilecek kısımları belirleyelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Başlamadan önce netleştirmen gerekmez miydi {name_polite}? Bu zaman kaybı ciddi bir sorun — bundan sonra çalışmaya başlamadan önce mutlaka onay al.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yanlış anlama bireysel hata değil, çoğunlukla yetersiz bir kickoff veya gereksinim belirsizliğinin sonucudur. PMI Kapsam Yönetimi, görev bazlı kabul kriterlerini ve netleştirme protokolünü tanımlar. PM'in görevi çalışanı azarlamak yerine bir sonraki seferde sistemi iyileştirmektir."
+    }
+  ]
+}

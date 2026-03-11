@@ -1,0 +1,247 @@
+{
+  "mesele_id": "yeni_uye_entegrasyonu",
+  "meseleTR": "Yeni Üye Entegrasyonu",
+  "compatible_terms": [
+    "onboarding",
+    "new team member",
+    "team integration",
+    "ramp up"
+  ],
+  "reasons": [
+    {
+      "reason_id": "YUE-01",
+      "reasonTR": "Yeni üye sürece adapte olamıyor",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{isim} projeye {sure} önce katıldı ama hâlâ {sorun} sorunuyla mücadele ediyor. Sprint taahhütleri aksıyor ve diğer ekip üyeleri etkileniyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "isim": [
+          "Ali Bey",
+          "Merve Hanım",
+          "Can Bey"
+        ],
+        "sure": [
+          "iki hafta",
+          "üç hafta",
+          "bir ay"
+        ],
+        "sorun": [
+          "geliştirme ortamını kuramama",
+          "kod tabanını anlayamama",
+          "süreçlere adapte olamama"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\n{isim} ile bire-bir görüşme yapıp tam olarak nerede takıldığını anlıyorum. Adapte olma sürecini hızlandırmak için deneyimli bir mentor atıyorum ve bu iki hafta için sprint taahhütlerini daha erişilebilir düzeyde tutuyorum. Onboarding kontrol listesini de gözden geçirip eksik adımları tamamlıyoruz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nBeklenti net; sprint taahhütlerini tutması gerekiyor.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\n{isim} zamanla adapte olur; müdahale etmeden bekleyelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nAdaptasyon süreci uzunsa bu kişi projemize uygun olmayabilir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yeni üye entegrasyonu (onboarding) sistematik bir yatırım gerektirmektedir; 'atla derin suya' yaklaşımı yeni üyenin motivasyonunu ve verimi düşürür. Yapılandırılmış onboarding planı, mentor desteği ve ilk sprint'te azaltılmış taahhüt düzeyi, yeni üyelerin hızlı adaptasyonunu sağlar. PM, onboarding kalitesini ekip geneli performans metriği olarak izlemelidir."
+    },
+    {
+      "reason_id": "YUE-02",
+      "reasonTR": "Onboarding belgelerinin eksik ve eski olması",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{isim} onboarding belgelerini kullanarak kurulum yapmaya çalıştı ama belgeler {durum}. {isim} kendi başına ilerleyemiyor; her adımda birinden yardım istemek zorunda kalıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "isim": [
+          "Ali Bey",
+          "Merve Hanım",
+          "Can Bey"
+        ],
+        "durum": [
+          "çok eski ve geçersiz",
+          "eksik ve yarım",
+          "tamamen yok"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nOnboarding belge eksikliği sistemik bir sorun. Kısa vadede {isim}'e birebir rehberlik sağlıyorum; uzun vadede mevcut ekiple bir 'doküman günceleme' oturumu planlıyorum. Onboarding deneyimini standart hale getirecek bir kontrol listesi ve güncel kurulum rehberi oluşturuyoruz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nYeni üye mevcut ekipten öğrenerek ilerler; belgeye gerek yok.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nBelgeleri güncellemesi için zamanımız yok; şimdilik bu şekilde devam edeceğiz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nYeni üye belgeleri kendisi güncellesin; hem öğrenir hem de katkıda bulunur.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Onboarding belge kalitesi yeni üyenin adaptasyon hızını ve mevcut ekibin zaman maliyetini doğrudan etkiler. PM, onboarding materyallerini canlı ve güncel tutmayı ekip standardı haline getirmelidir. Yeni üyenin 'belgeleri güncellemesi' ise makul bir yol olmakla birlikte, güncel başlangıç materyalleri olmadan yapılamaz."
+    },
+    {
+      "reason_id": "YUE-03",
+      "reasonTR": "Ekip kültürüne uyumsuzluk",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{isim} teknik açıdan yeterli ama ekibimizin {kultur} kültürüyle ciddi uyumsuzluk yaşıyor. Diğer ekip üyeleriyle gerilim artıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "isim": [
+          "Ali Bey",
+          "Merve Hanım",
+          "Can Bey"
+        ],
+        "kultur": [
+          "açık geri bildirim",
+          "doğrudan iletişim",
+          "çevik süreç"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nKültürel uyumsuzluğu ciddiye alıyorum. {isim} ile özel bir görüşme yapıp ekip değerlerini ve beklentilerini açık biçimde paylaşıyorum. Onun bakış açısını da dinliyorum; belki ekip olarak da öğrenebileceğimiz şeyler vardır. Ardından somut davranış beklentilerini birlikte netleştireceğiz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip kültürü sabittir; {isim} uyum sağlamalı.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nKültür uyumsuzluğu zamanla düzelir; bekleyelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nEkip huzuru için {isim}'i başka projeye aktarmak gerekebilir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Ekip kültürü açık biçimde tanımlanmalı ve yeni üyelere onboarding sürecinde aktarılmalıdır. Kültürel uyumsuzluklar erken tespit edilip diyalog yoluyla ele alınmalıdır; kışkırtıcı baskı veya sessiz görmezden gelme sorunu çözmez. PM, ekip değerlerini hem belgelemeli hem de davranışsal beklentiler olarak modellemelir."
+    },
+    {
+      "reason_id": "YUE-04",
+      "reasonTR": "Kıdemli üyenin mentorluk yükü",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{mentor} kıdemli üyemiz yeni katılan {yeni_uye}'e mentorluk yapıyor ama bu süreç kendi sprint görevlerini ciddi biçimde aksatıyor. İkisi de verimli çalışamıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "mentor": [
+          "Ali Bey",
+          "Merve Hanım",
+          "Can Bey"
+        ],
+        "yeni_uye": [
+          "Emre Bey",
+          "Selin Hanım",
+          "Burak Bey"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nMentorluk yükünü sprint kapasitesine dahil etmemişiz. {mentor}'ın bu sprint için taahhütlerini gerçekçi biçimde kısaltıyorum ve mentorluk süresini net olarak blokluyorum. Ayrıca yapılandırılmış mentorluk programı oluşturarak mentorluk yükünü daha fazla ekip üyesine dağıtmayı değerlendireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\n{mentor} hem mentörlük hem de kendi görevlerini yapabilir; motivasyon meselesi.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nMentorluk informal sürdürülebilir; plan gerekmez.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\n{yeni_uye} daha az soru sormalı; {mentor} zamanını almaktan kaçınmalı.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Mentorluk sistematik bir zaman yatırımıdır ve sprint kapasitesine dahil edilmelidir. 'Kendi işini de yapsın, yeniye de baksın' yaklaşımı hem mentorun hem de yeni üyenin başarısını riske atar. PM, mentorluk yükünü görünür kılmalı ve planlama sürecine entegre etmelidir."
+    },
+    {
+      "reason_id": "YUE-05",
+      "reasonTR": "Birden fazla yeni üye aynı anda katılıyor",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nBu ay {sayi} yeni üye aynı anda projeye katıldı. Onboarding yükü mevcut ekibi aşıyor; sprint hızımız belirgin şekilde düştü.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "sayi": [
+          "3",
+          "4",
+          "2"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nToplu onboarding durumunu planlıyorum. Önce yeni üyeler için gruplu onboarding oturumları düzenliyorum; bu mentorluk yükünü dağıtır. Sprint kapasitesini bu ay için gerçekçi biçimde düşürüyorum ve paydaşlara açıklıyorum. Onboarding sürecini hızlandıracak standart materyalleri hazırlıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nYeni üyeler mevcut hızla çalışmaya başlamalı; sprint hızı düşmemeli.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nHer yeni üyeye ayrı mentor atalamam mümkün değil; kendi başlarına öğrensinler.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nYeni üyeler tam entegre olana kadar sprint planlama dışı tutalım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Toplu işe alım dönemlerinde onboarding planlaması özellikle önem kazanır. PM, bu dönemlerde sprint kapasitesini gerçekçi olarak düşürmeli ve paydaşlarla beklenti yönetimi yapmalıdır. Gruplu onboarding aktiviteleri bireysel mentorluk yükünü azaltır ve yeni üyelerin birbirinden öğrenmesini sağlar."
+    }
+  ]
+}

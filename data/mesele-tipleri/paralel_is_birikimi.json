@@ -1,0 +1,304 @@
+{
+  "mesele_id": "paralel_is_birikimi",
+  "meseleTR": "Paralel İş Birikimi",
+  "compatible_terms": [
+    "work overload",
+    "multitasking",
+    "parallel projects",
+    "capacity overload"
+  ],
+  "reasons": [
+    {
+      "reason_id": "PAR-01",
+      "reasonTR": "Ekip üyesi çok proje arasında bölünmüş",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nEkibimizdeki {rol} rolündeki üyeler aynı anda {proje_sayisi} projede görevlendirilmiş. Sprint hızımız son {sure} içinde %{dusus} düştü; multitasking başarım üzerinde belirgin etki yaratıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "rol": [
+          "kıdemli geliştiriciler",
+          "UX tasarımcılar",
+          "test mühendisleri"
+        ],
+        "proje_sayisi": [
+          "3",
+          "4",
+          "5"
+        ],
+        "sure": [
+          "iki sprint",
+          "altı haftada",
+          "son çeyrekte"
+        ],
+        "dusus": [
+          "35",
+          "40",
+          "50"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nVelocity düşüşünün kaynağını doğruladım. PMO'ya ekip kapasitesini ve proje önceliklerini gösteren somut bir tablo sunuyorum; odaklanmış görevlendirme için kaynak yeniden dağılımı talep edeceğim. Her projeye asgari odak süresi garantisi istemek için sponsor ile görüşeceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip biraz daha verimli çalışırsa bu yük kaldırılabilir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nVelocity düşüşünü sprint raporuna not ettim; durumu izlemeye devam edeceğiz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nÇok proje aynı anda yürütmek firmanın politikası; buna göre planlama yapmamız gerekiyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Multitasking araştırmaları, kişinin aynı anda 3'ten fazla projede çalışmasının verimliliği %40-50 oranında düşürdüğünü göstermektedir. PM, kaynak tahsisini ve proje önceliklerini PMO düzeyinde yönetmeli ve odaklanmış görevlendirme savunuculuğu yapmalıdır. Velocity eğilimi somut bir iş gerekçesi (business case) olarak kullanılabilir."
+    },
+    {
+      "reason_id": "PAR-02",
+      "reasonTR": "Beklenmedik acil iş talebi",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "manager",
+      "subject_template": "Acil görev — öncelik verin",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nYönetimden gelen {acil_is} talebi öncelikli hale geldi. Ekibinizden {efor} günlük efor bu işe ayrılması gerekiyor. Mevcut sprint planınızı buna göre ayarlayın.\n\nBilgilerinize.",
+      "body_vars": {
+        "acil_is": [
+          "yönetim sunumu hazırlama",
+          "dış denetim desteği",
+          "kritik müşteri sorunu çözme"
+        ],
+        "efor": [
+          "3",
+          "5",
+          "10"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, acil talebi aldım. Bu kapasite çekilmesinin mevcut sprint taahhütlerimize etkisini hızla değerlendiriyorum. Hangi görevleri ertelemek ya da kapsamdan çıkarmak gerektiğini size ve ilgili paydaşlara bildireceğim; sprint hedeflerinin değişmesi için onayınızı alacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, ekibi acil işe yönlendiriyorum; sprint taahhütleri de tutulmaya çalışılacak.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, acil iş için gönüllü bir üye bulursam sprint planı etkilenmez.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, sprint taahhütlerimizi bırakamayız; acil işi başka ekip üstlenmeli.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Acil talepler sprint planını bozduğunda PM, etkiyi somut biçimde (hangi görev erteleniyor, ne kadar gecikme oluşuyor) raporlamalıdır. 'Her şeyi yaparız' yaklaşımı kalite ve takvim riskini artırır. Scrum metodolojisinde sprint değişiklikleri sprint sahibi onayıyla yapılmalı ve paydaşlara şeffaf biçimde bildirilmelidir."
+    },
+    {
+      "reason_id": "PAR-03",
+      "reasonTR": "Bilgi transferi yükü",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nYeni proje başladığı için kıdemli geliştiriciler {sure} boyunca yeni ekip üyelerine bilgi aktarımı yapıyor. Bu süreçte asıl sprint görevleri aksıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "sure": [
+          "bu sprint boyunca",
+          "iki hafta",
+          "sonraki ay"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBilgi transferi önemli ama sprint taahhütlerini de etkilememeli. Bilgi transferi seanslarını sprint kapasitesine dahil ediyorum ve bu süre zarfında sprint kapsamını buna göre kısaltıyorum. Sponsor ve PMO'yu revize kapasiteyle bilgilendirip beklenti yönetimi yapıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nKıdemli geliştirici hem bilgi aktarımı hem sprint görevlerini yapabilir; çifte verimli olur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nBilgi aktarımını sprint dışında, mesai sonrasında yaparsak sprint etkilenmez.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nBilgi aktarımı öncelikli; sprint taahhütlerini bu ay bırakabiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Bilgi transferi doğru planlama gerektiren kapasiteli bir yatırımdır; ek kapasite olarak değil, planlanmış iş paketi olarak sprint'e dahil edilmelidir. PM, bilgi transferi dönemlerinde sprint kapsamını düşürmeli ve paydaşlarla beklentileri yönetmelidir. Kıdemli ekip üyelerini multitaskinge zorlamak hem bilgi transferi kalitesini hem de sprint başarısını düşürür."
+    },
+    {
+      "reason_id": "PAR-04",
+      "reasonTR": "Operasyonel destek yükü",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nEkibimiz aynı anda {sistem} sisteminin operasyonel desteğini üstleniyor. {sorun_sayisi} destek talebi geliyor ve geliştirme işi %{oran} yavaşlıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "sistem": [
+          "canlı üretim sistemi",
+          "müşteri portalı",
+          "eski ERP"
+        ],
+        "sorun_sayisi": [
+          "günde 5-10",
+          "haftada 20+",
+          "sürekli"
+        ],
+        "oran": [
+          "40",
+          "30",
+          "50"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nOps-Dev çatışmasını somut verilerle belgeledim. Destek taleplerini yönetmek için ayrı bir 'ops nöbet' rotasyonu oluşturup geliştirme sprint'lerini bu yükten izole etmeyi öneriyorum. Uzun vadeli çözüm için dedicated ops kaynağı talebini yönetimle paylaşacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nDestek ve geliştirme aynı ekip tarafından yürütülebilir; organize olunca yönetilebilir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nDestek yükü yoğun olduğu haftalarda sprint kapsamını düşürürüz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nDesteği müşteriye bırakalım; kullanıcılar sistemi öğrenince sorunlar azalır.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Operasyonel destek ve ürün geliştirme aynı anda yürütmek ekip verimliliğini ciddi biçimde düşürür. DevOps olgunluk modelinde 'ops' ve 'dev' iş yükleri sprint'e dahil edilir ve kapasite buna göre planlanır. PM, nöbet rotasyonu veya dedicated ops kaynağı gibi yapısal çözümler önermelidir."
+    },
+    {
+      "reason_id": "PAR-05",
+      "reasonTR": "Senkronizasyon toplantı yükü",
+      "weight": 5,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nEkip üyeleri haftada ortalama {saat} saatini toplantılarda geçiriyor. Odaklanmış geliştirme süresi çok azaldı; sprint hızı düşüyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "saat": [
+          "15",
+          "20",
+          "18"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nToplantı yükünü analiz ettim. Hangi toplantıların zorunlu, hangilerinin asenkron iletişimle değiştirilebileceğini değerlendiriyorum. Toplantı kurallarını sadeleştirip (gündem zorunlu, süre sınırlı, katılım gerekçeli) ekip için odak blokları oluşturmayı önereceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nToplantılar iletişim için gerekli; ekip bunlara uyum sağlar.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nBazı toplantıları atlamayı ekip üyelerine bırakalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nToplantıları mesai sonrasına alabiliriz; geliştirme saatlerini koruruz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Toplantı yükü (meeting overhead) ekip verimliliğini doğrudan etkileyen ve kolayca artabilen gizli bir kapasite tükenimidir. Agile metodolojileri asenkron iletişimi ve odak bloklarını (deep work) teşvik eder. PM, toplantı kültürünü takım anlaşmaları (working agreements) ile düzenlemeli ve gereksiz toplantıları sistematik biçimde ayıklamalıdır."
+    },
+    {
+      "reason_id": "PAR-06",
+      "reasonTR": "Aynı kaynak birden fazla kritik görevde",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{isim}, hem {gorev_a} hem de {gorev_b} görevlerinde kritik karar verici konumunda. İkisi aynı hafta yoğunlaştı; biri mutlaka ertelenecek.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "isim": [
+          "Ali Bey",
+          "Merve Hanım",
+          "Can Bey"
+        ],
+        "gorev_a": [
+          "üretim geçiş toplantısı",
+          "mimari karar oturumu",
+          "müşteri sunumu"
+        ],
+        "gorev_b": [
+          "ekip değerlendirme görüşmesi",
+          "teknik inceleme",
+          "pilot kullanıcı eğitimi"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\n{isim} ile her iki görevin öncelik ve esnekliğini değerlendiriyorum. Hangisinin ertelenebildiğini veya kısmen devredilebileceğini netleştirip bu hafta için gerçekçi bir plan oluşturacağım. Uzun vadede kilit kişi bağımlılığını azaltmak için yedek karar verici yetiştirmeyi önereceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\n{isim} her ikisini de birden yönetebilir; hafif bir reorganizasyonla.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\n{isim}'e bağlı olan görevlerden birini benim onay yetkimle ilerletebiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nHer iki görevi de erteliyoruz; {isim} uygun olana kadar bekleriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kilit karar vericilerin aşırı yüklenmesi proje tıkanıklığının yaygın nedenlerinden biridir. PM, karar yetkisini dağıtacak (delegasyon) ve yedek karar vericiler geliştirecek bir ekip yapısı oluşturmalıdır. Bottleneck analizi, kimin veya neyin projeyi yavaşlattığını görünür kılmak için etkili bir araçtır."
+    }
+  ]
+}

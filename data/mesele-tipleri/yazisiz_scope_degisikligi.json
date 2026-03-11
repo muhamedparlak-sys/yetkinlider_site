@@ -1,0 +1,535 @@
+{
+  "mesele_id": "yazisiz_scope_degisikligi",
+  "meseleTR": "Yazısız / Sözlü Kapsam Değişikliği",
+  "compatible_terms": [
+    "scope_creep", "change_control_board", "requirements_management",
+    "stakeholder_management", "configuration_management",
+    "change_management_plan", "project_charter", "wbs"
+  ],
+  "reasons": [
+    {
+      "reason_id": "musteri_whatsapp",
+      "reasonTR": "Müşteri WhatsApp'tan Yazıyor",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "WhatsApp — {name}",
+      "from_role_template": "{role}",
+      "body_template": "Hocam yarın 15 dakikan var mı? Küçük bir şey sormak istiyorum, o kadar.",
+      "options": {
+        "medicine": {
+          "text_template": "Tabii yarın müsaitim. Resmi bir konu olursa değişiklik sürecimiz devreye giriyor — ama önce dinleyelim ne var, sonra birlikte değerlendiririz. Hangi saate kadar müsaitsin?",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Tabii. Ne hakkında olduğunu önceden kısaca yazabilir misin? Gündemi bilsem daha verimli konuşabiliriz — hazırlıklı geleyim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tabii, yarın 14:00'te uygun mu? Haber ver, bloke edeyim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Tabii! Anlat bakalım, hemen bakarım — ekibe de söylerim, küçük bir şeyse hallederiz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "WhatsApp gibi gayriresmi kanallardan gelen 'küçük bir şey' ifadesi çoğunlukla kapsam değişikliği girişimidir. PMI değişiklik kontrol süreci (Change Control Process) her türlü kapsam talebini — büyük ya da küçük — resmi değerlendirmeye alır. 'Önce dinle, sonra karar ver' yaklaşımı doğru başlangıç noktasıdır."
+    },
+    {
+      "reason_id": "sponsor_toplantida_sozlu",
+      "reasonTR": "Sponsor Toplantıda Sözlü Talep",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "sponsor",
+      "subject_template": "Toplantıda {name} bir ekleme istedi",
+      "from_role_template": "Ekip Üyesi",
+      "body_template": "Hocam toplantıda söyledi — {talep} dedi. 'Büyük iş değil, ekle sadece' dedi. Sizi bilgilendireyim dedim.",
+      "body_vars": {
+        "talep": [
+          "mobil tarafı da kapsama alalım",
+          "raporlara bir de özet ekranı koyalım",
+          "kullanıcı yönetim ekranı da olsun"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Teşekkürler, bilgilendirdiğin için iyi oldu. {name_polite}'e yazıyorum: 'Fikrinizi aldım. Kapsam, takvim ve bütçeye etkisini analiz edip size sunayım — öyle karar verelim.' Ekibe henüz bir şey söyleme.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım. Teknik ekiple konuşayım, ne kadar iş olduğunu tahmin edelim — sonra {name_polite}'e dönerim. Şimdilik başlamayın.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}'e yazılı iletmesini söyler misin? Resmi değişiklik sürecini başlatmak için yazılı talep gerekiyor — sözlü yetmiyor maalesef.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Tamam, ekibe söyleyeyim başlasınlar. Sponsor istedi, küçük bir şeymiş zaten — hemen alırız kapsama.",
+          "xp": -20,
+          "isEthical": false,
+          "triggers": [
+            { "target_issue": "teknik_borc", "delay_phase": 1, "reason_context": "Onaysız kapsam değişikliği kabul edildi; sonraki fazda teknik borca dönüşüyor." },
+            { "target_issue": "milestone_baskisi", "delay_phase": 2, "reason_context": "Sözlü kabul edilen ek kapsam takvim baskısına yol açtı." }
+          ]
+        }
+      },
+      "root_cause_lesson": "Sponsordan gelen sözlü talep dahi resmi değişiklik sürecinden geçmelidir. PMI Change Control Board (CCB), kimin talep ettiğine bakmaksızın her kapsam değişikliğini analiz eder. 'Küçük bir şey' tanımı yanlıştır; kapsam, takvim veya bütçeye dokunan her değişiklik büyük olabilir."
+    },
+    {
+      "reason_id": "kullanici_demo_sonrasi",
+      "reasonTR": "Son Kullanıcı Demo Sonrası Talep",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "end_user",
+      "subject_template": "Demo beğendik ama bir şey eklesek",
+      "from_role_template": "{role}",
+      "body_template": "Hocam demo çok güzeldi, ekibinizi tebrik ederim. Şunu sorsam — {talep}? Kullanıcılar kesinlikle ister. Küçük bir şey.",
+      "body_vars": {
+        "talep": [
+          "raporlama ekranına bir de ihracat butonu eklesek",
+          "arama kutusuna filtre seçeneği gelse",
+          "listelerde toplu seçim özelliği olsa",
+          "sayfa sonuna özet istatistik gelse"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Teşekkürler, güzel bir fikir! Bunu değişiklik sürecimize alalım — takvim ve kapsam etkisini analiz edip size resmi olarak sunarım. Öyle ilerleriz, nasıl bulursunuz?",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Teşekkürler! Güzel fikir. Teknik ekiple konuşayım, ne kadar sürer ve ne gerektirir bakayım — sonra size dönerim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Teşekkürler. Bunu yazılı olarak iletir misiniz? Değerlendirme sürecimize alabiliriz, değerlendirip geri döneceğim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Teşekkürler, küçük bir şey — ekleriz. Ekibe söyleyeyim, demo öncesi yetiştirebiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Son kullanıcı geri bildirimi değerlidir, ancak kapsam değişikliği olarak yönetilmelidir. PMI'ya göre onaylanmamış kapsam değişiklikleri zamanla projeyi raydan çıkaran 'scope creep' riski taşır. Kullanıcının 'küçük bir şey' tanımı çoğu zaman geliştirme ekibinin gerçekliğiyle örtüşmez."
+    },
+    {
+      "reason_id": "ic_ekip_sozlu",
+      "reasonTR": "İç Ekipten / Başka Departmandan Sözlü Talep",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "internal",
+      "subject_template": "Bir ekleme önerim var",
+      "from_role_template": "Ekip Üyesi",
+      "body_template": "Hocam, {kaynak} geldi. {talep} dedi. Müşteri de isteyecektir zaten. Sizi bilgilendireyim dedim.",
+      "body_vars": {
+        "kaynak": [
+          "satış ekibinden biri",
+          "pazarlama müdürü",
+          "destek ekibinden biri"
+        ],
+        "talep": [
+          "Müşteriye sunulan arayüze bir de karşılaştırma modülü eklesek çok işe yarar",
+          "Raporlara grafik çıktı seçeneği koyalım",
+          "Bildirim sistemi eklenebilse harika olur"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Teşekkürler, bilgilendirdiğin için iyi oldu. Bunu değişiklik sürecimize almam gerekiyor — kapsam ve takvim etkisini analiz edip karar vericilere sunayım, öyle karar veririz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım. Yazılı bir talep alsam, resmi süreçten geçirelim — değerlendireyim ve kararı birlikte verelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Anladım, ekiple konuşurum — ne kadar iş olduğuna bakarız, sonra karar veririz. Şimdilik başlamayın.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Güzel fikir, ekibe söyleyeyim eklesinler. İç taraftan gelen öneriyse hızlı karar verebiliriz, başlayalım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "İç departman talepleri dış müşteri taleplerinden farklı değildir — her biri resmi değişiklik sürecinden geçmelidir. 'Müşteri de isteyecektir' varsayımı doğrulanmamış bir tahmindir. Kapsam değişiklikleri kaynağından bağımsız olarak etki analiziyle değerlendirilmelidir."
+    },
+    {
+      "reason_id": "musteri_mail_gayriresmi",
+      "reasonTR": "Müşteri Gayriresmi Mail",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Küçük bir ekleme — {name}",
+      "from_role_template": "{role}",
+      "body_template": "Hocam merhaba,\n\nSizi çok fazla yormak istemiyorum ama aklıma bir şey geldi. {talep} Küçük bir şey, ekibinize söylerseniz hallederler diye düşündüm.",
+      "body_vars": {
+        "talep": [
+          "Raporlarda şirket logomuz görünse çok şık olur.",
+          "Kayıt formuna bir de departman alanı eklense iyi olur.",
+          "Listeler alfabetik sıralanabilse kullanışlı olur."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {name_polite},\n\nGüzel fikir! Bunu değişiklik talebimize alalım — ne kadar sürer, maliyeti var mı kısa bir analiz yapayım, size resmi olarak sunayım. Öyle devam edelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {name_polite},\n\nAnladım, ekiple konuşayım — mümkün mü ve ne zaman olabilir bakayım, size dönerim. Onay gelmeden başlamıyoruz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {name_polite},\n\nBunu resmi talep olarak iletir misiniz? Değişiklik sürecimize alabilmemiz için yazılı kayıt gerekiyor — sonra hızlıca değerlendiririz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {name_polite},\n\nTabii ki! Hemen ekibe iletiyorum — küçük bir şey, bugün başlatırız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Gayriresmi e-posta kanalıyla gelen kapsam talepleri en sık 'scope creep' kaynaklarından biridir. PMI değişiklik yönetim planı tüm kanallardan gelen talepleri resmi süreçten geçirir. 'Küçük bir şey' ifadesinin arkasında test, dağıtım ve bakım maliyetleri bulunabilir."
+    },
+    {
+      "reason_id": "musteri_toplantida_yeni_kriter",
+      "reasonTR": "Müşteri Toplantıda Yeni Kabul Kriteri Açıkladı",
+      "weight": 5,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Toplantıdan bir not — {name}",
+      "from_role_template": "Ekip Üyesi",
+      "body_template": "Hocam, bugünkü toplantıda {name} yeni bir şey söyledi. '{kriter}' dedi. Sanırım bunu bekliyor ama sözleşmede böyle bir şey yok. Sizi bilgilendireyim dedim.",
+      "body_vars": {
+        "kriter": [
+          "Sistemi teslim aldığımızda tüm verilerimizi içe aktarabilmemiz lazım",
+          "İlk ay destek ücretsiz olmalı",
+          "Canlıya geçmeden önce 2 haftalık paralel çalışma yapmalıyız"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Teşekkürler, iyi ki ilettiniz. {name_polite}'e yazıyorum: 'Toplantıda bahsettiğiniz konuyu not ettim. Sözleşmemizi inceliyorum — eğer ek gereksinimse değişiklik sürecimize alalım, birlikte değerlendirelim.' Ekibe henüz bir şey söyleme.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım. Önce sözleşmeye bakayım — bu kriter içinde mi değil mi netleştirelim. Sonra {name_polite}'e döneyim, birlikte değerlendiririz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Ekiple konuşayım ne kadar iş bu diye — tahmini çıkalım, sonra müşteriyle karar veririz. Başlamayın henüz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Müşteri istiyorsa yaparız, ekibe söyleyeyim başlasınlar. Sonradan sözleşmeye de ekleriz.",
+          "xp": -20,
+          "isEthical": false,
+          "triggers": [
+            { "target_issue": "milestone_baskisi", "delay_phase": 1, "reason_context": "Sözlü kabul edilen yeni kabul kriteri takvim hedeflerini doğrudan tehdit etti." },
+            { "target_issue": "gereksinim_catismasi", "delay_phase": 2, "reason_context": "Sözleşme dışı kriterler ilerleyen fazda gereksinim çatışmasına zemin hazırladı." }
+          ]
+        }
+      },
+      "root_cause_lesson": "Kabul kriterleri sözleşmenin ayrılmaz parçasıdır. Toplantıda dile getirilen yeni kriterler resmi değişiklik sürecinden geçmeden uygulanamaz. PMI'ya göre 'Silence is not consent' — sessiz kalmak onay değildir. Müşteriyle doğrudan ve yazılı iletişim şarttır."
+    },
+    {
+      "reason_id": "ekip_kendi_basladı",
+      "reasonTR": "Ekip Onay Almadan Özellik Geliştirdi",
+      "weight": 5,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "third_party",
+      "subject_template": "Bir şeyi bitirdik — {name}",
+      "from_role_template": "Ekip Üyesi",
+      "body_template": "Hocam, {yapilan_is} yaptık, isteyeceklerini biliyorduk zaten. Küçük bir şeydi, demo öncesi sürpriz olsun istedik. Beğenirler mi sizce?",
+      "body_vars": {
+        "yapilan_is": [
+          "arayüze karanlık mod seçeneği",
+          "raporlara otomatik e-posta gönderme özelliği",
+          "kullanıcı aktivite logu ekranı"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Girişim için teşekkürler {name_polite}! Ama kapsam dışı geliştirme yapmadan önce mutlaka konuşalım — müşteri istemeyebilir, bakım yükü yaratır, takvimi etkiler. Bunu nasıl ele alacağımıza birlikte karar verelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Müşteriye soralım — kabul edip etmeyeceklerini görelim. Onaylarsa kapsama alalım, onaylamazsa geri çıkarırız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Güzel niyet {name_polite}, ama bundan sonrası için kapsam dışı adımları önceden konuşalım. Bu sefer nasıl halledeceğimizi birlikte düşünelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bravo {name_polite}! Müşteri kesinlikle beğenecek, demoda gösterelim. Proaktif düşünmek için teşekkürler.",
+          "xp": -20,
+          "isEthical": false,
+          "triggers": [
+            { "target_issue": "teknik_borc", "delay_phase": 1, "reason_context": "Onaysız geliştirilen özellik kapsama alındı; bakım yükü birikimli teknik borca dönüştü." },
+            { "target_issue": "gizli_kapsam_kabulu", "delay_phase": 1, "reason_context": "Onaysız geliştirme normalize edildi; ekip tekrar aynı davranışı sergiledi." }
+          ]
+        }
+      },
+      "root_cause_lesson": "Onaysız geliştirme, iyi niyetle başlasa da scope creep'in iç kaynaklı versiyonudur. PMI Kapsam Doğrulama (Scope Validation) sürecinde müşteri tarafından onaylanmayan özellikler kapsam dışıdır. Bakım, test ve belgeleme maliyetleri hesaba katılmadan 'küçük bir şey' yapılamaz."
+    },
+    {
+      "reason_id": "ust_yonetim_sozlu_telefon",
+      "reasonTR": "Üst Yönetim Telefonda Söz Verdi",
+      "weight": 4,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "internal",
+      "subject_template": "Genel müdür müşteriyle konuşmuş",
+      "from_role_template": "Yönetici Asistanı",
+      "body_template": "Hocam merhaba, {ust_yonetici} dün müşteriyle telefonda konuşmuş. '{soz}' demiş. Sizi bilgilendirmemi istedi.",
+      "body_vars": {
+        "ust_yonetici": ["Genel müdür", "Satış direktörü", "CTO"],
+        "soz": [
+          "Bu özelliği de ekleyeceğiz, merak etmeyin",
+          "Teslim tarihini bir ay öne alabiliriz",
+          "Eğitimi de biz vereceğiz"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Teşekkürler, bilgilendirdiğiniz için iyi oldu. Bu bilgiyi önce {ust_yonetici} ile doğrudan teyit etmem gerekiyor — söz verilmişse sözleşmeye yansıtılması lazım. Bugün görüşeceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım. {ust_yonetici} ile görüşeyim — ne söylendiğini, kapsam ve takvimdeki etkisini netleştirelim. Benden önce ekibe bir şey söylemeyin.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam, müşteriyle teyit edeyim — ne tam olarak söylendiğini öğreneyim. İki tarafı da konuştuktan sonra karar vereceğim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Tamam, ekibe söyleyeyim başlasınlar. Üst yönetim verdi söz, bizim ilerletmemiz lazım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Üst yönetimin müşteriyle yaptığı telefon görüşmeleri, proje ekibini bağlayan resmi taahhüt değildir. PMI'ya göre her kapsam değişikliği, kimin söylediğinden bağımsız olarak resmi değişiklik kontrolünden geçmelidir. PM, bu tür sözlü taahhütleri sözleşmeye taşımak için ivedilikle harekete geçmelidir."
+    },
+    {
+      "reason_id": "onceki_pm_verilen_soz",
+      "reasonTR": "Eski PM Söz Vermiş, Mevcut PM Bilmiyor",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Önceki görüşmede kararlaştırılmıştı — {name}",
+      "from_role_template": "{role}",
+      "body_template": "Hocam merhaba,\n\nÖnceki proje yöneticinizle {konu} konusunda anlaşmıştık. {detay} Bu kapsamda ilerlemeyi bekliyorduk, ne zaman hayata geçirilecek?",
+      "body_vars": {
+        "konu": [
+          "ek entegrasyon modülü",
+          "ikinci faz özellikleri",
+          "ücretsiz destek paketi",
+          "özel raporlama ekranı"
+        ],
+        "detay": [
+          "Toplantı notlarımızda bu madde geçiyor.",
+          "E-posta yazışmalarında belirtilmişti.",
+          "Teklif sunumunda yer almıştı.",
+          "Sözlü olarak taahhüt edilmişti."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {name_polite},\n\nBu konuyu araştırmam gerekiyor — geçmiş yazışmaları ve notları inceleyeyim. Taahhüt varsa ve sözleşmede yoksa birlikte değerlendireceğiz. En kısa sürede size geri döneceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {name_polite},\n\nAnladım. Eski PM ile görüşeyim, ne konuşulduğunu öğreneyim — elimdeki yazışmaları da incelerim, sonra size dönerim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {name_polite},\n\nBu taahhüdü yazılı olarak paylaşabilir misiniz? Sözleşmemize bakıp değerlendireyim, ortak bir netliğe ulaşalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {name_polite},\n\nÖnceki ekip ne söylediyse yerine getiririz. Hemen başlatıyorum, sizi memnun edeceğiz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Önceki PM'in sözlü taahhütleri sözleşme kapsamında değildir; ancak müşteriyle ilişkiyi korumak için doğrulanmalı ve gerekirse resmi değişiklik sürecine alınmalıdır. PMI bilgi yönetimi, taahhütlerin dokümante edilmesini zorunlu kılar. Doğrulanmadan 'yerine getiririz' demek yeni kapsam taahhüdü anlamına gelir."
+    },
+    {
+      "reason_id": "satis_teklif_vaat",
+      "reasonTR": "Satış Ekibi Teklif Aşamasında Fazladan Şey Vaat Etti",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "internal",
+      "subject_template": "Satış teklifindeki vaat hakkında",
+      "from_role_template": "Satış Yöneticisi",
+      "body_template": "Hocam, {player_name}, müşteriyle imzaladığımız sözleşme sürecinde {vaat} konusunda bir şey söylemiştim. {aciklama} Şimdi müşteri bunu bekliyor, nasıl ilerleyelim?",
+      "body_vars": {
+        "vaat": [
+          "ek modül entegrasyonu",
+          "özelleştirilmiş raporlama",
+          "ilk altı ay ücretsiz destek",
+          "API erişimi"
+        ],
+        "aciklama": [
+          "Teklifi kazanmak için söylemek durumunda kaldım.",
+          "Küçük bir şey olduğunu düşünmüştüm.",
+          "Rakibe karşı rekabetçi olmak gerekiyordu.",
+          "Müşteri ısrar edince kabul ettim."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Açıkça paylaştığın için teşekkürler. Önce bu taahhüdün gerçek maliyetini ve kapsamını değerlendireceğim — sonra müşteriyle nasıl konuşacağımıza birlikte karar verelim. Gelecekte satış sürecinde proje ekibine danışmadan taahhüt verilmemesi için bir süreç oluşturalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım. Ekiple konuşayım, ne kadar iş bu diye değerlendirelim — tahmini çıkalım, sonra kararı birlikte veririz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam. Müşteriyle bu konuyu netleştirelim, sözleşmeye resmi bir ek madde ekleyelim — ilerlemeden önce yazılı olsun.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Söz verilmişse yapılır. Ekibe söyleyeyim başlasınlar — müşteri memnuniyeti önceliğimiz, arkasından hallederiz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Satış aşamasında verilen teknik taahhütler proje ekibini resmi olarak bağlamaz — ancak müşteri ilişkisi açısından ciddi risk taşır. PMI'ya göre satış ve proje ekiplerinin kapsam konusunda önceden koordineli çalışması şarttır. Bu tür vaatler ortaya çıktığında önce analiz, sonra müşteriye şeffaf iletişim gerekir."
+    },
+    {
+      "reason_id": "demo_sirasinda_ceo",
+      "reasonTR": "Demo Sırasında Müşteri CEO'su Anlık Talep Etti",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "sponsor",
+      "subject_template": "Demoda CEO bir şey istedi — {name}",
+      "from_role_template": "Ekip Üyesi",
+      "body_template": "Hocam, demoda müşteri CEO'su {ceo_talep} dedi. Herkes başını salladı, sanki kabul etmiş gibi göründük. Ne yapacağız?",
+      "body_vars": {
+        "ceo_talep": [
+          "'Bunu mobil uygulamaya da alabilir miyiz?' dedi",
+          "'Şu ekranı iki haftaya hazır edebilir misiniz?' dedi",
+          "'Buraya bir de yapay zeka önerisi eklesek süper olur' dedi",
+          "'Rakip sistemde olan şu özelliği de koyun' dedi"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Bu talebi not ettim. Hemen müşteriye yazıyorum: 'Demoda dile getirilen fikrinizi değerlendiriyoruz — kapsam, takvim ve bütçe etkisini analiz edip size sunacağız, öyle karar vereceğiz.' Toplantıda sözlü onay vermiş gibi görünmek zor durumda bırakır.",
+          "xp": 32,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım. Teknik ekiple konuşayım, ne kadar sürer tahmin edelim — sonra CEO'ya gerçekçi bir cevap veririz.",
+          "xp": 9,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam. CEO isteği, ciddi almak lazım — ekiple değerlendirelim. Gerçekçi bir analiz yapmadan 'evet' ya da 'hayır' demek zor.",
+          "xp": 4,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "CEO istedi, yaparız. Ekibe söyleyeyim hemen başlasınlar — CEO önünde hayır demek mümkün değil.",
+          "xp": -25,
+          "isEthical": false,
+          "triggers": [
+            { "target_issue": "maliyet_asimi_riski", "delay_phase": 1, "reason_context": "CEO talebi bütçe analizi yapılmadan kabul edildi; maliyet aşımı riski doğdu." },
+            { "target_issue": "milestone_baskisi", "delay_phase": 1, "reason_context": "Anlık CEO talebi proje takvim hedeflerini doğrudan tehdit etti." }
+          ]
+        }
+      },
+      "root_cause_lesson": "CEO baskısı, kapsam değişikliği sürecini bypass etmek için geçerli bir gerekçe değildir. PMI'ya göre Change Control Board (CCB) kararları hiyerarşik baskıdan bağımsız çalışır. PM'in görevi değişikliğin etkisini şeffaf biçimde sunmak ve kararı veriye dayalı almaktır — kişinin unvanına değil."
+    },
+    {
+      "reason_id": "musteri_yoneticisi_dedi",
+      "reasonTR": "Müşteri Yöneticisi 'Önceki Toplantıda Konuşmuştuk' Dedi",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Önceki toplantı kararı hakkında — {name}",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {player_name}, {name} bugün aradı ve '{konu} konusunu geçen ayki toplantıda zaten konuşmuştuk, neden hâlâ yapılmadı?' diye sordu. Ben böyle bir karar hatırlamıyorum. Nasıl devam edelim?",
+      "body_vars": {
+        "konu": [
+          "ihracat özelliğinin eklenmesi",
+          "kullanıcı yetkilendirme ekranının genişletilmesi",
+          "otomatik bildirim sistemi",
+          "çoklu dil desteği"
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "Toplantı notlarını ve yazışmaları hemen inceliyorum. {name_polite}'e yazıyorum: 'Bu konuyu araştırıyoruz — kayıtlara bakıp size dönüyoruz. Kapalı bir karar varsa ona göre, yoksa resmi süreçten geçirelim.'",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım. Toplantı notlarına bakayım, ne karar verildiğini netleştirelim — belge varsa görürüz, yoksa müşteriyle konuşuruz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam. {name_polite}'e toplantı notlarını paylaşmasını isteyelim — kendi kayıtlarına bakalım, iki tarafın notlarını karşılaştıralım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Müşteri söylüyorsa doğrudur. Ekibe söyleyeyim başlasınlar — tartışmak ilişkiyi bozar, yapalım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Toplantı kararlarının kayıt altına alınması (decision log) PMI iletişim yönetiminin temel gereksinimidir. Kayıt olmayan bir karar, hukuki veya sözleşmesel açıdan yok hükmündedir. 'Müşteri söylüyorsa doğrudur' yaklaşımı izlenebilirliği ortadan kaldırır ve ileride anlaşmazlık riskini artırır."
+    }
+  ]
+}

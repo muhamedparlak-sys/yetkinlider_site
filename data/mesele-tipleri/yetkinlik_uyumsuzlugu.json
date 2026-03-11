@@ -1,0 +1,309 @@
+{
+  "mesele_id": "yetkinlik_uyumsuzlugu",
+  "meseleTR": "Yetkinlik Uyumsuzluğu",
+  "compatible_terms": [
+    "skill mismatch",
+    "competency gap",
+    "wrong skill set",
+    "capability gap"
+  ],
+  "reasons": [
+    {
+      "reason_id": "YET-01",
+      "reasonTR": "Görev profiliyle eşleşmeyen ekip yetkinliği",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{gorev} görevi için {yetkinlik} yetkinliğine ihtiyacımız var. Mevcut ekibimizde bu yetkinlik {durum}. Takvimimiz baskılı; eğitim için zaman yok gibi görünüyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "gorev": [
+          "API güvenlik testi",
+          "makine öğrenmesi entegrasyonu",
+          "performans optimizasyonu"
+        ],
+        "yetkinlik": [
+          "penetrasyon testi",
+          "Python/ML uzmanlığı",
+          "veritabanı indeks optimizasyonu"
+        ],
+        "durum": [
+          "hiç yok",
+          "çok temel düzeyde",
+          "sadece bir kişide"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nYetkinlik açığını netleştirdim. Kısa vadeli çözüm olarak dış uzman desteği (freelance veya danışman) veya başka birimden geçici kaynak transferini değerlendiriyorum. Uzun vadede ekibin bu alanda yetkinlik kazanması için bir gelişim planı önereceğim. Her iki seçeneğin maliyet ve takvim etkisini bu hafta sunacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip öğrenerek yapar; zaman alır ama mümkün.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nYetkinliği olmayan bu görevi takvimden çıkaralım ya da kapsamı küçültelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nEkip araştırır ve halleder; daha önce de böyle ettik.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yetkinlik açıkları proje başlangıcında tespit edilmeli ve kaynak planlamasına yansıtılmalıdır. Geç tespit edilen yetkinlik uyumsuzlukları takvim, maliyet ve kalite üçgenini eş zamanlı baskılar altına alır. PM, ekip profilini iş paketleriyle sistematik biçimde eşleştirmeli (skills matrix) ve eksiklikleri proaktif olarak gidermelidir."
+    },
+    {
+      "reason_id": "YET-02",
+      "reasonTR": "Deneyim düzeyi tahmininde yanılgı",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nEkibe yeni katılan {rol} için {seviye} düzeyinde deneyim öngörmüştük. Ama gerçekte çok daha {gercek_seviye} görünüyor. Bu durum {gorev} görevinde ciddi yavaşlamaya neden oluyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "rol": [
+          "backend geliştirici",
+          "test mühendisi",
+          "UX tasarımcı"
+        ],
+        "seviye": [
+          "orta-ileri",
+          "kıdemli",
+          "bağımsız çalışabilir"
+        ],
+        "gercek_seviye": [
+          "deneyimsiz",
+          "temel seviyede",
+          "rehberlik gerektiriyor"
+        ],
+        "gorev": [
+          "API entegrasyon",
+          "test otomasyon",
+          "kullanıcı araştırma"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nGözlemlediğim durumu {rol} ile destekçi bir görüşme yaparak teyit ettim. Kısa vadede görev kapsamını deneyim düzeyine uygun biçimde ayarlıyorum ve mentorluk planı oluşturuyorum. Sprint planını ve teslim tarihini etkiyen bu durumu sponsora bildirip gerçekçi beklenti yönetimi yapacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nDeneyimsiz olması sorun değil; zor görevlerde gelişir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nBu görevi başka bir ekip üyesine aktarıyorum; bu kişiyle vakit kaybetmeyeyim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nDeneyim eksikliği bu kişinin sorunu; İK ile konuşmaları gerekiyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Deneyim düzeyi yanılgısı iş planlamasında sık yapılan bir hatadır. PM, işe alım sürecinde somut teknik değerlendirme yapılmasını savunmalı ve yeni üyenin ilk sprint performansını yakından izlemelidir. Erken tespit, düzeltici önlemlerin (mentorluk, görev yeniden dağılımı) zamanında alınmasını sağlar."
+    },
+    {
+      "reason_id": "YET-03",
+      "reasonTR": "Alan uzmanlığı eksikliği",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{alan} konusunda domain uzmanlığı gerektiren gereksinimler var. Ekibimiz teknik açıdan güçlü ama {alan} sektörünü yeterince bilmiyor. Bu durum {etki} etkisi yaratıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "alan": [
+          "sağlık bilişimi",
+          "finans mevzuatı",
+          "enerji sektörü"
+        ],
+        "etki": [
+          "gereksinim yorumlarında hatalar",
+          "süreç modelleme hataları",
+          "mevzuat uyumsuzluğu riski"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nAlan bilgisi eksikliği teknik başarıya rağmen iş değeri üretimini engelleyebilir. Domain uzmanı danışman katılımını veya müşteri tarafından bir subject matter expert (SME) görevlendirilmesini önereceğim. Bu kişi sprint'lere düzenli katılarak ekibe alan bilgisi aktarabilir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip araştırarak alan bilgisini edinebilir; belge ve mevzuat okuyarak öğreniriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nMüşteriden düzenli geri bildirim alarak alan bilgisi açığını kapatabiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nTeknik kalite yeterli; alan bilgisi müşterinin sorumluluğu.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Alan uzmanlığı (domain knowledge) teknik yetkinlikten ayrı bir beceri setidir ve karmaşık sektörlerde hatalı gereksinim yorumunu önlemek için kritiktir. PM, kapsam analizi ve gereksinim toplama süreçlerine müşteri tarafından SME dahil edilmesini talep etmelidir. Domain bilgisi eksikliğinin yarattığı gereksinim hataları en maliyetli yeniden çalışma nedenlerinden biridir."
+    },
+    {
+      "reason_id": "YET-04",
+      "reasonTR": "Teknoloji değişikliğine adaptasyon sorunu",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nProje {yeni_teknoloji} teknolojisine geçiş yapılmasını gerektiriyor. Ekibimizin %{oran}'i bu teknolojiyle daha önce çalışmamış. Sprint hızımız geçişle birlikte %{dusus} düştü.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "yeni_teknoloji": [
+          "Kubernetes",
+          "GraphQL",
+          "serverless mimari"
+        ],
+        "oran": [
+          "70",
+          "60",
+          "80"
+        ],
+        "dusus": [
+          "40",
+          "35",
+          "50"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nTeknik geçiş maliyetini somut verilerle görmek önemli. Ekip için yapılandırılmış bir öğrenme yolu (learning path) ve hızlandırılmış eğitim planı oluşturuyorum. Sprint kapasitesini bu geçiş süresine göre yeniden kalibre edip sponsora gerçekçi bir takvim sunacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip zamanla öğrenir; baskı yapmadan devam edelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nTeknoloji değişikliğini geri alıp eski teknolojiyle devam edelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nSadece teknolojiyi bilen dışarıdan birini kısa süreliğine işe alalım; ekip izleyerek öğrenir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Teknoloji geçişleri planlı yapılmalıdır; geçiş maliyeti (öğrenme eğrisi, azalan hız) proje planlamasına dahil edilmelidir. PM, teknoloji seçim kararlarını ekip yetkinlik haritasıyla desteklemeli ve geçiş döneminde sprint kapasitesini gerçekçi biçimde ayarlamalıdır. 'Zamanla öğrenirler' yaklaşımı takvim riskini gizler."
+    },
+    {
+      "reason_id": "YET-05",
+      "reasonTR": "Proje yönetimi yetkinlik eksikliği",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nEkibimizde {pm_pratik} konusunda ciddi boşluklar var. Bu eksiklik {sorun} sorununu doğrudan yaratıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "pm_pratik": [
+          "toplantı yönetimi",
+          "risk takibi",
+          "bağımlılık yönetimi"
+        ],
+        "sorun": [
+          "toplantıların sonuçsuz bitmesi",
+          "risklerin geç fark edilmesi",
+          "bağımlılık gecikmelerinin sürpriz yaratması"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nEkip içi PM pratiklerini güçlendirmek için yapılandırılmış bir yaklaşım öneriyorum. Toplantı şablonları, risk takip araçları ve bağımlılık tablosu gibi basit araçları ekiple birlikte hayata geçirebiliriz. Kısa bir atölye çalışması da düzenleyebilirim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip iyi niyetli; zamanla PM pratiklerini öğrenir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nDaha fazla araç ve şablon verirsem eksiklikleri giderir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nEkibin PM pratiklerini bilmesi gerekmiyor; bu benim sorumluluğum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "PM yetkinlikleri sadece proje yöneticisinin değil, tüm ekibin işlevsel performansını etkiler. Toplantı verimliliği, risk görünürlüğü ve bağımlılık takibi gibi pratikler ekip kültürü olarak yerleştirilmelidir. PM, bu pratikleri dayatmak yerine yapısal araçlarla kolaylaştırıcı bir rol üstlenmelidir."
+    },
+    {
+      "reason_id": "YET-06",
+      "reasonTR": "Yazılı iletişim becerisinde eksiklik",
+      "weight": 5,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nEkip üyelerimizin hazırladığı {belge_turu} belgeleri müşteri tarafından sürekli geri dönüş alıyor. Açıklık ve yapı eksikliği, paydaş güvenini olumsuz etkiliyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "belge_turu": [
+          "durum raporları",
+          "teknik açıklama notları",
+          "gereksinim belgesi taslakları"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBelge kalitesini artırmak için yapılandırılmış şablonlar ve gözden geçirme süreci oluşturuyorum. Müşteri geri bildirimlerini analiz edip hangi boyutların iyileştirilmesi gerektiğini net biçimde belirliyorum. Kısa bir yazılı iletişim atölyesi de planlayabilirim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nMüşteriye belgeleri kendimiz yazıp sunalım; ekip odaklanmaya devam etsin.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nMüşteri biraz sabırsız; zamanla alışır.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nEkip üyelerini müşteriyle doğrudan iletişimden uzak tutuyorum; belge sorununu hallederim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Yazılı iletişim yetkinliği proje çıktılarının kalitesini ve paydaş güvenini doğrudan etkiler. PM, ekip üyelerine belge şablonları ve yapılandırılmış geri bildirim sunarak bu alanı geliştirebilir. Zayıf belge kalitesi müşteri güvensizliği yaratır ve yeniden çalışma maliyetini artırır."
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "mesele_id": "gizli_kapsam_kabulu",
+  "meseleTR": "Gizli Kapsam Kabulü",
+  "compatible_terms": [
+    "hidden scope acceptance",
+    "informal scope addition",
+    "undocumented scope",
+    "stealth scope"
+  ],
+  "reasons": [
+    {
+      "reason_id": "GSK-01",
+      "reasonTR": "Ekip üyesi kapsam dışı iş yaptı",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nGeliştiricimiz müşteriyle doğrudan iletişim kurarak {ozellik} özelliğini geliştirdi. Bu kapsam dışı ve hiçbir onay süreci işletilmedi. Şimdi müşteri bu özelliği teslimatta bekliyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "ozellik": [
+          "özel raporlama şablonu",
+          "ek kullanıcı rolü",
+          "veri dışa aktarma aracı"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nDurumu derhal değerlendiriyorum. Geliştirici ile müşteri arasındaki iletişimi kayıt altına alıyorum ve özelliğin mevcut teslimata etkisini analiz ediyorum. Müşteriyle bu özelliğin kabul sürecini resmi hale getireceğiz; değişiklik talebi açılacak. Ekiple iletişim protokolünü yeniden netleştiriyorum: tüm müşteri talepleri PM üzerinden geçecek.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nÖzellik geliştirildi; müşteriyi mutlu etmek önemli, teslim edelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nGeliştiriciye müşteriyle görüşmemesini söylerim; bu kez gözden kaçtı.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nMüşteriyle anlaşıldıysa sorun yok; ek çalışma ekibi geliştiriyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Resmi onay olmadan yapılan kapsam eklemeleri proje bütçesini, takimini ve önceliklerini sessiz sedasız aşındırır. PM, müşteri-ekip iletişim protokollerini net biçimde tanımlamalı ve tüm kapsam taleplerinin değişiklik kontrol sürecinden geçmesini sağlamalıdır. 'Gizli kapsam' uzun vadede teslim güvenilirliğini zedeler."
+    },
+    {
+      "reason_id": "GSK-02",
+      "reasonTR": "Sponsorun telefon talimatı ile kapsam eklemesi",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "sponsor",
+      "subject_template": "Geçen hafta konuştuk — {ozellik} eklenir mi?",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nGeçen haftaki telefon görüşmemizde bahsetmiştim: {ozellik} özelliğinin sisteme eklenmesi mümkün mü? Büyük bir şey değil, hızlıca eklenebilir diye düşünüyorum.\n\nİyi çalışmalar.",
+      "body_vars": {
+        "ozellik": [
+          "kullanıcı başına kota yönetimi",
+          "PDF şablonu özelleştirme",
+          "çoklu para birimi desteği"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, telefon görüşmemizi hatırlıyorum. Bu özelliğin kapsamı ve etkisini değerlendirmek için resmi bir değişiklik talebi açmamız gerekiyor; böylece efor, takvim ve bütçe etkisini netleştirip onaylayabiliriz. Değerlendirme formunu bugün hazırlıyorum ve sizinle paylaşacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, telefon görüşmemiz yeterliydi; ekibe görevi atıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, küçük bir özellik; sprint backlog'una ekleyip yapabiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, sözlü talimatla çalışmayı tercih etmiyorum; yazılı onay olmadan ekleyemem.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Sözlü talimatlarla gerçekleşen kapsam eklemeleri belgeleme eksikliği yaratır ve ileride anlaşmazlıklara zemin hazırlar. PM, tüm kapsam değişikliklerini ne kadar küçük görünürse görünsün değişiklik kontrol sürecine tabi tutmalıdır. Bu süreç hem ekibi hem de paydaşları korur."
+    },
+    {
+      "reason_id": "GSK-03",
+      "reasonTR": "Demo sırasında ad-hoc talep",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "client",
+      "subject_template": "Demo toplantısında kısa bir sorum",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nDemoda gördüğüm {demo_ozellik} özelliği gerçekten güzeldi. Acaba {ek_ozellik} de eklenebilir mi? Kullanıcılarımız kesinlikle sever. Şimdi karar versek proje bitimine kadar hazır olur mu?\n\nTeşekkürler.",
+      "body_vars": {
+        "demo_ozellik": [
+          "drag-drop arayüz",
+          "renk temalı dashboard",
+          "animasyonlu geçişler"
+        ],
+        "ek_ozellik": [
+          "sesli komut desteği",
+          "AR görselleştirme",
+          "toplu veri düzenleme"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, fikriniz ilginç ve değerlendirmeye değer. Bu özelliğin efor, takvim ve maliyet etkisini analiz edip size iki seçenek sunacağım: mevcut proje kapsamına dahil etmek (takvim ve bütçe revizyonuyla) ya da bir sonraki fazın öncelik listesine almak. Önce analizi yapayım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, güzel fikir; ekle ve sürpriz yapalım kullanıcılara.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, şimdi eklemek zor; bir sonraki versiyona alırız, sizi haberdar ederim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, demo sırasında gelen fikirler çok değerli; hepsini not ediyorum ve scope'a dahil ediyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Demo sırasında gelen anlık talepler heyecan verici olsa da kapsam bütçelenmeden kabul edilmemelidir. PM, bu talepleri 'değerlendirilecek' olarak kaydedip resmi değişiklik sürecine yönlendirmelidir. Demo amaçlı toplantılar kapsam müzakeresi için uygun ortam değildir."
+    },
+    {
+      "reason_id": "GSK-04",
+      "reasonTR": "Ekip üyesinin kendi inisiyatifiyle ek geliştirme",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{geliştirici} kendi inisiyatifiyle {ozellik} özelliğini ekledi. 'Kullanıcılara faydalı olacak' dedi. Ama bu özellik kapsam dışı ve sprint planında yok; ekibin zamanını aldı.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "geliştirici": [
+          "kıdemli geliştirici",
+          "backend mühendisi",
+          "full-stack geliştirici"
+        ],
+        "ozellik": [
+          "dark mode",
+          "klavye kısayolları",
+          "otomatik kaydetme"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nGirişimi takdirle karşılıyorum ama süreci netleştirmem gerekiyor. {geliştirici} ile bire bir görüşüp gelecekte kapsam dışı geliştirme yapmadan önce PM onayı alması gerektiğini açıklıyorum. Eklenen özelliği değerlendirip kapsama alıp almamaya karar vereceğim; eğer alırsak resmi sürece dahil edelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nÖzellik iyi görünüyor; ekleyelim ve müşteriye söyleyelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nGeliştiriciye bundan sonra bunu yapmaması gerektiğini söylüyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nGeliştiricinin inisiyatifini kırmak istemiyorum; eklediği şeyi kabul edelim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Onaysız geliştirme (cowboy coding) ekip kültürü, kapsam bütünlüğü ve proje takvimini tehdit eder. PM, ekip üyelerinin yaratıcılığını kapsam değişiklik süreci çerçevesinde kanalize etmelidir. Bu konuşma disiplin değil, çerçeve belirleme niteliğinde yapılmalıdır."
+    },
+    {
+      "reason_id": "GSK-05",
+      "reasonTR": "Kabul testinde kapsam dışı talepler",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "client",
+      "subject_template": "UAT sürecinde ek gereksinim",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nKabul testi sırasında {ek_ger} gereksiniminin de karşılanmasını beklediğimizi fark ettik. Bu gereksinim başlangıçta belirtilmemişti ama aslında temel ihtiyacımızın parçası. Karşılanmadan sistemi kabul edemeyiz.\n\nNe yapabiliriz?",
+      "body_vars": {
+        "ek_ger": [
+          "tüm kullanıcı verilerinin dışa aktarılabilmesi",
+          "gelişmiş arama filtreleme",
+          "çevrimdışı çalışma modu"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, UAT'ta ortaya çıkan bu gereksinimi anlıyorum. Önce orijinal gereksinim belgelerini gözden geçirip bu talebin kapsam içinde olup olmadığını teyit ediyorum. Kapsam dışıysa efor, takvim ve maliyet etkisini analiz edip resmi değişiklik talebi açacağız. Bu süreçte şeffaf iletişim kuracağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, müşteriyi memnun etmek için ekliyoruz; kapsam tartışmalarına girmeyeceğiz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, bu gereksinimi karşılamadan kabul etmezseniz projeyi tamamlayamayız.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, UAT'ta bu talep geldi diye sistem teslim edilmiş sayılır; ek gereksinim yeni sözleşme konusu.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "UAT'ta ortaya çıkan yeni gereksinimler hem müşteri için hem de PM için kritik bir andır. PM, kapsam belgelerini referans alarak gereksinimin yeni olup olmadığını nesnel biçimde belirlemelidir. Kapsam dışıysa değişiklik yönetimi süreci işletilmeli; 'memnun etmek için ekleyelim' yaklaşımı sözleşme dengesini bozar."
+    },
+    {
+      "reason_id": "GSK-06",
+      "reasonTR": "İç paydaşın talep zinciri",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{departman} departmanından gelen {talep} talepleri birikiyor. Her biri küçük görünse de toplamda {gun} işgününlük ek efor oluştu. Bunlar hiçbir onay sürecinden geçmedi.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "departman": [
+          "finans",
+          "operasyon",
+          "insan kaynakları"
+        ],
+        "talep": [
+          "raporlama format revizyonu",
+          "sistem entegrasyon eklentisi",
+          "kullanıcı arayüzü güncellemesi"
+        ],
+        "gun": [
+          "12",
+          "18",
+          "10"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBu birikimi gördüm. Onaysız geçen toplam efor miktarı artık dikkate değer. Tüm bu talepleri listeleleyerek sponsor ve PMO'ya sunuyorum; bundan sonra tüm iç talepler değişiklik kontrol sürecinden geçecek. Kaybedilen kapasiteyi telafi etmek için takvim ve kaynak revizyonu da önereceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nİç departmanlar müşteri gibi değerlendirilemez; taleplerini karşılamak doğru.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nKüçük talepler olduğu için sorun yaratmaz; devam edelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nİç departman taleplerini reddederek çatışma yaratmak istemiyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "İç paydaşların talep zincirleri 'death by a thousand cuts' etkisiyle proje kapasitesini tüketir. PM, iç ve dış paydaşlardan gelen tüm kapsam değişikliklerini aynı değişiklik kontrol süreci ile yönetmelidir. Talep birikimi görünür hale geldiğinde hızla kayıt altına alınıp önceliklendirme sürecine alınmalıdır."
+    }
+  ]
+}

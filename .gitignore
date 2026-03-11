@@ -27,8 +27,8 @@ __pycache__/
 *.pyc
 
 # ── Ticari IP — GitHub'da yayınlanmaz, Supabase'de tutulur ──────────────────
-# Mesele tipi şablonları (PSG içerik motoru)
-data/mesele-tipleri/
+# Mesele tipi şablonları (PSG içerik motoru) — artık repo'da tutulur
+# data/mesele-tipleri/
 # Sözlük (glossary)
 data/glossary.json
 # Migration scriptleri (service key içerebilir)

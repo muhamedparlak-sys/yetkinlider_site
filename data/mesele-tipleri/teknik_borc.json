@@ -1,0 +1,455 @@
+{
+  "mesele_id": "teknik_borc",
+  "meseleTR": "Teknik Borc",
+  "compatible_terms": [
+    "technical_debt",
+    "quality_management",
+    "agile",
+    "refactoring",
+    "definition_of_done",
+    "continuous_improvement",
+    "software_architecture"
+  ],
+  "reasons": [
+    {
+      "reason_id": "hızlı_çözüm_birikmesi",
+      "reasonTR": "Hızlı Çözümler Birikiyor ve Yavaşlatıyor",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Birikmiş kısa yollar sistemi yavaşlatıyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {borç_belirtisi} fark ettim. Geçmişte süreç baskısıyla yaptığımız {hızlı_çözüm_türü} şimdi ciddi yük yaratıyor. Ne yapalım?",
+      "body_vars": {
+        "borç_belirtisi": [
+          "yeni özellik eklemenin giderek zorlaştığını",
+          "basit değişikliklerin çok uzun sürdüğünü",
+          "hatalar arasındaki bağımlılığın arttığını",
+          "kod kalitesinin giderek bozulduğunu"
+        ],
+        "hızlı_çözüm_türü": [
+          "yamalar",
+          "geçici çözümler",
+          "yorum satırına alınan kodlar",
+          "ertelenmiş refactoring'ler"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu gözlemi paylaşman çok değerli {name_polite}. Teknik borcu görünür kılmalıyız — etkilenen alanları listeleyelim ve sponsora somut iş etkisini gösterelim. Refactoring için sprint kapasitesi ayıralım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Teknik borç haritası çıkaralım — hangi modüller en fazla borç taşıyor, bu borç yeni geliştirmeyi ne kadar yavaşlatıyor. Bu verileri backlog önceliklendirmesine bağlayalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Her sprint'e yüzde yirmi oranında teknik borç ödeme kapasitesi ayıralım — küçük ama sürekli iyileştirmeler büyük refactoring'den daha az riskli. Bu yaklaşımı önerebilirsin.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Teknik borç geliştirme sürecinin kaçınılmaz bir parçası {name_polite}. Her proje biraz teknik borç taşır — müşteri yeni özellik isterken refactoring yapmak çok zaman kaybı. Mevcut hızda devam ediyoruz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Teknik borç birikmesi başlangıçta hız kazandırır ama uzun vadede üstel hız kaybına neden olur. PMI, teknik borcun backlog'da görünür olmasını ve sprint kapasitesinin bir bölümünün borca ayrılmasını destekler. PM'in görevi teknik borcu proje risklerinden biri olarak takip etmek ve iş etkisini somutlaştırmaktır."
+    },
+    {
+      "reason_id": "belgesiz_sistem_mirası",
+      "reasonTR": "Belgesiz Eski Sistem Teknik Borç Yaratıyor",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Eski sistemin belgesizliği bizi yavaşlatıyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {eski_sistem} ile çalışmamız gerekiyor ama {sorun} Bu durum her yeni geliştirmede ciddi zaman kayıplarına neden oluyor.",
+      "body_vars": {
+        "eski_sistem": [
+          "on yıllık legacy kod tabanı",
+          "devraldığımız eski sistem",
+          "önceki ekipten gelen belgesiz bileşen",
+          "eskimiş mimari katman"
+        ],
+        "sorun": [
+          "belge hiç yok, kodu okuyarak anlamak zorunda kalıyoruz.",
+          "mimari kararların nedeni bilinmiyor.",
+          "kim ne yapmış, neden yapmış belli değil.",
+          "API'ler belgesiz, trial-and-error yapıyoruz."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu durumu gündeme getirmen çok doğru {name_polite}. Belgeleme eksikliği teknik borç türlerinden biridir — mevcut kodu anlayıp belgeleme için zaman ayıralım. Bu hem riski azaltır hem de ekibin verimliliğini artırır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Ters mühendislik yaparak sistemin davranışını belgeleyebiliriz — her yeni geliştirmede öğrenileni yazıya dökelim. Kümülatif olarak bilgi birikimi oluşur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Teknik belgeleme için her sprint'te biraz zaman ayıralım — mevcut sistemi anlayan birinin kılavuz yazması en hızlı çözüm. Bu önce en kritik bileşenlerden başlasın.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Eski sistemin belgesiz olması önce gelen ekibin sorunuydu {name_polite}. Bunu çözmek için ek kaynak ya da zaman yok — sistemle çalışmaya devam edin, iş bittikçe öğrenilir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Belgesiz eski sistemler üzerinde çalışmak verimsizliği ve hata riskini artıran önemli bir teknik borç türüdür. Sayıştay BT denetimlerinde belge eksikliği sistematik bir yönetişim sorunu olarak kayıt altına alınmaktadır. PM'in görevi belgeleme görevlerini WBS'e eklemek ve mevcut sistemin anlaşılmasına yatırım yapmaktır."
+    },
+    {
+      "reason_id": "otomatik_test_eksikliği",
+      "reasonTR": "Otomatik Test Altyapısı Kurulmadı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Test otomasyonu eksikliği bizi yavaşlatıyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {otomasyon_eksikliği} nedeniyle {sonuç} Her sürüm daha çok zaman alıyor.",
+      "body_vars": {
+        "otomasyon_eksikliği": [
+          "regresyon testlerinin tamamının manuel olması",
+          "otomatik deployment pipeline olmaması",
+          "birim test kapsamının yüzde on altında olması",
+          "sürekli entegrasyon altyapısının kurulmamış olması"
+        ],
+        "sonuç": [
+          "her sürüm için iki günlük manuel test yapıyoruz.",
+          "testçilerimiz sürümlerle koşuşturuyor.",
+          "hata tespiti çok yavaş gerçekleşiyor.",
+          "geliştirme hızı test kapasitesine takılıp kalıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu tespiti paylaşman çok değerli {name_polite}. Test otomasyonu bir yatırım gerektirir ama uzun vadede geri dönüşü yüksektir — hangi testleri önce otomatize etmemiz gerektiği için bir önceliklendirme toplantısı yapalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. CI/CD pipeline ve test otomasyonu için bir iyileştirme backlog'u oluşturalım — bunu teknik borç öğeleri olarak değerlendirip sprint'lere kademeli olarak dağıtabiliriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Birim testlerinden başlayalım — mevcut kod tabanında test yazmak en hızlı geri dönüşü sağlar. Her yeni özellik için test yazma kuralını bugünden uygulamaya koyabiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Test otomasyonu mevcut bütçe ve zamanda mümkün değil {name_polite}. Şu an öncelik özellik geliştirmek — sonraki proje fazında otomasyon bütçesi talep edebiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Test otomasyonu eksikliği sürüm hızını ve güvenilirliğini kısıtlayan kritik bir teknik borçtur. Sayıştay BELBİS projesi BT denetiminde test altyapısı eksikliği projenin yıllarca gecikmesine katkıda bulunan faktör olarak tespit edilmiştir. PM'in görevi test otomasyonu yatırımını iş değeri üzerinden savunmaktır."
+    },
+    {
+      "reason_id": "mimari_kısıtlar",
+      "reasonTR": "Eski Mimari Yeni Gereksinimleri Kısıtlıyor",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Mevcut mimari yeni ihtiyaçlara cevap veremiyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {yeni_gereksinim} gereksinimi geldi ama {mimari_sorun} Bu gereksinimi karşılamak için {maliyet_tahmini} gerekiyor.",
+      "body_vars": {
+        "yeni_gereksinim": [
+          "mobil erişim",
+          "yüksek eş zamanlı kullanıcı desteği",
+          "gerçek zamanlı veri analizi",
+          "üçüncü parti entegrasyon"
+        ],
+        "mimari_sorun": [
+          "mevcut mimari bunu desteklemiyor.",
+          "monolitik yapı bu esnekliği sağlamıyor.",
+          "veri modeli bu tür sorgulamalara uygun değil.",
+          "servis mimarisi bu yükü kaldıramaz."
+        ],
+        "maliyet_tahmini": [
+          "ciddi bir yeniden mimari çalışması",
+          "beklenmedik büyüklükte bir yatırım",
+          "öngörülmemiş bir teknik çalışma",
+          "önemli miktarda ekstra efor"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu teknik değerlendirme için teşekkürler {name_polite}. Sponsora bu durumu somut seçeneklerle sunmamız gerekiyor — mimariyi yenilemek, gereksinimi uyarlamak ya da kısmi çözüm üretmek arasındaki tradeoff'u birlikte değerlendirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bu mimari borcu risk kaydına alıyorum ve iş etkisini değerlendiriyorum — kısmi çözümle başlayıp uzun vadede mimariyi modernize etmek mümkün mü bakalım. Seçenekleri hazırlayın.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Gereksinimi daha küçük parçalara ayırıp mevcut mimaride çözülebilecek kısmını belirleyelim — tam çözüm yerine değer yaratan ilk adımı atalım. Sonraki fazda mimari çalışması planlanabilir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu durumu başlangıçta görmek gerekiyordu {name_polite}. Mimari kısıtı ancak şimdi öğrenmek proje başarısını tehdit ediyor — teknik analizi neden başlangıçta yapmadınız bunu anlamam gerekiyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Mimari teknik borç proje ilerledikçe katlanarak büyüyen bir risk faktörüdür. PMI, teknik borçların proje başında tanımlanmasını ve portföy yönetimi kararlarına dahil edilmesini önerir. PM'in görevi teknik kısıtları iş kararı etkisiyle birlikte yönetime sunmaktır."
+    },
+    {
+      "reason_id": "kod_kalite_standartları",
+      "reasonTR": "Kod Kalite Standartları Uygulanmıyor",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Kod kalite standartlarımız tutarlı uygulanmıyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {kalite_sorunu} Bu durum teknik borç birikimini hızlandırıyor ve uzun vadede bakım maliyetini artırıyor.",
+      "body_vars": {
+        "kalite_sorunu": [
+          "kod gözden geçirme (code review) süreci işletilmiyor.",
+          "tanımladığımız kodlama standartları uygulanmıyor.",
+          "teknik tasarım kararları belgelenmiyor.",
+          "pull request süreci çoğu zaman atlanıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu gözlem önemli {name_polite}. Kalite süreçlerini otomatize edebiliriz — linting, statik analiz araçları standartları otomatik uygular. Code review kültürünü de destekleyecek bir teşvik sistemi oluşturalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Kalite standartlarını 'Definition of Done' kriterine ekleyelim — code review yapılmadan merge kabul edilmesin. Bu kararı ekiple birlikte alalım ki sahiplensinler.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Önce en kritik standartları belirleyelim — hepsini bir anda uygulamak gerçekçi değil. En yüksek değeri yaratacak iki üç kural ile başlayıp kademeli olarak ekleyelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Kod kalite standartları teknik ekibin sorumluluğu {name_polite}. Benim PM olarak her pull request'i takip etmem mümkün değil — teknik lider bu süreci yönetmeli, ben sadece sonuçlara bakabilirim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kod kalite standartlarının uygulanmaması kaçınılmaz teknik borç birikmesine yol açar. PMI kalite yönetimi, kalite güvence süreçlerinin proje boyunca tutarlı uygulanmasını gerektirir. PM'in görevi kalite standartlarını 'Definition of Done' kriterlerine bağlamak ve ekibin bu standartlara sahip çıkmasını desteklemektir."
+    },
+    {
+      "reason_id": "dış_bağımlılıklar_güncel_değil",
+      "reasonTR": "Harici Kütüphaneler ve Bağımlılıklar Eski",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Kullandığımız kütüphaneler oldukça eski kalmış",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {bağımlılık_durumu} fark ettim. {risk} Bu durumu ele almak için ne kadar zaman ayırabilirsiniz?",
+      "body_vars": {
+        "bağımlılık_durumu": [
+          "kullandığımız framework versiyonunun iki büyük sürüm geride kaldığını",
+          "üçüncü parti kütüphanelerimizin güvenlik güncellemesi almadığını",
+          "destek süresi dolan bir platformda çalıştığımızı",
+          "güvenlik açığı bildirilen bir bileşen kullandığımızı"
+        ],
+        "risk": [
+          "Güvenlik açıkları bildirimi artıyor.",
+          "Yasal uyum için zorunlu güncelleme gerekebilir.",
+          "Yeni özellikler eski kütüphane nedeniyle eklenemiyor.",
+          "Destek sona erdiğinde hata düzeltmesi alamayabiliriz."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu tespit zamanında yapıldı {name_polite}. Bağımlılık güncellemelerini risk bazlı önceliklendireyim — güvenlik açığı içerenler önce, işlevsellik iyileştirenleri sonra. Bu iş için sprint kapasitesi ayıralım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bağımlılık güncellemelerini teknik borç backlog'una alıyorum — güvenlik riski taşıyanları bu sprint'e, diğerlerini bir sonrakine planlayabiliriz. Etki analizini de yapalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Güncellemeleri kademeli yapabiliriz — önce güvenlik açığı olanlar, sonra desteksiz kütüphaneler. Tam güncelleme yerine yamalı güncelleme ile başlayalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bağımlılık güncellemeleri gerekli ama şu an öncelik değil {name_polite}. Mevcut sürümler çalışıyor — sistem stabili bozma riskini almak istemiyorum. Önce teslimatları tamamlayalım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Güncel olmayan harici bağımlılıklar güvenlik açığı ve uyum riski yaratır. Sayıştay e-Nabız BT denetiminde harici bileşen versiyonlarının güncellenmemesi güvenlik riski olarak tespit edilmiştir. PM'in görevi bağımlılık yönetimini rutin bakım aktivitesi olarak projeye dahil etmektir."
+    },
+    {
+      "reason_id": "tasarım_kararı_belgelenmedi",
+      "reasonTR": "Kritik Tasarım Kararları Belgelenmedi",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Kritik tasarım kararlarımız neden öyle yapıldığını bilmiyoruz",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {mimari_soru} konusunda karar vermem gerekti ama {belge_eksikliği} Kararın arkasındaki mantığı artık kimse hatırlamıyor.",
+      "body_vars": {
+        "mimari_soru": [
+          "eski bir mimari tercihin",
+          "veritabanı tasarım kararının",
+          "API kontrat yapısının",
+          "servis ayrıştırma yaklaşımının"
+        ],
+        "belge_eksikliği": [
+          "bu tercihin neden yapıldığını belgeleyen hiçbir şey yok.",
+          "o zamanki toplantı notları kaybolmuş.",
+          "kararı veren kişi artık ekipte yok.",
+          "mimari ADR belgesi hiç yazılmamış."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu çok önemli bir tespit {name_polite}. Architecture Decision Records (ADR) tutmaya bugünden başlayalım — geçmiş kararları da mevcut sistemden çıkarsamaya çalışalım. Mimari birikimi korumak en önemli teknik borç önleme adımlarından biridir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Mimari belgeleme için teknik yazı görevi atayalım — her kritik karar için kısa bir ADR belgesi şablonu kullanılsın. Bu süreci sprint 'Definition of Done' kriterine ekleyelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Şu an için mevcut sistemin davranışından geriye doğru mimari kararları belgeleyebiliriz — ters mühendislik maliyetli ama gerekli. En kritik kararlardan başlayalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Mimari belgeleme ekibin sorumluluğu {name_polite}. Kararları kim aldıysa belgelemesi gerekirdi — bu eksiklikten dolayı ek çalışma yapmak zorunda kalmak üzücü ama önümüze bakmalıyız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Belgelenmemiş tasarım kararları bilgi kaybına ve yanlış değişiklik riskine yol açar. Architecture Decision Records (ADR), hangi kararların neden alındığını gelecek ekiplere aktarmanın etkili bir yoludur. PM'in görevi mimari belgelemeyi proje sürecinin zorunlu bir çıktısı olarak tanımlamaktır."
+    },
+    {
+      "reason_id": "kod_tekrarı_yaygın",
+      "reasonTR": "Kod Tekrarı Sistemi Kırılganlaştırıyor",
+      "weight": 6,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Kod tekrarı sistemi yönetilemez hale getiriyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {kod_tekrarı_durumu} Bu durum {sonuç} ve teknik borcumuz artıyor.",
+      "body_vars": {
+        "kod_tekrarı_durumu": [
+          "aynı mantık yirmiden fazla yerde tekrar edilmiş,",
+          "benzer fonksiyonlar her modülde ayrı yazılmış,",
+          "merkezi bir utility katmanı olmadığından her ekip kendi çözümünü üretmiş,",
+          "kopyala-yapıştır geliştirme yaklaşımı yıllardır sürmüş,"
+        ],
+        "sonuç": [
+          "tek bir hata onlarca yerde düzeltilmek zorunda kalıyor",
+          "davranış tutarsızlıkları giderek artıyor",
+          "yeni geliştirmeler eski hatayı yeniden üretiyor",
+          "bakım maliyeti katlanıyor"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu tespiti somutlaştırman çok değerli {name_polite}. Refactoring için 'Don't Repeat Yourself' ilkesini rehber alalım — en çok tekrar eden mantıkları önce merkezi modüle taşıyalım. Bu için sprint kapasitesi ayrılmasını önereceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Kod tekrarı haritası çıkaralım — hangi modüllerde, ne kadar sıklıkla. Bu veri ile refactoring önceliğini belirleyip backlog'a alalım. Küçük ama sistematik bir temizlik planı yapalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Yeni geliştirmelerde tekrarı önlemek için ortak kütüphane oluşturalım — en azından bundan sonraki işleri doğru yapalım. Eski tekrarları kademeli azaltabiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Kod tekrarı her büyük sistemde var {name_polite}. Bunu düzeltmek için zaman harcamak şu an önceliğimiz değil — çalışıyor, dokunmayalım. Teknik ekibin kendi arasında çözmesi gereken bir mesele.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kod tekrarı (DRY ihlali) hata yayılımını hızlandıran ve bakım maliyetini artıran teknik borç türüdür. PMI, kalite iyileştirmelerini proje sürecine entegre etmeyi destekler. PM'in görevi teknik borcun iş etkisini görünür kılmak ve refactoring çalışmaları için kaynak sağlamaktır."
+    },
+    {
+      "reason_id": "sürüm_planı_yok",
+      "reasonTR": "Teknik Borç İçin Ödeme Planı Yok",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Teknik borcu ödeyecek bir planımız yok",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {borç_durumu} Ama bu borcu nasıl ve ne zaman ödeyeceğimize dair bir planımız yok. {endişe}",
+      "body_vars": {
+        "borç_durumu": [
+          "birikmiş teknik borcun farkındayız",
+          "teknik borç listesi uzuyor",
+          "teknik ekip bu borçtan şikayetçi"
+        ],
+        "endişe": [
+          "Ekip morali düşüyor çünkü hep yeni özellik ekliyoruz, temizlemiyoruz.",
+          "Verimlilik giderek azalıyor ve endişe artıyor.",
+          "Sonraki faza geçmeden çözülmesi gereken şeyler var.",
+          "Bu borç patlak verirse çok pahalıya çıkacak."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Çok önemli bir noktaya dikkat çektin {name_polite}. Teknik borç ödeme planı oluşturalım — her sprint'in yüzde on beşini borca ayıralım. Bunu backlog'da görünür bir kalem olarak tutup kümülatif ilerlemeyi izleyelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Teknik borcu önceliklendirip iş etkisine göre sıralayalım — en kritik borçları bu çeyrek içinde hedefleyelim. Sponsora da bu planı gösterelim, onayını alalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Teknik borç görünürlüğü için bir dashboard kuralım — ne kadar borç var, ne kadarı ödendi, trend nereye gidiyor. Bu veriyi her sprint reviewda paylaşalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Teknik borç geleceğin meselesi {name_polite}. Şu an müşteri yeni özellik bekliyor — teknik temizlik sonraki faz için planlanabilir, şu an öncelik değil.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Planlanmamış teknik borç kaçınılmaz olarak birikir ve projeyi felç eder. PMI, teknik borcun görünür kılınmasını ve düzenli ödeme planı oluşturulmasını destekler. PM'in görevi teknik borcu iş değeri çerçevesinde konuşlandırmak ve hem ekip hem yönetim için bir geri ödeme ritmi belirlemektir."
+    }
+  ]
+}

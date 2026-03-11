@@ -1,0 +1,401 @@
+{
+  "mesele_id": "tanimsiz_risk",
+  "meseleTR": "Tanimsiz Risk",
+  "compatible_terms": [
+    "risk_management",
+    "risk_identification",
+    "risk_register",
+    "uncertainty",
+    "black_swan",
+    "assumptions_log",
+    "risk_assessment"
+  ],
+  "reasons": [
+    {
+      "reason_id": "hiç_düşünülmemiş_senaryo",
+      "reasonTR": "Hiç Akla Gelmeyen Senaryo Gerçekleşti",
+      "weight": 9,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Beklenmedik bir olayla karşılaştık",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {beklenmedik_olay} yaşandı. {sonuç} Risk kaydımızda böyle bir senaryo yoktu. Ne yapabiliriz?",
+      "body_vars": {
+        "beklenmedik_olay": [
+          "yasa değişikliği projemizi doğrudan etkiledi",
+          "kilit tedarikçi iflas etti",
+          "veri merkezi olayı beklenmedik biçimde etkiledi",
+          "kullanılan açık kaynak kütüphanesi güvenlik açığı bildirdi"
+        ],
+        "sonuç": [
+          "Projeyi durdurmak zorunda kalabiliriz.",
+          "Mevcut planı tamamen revize etmemiz lazım.",
+          "Müşteri sözleşmesini etkileyebilir.",
+          "Takvim ve bütçeye ciddi etkisi olabilir."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Risk kaydında olmasa da yönetilebilir — hemen etki analizi yapalım. Seçenekler neler, hangisi en az zarar verir, bunu birlikte değerlendirelim. Paydaşlara bildirim zamanlamasını da kararlaştıralım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bu tür bilinmeyen riskler için genel müdahale çerçevemiz var — etki ve aciliyeti değerlendirelim, sonra yanıt seçeneklerini sıralayalım. Risk kaydına ekleyip izlemeye alalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. İlk adım etki alanını sınırlamak — hangi aktiviteler etkileniyor, hangiler güvende. Sonra sponsoru bilgilendirip seçenekleri birlikte değerlendiririz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Risk kaydında yoksa ne yapacağımızı bilemeyiz {name_polite}. Bu tür sürpriz olaylar için proje yönetiminin sınırları var — üst yönetime eskalasyon yapıp onlardan direktif almamız gerekiyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Bilinmeyen riskler (unknown unknowns) her projede mevcuttur ve bunların tümünü önceden tanımlamak mümkün değildir. PMI, genel yönetim yedek rezervi ve olasılık dışı senaryo planlamasını (contingency planning) gerektirir. PM'in görevi bilinmeyenlere karşı hızlı değerlendirme ve uyum kapasitesini geliştirmektir."
+    },
+    {
+      "reason_id": "varsayım_yanlış_çıktı",
+      "reasonTR": "Kritik Proje Varsayımı Yanlış Çıktı",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Proje varsayımımız gerçekleşmedi",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {varsayım} varsayımıyla ilerliyorduk. Ama {gerçek} Bu varsayım üzerine inşa ettiğimiz planı gözden geçirmemiz gerekiyor.",
+      "body_vars": {
+        "varsayım": [
+          "müşteri onay sürecinin iki haftada tamamlanacağı",
+          "teknik altyapının hazır olacağı",
+          "kaynakların tam kapasitede çalışacağı",
+          "regülatör onayının altı ayda geleceği"
+        ],
+        "gerçek": [
+          "bu süreç altı haftayı buluyor.",
+          "altyapı hazırlığı gecikmeli.",
+          "kaynaklar kısmi kapasitede çalışıyor.",
+          "onay süreci belirsizleşti."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu tespiti zamanında yaptın {name_polite}. Varsayımı düşey etkisini değerlendireyim — hangi aktiviteler bu varsayıma dayalı, revize etmemiz gerekenler neler. Varsayımlar günlüğümüzü de güncelleyelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bu varsayımın yanlış çıkması risk kaydımızda yer alan senaryoyu tetikliyor mu kontrol edeyim — değilse yeni bir risk olarak kayıt altına alıp yanıt planı hazırlıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Etkilenen planı revize etmeden önce alternatif varsayımlar üretelim — en iyi, olası ve en kötü senaryolar için planlar hazırlayalım. Bu esneklik bizi korur.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu varsayımı neden test etmediğimizi anlamak istiyorum {name_polite}. Kritik varsayımların erken aşamada doğrulanması gerekiyordu — şimdi planı değiştirmek çok maliyetli olacak.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Doğrulanmamış varsayımlar gizli risklerdir. PMI Varsayımlar Günlüğü, tüm kritik proje varsayımlarının listelenmesini, doğrulama yöntemlerinin belirlenmesini ve geçerliliğinin düzenli izlenmesini gerektirir. PM'in görevi varsayımları erken aşamada test etmek ve geçersiz olanlar için yanıt planı hazırlamaktır."
+    },
+    {
+      "reason_id": "bağımlılık_riski_gözden_kaçtı",
+      "reasonTR": "Kritik Bağımlılık Riski Tanımlanmamıştı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Bir bağımlılık riskini atlamamışım",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {bağımlılık_türü} ile ilgili bağımlılığımızı risk kaydına almamıştım. {sorun} Bu durumu nasıl yönetiriz?",
+      "body_vars": {
+        "bağımlılık_türü": [
+          "üçüncü parti servis",
+          "başka ekibin teslimatı",
+          "müşteri tarafı altyapı",
+          "düzenleyici onay"
+        ],
+        "sorun": [
+          "Bu bağımlılık şimdi gecikiyor ve bizi etkiliyor.",
+          "Bağımlı taraf plan değiştirdi, haberdar olmamıştık.",
+          "Bağımlılık zincirinde sorun çıktı ve bize yansıdı.",
+          "Bağımlı sistem güncellendi, uyumsuzluk oluştu."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Önce bu bağımlılığın projeye etkisini değerlendirelim — bağımlı tarafla hemen iletişime geçiyorum. Risk kaydına da ekleyip izlemeye alıyoruz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bağımlılık riskini risk kaydına alalım ve yanıt stratejisi geliştirelim — bağımlılığı azaltabilir miyiz, alternatif var mı, yoksa takvimi nasıl revize ederiz bakalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bağımlı tarafla acil görüşme ayarlıyorum — durumu öğrendikten sonra planı revize edeceğiz. Bu arada bağımsız aktiviteleri sürdürelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bağımlılık risklerini risk kaydına almak temel sorumluluk {name_polite}. Bu eksiklik projenin durumunu tehlikeye attı — risk tanımlama toplantılarını daha sistematik yapmamız gerekiyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Bağımlılık riskleri proje başarısını en çok etkileyen faktörler arasındadır. Sayıştay İBB B20 bulgusunda mülkiyet belirsizliği kaynaklı bağımlılık riski proje gecikmesinin temel sebebi olarak gösterilmektedir. PM'in görevi tüm kritik bağımlılıkları başlangıçta haritalandırıp risk kaydına almaktır."
+    },
+    {
+      "reason_id": "piyasa_koşulları_değişti",
+      "reasonTR": "Piyasa Koşulları Beklenmedik Değişti",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "sponsor",
+      "subject_template": "Piyasa koşulları projeyi etkiliyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, size önemli bir gelişmeyi aktarmak istiyorum. {piyasa_değişim} Projenin bu koşullara nasıl uyum sağlayacağını birlikte değerlendirmeliyiz.",
+      "body_vars": {
+        "piyasa_değişim": [
+          "Rakip bizden önce piyasaya benzer ürünü sürdü.",
+          "Hedef müşteri segmentinde ciddi bir daralma yaşandı.",
+          "Regülasyon değişikliği projenin iş modelini etkiledi.",
+          "Teknoloji trendi beklenmedik biçimde değişti."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, bunu paylaştığınız için teşekkürler. Piyasa değişiminin projeyi nasıl etkilediğini analiz edeyim — kapsam veya yaklaşım revizyonu gerekebilir. Hızlı bir etki değerlendirmesi yapıp seçenekler sunacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bu gelişmeyi risk kaydına alıyorum ve projenin iş gerekçesini (business case) gözden geçiriyorum — değişen koşullarda proje hâlâ değer yaratıyor mu, yoksa pivot mi gerekiyor?",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Değişen piyasa koşullarına hızlı uyum için çevik yaklaşım benimseyebiliriz — MVP ile erken çıkıp geri bildirimle ilerlemek riski azaltır.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Piyasa değişimlerini öngöremezdim {name_polite}. Dış faktörler PM kontrolü dışında — proje planımız doğruydu, koşullar değişti. Proje tarafından yapılan hatalar varsa tartışabiliriz ama dış faktörler bizden kaynaklı değil.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Piyasa belirsizliği projelerin en az kontrol edilebilir risk faktörüdür. PMI, iş gerekçesi (business case) güncellemelerinin periyodik yapılmasını ve değişen koşullarda projenin sürdürülüp sürdürülmemesi kararının bilinçle verilmesini gerektirir. PM'in görevi piyasa sinyallerini izleyip proaktif olarak değerlendirmektir."
+    },
+    {
+      "reason_id": "düzenleyici_değişiklik",
+      "reasonTR": "Mevzuat Değişikliği Projeyi Etkiledi",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Yeni düzenleme projemizi doğrudan etkiliyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {düzenleme_konusu} konusunda yeni bir düzenleme yürürlüğe girdi. {etki} Bu değişikliği projeye yansıtmamız gerekiyor.",
+      "body_vars": {
+        "düzenleme_konusu": [
+          "veri güvenliği",
+          "çevre standartları",
+          "lisanslama",
+          "raporlama zorunluluğu"
+        ],
+        "etki": [
+          "Mevcut tasarımımız bu gereksinimi karşılamıyor.",
+          "Yeni gereksinim ek geliştirme gerektiriyor.",
+          "Uyumsuzluk durumunda yasal risk oluşuyor.",
+          "Proje kapsamına ek bileşen eklenmesi zorunlu."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Bu değişikliğin projeye etkisini kapsamlı analiz edeyim — hangi bileşenler etkileniyor, ne zaman ve nasıl uyumlu hale gelebiliriz. Hukuk ve uyum ekibini de döngüye alacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bu değişikliği risk kaydına alıyorum ve etki analizini tamamlıyorum — kapsam değişikliği talebi hazırlayıp CCB onayına sunacağım. Takvim ve maliyet etki tahminini de ekleyeceğim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Uyum gereksinimi için minimum değişiklik setini belirleyelim — en az etki ile en hızlı uyumu sağlayan yolu bulalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Düzenleyici değişiklikler PM kontrolü dışında {name_polite}. Bu değişikliğin getireceği ek maliyeti müşteri karşılamak zorunda — sözleşmemizde Force Majeure maddesi bu durumu kapsar.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Düzenleyici değişiklikler PMI risk kategorilerinde harici riskler arasında yer alır. Proaktif çevresel tarama (environmental scanning) erken uyarı sağlar. PM'in görevi düzenleyici değişiklikleri izleyecek bir mekanizma kurmak ve bunları risk kaydında güncel tutmaktır."
+    },
+    {
+      "reason_id": "insan_kaynağı_beklenmedik_ayrılması",
+      "reasonTR": "Beklenmedik Personel Ayrılması Proje Riskine Dönüştü",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Kritik personel beklenmedik ayrıldı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {kişi_tanımı} beklenmedik biçimde ayrıldı. {bilgi_durumu} Bu durumu yönetmemiz gerekiyor.",
+      "body_vars": {
+        "kişi_tanımı": [
+          "kritik teknik uzmanımız",
+          "proje hafızamız olan kıdemli analist",
+          "müşteriyle ilişkiyi bilen tek kişi",
+          "özel uzmanlığa sahip ekip üyemiz"
+        ],
+        "bilgi_durumu": [
+          "Ayrılmadan önce bilgi transferi yapılamadı.",
+          "Belge bırakmadan gitti.",
+          "Kritik şifreler ve erişimler belirsiz kaldı.",
+          "Devam eden kritik görevler yarım kaldı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Zor bir durum ama zamanında bildirdin {name_polite}. Önce ayrılan kişinin kritik aktivitelerini ve erişimlerini tespit edelim — acil bilgi geri kazanımı ve görev devir planı hazırlıyorum. İK ile de konuşacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bilgi adalanmasının boyutunu değerlendirelim — hangi kritik bilgi bu kişide kaldı, nereden geri kazanabiliriz. Boşluğu kapatmak için kaynak seçeneklerine bakıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bu deneyimden çıkarsayarak 'bize bağımlılık riski' için bir plan yapalım — kritik bilgiyi birden fazla kişide tutmak ve bilgi transfer protokolü oluşturmak için adım atalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu ayrılma önceden sezilmeliydi {name_polite}. Çalışan bağlılığı ve elde tutma stratejisi yetersiz kalmış — insan kaynakları ile bu konuyu ele almam gerekiyor. Anlık durum için ise dışarıdan danışman alacağız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Beklenmedik personel ayrılması bilgi kaybı riskinin en kritik tetikleyicilerinden biridir. Sayıştay İBB B68 bulgusunda 46 kişinin süresiz geçici görevle uzaklaşması proje bilgi kaybı riski olarak kayıt altına alınmıştır. PM'in görevi kritik bilgiyi birden fazla kişide dağıtacak bilgi transferi planı oluşturmaktır."
+    },
+    {
+      "reason_id": "doğal_afet_force_majeure",
+      "reasonTR": "Doğal Afet veya Beklenmedik Dış Olay",
+      "weight": 5,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Beklenmedik dış olay projeyi etkiliyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {dış_olay} nedeniyle projede acil bir durum oluştu. {etki} Bu süreçte nasıl ilerleriz?",
+      "body_vars": {
+        "dış_olay": [
+          "yaşanan doğal afet",
+          "bölgedeki altyapı kesintisi",
+          "pandemik gelişme",
+          "ülke genelinde ilan edilen olağanüstü hal"
+        ],
+        "etki": [
+          "Ekibimizin büyük bölümü çalışamaz durumda.",
+          "Fiziksel tesislerimize erişim kesintiye uğradı.",
+          "Tedarik zincirimiz tamamen durdu.",
+          "Müşteri de aynı şekilde etkilendi."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Bu süreçte önce ekibin güvenliğini ve sağlığını öncelikliyorum. Sonra iş sürekliliği planımızı devreye alacağız — uzaktan çalışma, kritik faaliyetlerin önceliklendirilmesi ve paydaş iletişimini organize ediyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Olağanüstü durum protokolünü aktive ediyorum — hangi aktiviteler asıl hangileri ertelenebilir değerlendireyim. Müşteriyle Force Majeure koşullarını da gözden geçirelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Hemen kriz iletişim planını devreye alıyorum — tüm paydaşları bilgilendirip sürecin nasıl yönetileceğini açıklıyorum. Ekiple irtibat protokolünü etkinleştiriyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu olaydan biz sorumlu değiliz {name_polite}. Sözleşmedeki Force Majeure maddesi bizi korur — müşteriye tüm gecikmeler için bu maddeyi yazılı bildiriyorum ve ek yükümlülük kabul etmiyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Force majeure olayları tüm risk önlemlerine rağmen projeleri etkileyebilir. PMI, iş sürekliliği planının proje planına dahil edilmesini ve olağanüstü durum protokollerinin önceden tanımlanmasını önerir. PM'in görevi kriz anında sakin liderlik sergilemek ve süreci şeffaf yönetmektir."
+    },
+    {
+      "reason_id": "siber_güvenlik_olayı",
+      "reasonTR": "Siber Güvenlik Olayı Projeyi Durdurdu",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Siber güvenlik olayı projemizi etkiliyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {güvenlik_olayı} yaşandı ve {etki} Proje verilerinin güvenliği konusunda acil adım atmamız gerekiyor.",
+      "body_vars": {
+        "güvenlik_olayı": [
+          "sistemlerimizde bir veri ihlali tespit edildi",
+          "fidye yazılımı saldırısına maruz kaldık",
+          "yetkisiz erişim girişimi fark edildi",
+          "hassas proje verisi sızıntısı iddiası var"
+        ],
+        "etki": [
+          "proje dosyalarına erişim kısıtlandı.",
+          "kritik sistemler kapatıldı.",
+          "müşteri verileri risk altında.",
+          "proje çalışmaları askıya alındı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Güvenlik ekibiyle hemen koordine oluyorum — etkilenen sistemleri izole edelim, delilleri koruyalım. Müşteriyi yasal süreler içinde bilgilendirmemiz gerekebilir. Hukuk birimini döngüye alıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Acil güvenlik müdahale planını aktive ediyorum — hangi veriler etkilendi tespit edelim, hasarı sınırlayalım. Güvenlik soruşturması tamamlanana kadar proje aktiviteleri dondurulabilir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Güvenlik uzmanı desteği alıyorum — bu süreçte paydaşlara ne söyleyeceğimizi birlikte kararlaştıralım. Özellikle müşteri iletişiminde dikkatli olmamız gerekiyor.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu güvenlik olayı IT ekibinin sorumluluğunda {name_polite}. Proje olarak bizim yapabileceğimiz bir şey yok — IT sorunu çözene kadar bekliyoruz ve projenin gecikmesi IT sorunuyla ilişkili.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Siber güvenlik olayları tanımlanması en güç risk türlerinden biridir. PMI, proje güvenlik risklerinin risk kaydında yer almasını ve güvenlik politikalarına uyumu zorunlu kılar. PM'in görevi güvenlik olaylarına hazırlıklı olmak ve olay yanıt sürecinin proje planına dahil edilmesini sağlamaktır."
+    }
+  ]
+}

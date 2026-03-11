@@ -1,0 +1,408 @@
+{
+  "mesele_id": "kapsam_belirsizligi",
+  "meseleTR": "Kapsam Belirsizliği",
+  "compatible_terms": [
+    "scope ambiguity",
+    "unclear requirements",
+    "undefined scope",
+    "fuzzy requirements"
+  ],
+  "reasons": [
+    {
+      "reason_id": "KAP-01",
+      "reasonTR": "Gereksinim belgesi yoruma açık",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "client",
+      "subject_template": "Proje kapsamı hakkında sorum var",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\n{belge} belgesinde '{madde}' maddesi net değil. Ekibimiz bunu {yorum_a} olarak anlıyor; siz {yorum_b} gibi görünüyorsunuz. Bu farklılık {bileşen} bileşenini doğrudan etkiliyor. Netleştirelim mi?\n\nSaygılarımla.",
+      "body_vars": {
+        "belge": [
+          "gereksinim dokümanı",
+          "iş analizi raporu",
+          "sistem tasarım belgesi"
+        ],
+        "madde": [
+          "gerçek zamanlı güncelleme",
+          "çoklu kullanıcı desteği",
+          "veri arşivleme"
+        ],
+        "yorum_a": [
+          "anlık bildirim",
+          "eş zamanlı oturum",
+          "sınırsız saklama"
+        ],
+        "yorum_b": [
+          "periyodik yenileme",
+          "sıralı erişim",
+          "belirli süre saklama"
+        ],
+        "bileşen": [
+          "bildirim sistemi",
+          "oturum yönetimi",
+          "arşiv modülü"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, tespitiniz önemli. Bu farklı yorumları netleştirmek için kısa bir açıklama toplantısı öneririm; iki tarafın beklentilerini yan yana koyup kabul edilen tanımı yazılı hale getirelim. Mutabık kalınan tanımı gereksinim belgesine ekleyip imzaya sunacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, sizin yorumunuz doğru görünüyor; ekibimize buna göre ilerlemelerini söylüyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, gereksinim belgesine baktım; belirsizlik var ama genel kabul gören pratikle ilerleyebiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, her iki yorumu da karşılayan esnek bir çözüm geliştirebiliriz; ikisini de dahil edelim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kapsam belirsizliği projenin en erken aşamalarında giderilmelidir; geç tespit edilen belirsizlikler yeniden çalışma maliyetini katlar. PM, tüm gereksinimlerin net, ölçülebilir ve test edilebilir (SMART) biçimde tanımlanmasını sağlamalı ve belirsiz ifadeleri yazılı mutabakatla netleştirmelidir."
+    },
+    {
+      "reason_id": "KAP-02",
+      "reasonTR": "Kapsam dışı talep kabul baskısı",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "sponsor",
+      "subject_template": "{ozellik} özelliği eklensin mi?",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nMüşteri {ozellik} özelliğini talep ediyor. Bu mevcut kapsamda yok ama küçük bir ek gibi görünüyor. Fırsatı değerlendirip ekleyebilir miyiz?\n\nDüşünceleriniz?",
+      "body_vars": {
+        "ozellik": [
+          "PDF rapor indirme",
+          "çoklu dil desteği",
+          "mobil uygulama entegrasyonu"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, isteği anlıyorum. Önce bu özelliğin efor, maliyet ve takvim üzerindeki etkisini değerlendiriyorum. Eğer 'küçük' görünse de kapsamı etkiliyorsa resmi değişiklik talebi açmamız gerekir. Analizi tamamlayınca seçenekleri sunacağım: mevcut sprint'e ekle, sıradaki versiyona bırak veya ek ücretlendirme.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, küçük bir özellik; hemen ekleyelim, zaman kaybetmeyelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, müşteri istiyorsa ekleriz; sonraki sprint'te planlarız.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, kapsam değişikliklerine kesinlikle izin veremem; sözleşme kapsamı net.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Scope creep genellikle 'küçük eklemeler' olarak başlar ve birikimli olarak proje takvimini ve bütçesini aşındırır. Her yeni özellik talebi etki analizi ve değişiklik kontrol sürecinden geçmelidir. PM, müşteriyi ve sponsoru bu sürecin neden projeyi koruduğunu anlayacak şekilde yönlendirmelidir."
+    },
+    {
+      "reason_id": "KAP-03",
+      "reasonTR": "Kabul kriterleri tanımlanmamış",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{teslim} teslimatının kabul kriterleri hiç belgelenmemiş. Müşteri 'iyi çalışıyor' diyene kadar teslim edilmiş sayılmayacağını söylüyor. Bu belirsizlik test sürecimizi ve teslim tarihimizi tehdit ediyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "teslim": [
+          "kullanıcı arayüzü",
+          "entegrasyon katmanı",
+          "performans modülü"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nKabul kriterleri belirsizliği kritik bir risk. Müşteriyle bugün kısa bir oturum planlıyorum; hangi kriterlerin karşılanması durumunda teslim kabul edileceğini birlikte yazıyoruz. Ölçülebilir kriterler (yanıt süresi, hata oranı, kullanıcı akışı) üzerinde mutabakat sağlayıp belgeliyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nMüşteri memnun kalana kadar revize ederiz; bu yaklaşım müşteri ilişkisini güçlendirir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nSektör standardı kabul kriterlerini kullanabiliriz; müşteriye bunu anlatırım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nTest geçtikten sonra müşteriyi ikna ederiz; endişelenmeyin.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Tanımsız kabul kriterleri en yaygın proje anlaşmazlığı kaynaklarından biridir. PM, proje başında her teslim için yazılı ve ölçülebilir kabul kriterleri (Definition of Done) oluşturmalı ve müşteri ile mutabık kalınmalıdır. Bu kriterler UAT sürecinin temelini oluşturur ve 'memnun kalana kadar' gibi öznel beklentileri önler."
+    },
+    {
+      "reason_id": "KAP-04",
+      "reasonTR": "Teknik ve iş gereksinimlerinin çatışması",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nİş birimi {is_gereksinim} istiyor ancak teknik ekip bunu {teknik_kisit} nedeniyle gerçekleştiremeyeceğini söylüyor. İkisi arasında köprü kurmam gerekiyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "is_gereksinim": [
+          "anlık rapor üretimi",
+          "tüm kullanıcıların eş zamanlı erişimi",
+          "geriye dönük 10 yıllık veri sorgusu"
+        ],
+        "teknik_kisit": [
+          "mevcut altyapının kapasitesi yetersiz",
+          "veritabanı performansı izin vermiyor",
+          "veri modeli buna uygun değil"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nHer iki tarafı da dinledim. Teknik kısıtları ve iş gereksinimini açıkça belgeleyen bir analiz hazırlıyorum; her seçeneğin (altyapı yükseltme, kısmi çözüm, fazlı geliştirme) maliyet ve faydasını yan yana koyacağım. İş birimi ve teknik ekibi aynı masaya toplayarak bilinçli bir karar almalarını kolaylaştıracağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nTeknik kısıtlar net; iş birimine gereksinimini düşürmesini söylemeliyiz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nİş birimi haklı; teknik ekip yol bulmalı. Baskı uygularsak çözüm üretirler.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nŞimdilik basit bir versiyon teslim edelim; iş birimi zamanla alışır.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Teknik ve iş gereksinimleri çatışması, PM'in arabulucu rolünü en iyi sergilediği senaryolardandır. Teknik karmaşıklığı iş diline çevirmek ve iş değerini teknik dile çevirmek, hem sorunun anlaşılmasını hem de bilinçli karar alınmasını sağlar. PM taraf tutmamalı, somut veri ve seçenekler sunarak karar sürecini kolaylaştırmalıdır."
+    },
+    {
+      "reason_id": "KAP-05",
+      "reasonTR": "Prototip ile gerçek ürün arasındaki beklenti uçurumu",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "client",
+      "subject_template": "Prototip ile son ürün farklı!",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nPrototipte gördüğümüz {ozellik} özelliği son üründe neden yok? Prototipteki tüm özelliklerin üründe yer alacağını varsaydık.\n\nAçıklama bekliyoruz.",
+      "body_vars": {
+        "ozellik": [
+          "gelişmiş filtreleme",
+          "animasyonlu geçişler",
+          "gerçek zamanlı işbirliği"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, endişenizi anlıyorum. Prototip, gerçek kullanıcı deneyimini test etmek için kullanılan konsept gösterimiydi; tüm özellikler henüz geliştirme kapsamında değildi. Prototipin amacı ve üretim kapsamı arasındaki farkı açıklayan kısa bir toplantı yapabiliriz. {ozellik} özelliğini de değerlendirip takvim ve bütçe etkisini sizinle paylaşabilirim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, haklısınız; prototipi tam ürün olarak sunmamız hataydı. Farkı kapatmak için ek çalışma yapacağız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, prototip ile ürün arasındaki fark nettir; gereksinim belgenizdeki kapsama bakabilirsiniz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, prototipteki tüm özellikleri ekleyebiliriz; sadece zaman ve bütçe gerekecek.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Prototip-ürün beklenti uçurumu, kapsam yönetiminin en sık karşılaşılan sorunlarından biridir. PM, prototip sunumunda açıkça 'bu bir konsept gösterimidir, nihai kapsam değildir' mesajını vermelidir. Yazılı kapsam belgesi ve prototipin sınırlarını açıklayan bir 'kapsam dışı' listesi hazırlanması bu yanlış anlamayı önler."
+    },
+    {
+      "reason_id": "KAP-06",
+      "reasonTR": "Müşteri organizasyonunda kapsam anlaşmazlığı",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "client",
+      "subject_template": "Kapsam konusunda iç görüş ayrılığı",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nBizdeki {departman_a} {talep_a} isterken {departman_b} {talep_b} istiyor. Her iki tarafı da memnun etmemiz gerekiyor. Tek bir çözüm geliştirebilir misiniz?\n\nBekliyoruz.",
+      "body_vars": {
+        "departman_a": [
+          "finans departmanı",
+          "operasyonlar birimi",
+          "IT departmanı"
+        ],
+        "talep_a": [
+          "maliyet raporlaması ön planda olsun",
+          "süreç otomasyonu öncelikli",
+          "güvenlik standartları tam karşılansın"
+        ],
+        "departman_b": [
+          "satış ekibi",
+          "müşteri hizmetleri",
+          "insan kaynakları"
+        ],
+        "talep_b": [
+          "satış analitikleri ön planda olsun",
+          "müşteri etkileşim araçları öncelikli",
+          "çalışan yönetim modülü eklensin"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, her iki tarafın beklentilerini anlıyorum. Bu farklı talepleri öncelik ve iş değeri açısından karşılaştıran bir analiz hazırlıyorum. Her iki birimin temsilcilerini dahil ederek ortak bir önceliklendirme oturumu yapmanızı ve mutabık kalınan kapsamı yazılı belgelemizi öneririm.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, her iki talebi de dahil eden kapsamlı bir çözüm geliştiririz; zaman alır ama mümkün.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, daha yüksek yetkili departmanın talebi esas alınmalı.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, bu karar tamamen sizin organizasyonunuza ait; anlaşınca bize bildirin.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Müşteri organizasyon içi çatışmalar PM'in doğrudan çözemeyeceği bir durumdur; ancak PM, yapılandırılmış bir karar alma süreci kolaylaştırabilir. Paydaş analizi (stakeholder analysis) ve öncelik matrisi (MoSCoW) gibi araçlar, çatışan talepleri nesnel biçimde değerlendirmeye yardımcı olur."
+    },
+    {
+      "reason_id": "KAP-07",
+      "reasonTR": "Yazılı ve sözlü anlaşma çelişkisi",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "sponsor",
+      "subject_template": "{konu} — sözleşme yorumu",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nKik-off toplantısında {konu} konusunda {sozlu_taahhut} kararlaştırılmıştı. Ama sözleşmede {yazili_ifade} yazıyor. Hangisi geçerli?\n\nNetleştirmenizi bekliyorum.",
+      "body_vars": {
+        "konu": [
+          "teslimat formatı",
+          "destek kapsamı",
+          "güncellleme periyodu"
+        ],
+        "sozlu_taahhut": [
+          "aylık raporlama",
+          "7/24 destek",
+          "her versiyonda güncelleme"
+        ],
+        "yazili_ifade": [
+          "çeyrek rapor",
+          "iş saatleri destek",
+          "büyük sürümlerde güncelleme"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, bu çelişkiyi hukuk/sözleşme ekibiyle birlikte değerlendirmem gerekiyor. Geçici olarak, en kısıtlayıcı yorumu esas alarak ilerliyorum; hukuki netleşme gelene kadar bu yaklaşım her iki tarafı da korur. Resmi bir değişiklik anlaşması gerekebilir; bu konuda sizi bilgilendireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, sözlü anlaşmayı esas alıyorum; kik-off toplantısı tutanakları bunu destekliyor.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, her zaman sözleşme metni geçerlidir; sözlü taahhütler bağlayıcı değil.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, her iki yorum da geçerli olduğundan daha kapsamlı olanı uygulayacağız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Sözlü-yazılı anlaşma çelişkisi hukuki risk yaratır; PM bu tür durumları hukuk ekibine iletmeli ve belirsizlik çözülene kadar muhafazakâr (en kısıtlayıcı) yorumu esas almalıdır. Kik-off toplantılarının yazılı tutanakla belgelenmesi, bu tür çelişkileri önceden önler."
+    },
+    {
+      "reason_id": "KAP-08",
+      "reasonTR": "Kapsam yorumunda ekip içi uyumsuzluk",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nEkibimizde {ozellik} özelliğinin kapsamda olup olmadığı konusunda farklı görüşler var. {kisim_a} bunu kapsam içinde görürken {kisim_b} kapsam dışında. Bu belirsizlik sprint planlamasını engelliyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "ozellik": [
+          "otomatik bildirim sistemi",
+          "veri yedekleme modülü",
+          "çok kiracılı yapı"
+        ],
+        "kisim_a": [
+          "geliştirme ekibi",
+          "backend takımı",
+          "ürün ekibi"
+        ],
+        "kisim_b": [
+          "test ekibi",
+          "frontend takımı",
+          "operasyonlar"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBu belirsizliği bir an önce netleştirmek gerekiyor. Gereksinim belgesini ve değişiklik günlüğünü inceleyip resmi kapsam tanımına bakıyorum. Bulguları ekibiyle paylaşacak ve mutabık kalınan tanımı yazılı olarak belgeliyorum; böylece sprint planlaması tutarlı ilerler.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nHer iki yorumu da kapsayan bir tasarım geliştirelim; ileride netleşince gereksiz kısımları çıkarırız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nGeliştirme ekibinin yorumunu esas alıyorum; onlar kodu yazıyor.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nEkip kendi aralarında anlaşsın; ben müdahale etmek istemiyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Ekip içi kapsam belirsizlikleri sprint planlamasını ve kaliteyi doğrudan etkiler; PM bu belirsizliği bir an önce resmi kapsam belgesiyle gidermelidir. Ekipler arası kapsam anlaşmazlıkları ilerleyen süreçte yeniden çalışma ve sorumluluk çatışmalarına yol açar. Definition of Done (DoD) ve kapsam kontrol listesi bu sorunları önlemede etkili araçlardır."
+    }
+  ]
+}

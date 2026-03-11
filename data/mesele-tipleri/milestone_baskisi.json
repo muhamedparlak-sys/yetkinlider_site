@@ -1,0 +1,299 @@
+{
+  "mesele_id": "milestone_baskisi",
+  "meseleTR": "Milestone Baskısı",
+  "compatible_terms": [
+    "milestone pressure",
+    "deadline pressure",
+    "delivery pressure",
+    "schedule pressure"
+  ],
+  "reasons": [
+    {
+      "reason_id": "MIL-01",
+      "reasonTR": "Sponsorun teslim tarihi baskısı",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "sponsor",
+      "subject_template": "{proje_adi} — teslim tarihi kritik",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nYönetim kurulu {tarih} tarihini kesin teslim tarihi olarak benimsedi. Bu tarihi kaçırırsak {sonuc} sonucuyla karşılaşırız. Ne gerekiyorsa yapın.\n\nBilgilerinize.",
+      "body_vars": {
+        "proje_adi": [
+          "dijital dönüşüm",
+          "sistem modernizasyon",
+          "entegrasyon"
+        ],
+        "tarih": [
+          "30 Mart",
+          "15 Nisan",
+          "1 Mayıs"
+        ],
+        "sonuc": [
+          "sözleşme cezası",
+          "yatırımcı güveni sarsılır",
+          "ihale kaybederiz"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, teslim tarihinin önemini ve sonuçlarını anlıyorum. Mevcut kapsam, kapasite ve kalite standartları göz önünde bulundurulduğunda bu tarihe yetişmek için gerçekçi seçenekleri analiz ediyorum: kapsam küçültme, kaynak takviyesi veya risk altında devam etme. Bu seçenekleri maliyet-fayda analiziyle size sunup birlikte karar almak istiyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, teslim tarihini tutturmak için ekip fazla mesaiye geçiyor ve test sürecini kısaltıyoruz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, anlıyorum. Tarih kritikse kapsamı daraltabiliriz; hangi özellikleri çıkarmamı önerirsiniz?",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, bu tarihi tutturmak mümkün; ekip baskı altında daha verimli çalışır. Taahhüt ediyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Milestone baskısı altında kalite ve kapsam kararları verilirken PM seçenekleri (kapsam kısma, kaynak ekleme, tarihi erteleme, riski kabul etme) somut verilerle sunmalıdır. 'Her şeyi yapacağız' taahhüdü gerçekçi değilse ekip tükenmişliğine ve kalite sorunlarına yol açar. PMI Iron Triangle: kapsam-maliyet-zaman dengesini bilinçli yönetmek PM'in temel sorumluluğudur."
+    },
+    {
+      "reason_id": "MIL-02",
+      "reasonTR": "Demo öncesi kritik hata",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{konu} demosu {tarih} tarihinde. Bugün {hata} hatasını keşfettik; düzeltme en az {sure} sürecek. Demo iptal edilsin mi, ertelensin mi yoksa hatayı gizleyerek devam mı edelim?",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "konu": [
+          "müşteri kabul",
+          "yönetim kurulu",
+          "yatırımcı"
+        ],
+        "tarih": [
+          "yarın",
+          "3 gün sonra",
+          "hafta sonu"
+        ],
+        "hata": [
+          "veri kaybı",
+          "kimlik doğrulama açığı",
+          "temel özellik çalışmıyor"
+        ],
+        "sure": [
+          "2 gün",
+          "5 gün",
+          "1 hafta"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nHatayı ve etkisini netleştirdim. Müşteriyi/sponsoru proaktif olarak bilgilendirip iki seçenek sunuyorum: hatayı gidermek için demo tarihini kısa süreyle ertelemek ya da etkilenmeyen özellikleri kapsayan kısmi bir demo yapmak. Hatayı gizleyerek devam etmek güveni zedeler ve uzun vadede daha büyük sorun yaratır.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nDemoda sadece çalışan bölümleri gösteririz; hatayı gizlemek zorunda kalmayız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nEkip gece çalışırsa hatayı demo öncesinde düzeltebiliriz; risk alıyoruz ama deneyelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nDemoyu bugün iptal ediyorum ve tüm sebepleri ayrıntısıyla müşteriye açıklıyorum; şeffaflık her şeyden önemli.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Demo öncesi kritik hata tespiti PM'den hızlı ve şeffaf iletişim gerektirir. Hatayı saklamak kısa vadede kolaylık gibi görünse de güven kaybına ve uzun vadeli itibar zararına yol açar. Paydaşlara erken bildirim ve iki seçenek (erteleme/kısmi demo) sunmak hem profesyonellik hem de proje yönetimi olgunluğunun göstergesidir."
+    },
+    {
+      "reason_id": "MIL-03",
+      "reasonTR": "Milestone gecikme kademeli birikim",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nSon üç sprint'te toplam {gun_sayi} günlük gecikme birikiyor. Her sprint küçük bir gecikmeyle kapandı ama toplamda büyük bir açık oluştu. Projenin son milestoneına yetişmek giderek zorlaşıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "gun_sayi": [
+          "9",
+          "12",
+          "15"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBu kümülatif eğilimi fark etmek önemli. Kök nedeni analiz etmek için retrospektif yapıyorum: her sprint'te gecikmeye yol açan ortak faktörleri tespit edip gidereceğim. Mevcut açığı kapatmak için kapsam, kaynak veya takvim seçeneklerini sponsorla birlikte değerlendireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip biraz daha hızlanırsa toplam açığı son iki sprint'te kapatabilir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nSprintlerdeki küçük gecikmeler normal; son milestone'a yeterli tampon var.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nGecikmeyi telafi etmek için bazı test adımlarını atlayabiliriz; hız öncelik olmalı.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kademeli gecikme birikimi (schedule drift) en tehlikeli proje riskleri arasındadır; küçük sapmalar görünür olmadan büyür. PM, her sprint sonunda burndown chart ve velocity trendlerini analiz ederek erken uyarı sinyallerini tanımalıdır. Kümülatif gecikmeyi görmezden gelmek veya hız baskısıyla test kısıtlamak kalite riskini büyük ölçüde artırır."
+    },
+    {
+      "reason_id": "MIL-04",
+      "reasonTR": "Müşteri kabul testleri gecikmesi",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "client",
+      "subject_template": "Kabul testleri konusunda geri bildirim",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nEkibimiz kabul testlerini {sure} içinde tamamlayamayacak. {neden} nedeniyle test sürecimiz uzuyor. Takvimi nasıl yönetmek istiyorsunuz?\n\nSaygılarımla.",
+      "body_vars": {
+        "sure": [
+          "bu hafta",
+          "planladığımız 2 haftada",
+          "belirtilen sürede"
+        ],
+        "neden": [
+          "test ortamında teknik sorun çıktı",
+          "iş yükleri yoğunlaştı",
+          "test kapsamı beklenenden büyük çıktı"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, gecikmeyi anlıyorum. Gecikmenin kapsamını ve kök nedenini netleştirmek için bugün bir görüşme yapalım. Eğer teknik destek gerekiyorsa ekibimden yardım sağlayabilirim; eğer kapsam sorunu ise test önceliklerini birlikte belirleyebiliriz. Revize takvimi paydaşlara bildireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, kabul testlerini bizim ekip üstlensin; zaten sistemi biz geliştirdik.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, gecikmeyi anlıyorum. Kabul testleri tamamlanmadan sistemi yayına alalım ve test bulgularını sonraki versiyonda gideririz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, gecikme birkaç gün ise sorun yok; ama sürekli uzarsa sözleşme cezası uygulayacağız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Müşteri kabul testleri (UAT) proje tesliminin kritik kapısıdır; gecikmeler işbirliği ile çözülmelidir. PM, UAT gecikmelerinde hem müşteriye destek sunmayı hem de paydaşlara revize takvimi bildirmeyi proaktif biçimde yönetmelidir. Ceza tehdidi yerine çözüm odaklı yaklaşım uzun vadeli ilişkiyi korur."
+    },
+    {
+      "reason_id": "MIL-05",
+      "reasonTR": "Harici bağımlılık nedeniyle milestone kaçırma riski",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{harici_unsur} nedeniyle {milestone} milestone'umuz tehlikede. Kontrolümüz dışındaki bu durum için paydaşlara nasıl açıklamalıyım?",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "harici_unsur": [
+          "tedarikçi gecikmesi",
+          "regülasyon onay süreci uzaması",
+          "altyapı sağlayıcı kesintisi"
+        ],
+        "milestone": [
+          "beta sürüm",
+          "pilot kullanıcı lansmanı",
+          "sistem entegrasyon"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nDurumu anlıyorum. Harici bağımlılığın ne zaman çözüleceğine dair gerçekçi bant tahmini yapıyorum ve paydaşlara şeffaf bir durum raporu sunuyorum. Bu süreçte bağımsız çalışabilecek görevleri hızlandırıyorum. Sponsor ve müşteriyle revize milestone takvimini müzakere edeceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nTedarikçiye/sağlayıcıya baskı yaparak süreci hızlandırmalarını isteyeceğim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nMilestone kaçırılacaksa en iyi yol paydaşlara son dakikaya kadar bilgi vermemek; belki sorun kendiliğinden çözülür.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nKontrolümüz dışındaki bir durum olduğu için sorumluluk bize ait değil; paydaşlar anlayışla karşılar.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Harici bağımlılıklar proje risk kaydına erken aşamada alınmalı ve izlenmelidir; sürpriz açıklamalar güven kaybına yol açar. PM, harici gecikmeler durumunda proaktif iletişim kurmalı, etkilenen milestone'ları somut alternatiflerle (paralel çalışma, kısmi teslim) birlikte sunmalıdır. Sorumluluk paylaşımı yerine çözüm odaklı yaklaşım PM profesyonelliğinin göstergesidir."
+    },
+    {
+      "reason_id": "MIL-06",
+      "reasonTR": "Son dakika kapsam ekleme talebi",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "sponsor",
+      "subject_template": "Milestone öncesi ek özellik talebi",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nMilestone toplantısı öncesinde {ozellik} özelliğinin de kapsamda olması gerekiyor. Müşteri bu özelliği önemli bir kriter olarak belirtti. Mümkün mü?\n\nSaygılarımla.",
+      "body_vars": {
+        "ozellik": [
+          "dashboard özelleştirme",
+          "çoklu dil desteği",
+          "gelişmiş arama filtresi"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, talebi aldım. Bu özelliği mevcut kapsama eklemek için gereken efor ve takvim etkisini bugün değerlendiriyorum. Seçenekleri sizinle paylaşacağım: mevcut milestone'ı kaçırarak ekleme, sonraki versiyona bırakma ya da başka bir özelliğin çıkarılması. Karar sizin.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, müşteri istiyor ise ekleyelim; ekip fazla mesaiyle yetiştirir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, ekliyorum; zaten çok karmaşık bir özellik değil, kısa sürede hazır ederiz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, milestone öncesinde kapsam değişikliği kabul etmiyorum; bu prosedüre aykırı.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Son dakika kapsam eklemeleri 'scope creep'in en yaygın biçimidir ve ekip üzerinde baskı oluşturur. PM, her yeni talebi etki analizi (zaman, maliyet, kalite) ile değerlendirmeli ve seçenekleri karar vericilere sunmalıdır. 'Hayır' demek değil, bilinçli trade-off kararı almak PM'in sorumluluğudur."
+    }
+  ]
+}

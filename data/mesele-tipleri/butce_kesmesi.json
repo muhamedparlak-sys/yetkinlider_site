@@ -1,0 +1,451 @@
+{
+  "mesele_id": "butce_kesmesi",
+  "meseleTR": "Bütçe Kesmesi",
+  "compatible_terms": [
+    "cost_management",
+    "earned_value_management",
+    "contingency_reserve",
+    "change_control",
+    "project_budget",
+    "cost_baseline",
+    "funding_requirements"
+  ],
+  "reasons": [
+    {
+      "reason_id": "bütçe_revizyonu_geldi",
+      "reasonTR": "Sponsor Acil Bütçe Revizyonu Bildirdi",
+      "weight": 9,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "sponsor",
+      "subject_template": "Proje bütçesi hakkında acil görüşme",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, mali tablolarda ciddi bir revizyon gerekti. {revizyon_nedeni} Projenin mevcut bütçeyle devam edemeyeceğimizi görüyorum, bu konuşmayı artık ertelemememiz gerekiyor.",
+      "body_vars": {
+        "revizyon_nedeni": [
+          "Yönetim kurulu genel bütçede yüzde on beş kısıntı kararı aldı.",
+          "Kurum gelirlerinde beklenmedik bir düşüş yaşandı.",
+          "Sermaye harcamalarının dondurulması kararlaştırıldı.",
+          "Portföy önceliklendirmesinde proje puanı düştü."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, bilgi verdiğiniz için teşekkürler. Etkiyi değerlendirmek için yarım gün süre istiyorum — kapsam alternatifleri hazırlayayım. Ne korumamız, neyi erteleyebileceğimizi birlikte netleştirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. EVM raporumuzu güncelleyip CPI ve SPI değerlerini paylaşıyorum — mevcut harcama eğilimiyle sapma rakamlarla görünür olsun, buna göre karar verebilirsiniz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Değişiklik talep formu hazırlıyorum — kapsam, takvim ve maliyet üçgeninde neyi feda ettiğimizi resmi kayıt altına alalım. Sponsor onayı sonrasında plana yansıtırım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Anladım {name_polite} ancak bu bütçeyle proje başarısı mümkün değil. Takıma durumu bildiririm ve çalışmaları durdururum — sonrasını siz yönetin lütfen, ben başka projeme odaklanıyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Bütçe kesmesi genellikle portföy önceliklendirmesi veya kurumsal gelir düşüşünden kaynaklanır. PMI, değişen kısıtlar karşısında PM'in kapsam-zaman-maliyet dengesini yeniden müzakere etmesini bekler. Çalışmayı durdurmak yerine alternatifleri sunmak PM'in liderlik becerisidir."
+    },
+    {
+      "reason_id": "nakit_akisi_durdu",
+      "reasonTR": "Kurumun Nakit Akışı Projeyi Etkiliyor",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Nakit akışı sorunu — proje ödemelerinde gecikme",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, sana doğrudan söylemem lazım. {nakit_sorunu} Bu durum proje ödemelerini de etkiliyor — ekibine ne anlatacağını bilmiyorum ama bugün konuşmamız gerekiyor.",
+      "body_vars": {
+        "nakit_sorunu": [
+          "Muhasebe birimi bu ay ödeme yapamayacağını bildirdi.",
+          "Fon aktarımında idari gecikme yaşandı, bütçe blokeli.",
+          "Tahsilatlarda sorun var, kasada yeterli kaynak kalmadı.",
+          "Belediye borçları nedeniyle Hazine transferi donduruldu."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, bilgi için teşekkürler. Ekiple şeffaf konuşacağım — belirsizliği gizlemek gizlememekten çok daha zararlı. Kritik aktiviteleri belirleyip hangi ödemeleri önceliklendireceğimizi birlikte netleştirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Projenin kritik yolundaki aktiviteleri ve zorunlu ödemeleri listeleyelim — hangi sözleşmeli personel ödemesi gecikemez bunu raporlayayım. Risk kaydına nakit akışı riskini de ekliyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Ekibe şimdilik belirsizliği aktarmadan çalışmayı sürdürmelerini isteyeyim — para sorunu çözülene kadar momentum kaybetmeyelim. Haftalık durumu bana bildirin yeter.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Peki {name_polite}, o zaman sözleşmeli personele durumu yazılı bildiriyorum ve çalışmayı hemen durduruyorum. Ödeme yapılana kadar proje askıya alındı, bunun sorumluluğu kurumda.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kurumsal nakit akışı sorunları kamu projelerinde Sayıştay bulgularında sıkça yer alır. PMI, PM'in finansal riskleri önceden risk kaydına almasını ve erken uyarı göstergelerini izlemesini bekler. Şeffaflık ve ekiple açık iletişim kritik yol aktivitelerini korur."
+    },
+    {
+      "reason_id": "ust_yonetim_tasarruf_karari",
+      "reasonTR": "Üst Yönetim Genel Tasarruf Kararı Aldı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "sponsor",
+      "subject_template": "Genel tasarruf kararı projemizi etkiliyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, yönetim kurulu {tasarruf_kapsamı} kararı aldı. Maalesef bu karar projemizi de kapsıyor. Seninle bir yol haritası çıkarmamız gerekiyor, ne yapabileceğimize birlikte bakalım.",
+      "body_vars": {
+        "tasarruf_kapsamı": [
+          "tüm projelerde yüzde yirmi bütçe indirimi",
+          "dışarıdan hizmet alımlarını dondurma",
+          "yazılım ve altyapı yatırımlarını erteleme",
+          "yıl sonu hedeflerini revize etme"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Tasarruf kararının projemize net etkisini analiz edip yarın sunuyorum — hangi teslimatlarda kapsam daralması gerekir, hangilerinde takvim uzatılabilir, bunu netleştirelim. Takım bunu bilmeli.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Mevcut bütçe dökümünü ve taahhüt edilmiş harcamalar listesini paylaşıyorum — hangi kalemler dondurulabilir, hangiler zorunlu. Değişiklik talebini CCB onayıyla hazırlıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Düşük öncelikli aktiviteleri erteleyip kritik teslimatları kurtarmak mümkün mü bakıyorum — hedef en az etki ile en yüksek değeri korumak. Size seçenekler sunacağım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Anladım {name_polite} fakat bu koşullarda proje başarısı mümkün değil. Paydaşlara projenin riske girdiğini yazılı bildiriyorum ve ekibe durumu açıklıyorum — sonuçlardan kurum sorumlu olacak.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Üst yönetim kısıntı kararları portföy yönetimi süreçlerinin yetersizliğinden kaynaklanabilir. PMI, PM'in değişen kısıtları belgeleyen bir Change Request hazırlamasını ve Integrated Change Control süreciyle yönetmesini bekler. Kısıntıyı kabullenmek yerine alternatifleri sunmak PM'i lider konumuna taşır."
+    },
+    {
+      "reason_id": "doviz_bütçe_açığı",
+      "reasonTR": "Döviz Kuru Artışı Bütçe Açığı Yarattı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Döviz kurundaki artış bütçemizi etkiliyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, sizi bilgilendirmek istedim: {doviz_durumu} Bu durumda mevcut bütçeyle yıl sonu teslim tarihini tutturmak mümkün görünmüyor. Ne yapalım?",
+      "body_vars": {
+        "doviz_durumu": [
+          "Lisans ödemelerimiz dolar bazlı ve kur yüzde yirmi beş arttı.",
+          "Yurt dışı tedarikçi faturası bütçenin üstüne çıktı.",
+          "Bulut altyapısı maliyetleri dövizle fiyatlandığından bütçe açığı oluştu.",
+          "Yabancı menşeli ekipman maliyeti başlangıç teklifinin çok üzerinde geldi."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Erken uyarın için teşekkürler. Döviz kaynaklı maliyet artışını risk kaydımıza ekliyoruz — contingency rezervinin yeterliliğini kontrol edeyim. Sponsorla görüşüp seçenekleri birlikte değerlendireceğiz, seni de sürece dahil edeceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum. Döviz kuru etkisini EAC hesaplamama yansıtıyorum — güncel tamamlanma tahmini ve sapma miktarını sponsora raporlayacağım. Contingency rezervinden karşılanıp karşılanamayacağını analiz ediyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Anladım. Dövizli kalemleri yerli alternatiflerle değiştirmeye çalışalım önce — kaçınılamazsa sabit kur garantisi veren tedarikçilerle müzakere edebiliriz. Bu yolu kapatmadan sponsoru bekletelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu riski başlangıçta bütçeye yansıtmamışsın, sorunun kaynağı bu. Döviz farkı için ek ödenek talep edemeyiz — sözleşme fesih hakkımızı gözden geçirmeni istiyorum tedarikçi bazında.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Döviz kuru riski kamu ve özel sektör projelerinde Sayıştay'ın sıkça eleştirdiği bir planlama eksikliğidir. PMI risk yönetimi, döviz riskinin tanımlanmasını ve contingency rezervi ayrılmasını gerektirir. Riski erken bildirmek PM'in sorumluluğunu yerine getirdiğinin kanıtıdır."
+    },
+    {
+      "reason_id": "kaynak_aktarimi_yapildi",
+      "reasonTR": "Bütçe Başka Projeye Aktarıldı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Bütçemiz başka projeye kaydırıldı",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, zor bir haberle geliyorum. {aktarim_nedeni} Ne yazık ki bu kaynaklar senin projen için artık mevcut değil. Durumu nasıl yönetiriz birlikte düşünelim.",
+      "body_vars": {
+        "aktarim_nedeni": [
+          "Portföy komitesi acil bir projeye öncelik verdi ve ödenekler oraya aktarıldı.",
+          "Regülasyon zorunluluğu nedeniyle uyum projesine kaynak kaydırıldı.",
+          "Üst yönetim kararıyla stratejik proje öne alındı, bütçen azaltıldı.",
+          "İhale sonucu beklenenden yüksek geldi, fark başka projenizden karşılandı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu anladım {name_polite}, teşekkürler. Kalan bütçeyle hangi teslimatlara devam edebileceğimizi değerlendirip yarın sunuyorum — hangi kapsam ögelerini sonraki faza taşıyabiliriz bunu da belirtelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Kalan bütçeye göre yeni maliyet tabanı oluşturup EVM analizini güncelliyorum — sapma nerede, ne kadar kurtarabiliriz gösterelim. Değişiklik talebini resmi olarak hazırlıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Paydaşlara bildirmeden önce etki analizini tamamlayalım — hangi teslimatlar etkileniyor, müşteri sözleşmesinde ne yazıyor, hukuki riskleri de dahil edelim. Hemen hazırlıyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kabul edilemez {name_polite}. Müşteriyle doğrudan konuşacağım ve kurumun bu kararından haberdar olmasını sağlayacağım — projenin başarısız olması durumunda sorumluluk kurumda olacak.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Portföy yönetiminde kaynak aktarımı kararları bireysel proje planlarını bozabilir. PMI portföy yönetimi standartlarına göre bu kararlar şeffaf biçimde alınmalı ve etkilenen PM'ler sürece dahil edilmelidir. PM'in görevi protesto değil kalan kaynakla maksimum değer yaratmanın yolunu bulmaktır."
+    },
+    {
+      "reason_id": "hakedis_gecikiyor",
+      "reasonTR": "Hakediş Ödemeleri Gecikiyor",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Hakediş ödemelerindeki gecikme hakkında",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, açık olmam gerekiyor. {hakedis_sorunu} Biliyorum bu sizin tarafınızda sorun yaratıyor, ama elimizde olmayan bir süreç var burada. Nasıl ilerleriz birlikte bakalım.",
+      "body_vars": {
+        "hakedis_sorunu": [
+          "Hakediş onay süreci beklenenden uzun sürüyor.",
+          "Mali yıl kapanışı nedeniyle ödemeler askıya alındı.",
+          "Denetim nedeniyle ödeme emirleri geçici olarak durduruldu.",
+          "Muhasebe sisteminde teknik bir sorun var, transferler gecikiyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, bilgi için teşekkürler. Ekibimle açık konuşacağım — bu süreçte kritik aktiviteleri sürdürmek için bir köprü plan hazırlayalım. Gecikmenin tahmini süresi belli olunca birlikte değerlendiririz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Gecikmenin sözleşmesel boyutunu hukuk ekibimizle değerlendiriyorum — sözleşmede ödeme takvimi ve gecikme yaptırımı maddeleri var, incelememiz gerekiyor. Yazışma başlatmamız gerekebilir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Çalışmayı durdururuz mu yoksa devam mı, netleştirelim — sözleşme yükümlülüklerimizle nakit akışı dengemizi korumak arasında bir denge kurmam gerekiyor. Önerini bekliyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu durumda teslim tarihlerini tutturmamız mümkün değil {name_polite}. Ödeme yapılana kadar tüm çalışmaları resmi olarak durduruyor ve bu kararı üst yönetiminize yazılı bildiriyorum — sorumluluk tarafınızda.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Hakediş gecikmesi Sayıştay'ın Adana ve İBB raporlarında öne çıkan sistematik bir sorundur. PMI sözleşme yönetimi, ödeme takvimlerini kontrol etmeyi ve gecikmeleri erken raporlamayı gerektirir. Çalışmayı durdurmak yerine etki analizi yapıp alternatif plan sunmak PM'in olgun liderliğinin göstergesidir."
+    },
+    {
+      "reason_id": "portfoy_onceligi_degisti",
+      "reasonTR": "Portföy Önceliği Değişti",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "sponsor",
+      "subject_template": "Stratejik öncelikler değişti, projemizi konuşalım",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, stratejik planlama toplantısından çıktım. {öncelik_değişimi} Bu nedenle projenize ayrılan bütçe yeniden değerlendirilmek zorunda. Seni bilgilendirmek istedim.",
+      "body_vars": {
+        "öncelik_değişimi": [
+          "Yönetim dijital dönüşümü öne aldı, kaynaklar oraya yönlendirildi.",
+          "Piyasa koşulları değişti, ürün yol haritası revize edildi.",
+          "Regülatör yeni uyum zorunluluğu getirdi, bütçe oraya kaydı.",
+          "Rakip hareket etti, pazara hız kazanmak için başka proje öne alındı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, teşekkürler. Projenin mevcut durumunu, tamamlanan teslimatlardaki değeri ve geri kalanlar için seçenekleri hazırlıyorum — askıya alma, kapsam daralması ve faz planı üçünü de masaya getireyim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Projenin tamamlanan kısmının iş değeri üzerindeki getirisini hesaplayıp sunuyorum — kalan teslimatlarda ne kadar değer yaratılabilir, bunu gördükten sonra karar verin daha sağlıklı olur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Minimum bütçeyle teslim edilebilecek MVP kapsamını belirleyip sunayım — tüm projeyi durdurmadan en kritik çıktıları kurtarmak mümkün olabilir, bunu değerlendirin.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu gelişmeden paydaşları haberdar ediyorum {name_polite}. Projenin iptalinin sorumluluğu strateji ekibinde — resmi olarak kayıt altına alıp proje kayıtlarına geçiriyorum. Ekip başka görevlere yönlendirilecek.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Portföy önceliği değişiklikleri proje bazında alınan bir karar değildir; kurumsal stratejiyi yansıtır. PMI portföy yönetiminde PM'in görevi kendi projesini savunmak değil kurumun genel değerini optimize etmektir. Tamamlanan kısmın değerini göstermek ve alternatif planlar sunmak PM'i stratejik ortak haline getirir."
+    },
+    {
+      "reason_id": "fon_onay_gecikmesi",
+      "reasonTR": "Fon Onay Süreci Beklenmedik Uzadı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Fon onayında gecikme — güncel durum",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, bilmen gereken bir gelişme var. {fon_durumu} Bu durum önümüzdeki haftalardaki harcamalarını doğrudan etkiliyor. Birlikte plan yapalım.",
+      "body_vars": {
+        "fon_durumu": [
+          "Bütçe yıllık onay süreci beklenenden uzun sürdü.",
+          "Hazine müsteşarlığı transferi onaylamamış, süreç askıda.",
+          "Fon aktarım prosedürü değişti, yeni formla tekrar başvurduk.",
+          "Denetim komitesi ek belge istedi, onay bir ay ertelendi."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, erken uyarı için teşekkürler. Bu süreçte hangi aktiviteler ilerleyebilir, hangiler fona bağlı, bunu ayırt edeyim. Fonun gelmesini beklerken kritik yolu kaybetmeyecek şekilde bir geçiş planı hazırlıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bu gecikmenin proje takvimini nasıl etkilediğini hesap edeyim — fon onay süresini dikkate alarak revize zaman çizelgesi hazırlıyorum, paydaşlara yeni takvimle döneyim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Şimdilik fon gerektirmeyen görevlere odaklanabiliriz — dokümantasyon, eğitim, test planlaması gibi işleri fon olmadan sürdürebiliriz. Bu süreyi boşa harcamamalıyız.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu proje için bütçe yoksa çalışmak mümkün değil {name_polite}. Tüm aktiviteleri durduruyorum ve sözleşmeli personeli bilgilendiriyorum — onay geldiğinde tekrar başlarız, süre kaybı tarafınızda.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kamu projelerinde fon onay süreçleri bürokratik gecikmeler nedeniyle proje takvimini ciddi şekilde etkileyebilir. PMI risk yönetimi bu tür gecikmeler için tampon süre planlamayı gerektirir. PM'in görevi fon gelmesini beklerken bağımsız aktiviteleri sürdürmek ve kayıpları minimize etmektir."
+    },
+    {
+      "reason_id": "acil_ödenek_transfer",
+      "reasonTR": "Acil Proje Bütçeden Ödenek Çekti",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "sponsor",
+      "subject_template": "Acil durum — bütçenizden geçici kaynak transferi",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, beklenmedik bir durum çıktı. {acil_durum} Kısa vadede projenin bütçesinden geçici aktarım yapacağız — sonra yerine koyacağız ama şu an başka seçeneğimiz yok.",
+      "body_vars": {
+        "acil_durum": [
+          "Kritik bir altyapı arızası acil onarım gerektirdi.",
+          "Denetim bulgusu nedeniyle uyum projesi hemen başlatılmalı.",
+          "Doğal afet nedeniyle kurumun acil kaynak tahsis etmesi gerekti.",
+          "Üst yönetim acil bir pazar fırsatı için kaynak istedi."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, kurumun durumunu kavradım. Bu aktarımın projemi nasıl etkileyeceğini analiz edip belgeliyorum — takvim ve teslimatlarda oluşacak kaymayı şimdiden kaydedelim, iade edilince planı güncelliyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bu aktarımı resmi değişiklik talebi olarak kayıt altına almamız gerekiyor — ne zaman ve ne kadar iade edileceği taahhüdü yazılı olmalı. Bunu sponsor onayıyla resmileştirelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Geçici aktarımı kabul ediyorum fakat düşük öncelikli teslimatlarda duraksayacağım — kritik yolu korumak için hangi aktiviteyi askıya aldığımı belgelerim, iade gelince devam ederiz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bunu kabul edemem {name_polite}. Projemden kaynak almak sözleşmeye aykırı — hukuk ekibimize ve müşteriye bu girişimi yazılı olarak bildiriyorum. Projenin gecikme sorumluluğunu kabul etmiyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Bütçe aktarımları proje bütünlüğünü tehdit eden kritik bir değişiklik yönetimi sorunudur. PMI, her bütçe değişikliğinin Change Control Board onayına sunulmasını şart koşar. PM'in görevi kurumun aciliyetini anlayarak hem projesini hem kurumu koruyan çözüm sunmaktır."
+    },
+    {
+      "reason_id": "tedarikci_fiyat_revizyonu",
+      "reasonTR": "Tedarikçi Beklenmedik Fiyat Revizyonu İstedi",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Tedarikçiden beklenmedik fiyat revizyonu geldi",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {tedarikci_adi} ile ilgili beklenmedik bir durum çıktı. {fiyat_sorunu} Bu fark bütçemizde önemli bir açık yaratıyor, ne yapacağımızı birlikte karar vermemiz lazım.",
+      "body_vars": {
+        "tedarikci_adi": [
+          "Ana yazılım sağlayıcımız",
+          "Donanım tedarikçimiz",
+          "Danışmanlık firmamız",
+          "Bulut hizmet sağlayıcımız"
+        ],
+        "fiyat_sorunu": [
+          "Sözleşme yenileme aşamasında yüzde otuz zam talep etti.",
+          "Ek hizmet kapsamı için proje başlangıcındaki teklifin iki katını istedi.",
+          "Enflasyon gerekçesiyle mevcut sözleşmeye ek maliyet ekledi.",
+          "Teknik destek ücretlerini yıl başından itibaren artırdı."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bilgi için teşekkürler. Tedarikçinin sözleşme maddelerini inceliyorum önce — hangi koşullarda fiyat revizyonu mümkün, talep ne kadar meşru. Sözleşme desteklemiyorsa müzakereye giriyoruz, destekliyorsa alternatiflere bakıyoruz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım. Bütçe etkisini hesap edeyim ve contingency rezervinden karşılanıp karşılanmadığına bakıyorum — karşılanamıyorsa sponsor onayıyla değişiklik talebi açıyoruz. Alternatif tedarikçi araştırmasını da başlatıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam. Önce müzakere edeyim tedarikçiyle — fiyatı düşüremiyorsak kapsam azaltmak veya ödeme takvimini yeniden yapılandırmak seçeneklerine bakabiliriz. Hemen iletişime geçiyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kabul edilemez. Tedarikçiye sözleşmeyi tek taraflı değiştiremeyeceğini yazılı bildiriyorum ve bu fiyat değişikliğini reddediyorum — anlaşmazlık çözülene kadar teslimatlar askıya alınacak.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Tedarikçi fiyat revizyonları Sayıştay bulgularında yer alan sözleşme yönetimi sorunlarından biridir. PMI, sözleşme değişikliklerinin kontrollü değişim süreci kapsamında yönetilmesini gerektirir. Erken uyarı ve müzakere baskıyı azaltırken sözleşme hükümlerinin korunması PM'i güçlü kılar."
+    }
+  ]
+}

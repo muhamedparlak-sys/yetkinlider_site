@@ -1,0 +1,481 @@
+{
+  "mesele_id": "proje_kapatma_sorunu",
+  "meseleTR": "Proje Kapatma Sorunu",
+  "compatible_terms": [
+    "project_closure",
+    "lessons_learned",
+    "final_report",
+    "contract_closure",
+    "procurement_closure",
+    "acceptance_criteria",
+    "transition_plan"
+  ],
+  "reasons": [
+    {
+      "reason_id": "kesin_hakedis_gecikiyor",
+      "reasonTR": "Kesin Hakediş Süreci Uzuyor",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Kesin hakediş sürecinde gecikme yaşıyoruz",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {hakedis_konusu} konusunda bir güncelleme vermek istedim. {gecikme_nedeni} Bu durum her iki taraf için de sorun yaratıyor, birlikte çözüm bulalım.",
+      "body_vars": {
+        "hakedis_konusu": [
+          "kesin hakediş düzenlemesi",
+          "son ödeme süreci",
+          "hesap kapanışı",
+          "nihai mutabakat"
+        ],
+        "gecikme_nedeni": [
+          "Onay döngüsü beklenenden çok uzun sürdü.",
+          "Denetim süreci devam ettiği için imzalar bekliyor.",
+          "İdari süreçler nedeniyle kapanış belgeleri hazır değil.",
+          "Son teslimatlar üzerinde görüş farklılığı var."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, bilgi için teşekkürler. Kesin hakediş için eksik olan belgeleri ve onay adımlarını netleştirelim — her ikimizin de yapması gerekenleri bir checklist haline getirip takibini yapalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Sözleşmede kesin hakediş için öngörülen süre var — bunu referans alarak gecikmenin hangi aşamada olduğunu belgeleyelim. Karşılıklı onay takvimi belirleyelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Bu gecikmede tarafımızdaki eksiklikleri tamamlıyorum — listemi paylaşıyorum. Sizin taraftaki adımlar için de belirli bir tarih verebilir misiniz?",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu gecikme sözleşmemize aykırı {name_polite}. Kesin hakediş için tanımlı süre geçmişse hukuki seçeneklerimizi değerlendireceğim — ödeme gecikmesi durumunda yasal gecikme faizi talepimizi bildireceğim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kesin hakediş gecikmesi Sayıştay İBB raporundaki B31 bulgusunda proje kapanış sürecindeki sistematik sorun olarak kayıtlara geçmiştir. PMI sözleşme kapatma, son hakediş için net bir süre ve belge listesi belirlenmesini gerektirir. PM'in görevi kapanış sürecini başlangıçta planlamak ve her adımı takip etmektir."
+    },
+    {
+      "reason_id": "gecici_kesin_kabul_arasi",
+      "reasonTR": "Geçici Kabul Sonrası Sorunlar Çıktı",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Geçici kabulden sonra ciddi sorunlar keşfettik",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, geçici kabul sonrasında {sorun_türü} keşfettik. {kapsam_sorusu} Bunu nasıl ele alabiliriz?",
+      "body_vars": {
+        "sorun_türü": [
+          "sistemde kritik bir hata",
+          "belgelenmemiş bir eksiklik",
+          "performans sorunu",
+          "güvenlik açığı"
+        ],
+        "kapsam_sorusu": [
+          "Geçici kabulde bu tespit edilmedi.",
+          "Kabul kriterleri bu durumu kapsamıyor muydu?",
+          "Test sürecinde atlanmış görünüyor.",
+          "Bu sorun garanti kapsamında mı?"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Geri bildiriminiz için teşekkürler {name_polite}. Önce bu sorunun geçici kabul kriterleriyle ilişkisini inceleyelim — garanti kapsamında mı, kapsam dışı mı net belirleyelim. Hukuken ne yapmamız gerektiğini birlikte değerlendirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Sorunun kaynağını teknik olarak inceliyorum — eğer garanti kapsamındaysa düzeltme planı hazırlıyorum. Değilse, bu bir değişiklik talebi olarak ele almalıyız ve maliyeti müzakere etmeliyiz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Sorunun aciliyetine göre öncelik verelim — kritikse hemen müdahale, değilse planlanmış bir geliştirme olarak ele alabiliriz. İkimiz için de makul olan yolu birlikte seçelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu sorun geçici kabul sürecinden önce keşfedilmeliydi {name_polite}. Test ve kabul sürecini tamamlayan tarafın sorumluluğu var — bu hata proje kapanışını engelleyecek, hukuki boyutu değerlendiriyoruz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Geçici ve kesin kabul arasında ortaya çıkan sorunlar Sayıştay İBB B32 bulgusunda belgelenmiştir. PMI proje kapatma süreçleri, kabul kriterlerinin ve garanti koşullarının önceden net belirlenmesini gerektirir. PM'in görevi kabul aşamalarını kapsamlı planlamak ve sorun çözüm mekanizmasını başlangıçta müşteriyle uzlaşmaktır."
+    },
+    {
+      "reason_id": "teslim_listesi_anlaşmazlığı",
+      "reasonTR": "Teslim Listesinde Anlaşmazlık",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Ne teslim edileceği konusunda görüş ayrılığı var",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, proje kapanışına yaklaşırken {anlaşmazlık_konusu} konusunda farklı anladığımızı gördük. {detay} Bu meseleyi çözmeden kapatamayız.",
+      "body_vars": {
+        "anlaşmazlık_konusu": [
+          "hangi belgelerin teslim edileceği",
+          "son ürünün kapsamı",
+          "kullanıcı eğitiminin içeriği",
+          "kaynak kodu teslimatı"
+        ],
+        "detay": [
+          "Sözleşme farklı yorumlanmış.",
+          "Ekler netleştirilmemişti.",
+          "Proje boyunca değişti ama kaydedilmedi.",
+          "Sözel mutabakat yazıya geçirilmemişti."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Sözleşme ve onaylı kapsam belgelerini birlikte gözden geçirelim — resmi kaydı olan taahhütleri esas alarak anlaşmazlığı çözelim. Varsa boşlukları iyi niyetle tamamlarız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bu anlaşmazlığı çözmek için proje boyunca imzalanan Change Request'leri ve onaylı kapsamı inceliyorum — bunlar resmi taahhütlerimizi gösterir. Hukuki boyutu olmadan uzlaşıya varmaya çalışalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Her iki tarafın beklentisini yazalım ve farklılaşan noktaları tespit edelim — sonra makul bir uzlaşı noktası buluruz. Amaç ilişkiyi koruyan bir kapanış.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Sözleşme kapsamımızın net tanımladığı teslimatlar konusunda ek yükümlülük kabul edemeyiz {name_polite}. Sözleşme dışı talepler ayrı fiyatlandırılmak zorunda — hukuki danışmanımızla değerlendireceğiz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Teslim listesi anlaşmazlıkları kapsam yönetiminin baştan düzgün yapılmadığının göstergesidir. PMI, proje başında müşteri ile kapsamın teslim edilebilirler listesiyle netleştirilmesini ve tüm değişikliklerin belgelenmesini gerektirir. PM'in görevi kapatma sürecini şeffaf bir teslim listesiyle yönetmektir."
+    },
+    {
+      "reason_id": "proje_belgeleri_eksik",
+      "reasonTR": "Proje Belgeleri Tamamlanmadı",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Kapanış belgelerinde ciddi eksiklikler var",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, kapanış sürecine girince {belge_eksikliği} fark ettim. {neden} Kapatma toplantısından önce bunların tamamlanması gerekiyor.",
+      "body_vars": {
+        "belge_eksikliği": [
+          "teknik dokümantasyonun eksik olduğunu",
+          "ders çıkarma raporunun hazırlanmadığını",
+          "kullanıcı kılavuzlarının tamamlanmadığını",
+          "sistem yönetim belgelerinin yetersiz olduğunu"
+        ],
+        "neden": [
+          "Proje boyunca ertelendi.",
+          "Ekip kapatmaya yakın dağıldı.",
+          "Bunu birinin görevi olarak atamasını atlamışız.",
+          "Teslimata odaklanınca belgeleme arka plana itildi."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, bu önemli bir tespit. Eksik belgeleri tamamlamak için sorumluluk atayalım — kim neyi ne zamana kadar bitirecek bunu netleştirelim. Kapanış belgelerini bir checklist haline getiriyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Kapanış belgelerini tamamlamak için kısa bir ek süre planına ihtiyacımız var — belgeleri kimin yapacağı, ne kadar süreceği ve onay süreci için bir eylem planı çıkaralım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Eksik belgelerin önceliklerini belirleyelim — müşteri teslimatı için zorunlu olanlar ile dahili kullanım için gerekenler ayrı ele alalım. En kritiklerden başlayalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu belgeler proje boyunca sürdürülmeliydi {name_polite}. Dokümantasyonu proje kapanışına bırakmak ciddi bir proje yönetim hatası — bu kapatma sürecini geciktirecek ve müşteri memnuniyetini etkileyecek. Resmi kayıt altına alıyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Proje belgeleri proje boyunca tutulmalı, kapanışa bırakılmamalıdır. PMI, dokümantasyonu WBS iş paketlerine dahil etmeyi ve her aşamada tamamlanmış belgeler gerektirmeyi önerir. PM'in görevi belgeleme yükümlülüğünü proje başında ekibe açık hedef olarak vermektir."
+    },
+    {
+      "reason_id": "garanti_şartları_belirsiz",
+      "reasonTR": "Garanti Koşulları Net Değil",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Garanti kapsamı konusunda netleşmemiz lazım",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, sistemin devreye alınmasının ardından {garanti_sorunu} konusunda farklı anlayışlar çıktı. {sözleşme_durumu} Bunu kapatmadan proje kapanışını resmileştiremeyiz.",
+      "body_vars": {
+        "garanti_sorunu": [
+          "garanti süresinin ne zaman başladığı",
+          "garanti kapsamındaki hataların tanımı",
+          "düzeltme süresinin kaç gün olduğu",
+          "garanti dışı sayılan durumların listesi"
+        ],
+        "sözleşme_durumu": [
+          "Sözleşmede bu başlık net tanımlanmamış.",
+          "Garanti maddesi genel bırakılmış.",
+          "Kabul kararının garanti süresini tetikleyip tetiklemediği belirsiz.",
+          "Destek hizmet düzeyi anlaşması kapsamıyla çakışıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Sözleşme metnini birlikte inceleyelim — garanti maddesini netleştirmek için ek bir mutabakat belgesi hazırlayabiliriz. Her iki tarafın kabul edebileceği bir çerçeve oluşturalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bu belirsizliği yazılı olarak netleştirmemiz gerekiyor — garanti süresini, kapsamını ve düzeltme mekanizmasını birlikte tanımlayalım. Bu hem sizi hem bizi korur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Benzer projelerde garanti için standart koşullarımızı paylaşayım — bunu temel alarak sizin beklentilerinizi de ekleyelim. Anlaşmak istiyorum, uzlaşı buluruz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Garanti maddesi sözleşmede net yazıyor {name_polite}, sözlü mutabakat değil resmi metin geçerli — hukuk ekibimiz sözleşme metnini size iletecek ve buna göre ilerleyeceğiz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Garanti koşullarının proje başında net belirlenmesi sözleşme yönetiminin temel bir gereksinimidir. PMI, garanti süresini, kapsamını ve düzeltme mekanizmasını sözleşmede açıkça tanımlamayı gerektirir. PM'in görevi hem projeyi başlatmadan hem de kapatmadan garanti çerçevesini yazılı olarak netleştirmektir."
+    },
+    {
+      "reason_id": "sisteme_entegrasyon_eksik",
+      "reasonTR": "Canlı Sistemlere Entegrasyon Tamamlanmadı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Sistemin entegrasyonu hâlâ tamamlanmadı",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, teslim tarihine geldiğimizde {entegrasyon_sorunu} fark ettik. {kullanım_engeli} Bunu çözmeden sistemi kullanamayız.",
+      "body_vars": {
+        "entegrasyon_sorunu": [
+          "canlı veri bağlantısının kurulmadığını",
+          "mevcut sistemlerle ara yüzün çalışmadığını",
+          "kullanıcı yetki sisteminin bağlanmadığını",
+          "raporlama modülünün veri akışının olmadığını"
+        ],
+        "kullanım_engeli": [
+          "Ekibimiz sistemi pratikte kullanamıyor.",
+          "Operasyonel süreçlerimizi başlatamıyoruz.",
+          "Devir teslim yapamıyoruz bu haliyle.",
+          "Paralel çalıştırma bile mümkün değil şu an."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, bu ciddi bir engel. Entegrasyon eksikliklerini listeleyelim — öncelik sırasına koyalım, kritik olanları önce tamamlayalım. Revize bir teslim takvimi hazırlayıp onayınıza sunacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Entegrasyon kapsamının sözleşmede nasıl tanımlandığına bakıyorum — taahhüt edilen entegrasyonlar önce tamamlanır, ek olanlar için ayrı plan yaparız. Teknik ekiple acilen görüşüyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Hangi entegrasyon kritik yolda, hangisi için esneklik var bunu belirleyelim — kısmi teslim yapıp eksik entegrasyonları takip eden sprint'lerde kapatsak kabul eder misiniz?",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Sözleşmede entegrasyon taahhütlerimiz netti {name_polite}. Bunu tamamlamadan teslim gerçekleşmiş sayılmaz — bu gecikme için sorumluluk tarafımızda değil, teknik sorunun kaynağını müşteri ortamında araştırıyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Proje kapanışında entegrasyon eksiklikleri kritik teslim kriterlerinin karşılanmadığını gösterir. PMI, proje kapanışını ancak tüm teslim kriterlerinin karşılandığı teyit edildikten sonra başlatmayı gerektirir. PM'in görevi geçiş planını kapanıştan önce müşteriyle birlikte test etmek ve onaylatmaktır."
+    },
+    {
+      "reason_id": "lessons_learned_yapilmadi",
+      "reasonTR": "Ders Çıkarma Toplantısı Yapılmadı",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Proje kapanış değerlendirmesi eksik kaldı",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, proje kapandı ama {kapanış_eksikliği} Bir sonraki projeye geçmeden önce bu adımı atlamamalıyız.",
+      "body_vars": {
+        "kapanış_eksikliği": [
+          "lessons learned toplantısı yapılmadı.",
+          "proje değerlendirme raporu yazılmadı.",
+          "başarı ve başarısızlıklar kaydedilmedi.",
+          "ekibin gözlem ve önerileri derlenmedi."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Lessons learned toplantısını hemen planlıyorum — ekip henüz dağılmadan bir araya gelelim. Kısa bir yapılandırılmış format hazırlıyorum: ne iyi gitti, ne geliştirilmeli, ne yapmalıydık.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bu hafta içinde tüm ekiple kısa bir retrospektif yapıyorum — sonuçları kurumsal bilgi tabanına ekleyip bir sonraki proje için erişilebilir kılacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Ekibi fiziksel olarak bir araya getiremesek de asenkron bir format deneyelim — herkes yazılı gözlemlerini paylaşsın, derleyip özet bir rapor çıkarayım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu adım atlanmamalıydı {name_polite}. Lessons learned proje yönetim olgunluğunun göstergesi — bu raporu tamamlamadan proje resmi olarak kapatılmamış sayılacak. Haftaya tamamlanmış raporun masama gelmesini bekliyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Lessons learned proje bilgisinin kuruma aktarılmasının temel mekanizmasıdır. PMI, her projenin formel bir kapatma değerlendirmesi ile sonuçlanmasını gerektirir. PM'in görevi ekip dağılmadan öğrenilenleri kayıt altına almak ve kurumsal hafızayı zenginleştirmektir."
+    },
+    {
+      "reason_id": "ekip_erken_dağıtıldı",
+      "reasonTR": "Ekip Proje Bitmeden Dağıtıldı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Ekibiniz proje kapanmadan başka işe alındı",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, biliyorum bu zor bir durum. {ekip_durumu} Ama proje kapanış sürecine birileri sahip çıkmak zorunda. Ne yapabiliriz?",
+      "body_vars": {
+        "ekip_durumu": [
+          "Kilit ekip üyelerinizin büyük bölümü yeni projeye geçti.",
+          "Ekibinizin yarısı başka göreve alındı, kapanış askıda.",
+          "Proje kapanışını yönetecek tek bir kişi bile kalmadı.",
+          "Kapanış belgeleri ortada, kimin yapacağı belli değil."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, bu durum ciddi bir risk. Mevcut kapasiteyle kapanışın hangi adımlarını tamamlayabileceğimize bakalım — eksik kalan için yöneticiden geçici destek talep edelim. Ben de kapanış sürecine aktif katılacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Kapanış görevlerini listeleyelim ve kalan kişilere dağıtalım — kısmi çalışma saati bile olsa düzgün bir kapanış için yeterli olabilir. Yönetimden resmi destek talebinde bulunalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Benim elimdeki belgeler ve bilgiyle kapanışa destek verebilirim — hangi alanlarda daha çok yardıma ihtiyacınız var söyleyin, öncelik sırasına göre yardım ederim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Proje kapanmadan ekibi dağıtmak ciddi bir organizasyonel hata {name_polite}. Bu karar proje başarısını ve müşteri memnuniyetini tehdit ediyor — üst yönetime bu riski yazılı olarak bildireceğim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Proje ekibinin kapanış öncesinde dağıtılması bilgi kaybına ve belgeleme eksikliğine neden olur. PMI, kaynak yönetiminin proje kapanışını da kapsayacak şekilde planlanmasını gerektirir. PM'in görevi kapanış sürecini ekip dağılmadan önce başlatmak ve tamamlamaktır."
+    },
+    {
+      "reason_id": "kaynak_iade_edilmedi",
+      "reasonTR": "Proje Kaynakları Düzgün İade Edilmedi",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "manager",
+      "subject_template": "Proje kapanışında kaynak iadesi eksik",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, proje kapanışında {kaynak_sorunu} fark ettim. Bu kaynaklar portföydeki diğer projeler için gerekiyor ve şimdi bulmak zorlaştı.",
+      "body_vars": {
+        "kaynak_sorunu": [
+          "lisanslar hâlâ proje adına duruyor",
+          "ekipman depoya iade edilmedi",
+          "bulut ortamları kapatılmadı",
+          "proje hesapları ve erişimler hâlâ açık"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Kaynak kapatma listesi oluşturuyorum — hangi lisanslar, ekipmanlar, ortamlar ve erişimler iade edilmeli, kime, ne zaman. Bu hafta içinde tamamlanmış çeklistini paylaşıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Kaynak kapatma genellikle gözden kaçan bir adım. IT ve tedarik ekipleriyle koordineli bir iade süreci başlatıyorum — kaynakların düzgün kapatılmasını ve maliyet birikiminin durmasını sağlıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Hangi kaynaklar kritik, hangiler bekleyebilir bunu belirleyelim — en ivedi iade için adımları hemen atıyorum. Bitiş tarihi vereyim mi?",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu ihmal proje maliyetini artırmaya devam ettiriyor {name_polite}. Kapanmayan kaynaklar bütçeyi tüketir — hangi PM bu kaynakların sorumlusuydu, ondan hesap soracağım. Derhal kapatılmasını istiyorum.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Proje kapanışında kaynak iadesi kurumun maliyet etkinliği için kritik öneme sahiptir. PMI proje kapatma süreci, tüm sözleşmelerin, lisansların ve fiziksel kaynakların düzgün teslim edilmesini gerektirir. PM'in görevi kapanış kontrol listesini proje başında hazırlayıp kapatma sürecinde eksiksiz uygulamaktır."
+    },
+    {
+      "reason_id": "müşteri_memnuniyetsiz_kapatma",
+      "reasonTR": "Müşteri Resmi Kapatmayı İmzalamıyor",
+      "weight": 9,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Proje kapatma belgelerini imzalamakta tereddütlüyüz",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, proje kapatma belgelerini imzalamadan önce {çekince} konusunu netleştirmemiz gerekiyor. Aksi halde haklarımızı koruyamazsın.",
+      "body_vars": {
+        "çekince": [
+          "bazı teslimatlardaki kalite",
+          "performans kriterlerinin karşılanıp karşılanmadığı",
+          "sistem kararlılığı",
+          "belgelerin eksiksizliği"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, çekincelerinizi duymak istiyorum. Hangi konular net değil, bunları açıkça listeleyelim — her birini ele alıp yanıt vereceğim. Amaç her iki tarafın rahat olduğu bir kapanış.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Çekincelerinizi resmi olarak kayıt altına alalım — her birinin durumunu belgeleyip yanıt vereceğim. Kabul kriterlerine göre durumu değerlendirelim ve çözüm planı oluşturalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Kapatmadan önce kısa bir uzlaşı toplantısı yapalım — teslim kriterleri listesini birlikte inceleyelim ve her maddede ortak değerlendirme yapalım. Çözüm odaklı olalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Sözleşmede tanımlı kabul kriterleri karşılandı {name_polite}. Kapatma belgelerini imzalamamak sözleşmesel yükümlülüklerinizi ihlal eder — hukuki danışmanımız bu konuyu takip edecek.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Müşterinin kapatma belgelerini imzalamaması eksik kalmış teslim kriterlerinin ya da güven sorunlarının göstergesidir. PMI proje kapatma, müşteri kabulünün kabul kriterleri bazında formal olarak teyit edilmesini gerektirir. PM'in görevi gerilimi müzakere ile çözmek ve her iki taraf için adil bir kapatma süreci yönetmektir."
+    }
+  ]
+}

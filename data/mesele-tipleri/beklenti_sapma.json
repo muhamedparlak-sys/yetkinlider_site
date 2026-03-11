@@ -1,0 +1,419 @@
+{
+  "mesele_id": "beklenti_sapma",
+  "meseleTR": "Beklenti Sapma",
+  "compatible_terms": [
+    "stakeholder_management",
+    "requirements_management",
+    "scope_management",
+    "communication_management",
+    "expectation_management",
+    "change_control",
+    "user_stories"
+  ],
+  "reasons": [
+    {
+      "reason_id": "müşteri_farklı_anlıyor",
+      "reasonTR": "Müşteri Kapsamı Farklı Anlıyor",
+      "weight": 9,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Projeden beklentilerimiz farklılaştı gibi görünüyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {teslimata} baktığımızda {farklılık} Her iki taraf da farklı şey bekliyor gibi görünüyor.",
+      "body_vars": {
+        "teslimata": [
+          "yeni modülün demosu",
+          "taslak tasarım",
+          "test kapsamı belgesi",
+          "analiz raporu"
+        ],
+        "farklılık": [
+          "sizin anlatığınızla bizim anladığımız farklı çıktı.",
+          "belirttiğimiz gereksinim ile çıktı arasında ciddi fark var.",
+          "beklediğimiz kapsamın çok altında bir içerik geldi.",
+          "kavramsal olarak aynı şeyi anlamadığımızı görüyorum."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu geri bildirim çok değerli {name_polite}, teşekkürler. Beklenti farkını anlamak istiyorum — gereksinim belgelerini ve toplantı notlarımızı birlikte inceleyelim. Sonra nasıl ilerleyeceğimizi kararlaştırırız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Beklenti farklılığını yazılı olarak belgeleyelim — hangi noktalar eşleşmiyor net görelim. Kalan teslimatlar için kabul kriterlerini birlikte netleştirelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Yakın gelecekte bir çalışma oturumu yapalım — her iki taraf beklentilerini paylaşsın, ortak bir anlayışa varalım. Ardından gereksinimleri güncelleyebiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Onaylı gereksinim belgesi bizim referansımız {name_polite}. Teslimat belgeye uygun yapıldı — sözleşme dışı beklentiler için değişiklik talebi süreci gerekiyor, ek bedel konuşulmalı.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Beklenti uyuşmazlıkları netleştirilmemiş gereksinimlerden ve yetersiz kabul kriterlerinden kaynaklanır. PMI, gereksinimlerden önce beklentilerin paydaşlarla birlikte belirlenmesini ve kabul kriterlerinin spesifik, ölçülebilir ve anlaşılmış olmasını gerektirir. PM'in görevi beklenti farklılığını erken yakalamak için periyodik gözden geçirmeler yapmaktır."
+    },
+    {
+      "reason_id": "sponsor_beklentisi_değişti",
+      "reasonTR": "Sponsor Beklentisi Proje Boyunca Değişti",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "sponsor",
+      "subject_template": "Proje başından beri beklentiler evrildi",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, proje başladığında {başlangıç_beklentisi} konuşmuştuk. Şimdi {değişen_beklenti} görüyorum. Bu konuşmayı yapmamız gerekiyor.",
+      "body_vars": {
+        "başlangıç_beklentisi": [
+          "hız ve basitlik",
+          "maliyet optimizasyonu",
+          "temel işlevsellik",
+          "belirli bir pazar segmenti"
+        ],
+        "değişen_beklenti": [
+          "çok daha kapsamlı bir platforma ihtiyaç duyulduğunu",
+          "ölçeklenebilirlik ve entegrasyon önceliğinin arttığını",
+          "kullanıcı deneyiminin temel öncelik haline geldiğini",
+          "farklı bir hedef kullanıcı grubunun hedeflendiğini"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Beklenti evrimi doğal — ama bunu resmi bir değişiklik olarak yönetmemiz gerekiyor. Kapsam, takvim ve maliyet üzerindeki etkiyi değerlendirip birlikte karar verelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Başlangıç beklentisi ile güncel beklenti arasındaki farkı analiz edip değişiklik talebine dönüştüreceğim — CCB onayıyla plana yansıtabiliriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Bu beklenti değişimini paydaşlarla paylaşıp ortak bir vizyon oluşturalım — herkes aynı yönde olmalı. Sonra gerçekçi hedefler koyalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Proje planı başlangıç beklentisine göre yapıldı {name_polite}. Beklenti değiştiyse proje yeniden planlanmalı — ama bunun maliyet ve takvim sonuçları var. Bu değişiklik sponsoru ve müşteriyi etkiliyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Sponsor beklentisinin değişmesi kapsam sürünmesinin habercisi olabilir. PMI, proje iş gerekçesini (business case) periyodik olarak gözden geçirmeyi ve değişen stratejik beklentileri resmi değişiklik kontrolüne tabi tutmayı gerektirir. PM'in görevi beklenti değişimlerini yakalamak ve bunların proje üzerindeki etkisini şeffaf yönetmektir."
+    },
+    {
+      "reason_id": "son_kullanıcı_beklentisi_karşılanmadı",
+      "reasonTR": "Son Kullanıcı Beklentisi Karşılanmadı",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Kullanıcılar memnun değil, beklentiler tutmadı",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, son kullanıcı geri bildirimlerimiz {sorun_türü} gösteriyor. {etki} Bu durumu birlikte ele almamız gerekiyor.",
+      "body_vars": {
+        "sorun_türü": [
+          "sisteme alışamama ve düşük kullanım oranı",
+          "beklediğimiz iş süreçlerini desteklememe",
+          "kullanıcı deneyiminin beklentilerin çok altında kalması",
+          "kritik özelliklerin kullanılamaz görülmesi"
+        ],
+        "etki": [
+          "Ekibimizin verimliliği düşüyor.",
+          "Eski sisteme dönme talepleri geliyor.",
+          "Yönetim yatırımın değerini sorguluyor.",
+          "Kullanım oranı yüzde otuzun altında."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu geri bildirimi paylaşmanız önemli {name_polite}. Kullanıcı memnuniyetsizliğinin kökünde ne var anlamak istiyorum — kullanıcılarla birebir görüşme yapabilir miyim? Somut sorunları tespit edip öncelikli iyileştirmeler üretelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bir kullanıcı araştırması başlatıyorum — hangi özellikler beklentinin altında, hangiler çalışıyor. Bu verilerle öncelikli iyileştirme backlog'u oluşturacağım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Aktif kullanıcıları belirleyip şampiyon kullanıcı programı başlatalım — olumlu deneyimler diğerlerine yayılır. Aynı zamanda sık sorulan sorunlar için hızlı müdahale takımı kuralım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Sözleşmede tanımlı kabul kriterleri karşılandı {name_polite}. Kullanıcı beklentileri aşan talepler ek kapsam — bunu değerlendirip fiyatlandırabiliriz. Teslim ettiğimiz ürün sözleşmeye uygun.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Son kullanıcı beklentisi karşılanmadığında projenin iş değeri gerçekleşmez. PMI, kullanıcı beklentilerinin gereksinimler ve kabul kriterleri aracılığıyla net tanımlanmasını ve UAT sürecinde doğrulanmasını gerektirir. PM'in görevi son kullanıcıyı proje sürecine dahil edip beklentileri erken anlamaktır."
+    },
+    {
+      "reason_id": "teknik_beklenti_aşıldı",
+      "reasonTR": "Teknik Mükemmellik Beklentisi Gerçeği Yansıtmıyor",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Teknik beklentiler pratikte gerçekçi değildi",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {teknik_konu} için başlangıçta {beklenti} vaat ettik. Ama {gerçek} Bu durumu paydaşlarla nasıl ele almalıyız?",
+      "body_vars": {
+        "teknik_konu": [
+          "sistem performansı",
+          "güvenilirlik hedefi",
+          "işlem hızı",
+          "eş zamanlı kullanıcı kapasitesi"
+        ],
+        "beklenti": [
+          "yüzde doksan dokuz dokuz yüksek kullanılabilirlik",
+          "saniyede beş yüz işlem",
+          "sıfır kesinti gereksinimi",
+          "anlık güncelleme"
+        ],
+        "gerçek": [
+          "mevcut mimari bu hedefi karşılamıyor.",
+          "bu hedef için ciddi altyapı yatırımı gerekiyor.",
+          "bu beklenti mevcut bütçede gerçekleştirilemez.",
+          "teknik kısıtlar bu hedefin önüne geçiyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu tespiti zamanında paylaşman çok iyi {name_polite}. Gerçekçi beklenti yönetimi PM'in temel sorumluluğu — paydaşlarla mevcut teknik durumu şeffaf paylaşalım. Ulaşılabilir hedefleri birlikte yeniden tanımlayalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Teknik hedefler ile gerçek kapasite arasındaki farkı belgeleyelim — paydaşlara hangi koşulda hangi hedefin gerçekçi olduğunu gösterelim. Hedefler güncellenmeli veya ek yatırım yapılmalı.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bu konuyu teknik ekip ile derinlemesine tartışalım — hedefi hangi kaynak ve yatırımla karşılayabiliriz. Sonra sponsora seçenekli sunum yapalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Başlangıçta vaat verilen şeyleri geri almak güven kaybı yaratır {name_polite}. Paydaşlara beklentiyi düşürmek yerine şimdilik daha yavaş ama kararlı bir şekilde çalışmaya devam edelim — belki gelecekte iyileşir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Gerçekçi olmayan teknik taahhütler beklenti yönetimi başarısızlığının göstergesidir. PMI, gereksinimlerin ve başarı kriterlerinin oluşturulabilir, doğrulanabilir ve ölçülebilir olmasını gerektirir. PM'in görevi proje başında erişilemez hedefleri sorgulamak ve paydaşları gerçekçi beklentilerle yönlendirmektir."
+    },
+    {
+      "reason_id": "paydaş_iç_anlaşmazlığı",
+      "reasonTR": "Paydaşlar Kendi Aralarında Anlaşamıyor",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Paydaşlar proje yönü konusunda uzlaşamıyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {paydaş_grupları} arasında {anlaşmazlık_konusu} konusunda görüş ayrılığı var. {etki} PM olarak ne yapmalıyım?",
+      "body_vars": {
+        "paydaş_grupları": [
+          "müşteri yönetimi ile son kullanıcılar",
+          "sponsor ile operasyonel ekip",
+          "üst yönetim ile teknik ekip",
+          "iki farklı iş birimi"
+        ],
+        "anlaşmazlık_konusu": [
+          "hangi özelliklerin önce geliştirileceği",
+          "projenin kapsamı ve sınırları",
+          "teknik platform tercihi",
+          "başarı kriterleri"
+        ],
+        "etki": [
+          "Proje kararları bloklandı.",
+          "İki taraf çelişkili talepler gönderiyor.",
+          "Hangi yönde ilerleyeceğimi bilemiyorum.",
+          "Her iki taraf da onayım olmadan ilerlememi istiyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu çatışmayı açıkça görmen iyi {name_polite}. PM olarak ben çatışmayı çözmem — tarafları aynı masada buluşturmalıyım. Bir uzlaşma toplantısı düzenliyorum, temel anlaşmazlıkları yapılandırılmış şekilde ele alacağız.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Tarafların her birinin önceliklerini ayrı ayrı anlayalım — sonra ortak paydaları ve gerçek anlaşmazlıkları belirleyelim. Eskalasyon gerekseyse sponsoru da dahil edelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Anlaşmazlığı daha üst karar merciine taşımadan önce müzakereyle çözmeye çalışalım — ortak değerleri ve hedefleri ön plana çıkaralım. Kolaylaştırıcı rolü üstleniyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu anlaşmazlık benim PM'lik alanımın dışında {name_polite}. Tarafların kendi aralarında anlaşmasını bekleyeceğim — karar geldiğinde uygularım. Siyasi tartışmalara karışmam doğru olmaz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Paydaş anlaşmazlıkları çözülmezse proje bloklanır veya yanlış yönde ilerler. PMI, PM'in paydaş çatışmasını kolaylaştırıcı rol üstlenerek yapılandırılmış müzakereyle yönetmesini gerektirir. PM'in görevi tarafları aynı masada buluşturmak ve ortak paydayı buldurarak ilerlemektir."
+    },
+    {
+      "reason_id": "uzun_vadeli_beklenti_kısa_vadeli_çözüm",
+      "reasonTR": "Kısa Vadeli Çözüm Uzun Vadeli Beklentiyi Karşılamıyor",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Hızlı çözüm uzun vadeli ihtiyacı karşılamıyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {hızlı_çözüm} konusunda hızlı bir çözüm ürettik. Ama {uzun_vade_sorunu} Bu konuyu paydaşlarla konuşmamız gerekiyor.",
+      "body_vars": {
+        "hızlı_çözüm": [
+          "yeni entegrasyon gereksinimini",
+          "güvenlik güncellemesini",
+          "kullanıcı arayüzü yeniliğini",
+          "raporlama ihtiyacını"
+        ],
+        "uzun_vade_sorunu": [
+          "bu çözüm uzun vadede ölçeklenemiyor.",
+          "ilerideki büyüme beklentisini karşılamıyor.",
+          "iki yıl içinde tekrar değiştirilmek zorunda kalacak.",
+          "stratejik dijital dönüşümü desteklemiyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Önemli bir gerilimi fark ettin {name_polite}. Kısa vadeli çözüm ile uzun vadeli yol haritası arasındaki farkı paydaşlarla açık konuşalım — farkında olmayan bir maliyet var burada. Sonra bilinçli bir karar verelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bu tradeoff'u sponsora belgeleyelim — kısa vadeli hız mı, uzun vadeli sürdürülebilirlik mi. Bilinçli karar sponsora ait, ama bilgilendirilmiş olsun.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Kısa vadeli çözüme bir 'teknik borç' etiketi koyalım — ileride ne zaman, nasıl yenileneceği konusunda bir geçici yol haritası hazırlayalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Kısa vadeli çözüm şu an işe yarıyor {name_polite}. Uzun vadeli plan konuşmak için doğru zaman gelince konuşuruz — şu an müşteri memnun ve proje ilerliyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kısa vadeli çözümler teknik borcun sistematik birikmesine yol açar. PMI, tasarım kararlarının uzun vadeli iş gereksinimlerini dikkate almasını önerir. PM'in görevi kısa vadeli kararların uzun vadeli sonuçlarını paydaşlarla şeffaf paylaşmak ve bilinçli tercih yapılmasını sağlamaktır."
+    },
+    {
+      "reason_id": "başarı_kriterleri_tanımsız",
+      "reasonTR": "Başarı Kriterleri Başlangıçta Tanımlanmamıştı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Başarıyı nasıl ölçeceğimiz konusunda mutabık değiliz",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, proje kapanışına yaklaşırken {kriter_sorunu} fark ediyorum. {etki} Bu konuyu netleştirmeliyiz.",
+      "body_vars": {
+        "kriter_sorunu": [
+          "başarı kriterlerimizin hâlâ belirsiz olduğunu",
+          "ölçüm yöntemlerimiz üzerinde anlaşmadığımızı",
+          "hangi verilere bakacağımızı netleştirmediğimizi",
+          "'başarılı' ile 'başarısız' arasındaki sınırın olmadığını"
+        ],
+        "etki": [
+          "Proje 'başarılı' mı sayılacak tartışma konusu.",
+          "KPI'larımız üzerinde görüş birliği yok.",
+          "Kabul kriterlerini kim nasıl değerlendiriyor belirsiz.",
+          "Proje kapatılamıyor çünkü başarı kanıtlanamıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}. Bu konuşmayı geç yaptık ama yapmak doğru. Şimdi de olsa ortak başarı kriterlerini tanımlayabiliriz — ikimizin de kabul edebileceği ölçülebilir göstergeleri birlikte belirleyelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Başarı kriterlerini SMART formatında (Spesifik, Ölçülebilir, Ulaşılabilir, Alakalı, Zamanlı) birlikte yazalım — her iki taraf da imzalasın. Bu hem kapatmayı kolaylaştırır hem de referans olur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Mevcut proje çıktılarına bakıp hangilerinin ölçülebilir olduğunu saptayalım — neyi başardık somut gösterelim. Bu hem değeri ortaya koyar hem de sizi tatmin eder.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Kabul kriterlerimiz sözleşmede yazıyor {name_polite}. Ek kriterler için mutabık kalmamız gerekiyor — kapsamı genişleten beklentiler ek iş anlamına gelir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Başarı kriterlerinin tanımlanmaması proje başarısının belirsiz kalmasına neden olur. PMI, başarı kriterlerinin proje başlangıç aşamasında ölçülebilir biçimde tanımlanmasını ve tüm paydaşların bunu imzalamasını gerektirir. PM'in görevi proje çiçeklenirken değil ekılırken kriterleri tanımlatmaktır."
+    },
+    {
+      "reason_id": "iletişim_tarzı_uyumsuzluğu",
+      "reasonTR": "Farklı İletişim Tarzları Beklenti Farkı Yarattı",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Raporlama tarzımız beklentinizi karşılamıyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {raporlama_sorunu} konusunda bir geri bildirim almak istiyorum. {beklenti_farkı} Nasıl iyileştirmeliyiz?",
+      "body_vars": {
+        "raporlama_sorunu": [
+          "durum raporlarımızın içeriği",
+          "toplantı sıklığımız ve formatı",
+          "bilgi paylaşım yöntemimiz",
+          "ilerleme göstergelerimiz"
+        ],
+        "beklenti_farkı": [
+          "Raporlar çok teknik, yönetim seviyesinde değil.",
+          "Bilgi çok fazla, önemli olanı görmek zor.",
+          "Çok az sık raporluyorsunuz, belirsizlik yaşıyoruz.",
+          "Dashboard yerine anlatım odaklı iletişim tercih ederdik."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu geri bildirim için teşekkürler {name_polite}. İletişim planımızı sizin ihtiyaçlarınıza göre uyarlamamız gerekiyor — size en yararlı format, sıklık ve içerik ne olurdu? Bunu birlikte belirleyelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. İletişim planımızı gözden geçirelim — yönetici özeti ile teknik detayı ayıralım, formatı daha sezgisel hale getirelim. Sizin tercih ettiğiniz iletişim kanallarını da belirleyelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Deneme amaçlı yeni bir format hazırlayıp bir sonraki raporu bu formatla göndereyim — geri bildiriminizi alırsam bunu standart hale getireceğim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Mevcut format standart proje raporlama şablonuna uygun {name_polite}. Ek özelleştirme ek çalışma gerektiriyor — bunu yapmak için ek kaynak ve zaman gerekebilir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "İletişim tarzı uyumsuzluğu paydaş memnuniyetini ve bilgi kalitesini etkiler. PMI iletişim yönetimi, her paydaşın bilgi ihtiyacını ve iletişim tercihini iletişim planına dahil etmeyi gerektirir. PM'in görevi paydaş odaklı iletişim tasarımı yapmaktır."
+    }
+  ]
+}

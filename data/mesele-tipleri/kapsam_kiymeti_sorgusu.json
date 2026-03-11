@@ -1,0 +1,257 @@
+{
+  "mesele_id": "kapsam_kiymeti_sorgusu",
+  "meseleTR": "Kapsam Kıymeti Sorgusu",
+  "compatible_terms": [
+    "scope value questioning",
+    "ROI doubt",
+    "feature value doubt",
+    "worth it question"
+  ],
+  "reasons": [
+    {
+      "reason_id": "KKS-01",
+      "reasonTR": "Sponsor kapsamın değerini sorguluyor",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "sponsor",
+      "subject_template": "{ozellik} özelliğinin değeri nedir?",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\n{ozellik} özelliği için harcadığımız {efor} işgünü gerçekten bu değeri üretiyor mu? {alternatif} alternatif bir çözümle daha az kaynakla aynı sonuca ulaşabilir miydik? Beni ikna edin.\n\nSaygılarımla.",
+      "body_vars": {
+        "ozellik": [
+          "özel raporlama modülü",
+          "gerçek zamanlı bildirim sistemi",
+          "gelişmiş arama"
+        ],
+        "efor": [
+          "45",
+          "30",
+          "60"
+        ],
+        "alternatif": [
+          "Excel raporu",
+          "e-posta bildirimi",
+          "basit filtreleme"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, haklı bir soru. Bu özelliğin iş değerini somut metriklerle (kullanıcı verimliliği, süreç hızı, maliyet tasarrufu) ölçmeye çalışıyorum. Alternatif çözümlerle karşılaştırmalı bir analiz hazırlayıp hem kısa vadeli hem uzun vadeli değeri göstereceğim. Veriler yetersiz kalırsa özelliğin kapsamdan çıkarılmasını veya küçültülmesini de değerlendireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, bu özelliğe baştan karar verildi; şimdi sorgulamak verimsiz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, kullanıcılar bu özelliği istiyor; kullanıcı memnuniyeti önemli.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, tüm özellikler değerliydi; kapsam revizyonu işleri geri alır.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kapsam kıymeti sorgusu PM'in savunmaya geçmesi gereken değil, veriye dayalı yanıt vermesi gereken bir durumudur. ROI analizi (Return on Investment) ve alternatif değerlendirmesi, paydaşları bilgilendirmek ve bilinçli kapsam kararları almak için temel araçlardır. Başlanmış olması özelliği değerli kılmaz; devam kararı her zaman güncel veriye dayanmalıdır."
+    },
+    {
+      "reason_id": "KKS-02",
+      "reasonTR": "Müşteri teslimat sonrası değer görmüyor",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "client",
+      "subject_template": "Teslim edilen sistem beklentileri karşılamıyor",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nSistemi teslim aldık ama {sorun} nedeniyle {beklenti} beklentimizi karşılamadı. Sözleşmede belirtilen özellikler teknik olarak var ama gerçek kullanımda değer üretmiyor. Ne yapılabilir?\n\nSaygılarımla.",
+      "body_vars": {
+        "sorun": [
+          "kullanıcılar adapte olamadı",
+          "raporlar yanlış yorumlanıyor",
+          "entegrasyon beklediğimiz gibi çalışmıyor"
+        ],
+        "beklenti": [
+          "süreç verimliliği",
+          "doğru karar desteği",
+          "sorunsuz veri akışı"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, endişenizi anlıyorum. Teknik gereksinimler karşılanmış olsa bile kullanıcı benimsemesi ve gerçek değer üretimi ayrı bir boyut. Kullanıcılarınızla kısa gözlem oturumları yapmamı ve değer üretimini engelleyen faktörleri tespit etmemi önerir misiniz? Ardından eğitim, arayüz iyileştirmesi veya entegrasyon desteği konusunda somut önerilerimi paylaşacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, sözleşme kapsamı eksiksiz teslim edildi; ek geliştirme yeni sözleşme gerektirir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, kullanım talimatlarımıza bakarak sistemi doğru kullandığınızı kontrol edelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, sistemde teknik sorun yok; kullanıcı eğitimi müşteri sorumluluğunda.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Teknik uyumu ile kullanıcı değeri arasındaki fark proje başarısının en önemli tartışma konularından biridir. PM, 'çalışıyor' ile 'değer üretiyor' arasındaki farkı anlamalı ve proaktif olarak benimseme desteği sağlamalıdır. Değer teslimi (value delivery) proje kapanışından sonra da PM'in gündeminde kalmaya devam eder."
+    },
+    {
+      "reason_id": "KKS-03",
+      "reasonTR": "Proje ortasında ROI sorgulaması",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "sponsor",
+      "subject_template": "Projenin sürdürülüp sürdürülmeyeceğine karar vermemiz lazım",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\nProje %{yuzde} tamamlandı ama piyasa koşulları değişti. Bu yatırıma devam etmek mantıklı mı? Tamamlamak mı yoksa durdurmak mı daha doğru?\n\nGörüşünüzü istiyorum.",
+      "body_vars": {
+        "yuzde": [
+          "40",
+          "55",
+          "35"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, bu soruyu doğrudan ele almak doğru. Tamamlama maliyeti, mevcut piyasa değeri ve durdurma maliyetini (terk edilen yatırım, tasfiye maliyeti) karşılaştıran kısa bir analiz hazırlıyorum. Kısmi teslim veya pivot seçeneği de değerlendireceğim. Bu analizi sizinle paylaşıp karar almanıza destek olmak istiyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, başladık; tamamlamak daha mantıklı.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, piyasa koşulları değişti ama proje hedefleri hâlâ geçerli.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, projeyi durdurmak büyük kayıp; devam etmeli ve hızlanmalıyız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Proje ortasında devam-durdurma (go/no-go) kararı PM'in kolaylaştırması gereken stratejik bir karardır. Batık maliyet yanılgısı (sunk cost fallacy) — 'başladık, devam etmeliyiz' — bu kararlarda sık yapılan hatadır. PM, nesnel maliyet-fayda analizi sunarak karar vericilerin geçmişe değil geleceğe bakmasını sağlamalıdır."
+    },
+    {
+      "reason_id": "KKS-04",
+      "reasonTR": "Özellik kullanılmıyor — kapsam şişmesi sorgusu",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nAnalitik verilere göre {ozellik} özelliği son {sure} içinde %{oran} oranında kullanılmış. Geliştirme maliyeti {efor} işgünüydü. Bu özelliği geliştirmek doğru bir karar mıydı?",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "ozellik": [
+          "gelişmiş filtreleme",
+          "otomatik raporlama",
+          "karanlık mod"
+        ],
+        "sure": [
+          "3 ayda",
+          "6 ayda",
+          "1 yılda"
+        ],
+        "oran": [
+          "3",
+          "7",
+          "5"
+        ],
+        "efor": [
+          "15",
+          "20",
+          "10"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nKullanım verisini aldım; düşük kullanım oranı önemli bir sinyal. Önce düşük kullanımın nedenini araştırıyorum: kullanıcılar özelliği bilmiyor mu, ulaşması zor mu, yoksa gerçekten ihtiyaç yok mu? Ardından kullanımı artıracak önlem mi almalıyız yoksa özelliği kademeli olarak devre dışı bırakmayı mı planlamalıyız — bunu veriye dayalı bir önerme olarak sponsora sunacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nÖzellik kapsamdaydı; kullanılmasa da teslim edilmesi önemliydi.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nKullanıcılar zamanla alışır; şimdilik bir şey yapmayalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nDüşük kullanım özelliğin kötü olduğunun kanıtıdır; hemen kaldıralım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kullanılmayan özellikler proje kapsamının doğrulama (validation) sürecinin yetersiz kaldığının göstergesidir. PM, özellik talebi geldiğinde 'bu gerçekten gerekli mi?' sorusunu yapılandırılmış şekilde (MoSCoW, Impact vs. Effort matrisi) sormalıdır. Ürün kullanım analitiği, kapsam kararlarını sürekli olarak sorgulamak ve iyileştirmek için değerli bir geri bildirim kaynağıdır."
+    },
+    {
+      "reason_id": "KKS-05",
+      "reasonTR": "Rakip çözüm ortaya çıkması",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "sponsor",
+      "subject_template": "Rakip ürün konusunda görüşelim",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name},\n\n{rakip} şirketi bizim geliştirdiğimize çok benzer bir {urun} piyasaya sürdü. Neden bu çözümü satın almak yerine geliştiriyoruz? Devam etmeli miyiz?\n\nDüşüncelerinizi paylaşın.",
+      "body_vars": {
+        "rakip": [
+          "yabancı bir yazılım şirketi",
+          "yerel bir startup",
+          "büyük bir platform"
+        ],
+        "urun": [
+          "proje yönetim aracı",
+          "analitik platform",
+          "entegrasyon middleware'i"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Merhaba {player_name}, güzel bir soru. Rakip ürünü hızla analiz edip 'build vs buy' karşılaştırması yapıyorum: lisans maliyeti, özelleştirme esnekliği, entegrasyon kolaylığı ve uzun vadeli bağımlılık riski gibi faktörleri değerlendireceğim. Sonuçları bu hafta sunup birlikte karar verelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Merhaba {player_name}, kendi çözümümüz kurumsal ihtiyaçlarımıza özel; satın almak bize uymaz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Merhaba {player_name}, projeye bu kadar yatırım yaptık; şimdi bırakamayız.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Merhaba {player_name}, rakip ürün küçük bir şirket; güvenilirliği sorgulanabilir.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Build vs. buy kararı proje başlangıcında yapılmalıdır; ancak piyasa koşulları değiştiğinde yeniden değerlendirmek gerekir. PM, batık maliyet yanılgısına düşmeden nesnel bir analiz yapmalıdır. Özelleştirme ihtiyacı, rekabet avantajı ve uzun vadeli maliyet karşılaştırması bu kararın temel kriterleridir."
+    }
+  ]
+}

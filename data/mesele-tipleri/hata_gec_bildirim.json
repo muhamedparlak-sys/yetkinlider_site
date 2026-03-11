@@ -1,0 +1,529 @@
+{
+  "mesele_id": "hata_gec_bildirim",
+  "meseleTR": "Hata Gec Bildirim",
+  "compatible_terms": [
+    "quality_management",
+    "defect_management",
+    "issue_log",
+    "communication_management",
+    "risk_management",
+    "lessons_learned",
+    "retrospective"
+  ],
+  "reasons": [
+    {
+      "reason_id": "hata_uzun_sure_gizlendi",
+      "reasonTR": "Kritik Hata Uzun Süre Gizlendi",
+      "weight": 9,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Söylemekte çok gecikim ama bir hata var",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {hata_türü} ile ilgili {süre} önce fark ettiğim bir sorun var. {gerekçe} Artık söylememek mümkün değil, bu meseleyi birlikte çözmemiz gerekiyor.",
+      "body_vars": {
+        "hata_türü": [
+          "kritik bir sistem hatası",
+          "önemli bir veri tutarsızlığı",
+          "güvenlik açığı",
+          "performans sorunu"
+        ],
+        "süre": [
+          "iki hafta",
+          "bir ay",
+          "üç hafta",
+          "on gün"
+        ],
+        "gerekçe": [
+          "Kendim çözeceğimi düşündüm ama çözemedim.",
+          "Hayal kırıklığı yaratmaktan korktum.",
+          "Küçük sanıp büyüdü, şimdi söylemek çok zor.",
+          "Düzeltme fırsatı çıkar diye bekledim."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Söylediğin için teşekkürler {name_polite}, bunu getirmek cesaret ister. Önce hatanın güncel durumunu anlayalım — etki analizi yapalım, sonra çözüm planı çıkaralım. Geç söylenmiş hiç söylenmemişten her zaman iyidir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bu hatayı hemen issue log'a alıyorum — öncelik seviyesini belirleyip çözüm ekibini görevlendiriyorum. Paydaşları ne zaman nasıl bilgilendireceğimizi de birlikte planlayalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bu hatanın diğer bileşenleri nasıl etkilediğini analiz edeyim — eğer müşteriyi etkilediyse onlara da bildirmemiz gerekecek. Kök nedenini tespit edip önce onu çözelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu kadar geç bildirmek ciddi bir sorun {name_polite}. Hata iki haftadır biliniyordu ve söylenmedi — bu güvensizliğe yol açar. Hem hatanın hem de bu iletişim eksikliğinin insan kaynakları süreciyle ele alınacağını bilmelisin.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Hata geç bildirimi psikolojik güvenlik eksikliğinin en belirgin göstergesidir. Sayıştay İBB raporundaki B29 bulgusu 220 günlük gecikmeli bildirim vakasını proje başarısızlığına katkıda bulunan temel faktör olarak kayıt altına almıştır. PM'in görevi 'kötü haberi getiren korunur' kültürü oluşturmaktır."
+    },
+    {
+      "reason_id": "test_hatası_production_çıktı",
+      "reasonTR": "Test Ortamında Kaçan Hata Canlıya Geçti",
+      "weight": 9,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Testte kaçan hata canlı sistemde çıktı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {hata_konusu} canlı ortamda {etki} yol açtı. Test sürecimizde kaçmış. {sonuç_durumu} Bu konuyu açıklamamız gerekiyor.",
+      "body_vars": {
+        "hata_konusu": [
+          "kritik bir fonksiyon hatası",
+          "veri kayıt sorunu",
+          "yetki açığı",
+          "hesaplama hatası"
+        ],
+        "etki": [
+          "kullanıcı erişim sorununa",
+          "veri tutarsızlığına",
+          "sistem kesintisine",
+          "yanlış işlem yapılmasına"
+        ],
+        "sonuç_durumu": [
+          "Müşteri bizi henüz aramadı ama görmüştür.",
+          "Bazı kullanıcılar etkilendi, şikayetler gelmeye başladı.",
+          "Sistem kendini düzeltti ama iz kaldı.",
+          "Fark edilmeden kurtulduk ama sistematik sorun devam ediyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu durumu getirdiğin için doğru yaptın {name_polite}. Hatanın müşterileri nasıl etkilediğini hemen değerlendirelim — etkilenenlere proaktif bildirim mi yapmalıyız, bunu birlikte karar verelim. Test sürecimizi de gözden geçirelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bu hatayı defect management sistemine alıyorum — aciliyet seviyesine göre düzeltme planı hazırlıyorum. Test senaryolarımızda bu kaçışın nedeni neydi, kök neden analizi yapacağız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Önce hatayı düzeltip canlıya alayım — sonra neden testten kaçtığını analiz edelim. Benzer kaçışların önüne geçmek için test kapsamını genişletmemiz gerekebilir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Test süreciniz yeterince kapsamlı değildi {name_polite}. Canlıya çıkmadan önce bu hatanın tespit edilmesi gerekiyordu — kalite güvence sürecinizi sorgulamam gerekiyor. Bu hatanın maliyetini kim karşılayacak tartışacağız.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Canlı ortama geçen hatalar kalite güvence süreçlerinin yetersizliğini gösterir. PMI kalite yönetimi, test planlarının tüm kritik iş senaryolarını kapsamasını ve kabul kriterlerinin müşteriyle birlikte belirlenmesini gerektirir. PM'in görevi test kapsamını risk bazlı olarak önceliklendirmek ve sıfır hatayla yayın hedeflemektir."
+    },
+    {
+      "reason_id": "müşteri_hatayı_buluyor",
+      "reasonTR": "Müşteri Hataları Ekipten Önce Buluyor",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Hataları sizden önce biz buluyoruz",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {hata_örneği} konusunda size ulaşmak istedim. {beklenti} Bu pattern'in değişmesi gerekiyor bence.",
+      "body_vars": {
+        "hata_örneği": [
+          "bu hafta üç farklı ekranda hata bulduk",
+          "son iki güncelleme sonrası performans düştü",
+          "kullanıcı şikayetlerini siz değil biz toplayıp iletiyoruz",
+          "bildirdiğimiz hatalar kaydedilmiyor gibi görünüyor"
+        ],
+        "beklenti": [
+          "Hataları bizden önce siz bulmalısınız.",
+          "Kalite güvenceniz daha proaktif olmalı.",
+          "Her yayın öncesi test raporunu görmek istiyoruz.",
+          "Hata düzeltme süreçlerinizi paylaşın lütfen."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Geri bildiriminiz için teşekkürler {name_polite}, bu önemli bir sinyal. Test sürecimizi ve hata izleme yaklaşımımızı gözden geçireceğim — bir sonraki görüşmede kalite güvence planımızı birlikte inceleyebiliriz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Müşterinin hata tespitinin önüne geçmek için test kapsamımızı genişletiyorum — her yayın öncesinde bir test raporu paylaşmaya başlayabiliriz. Kalite güvence sürecimizi şeffaf hale getirelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Haklısınız {name_polite}. Kullanıcı perspektifinden test yapmak için müşteri ortamına yakın bir test ortamı kuralım — kullanıcı davranışlarını simüle eden test senaryoları hazırlayabiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Sözleşmemizde kalite güvence standartlarını tanımladık ve bu standartları karşılıyoruz {name_polite}. Ek test talepleriniz varsa bunları ek hizmet olarak fiyatlandırmamız gerekecek.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Müşterinin hataları PM ekibinden önce bulması kalite güvence sürecinin yetersizliğine işaret eder. PMI kalite yönetimi, müşteriye ulaşmadan önce ürün kalitesinin doğrulanmasını gerektirir. PM'in görevi proaktif kalite izleme sistemi kurmak ve hataları erken tespit eden bir süreç oluşturmaktır."
+    },
+    {
+      "reason_id": "hata_düzeltme_gecikmesi",
+      "reasonTR": "Bildirilen Hata Çok Geç Düzeltildi",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Bildirdiğimiz hata hâlâ çözülmedi",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, {hata_referans} ile ilgili {gün} önce bildirimde bulunmuştum. Hâlâ çözüm gelmedi. {etki_durumu} Bu kadar uzun sürmemeli.",
+      "body_vars": {
+        "hata_referans": [
+          "geçen hafta bildirdiğimiz hatanın",
+          "iki hafta önce ticket açtığımız sorunun",
+          "ilk sprint'ten beri var olan açığın",
+          "kritik olarak işaretlediğimiz birimin"
+        ],
+        "gün": [
+          "on gün",
+          "iki hafta",
+          "on beş gün",
+          "üç hafta"
+        ],
+        "etki_durumu": [
+          "Ekibimiz bu yüzden çalışamamış.",
+          "Müşteri süreçlerimiz sekteye uğruyor.",
+          "Geçici çözümle idare ediyoruz ama bu sürdürülebilir değil.",
+          "Kullanıcı şikayetleri artıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, bu gecikme kabul edilemez. Hatanın mevcut durumunu hemen kontrol ediyorum — neden bu kadar uzun sürdüğünü anlayıp size net bir düzeltme tarihi veriyorum. Üzgünüm bu gecikme için.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Bu hatanın öncelik seviyesini yeniden değerlendiriyorum ve sprint planlamamıza alıyorum — size dört saatte bir durum güncellemesi gelecek. Etki büyükse kritik olarak yükseltiyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Bu hata için geçici bir çözüm sunabilir miyim şu an — kalıcı çözüm gelene kadar operasyonunuzu sürdürmek için bir yol var mı birlikte bulalım.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Öncelik sıralaması geliştirme ekibinde {name_polite}, ben bu hızı artıramam. Kritik olarak işaretlenmiş ama üst sırada değil — öncelik sırasını değiştirmek için yönetimden onay almam gerekiyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Hata çözüm gecikmesi müşteri güvenini aşındırır ve SLA ihlali riskini artırır. PMI kalite yönetimi, hata önceliklendirme kriterlerini ve çözüm sürelerini başlangıçta tanımlamayı gerektirir. PM'in görevi kritik hataların anında eskalasyonunu sağlayacak bir defect triage süreci kurmaktır."
+    },
+    {
+      "reason_id": "root_cause_analiz_yapılmadı",
+      "reasonTR": "Kök Neden Analizi Yapılmadan Hata Kapatıldı",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Hata düzeltildi ama kök neden araştırılmadı",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {hata_konusu} düzelttik ve müşteri memnun. Ama {endişe} Bu aynı hatanın tekrar çıkacağına işaret ediyor olabilir.",
+      "body_vars": {
+        "hata_konusu": [
+          "geçen ayki kritik sorunu",
+          "entegrasyon hatasını",
+          "veri tutarsızlığını",
+          "performans sorununu"
+        ],
+        "endişe": [
+          "neden olduğunu tam olarak anlamadık.",
+          "kök nedeni bulmaya vakit ayırmadık.",
+          "bir yama yaptık ama asıl neden araştırılmadı.",
+          "hızlıca kapattık ama sistematik bir sorun olabilir."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Doğru bir endişe bu {name_polite}. Hata kodu kapanmış olsa da kök neden analizi yapalım — benzer hataların tekrarlanmaması için sistematik bir inceleme gerekiyor. Zaman ayıralım ve retrospektife koyalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Kök neden analizi için kısa bir oturum planlıyorum — beyin fırtınası veya 5-Neden tekniği kullanalım. Bulduğumuz nedeni düzeltici eylem planıyla birlikte kayıt altına alalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Benzer hata kayıtlarına bakayım — bu hata ilk mi, yoksa bir pattern mı var? Tekrarlayan bir hata ise sistematik çözüm gerekir, bunu önceliklendireceğim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hata düzeltildi ve kapatıldı {name_polite}. Kök neden analizi yapmak için ekibin zamanı yok şu an — sprint sonunda retrospektife alabiliriz ama önce mevcut işleri tamamlayalım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Hatanın semptomunu çözmek kök nedeni ortadan kaldırmaz. PMI kalite yönetimi, kalıcı düzeltme için kök neden analizini (Root Cause Analysis) şart koşar. PM'in görevi issue kapatma kriterlerine kök neden tespitini ve önleyici eylemi dahil etmektir."
+    },
+    {
+      "reason_id": "hata_tekrar_etti",
+      "reasonTR": "Aynı Hata Tekrar Çıktı",
+      "weight": 8,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "client",
+      "subject_template": "Daha önce bildirdiğimiz hata tekrar etti",
+      "from_role_template": "{role}",
+      "body_template": "Merhaba {player_name}, daha önce çözdüğünüzü düşündüğümüz {hata_konusu} tekrar yaşadık. {etki} Kalıcı çözüm gelmiyor gibi görünüyor.",
+      "body_vars": {
+        "hata_konusu": [
+          "giriş sorunu",
+          "veri kayıt hatası",
+          "entegrasyon başarısızlığı",
+          "raporlama hatasını"
+        ],
+        "etki": [
+          "Bu sefer daha uzun sürdü.",
+          "Daha fazla kullanıcı etkilendi.",
+          "Aynı geçici çözümü uygulamak zorunda kaldık.",
+          "Güvenimiz sarsılıyor açıkçası."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Anlıyorum {name_polite}, aynı sorunun tekrar etmesi kabul edilemez. Bu kez kalıcı çözüme odaklanıyorum — önceki düzeltmenin neden başarısız olduğunu analiz edip kök nedeni tamamen ortadan kaldıracak bir plan hazırlıyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anladım {name_polite}. Önceki düzeltmeyi inceleyelim — geçici bir yama mıydı yoksa kalıcı mı yapılmıştı? Kök neden analizi yapıp bu hatanın bir daha çıkmayacağını garanti altına alacak şekilde düzelteceğim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Peki {name_polite}. Bu hatayı kritik olarak yükseltiyorum — şu an en yüksek öncelik bu. Geliştirme ekibiyle bugün bir araya geleyim ve kalıcı çözüm için net bir tarih vereyim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hata tekrar ettiyse ilk düzeltme yanlış yapılmış demektir {name_polite}. Bu geliştirme ekibinin kalite standartlarını sorgulatıyor — bu denli tekrar eden hatalar için garanti kapsamını ve sözleşme koşullarını gözden geçireceğiz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Aynı hatanın tekrar etmesi kalıcı düzeltme yerine geçici yama yapıldığının göstergesidir. PMI, her hatanın düzeltme kaydının hem semptom çözümünü hem de kök neden analizini içermesini gerektirir. PM'in görevi bir hatanın ancak kök nedeni ortadan kaldırıldığında gerçekten çözüldüğünü kabul etmektir."
+    },
+    {
+      "reason_id": "hata_çevresel_faktör",
+      "reasonTR": "Çevresel Faktör Geç Fark Edildi",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Sorunun kaynağının çevre olduğunu geç fark ettim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {sorun_türü} ile ilgili {süre} uğraşıyorum. {keşif} Daha erken fark etmem gerekirdi.",
+      "body_vars": {
+        "sorun_türü": [
+          "yaşanan performans sorununu",
+          "entegrasyon hatasını",
+          "test başarısızlıklarını",
+          "belirsiz davranışı"
+        ],
+        "süre": [
+          "üç gündür",
+          "bir haftadır",
+          "iki gündür",
+          "beş gündür"
+        ],
+        "keşif": [
+          "Test ortamı ile canlı arasında ciddi fark varmış.",
+          "Altyapı konfigürasyonu farklıymış.",
+          "Üçüncü parti servis değişiklik yapmış.",
+          "Ağ koşulları testimizi yanıltmış."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu tespiti paylaşman iyi oldu {name_polite}. Çevresel farklılıkları sistematik olarak izleyecek bir mekanizma kuralım — test ve üretim ortamlarını daha sık karşılaştıran otomatik kontroller ekleyelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Çevre bazlı sorunlar için ortam paritetini izleyen bir checklist oluşturalım — her sprint başında test ve üretim ortamları karşılaştırılsın. Bu tespiti retrospektife de koyuyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Şu an için çevre farkından kaynaklanan hatayı düzeltiyorum. Ortamları senkronize etmek için DevOps ekibiyle görüşelim — Infrastructure as Code yaklaşımı bu sorunu sistemik olarak çözer.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu tür çevre farklarını daha erken fark etmen gerekiyordu {name_polite}. Test planınız ortam paritesini açıkça kontrol etmeli — bu eksikliği kalite sürecinize yazılı ekleyin.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Çevresel faktörlerin geç tespit edilmesi test planlamasındaki kör noktaları gösterir. PMI kalite yönetimi, test ortamının üretim ortamını mümkün olduğunca yansıtmasını ve ortam değişikliklerinin kayıt altına alınmasını gerektirir. PM'in görevi ortam farklılıklarını test risklerinden biri olarak tanımlamaktır."
+    },
+    {
+      "reason_id": "hata_öncelik_yanlış_atandı",
+      "reasonTR": "Hata Yanlış Öncelikte Değerlendirildi",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Bir hatayı yanlış önceliklendirdim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {hata_türü} düşük öncelikli olarak sınıflandırmıştım ama {gerçek_etki} Yanlış bir değerlendirme yaptım.",
+      "body_vars": {
+        "hata_türü": [
+          "bildirimler bölümündeki hatayı",
+          "arka planda çalışan süreci",
+          "log kaydı sorununu",
+          "yedekleme hatasını"
+        ],
+        "gerçek_etki": [
+          "aslında kritik bir iş sürecini etkiliyormuş.",
+          "güvenlik açığına yol açabileceğini fark ettim.",
+          "müşteri verisi etkilendiği anlaşıldı.",
+          "yasal raporlama kapsamına girdiğini öğrendim."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu fark ettiğin için iyi yaptın {name_polite}. Hatanın önceliğini hemen yükseltiyorum ve sprint planına alıyorum — etkilenen paydaşlara da durumu bildirmem gerekiyorsa sen de dahil olursun. Hızlı hareket edelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Hatayı kritik olarak yeniden sınıflandırıyorum — acil çözüm için geliştirme ekibini bugün toplantıya çağırıyorum. Etkilenen tarafları da bilgilendireceğim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bu deneyimden çıkarımla hata sınıflandırma kriterlerimizi gözden geçirelim — özellikle veri ve güvenlik etkisi olan hataları nasıl tespit edeceğimizi netleştirelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hatanın önceliğini yanlış belirlemek ciddi bir değerlendirme hatası {name_polite}. Şimdi hem hatayı hem de bu önceliklendirme hatası nedeniyle oluşan gecikmeyi yönetmek zorundayız — bu tür hataları önlemek için süreç iyileştirmesi şart.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Hata önceliklendirme kriterleri net tanımlanmamışsa değerlendirme hataları kaçınılmazdır. PMI, P1-P4 gibi açık bir önceliklendirme matrisinin ve etki değerlendirme rehberinin defect yönetim sürecine dahil edilmesini önerir. PM'in görevi ekibi net kriterlerle donatmak ve belirsiz durumlarda eskalasyonu kolaylaştırmaktır."
+    },
+    {
+      "reason_id": "bağımlı_sistem_hatası",
+      "reasonTR": "Bağımlı Sistem Bileşeni Hata Verdi",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Bağımlı bir sistemden gelen hata projemizi etkiliyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {bagimli_sistem} ile ilgili bir sorun var ve {etkisi} Bizim kodumuzda hata yok ama bu durumu yönetmemiz gerekiyor.",
+      "body_vars": {
+        "bagimli_sistem": [
+          "kullandığımız üçüncü parti API",
+          "entegre olduğumuz ERP sistemi",
+          "veri sağlayan harici servis",
+          "kimlik doğrulama sistemi"
+        ],
+        "etkisi": [
+          "kendi sistemimiz de etkileniyor.",
+          "müşterimize bunu açıklamak zor.",
+          "testlerimiz bu nedenle başarısız sayılıyor.",
+          "takvimimiz buna bağımlı ve kayıyor."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Durumu bildirmen iyi oldu {name_polite}. Bağımlı sistemin sahipleriyle iletişime geçiyorum — sorunun ne zaman çözüleceğini öğreneceğim. Bu arada bağımsız aktiviteleri sürdürelim ve riski kayıt altına alalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Bağımlı sistem sorununu risk kaydına alıyorum ve etkilenen aktiviteler için geçici çözüm (workaround) var mı analiz ediyorum. Bağımlılık sahibiyle SLA takibini başlatıyorum.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Bağımlı sistemi mock veya stub ile simüle edip geliştirmeye devam edebilir miyiz bakalım — bağımlılık çözülene kadar ilerlemeyi sürdürelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Bu sorun bağımlı sistemin sorumluluğunda {name_polite}. Onlara resmi yazışma yapıp çözüm tarihini netleştirmelerini istiyorum — gecikme bizim projemize yansıyorsa SLA tazminatı talep edebiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Harici bağımlılıklar risk kaydında öncelikli olarak izlenmelidir. PMI, kritik bağımlılıkların tanımlanmasını ve bağımlı taraflarla servis seviyesi anlaşmalarının yapılmasını gerektirir. PM'in görevi bağımlılık kaynaklı riskleri erken yönetmek ve geçici çözüm planları hazır tutmaktır."
+    },
+    {
+      "reason_id": "hata_teknik_borç_kaynağı",
+      "reasonTR": "Teknik Borç Hataları Tetikliyor",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Teknik borç birikiyor ve hataya dönüşüyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, son dönemdeki {hata_sıklığı} bana göre {teknik_borç_bağlantısı} Bu pattern devam ederse durum kötüleşecek.",
+      "body_vars": {
+        "hata_sıklığı": [
+          "art arda gelen hatalar",
+          "sıklaşan production sorunları",
+          "tekrar eden test başarısızlıkları",
+          "artan düzeltme süresi"
+        ],
+        "teknik_borç_bağlantısı": [
+          "birikmiş teknik borçla doğrudan ilişkili.",
+          "kod kalitesinin düştüğünü gösteriyor.",
+          "test eksikliğinin bedeli olarak görüyorum.",
+          "mimarinin kırılganlaştığının işareti."
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Bu bağlantıyı görmen çok değerli {name_polite}. Teknik borcu görünür kılıp sponsora aktarmamız gerekiyor — refactoring için zaman ve bütçe ayırmadan bu döngüden çıkmak güçleşecek. Birlikte bir plan çıkaralım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Anlıyorum {name_polite}. Teknik borç değerlendirmesi yapalım — hangi alanlar en fazla borç taşıyor, buraya odaklanmak hata sıklığını ne kadar azaltır. Bunu bir backlog öğesi olarak formüle edip önceliğini tartışalım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Tamam {name_polite}. Her sprint'e küçük bir refactoring görevi ekleyerek borcu yavaş yavaş azaltabiliriz — büyük bir yeniden yazım olmadan iyileştirme mümkün. Bu yaklaşımı önerebilirsin.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Teknik borç yönetimi geliştirme liderinin sorumluluğu {name_polite}. Bunu proje yöneticisi olarak benden çözmemi bekleme — ekibin kod kalitesi standartlarını uygulaması gerekiyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Teknik borç birikmesi giderek artan hata sıklığı ve azalan geliştirme hızı ile kendini gösterir. PMI, teknik borcun risk kaydına alınmasını ve düzeltici yatırımın proje veya ürün bütçesine dahil edilmesini önerir. PM'in görevi teknik borcu görünür kılmak ve sponsoru sonuçları konusunda bilinçlendirmektir."
+    }
+  ]
+}

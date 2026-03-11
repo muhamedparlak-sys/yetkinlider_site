@@ -1,0 +1,792 @@
+{
+  "mesele_id": "paydas_erisim_sorunu",
+  "meseleTR": "Paydaş Erişim Sorunu",
+  "compatible_terms": [
+    "stakeholder_management", "communication_plan", "raci_matrix",
+    "escalation_path", "decision_log", "sponsor_engagement", "governance"
+  ],
+  "reasons": [
+    {
+      "reason_id": "meshgul_ust_yonetici",
+      "reasonTR": "Meşgul Üst Yönetici",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Karar için ulaşamıyorum — proje bekliyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {konu} için {paydas}'a ulaşmaya çalışıyorum. {deneme} Ne kadar bekleyeceğimi bilemedim — bir taraftan proje duruyor, bir taraftan daha fazla ısrar etmek de garip hissettiriyor.",
+      "body_vars": {
+        "konu": ["bütçe onayı", "teknik mimari kararı", "kapsam değişikliği", "önceliklendirme"],
+        "paydas": ["direktöre", "genel müdüre", "proje sponsoruna", "karar alıcıya"],
+        "deneme": [
+          "İki haftadır mail gönderiyorum ama yanıt yok.",
+          "Toplantı talebim kabul edilmedi, sekreteri 'meşgul' diyor.",
+          "Üç kez aradım, bir türlü yakalayamadım.",
+          "Asistan 'geri dönecek' diyor ama döndüğü yok."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, mesajını aldım. Bu engeli ben üstleniyorum — bugün farklı bir kanal deneyeceğim, asistan üzerinden doğrudan randevu talep edeceğim. Bu süreçte bağımsız ilerleyebileceğin görevler var mı, birlikte bakalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anladım. Şu an resmi bir eskalasyon maili hazırlıyorum — konuyu 3 cümlede özetle, kopyama al. Sponsorun müdürünü de CC'ye alalım; bu tür yazışmalar kayıt altında olmalı.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, bu kararı beklerken başka ne ilerleyebilir, oraya odaklanalım. Karar alıcı müsait olduğunda haber veririm — şimdilik karar gerektirmeyen görevlere gir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, onay gelmeden devam etme — beklemeye devam et. Hiyerarşik süreci korumak zorundayız; talimatsız ilerlemek ciddi risk yaratır. Proje duruyor olsa bile süreci bekle.",
+          "xp": -20,
+          "isEthical": false,
+          "triggers": [
+            { "target_issue": "gorev_gecikmesi", "delay_phase": 1, "reason_context": "Karar tıkanması çözülmeden beklemeye devam edildi; görev gecikmeleri zincirlendi." },
+            { "target_issue": "milestone_baskisi", "delay_phase": 1, "reason_context": "Bloke olan onay süreci milestone tarihlerini tehdit altına aldı." }
+          ]
+        }
+      },
+      "root_cause_lesson": "PMI İletişim Yönetim Planı (Communication Management Plan) iletişim kanallarını ve yedek yollarını önceden tanımlar. Karar alıcıya ulaşılamadığında eskalasyon yolu ve vekil (backup contact) tanımlı olmalıdır. PM'in görevi sadece beklemek değil, engeli aktif olarak çözmektir."
+    },
+    {
+      "reason_id": "degisen_sorumluluk",
+      "reasonTR": "Değişen Sorumluluk",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Kime gideceğimi bilemedim",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {konu} için doğru kişiyi bulamıyorum. {degisim} Yanlış kişiye gideyim de istemiyorum ama bu belirsizlik her şeyi yavaşlatıyor — yönlendirir misiniz?",
+      "body_vars": {
+        "konu": ["teknik kararlar", "bütçe soruları", "kapsam değişikliği onayı", "müşteri talepleri"],
+        "degisim": [
+          "Eski yetkili pozisyondan ayrıldı, yerine kim geldi bilmiyorum.",
+          "Sorumluluklar yeniden dağıtıldı, kimin ne yaptığı netleşmedi.",
+          "Org şeması değişti ama resmi duyuru yapılmadı.",
+          "İki farklı kişi aynı konuda yetkili gibi davranıyor."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu belirsizliği ben çözeceğim — senin uğraşman gerekmiyor. Bugün doğru paydaşı tespit edip iletişim matrisini güncelleyeceğim. Bu hafta sana net bir 'kime git' listesi vereceğim, o zamana kadar bekle.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, anladım. HR'dan güncel org şemasını talep ediyorum — döner dönmez sana ileteyim. Bu arada eski yetkilinin direkt müdürünü dene, büyük ihtimalle o yönlendirir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, şimdilik eski yetkilinin direkt müdürüne git — yönlendirir büyük ihtimalle. Ben de paralelde araştırıyorum; bulunca seni haberdar ederim, o zamana kadar bir dene.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, bu senin çözmen gereken bir şey. LinkedIn'e bakabilir ya da ekipten birine sorabilirsin — ben de tam olarak bilmiyorum, bulmak biraz uğraş gerektiriyor ama halledersin.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "RACI matrisi (Responsible, Accountable, Consulted, Informed) her karar için net sorumluluk atar. Org değişikliklerinde iletişim matrisini güncel tutmak PM'in sorumluluğundadır. Sorumluluk boşluğu karar tıkanmalarına ve proje gecikmelerine doğrudan yol açar."
+    },
+    {
+      "reason_id": "tatil_seyahat",
+      "reasonTR": "Tatil veya Seyahatte Erişilemiyor",
+      "weight": 7,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Karar alıcı tatilde, proje bekliyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {konu} için {paydas} ulaşmam gerekiyor ama {tatil_durumu} Proje bekliyor — ne kadar süreceğini de bilmiyorum, nasıl ilerleyelim?",
+      "body_vars": {
+        "konu": ["acil bir onay", "kritik bir karar", "paydaş geri bildirimi"],
+        "paydas": ["müşteriye", "sponsora", "direktöre"],
+        "tatil_durumu": [
+          "iki haftaya kadar tatilde olduğunu öğrendim.",
+          "konferansta seyahatte ve ulaşılmıyor.",
+          "şehir dışında, dönüş tarihi belirsiz.",
+          "yurt dışında ve saat farkı iletişimi zorlaştırıyor."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, anladım. Önce şunu netleştirelim: bu onay gerçekten tatil bitene kadar bekleyemez mi? Bekleyemiyorsa vekilini veya alternatif karar alıcıyı bulmaya çalışacağım — kararı bugün veririm, sana döneceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, bir e-posta bırakalım — döndüğünde baksın. Ben de CC'deyim; dönmeden önce ulaşırsa hızlıca hallederiz. Takvime bir arabellek ekleyeyim, plana işleyeyim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, bu süreçte karar bekleyen görevleri ertele — bağımsız ilerleyebileceğin ne var, oraya gir. Karar alıcı döndüğünde bloke olan konulara birlikte döneriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, onayı beklemeden devam et — döndüğünde retroaktif onay alırız. Proje tatil bekleyemez; karar alıcı yokken de ilerleme sağlamak gerekiyor, sonradan düzeltiriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Paydaş yokluğu için vekil atanması (succession planning) ve alternatif karar alma yolları PMI'ya göre risk yönetiminin parçasıdır. 'Sonradan retroaktif onay' yönetişim açısından risk yaratır. PM'in görevi, yokluk dönemleri için kontrollü bir ilerleme planı oluşturmaktır."
+    },
+    {
+      "reason_id": "vekil_belirsiz",
+      "reasonTR": "Vekili Kim Belli Değil",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Vekil kim, bir türlü bulamadım",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {paydas} şu an müsait değil. {vekil_sorunu} Farklı yönlendirmeler aldım ve kimi muhatap alacağımı bilemedim — sormak istedim.",
+      "body_vars": {
+        "paydas": ["Karar alıcı", "Müşteri yetkilisi", "Sponsor"],
+        "vekil_sorunu": [
+          "Vekil ataması yapılmamış veya bize bildirilmemiş.",
+          "İki farklı kişi 'bana gel' dedi ama hangisi yetkili bilmiyorum.",
+          "Sekreter 'bana gelin' dedi ama onun yetki alanı bu değil.",
+          "Ekipten biri 'ben hallederim' dedi ama resmi yetkisi var mı bilmiyorum."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu boşluk bende kalmamalı. Bugün üst tarafa yazıp resmi vekil ataması talep edeceğim — iletişim planına da işleyeceğim. Netleşene kadar bekle, çözümü ben takip ediyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, şimdilik en kıdemli müsait kişiye git — büyük ihtimalle yönlendirir. Ben de paralelde resmi atamayı takip ediyorum; bilgi gelince sana aktarırım.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, konuyu her ikisine de yaz — kim sahiplenirse o ilerlesin. Biraz informal ama şu an tıkanıklığı açmanın en hızlı yolu bu; resmi atama gelince düzeltiriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, çok düşünme — biri onaylarsa yeter, devam et. Kimin resmi yetkili olduğu şu an önemli değil; işi ilerletmek önceliğimiz, sonradan netleştiririz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "İletişim Yönetim Planı her paydaş için yedek iletişim yolunu (backup contact) tanımlar. Vekil belirsizliği proje yönetişim riskidir. PM, iletişim noktaları tek bir kişiye bağlı kalmayacak şekilde RACI matrisini baştan tasarlamalıdır."
+    },
+    {
+      "reason_id": "email_yanit_vermiyor",
+      "reasonTR": "E-postalar Yanıtsız Kalıyor",
+      "weight": 9,
+      "max_per_scenario": 5,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Maillere yanıt gelmiyor — ne yapalım?",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {konu} için {paydas} e-posta gönderdim. {yanitsizlik} Bir taraftan proje bekliyor, bir taraftan çok ısrarcı görünmek de istemedim — ne yapmalıyım?",
+      "body_vars": {
+        "konu": ["tasarım onayı", "gereksinim netleştirme", "test sonucu değerlendirmesi", "teslimat kabulü"],
+        "paydas": ["müşteriye", "sponsora", "teknik yetkililere", "karar alıcıya"],
+        "yanitsizlik": [
+          "Bir haftadır cevap yok.",
+          "Hatırlatma maili attım, yine yanıt gelmedi.",
+          "İki farklı adrese gönderdim, ikisinden de sessizlik.",
+          "Okundu bildirimi var ama yanıt yok."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu durumu ben üstleniyorum. Bugün öğleden sonra ilgiliyi telefonla arıyorum — e-posta tıkandıysa farklı kanaldan açarız. Bu gecikmeleri kayıt altına alıyorum; karar çıktığında sana hemen dönüyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, konu satırına [EYLEM GEREKLİ] ekleyerek bir hatırlatma maili daha at, kopyama al. Mesajı 3 cümlede tut, net iste — bu tür hatırlatmalar çoğunlukla işe yarar; almazsak farklı yol deneriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, e-posta işe yaramıyorsa kanal değiştir — Teams veya WhatsApp'tan yaz, olmadı telefon aç. Okundu bildirimi var, görüyorlar demektir. Ulaşınca bana haber ver, o noktada birlikte devam ederiz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, makul bekleme süresi geçti. Gönderdiğin maillerin izi var — 'yanıt beklendi, alınamadı' notu düş ve bu adımı onaylanmış say. Devam et; hukuki sorumluluk tarafımızda değil.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "'Sessizlik onay anlamına gelir' pratiği PMI etik standartlarıyla çelişir ve sözleşme açısından risk yaratır. İletişim planında yanıt süresi (SLA) ve eskalasyon prosedürü önceden tanımlanmalıdır. PM'in görevi yanıt gelmediğinde alternatif kanalları devreye almak, varsayılan onay üretmek değildir."
+    },
+    {
+      "reason_id": "toplanti_organize_edilemiyor",
+      "reasonTR": "Toplantı Bir Türlü Ayarlanamıyor",
+      "weight": 8,
+      "max_per_scenario": 4,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Takvimler bir türlü uyuşmuyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {konu} için kritik bir toplantı organize etmeye çalışıyorum. {zorluk} Bu takvim çatışması beni gerçekten yordu — nasıl ilerleyebiliriz?",
+      "body_vars": {
+        "konu": ["gereksinim gözden geçirme", "kapsam netleştirme", "riskler değerlendirmesi", "onay alma"],
+        "zorluk": [
+          "İki haftadır uygun zaman dilimi bulamıyoruz.",
+          "Bir katılımcı müsait olunca diğeri müsait değil.",
+          "Davet gönderdim ama reddediliyor, neden bilmiyorum.",
+          "Üç farklı tarih önerdim, hepsi reddedildi."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, anladım. Sponsor kanalından aciliyeti ileteceğim, zaman dilimi talep edeceğim. Aynı zamanda asenkron bir karar mekanizması işe yarar mı değerlendirelim — toplantı olmadan da kararlar alınabilir.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, toplantı yerine kısa bir yazılı karar süreci deneyelim. Soruları bir dokümana yaz, e-posta ile onay al — takvim çatışmalarını aşmak için asenkron yöntem işe yarar.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, 15 dakikalık slot teklif et — uzun toplantıyı reddeden biri kısa olana onay verebilir. Odak görüşmeler tam gün toplantılardan daha kabul edilebilir oluyor çoğunlukla.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, toplantı organize edemiyorsan kendi kararını ver ve devam et. Herkesin takvimini beklemek proje sorumluluğunu yerine getirmiyor — ilerlemek zorundasın, toplantı olmasa da.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "PMI İletişim Yönetimi, toplantıların ne zaman zorunlu olduğunu ve ne zaman asenkron kararların yeterli olduğunu belgelemeyi gerektirir. Toplantı bağımlılığı çözülemez hale gelince PM, eskalasyon yolunu veya alternatif karar mekanizmalarını devreye almalıdır. Toplantısız alınan kararlar ise kayıt altına alınmalıdır."
+    },
+    {
+      "reason_id": "yeni_atanan_ogreniyor",
+      "reasonTR": "Yeni Atanan Paydaş Öğrenme Sürecinde",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Yeni paydaşımız henüz konuya hâkim değil",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {eski_paydas} ayrıldı ve yerine {yeni_paydas} geldi. {durum} Her şeyi baştan anlatmak lazım gibi görünüyor — nasıl ilerleyelim?",
+      "body_vars": {
+        "eski_paydas": ["önceki müşteri yetkilisi", "eski proje sponsoru", "önceki teknik koordinatör"],
+        "yeni_paydas": ["yeni bir isim", "bambaşka bir yapıdan gelen biri", "bu konuya yabancı biri"],
+        "durum": [
+          "Yeni kişi projeye henüz adapte olmadı, karar veremediğini söylüyor.",
+          "Geçmişi bilmeden karar alması zor, her şeyi sıfırdan anlatmamız gerekiyor.",
+          "Yeni paydaş 'öğreneyim' diyor, bu süreçte proje bloke.",
+          "Eski paydaşın bilgisini transfer etmeden ayrılması boşluk bıraktı."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, yeni paydaşa bağlam aktarmak bizim sorumluluğumuz. Proje özeti ve geçmiş kararlar belgesi hazırlıyorum, kısa bir oryantasyon toplantısı ayarlayacağım. Bu süreçte hangi kararların bekleyebileceğine birlikte karar verelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, bir proje özeti belgesi hazırlayalım, yeni paydaşa gönderelim. Okuyunca soru soracaktır — o aşamada toplantı yaparız, daha verimli bir oryantasyon olur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, bu süreçte bekleyebileceğimiz kararları erteleyelim. Devam edebildiğimiz görevlere odaklanalım — yeni paydaş hazır olunca tıkanan konulara döneriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, bu onların sorunu. İç rotasyon bizi etkilememeli — onayı zorla al, öğrensin diye biz bekleyemeyiz. Sözleşmemiz var, proje devam eder.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Paydaş onboarding süreci PMI bilgi yönetiminin kritik bir parçasıdır. PM, bilgi transferini kolaylaştırmakla yükümlüdür. Onboarding yapılmadan alınan kararlar ilerleyen fazlarda revizyon ve kapsam sorunlarına zemin hazırlar."
+    },
+    {
+      "reason_id": "konudan_sogudu",
+      "reasonTR": "Paydaş İlgisini Kaybetti",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Paydaşımız toplantılara gelmiyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {paydas} {durum} Projeye olan ilgisi gerçekten azaldı gibi hissettiriyor — bunu söylemek istedim ama nasıl yorumlayacağınızı bilmedim.",
+      "body_vars": {
+        "paydas": ["Müşteri yetkilisi", "Sponsor", "Kilit paydaş"],
+        "durum": [
+          "son iki toplantıya gelmedi.",
+          "toplantılara çok kısa süreliğine katılıp çıkıyor.",
+          "gündeme hazırlanmadan geldiğini hissettirdi.",
+          "mail ve mesajlara artık çok yüzeysel yanıt veriyor."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, fark etmişsin, iyi ki paylaştın. İlgi kaybı erken bir uyarı sinyali — görmezden gelmek riskli. Ben paydaşla gayriresmi bir konuşma açacağım, neyin değiştiğini anlamak istiyorum. Sana döneceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, birkaç toplantı daha bekleyelim. Meşgul bir dönemden geçiyor olabilir — şu an erken hareket etmek gereksiz sürtüşme yaratır. İlgi devam ederse kendisi düzelir.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, toplantı formatını değiştirelim — daha kısa, daha gündem odaklı deneyelim. Belki format ilgisini kaybettiriyor; içeriği değil, yapıyı güncelleyebiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, gelmiyorsa gitsin. Onun olmadığı toplantıda kararı alırız, sonradan bilgi veririz. Bizi beklemek zorunda değiliz — proje durmuyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Paydaş ilgisizliği genellikle güvensizlik, bilgisizlik veya öncelik değişiminin belirtisidir. PMI paydaş katılım yönetimi PM'in katılım seviyesini düzenli izleyip gerekirse müdahale etmesini gerektirir. Gıyabi karar alma paydaş ilişkisini ve proje sahipliğini ciddi şekilde zedeler."
+    },
+    {
+      "reason_id": "siyasi_katilmak_istemiyor",
+      "reasonTR": "Siyasi Nedenle Projeye Mesafeli",
+      "weight": 5,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Bir paydaş projeye mesafe koyuyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {paydas} {tutum} Bunun neden olduğunu anlamak istedim ama nasıl ele alacağımı bilemedim — doğrudan sormak mı, yoksa beklemek mi?",
+      "body_vars": {
+        "paydas": ["Bir üst yönetici", "İlgili departman müdürü", "Kilit bir paydaş"],
+        "tutum": [
+          "projeyle ilgili toplantılardan sürekli kaçınıyor.",
+          "soğuk davranıyor, neden olduğunu anlayamıyorum.",
+          "projeye destek vermek yerine sorular sorarak engelliyor gibi.",
+          "bu projenin başarılı olmasını istemediğini ima eden şeyler söyledi."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu tür davranışlar genellikle altında bir şey olduğunu gösterir. Ben bu kişiyle gayriresmi bir konuşma açacağım — neyi endişelendirdiğini anlamadan çözüm aramak zor. Sponsoru da bilgilendirmem gerekebilir, duruma göre karar vereceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, bu kişinin desteğini kazanmak için bir toplantı ayarlayalım. Projenin faydalarını sunarız — bir kez iyi anlarsa tutumu değişebilir, şans verelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, şimdilik bu kişiyi devre dışı bırakarak ilerleyelim. Katkısı olmadan devam edebiliyorsak, enerjimizi başka paydaşlara yönlendirelim — zorlama işe yaramıyor.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, katılmak istemiyorsa projenin üstümüze düşmesi. Devam et — zorunlu değil, istemeyene zorlamak anlamsız. Proje onun desteğine bağlı olmak zorunda değil.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "PMI paydaş katılım matrisi, dirençli paydaşların stratejik yönetimini kapsar. Siyasi direnç çözülmeden bırakıldığında proje onaylarını ve kaynak erişimini engelleyebilir. PM'in görevi direnci analiz etmek ve sponsor aracılığıyla yapısal çözüm üretmektir — bypass etmek değil."
+    },
+    {
+      "reason_id": "musteri_ic_reorganizasyon",
+      "reasonTR": "Müşteri İç Yeniden Yapılanması",
+      "weight": 5,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Müşteri tarafında yapılanma değişti",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {degisim_haberi} Kime gideceğimiz, kararların nasıl alınacağı belirsizleşti — bizi nasıl etkiler?",
+      "body_vars": {
+        "degisim_haberi": [
+          "müşteri tarafında büyük bir yeniden yapılanma olduğunu öğrendik.",
+          "projedeki ana iletişim kişimiz başka bir pozisyona geçirilmiş.",
+          "müşteri departmanları birleşmiş, sorumluluklar karışmış.",
+          "müşteriyle yaptığımız tüm anlaşmalar şimdi yeniden değerlendirilecekmiş."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, kritik bir gelişme. Müşteri tarafındaki yeni yapıyı hızla öğrenmem ve iletişim matrisimi güncellemem gerekiyor. Taahhütlerin değişip değişmediğini de netleştireceğim — bugün müşteri PM'iyle konuşuyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, müşterinin HR'ından güncel org şemasını talep edelim. Resmi yapı netleşince kimi muhatap alacağımızı biliriz — o zamana kadar mevcut iletişim kişisini kullanmaya devam edelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, şimdilik tüm yazışmaları eski kişiye yönlendir — o yönlendirir büyük ihtimalle. Resmi yapı netleşene kadar bu geçici çözüm işe yarar.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, bu onların iç meselesi. Proje planımız değişmiyor, sözleşmeye bağlıyız — nasıl organize olurlarsa olsunlar, taahhütleri geçerli. İlerleyebiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Müşteri tarafındaki yeniden yapılanma proje taahhütlerini, onay kanallarını ve iletişim matrisini doğrudan etkiler. 'Sözleşme değişmedi' argümanı tek başına yeterli değildir — yönetişim boşluğu projeyi riske atar. PM, yapı değişikliklerini aktif olarak takip etmek ve uyum sağlamakla yükümlüdür."
+    },
+    {
+      "reason_id": "iki_paydas_kim_sorumlu",
+      "reasonTR": "İki Paydaş Arasında Sorumluluk Belirsizliği",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Kim sorumlu anlaşamadık",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {konu} için iki farklı paydaşa gittim. {cakisma} Döngüye girdim — ne yapacağımı bilemedim.",
+      "body_vars": {
+        "konu": ["teknik gereksinim onayı", "bütçe kararı", "kapsam netleştirme", "test kabul süreci"],
+        "cakisma": [
+          "İkisi de 'diğerine sor' dedi, döngüye girdim.",
+          "Biri 'evet' dedi, diğeri 'hayır' dedi — kim son kararı alıyor bilemedim.",
+          "Her ikisi de sorumlu olduğunu söylüyor ama kararları çelişiyor.",
+          "Biri 'bu benim alanım değil' dedi, diğeri 'onu ilgilendirmiyor' dedi."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu tam bir RACI sorunu. İki tarafı aynı masaya oturtmam ve kimin ne konuda yetkili olduğunu belgelemem gerekiyor. Bu belirsizlik projeyi sürekli yavaşlatır — bu hafta çözüyorum, bende.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, her ikisini de dahil ederek kısa bir toplantı ayarlayalım. Aynı ortamda sorumluluk netleşir — biri sonunda sahiplenecektir, toplantıda çözebiliriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, en üst yetkiliyi belirle ve sadece ona git. İki paydaşın çatışmasında birine odaklanmak en pratik çözüm — ikisini birden takip etmek zaman kaybı.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, kimin onayladığı önemli değil — biri 'evet' dediyse devam et. Resmi sorumluluk tartışması sonraya kalabilir; şu an ilerlemek önemli, bekleme.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "RACI matrisinde her karar için yalnızca bir Accountable (hesap verebilir) kişi olmalıdır. Birden fazla kişinin aynı konuda 'Accountable' görünmesi çatışmayı kaçınılmazlaştırır. PM bu boşluğu tespit edip kapatmakla yükümlüdür — hangi kararın alındığı değil, kimin alma yetkisi olduğu önemlidir."
+    },
+    {
+      "reason_id": "hiyerarsi_atlama_yapilamaz",
+      "reasonTR": "Hiyerarşi Atlama Yapılamıyor",
+      "weight": 5,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Üst kademeye ulaşamıyorum",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {karar} için daha üst bir onay gerekiyor. {engel} Doğrudan gitsem protokol ihlali, beklersem proje duruyor — nasıl escalate edebiliriz?",
+      "body_vars": {
+        "karar": ["Kritik bir bütçe değişikliği", "Kapsam revizyonu", "Takvim değişikliği", "Teknik mimari kararı"],
+        "engel": [
+          "Müşteri tarafında 'önce benim müdürümü ikna et' diyorlar, müdür erişilemiyor.",
+          "Üst yönetime doğrudan gidemiyoruz, aracı kişi bloke oluyor.",
+          "Protokol gereği resmi kanal üzerinden gitmemiz gerekiyor ama o kanal tıkalı.",
+          "Alt seviyedeki yetkili karar veremiyor, üst seviye ise ulaşılmaz."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu engeli aşmak için ben devreye giriyorum. Sponsor seviyesinde bir iletişim başlatacağım. Aynı zamanda bu kanalın neden bu kadar zor olduğunu da ele alalım — yapısal çözüm üretelim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, resmi bir eskalasyon e-postası yazalım, kopyama al. Konuyu ve aciliyeti açıkça belirtelim — bu yazışma kayıtlarımızda da olsun, izleme açısından önemli.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, bu kararı beklerken başka ne ilerleyebilir, oraya odaklanalım. Tıkanan karar için bekleme çok uzarsa farklı yola bakarız — şimdilik bağımsız görevlere gir.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, protokolü çiğneyerek ilerle — sonradan açıklarız. Bekleme sürecinde kaybettiğimiz zaman telafi edilemez; ilerlemek risk değil zorunluluk, devam et.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Eskalasyon yönetimi (Escalation Management) PMI PMBOK'ta iletişim yönetiminin kritik bileşenidir. PM, eskalasyon yollarını proje başında sponsorla birlikte tanımlamalıdır. Protokol ihlali kısa vadede sorunu çözse de ilişkileri ve proje güvenilirliğini uzun vadede zedeler."
+    },
+    {
+      "reason_id": "teknik_kisi_belirsiz",
+      "reasonTR": "Teknik Konular İçin Doğru Kişi Belirsiz",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Teknik soruları kime sormalıyız?",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {teknik_konu} konusunda müşteri tarafından teknik bir onay almam gerekiyor. {sorun} Kim muhatap, bir türlü netleştiremedim.",
+      "body_vars": {
+        "teknik_konu": ["API entegrasyonu", "güvenlik gereksinimleri", "veri tabanı yapısı", "altyapı gereksinimleri"],
+        "sorun": [
+          "Müşteriden kimi muhatap almam gerektiği belli değil.",
+          "Farklı kişilere sordum, farklı cevaplar aldım.",
+          "Teknik ekibine ulaşmak için 'bana yazın ben iletirim' denildi ama ileten yok.",
+          "Müşterinin teknik ekibi bu konudan haberdar değilmiş."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu iletişim boşluğunu kapatmam gerekiyor. Müşteri PM'iyle konuşacağım — teknik temas noktasının resmi olarak belirlenmesini talep edeceğim. Bunu iletişim matrisine de ekleyeceğim, haber vereceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, müşteriden yazılı olarak resmi bir teknik iletişim kişisi atamasını isteyelim. E-posta ile talep açık ve belgeli olur — kişi belirlenir belirlenmez ilerleriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, bu durumu yazılı olarak dokümante et — 'teknik iletişim noktası belirsiz' kaydına ekle. İleride referans olur; müşteriye belirsizliği hatırlatmak için de kullanabiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, kimi bulursan sor ve devam et. Zaman kaybetme — teknik onay için birini bulursun; yanlış kişi olsa bile en azından ilerlersin, sonradan düzeltiriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "İletişim Yönetim Planı, teknik konular dahil tüm paydaş temas noktalarını net tanımlamalıdır. Müşteri teknik ekibiyle doğrudan iletişim kanalı açılmadan yapılan teknik kararlar ilerleyen aşamalarda gereksinim çatışmasına zemin hazırlar. RACI matrisinde her teknik alan için 'Accountable' belirlenmesi bu sorunları önler."
+    },
+    {
+      "reason_id": "acil_gundemi_var",
+      "reasonTR": "Paydaşın Başka Acil Gündemi Var",
+      "weight": 7,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Paydaşın gündemi değişti, bizi erteledi",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {paydas} {erteleme_durumu} Kritik kararlar bekliyor — ne kadar süreceğini bilmiyorum, nasıl ilerleyelim?",
+      "body_vars": {
+        "paydas": ["Müşteri yetkilisi", "Proje sponsoru", "Karar alıcı"],
+        "erteleme_durumu": [
+          "başka bir acil projeyle meşgul olduğu için toplantımızı erteledi.",
+          "şirkette kriz var, tüm dikkatini oraya yöneltti.",
+          "üst yönetimden acil bir yönlendirme geldi, proje ikinci plana indi.",
+          "şirket içi bir denetim/audit süreci başlamış, zamanı kalmamış."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, anlıyorum. Bu geçici mi kalıcı mı öğrenmem gerekiyor — acil gündem bitince ne zaman müsait olacaklarını bugün soruyorum. Gecikmenin takvime etkisini değerlendirip gerekirse paydaşları bilgilendireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, birkaç hafta daha bekleyelim — acil geçer. Bu tür dönemlerde sabır en iyi strateji; zorlama ilişkiyi zedeler. Döndüklerinde hızlıca toparlarız.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, bu süreçte bağımsız ilerleyebileceğimiz ne var, oraya odaklanalım. Karar gerektiren görevleri bir kenara bırak, devam edebildiğin işlere gir — listeyi çıkar.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, meşgul olması bizim sorunumuz değil. Onay beklemeden devam et — bu riskin sorumluluğu bizde değil, biz elimizden geleni yapıyoruz, ilerleyebiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Paydaş öncelik değişimi projeyi beklenmedik şekilde etkileyebilir. PMI risk yönetimi, bu tür belirsizlikler için zaman arabelleği (schedule reserve) ve alternatif ilerleme yolları tanımlanmasını önerir. 'Paydaş meşgul' geçerli bir risk kaynağıdır ve risk kaydına (risk register) işlenmelidir."
+    },
+    {
+      "reason_id": "saat_dilimi_ciddi_engel",
+      "reasonTR": "Saat Dilimi Ciddi Engel",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Saat farkı iletişimi ciddi zorluyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {paydas} ile çalışıyoruz ama {saat_sorunu} Kararlar çok yavaş alınıyor ve bu bizi ciddi şekilde yavaşlatıyor.",
+      "body_vars": {
+        "paydas": ["uzak ofisteki müşteri", "yurt dışındaki sponsor", "farklı zaman dilimindeki teknik ekip"],
+        "saat_sorunu": [
+          "8-10 saatlik fark yüzünden ortak çalışma penceresi çok küçük.",
+          "toplantı için uygun saat bulmak neredeyse imkânsız hale geldi.",
+          "acil durumlarda yanıt almak en az 12 saat sürüyor.",
+          "onaylar gece yarısı geliyor, ertesi sabaha kadar beklemek gerekiyor."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu yapısal bir sorun — tek seferlik çözüm yetmez. Saat dilimini göz önüne alarak asenkron onay mekanizmaları, sabit yanıt süreleri ve acil kanal tanımlayan bir protokol oluşturacağım. Birlikte geliştiririz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, ortak çalışma penceresi için sabit haftalık bir zaman dilimi belirleyelim. Her iki tarafın takvimini koordine edersek öngörülebilirlik artar — düzenli slot stabilite sağlar.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, asenkron çalışma modelini düşünelim. Kararları e-posta veya proje araçları üzerinden belirli yanıt süreleriyle alabiliriz — toplantı bağımlılığını azaltırız.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, saat farkı PM'in çözmesi gereken bir şey değil — ekip adapte olur. Zaman içinde herkes dengeyi bulur; bu tür geçici zorluklara fazla enerji harcamaya gerek yok.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Dağıtık ekip yönetiminde (distributed team management) saat dilimi farkı iletişim yönetimi planının ayrı bir bölümünü gerektirir. Asenkron karar alma mekanizmaları acil toplantı bağımlılığını ortadan kaldırır. PMI iletişim yönetimine göre iletişim sıklığı ve kanalı paydaş ihtiyacına göre özelleştirilmelidir."
+    },
+    {
+      "reason_id": "toplanti_reddediyor",
+      "reasonTR": "Toplantı Davetlerini Reddediyor",
+      "weight": 6,
+      "max_per_scenario": 3,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Toplantı davetlerimiz reddediliyor",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {paydas} toplantı davetlerimizi kabul etmiyor. {ret_durumu} Geri dönmek istiyorum ama nasıl yaklaşacağımı bilemedim.",
+      "body_vars": {
+        "paydas": ["Müşteri yetkilisi", "Kilit paydaş", "Karar alıcı"],
+        "ret_durumu": [
+          "Son üç daveti de reddetti, neden söylemedi.",
+          "Kabul edip sonra iptal ediyor.",
+          "Sadece belirli konulardaki toplantılara gelmiyor.",
+          "Asistanı 'meşgul' deyip reddediyor ama alternatif önermiyorlar."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu bir işaret. Toplantı reddetme örüntüsünün arkasında bir şey olabilir. Ben paydaşla farklı bir kanaldan, kısa ve gayriresmi iletişim kurmayı deneyeceğim — neyin engellediğini anlamadan çözüm bulmak zor.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, toplantı yerine kısa bir yazılı özet ve e-posta onayı deneyelim. Belki toplantı formatı sorunlu — yazılı karar alma süreci bazen daha kabul edilebilir olur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, toplantı davetini 15 dakikaya indirip yeniden gönderelim. Uzun toplantı yükü olan biri kısa bir slota daha kolay onay verebilir — formatı değiştirelim.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, kabul etmiyorsa gitsin. Onun olmadığı toplantıda kararı alırız — gelip gelmemek artık onun tercihi, biz bekleyemeyiz. Proje durmuyor.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Toplantı reddi genellikle içerik uyumsuzluğu, öncelik çatışması veya ilgi kaybının belirtisidir. PMI paydaş katılım yönetimi PM'in bu sinyalleri erken okumasını ve katılımı yeniden tasarlamasını gerektirir. Yokluk halinde alınan kararlar sonradan paydaşın itirazıyla proje krizine dönüşebilir."
+    },
+    {
+      "reason_id": "butce_sorunu_katilmiyor",
+      "reasonTR": "Bütçe Sorunu Nedeniyle Katılımdan Çekildi",
+      "weight": 4,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Paydaş bütçe nedeniyle çekildi",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {paydas} projeye katılımını azalttı. {neden} Bu durumun projeyi nasıl etkileyeceğini bilmiyorum, değerlendirmenizi almak istedim.",
+      "body_vars": {
+        "paydas": ["Bir departman müdürü", "Ortak paydaş", "Destekleyici taraf"],
+        "neden": [
+          "Kendi bütçesi kesilince bu projeye de ilgisini çekti.",
+          "Maliyet katkısı nedeniyle üst yönetim onlardan desteği çekmiş.",
+          "Bütçe revizyonu sonrası bu proje artık onlar için öncelik değil.",
+          "Finansal kısıtlar nedeniyle toplantılara bile katılamaz oldu."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, bu önemli bir sinyal — bu paydaşın desteğini kaybetmek ne anlama geliyor, risk olarak değerlendiriyorum. Sponsorla konuşacağım; alternatifleri ve etki azaltma yollarını birlikte düşüneceğim. Sana döneceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, bu paydaş olmadan devam edebilir miyiz, diğer paydaşlarla halledelim. Bağımlılık haritasına bakalım — gerçekten kritik mi, değerlendireyim; gerekli değilse ilerleriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, bu durumu proje risk kaydına ekliyorum. Paydaş katılımındaki azalmayı belgeleyeyim — ileride sponsora sunarken kayıt önemli olacak.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, onlara gerek yok, olmadan da devam ederiz. Katılmak istemiyorlarsa zorlamaya gerek yok — proje yeterli destekle gidiyor zaten.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kaynak kısıtı nedeniyle geri çekilen bir paydaş yüksek riskli bir gelişmedir. Paydaş etki haritası (Power/Interest Matrix) ve etki azaltma planı bu tür kayıplara karşı hazırlık sağlar. Pasif kalınması ilerleyen fazlarda beklenmedik dirençle sonuçlanabilir."
+    },
+    {
+      "reason_id": "proje_sahibi_degisti",
+      "reasonTR": "Proje Sahibi Değişti",
+      "weight": 5,
+      "max_per_scenario": 2,
+      "gender": "any",
+      "sender": "self",
+      "subject_template": "Proje sahibi değişti, yeni kişi hazır değil",
+      "from_role_template": "{role}",
+      "body_template": "Hocam, {eski_sahip} projeden ayrıldı ve {yeni_sahip} devraldı. {durum} Bu geçiş süreci çok belirsiz hissettiriyor — nasıl ilerlemeliyiz?",
+      "body_vars": {
+        "eski_sahip": ["Önceki proje sahibi", "Eski sponsor", "Projeyi başlatan yönetici"],
+        "yeni_sahip": ["yerine gelen kişi", "yeni sponsor", "yeni atanan yönetici"],
+        "durum": [
+          "Yeni kişi henüz projeyi tam anlamıyla kavramadı, karar alamıyor.",
+          "Geçiş devir teslim yapılmadı, yeni sahip çok şey bilmiyor.",
+          "Yeni kişi önce kendi önceliklerini belirlemek istiyor, proje bekliyor.",
+          "Proje vizyon ve sahiplik tamamen değişebilir gibi görünüyor."
+        ]
+      },
+      "options": {
+        "medicine": {
+          "text_template": "{name_polite}, kritik bir geçiş süreci bu. Yeni proje sahibiyle hızla bir oryantasyon toplantısı yapmam şart — proje durumunu, kritik kararları ve riskleri net aktaracağım. Ne duraklayabiliriz, ne devam eder — birlikte planlayalım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "{name_polite}, proje özetini hazırlayıp yeni sahibe gönderelim. Okuyunca soru soracaktır — o aşamada toplantı yaparız, daha verimli bir oryantasyon olur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "{name_polite}, yeni sahip hazır olana kadar mevcut kararlarla devam edelim. Geçiş tamamlanana kadar bir şeyi değiştirmeyelim — stabilite önemli şu an.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "{name_polite}, değişiklik onların sorunu. Sözleşme var, proje devam eder — yeni kişi ne düşünürse düşünsün, taahhütler bağlayıcı. Biz ilerleyebiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Proje sahibi değişimi PMI'ya göre kritik bir proje riski olarak tanımlanır ve değişim yönetim planı kapsamında ele alınmalıdır. Yeni paydaşın projeyi benimsemeden karar alması sonraki fazlarda vizyon sapmasına yol açar. Etkin onboarding süreci PM'in sorumluluğundadır."
+    }
+  ]
+}

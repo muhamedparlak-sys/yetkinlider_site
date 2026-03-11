@@ -1,0 +1,376 @@
+{
+  "mesele_id": "gizli_bagimlilik",
+  "meseleTR": "Gizli Bağımlılık",
+  "compatible_terms": [
+    "hidden dependency",
+    "undocumented dependency",
+    "implicit dependency",
+    "technical dependency"
+  ],
+  "reasons": [
+    {
+      "reason_id": "GIZ-01",
+      "reasonTR": "Keşfedilmemiş teknik bağımlılık",
+      "weight": 9,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{modul} modülü üzerinde çalışırken {sistem} sisteminin onunla doğrudan bağlantılı olduğunu fark ettim. Bu bağımlılık hiçbir dokümanda kayıtlı değil ve değişikliklerimiz {etki} riskini doğuruyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "modul": [
+          "ödeme işleme",
+          "kimlik doğrulama",
+          "envanter yönetim"
+        ],
+        "sistem": [
+          "legacy ERP",
+          "üçüncü taraf API",
+          "izleme servisi"
+        ],
+        "etki": [
+          "sistemin çökmesi",
+          "veri tutarsızlığı",
+          "performans düşüşü"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBağımlılığı bulduğunuz için iyi ki haberdar oldum. Bu gizli bağımlılığı hemen bağımlılık haritasına ekliyorum ve etkilenen bileşenler için ek test senaryoları hazırlatıyorum. Değişiklik öncesinde {sistem} ekibiyle koordinasyon toplantısı ayarlıyorum ve mimari belgeleri güncelleyeceğiz.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nBağımlılığı not aldım. Değişikliklerimizi dikkatli yaparsak sorun olmaz; devam edelim.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nBağımlılık riskini risk kaydına ekledim; sprint sonunda tekrar değerlendiririz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nBu bağımlılığı kırmak için {sistem} ekibini devreye almadan iç çözüm geliştiririz; bağımlılık azaltımı zaten iyi pratik.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Gizli bağımlılıklar, değişiklik yönetiminin en riskli kalemlerinden biridir; entegrasyon hatalarının büyük bölümü belgelenmemiş bağımlılıklardan kaynaklanır. PM, proje başında bağımlılık haritalaması (dependency mapping) yapılmasını sağlamalı ve tüm ekiplerin bu haritayı güncel tutmasını talep etmelidir."
+    },
+    {
+      "reason_id": "GIZ-02",
+      "reasonTR": "Veri akışı bağımlılığı",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{hedef_sistem} için veri akışını incelerken {kaynak_sistem} verisi olmadan çalışamayacağını gördüm. Ancak {kaynak_sistem} ekibi bu entegrasyondan haberdar değil ve kendi sprint planlarında yer almıyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "hedef_sistem": [
+          "analitik platform",
+          "müşteri portalı",
+          "finans raporlama modülü"
+        ],
+        "kaynak_sistem": [
+          "CRM",
+          "üretim takip sistemi",
+          "lojistik platformu"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nVeri akışı bağımlılığını tespit etmek isabetli olmuş. {kaynak_sistem} ekip liderini bugün arayarak durumu anlatıyorum ve birlikte entegrasyon takvimini belirliyoruz. Bu bağımlılık sprint planlarımızı etkileyeceğinden takvim güncellemesini siz ve PMO ile paylaşacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\n{kaynak_sistem} ekibine e-posta attım; yanıt beklemedeyim. Sonraki sprint'e planlayabiliriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\n{hedef_sistem} üzerinde bağımlılığı minimize eden alternatif bir veri kaynağı arayabiliriz; bu konuyu araştırıyorum.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nŞimdilik {kaynak_sistem} verisi olmadan test verileriyle ilerleyelim; entegrasyon sorunu üretimde çözeriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Sistem entegrasyonlarında bağımlılıklar erken aşamada tespit edilmeli ve ilgili ekiplerin sprint planlarına dahil edilmelidir. 'Üretimde çözeriz' yaklaşımı teknik borç ve acil durum maliyetini katlar. PM, bağımlılıkları merkezi bir kayıt defterinde (integration log) izlemeli ve düzenli olarak güncellenip güncellenmediğini denetlemelidir."
+    },
+    {
+      "reason_id": "GIZ-03",
+      "reasonTR": "İnsan kaynaklı bağımlılık — tek uzman",
+      "weight": 8,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{alan} konusundaki tüm kritik kararlar {uzman_isim} üzerinden geçiyor. Bu kişi {durum} durumunda projemiz ciddi risk altına giriyor. Alternatif bilgi kaynağımız yok.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "alan": [
+          "veritabanı optimizasyonu",
+          "güvenlik mimarisi",
+          "legacy sistem entegrasyonu"
+        ],
+        "uzman_isim": [
+          "Ali Bey",
+          "Merve Hanım",
+          "Can Bey"
+        ],
+        "durum": [
+          "izne çıktığında",
+          "proje bitmeden ayrılırsa",
+          "hastalandığında"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nBu riski fark etmek doğru bir adım. {uzman_isim} ile bilgi transferi oturumları planlıyorum ve kritik süreçleri dokümante eden bir knowledge base oluşturuyoruz. Aynı zamanda en az bir yedek uzmanı bu alanlarda yetkilendirme sürecine dahil ediyorum.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nŞimdilik {uzman_isim} mevcut; bu konuyu proje sonunda ele alabiliriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nRiski risk kaydına ekledim. Kritik oldu mu müdahale ederiz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\n{uzman_isim} yerine farklı bir uzman tutabiliriz; piyasada bu profil var. İhtiyaç halinde hemen işe alım başlatabiliriz.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Kilit kişi bağımlılığı (key person dependency) kritik bir proje riskidir ve proaktif önlemler alınmazsa proje durağanlığına veya başarısızlığına yol açar. Bilgi transferi ve çift-yetkinlik (cross-training) stratejileri bu riski azaltır. PM, tek noktadan bağımlılığı (single point of failure) proje risk kaydında yönetmeli ve azaltma planını projenin başında uygulamaya koymalıdır."
+    },
+    {
+      "reason_id": "GIZ-04",
+      "reasonTR": "Altyapı bağımlılığı",
+      "weight": 7,
+      "max_per_scenario": 1,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{servis} servisinin {islem} işlemimizi desteklemediğini geçen hafta keşfettik. {bileşen} bileşenimiz bu servise doğrudan bağımlı; alternatif servis kullanmak için mimari değişiklik gerekiyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "servis": [
+          "mevcut load balancer",
+          "CDN sağlayıcısı",
+          "şirket VPN altyapısı"
+        ],
+        "islem": [
+          "yüksek eş zamanlı bağlantı",
+          "gerçek zamanlı veri akışı",
+          "SSL sertifika doğrulama"
+        ],
+        "bileşen": [
+          "kullanıcı oturum yönetimi",
+          "canlı bildirim modülü",
+          "ödeme güvenlik katmanı"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nAltyapı kısıtını netleştirdim. IT altyapı ekibiyle acil değerlendirme toplantısı ayarlıyorum; kısa vadeli geçici çözüm ve uzun vadeli mimari seçenekleri birlikte değerlendireceğiz. Takvim ve maliyet etkisini bu hafta size sunacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nEkip bir geçici çözüm (workaround) geliştiriyor; şimdilik bu yeterli olur.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nAltyapı kısıtını risk kaydına ekledim; bir sonraki milestone yaklaşınca çözüme odaklanırız.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nMevcut altyapıyla çalışan bir özellik sürümü yayınlayabiliriz; tam işlevselliği sonraki versiyona bırakalım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Altyapı kısıtları mimari tasarım aşamasında tespit edilmeli; bu kısıtları üretim öncesinde keşfetmek pahalı yeniden tasarıma yol açar. PM, teknik mühendisleri erken aşamada altyapı risk değerlendirmesine dahil etmeli ve kritik bileşenler için proof-of-concept (PoC) çalışmaları yaptırmalıdır."
+    },
+    {
+      "reason_id": "GIZ-05",
+      "reasonTR": "Süreç bağımlılığı — onay zinciri",
+      "weight": 6,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{teslim} teslimatımızı yayına almak için {departman} departmanının onayı gerekiyor. Bunu proje başında bilmiyorduk; onay süreci {sure} sürebilir ve planladığımız tarih kaçacak.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "teslim": [
+          "üretim dağıtımı",
+          "kullanıcı arayüzü güncellemesi",
+          "veri taşıma scripti"
+        ],
+        "departman": [
+          "bilgi güvenliği",
+          "hukuk",
+          "regülasyon uyum"
+        ],
+        "sure": [
+          "iki ila dört hafta",
+          "en az bir ay",
+          "üç ila altı hafta"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nOnay sürecini öğrendiğimiz için iyi ki hemen harekete geçiyoruz. {departman} departmanıyla bugün iletişime geçerek gerekli belgeleri toplayıp onay sürecini başlatıyorum. Milestone tarihimizin etkileneceğini sponsor ve ilgili paydaşlara yazılı olarak bildiriyorum ve revize takvimi paylaşacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\n{departman} departmanıyla görüşeceğim; belki süreci hızlandırabiliriz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nOnay süreci uzunsa yayın tarihini biraz öne çekebiliriz; önceki versiyonu biraz daha uzatabiliriz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\n{departman} onayı gerekli ama zorunlu değil gibi görünüyor; önce yayınlayıp ardından onay alalım.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Onay ve uyum süreçleri proje planlamasına baştan dahil edilmelidir; 'bilmiyorduk' yaklaşımı beklenmedik gecikmelerin en yaygın nedenlerinden biridir. PM, proje başlangıcında tüm onay gereksinimlerini (compliance, legal, IT güvenlik) paydaşlarla birlikte haritalandırmalı ve bu adımları proje takvimine eklemelidir."
+    },
+    {
+      "reason_id": "GIZ-06",
+      "reasonTR": "Lisans bağımlılığı",
+      "weight": 5,
+      "max_per_scenario": 1,
+      "gender": "female",
+      "sender": "self",
+      "subject_template": "Hocam,\n\nKullandığımız {kutüphane} kütüphanesinin lisansı {lisans_tur} ile uyumsuz olduğunu hukuk ekibi tespit etti. Kod tabanımızın {oran}'i bu kütüphaneyi kullanıyor; değiştirme süreci zaman alacak.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "kutüphane": [
+          "açık kaynaklı şifreleme modülü",
+          "UI bileşen paketi",
+          "veri işleme framework'ü"
+        ],
+        "lisans_tur": [
+          "ticari kullanım şartlarımız",
+          "kurumsal lisans politikamız",
+          "GPL uyumluluk gereksinimlerimiz"
+        ],
+        "oran": [
+          "%30'u",
+          "%45'i",
+          "%20'si"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nHukuk ekibinin tespiti kritik. Hemen uyumlu alternatif kütüphaneleri araştırıyorum ve teknik ekiple geçiş planı oluşturuyorum. Kısa vadede etkilenen modülleri izole edip riski sınırlarken, uzun vadeli geçiş için takvim ve maliyet tahminini size sunacağım.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nHukuk ekibi muhtemelen aşırı temkinli; bu tür lisans sorunları genellikle sorun çıkarmaz. Devam ediyoruz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nLisans sorununu kayıt altına aldım; bir sonraki büyük sürümde kütüphaneyi değiştiririz.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nLisans belgelerini güncellersek sorun ortadan kalkabilir; hukuk ekibiyle tekrar konuşabilirim.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Lisans uyumsuzluğu yasal yaptırım ve maddi tazminat risklerini beraberinde getirir; hukuk ekibinin tespitini görmezden gelmek bu riski katlar. PM, açık kaynak ve üçüncü taraf bileşen kullanımını proje başında lisans uyumluluk analizi (SBOM — Software Bill of Materials) ile değerlendirmelidir."
+    },
+    {
+      "reason_id": "GIZ-07",
+      "reasonTR": "Veri modeli uyumsuzluğu",
+      "weight": 7,
+      "max_per_scenario": 2,
+      "gender": "male",
+      "sender": "self",
+      "subject_template": "Hocam,\n\n{sistem_a} ile {sistem_b} entegrasyonunda veri modellerinin farklı olduğunu keşfettik. {alan} alanı {fark} farklılığa sahip; dönüşüm katmanı yazmak ek efor gerektiriyor.",
+      "from_role_template": "{role}",
+      "body_template": {},
+      "body_vars": {
+        "sistem_a": [
+          "CRM",
+          "ERP",
+          "legacy finans sistemi"
+        ],
+        "sistem_b": [
+          "yeni platform",
+          "analitik veri ambarı",
+          "müşteri portalı"
+        ],
+        "alan": [
+          "müşteri ID formatı",
+          "tarih-saat formatı",
+          "ürün kategori kodlaması"
+        ],
+        "fark": [
+          "yapısal",
+          "kodlama standardı",
+          "ölçek birimi"
+        ]
+      },
+      "sector_vars": {},
+      "options": {
+        "medicine": {
+          "text_template": "Hocam,\n\nVeri modeli uyumsuzluğunu doğruladım. Dönüşüm gereksinimlerini teknik ekiple belgeleyip efor tahminini çıkarıyorum. Bu ek iş sprint planımızı ve teslim tarihini etkileyecek; kapsamı güncelleyerek sizi ve ilgili paydaşları bilgilendireceğim.",
+          "xp": 30,
+          "isEthical": true
+        },
+        "distractor_1": {
+          "text_template": "Hocam,\n\nDönüşüm katmanı küçük bir geliştirme; ek çalışma olmadan halledeceğiz.",
+          "xp": 10,
+          "isEthical": true
+        },
+        "distractor_2": {
+          "text_template": "Hocam,\n\nVeri haritalama belgesini güncelledim; ekip ilgilenecek.",
+          "xp": 5,
+          "isEthical": true
+        },
+        "poison": {
+          "text_template": "Hocam,\n\nİki sistemden birinin veri modelini zorunlu olarak değiştirmek daha iyi olur; köklü çözüm bu olur.",
+          "xp": -20,
+          "isEthical": false
+        }
+      },
+      "root_cause_lesson": "Veri model uyumsuzlukları entegrasyon projelerinde en yaygın gizli risklerden biridir. Proje başlangıcında veri sözlüğü (data dictionary) ve alan eşleme analizi (field mapping) yapılması bu sürprizi önler. PM, entegrasyon kapsamını teknik analizle desteklenmiş efor tahminlerine dayandırmalı ve uyumsuzluk bulguları kapsam revizyonuna yansıtılmalıdır."
+    }
+  ]
+}
