@@ -136,7 +136,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Zor bir durumda hızlı hareket ettiğini görüyorum {name_polite}. Yapılan alımı retroaktif olarak kayıt altına almamız gerekiyor — faturayı, gerekçeyi ve onay alamama nedenini belgeleyelim. Acil onay prosedürümüzü de gözden geçirelim.",
+          "text_template": "Zor bir durumda hızlı hareket ettiğini görüyorum {name_polite}. Yapılan alımı retroaktif olarak kayıt altına almamız gerekiyor — faturayı, gerekçeyi ve onay alamama nedenini belgeleyelim.",
           "xp": 30,
           "isEthical": true
         },
@@ -240,7 +240,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu anlattığın için teşekkürler {name_polite}. Bu ek iş için değişiklik talebi açmamız ve tedarikçiyle ek sözleşme imzalamamız gerekiyor — müşteriye de ne kadar ek ücret yansıyacağını netleştirmeliyiz. Hemen başlıyorum.",
+          "text_template": "Durumu anlattığın için teşekkürler {name_polite}. Bu ek iş için değişiklik talebi açmamız ve tedarikçiyle ek sözleşme imzalamamız gerekiyor — müşteriye de ne kadar ek ücret yansıyacağını netleştirmeliyiz.",
           "xp": 30,
           "isEthical": true
         },
@@ -289,7 +289,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Bu ödemeyi muhasebe birimi ve iç denetime bildirmemiz gerekiyor — retroaktif onay almak için süreç var, birlikte yürütelim. İzin dönemlerinde imza yetkisi devrini de çözelim.",
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Bu ödemeyi muhasebe birimi ve iç denetime bildirmemiz gerekiyor — retroaktif onay almak için süreç var, birlikte yürütelim.",
           "xp": 30,
           "isEthical": true
         },

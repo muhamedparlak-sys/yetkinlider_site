@@ -59,7 +59,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Bu tedarikçi güvenilmez çıktı {name_polite}. Sözleşmeyi feshedip tüm yatırımımızı geri isteriz — hukuki süreç başlatıyorum ve yönetimi bilgilendiriyorum.",
+          "text_template": "Bu tedarikçi güvenilmez çıktı {name_polite}. Sözleşmeyi feshedip tüm yatırımımızı geri isteriz — hukuki süreç başlatıyorum ve yönetimi bilgilendiriyorum. Gerekli görüşmeyi planlıyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -365,7 +365,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Tedarikçi personel değiştirme hakkına sahip {name_polite}. Bunu kontrol edemeyiz — yeni kişiyle çalışmak zorundayız. Sorun çıkarsa o zaman konuşuruz.",
+          "text_template": "Tedarikçi personel değiştirme hakkına sahip {name_polite}. Bunu kontrol edemeyiz — yeni kişiyle çalışmak zorundayız. Sorun çıkarsa o zaman konuşuruz. Sürecin gelişimini yakından takip edeceğim.",
           "xp": -20,
           "isEthical": false
         }

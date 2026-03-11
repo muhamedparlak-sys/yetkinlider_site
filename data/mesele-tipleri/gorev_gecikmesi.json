@@ -2,8 +2,13 @@
   "mesele_id": "gorev_gecikmesi",
   "meseleTR": "Görev Gecikmesi",
   "compatible_terms": [
-    "schedule_compression", "critical_path", "earned_value_management",
-    "risk_register", "issue_log", "project_monitoring", "wbs"
+    "schedule_compression",
+    "critical_path",
+    "earned_value_management",
+    "risk_register",
+    "issue_log",
+    "project_monitoring",
+    "wbs"
   ],
   "reasons": [
     {
@@ -38,17 +43,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. Ne zaman bitirebilirsin, gerçekçi bir tarih verir misin? Planı güncellemem lazım, buna göre paydaşlara döneyim.",
+          "text_template": "Anladım {name_polite}. Ne zaman bitirebilirsin, gerçekçi bir tarih verir misin? Planı güncellemem lazım, buna göre paydaşlara döneyim. Gerekli görüşmeyi planlıyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Engel neydi, nasıl hallederiz bakalım — çözümü birlikte düşünelim. Gerekirse başka biri destek verir.",
+          "text_template": "Tamam {name_polite}. Engel neydi, nasıl hallederiz bakalım — çözümü birlikte düşünelim. Gerekirse başka biri destek verir. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Neden bu kadar bekledin {name_polite}? Bu bizi çok zor durumda bıraktı — teslim tarihi yaklaşıyor. Bir daha böyle olmamalı.",
+          "text_template": "Neden bu kadar bekledin {name_polite}? Bu bizi çok zor durumda bıraktı — teslim tarihi yaklaşıyor. Bir daha böyle olmamalı. Gerekirse ek adım değerlendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -86,17 +91,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. Gerçekçi bir bitiş tarihi verir misin? Takvimi güncelleyeyim, paydaşlara da ileteyim.",
+          "text_template": "Anladım {name_polite}. Gerçekçi bir bitiş tarihi verir misin? Takvimi güncelleyeyim, paydaşlara da ileteyim. Durumu izlemeye devam ediyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Bunu paydaşlara bildirmem gerekecek — hazırlanayım. Sana nasıl destek verebileceğimi de konuşalım.",
+          "text_template": "Tamam {name_polite}. Bunu paydaşlara bildirmem gerekecek — hazırlanayım. Sana nasıl destek verebileceğimi de konuşalım. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Toplantıda gerçekçi olmalıydın {name_polite}. Bu bizi zor duruma soktu — bir daha böyle olmasın, durum raporları gerçeği yansıtmalı.",
+          "text_template": "Toplantıda gerçekçi olmalıydın {name_polite}. Bu bizi zor duruma soktu — bir daha böyle olmasın, durum raporları gerçeği yansıtmalı. Ekibi bu konuda bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -128,17 +133,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. {name_polite}'e doğrudan sorayım — ne durumda olduğunu öğrenirim, gerekirse yardım ederiz.",
+          "text_template": "Anladım {name_polite}. {name_polite}'e doğrudan sorayım — ne durumda olduğunu öğrenirim, gerekirse yardım ederiz. Gerekli görüşmeyi planlıyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Teşekkürler {name_polite}. Yarınki toplantıda durumu sorarım — orada konuşmak daha doğal olur, o şekilde açayım konuyu.",
+          "text_template": "Teşekkürler {name_polite}. Yarınki toplantıda durumu sorarım — orada konuşmak daha doğal olur, o şekilde açayım konuyu. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Neden daha önce bildirmedin {name_polite}? {name_polite} ile konuşacağım — bu gecikmeler kabul edilemez, ekibi bilgilendirmeliydi.",
+          "text_template": "Neden daha önce bildirmedin {name_polite}? {name_polite} ile konuşacağım — bu gecikmeler kabul edilemez, ekibi bilgilendirmeliydi. Gerekirse ek adım değerlendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -176,17 +181,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. Çözüm için ne lazım, listeyi çıkar bir. Gerekli kaynakları veya erişimleri ben temin ederim.",
+          "text_template": "Anladım {name_polite}. Çözüm için ne lazım, listeyi çıkar bir. Gerekli kaynakları veya erişimleri ben temin ederim. Durumu izlemeye devam ediyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Ne kadar uzayacağını tahmin edebiliyor musun? Takvimi güncelleyeyim ve paydaşları önceden bilgilendireyim.",
+          "text_template": "Tamam {name_polite}. Ne kadar uzayacağını tahmin edebiliyor musun? Takvimi güncelleyeyim ve paydaşları önceden bilgilendireyim. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Anladım {name_polite} ama teslim tarihi sabit — çözümü bulman gerekiyor. Hafta sonu da çalışmanı bekliyorum, bu kritik.",
+          "text_template": "Anladım {name_polite} ama teslim tarihi sabit — çözümü bulman gerekiyor. Hafta sonu da çalışmanı bekliyorum, bu kritik. Ekibi bu konuda bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -229,17 +234,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. Bağımlı olan tarafa ulaşayım, ne zaman hazır olur öğrenelim — ona göre takvimi güncelleriz.",
+          "text_template": "Anladım {name_polite}. Bağımlı olan tarafa ulaşayım, ne zaman hazır olur öğrenelim — ona göre takvimi güncelleriz. Gerekli görüşmeyi planlıyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. En iyimser takvim değişikliği ne olur, bir hesaplayalım — paydaşlara iletmeden önce seçeneklerimizi görelim.",
+          "text_template": "Tamam {name_polite}. En iyimser takvim değişikliği ne olur, bir hesaplayalım — paydaşlara iletmeden önce seçeneklerimizi görelim. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Bunu neden daha önce fark etmedin {name_polite}? Bu riski baştan görmemiz gerekirdi — planlama aşamasında gözden kaçırılmış.",
+          "text_template": "Bunu neden daha önce fark etmedin {name_polite}? Bu riski baştan görmemiz gerekirdi — planlama aşamasında gözden kaçırılmış. Gerekirse ek adım değerlendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -282,12 +287,12 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. Şu an neredeyiz, ne kadar daha lazım — gerçekçi bir tarih ver. Takvimi güncelleyeyim, paydaşları önceden bilgilendireyim.",
+          "text_template": "Anladım {name_polite}. Şu an neredeyiz, ne kadar daha lazım — gerçekçi bir tarih ver. Takvimi güncelleyeyim, paydaşları önceden bilgilendireyim. Durumu izlemeye devam ediyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Kapsamı kısmak mümkün mü, bunu da değerlendirelim — belki önce MVP çıkarırız, gerisi sonraya kalır.",
+          "text_template": "Tamam {name_polite}. Kapsamı kısmak mümkün mü, bunu da değerlendirelim — belki önce MVP çıkarırız, gerisi sonraya kalır. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -335,17 +340,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. Ben {onay_sahibi} bir hatırlatma yapayım — kopyama al, yazışma kayıtlarda olsun.",
+          "text_template": "Anladım {name_polite}. Ben {onay_sahibi} bir hatırlatma yapayım — kopyama al, yazışma kayıtlarda olsun. Ekibi bu konuda bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Bu süreçte paralel çalışabileceğin başka iş var mı — listeyi çıkar, bağımsız ilerleyebileceğin ne varsa girelim.",
+          "text_template": "Tamam {name_polite}. Bu süreçte paralel çalışabileceğin başka iş var mı — listeyi çıkar, bağımsız ilerleyebileceğin ne varsa girelim. Gerekli görüşmeyi planlıyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Onayı bekleme, devam et — sonradan onaylarsın. Zaten ufak bir şey, proje için gerekli.",
+          "text_template": "Onayı bekleme, devam et — sonradan onaylarsın. Zaten ufak bir şey, proje için gerekli. Sürecin gelişimini yakından takip edeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -384,22 +389,22 @@
       },
       "options": {
         "medicine": {
-          "text_template": "Fark ettiğin ve bildirdiğin için teşekkürler {name_polite}. Şimdi gerçek durumu birlikte değerlendirelim — ne kadar süre gerekiyor, takvimi nasıl etkiliyor bakalım. Durum güncellemesi için nasıl bir alışkanlık oluşturabiliriz de konuşalım.",
+          "text_template": "Fark ettiğin ve bildirdiğin için teşekkürler {name_polite}. Şimdi gerçek durumu birlikte değerlendirelim — ne kadar süre gerekiyor, takvimi nasıl etkiliyor bakalım.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. Gerçek durumu paylaşır mısın, planı güncelleyeyim. Aradaki farkı paydaşlara da doğru şekilde ileteyim.",
+          "text_template": "Anladım {name_polite}. Gerçek durumu paylaşır mısın, planı güncelleyeyim. Aradaki farkı paydaşlara da doğru şekilde ileteyim. Gerekirse ek adım değerlendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Bundan sonrası için günlük kısa güncelleme alışkanlığı koyalım — 2 satır yeterli, takip aracında görelim.",
+          "text_template": "Tamam {name_polite}. Bundan sonrası için günlük kısa güncelleme alışkanlığı koyalım — 2 satır yeterli, takip aracında görelim. Durumu izlemeye devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Bu kabul edilemez {name_polite}. Durum güncelleme yapmak temel bir sorumluluk — neden yapmıyorsunuz? Bundan sonra günlük zorunlu hale getiriyorum.",
+          "text_template": "Bu kabul edilemez {name_polite}. Durum güncelleme yapmak temel bir sorumluluk — neden yapmıyorsunuz? Bundan sonra günlük zorunlu hale getiriyorum. Takibini yapıp sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -448,17 +453,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. {kaynak} bir hatırlatma maili daha atalım — kopyama al. İki haftadır bekliyorsak resmi bir eskalasyon uygun olabilir.",
+          "text_template": "Anladım {name_polite}. {kaynak} bir hatırlatma maili daha atalım — kopyama al. İki haftadır bekliyorsak resmi bir eskalasyon uygun olabilir. Ekibi bu konuda bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Bu riski proje günlüğüne işleyelim ve paydaşlara bildireyim — gecikmenin projemize etkisini şeffaf paylaşalım.",
+          "text_template": "Tamam {name_polite}. Bu riski proje günlüğüne işleyelim ve paydaşlara bildireyim — gecikmenin projemize etkisini şeffaf paylaşalım. Gerekli görüşmeyi planlıyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Bir şekilde devam edin {name_polite}, gelince entegre ederiz. Bu kadar beklemeye gerek yok — eldeki bilgiyle ilerleyin.",
+          "text_template": "Bir şekilde devam edin {name_polite}, gelince entegre ederiz. Bu kadar beklemeye gerek yok — eldeki bilgiyle ilerleyin. Sürecin gelişimini yakından takip edeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -502,12 +507,12 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. Doğru gereksinimi netleştir ve işe devam et — elimizdeki belgelerin güncel versiyonuna bak, oradan ilerle.",
+          "text_template": "Anladım {name_polite}. Doğru gereksinimi netleştir ve işe devam et — elimizdeki belgelerin güncel versiyonuna bak, oradan ilerle. Gerekirse ek adım değerlendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Yapılanların ne kadarı kurtarılabilir, bir değerlendirelim — hiçbir şeyi atmadan önce yeniden kullanılabilecek kısımları belirleyelim.",
+          "text_template": "Tamam {name_polite}. Yapılanların ne kadarı kurtarılabilir, bir değerlendirelim — hiçbir şeyi atmadan önce yeniden kullanılabilecek kısımları belirleyelim. Durumu izlemeye devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },

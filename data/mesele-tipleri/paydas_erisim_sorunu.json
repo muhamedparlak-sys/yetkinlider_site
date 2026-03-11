@@ -2,8 +2,13 @@
   "mesele_id": "paydas_erisim_sorunu",
   "meseleTR": "Paydaş Erişim Sorunu",
   "compatible_terms": [
-    "stakeholder_management", "communication_plan", "raci_matrix",
-    "escalation_path", "decision_log", "sponsor_engagement", "governance"
+    "stakeholder_management",
+    "communication_plan",
+    "raci_matrix",
+    "escalation_path",
+    "decision_log",
+    "sponsor_engagement",
+    "governance"
   ],
   "reasons": [
     {
@@ -17,8 +22,18 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {konu} için {paydas}'a ulaşmaya çalışıyorum. {deneme} Ne kadar bekleyeceğimi bilemedim — bir taraftan proje duruyor, bir taraftan daha fazla ısrar etmek de garip hissettiriyor.",
       "body_vars": {
-        "konu": ["bütçe onayı", "teknik mimari kararı", "kapsam değişikliği", "önceliklendirme"],
-        "paydas": ["direktöre", "genel müdüre", "proje sponsoruna", "karar alıcıya"],
+        "konu": [
+          "bütçe onayı",
+          "teknik mimari kararı",
+          "kapsam değişikliği",
+          "önceliklendirme"
+        ],
+        "paydas": [
+          "direktöre",
+          "genel müdüre",
+          "proje sponsoruna",
+          "karar alıcıya"
+        ],
         "deneme": [
           "İki haftadır mail gönderiyorum ama yanıt yok.",
           "Toplantı talebim kabul edilmedi, sekreteri 'meşgul' diyor.",
@@ -47,8 +62,16 @@
           "xp": -20,
           "isEthical": false,
           "triggers": [
-            { "target_issue": "gorev_gecikmesi", "delay_phase": 1, "reason_context": "Karar tıkanması çözülmeden beklemeye devam edildi; görev gecikmeleri zincirlendi." },
-            { "target_issue": "milestone_baskisi", "delay_phase": 1, "reason_context": "Bloke olan onay süreci milestone tarihlerini tehdit altına aldı." }
+            {
+              "target_issue": "gorev_gecikmesi",
+              "delay_phase": 1,
+              "reason_context": "Karar tıkanması çözülmeden beklemeye devam edildi; görev gecikmeleri zincirlendi."
+            },
+            {
+              "target_issue": "milestone_baskisi",
+              "delay_phase": 1,
+              "reason_context": "Bloke olan onay süreci milestone tarihlerini tehdit altına aldı."
+            }
           ]
         }
       },
@@ -65,7 +88,12 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {konu} için doğru kişiyi bulamıyorum. {degisim} Yanlış kişiye gideyim de istemiyorum ama bu belirsizlik her şeyi yavaşlatıyor — yönlendirir misiniz?",
       "body_vars": {
-        "konu": ["teknik kararlar", "bütçe soruları", "kapsam değişikliği onayı", "müşteri talepleri"],
+        "konu": [
+          "teknik kararlar",
+          "bütçe soruları",
+          "kapsam değişikliği onayı",
+          "müşteri talepleri"
+        ],
         "degisim": [
           "Eski yetkili pozisyondan ayrıldı, yerine kim geldi bilmiyorum.",
           "Sorumluluklar yeniden dağıtıldı, kimin ne yaptığı netleşmedi.",
@@ -108,8 +136,16 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {konu} için {paydas} ulaşmam gerekiyor ama {tatil_durumu} Proje bekliyor — ne kadar süreceğini de bilmiyorum, nasıl ilerleyelim?",
       "body_vars": {
-        "konu": ["acil bir onay", "kritik bir karar", "paydaş geri bildirimi"],
-        "paydas": ["müşteriye", "sponsora", "direktöre"],
+        "konu": [
+          "acil bir onay",
+          "kritik bir karar",
+          "paydaş geri bildirimi"
+        ],
+        "paydas": [
+          "müşteriye",
+          "sponsora",
+          "direktöre"
+        ],
         "tatil_durumu": [
           "iki haftaya kadar tatilde olduğunu öğrendim.",
           "konferansta seyahatte ve ulaşılmıyor.",
@@ -152,7 +188,11 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {paydas} şu an müsait değil. {vekil_sorunu} Farklı yönlendirmeler aldım ve kimi muhatap alacağımı bilemedim — sormak istedim.",
       "body_vars": {
-        "paydas": ["Karar alıcı", "Müşteri yetkilisi", "Sponsor"],
+        "paydas": [
+          "Karar alıcı",
+          "Müşteri yetkilisi",
+          "Sponsor"
+        ],
         "vekil_sorunu": [
           "Vekil ataması yapılmamış veya bize bildirilmemiş.",
           "İki farklı kişi 'bana gel' dedi ama hangisi yetkili bilmiyorum.",
@@ -195,8 +235,18 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {konu} için {paydas} e-posta gönderdim. {yanitsizlik} Bir taraftan proje bekliyor, bir taraftan çok ısrarcı görünmek de istemedim — ne yapmalıyım?",
       "body_vars": {
-        "konu": ["tasarım onayı", "gereksinim netleştirme", "test sonucu değerlendirmesi", "teslimat kabulü"],
-        "paydas": ["müşteriye", "sponsora", "teknik yetkililere", "karar alıcıya"],
+        "konu": [
+          "tasarım onayı",
+          "gereksinim netleştirme",
+          "test sonucu değerlendirmesi",
+          "teslimat kabulü"
+        ],
+        "paydas": [
+          "müşteriye",
+          "sponsora",
+          "teknik yetkililere",
+          "karar alıcıya"
+        ],
         "yanitsizlik": [
           "Bir haftadır cevap yok.",
           "Hatırlatma maili attım, yine yanıt gelmedi.",
@@ -239,7 +289,12 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {konu} için kritik bir toplantı organize etmeye çalışıyorum. {zorluk} Bu takvim çatışması beni gerçekten yordu — nasıl ilerleyebiliriz?",
       "body_vars": {
-        "konu": ["gereksinim gözden geçirme", "kapsam netleştirme", "riskler değerlendirmesi", "onay alma"],
+        "konu": [
+          "gereksinim gözden geçirme",
+          "kapsam netleştirme",
+          "riskler değerlendirmesi",
+          "onay alma"
+        ],
         "zorluk": [
           "İki haftadır uygun zaman dilimi bulamıyoruz.",
           "Bir katılımcı müsait olunca diğeri müsait değil.",
@@ -282,8 +337,16 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {eski_paydas} ayrıldı ve yerine {yeni_paydas} geldi. {durum} Her şeyi baştan anlatmak lazım gibi görünüyor — nasıl ilerleyelim?",
       "body_vars": {
-        "eski_paydas": ["önceki müşteri yetkilisi", "eski proje sponsoru", "önceki teknik koordinatör"],
-        "yeni_paydas": ["yeni bir isim", "bambaşka bir yapıdan gelen biri", "bu konuya yabancı biri"],
+        "eski_paydas": [
+          "önceki müşteri yetkilisi",
+          "eski proje sponsoru",
+          "önceki teknik koordinatör"
+        ],
+        "yeni_paydas": [
+          "yeni bir isim",
+          "bambaşka bir yapıdan gelen biri",
+          "bu konuya yabancı biri"
+        ],
         "durum": [
           "Yeni kişi projeye henüz adapte olmadı, karar veremediğini söylüyor.",
           "Geçmişi bilmeden karar alması zor, her şeyi sıfırdan anlatmamız gerekiyor.",
@@ -303,7 +366,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "{name_polite}, bu süreçte bekleyebileceğimiz kararları erteleyelim. Devam edebildiğimiz görevlere odaklanalım — yeni paydaş hazır olunca tıkanan konulara döneriz.",
+          "text_template": "{name_polite}, bu süreçte bekleyebileceğimiz kararları erteleyelim. Devam edebildiğimiz görevlere odaklanalım — yeni paydaş hazır olunca tıkanan konulara döneriz. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -326,7 +389,11 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {paydas} {durum} Projeye olan ilgisi gerçekten azaldı gibi hissettiriyor — bunu söylemek istedim ama nasıl yorumlayacağınızı bilmedim.",
       "body_vars": {
-        "paydas": ["Müşteri yetkilisi", "Sponsor", "Kilit paydaş"],
+        "paydas": [
+          "Müşteri yetkilisi",
+          "Sponsor",
+          "Kilit paydaş"
+        ],
         "durum": [
           "son iki toplantıya gelmedi.",
           "toplantılara çok kısa süreliğine katılıp çıkıyor.",
@@ -346,12 +413,12 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "{name_polite}, toplantı formatını değiştirelim — daha kısa, daha gündem odaklı deneyelim. Belki format ilgisini kaybettiriyor; içeriği değil, yapıyı güncelleyebiliriz.",
+          "text_template": "{name_polite}, toplantı formatını değiştirelim — daha kısa, daha gündem odaklı deneyelim. Belki format ilgisini kaybettiriyor; içeriği değil, yapıyı güncelleyebiliriz. Gerekirse ek adım değerlendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, gelmiyorsa gitsin. Onun olmadığı toplantıda kararı alırız, sonradan bilgi veririz. Bizi beklemek zorunda değiliz — proje durmuyor.",
+          "text_template": "{name_polite}, gelmiyorsa gitsin. Onun olmadığı toplantıda kararı alırız, sonradan bilgi veririz. Bizi beklemek zorunda değiliz — proje durmuyor. Durumu izlemeye devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -369,7 +436,11 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {paydas} {tutum} Bunun neden olduğunu anlamak istedim ama nasıl ele alacağımı bilemedim — doğrudan sormak mı, yoksa beklemek mi?",
       "body_vars": {
-        "paydas": ["Bir üst yönetici", "İlgili departman müdürü", "Kilit bir paydaş"],
+        "paydas": [
+          "Bir üst yönetici",
+          "İlgili departman müdürü",
+          "Kilit bir paydaş"
+        ],
         "tutum": [
           "projeyle ilgili toplantılardan sürekli kaçınıyor.",
           "soğuk davranıyor, neden olduğunu anlayamıyorum.",
@@ -379,7 +450,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu tür davranışlar genellikle altında bir şey olduğunu gösterir. Ben bu kişiyle gayriresmi bir konuşma açacağım — neyi endişelendirdiğini anlamadan çözüm aramak zor. Sponsoru da bilgilendirmem gerekebilir, duruma göre karar vereceğim.",
+          "text_template": "{name_polite}, bu tür davranışlar genellikle altında bir şey olduğunu gösterir. Ben bu kişiyle gayriresmi bir konuşma açacağım — neyi endişelendirdiğini anlamadan çözüm aramak zor.",
           "xp": 30,
           "isEthical": true
         },
@@ -436,7 +507,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, bu onların iç meselesi. Proje planımız değişmiyor, sözleşmeye bağlıyız — nasıl organize olurlarsa olsunlar, taahhütleri geçerli. İlerleyebiliriz.",
+          "text_template": "{name_polite}, bu onların iç meselesi. Proje planımız değişmiyor, sözleşmeye bağlıyız — nasıl organize olurlarsa olsunlar, taahhütleri geçerli. İlerleyebiliriz. Takibini yapıp sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -454,7 +525,12 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {konu} için iki farklı paydaşa gittim. {cakisma} Döngüye girdim — ne yapacağımı bilemedim.",
       "body_vars": {
-        "konu": ["teknik gereksinim onayı", "bütçe kararı", "kapsam netleştirme", "test kabul süreci"],
+        "konu": [
+          "teknik gereksinim onayı",
+          "bütçe kararı",
+          "kapsam netleştirme",
+          "test kabul süreci"
+        ],
         "cakisma": [
           "İkisi de 'diğerine sor' dedi, döngüye girdim.",
           "Biri 'evet' dedi, diğeri 'hayır' dedi — kim son kararı alıyor bilemedim.",
@@ -497,7 +573,12 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {karar} için daha üst bir onay gerekiyor. {engel} Doğrudan gitsem protokol ihlali, beklersem proje duruyor — nasıl escalate edebiliriz?",
       "body_vars": {
-        "karar": ["Kritik bir bütçe değişikliği", "Kapsam revizyonu", "Takvim değişikliği", "Teknik mimari kararı"],
+        "karar": [
+          "Kritik bir bütçe değişikliği",
+          "Kapsam revizyonu",
+          "Takvim değişikliği",
+          "Teknik mimari kararı"
+        ],
         "engel": [
           "Müşteri tarafında 'önce benim müdürümü ikna et' diyorlar, müdür erişilemiyor.",
           "Üst yönetime doğrudan gidemiyoruz, aracı kişi bloke oluyor.",
@@ -522,7 +603,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, protokolü çiğneyerek ilerle — sonradan açıklarız. Bekleme sürecinde kaybettiğimiz zaman telafi edilemez; ilerlemek risk değil zorunluluk, devam et.",
+          "text_template": "{name_polite}, protokolü çiğneyerek ilerle — sonradan açıklarız. Bekleme sürecinde kaybettiğimiz zaman telafi edilemez; ilerlemek risk değil zorunluluk, devam et. Ekibi bu konuda bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -540,7 +621,12 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {teknik_konu} konusunda müşteri tarafından teknik bir onay almam gerekiyor. {sorun} Kim muhatap, bir türlü netleştiremedim.",
       "body_vars": {
-        "teknik_konu": ["API entegrasyonu", "güvenlik gereksinimleri", "veri tabanı yapısı", "altyapı gereksinimleri"],
+        "teknik_konu": [
+          "API entegrasyonu",
+          "güvenlik gereksinimleri",
+          "veri tabanı yapısı",
+          "altyapı gereksinimleri"
+        ],
         "sorun": [
           "Müşteriden kimi muhatap almam gerektiği belli değil.",
           "Farklı kişilere sordum, farklı cevaplar aldım.",
@@ -583,7 +669,11 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {paydas} {erteleme_durumu} Kritik kararlar bekliyor — ne kadar süreceğini bilmiyorum, nasıl ilerleyelim?",
       "body_vars": {
-        "paydas": ["Müşteri yetkilisi", "Proje sponsoru", "Karar alıcı"],
+        "paydas": [
+          "Müşteri yetkilisi",
+          "Proje sponsoru",
+          "Karar alıcı"
+        ],
         "erteleme_durumu": [
           "başka bir acil projeyle meşgul olduğu için toplantımızı erteledi.",
           "şirkette kriz var, tüm dikkatini oraya yöneltti.",
@@ -626,7 +716,11 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {paydas} ile çalışıyoruz ama {saat_sorunu} Kararlar çok yavaş alınıyor ve bu bizi ciddi şekilde yavaşlatıyor.",
       "body_vars": {
-        "paydas": ["uzak ofisteki müşteri", "yurt dışındaki sponsor", "farklı zaman dilimindeki teknik ekip"],
+        "paydas": [
+          "uzak ofisteki müşteri",
+          "yurt dışındaki sponsor",
+          "farklı zaman dilimindeki teknik ekip"
+        ],
         "saat_sorunu": [
           "8-10 saatlik fark yüzünden ortak çalışma penceresi çok küçük.",
           "toplantı için uygun saat bulmak neredeyse imkânsız hale geldi.",
@@ -636,7 +730,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu yapısal bir sorun — tek seferlik çözüm yetmez. Saat dilimini göz önüne alarak asenkron onay mekanizmaları, sabit yanıt süreleri ve acil kanal tanımlayan bir protokol oluşturacağım. Birlikte geliştiririz.",
+          "text_template": "{name_polite}, bu yapısal bir sorun — tek seferlik çözüm yetmez. Saat dilimini göz önüne alarak asenkron onay mekanizmaları, sabit yanıt süreleri ve acil kanal tanımlayan bir protokol oluşturacağım.",
           "xp": 30,
           "isEthical": true
         },
@@ -646,7 +740,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "{name_polite}, asenkron çalışma modelini düşünelim. Kararları e-posta veya proje araçları üzerinden belirli yanıt süreleriyle alabiliriz — toplantı bağımlılığını azaltırız.",
+          "text_template": "{name_polite}, asenkron çalışma modelini düşünelim. Kararları e-posta veya proje araçları üzerinden belirli yanıt süreleriyle alabiliriz — toplantı bağımlılığını azaltırız. Gerekli görüşmeyi planlıyorum.",
           "xp": 5,
           "isEthical": true
         },
@@ -669,7 +763,11 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {paydas} toplantı davetlerimizi kabul etmiyor. {ret_durumu} Geri dönmek istiyorum ama nasıl yaklaşacağımı bilemedim.",
       "body_vars": {
-        "paydas": ["Müşteri yetkilisi", "Kilit paydaş", "Karar alıcı"],
+        "paydas": [
+          "Müşteri yetkilisi",
+          "Kilit paydaş",
+          "Karar alıcı"
+        ],
         "ret_durumu": [
           "Son üç daveti de reddetti, neden söylemedi.",
           "Kabul edip sonra iptal ediyor.",
@@ -694,7 +792,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, kabul etmiyorsa gitsin. Onun olmadığı toplantıda kararı alırız — gelip gelmemek artık onun tercihi, biz bekleyemeyiz. Proje durmuyor.",
+          "text_template": "{name_polite}, kabul etmiyorsa gitsin. Onun olmadığı toplantıda kararı alırız — gelip gelmemek artık onun tercihi, biz bekleyemeyiz. Proje durmuyor. Sürecin gelişimini yakından takip edeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -712,7 +810,11 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {paydas} projeye katılımını azalttı. {neden} Bu durumun projeyi nasıl etkileyeceğini bilmiyorum, değerlendirmenizi almak istedim.",
       "body_vars": {
-        "paydas": ["Bir departman müdürü", "Ortak paydaş", "Destekleyici taraf"],
+        "paydas": [
+          "Bir departman müdürü",
+          "Ortak paydaş",
+          "Destekleyici taraf"
+        ],
         "neden": [
           "Kendi bütçesi kesilince bu projeye de ilgisini çekti.",
           "Maliyet katkısı nedeniyle üst yönetim onlardan desteği çekmiş.",
@@ -732,12 +834,12 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "{name_polite}, bu durumu proje risk kaydına ekliyorum. Paydaş katılımındaki azalmayı belgeleyeyim — ileride sponsora sunarken kayıt önemli olacak.",
+          "text_template": "{name_polite}, bu durumu proje risk kaydına ekliyorum. Paydaş katılımındaki azalmayı belgeleyeyim — ileride sponsora sunarken kayıt önemli olacak. Gerekirse ek adım değerlendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, onlara gerek yok, olmadan da devam ederiz. Katılmak istemiyorlarsa zorlamaya gerek yok — proje yeterli destekle gidiyor zaten.",
+          "text_template": "{name_polite}, onlara gerek yok, olmadan da devam ederiz. Katılmak istemiyorlarsa zorlamaya gerek yok — proje yeterli destekle gidiyor zaten. Durumu izlemeye devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -755,8 +857,16 @@
       "from_role_template": "{role}",
       "body_template": "Hocam, {eski_sahip} projeden ayrıldı ve {yeni_sahip} devraldı. {durum} Bu geçiş süreci çok belirsiz hissettiriyor — nasıl ilerlemeliyiz?",
       "body_vars": {
-        "eski_sahip": ["Önceki proje sahibi", "Eski sponsor", "Projeyi başlatan yönetici"],
-        "yeni_sahip": ["yerine gelen kişi", "yeni sponsor", "yeni atanan yönetici"],
+        "eski_sahip": [
+          "Önceki proje sahibi",
+          "Eski sponsor",
+          "Projeyi başlatan yönetici"
+        ],
+        "yeni_sahip": [
+          "yerine gelen kişi",
+          "yeni sponsor",
+          "yeni atanan yönetici"
+        ],
         "durum": [
           "Yeni kişi henüz projeyi tam anlamıyla kavramadı, karar alamıyor.",
           "Geçiş devir teslim yapılmadı, yeni sahip çok şey bilmiyor.",
@@ -766,7 +876,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, kritik bir geçiş süreci bu. Yeni proje sahibiyle hızla bir oryantasyon toplantısı yapmam şart — proje durumunu, kritik kararları ve riskleri net aktaracağım. Ne duraklayabiliriz, ne devam eder — birlikte planlayalım.",
+          "text_template": "{name_polite}, kritik bir geçiş süreci bu. Yeni proje sahibiyle hızla bir oryantasyon toplantısı yapmam şart — proje durumunu, kritik kararları ve riskleri net aktaracağım.",
           "xp": 30,
           "isEthical": true
         },
@@ -781,7 +891,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, değişiklik onların sorunu. Sözleşme var, proje devam eder — yeni kişi ne düşünürse düşünsün, taahhütler bağlayıcı. Biz ilerleyebiliriz.",
+          "text_template": "{name_polite}, değişiklik onların sorunu. Sözleşme var, proje devam eder — yeni kişi ne düşünürse düşünsün, taahhütler bağlayıcı. Biz ilerleyebiliriz. Takibini yapıp sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }

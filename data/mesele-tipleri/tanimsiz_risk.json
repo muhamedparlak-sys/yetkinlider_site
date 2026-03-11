@@ -48,7 +48,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. İlk adım etki alanını sınırlamak — hangi aktiviteler etkileniyor, hangiler güvende. Sonra sponsoru bilgilendirip seçenekleri birlikte değerlendiririz.",
+          "text_template": "Tamam {name_polite}. İlk adım etki alanını sınırlamak — hangi aktiviteler etkileniyor, hangiler güvende. Sonra sponsoru bilgilendirip seçenekleri birlikte değerlendiririz. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -146,7 +146,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Bağımlı tarafla acil görüşme ayarlıyorum — durumu öğrendikten sonra planı revize edeceğiz. Bu arada bağımsız aktiviteleri sürdürelim.",
+          "text_template": "Tamam {name_polite}. Bağımlı tarafla acil görüşme ayarlıyorum — durumu öğrendikten sonra planı revize edeceğiz. Bu arada bağımsız aktiviteleri sürdürelim. Ekibi bu konuda bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -277,7 +277,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Zor bir durum ama zamanında bildirdin {name_polite}. Önce ayrılan kişinin kritik aktivitelerini ve erişimlerini tespit edelim — acil bilgi geri kazanımı ve görev devir planı hazırlıyorum. İK ile de konuşacağım.",
+          "text_template": "Zor bir durum ama zamanında bildirdin {name_polite}. Önce ayrılan kişinin kritik aktivitelerini ve erişimlerini tespit edelim — acil bilgi geri kazanımı ve görev devir planı hazırlıyorum.",
           "xp": 30,
           "isEthical": true
         },

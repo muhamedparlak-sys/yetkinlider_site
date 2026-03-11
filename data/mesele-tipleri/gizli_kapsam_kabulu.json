@@ -28,22 +28,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nDurumu derhal değerlendiriyorum. Geliştirici ile müşteri arasındaki iletişimi kayıt altına alıyorum ve özelliğin mevcut teslimata etkisini analiz ediyorum. Müşteriyle bu özelliğin kabul sürecini resmi hale getireceğiz; değişiklik talebi açılacak. Ekiple iletişim protokolünü yeniden netleştiriyorum: tüm müşteri talepleri PM üzerinden geçecek.",
+          "text_template": "Hocam,\n\nDurumu derhal değerlendiriyorum. Geliştirici ile müşteri arasındaki iletişimi kayıt altına alıyorum ve özelliğin mevcut teslimata etkisini analiz ediyorum. Müşteriyle bu özelliğin kabul sürecini resmi hale getireceğiz;",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nÖzellik geliştirildi; müşteriyi mutlu etmek önemli, teslim edelim.",
+          "text_template": "Hocam,\n\nÖzellik geliştirildi; müşteriyi mutlu etmek önemli, teslim edelim. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nGeliştiriciye müşteriyle görüşmemesini söylerim; bu kez gözden kaçtı.",
+          "text_template": "Hocam,\n\nGeliştiriciye müşteriyle görüşmemesini söylerim; bu kez gözden kaçtı. Sürecin gelişimini yakından takip edeceğim. Sürecin gelişimini izliyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nMüşteriyle anlaşıldıysa sorun yok; ek çalışma ekibi geliştiriyor.",
+          "text_template": "Hocam,\n\nMüşteriyle anlaşıldıysa sorun yok; ek çalışma ekibi geliştiriyor. Gerekirse ek adım değerlendireceğim. Gerekli durumda müdahale edeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -70,22 +70,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, telefon görüşmemizi hatırlıyorum. Bu özelliğin kapsamı ve etkisini değerlendirmek için resmi bir değişiklik talebi açmamız gerekiyor; böylece efor, takvim ve bütçe etkisini netleştirip onaylayabiliriz. Değerlendirme formunu bugün hazırlıyorum ve sizinle paylaşacağım.",
+          "text_template": "Merhaba {player_name}, telefon görüşmemizi hatırlıyorum. Bu özelliğin kapsamı ve etkisini değerlendirmek için resmi bir değişiklik talebi açmamız gerekiyor; böylece efor, takvim ve bütçe etkisini netleştirip onaylayabiliriz.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, telefon görüşmemiz yeterliydi; ekibe görevi atıyorum.",
+          "text_template": "Merhaba {player_name}, telefon görüşmemiz yeterliydi; ekibe görevi atıyorum. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, küçük bir özellik; sprint backlog'una ekleyip yapabiliriz.",
+          "text_template": "Merhaba {player_name}, küçük bir özellik; sprint backlog'una ekleyip yapabiliriz. Takibini yapıp sizi bilgilendireceğim. Ekip bu konuda bilgilendirilecek.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, sözlü talimatla çalışmayı tercih etmiyorum; yazılı onay olmadan ekleyemem.",
+          "text_template": "Merhaba {player_name}, sözlü talimatla çalışmayı tercih etmiyorum; yazılı onay olmadan ekleyemem. Ekibi bu konuda bilgilendireceğim. Durumu raporlayacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -117,22 +117,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, fikriniz ilginç ve değerlendirmeye değer. Bu özelliğin efor, takvim ve maliyet etkisini analiz edip size iki seçenek sunacağım: mevcut proje kapsamına dahil etmek (takvim ve bütçe revizyonuyla) ya da bir sonraki fazın öncelik listesine almak. Önce analizi yapayım.",
+          "text_template": "Merhaba {player_name}, fikriniz ilginç ve değerlendirmeye değer. Bu özelliğin efor, takvim ve maliyet etkisini analiz edip size iki seçenek sunacağım: mevcut proje kapsamına dahil etmek (takvim ve.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, güzel fikir; ekle ve sürpriz yapalım kullanıcılara.",
+          "text_template": "Merhaba {player_name}, güzel fikir; ekle ve sürpriz yapalım kullanıcılara. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, şimdi eklemek zor; bir sonraki versiyona alırız, sizi haberdar ederim.",
+          "text_template": "Merhaba {player_name}, şimdi eklemek zor; bir sonraki versiyona alırız, sizi haberdar ederim. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, demo sırasında gelen fikirler çok değerli; hepsini not ediyorum ve scope'a dahil ediyorum.",
+          "text_template": "Merhaba {player_name}, demo sırasında gelen fikirler çok değerli; hepsini not ediyorum ve scope'a dahil ediyorum. Gerekirse ek adım değerlendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -164,22 +164,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nGirişimi takdirle karşılıyorum ama süreci netleştirmem gerekiyor. {geliştirici} ile bire bir görüşüp gelecekte kapsam dışı geliştirme yapmadan önce PM onayı alması gerektiğini açıklıyorum. Eklenen özelliği değerlendirip kapsama alıp almamaya karar vereceğim; eğer alırsak resmi sürece dahil edelim.",
+          "text_template": "Hocam,\n\nGirişimi takdirle karşılıyorum ama süreci netleştirmem gerekiyor. {geliştirici} ile bire bir görüşüp gelecekte kapsam dışı geliştirme yapmadan önce PM onayı alması gerektiğini açıklıyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nÖzellik iyi görünüyor; ekleyelim ve müşteriye söyleyelim.",
+          "text_template": "Hocam,\n\nÖzellik iyi görünüyor; ekleyelim ve müşteriye söyleyelim. Durumu izlemeye devam ediyorum. Sürecin gelişimini izliyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nGeliştiriciye bundan sonra bunu yapmaması gerektiğini söylüyorum.",
+          "text_template": "Hocam,\n\nGeliştiriciye bundan sonra bunu yapmaması gerektiğini söylüyorum. Takibini yapıp sizi bilgilendireceğim. Gerekli durumda müdahale edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nGeliştiricinin inisiyatifini kırmak istemiyorum; eklediği şeyi kabul edelim.",
+          "text_template": "Hocam,\n\nGeliştiricinin inisiyatifini kırmak istemiyorum; eklediği şeyi kabul edelim. Ekibi bu konuda bilgilendireceğim. Bu yaklaşımda devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -206,22 +206,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, UAT'ta ortaya çıkan bu gereksinimi anlıyorum. Önce orijinal gereksinim belgelerini gözden geçirip bu talebin kapsam içinde olup olmadığını teyit ediyorum. Kapsam dışıysa efor, takvim ve maliyet etkisini analiz edip resmi değişiklik talebi açacağız. Bu süreçte şeffaf iletişim kuracağım.",
+          "text_template": "Merhaba {player_name}, UAT'ta ortaya çıkan bu gereksinimi anlıyorum. Önce orijinal gereksinim belgelerini gözden geçirip bu talebin kapsam içinde olup olmadığını teyit ediyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, müşteriyi memnun etmek için ekliyoruz; kapsam tartışmalarına girmeyeceğiz.",
+          "text_template": "Merhaba {player_name}, müşteriyi memnun etmek için ekliyoruz; kapsam tartışmalarına girmeyeceğiz. Gerekli görüşmeyi planlıyorum. Ekip bu konuda bilgilendirilecek.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, bu gereksinimi karşılamadan kabul etmezseniz projeyi tamamlayamayız.",
+          "text_template": "Merhaba {player_name}, bu gereksinimi karşılamadan kabul etmezseniz projeyi tamamlayamayız. Sürecin gelişimini yakından takip edeceğim. Durumu raporlayacağım.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, UAT'ta bu talep geldi diye sistem teslim edilmiş sayılır; ek gereksinim yeni sözleşme konusu.",
+          "text_template": "Merhaba {player_name}, UAT'ta bu talep geldi diye sistem teslim edilmiş sayılır; ek gereksinim yeni sözleşme konusu. Gerekirse ek adım değerlendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -258,22 +258,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nBu birikimi gördüm. Onaysız geçen toplam efor miktarı artık dikkate değer. Tüm bu talepleri listeleleyerek sponsor ve PMO'ya sunuyorum; bundan sonra tüm iç talepler değişiklik kontrol sürecinden geçecek. Kaybedilen kapasiteyi telafi etmek için takvim ve kaynak revizyonu da önereceğim.",
+          "text_template": "Hocam,\n\nBu birikimi gördüm. Onaysız geçen toplam efor miktarı artık dikkate değer. Tüm bu talepleri listeleleyerek sponsor ve PMO'ya sunuyorum;",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nİç departmanlar müşteri gibi değerlendirilemez; taleplerini karşılamak doğru.",
+          "text_template": "Hocam,\n\nİç departmanlar müşteri gibi değerlendirilemez; taleplerini karşılamak doğru. Durumu izlemeye devam ediyorum. Bu kararı ekiple paylaşacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nKüçük talepler olduğu için sorun yaratmaz; devam edelim.",
+          "text_template": "Hocam,\n\nKüçük talepler olduğu için sorun yaratmaz; devam edelim. Takibini yapıp sizi bilgilendireceğim. Sürecin gelişimini izliyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nİç departman taleplerini reddederek çatışma yaratmak istemiyorum.",
+          "text_template": "Hocam,\n\nİç departman taleplerini reddederek çatışma yaratmak istemiyorum. Ekibi bu konuda bilgilendireceğim. Gerekli durumda müdahale edeceğim.",
           "xp": -20,
           "isEthical": false
         }

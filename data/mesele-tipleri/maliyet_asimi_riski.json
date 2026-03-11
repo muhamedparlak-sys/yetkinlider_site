@@ -42,7 +42,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Anlıyorum. Contingency rezervimizin ne kadarının kaldığına bakıyorum — rezervden karşılanabiliyorsa sponsor onayıyla kullanabiliriz. Önce rezerv yeterliliğini kontrol edeyim.",
+          "text_template": "Anlıyorum. Contingency rezervimizin ne kadarının kaldığına bakıyorum — rezervden karşılanabiliyorsa sponsor onayıyla kullanabiliriz. Önce rezerv yeterliliğini kontrol edeyim. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -479,7 +479,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu analiz ettiğin için teşekkürler {name_polite}. Bu dolaylı maliyetleri resmi maliyet sapmasi raporu olarak belgeleyelim — gecikmenin kök nedenini de dahil ederek sponsora sunuyorum. Kalan süreç için düzeltici plan hazırlıyorum.",
+          "text_template": "Durumu analiz ettiğin için teşekkürler {name_polite}. Bu dolaylı maliyetleri resmi maliyet sapmasi raporu olarak belgeleyelim — gecikmenin kök nedenini de dahil ederek sponsora sunuyorum.",
           "xp": 30,
           "isEthical": true
         },

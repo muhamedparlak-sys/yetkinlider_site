@@ -32,7 +32,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu durumun ciddiyetinin farkındayım {name_polite}. Şu an önceliğim sistemi en kısa sürede çalışır hale getirmek — teknik ekip üzerinde çalışıyor. Saatte bir durum güncellemesi göndereceğim. Kök neden analizi sonrası gerçekçi çözüm planı sunacağım.",
+          "text_template": "Bu durumun ciddiyetinin farkındayım {name_polite}. Şu an önceliğim sistemi en kısa sürede çalışır hale getirmek — teknik ekip üzerinde çalışıyor. Saatte bir durum güncellemesi göndereceğim.",
           "xp": 30,
           "isEthical": true
         },
@@ -75,7 +75,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu geri bildirimi paylaşmanız için teşekkürler {name_polite}. Kullanıcı direnci değişim yönetiminin yetersiz kaldığına işaret ediyor — hangi konularda en fazla zorluk yaşandığını anlayalım. Hedefe yönelik ek eğitim ve destek planı hazırlıyorum.",
+          "text_template": "Bu geri bildirimi paylaşmanız için teşekkürler {name_polite}. Kullanıcı direnci değişim yönetiminin yetersiz kaldığına işaret ediyor — hangi konularda en fazla zorluk yaşandığını anlayalım.",
           "xp": 30,
           "isEthical": true
         },
@@ -124,7 +124,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu durumun ciddiyetini kabul ediyorum {name_polite}. Veri bütünlüğü acil öncelik — etkilenen kayıtların kapsamını belirliyoruz. Kaynak sisteme erişim hâlâ var mı, varsa karşılaştırmalı analiz başlatıyorum. Sizi günlük olarak bilgilendireceğim.",
+          "text_template": "Bu durumun ciddiyetini kabul ediyorum {name_polite}. Veri bütünlüğü acil öncelik — etkilenen kayıtların kapsamını belirliyoruz. Kaynak sisteme erişim hâlâ var mı, varsa karşılaştırmalı analiz başlatıyorum.",
           "xp": 30,
           "isEthical": true
         },
@@ -167,7 +167,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu geri bildirimi paylaşmanız çok değerli {name_polite}. Eğitim içeriğini gözden geçirip gerçek iş senaryolarına dayalı pratik alıştırmalar ekleyelim — kısa süreli yüz yüze veya online seanslar planlıyorum. Nerede en fazla zorluk var?",
+          "text_template": "Bu geri bildirimi paylaşmanız çok değerli {name_polite}. Eğitim içeriğini gözden geçirip gerçek iş senaryolarına dayalı pratik alıştırmalar ekleyelim — kısa süreli yüz yüze veya online seanslar planlıyorum.",
           "xp": 30,
           "isEthical": true
         },
@@ -182,7 +182,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Sözleşmede belirtilen eğitim verildik {name_polite}. Ek eğitim talebi ek hizmet kapsamına giriyor — bu konuyu değerlendirip fiyatlandırabiliriz.",
+          "text_template": "Sözleşmede belirtilen eğitim verildik {name_polite}. Ek eğitim talebi ek hizmet kapsamına giriyor — bu konuyu değerlendirip fiyatlandırabiliriz. Gerekirse ek adım değerlendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -268,7 +268,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Destek kapasitesi sözleşmede tanımlı SLA çerçevesinde yönetiliyor {name_polite}. SLA koşullarını karşılıyoruz — ek öncelikli destek ek hizmet sözleşmesi gerektiriyor.",
+          "text_template": "Destek kapasitesi sözleşmede tanımlı SLA çerçevesinde yönetiliyor {name_polite}. SLA koşullarını karşılıyoruz — ek öncelikli destek ek hizmet sözleşmesi gerektiriyor. Durumu izlemeye devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -296,7 +296,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, paralel çalışma ek yük yaratıyor. Geçişi engelleyen kritik maddelerin listesini birlikte çıkaralım — her birine çözüm planı ve süre koyalım. Eski sistemi kapatmak için net bir tarih hedefleyelim.",
+          "text_template": "Anlıyorum {name_polite}, paralel çalışma ek yük yaratıyor. Geçişi engelleyen kritik maddelerin listesini birlikte çıkaralım — her birine çözüm planı ve süre koyalım.",
           "xp": 30,
           "isEthical": true
         },

@@ -38,22 +38,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\n{isim} ile bire-bir görüşme yapıp tam olarak nerede takıldığını anlıyorum. Adapte olma sürecini hızlandırmak için deneyimli bir mentor atıyorum ve bu iki hafta için sprint taahhütlerini daha erişilebilir düzeyde tutuyorum. Onboarding kontrol listesini de gözden geçirip eksik adımları tamamlıyoruz.",
+          "text_template": "Hocam,\n\n{isim} ile bire-bir görüşme yapıp tam olarak nerede takıldığını anlıyorum. Adapte olma sürecini hızlandırmak için deneyimli bir mentor atıyorum ve bu iki hafta için sprint taahhütlerini daha.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nBeklenti net; sprint taahhütlerini tutması gerekiyor.",
+          "text_template": "Hocam,\n\nBeklenti net; sprint taahhütlerini tutması gerekiyor. Takibini yapıp sizi bilgilendireceğim. Sürecin gelişimini izliyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\n{isim} zamanla adapte olur; müdahale etmeden bekleyelim.",
+          "text_template": "Hocam,\n\n{isim} zamanla adapte olur; müdahale etmeden bekleyelim. Ekibi bu konuda bilgilendireceğim. Gerekli durumda müdahale edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nAdaptasyon süreci uzunsa bu kişi projemize uygun olmayabilir.",
+          "text_template": "Hocam,\n\nAdaptasyon süreci uzunsa bu kişi projemize uygun olmayabilir. Gerekli görüşmeyi planlıyorum. Bu yaklaşımda devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -85,22 +85,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nOnboarding belge eksikliği sistemik bir sorun. Kısa vadede {isim}'e birebir rehberlik sağlıyorum; uzun vadede mevcut ekiple bir 'doküman günceleme' oturumu planlıyorum. Onboarding deneyimini standart hale getirecek bir kontrol listesi ve güncel kurulum rehberi oluşturuyoruz.",
+          "text_template": "Hocam,\n\nOnboarding belge eksikliği sistemik bir sorun. Kısa vadede {isim}'e birebir rehberlik sağlıyorum; uzun vadede mevcut ekiple bir 'doküman günceleme' oturumu planlıyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nYeni üye mevcut ekipten öğrenerek ilerler; belgeye gerek yok.",
+          "text_template": "Hocam,\n\nYeni üye mevcut ekipten öğrenerek ilerler; belgeye gerek yok. Sürecin gelişimini yakından takip edeceğim. Ekip bu konuda bilgilendirilecek.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nBelgeleri güncellemesi için zamanımız yok; şimdilik bu şekilde devam edeceğiz.",
+          "text_template": "Hocam,\n\nBelgeleri güncellemesi için zamanımız yok; şimdilik bu şekilde devam edeceğiz. Gerekirse ek adım değerlendireceğim. Durumu raporlayacağım.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nYeni üye belgeleri kendisi güncellesin; hem öğrenir hem de katkıda bulunur.",
+          "text_template": "Hocam,\n\nYeni üye belgeleri kendisi güncellesin; hem öğrenir hem de katkıda bulunur. Durumu izlemeye devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -132,22 +132,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nKültürel uyumsuzluğu ciddiye alıyorum. {isim} ile özel bir görüşme yapıp ekip değerlerini ve beklentilerini açık biçimde paylaşıyorum. Onun bakış açısını da dinliyorum; belki ekip olarak da öğrenebileceğimiz şeyler vardır. Ardından somut davranış beklentilerini birlikte netleştireceğiz.",
+          "text_template": "Hocam,\n\nKültürel uyumsuzluğu ciddiye alıyorum. {isim} ile özel bir görüşme yapıp ekip değerlerini ve beklentilerini açık biçimde paylaşıyorum. Onun bakış açısını da dinliyorum;",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nEkip kültürü sabittir; {isim} uyum sağlamalı.",
+          "text_template": "Hocam,\n\nEkip kültürü sabittir; {isim} uyum sağlamalı. Takibini yapıp sizi bilgilendireceğim. Bu kararı ekiple paylaşacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nKültür uyumsuzluğu zamanla düzelir; bekleyelim.",
+          "text_template": "Hocam,\n\nKültür uyumsuzluğu zamanla düzelir; bekleyelim. Ekibi bu konuda bilgilendireceğim. Sürecin gelişimini izliyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nEkip huzuru için {isim}'i başka projeye aktarmak gerekebilir.",
+          "text_template": "Hocam,\n\nEkip huzuru için {isim}'i başka projeye aktarmak gerekebilir. Gerekli görüşmeyi planlıyorum. Gerekli durumda müdahale edeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -179,22 +179,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nMentorluk yükünü sprint kapasitesine dahil etmemişiz. {mentor}'ın bu sprint için taahhütlerini gerçekçi biçimde kısaltıyorum ve mentorluk süresini net olarak blokluyorum. Ayrıca yapılandırılmış mentorluk programı oluşturarak mentorluk yükünü daha fazla ekip üyesine dağıtmayı değerlendireceğim.",
+          "text_template": "Hocam,\n\nMentorluk yükünü sprint kapasitesine dahil etmemişiz. {mentor}'ın bu sprint için taahhütlerini gerçekçi biçimde kısaltıyorum ve mentorluk süresini net olarak blokluyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\n{mentor} hem mentörlük hem de kendi görevlerini yapabilir; motivasyon meselesi.",
+          "text_template": "Hocam,\n\n{mentor} hem mentörlük hem de kendi görevlerini yapabilir; motivasyon meselesi. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nMentorluk informal sürdürülebilir; plan gerekmez.",
+          "text_template": "Hocam,\n\nMentorluk informal sürdürülebilir; plan gerekmez. Gerekirse ek adım değerlendireceğim. Bu yaklaşımda devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\n{yeni_uye} daha az soru sormalı; {mentor} zamanını almaktan kaçınmalı.",
+          "text_template": "Hocam,\n\n{yeni_uye} daha az soru sormalı; {mentor} zamanını almaktan kaçınmalı. Durumu izlemeye devam ediyorum. Ekip bu konuda bilgilendirilecek.",
           "xp": -20,
           "isEthical": false
         }
@@ -221,22 +221,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nToplu onboarding durumunu planlıyorum. Önce yeni üyeler için gruplu onboarding oturumları düzenliyorum; bu mentorluk yükünü dağıtır. Sprint kapasitesini bu ay için gerçekçi biçimde düşürüyorum ve paydaşlara açıklıyorum. Onboarding sürecini hızlandıracak standart materyalleri hazırlıyorum.",
+          "text_template": "Hocam,\n\nToplu onboarding durumunu planlıyorum. Önce yeni üyeler için gruplu onboarding oturumları düzenliyorum; bu mentorluk yükünü dağıtır. Sprint kapasitesini bu ay için gerçekçi biçimde düşürüyorum ve paydaşlara açıklıyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nYeni üyeler mevcut hızla çalışmaya başlamalı; sprint hızı düşmemeli.",
+          "text_template": "Hocam,\n\nYeni üyeler mevcut hızla çalışmaya başlamalı; sprint hızı düşmemeli. Takibini yapıp sizi bilgilendireceğim. Durumu raporlayacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nHer yeni üyeye ayrı mentor atalamam mümkün değil; kendi başlarına öğrensinler.",
+          "text_template": "Hocam,\n\nHer yeni üyeye ayrı mentor atalamam mümkün değil; kendi başlarına öğrensinler. Ekibi bu konuda bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nYeni üyeler tam entegre olana kadar sprint planlama dışı tutalım.",
+          "text_template": "Hocam,\n\nYeni üyeler tam entegre olana kadar sprint planlama dışı tutalım. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım.",
           "xp": -20,
           "isEthical": false
         }

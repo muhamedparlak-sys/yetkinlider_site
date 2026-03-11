@@ -87,7 +87,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu durumu gündeme getirmen çok doğru {name_polite}. Belgeleme eksikliği teknik borç türlerinden biridir — mevcut kodu anlayıp belgeleme için zaman ayıralım. Bu hem riski azaltır hem de ekibin verimliliğini artırır.",
+          "text_template": "Bu durumu gündeme getirmen çok doğru {name_polite}. Belgeleme eksikliği teknik borç türlerinden biridir — mevcut kodu anlayıp belgeleme için zaman ayıralım.",
           "xp": 30,
           "isEthical": true
         },
@@ -332,7 +332,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu çok önemli bir tespit {name_polite}. Architecture Decision Records (ADR) tutmaya bugünden başlayalım — geçmiş kararları da mevcut sistemden çıkarsamaya çalışalım. Mimari birikimi korumak en önemli teknik borç önleme adımlarından biridir.",
+          "text_template": "Bu çok önemli bir tespit {name_polite}. Architecture Decision Records (ADR) tutmaya bugünden başlayalım — geçmiş kararları da mevcut sistemden çıkarsamaya çalışalım.",
           "xp": 30,
           "isEthical": true
         },
@@ -381,7 +381,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu tespiti somutlaştırman çok değerli {name_polite}. Refactoring için 'Don't Repeat Yourself' ilkesini rehber alalım — en çok tekrar eden mantıkları önce merkezi modüle taşıyalım. Bu için sprint kapasitesi ayrılmasını önereceğim.",
+          "text_template": "Bu tespiti somutlaştırman çok değerli {name_polite}. Refactoring için 'Don't Repeat Yourself' ilkesini rehber alalım — en çok tekrar eden mantıkları önce merkezi modüle taşıyalım.",
           "xp": 30,
           "isEthical": true
         },
@@ -429,7 +429,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Çok önemli bir noktaya dikkat çektin {name_polite}. Teknik borç ödeme planı oluşturalım — her sprint'in yüzde on beşini borca ayıralım. Bunu backlog'da görünür bir kalem olarak tutup kümülatif ilerlemeyi izleyelim.",
+          "text_template": "Çok önemli bir noktaya dikkat çektin {name_polite}. Teknik borç ödeme planı oluşturalım — her sprint'in yüzde on beşini borca ayıralım.",
           "xp": 30,
           "isEthical": true
         },

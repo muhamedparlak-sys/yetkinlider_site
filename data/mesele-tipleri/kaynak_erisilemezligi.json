@@ -3,9 +3,14 @@
   "meseleTR": "Kaynak Erişilemezliği",
   "triggers_absence_default": true,
   "compatible_terms": [
-    "resource_planning", "contingency_reserve", "risk_register",
-    "schedule_compression", "succession_planning", "knowledge_management",
-    "team_development", "resource_leveling"
+    "resource_planning",
+    "contingency_reserve",
+    "risk_register",
+    "schedule_compression",
+    "succession_planning",
+    "knowledge_management",
+    "team_development",
+    "resource_leveling"
   ],
   "reasons": [
     {
@@ -15,7 +20,15 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "hr",
-      "duration": { "type": "range", "options": ["3 ay", "4 ay", "5 ay", "6 ay"] },
+      "duration": {
+        "type": "range",
+        "options": [
+          "3 ay",
+          "4 ay",
+          "5 ay",
+          "6 ay"
+        ]
+      },
       "subject_template": "Güzel haber — {name} bizimle paylaştı",
       "from_role": "İK Uzmanı",
       "body_template": "Merhaba ekip,\n\n{name} ({role}) güzel haberini sizinle paylaşmak istedi. {name} bebek bekliyor! Kendisini tebrik edelim.\n\n{name} yaklaşık {duration} içinde doğum iznine ayrılacak.",
@@ -26,17 +39,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "{name_polite}'e yazıyorum: 'Tebrikler {name_polite}! İzin sürecinde kritik bilgileri nasıl aktaralım, uygun bir zamanda konuşalım mı? Sana kolaylık sağlamak istiyorum.'",
+          "text_template": "{name_polite}'e yazıyorum: 'Tebrikler {name_polite}! İzin sürecinde kritik bilgileri nasıl aktaralım, uygun bir zamanda konuşalım mı? Sana kolaylık sağlamak istiyorum.'. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "İK'ya yazıyorum: '{name_polite}'in planlanan izin tarihlerini alabilir miyim, takvimimize işleyeyim ve kaynak planlamasını başlatayım.'",
+          "text_template": "İK'ya yazıyorum: '{name_polite}'in planlanan izin tarihlerini alabilir miyim, takvimimize işleyeyim ve kaynak planlamasını başlatayım.'. Ekibi bu konuda bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}'e yazıyorum: 'Tebrikler! İzne ayrılmadan önce kritik konuları devretmen gerekecek, bir devir teslim planı yapalım bu hafta.'",
+          "text_template": "{name_polite}'e yazıyorum: 'Tebrikler! İzne ayrılmadan önce kritik konuları devretmen gerekecek, bir devir teslim planı yapalım bu hafta.'. Gerekli görüşmeyi planlıyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -50,7 +63,14 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "duration": { "type": "range", "options": ["2 hafta", "3 hafta", "4 hafta"] },
+      "duration": {
+        "type": "range",
+        "options": [
+          "2 hafta",
+          "3 hafta",
+          "4 hafta"
+        ]
+      },
       "subject_template": "Bir haberim var",
       "from_role_template": "{role}",
       "body_template": "Hocam, güzel bir haberim var — bebeğimiz geliyor! {month}'de doğum bekliyoruz. Sizi önceden bilgilendirmek istedim ki plan yapabilesiniz. Babalık iznimi almayı düşünüyorum, {duration} kadar.",
@@ -61,17 +81,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Tebrikler {name_polite}! Hangi tarihler arası izin düşünüyorsun, programa işleyeyim. Bir devir teslim listesi çıkarmak ister misin, yardımcı olurum.",
+          "text_template": "Tebrikler {name_polite}! Hangi tarihler arası izin düşünüyorsun, programa işleyeyim. Bir devir teslim listesi çıkarmak ister misin, yardımcı olurum. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tebrikler {name_polite}. {duration}lık izni İK ile birlikte netleştirelim — resmi süreci başlatalım, planlama tarafını ben hallederim.",
+          "text_template": "Tebrikler {name_polite}. {duration}lık izni İK ile birlikte netleştirelim — resmi süreci başlatalım, planlama tarafını ben hallederim. Gerekirse ek adım değerlendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Tebrikler {name_polite}. {month} biraz kritik bir dönem, {duration} izni kısaltabilir miyiz? Yarı zamanlı bir çözüm bulabilir miyiz acaba?",
+          "text_template": "Tebrikler {name_polite}. {month} biraz kritik bir dönem, {duration} izni kısaltabilir miyiz? Yarı zamanlı bir çözüm bulabilir miyiz acaba? Durumu izlemeye devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -85,7 +105,10 @@
       "max_per_scenario": 1,
       "gender": "male",
       "sender": "self",
-      "duration": { "type": "fixed", "value": "12 ay" },
+      "duration": {
+        "type": "fixed",
+        "value": "12 ay"
+      },
       "subject_template": "Bir şey söylemem lazımdı",
       "from_role_template": "{role}",
       "body_template": "Hocam bugün bizzat gelip söylemek istedim. Askerlik ertelemem bu yıl doldu, {month} başında gitmem gerekiyor. 12 ay. Erken haber vereyim ki plan yapabilesiniz.",
@@ -96,17 +119,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hayırlı olsun {name_polite}. {month} öncesinde kritik görevleri birlikte planlayalım — devir teslim listesi çıkaralım, zamanımız var, rahat olalım.",
+          "text_template": "Hayırlı olsun {name_polite}. {month} öncesinde kritik görevleri birlikte planlayalım — devir teslim listesi çıkaralım, zamanımız var, rahat olalım. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hayırlı olsun {name_polite}. Boşluğu nasıl kapatacağımı düşünmem gerekiyor açıkçası — ama önce bu haberini sindireyim, sonra oturur konuşuruz.",
+          "text_template": "Hayırlı olsun {name_polite}. Boşluğu nasıl kapatacağımı düşünmem gerekiyor açıkçası — ama önce bu haberini sindireyim, sonra oturur konuşuruz. Ekibi bu konuda bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hayırlı olsun {name_polite}. Erteleme imkânı gerçekten kalmadı mı, proje açısından çok kritik bir dönem — bir araştırdın mı?",
+          "text_template": "Hayırlı olsun {name_polite}. Erteleme imkânı gerçekten kalmadı mı, proje açısından çok kritik bir dönem — bir araştırdın mı? Gerekli görüşmeyi planlıyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -120,12 +143,21 @@
       "max_per_scenario": 5,
       "gender": "any",
       "sender": "self",
-      "duration": { "type": "fixed", "value": "bu hafta" },
+      "duration": {
+        "type": "fixed",
+        "value": "bu hafta"
+      },
       "subject_template": "Bu hafta gelmeyeceğim",
       "from_role_template": "{role}",
       "body_template": "Hocam merhaba, doktora gittim, {hastalik} çıktı. Bu hafta istirahat raporum var, gelemiyor olacağım. Acil bir şey olursa yazabilirsiniz.",
       "body_vars": {
-        "hastalik": ["grip", "nezle", "bulaşıcı hastalık", "bronşit", "boğaz enfeksiyonu"]
+        "hastalik": [
+          "grip",
+          "nezle",
+          "bulaşıcı hastalık",
+          "bronşit",
+          "boğaz enfeksiyonu"
+        ]
       },
       "options": {
         "medicine": {
@@ -139,12 +171,12 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Geçmiş olsun {name_polite}. Ekibe ilettim, merak etme — bu haftalık görevleri düzenledim. Dön döne iyileş.",
+          "text_template": "Geçmiş olsun {name_polite}. Ekibe ilettim, merak etme — bu haftalık görevleri düzenledim. Dön döne iyileş. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Geçmiş olsun {name_polite}. Bu hafta kritik bir toplantı var, evden telefonla bağlanabilecek durumda mısın? Kısa bir katılım yeterli olur.",
+          "text_template": "Geçmiş olsun {name_polite}. Bu hafta kritik bir toplantı var, evden telefonla bağlanabilecek durumda mısın? Kısa bir katılım yeterli olur. Gerekirse ek adım değerlendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -158,31 +190,39 @@
       "max_per_scenario": 4,
       "gender": "any",
       "sender": "third_party",
-      "duration": { "type": "fixed", "value": "bu hafta" },
+      "duration": {
+        "type": "fixed",
+        "value": "bu hafta"
+      },
       "subject_template": "{name} bu hafta hastanelik oldu",
       "from_role_template": "Ekip Üyesi",
       "body_template": "Hocam, {name}'den haber aldım. {hastalik} imiş, bu hafta gelemeyecek. Sizi bilgilendireyim dedim.",
       "body_vars": {
-        "hastalik": ["grip olmuş", "hastaneye kaldırılmış", "ameliyat olmuş", "kaza geçirmiş"]
+        "hastalik": [
+          "grip olmuş",
+          "hastaneye kaldırılmış",
+          "ameliyat olmuş",
+          "kaza geçirmiş"
+        ]
       },
       "options": {
         "medicine": {
-          "text_template": "Geçmiş olsun dileklerimi ilet. Bir ihtiyaçları var mı sor. Ben de arayıp geçmiş olsun diyeceğim — ama sakın işle ilgili bir şey sorma. Bir gelişme olursa bana ilet, görevleri ben düzenliyorum.",
+          "text_template": "Geçmiş olsun dileklerimi ilet. Bir ihtiyaçları var mı sor. Ben de arayıp geçmiş olsun diyeceğim — ama sakın işle ilgili bir şey sorma.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Geçmiş olsun ilet. Ne zaman döneceğini öğrenebilir misin, planlama için soruyorum — kendisi rahat hissederse tabii, zorlama.",
+          "text_template": "Geçmiş olsun ilet. Ne zaman döneceğini öğrenebilir misin, planlama için soruyorum — kendisi rahat hissederse tabii, zorlama. Durumu izlemeye devam ediyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Geçmiş olsun ilet. Bu haftalık görevlerini sen üstlenir misin, ekiple paylaşayım mı? Yük fazla olursa ikiye böleriz.",
+          "text_template": "Geçmiş olsun ilet. Bu haftalık görevlerini sen üstlenir misin, ekiple paylaşayım mı? Yük fazla olursa ikiye böleriz. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Geçmiş olsun ilet. Kimler hangi işi üstlenir konuşun, ne zaman döneceğini de öğren — teslim tarihleri yaklaşıyor.",
+          "text_template": "Geçmiş olsun ilet. Kimler hangi işi üstlenir konuşun, ne zaman döneceğini de öğren — teslim tarihleri yaklaşıyor. Ekibi bu konuda bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -196,7 +236,14 @@
       "max_per_scenario": 4,
       "gender": "any",
       "sender": "self",
-      "duration": { "type": "range", "options": ["bugün", "birkaç gün", "bu hafta"] },
+      "duration": {
+        "type": "range",
+        "options": [
+          "bugün",
+          "birkaç gün",
+          "bu hafta"
+        ]
+      },
       "subject_template": "Bugün gelmeyeceğim — çocuk hasta",
       "from_role_template": "{role}",
       "body_template": "Hocam merhaba, {cocuk_durum}. Bakacak kimse yok, evde kalmam gerekiyor. Uzaktan bağlanmaya çalışırım ama garantileyemem.",
@@ -215,17 +262,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Geçmiş olsun {name_polite}. Eğer kritik bir şeyin varsa sabah kısa bir mesajla bana yaz, halledelim — gerisi bekleyebilir.",
+          "text_template": "Geçmiş olsun {name_polite}. Eğer kritik bir şeyin varsa sabah kısa bir mesajla bana yaz, halledelim — gerisi bekleyebilir. Gerekli görüşmeyi planlıyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}, takvime işledim. Ekibi bilgilendiriyorum, merak etme — çocuğuna odaklan.",
+          "text_template": "Tamam {name_polite}, takvime işledim. Ekibi bilgilendiriyorum, merak etme — çocuğuna odaklan. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Anladım {name_polite}. Yine de bugünkü toplantıya en azından telefonla bağlanabilir misin? 30 dakika, kısaltabiliriz.",
+          "text_template": "Anladım {name_polite}. Yine de bugünkü toplantıya en azından telefonla bağlanabilir misin? 30 dakika, kısaltabiliriz. Gerekirse ek adım değerlendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -239,12 +286,24 @@
       "max_per_scenario": 2,
       "gender": "any",
       "sender": "self",
-      "duration": { "type": "range", "options": ["4 hafta", "6 hafta", "8 hafta", "3 ay"] },
+      "duration": {
+        "type": "range",
+        "options": [
+          "4 hafta",
+          "6 hafta",
+          "8 hafta",
+          "3 ay"
+        ]
+      },
       "subject_template": "Size bir şey söylemem gerekiyor",
       "from_role_template": "{role}",
       "body_template": "Hocam, doktordan kötü haber geldi. {hastalik} gerekiyor, süreç {duration} sürecekmiş. Bilmenizi istedim.",
       "body_vars": {
-        "hastalik": ["ameliyat", "yoğun tedavi", "uzun istirahat"]
+        "hastalik": [
+          "ameliyat",
+          "yoğun tedavi",
+          "uzun istirahat"
+        ]
       },
       "options": {
         "medicine": {
@@ -258,7 +317,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Geçmiş olsun {name_polite}. İK ile koordine edelim, izin sürecini birlikte başlatalım — resmi prosedürü takip edelim.",
+          "text_template": "Geçmiş olsun {name_polite}. İK ile koordine edelim, izin sürecini birlikte başlatalım — resmi prosedürü takip edelim. Durumu izlemeye devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
@@ -277,7 +336,14 @@
       "max_per_scenario": 2,
       "gender": "any",
       "sender": "self",
-      "duration": { "type": "range", "options": ["2 hafta", "3 hafta", "1 ay"] },
+      "duration": {
+        "type": "range",
+        "options": [
+          "2 hafta",
+          "3 hafta",
+          "1 ay"
+        ]
+      },
       "subject_template": "Seninle konuşmam gerekiyor",
       "from_role_template": "{role}",
       "body_template": "Hocam, bir süredir kendimi iyi hissetmiyorum. Doktor {duration} izin önerdi. {ruh_durum} Bunu söylemek çok zordu ama gizlemek istemedim.",
@@ -295,12 +361,12 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Geçmiş olsun {name_polite}. İzni al, dinlen, kafanı dağıt. Dönünce bir konuşalım — şu an istersen bunları düşünme bile.",
+          "text_template": "Geçmiş olsun {name_polite}. İzni al, dinlen, kafanı dağıt. Dönünce bir konuşalım — şu an istersen bunları düşünme bile. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Anlıyorum {name_polite}. İK ile izin sürecini hemen başlatayım — resmi prosedürü takip edelim, sen sadece iyileşmeye odaklan.",
+          "text_template": "Anlıyorum {name_polite}. İK ile izin sürecini hemen başlatayım — resmi prosedürü takip edelim, sen sadece iyileşmeye odaklan. Ekibi bu konuda bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -319,13 +385,30 @@
       "max_per_scenario": 6,
       "gender": "any",
       "sender": "self",
-      "duration": { "type": "range", "options": ["1 hafta", "2 hafta", "10 gün"] },
+      "duration": {
+        "type": "range",
+        "options": [
+          "1 hafta",
+          "2 hafta",
+          "10 gün"
+        ]
+      },
       "subject_template": "İzin talebim var",
       "from_role_template": "{role}",
       "body_template": "Hocam, {izin_zamani} {duration} izin almak istiyorum. {izin_neden} Uygun mu?",
       "body_vars": {
-        "izin_zamani": ["önümüzdeki ay", "bayram döneminde", "yaz tatilinde", "aralık başında"],
-        "izin_neden": ["Tatil planladım.", "Aile ziyareti var.", "Biriktirdiğim izinleri kullanmak istiyorum.", ""]
+        "izin_zamani": [
+          "önümüzdeki ay",
+          "bayram döneminde",
+          "yaz tatilinde",
+          "aralık başında"
+        ],
+        "izin_neden": [
+          "Tatil planladım.",
+          "Aile ziyareti var.",
+          "Biriktirdiğim izinleri kullanmak istiyorum.",
+          ""
+        ]
       },
       "options": {
         "medicine": {
@@ -334,12 +417,12 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Tamam {name_polite}. Kritik teslimattan önce veya sonra olsun diye birlikte düşünelim — takvimde en iyi pencereyi bulalım.",
+          "text_template": "Tamam {name_polite}. Kritik teslimattan önce veya sonra olsun diye birlikte düşünelim — takvimde en iyi pencereyi bulalım. Gerekli görüşmeyi planlıyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Olur {name_polite}, takvime işleyeyim. İK'ya da bildireyim, resmi süreci başlatalım.",
+          "text_template": "Olur {name_polite}, takvime işleyeyim. İK'ya da bildireyim, resmi süreci başlatalım. Sürecin gelişimini yakından takip edeceğim. Bu yaklaşımda devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
@@ -358,7 +441,14 @@
       "max_per_scenario": 4,
       "gender": "any",
       "sender": "self",
-      "duration": { "type": "range", "options": ["3 gün", "1 hafta", "10 gün"] },
+      "duration": {
+        "type": "range",
+        "options": [
+          "3 gün",
+          "1 hafta",
+          "10 gün"
+        ]
+      },
       "subject_template": "Eğitim fırsatı — katılabilir miyim?",
       "from_role_template": "{role}",
       "body_template": "Hocam merhaba, {egitim} var {duration} süreliğine. Katılmak istiyorum, uygun mu?",
@@ -377,17 +467,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Git tabii {name_polite}. Ama önce mevcut işleri birbirine bağla — devir teslim notu çıkar, kritik bağımlılıkları belgele.",
+          "text_template": "Git tabii {name_polite}. Ama önce mevcut işleri birbirine bağla — devir teslim notu çıkar, kritik bağımlılıkları belgele. Gerekirse ek adım değerlendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}, programa işleyeyim. İK'ya da bildireyim, gideceğin tarihler netleşince bana dön.",
+          "text_template": "Tamam {name_polite}, programa işleyeyim. İK'ya da bildireyim, gideceğin tarihler netleşince bana dön. Durumu izlemeye devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Şu an çok kritik bir dönem {name_polite}, eğitimi erteleyebilir misin? Bir sonraki turunda tekrar değerlendiririz.",
+          "text_template": "Şu an çok kritik bir dönem {name_polite}, eğitimi erteleyebilir misin? Bir sonraki turunda tekrar değerlendiririz. Takibini yapıp sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -401,7 +491,14 @@
       "max_per_scenario": 2,
       "gender": "any",
       "sender": "self",
-      "duration": { "type": "range", "options": ["3 ay", "4 ay", "6 ay"] },
+      "duration": {
+        "type": "range",
+        "options": [
+          "3 ay",
+          "4 ay",
+          "6 ay"
+        ]
+      },
       "subject_template": "Büyük bir fırsat — görüşmek isterim",
       "from_role_template": "{role}",
       "body_template": "Hocam, size danışmak istiyorum. {egitim} için {duration}lık bir program teklifi geldi. Çok iyi bir fırsat ama projeyi de düşünmeden karar veremem.",
@@ -424,7 +521,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Güzel ama projeye etkisini değerlendirmem gerekiyor {name_polite} — birkaç gün içinde sana dönerim. Karar vermeden biraz bekle.",
+          "text_template": "Güzel ama projeye etkisini değerlendirmem gerekiyor {name_polite} — birkaç gün içinde sana dönerim. Karar vermeden biraz bekle. Ekibi bu konuda bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -443,7 +540,14 @@
       "max_per_scenario": 2,
       "gender": "any",
       "sender": "internal",
-      "duration": { "type": "range", "options": ["2 hafta", "1 ay", "2 ay"] },
+      "duration": {
+        "type": "range",
+        "options": [
+          "2 hafta",
+          "1 ay",
+          "2 ay"
+        ]
+      },
       "subject_template": "{name} hakkında — kısa bir görüşelim",
       "from_role_template": "Departman Müdürü",
       "body_template": "Hocam merhaba, {name}'i {duration} için başka bir projeye almamız gerekiyor. Acil bir ihtiyaç doğdu. Projenizi nasıl etkiler, konuşalım mı?",
@@ -454,17 +558,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Tamam, {name_polite}'in mevcut görevlerini kimin üstleneceğine bakalım. Bir devir süreci planlayalım — geçişi düzenli yapalım.",
+          "text_template": "Tamam, {name_polite}'in mevcut görevlerini kimin üstleneceğine bakalım. Bir devir süreci planlayalım — geçişi düzenli yapalım. Gerekli görüşmeyi planlıyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Anladım. {name_polite}'e bilgi vereyim, ona göre hazırlık yapalım. Ne zaman ayrılması gerekiyor, tarihi netleştirelim.",
+          "text_template": "Anladım. {name_polite}'e bilgi vereyim, ona göre hazırlık yapalım. Ne zaman ayrılması gerekiyor, tarihi netleştirelim. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Olmaz, şu an çok kritik bir dönem — {name_polite}'i veremem. Başka birini düşünün, proje buna izin vermiyor.",
+          "text_template": "Olmaz, şu an çok kritik bir dönem — {name_polite}'i veremem. Başka birini düşünün, proje buna izin vermiyor. Gerekirse ek adım değerlendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -478,7 +582,14 @@
       "max_per_scenario": 2,
       "gender": "any",
       "sender": "self",
-      "duration": { "type": "range", "options": ["2 hafta", "3 hafta", "4 hafta"] },
+      "duration": {
+        "type": "range",
+        "options": [
+          "2 hafta",
+          "3 hafta",
+          "4 hafta"
+        ]
+      },
       "subject_template": "Sizinle yüz yüze konuşabilir miyim?",
       "from_role_template": "{role}",
       "body_template": "Hocam, zor bir karar verdim. Başka bir teklif aldım ve kabul etmeye karar verdim. {duration} içinde ayrılmam gerekiyor. Bu süreci sizinle birlikte doğru yönetmek istiyorum.",
@@ -494,12 +605,12 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "İyi şanslar {name_polite}. Son ayrılış tarihin netleştirelim — programa işleyeyim, ona göre hazırlık yapalım.",
+          "text_template": "İyi şanslar {name_polite}. Son ayrılış tarihin netleştirelim — programa işleyeyim, ona göre hazırlık yapalım. Durumu izlemeye devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Neden daha önce söylemedin {name_polite}? Bu zamanlama çok kötü — projeyi ciddi etkiler. Hiç düşünmeden karar mı verdin?",
+          "text_template": "Neden daha önce söylemedin {name_polite}? Bu zamanlama çok kötü — projeyi ciddi etkiler. Hiç düşünmeden karar mı verdin? Takibini yapıp sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -513,7 +624,13 @@
       "max_per_scenario": 2,
       "gender": "any",
       "sender": "self",
-      "duration": { "type": "range", "options": ["1 hafta", "2 hafta"] },
+      "duration": {
+        "type": "range",
+        "options": [
+          "1 hafta",
+          "2 hafta"
+        ]
+      },
       "subject_template": "Bir acı haberim var",
       "from_role_template": "{role}",
       "body_template": "Hocam, {yakin_kayip}. {duration} izin almam gerekiyor. Özür dilerim bu dönem için.",
@@ -531,12 +648,12 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Başın sağ olsun {name_polite}. İzni al, acil bir şey olursa sana yazarım — ama sadece gerçekten acil olursa.",
+          "text_template": "Başın sağ olsun {name_polite}. İzni al, acil bir şey olursa sana yazarım — ama sadece gerçekten acil olursa. Ekibi bu konuda bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Başın sağ olsun {name_polite}. İK'ya bildireyim, resmi yas izni sürecini başlatalım — sen sadece ailenle ol.",
+          "text_template": "Başın sağ olsun {name_polite}. İK'ya bildireyim, resmi yas izni sürecini başlatalım — sen sadece ailenle ol. Gerekli görüşmeyi planlıyorum.",
           "xp": 5,
           "isEthical": true
         },

@@ -38,22 +38,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nBağımlılığı bulduğunuz için iyi ki haberdar oldum. Bu gizli bağımlılığı hemen bağımlılık haritasına ekliyorum ve etkilenen bileşenler için ek test senaryoları hazırlatıyorum. Değişiklik öncesinde {sistem} ekibiyle koordinasyon toplantısı ayarlıyorum ve mimari belgeleri güncelleyeceğiz.",
+          "text_template": "Hocam,\n\nBağımlılığı bulduğunuz için iyi ki haberdar oldum. Bu gizli bağımlılığı hemen bağımlılık haritasına ekliyorum ve etkilenen bileşenler için ek test senaryoları hazırlatıyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nBağımlılığı not aldım. Değişikliklerimizi dikkatli yaparsak sorun olmaz; devam edelim.",
+          "text_template": "Hocam,\n\nBağımlılığı not aldım. Değişikliklerimizi dikkatli yaparsak sorun olmaz; devam edelim. Durumu izlemeye devam ediyorum. Gerekli durumda müdahale edeceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nBağımlılık riskini risk kaydına ekledim; sprint sonunda tekrar değerlendiririz.",
+          "text_template": "Hocam,\n\nBağımlılık riskini risk kaydına ekledim; sprint sonunda tekrar değerlendiririz. Takibini yapıp sizi bilgilendireceğim. Bu yaklaşımda devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nBu bağımlılığı kırmak için {sistem} ekibini devreye almadan iç çözüm geliştiririz; bağımlılık azaltımı zaten iyi pratik.",
+          "text_template": "Hocam,\n\nBu bağımlılığı kırmak için {sistem} ekibini devreye almadan iç çözüm geliştiririz; bağımlılık azaltımı zaten iyi pratik. Ekibi bu konuda bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -85,22 +85,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nVeri akışı bağımlılığını tespit etmek isabetli olmuş. {kaynak_sistem} ekip liderini bugün arayarak durumu anlatıyorum ve birlikte entegrasyon takvimini belirliyoruz. Bu bağımlılık sprint planlarımızı etkileyeceğinden takvim güncellemesini siz ve PMO ile paylaşacağım.",
+          "text_template": "Hocam,\n\nVeri akışı bağımlılığını tespit etmek isabetli olmuş. {kaynak_sistem} ekip liderini bugün arayarak durumu anlatıyorum ve birlikte entegrasyon takvimini belirliyoruz.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\n{kaynak_sistem} ekibine e-posta attım; yanıt beklemedeyim. Sonraki sprint'e planlayabiliriz.",
+          "text_template": "Hocam,\n\n{kaynak_sistem} ekibine e-posta attım; yanıt beklemedeyim. Sonraki sprint'e planlayabiliriz. Gerekli görüşmeyi planlıyorum. Ekip bu konuda bilgilendirilecek.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\n{hedef_sistem} üzerinde bağımlılığı minimize eden alternatif bir veri kaynağı arayabiliriz; bu konuyu araştırıyorum.",
+          "text_template": "Hocam,\n\n{hedef_sistem} üzerinde bağımlılığı minimize eden alternatif bir veri kaynağı arayabiliriz; bu konuyu araştırıyorum. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nŞimdilik {kaynak_sistem} verisi olmadan test verileriyle ilerleyelim; entegrasyon sorunu üretimde çözeriz.",
+          "text_template": "Hocam,\n\nŞimdilik {kaynak_sistem} verisi olmadan test verileriyle ilerleyelim; entegrasyon sorunu üretimde çözeriz. Gerekirse ek adım değerlendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -137,22 +137,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nBu riski fark etmek doğru bir adım. {uzman_isim} ile bilgi transferi oturumları planlıyorum ve kritik süreçleri dokümante eden bir knowledge base oluşturuyoruz. Aynı zamanda en az bir yedek uzmanı bu alanlarda yetkilendirme sürecine dahil ediyorum.",
+          "text_template": "Hocam,\n\nBu riski fark etmek doğru bir adım. {uzman_isim} ile bilgi transferi oturumları planlıyorum ve kritik süreçleri dokümante eden bir knowledge base oluşturuyoruz.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nŞimdilik {uzman_isim} mevcut; bu konuyu proje sonunda ele alabiliriz.",
+          "text_template": "Hocam,\n\nŞimdilik {uzman_isim} mevcut; bu konuyu proje sonunda ele alabiliriz. Durumu izlemeye devam ediyorum. Durumu raporlayacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nRiski risk kaydına ekledim. Kritik oldu mu müdahale ederiz.",
+          "text_template": "Hocam,\n\nRiski risk kaydına ekledim. Kritik oldu mu müdahale ederiz. Takibini yapıp sizi bilgilendireceğim. Bu kararı ekiple paylaşacağım.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\n{uzman_isim} yerine farklı bir uzman tutabiliriz; piyasada bu profil var. İhtiyaç halinde hemen işe alım başlatabiliriz.",
+          "text_template": "Hocam,\n\n{uzman_isim} yerine farklı bir uzman tutabiliriz; piyasada bu profil var. İhtiyaç halinde hemen işe alım başlatabiliriz. Ekibi bu konuda bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -189,22 +189,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nAltyapı kısıtını netleştirdim. IT altyapı ekibiyle acil değerlendirme toplantısı ayarlıyorum; kısa vadeli geçici çözüm ve uzun vadeli mimari seçenekleri birlikte değerlendireceğiz. Takvim ve maliyet etkisini bu hafta size sunacağım.",
+          "text_template": "Hocam,\n\nAltyapı kısıtını netleştirdim. IT altyapı ekibiyle acil değerlendirme toplantısı ayarlıyorum; kısa vadeli geçici çözüm ve uzun vadeli mimari seçenekleri birlikte değerlendireceğiz.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nEkip bir geçici çözüm (workaround) geliştiriyor; şimdilik bu yeterli olur.",
+          "text_template": "Hocam,\n\nEkip bir geçici çözüm (workaround) geliştiriyor; şimdilik bu yeterli olur. Gerekli görüşmeyi planlıyorum. Sürecin gelişimini izliyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nAltyapı kısıtını risk kaydına ekledim; bir sonraki milestone yaklaşınca çözüme odaklanırız.",
+          "text_template": "Hocam,\n\nAltyapı kısıtını risk kaydına ekledim; bir sonraki milestone yaklaşınca çözüme odaklanırız. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nMevcut altyapıyla çalışan bir özellik sürümü yayınlayabiliriz; tam işlevselliği sonraki versiyona bırakalım.",
+          "text_template": "Hocam,\n\nMevcut altyapıyla çalışan bir özellik sürümü yayınlayabiliriz; tam işlevselliği sonraki versiyona bırakalım. Gerekirse ek adım değerlendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -241,22 +241,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nOnay sürecini öğrendiğimiz için iyi ki hemen harekete geçiyoruz. {departman} departmanıyla bugün iletişime geçerek gerekli belgeleri toplayıp onay sürecini başlatıyorum. Milestone tarihimizin etkileneceğini sponsor ve ilgili paydaşlara yazılı olarak bildiriyorum ve revize takvimi paylaşacağım.",
+          "text_template": "Hocam,\n\nOnay sürecini öğrendiğimiz için iyi ki hemen harekete geçiyoruz. {departman} departmanıyla bugün iletişime geçerek gerekli belgeleri toplayıp onay sürecini başlatıyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\n{departman} departmanıyla görüşeceğim; belki süreci hızlandırabiliriz.",
+          "text_template": "Hocam,\n\n{departman} departmanıyla görüşeceğim; belki süreci hızlandırabiliriz. Durumu izlemeye devam ediyorum. Gerekli durumda müdahale edeceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nOnay süreci uzunsa yayın tarihini biraz öne çekebiliriz; önceki versiyonu biraz daha uzatabiliriz.",
+          "text_template": "Hocam,\n\nOnay süreci uzunsa yayın tarihini biraz öne çekebiliriz; önceki versiyonu biraz daha uzatabiliriz. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\n{departman} onayı gerekli ama zorunlu değil gibi görünüyor; önce yayınlayıp ardından onay alalım.",
+          "text_template": "Hocam,\n\n{departman} onayı gerekli ama zorunlu değil gibi görünüyor; önce yayınlayıp ardından onay alalım. Ekibi bu konuda bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -293,22 +293,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nHukuk ekibinin tespiti kritik. Hemen uyumlu alternatif kütüphaneleri araştırıyorum ve teknik ekiple geçiş planı oluşturuyorum. Kısa vadede etkilenen modülleri izole edip riski sınırlarken, uzun vadeli geçiş için takvim ve maliyet tahminini size sunacağım.",
+          "text_template": "Hocam,\n\nHukuk ekibinin tespiti kritik. Hemen uyumlu alternatif kütüphaneleri araştırıyorum ve teknik ekiple geçiş planı oluşturuyorum. Kısa vadede etkilenen modülleri izole edip riski sınırlarken, uzun vadeli geçiş için.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nHukuk ekibi muhtemelen aşırı temkinli; bu tür lisans sorunları genellikle sorun çıkarmaz. Devam ediyoruz.",
+          "text_template": "Hocam,\n\nHukuk ekibi muhtemelen aşırı temkinli; bu tür lisans sorunları genellikle sorun çıkarmaz. Devam ediyoruz. Gerekli görüşmeyi planlıyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nLisans sorununu kayıt altına aldım; bir sonraki büyük sürümde kütüphaneyi değiştiririz.",
+          "text_template": "Hocam,\n\nLisans sorununu kayıt altına aldım; bir sonraki büyük sürümde kütüphaneyi değiştiririz. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nLisans belgelerini güncellersek sorun ortadan kalkabilir; hukuk ekibiyle tekrar konuşabilirim.",
+          "text_template": "Hocam,\n\nLisans belgelerini güncellersek sorun ortadan kalkabilir; hukuk ekibiyle tekrar konuşabilirim. Gerekirse ek adım değerlendireceğim. Bu yaklaşımda devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -350,22 +350,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nVeri modeli uyumsuzluğunu doğruladım. Dönüşüm gereksinimlerini teknik ekiple belgeleyip efor tahminini çıkarıyorum. Bu ek iş sprint planımızı ve teslim tarihini etkileyecek; kapsamı güncelleyerek sizi ve ilgili paydaşları bilgilendireceğim.",
+          "text_template": "Hocam,\n\nVeri modeli uyumsuzluğunu doğruladım. Dönüşüm gereksinimlerini teknik ekiple belgeleyip efor tahminini çıkarıyorum. Bu ek iş sprint planımızı ve teslim tarihini etkileyecek;",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nDönüşüm katmanı küçük bir geliştirme; ek çalışma olmadan halledeceğiz.",
+          "text_template": "Hocam,\n\nDönüşüm katmanı küçük bir geliştirme; ek çalışma olmadan halledeceğiz. Durumu izlemeye devam ediyorum. Ekip bu konuda bilgilendirilecek.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nVeri haritalama belgesini güncelledim; ekip ilgilenecek.",
+          "text_template": "Hocam,\n\nVeri haritalama belgesini güncelledim; ekip ilgilenecek. Takibini yapıp sizi bilgilendireceğim. Durumu raporlayacağım.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nİki sistemden birinin veri modelini zorunlu olarak değiştirmek daha iyi olur; köklü çözüm bu olur.",
+          "text_template": "Hocam,\n\nİki sistemden birinin veri modelini zorunlu olarak değiştirmek daha iyi olur; köklü çözüm bu olur. Ekibi bu konuda bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }

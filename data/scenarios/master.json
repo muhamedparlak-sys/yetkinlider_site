@@ -2,708 +2,1916 @@
   "id": "master",
   "title": "{{project_name}}",
   "company": "{{company}}",
-  "sections": [{"id":1},{"id":2},{"id":3}],
+  "sections": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    }
+  ],
   "dChoiceLimit": 5,
   "pools": {
-    "core":                [1,2,3,4,5,6,7,8],
-    "pmo_directive":       [101,102,103,104,105],
-    "pmo_supportive":      [201,202,203,204,205],
-    "pmo_controlling":     [301,302,303,304,305],
-    "approach_agile":      [401,402,403,404,405,406],
-    "approach_predictive": [501,502,503,504,505,506],
-    "approach_hybrid":     [601,602,603,604],
-    "sector_it":           [701,702,703,704],
-    "sector_finance":      [801,802,803,804],
-    "diff_beginner":       [],
-    "diff_intermediate":   [],
-    "diff_advanced":       []
+    "core": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "pmo_directive": [
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "pmo_supportive": [
+      201,
+      202,
+      203,
+      204,
+      205
+    ],
+    "pmo_controlling": [
+      301,
+      302,
+      303,
+      304,
+      305
+    ],
+    "approach_agile": [
+      401,
+      402,
+      403,
+      404,
+      405,
+      406
+    ],
+    "approach_predictive": [
+      501,
+      502,
+      503,
+      504,
+      505,
+      506
+    ],
+    "approach_hybrid": [
+      601,
+      602,
+      603,
+      604
+    ],
+    "sector_it": [
+      701,
+      702,
+      703,
+      704
+    ],
+    "sector_finance": [
+      801,
+      802,
+      803,
+      804
+    ],
+    "diff_beginner": [],
+    "diff_intermediate": [],
+    "diff_advanced": []
   },
   "competencies": [
     {
-      "id": "domain-people", "title": "İnsan",
+      "id": "domain-people",
+      "title": "İnsan",
       "components": [
-        {"id":"catisma",        "title":"Çatışma Yönetimi",  "decisionIds":[3,103,204]},
-        {"id":"liderlik",       "title":"Liderlik",           "decisionIds":[5,202,302]},
-        {"id":"takim_gelisimi", "title":"Takım Gelişimi",     "decisionIds":[6,203,401]},
-        {"id":"eq",             "title":"Duygusal Zeka",      "decisionIds":[4,201,303]}
+        {
+          "id": "catisma",
+          "title": "Çatışma Yönetimi",
+          "decisionIds": [
+            3,
+            103,
+            204
+          ]
+        },
+        {
+          "id": "liderlik",
+          "title": "Liderlik",
+          "decisionIds": [
+            5,
+            202,
+            302
+          ]
+        },
+        {
+          "id": "takim_gelisimi",
+          "title": "Takım Gelişimi",
+          "decisionIds": [
+            6,
+            203,
+            401
+          ]
+        },
+        {
+          "id": "eq",
+          "title": "Duygusal Zeka",
+          "decisionIds": [
+            4,
+            201,
+            303
+          ]
+        }
       ]
     },
     {
-      "id": "domain-process", "title": "Süreç",
+      "id": "domain-process",
+      "title": "Süreç",
       "components": [
-        {"id":"entegrasyon", "title":"Entegrasyon / Planlama","decisionIds":[2,101,501]},
-        {"id":"kapsam",      "title":"Kapsam",                "decisionIds":[7,403,502]},
-        {"id":"zaman",       "title":"Zaman / Çizelge",       "decisionIds":[301,404,503]},
-        {"id":"maliyet",     "title":"Maliyet / Finans",      "decisionIds":[304,504,801]},
-        {"id":"kalite",      "title":"Kalite",                "decisionIds":[305,402,505]},
-        {"id":"risk",        "title":"Risk / Sorun",          "decisionIds":[8,102,506]},
-        {"id":"tedarik",     "title":"Tedarik",               "decisionIds":[104,205,802]},
-        {"id":"kapanis",     "title":"Kapanış / İzleme",      "decisionIds":[105,601,602]}
+        {
+          "id": "entegrasyon",
+          "title": "Entegrasyon / Planlama",
+          "decisionIds": [
+            2,
+            101,
+            501
+          ]
+        },
+        {
+          "id": "kapsam",
+          "title": "Kapsam",
+          "decisionIds": [
+            7,
+            403,
+            502
+          ]
+        },
+        {
+          "id": "zaman",
+          "title": "Zaman / Çizelge",
+          "decisionIds": [
+            301,
+            404,
+            503
+          ]
+        },
+        {
+          "id": "maliyet",
+          "title": "Maliyet / Finans",
+          "decisionIds": [
+            304,
+            504,
+            801
+          ]
+        },
+        {
+          "id": "kalite",
+          "title": "Kalite",
+          "decisionIds": [
+            305,
+            402,
+            505
+          ]
+        },
+        {
+          "id": "risk",
+          "title": "Risk / Sorun",
+          "decisionIds": [
+            8,
+            102,
+            506
+          ]
+        },
+        {
+          "id": "tedarik",
+          "title": "Tedarik",
+          "decisionIds": [
+            104,
+            205,
+            802
+          ]
+        },
+        {
+          "id": "kapanis",
+          "title": "Kapanış / İzleme",
+          "decisionIds": [
+            105,
+            601,
+            602
+          ]
+        }
       ]
     },
     {
-      "id": "domain-business", "title": "İş Ortamı",
+      "id": "domain-business",
+      "title": "İş Ortamı",
       "components": [
-        {"id":"uyumluluk",        "title":"Uyumluluk",         "decisionIds":[803,701]},
-        {"id":"fayda_deger",      "title":"Fayda ve Değer",    "decisionIds":[603,702]},
-        {"id":"kurumsal_degisim", "title":"Kurumsal Değişim",  "decisionIds":[604,703]},
-        {"id":"dis_cevre",        "title":"Dış Çevre Analizi", "decisionIds":[405,406,704,804]}
+        {
+          "id": "uyumluluk",
+          "title": "Uyumluluk",
+          "decisionIds": [
+            803,
+            701
+          ]
+        },
+        {
+          "id": "fayda_deger",
+          "title": "Fayda ve Değer",
+          "decisionIds": [
+            603,
+            702
+          ]
+        },
+        {
+          "id": "kurumsal_degisim",
+          "title": "Kurumsal Değişim",
+          "decisionIds": [
+            604,
+            703
+          ]
+        },
+        {
+          "id": "dis_cevre",
+          "title": "Dış Çevre Analizi",
+          "decisionIds": [
+            405,
+            406,
+            704,
+            804
+          ]
+        }
       ]
     }
   ],
   "notifications": [
-
     {
-      "id": 1, "type": "story", "section": 1,
-      "from": "İK Müdürlüğü", "fromRole": "İnsan Kaynakları",
+      "id": 1,
+      "type": "story",
+      "section": 1,
+      "from": "İK Müdürlüğü",
+      "fromRole": "İnsan Kaynakları",
       "subject": "Atama Tebriği — {{project_name}} Proje Müdürü",
       "body": "Sayın {{player_name}},\n\nYönetim Kurulu kararıyla {{project_name}} projesinde Proje Müdürü olarak atandınız.\n\nProje, {{sector_label}} sektöründe kritik öneme sahiptir. {{pmo_label}} bu süreçte size destek verecektir.\n\nBaşarılar dileriz.",
       "time": "08:00"
     },
-
     {
-      "id": 2, "type": "decision", "section": 1,
-      "from": "Genel Müdür Yardımcısı", "fromRole": "Üst Yönetim",
+      "id": 2,
+      "type": "decision",
+      "section": 1,
+      "from": "Genel Müdür Yardımcısı",
+      "fromRole": "Üst Yönetim",
       "subject": "Proje Başlangıç Toplantısı — Yaklaşım Tercihiniz",
-      "body": "{{player_name}} Hanım/Bey,\n\n{{project_name}} için kick-off toplantısını planlamanızı istiyoruz. Paydaşların beklentileri yüksek. Toplantıyı nasıl yapılandırmayı düşünüyorsunuz?",
+      "body": "Sayın {{player_name}},\n\n{{project_name}} için kick-off toplantısını planlamanızı istiyoruz. Paydaşların beklentileri yüksek. Toplantıyı nasıl yapılandırmayı düşünüyorsunuz?",
       "time": "09:15",
       "options": [
-        {"key":"A","text":"Tüm kilit paydaşları dahil eden, gündem maddelerini önceden dağıttığım kapsamlı bir toplantı organize ederim; beklentileri ve başarı kriterlerini netleştiririm.","feedback":"Mükemmel başlangıç. Paydaş uyumunu erken sağlamak proje riskini önemli ölçüde azaltır.","xp":30},
-        {"key":"B","text":"Proje ekibi ile küçük bir toplantı yaparım, ardından paydaşlara özet bir e-posta gönderirim.","feedback":"Makul bir yaklaşım, ancak paydaş katılımının erken sağlanması kritik bazı beklentileri gözden kaçırmanıza neden olabilir.","xp":15},
-        {"key":"C","text":"Toplantıyı planlama aşamasından sonraya erteleyerek önce teknik ekiple kapsamı netleştiririm.","feedback":"Paydaşları planlamadan dışlamak ilerleyen dönemde ciddi kapsam değişikliklerine yol açabilir.","xp":5},
-        {"key":"D","text":"Toplantı yerine proje planını doğrudan hazırlayıp onaya sunarım; zaman kaybına gerek yok.","feedback":"Paydaş katılımı olmadan hazırlanan plan büyük olasılıkla kapsamlı revizyona uğrar. Bu yaklaşım yeniden çalışma maliyeti yaratır.","xp":-10}
+        {
+          "key": "A",
+          "text": "Tüm kilit paydaşları dahil eden, gündem maddelerini önceden dağıttığım kapsamlı bir toplantı organize ederim; beklentileri ve başarı kriterlerini netleştiririm.",
+          "feedback": "Mükemmel başlangıç. Paydaş uyumunu erken sağlamak proje riskini önemli ölçüde azaltır.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Proje ekibi ile küçük bir toplantı yaparım, ardından paydaşlara özet bir e-posta gönderirim.",
+          "feedback": "Makul bir yaklaşım, ancak paydaş katılımının erken sağlanması kritik bazı beklentileri gözden kaçırmanıza neden olabilir.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Toplantıyı planlama aşamasından sonraya erteleyerek önce teknik ekiple kapsamı netleştiririm.",
+          "feedback": "Paydaşları planlamadan dışlamak ilerleyen dönemde ciddi kapsam değişikliklerine yol açabilir.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Toplantı yerine proje planını doğrudan hazırlayıp onaya sunarım; zaman kaybına gerek yok.",
+          "feedback": "Paydaş katılımı olmadan hazırlanan plan büyük olasılıkla kapsamlı revizyona uğrar. Bu yaklaşım yeniden çalışma maliyeti yaratır.",
+          "xp": -10
+        }
       ]
     },
-
     {
-      "id": 3, "type": "decision", "section": 1,
-      "from": "Yazılım Geliştirme Lideri", "fromRole": "Teknik Ekip",
+      "id": 3,
+      "type": "decision",
+      "section": 1,
+      "from": "Yazılım Geliştirme Lideri",
+      "fromRole": "Teknik Ekip",
       "subject": "Çatışma: Kıdemli Geliştirici ile Analist Arasında Gerilim",
-      "body": "{{player_name}} Bey/Hanım,\n\nEkibimizde iki kritik kaynak arasında ciddi bir anlaşmazlık var. Kıdemli geliştirici teknik yaklaşım konusunda analisti defalarca küçük düşürdü. Ekip morali etkileniyor. Ne yapmalıyım?",
+      "body": "Sayın {{player_name}},\n\nEkibimizde iki kritik kaynak arasında ciddi bir anlaşmazlık var. Kıdemli geliştirici teknik yaklaşım konusunda analisti defalarca küçük düşürdü. Ekip morali etkileniyor. Ne yapmalıyım?",
       "time": "11:30",
       "options": [
-        {"key":"A","text":"İki tarafı ayrı ayrı dinler, ardından yapılandırılmış bir arabuluculuk görüşmesi ayarlarım; temel sorunları ve ortak zemin noktalarını çıkarırım.","feedback":"Doğru yaklaşım. Çatışmanın kökenini anlamak olmadan yapılan müdahaleler geçici çözümler üretir.","xp":30},
-        {"key":"B","text":"Takım toplantısında genel bir 'iş birliği beklentileri' konuşması yaparım, isimlere girmeden.","feedback":"Sorunu doğrudan ele almak yerine genel bir mesaj vermek, mağdur kişiyi duyumsuzluk hissiyle bırakabilir.","xp":10},
-        {"key":"C","text":"Teknik liderden sorunu kendi içinde çözmesini isterim; ekip meseleleri ekip içinde kalmalı.","feedback":"Yetki devri yerinde olabilir ancak ekip içi toksik dinamikler PM'in müdahalesini gerektirir.","xp":5},
-        {"key":"D","text":"Kıdemli geliştiricinin teknik yetkinliğine güvenirim; analiste toleranslı olmasını tavsiye ederim.","feedback":"Yapıcı olmayan davranışı ödüllendirmek, psikolojik güvenli bir ekip ortamı oluşturmanın tam tersidir.","xp":-15}
+        {
+          "key": "A",
+          "text": "İki tarafı ayrı ayrı dinler, ardından yapılandırılmış bir arabuluculuk görüşmesi ayarlarım; temel sorunları ve ortak zemin noktalarını çıkarırım.",
+          "feedback": "Doğru yaklaşım. Çatışmanın kökenini anlamak olmadan yapılan müdahaleler geçici çözümler üretir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Takım toplantısında genel bir 'iş birliği beklentileri' konuşması yaparım, isimlere girmeden.",
+          "feedback": "Sorunu doğrudan ele almak yerine genel bir mesaj vermek, mağdur kişiyi duyumsuzluk hissiyle bırakabilir.",
+          "xp": 10
+        },
+        {
+          "key": "C",
+          "text": "Teknik liderden sorunu kendi içinde çözmesini isterim; ekip meseleleri ekip içinde kalmalı.",
+          "feedback": "Yetki devri yerinde olabilir ancak ekip içi toksik dinamikler PM'in müdahalesini gerektirir.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Kıdemli geliştiricinin teknik yetkinliğine güvenirim; analiste toleranslı olmasını tavsiye ederim.",
+          "feedback": "Yapıcı olmayan davranışı ödüllendirmek, psikolojik güvenli bir ekip ortamı oluşturmanın tam tersidir.",
+          "xp": -15
+        }
       ]
     },
-
     {
-      "id": 4, "type": "decision", "section": 1,
-      "from": "Proje Sponsoru", "fromRole": "Yönetim Kurulu Temsilcisi",
+      "id": 4,
+      "type": "decision",
+      "section": 1,
+      "from": "Proje Sponsoru",
+      "fromRole": "Yönetim Kurulu Temsilcisi",
       "subject": "Sponsorla İlk Görüşme — Proje Beklentileri",
       "body": "{{player_name}},\n\nBu hafta ilk birebir görüşmemizi yapmak istiyorum. {{project_name}} konusundaki beklentilerimi ve sınırları netleştirmek istiyorum. Görüşmeye nasıl hazırlanıyorsunuz?",
       "time": "14:00",
       "options": [
-        {"key":"A","text":"Görüşmeden önce projenin stratejik hedeflerini, kritik başarı faktörlerini ve potansiyel riskleri hazırlarım; sponsorun önceliklerini sormak için yapılandırılmış sorular listesi oluştururum.","feedback":"Sponsor ile güven inşa etmenin en sağlıklı yolu: hazırlıklı, stratejik ve dinleyici olmak.","xp":30},
-        {"key":"B","text":"Proje planının taslağını getiririm ve onay almaya çalışırım.","feedback":"İlk görüşmede onay almak için aceleci olmak, dinleme fırsatını kaçırmanıza neden olur.","xp":15},
-        {"key":"C","text":"Önceki benzeri projelerle ilgili raporlar gösteririm ve kıyaslama yaparım.","feedback":"Kıyaslamalar faydalı olabilir ancak önce sponsorun bu projeye özgü beklentilerini anlamak daha kritiktir.","xp":8},
-        {"key":"D","text":"Toplantıya serbest gündem ile gider, akış nasıl gelişirse öyle ilerlerim.","feedback":"Sponsor görüşmesine hazırlıksız girmek profesyonellik algısını zedeler ve güven inşasını zorlaştırır.","xp":-5}
+        {
+          "key": "A",
+          "text": "Görüşmeden önce projenin stratejik hedeflerini, kritik başarı faktörlerini ve potansiyel riskleri hazırlarım; sponsorun önceliklerini sormak için yapılandırılmış sorular listesi oluştururum.",
+          "feedback": "Sponsor ile güven inşa etmenin en sağlıklı yolu: hazırlıklı, stratejik ve dinleyici olmak.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Proje planının taslağını getiririm ve onay almaya çalışırım.",
+          "feedback": "İlk görüşmede onay almak için aceleci olmak, dinleme fırsatını kaçırmanıza neden olur.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Önceki benzeri projelerle ilgili raporlar gösteririm ve kıyaslama yaparım.",
+          "feedback": "Kıyaslamalar faydalı olabilir ancak önce sponsorun bu projeye özgü beklentilerini anlamak daha kritiktir.",
+          "xp": 8
+        },
+        {
+          "key": "D",
+          "text": "Toplantıya serbest gündem ile gider, akış nasıl gelişirse öyle ilerlerim.",
+          "feedback": "Sponsor görüşmesine hazırlıksız girmek profesyonellik algısını zedeler ve güven inşasını zorlaştırır.",
+          "xp": -5
+        }
       ]
     },
-
     {
-      "id": 5, "type": "decision", "section": 2,
-      "from": "İK Departmanı", "fromRole": "İnsan Kaynakları Uzmanı",
+      "id": 5,
+      "type": "decision",
+      "section": 2,
+      "from": "İK Departmanı",
+      "fromRole": "İnsan Kaynakları Uzmanı",
       "subject": "Liderlik Anketi — Ekibinizden Geri Bildirim",
       "body": "{{player_name}},\n\nEkibiniz 360 derece geri bildirim anketini doldurdu. Sonuçlara göre bazı ekip üyeleri kararlarınızın 'yeterince katılımcı olmadığını' belirtiyor. Bu konuyu nasıl değerlendiriyorsunuz?",
       "time": "09:00",
       "options": [
-        {"key":"A","text":"Geri bildirimi ciddiye alırım; ekip ile açık bir diyalog oturumu düzenler, hangi kararlarda daha fazla katılım beklediklerini anlamaya çalışırım.","feedback":"Geri bildirimi savunmacı olmadan almak ve harekete geçmek, güvenilir liderliğin göstergesidir.","xp":30},
-        {"key":"B","text":"Sonuçları genel bir ekip toplantısında paylaşır ve katılımın artırılacağını vaat ederim.","feedback":"Somut adımlar atmadan sadece vaat vermek güvenilirliği artırmaz.","xp":12},
-        {"key":"C","text":"Ankete katılan sayısı az olduğu için sonuçları temsili bulmuyorum; şimdilik beklemeye alırım.","feedback":"Geri bildirimi sayı gerekçesiyle reddetmek, ekibin sesini duymamanın kılıfıdır.","xp":3},
-        {"key":"D","text":"Ekibin proje süreçleri hakkında yeterli bilgiye sahip olmadığını, bu nedenle yorum yapmalarının doğru olmadığını düşünüyorum.","feedback":"Bu yaklaşım ekibin psikologjik güvenliğini zedeler ve gelecekte gerçek geri bildirim almayı imkânsız kılar.","xp":-15}
+        {
+          "key": "A",
+          "text": "Geri bildirimi ciddiye alırım; ekip ile açık bir diyalog oturumu düzenler, hangi kararlarda daha fazla katılım beklediklerini anlamaya çalışırım.",
+          "feedback": "Geri bildirimi savunmacı olmadan almak ve harekete geçmek, güvenilir liderliğin göstergesidir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Sonuçları genel bir ekip toplantısında paylaşır ve katılımın artırılacağını vaat ederim.",
+          "feedback": "Somut adımlar atmadan sadece vaat vermek güvenilirliği artırmaz.",
+          "xp": 12
+        },
+        {
+          "key": "C",
+          "text": "Ankete katılan sayısı az olduğu için sonuçları temsili bulmuyorum; şimdilik beklemeye alırım.",
+          "feedback": "Geri bildirimi sayı gerekçesiyle reddetmek, ekibin sesini duymamanın kılıfıdır.",
+          "xp": 3
+        },
+        {
+          "key": "D",
+          "text": "Ekibin proje süreçleri hakkında yeterli bilgiye sahip olmadığını, bu nedenle yorum yapmalarının doğru olmadığını düşünüyorum.",
+          "feedback": "Bu yaklaşım ekibin psikologjik güvenliğini zedeler ve gelecekte gerçek geri bildirim almayı imkânsız kılar.",
+          "xp": -15
+        }
       ]
     },
-
     {
-      "id": 6, "type": "decision", "section": 2,
-      "from": "Proje Koordinatörü", "fromRole": "Proje Ofisi",
+      "id": 6,
+      "type": "decision",
+      "section": 2,
+      "from": "Proje Koordinatörü",
+      "fromRole": "Proje Ofisi",
       "subject": "Takım Tüzüğü — Çalışma Kuralları Belirlenemiyor",
       "body": "{{player_name}},\n\nTakım tüzüğü hazırlık toplantısında ekip üyeleri çalışma kuralları konusunda fikir birliğine varamadı. Biri 'esnek çalışma', diğerleri 'sabit toplantı saatleri' istiyor. Nasıl ilerleyelim?",
       "time": "10:30",
       "options": [
-        {"key":"A","text":"Her iki tarafın beklentilerini anlamak için ayrı sorular sorar, ardından ortak paydaları öne çıkaran ve her iki grubun ihtiyacını karşılayan hibrit bir çözüm önerisiyle toplantıya dönerim.","feedback":"Anlaşmazlık noktalarını fırsat olarak görmek ve tarafların ihtiyaçlarını dengelemek yetkin kolaylaştırıcılığın göstergesidir.","xp":30},
-        {"key":"B","text":"Oylamaya başvururum; çoğunluk ne istiyorsa onu uygularım.","feedback":"Demokratik görünse de oylama azınlıkta kalanların bağlılığını zedeleyebilir.","xp":12},
-        {"key":"C","text":"PM olarak ben karar veririm: proje süresi boyunca sabit toplantı saatleri uygulanacak.","feedback":"Tek taraflı karar ekip sahipliğini azaltır; charter'ın değeri ekibin katılımından gelir.","xp":5},
-        {"key":"D","text":"Tüzük zorunlu değil; o enerjiyi planlama belgelerine harcayalım.","feedback":"Tüzük olmadan çalışma normları belirsiz kalır; bu ilerleyen dönemde çatışma riskini artırır.","xp":-8}
+        {
+          "key": "A",
+          "text": "Her iki tarafın beklentilerini anlamak için ayrı sorular sorar, ardından ortak paydaları öne çıkaran ve her iki grubun ihtiyacını karşılayan hibrit bir çözüm önerisiyle toplantıya dönerim.",
+          "feedback": "Anlaşmazlık noktalarını fırsat olarak görmek ve tarafların ihtiyaçlarını dengelemek yetkin kolaylaştırıcılığın göstergesidir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Oylamaya başvururum; çoğunluk ne istiyorsa onu uygularım.",
+          "feedback": "Demokratik görünse de oylama azınlıkta kalanların bağlılığını zedeleyebilir.",
+          "xp": 12
+        },
+        {
+          "key": "C",
+          "text": "PM olarak ben karar veririm: proje süresi boyunca sabit toplantı saatleri uygulanacak.",
+          "feedback": "Tek taraflı karar ekip sahipliğini azaltır; charter'ın değeri ekibin katılımından gelir.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Tüzük zorunlu değil; o enerjiyi planlama belgelerine harcayalım.",
+          "feedback": "Tüzük olmadan çalışma normları belirsiz kalır; bu ilerleyen dönemde çatışma riskini artırır.",
+          "xp": -8
+        }
       ]
     },
-
     {
-      "id": 7, "type": "decision", "section": 2,
-      "from": "İş Analisti", "fromRole": "Gereksinim Yönetimi",
+      "id": 7,
+      "type": "decision",
+      "section": 2,
+      "from": "İş Analisti",
+      "fromRole": "Gereksinim Yönetimi",
       "subject": "Kapsam Kayması Riski — Müşteri Yeni Talepler Ekliyor",
       "body": "{{player_name}},\n\nMüşteri proje başlangıcından bu yana 3 yeni özellik talebi iletti. Bunlar resmi değişiklik talebine dönüştürülmedi, ancak ekip 'nasılsa yaparız' diyerek çalışmaya başladı. Durumu nasıl yönetirsiniz?",
       "time": "14:00",
       "options": [
-        {"key":"A","text":"Ekibi durdururum; tüm talepleri resmi değişiklik kontrol sürecine alırım, etki analizini tamamlar, müşteriyle kapsam/bütçe/zaman etkisini görüşürüm.","feedback":"Scope creep'i erken kontrol altına almak projenin en değerli savunma mekanizmalarından biridir.","xp":30},
-        {"key":"B","text":"Müşteriden yazılı talepler alırım ama etki analizi yapmadan onaylayarak geçerim.","feedback":"Yazılı talep almak doğru ancak etki analizi yapmamak bütçe/takvim sapmasına zemin hazırlar.","xp":12},
-        {"key":"C","text":"Değişiklikleri şimdilik kabul ederim, proje sonunda müşteriyle ek fatura görüşmesi yaparım.","feedback":"Geriye dönük fatura görüşmeleri ilişkiyi zedeler ve çoğunlukla ödenmez; baştan net olmak daha iyidir.","xp":3},
-        {"key":"D","text":"Ekip zaten çalışmaya başladığı için durdurmak daha fazla zaman alır; mevcut talepler de yapılsın.","feedback":"'Zaten başladık' gerekçesi kapsam kaymasının en yaygın tetikleyicisidir. Bu yaklaşım kontrol kaybını hızlandırır.","xp":-12}
+        {
+          "key": "A",
+          "text": "Ekibi durdururum; tüm talepleri resmi değişiklik kontrol sürecine alırım, etki analizini tamamlar, müşteriyle kapsam/bütçe/zaman etkisini görüşürüm.",
+          "feedback": "Scope creep'i erken kontrol altına almak projenin en değerli savunma mekanizmalarından biridir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Müşteriden yazılı talepler alırım ama etki analizi yapmadan onaylayarak geçerim.",
+          "feedback": "Yazılı talep almak doğru ancak etki analizi yapmamak bütçe/takvim sapmasına zemin hazırlar.",
+          "xp": 12
+        },
+        {
+          "key": "C",
+          "text": "Değişiklikleri şimdilik kabul ederim, proje sonunda müşteriyle ek fatura görüşmesi yaparım.",
+          "feedback": "Geriye dönük fatura görüşmeleri ilişkiyi zedeler ve çoğunlukla ödenmez; baştan net olmak daha iyidir.",
+          "xp": 3
+        },
+        {
+          "key": "D",
+          "text": "Ekip zaten çalışmaya başladığı için durdurmak daha fazla zaman alır; mevcut talepler de yapılsın.",
+          "feedback": "'Zaten başladık' gerekçesi kapsam kaymasının en yaygın tetikleyicisidir. Bu yaklaşım kontrol kaybını hızlandırır.",
+          "xp": -12
+        }
       ]
     },
-
     {
-      "id": 8, "type": "decision", "section": 3,
-      "from": "Risk Sahibi", "fromRole": "Teknik Mimar",
+      "id": 8,
+      "type": "decision",
+      "section": 3,
+      "from": "Risk Sahibi",
+      "fromRole": "Teknik Mimar",
       "subject": "Kritik Risk Gerçekleşti — Üçüncü Taraf Entegrasyon Gecikiyor",
       "body": "{{player_name}},\n\nRisk kaydında 'orta' olarak sınıflandırdığımız üçüncü taraf entegrasyon riski gerçekleşti. Tedarikçi 3 hafta gecikme bildirdi. Bu durum kritik yol üzerinde. Yanıt stratejiniz?",
       "time": "08:45",
       "options": [
-        {"key":"A","text":"Acil durum planını devreye alırım: alternatif tedarikçi seçeneklerini değerlendiririm, geçici workaround geliştiririm, sponsoru ve paydaşları proaktif olarak bilgilendiririm.","feedback":"Risk yanıtında hız ve proaktiflik kritik. Önceden planlanmış yanıt stratejisi bu aşamada değer gösterir.","xp":30},
-        {"key":"B","text":"Tedarikçiyle acil toplantı yaparım ve takvim baskısı uygularım; durumu izlemeye devam ederim.","feedback":"Tedarikçi baskısı faydalı ama tek başına yeterli değil; paralel planlar gerekiyor.","xp":15},
-        {"key":"C","text":"Sponsoru bilgilendiririm ve çözümü ondan beklerim.","feedback":"Sponsoru bilgilendirmek doğru ancak çözüm önerisi getirmeden yalnızca sorun aktarmak PM değer katmıyor.","xp":5},
-        {"key":"D","text":"3 hafta fazla abartılmış olabilir; tedarikçinin bu süreyi kısaltacağını umarak beklerim.","feedback":"Risk yanıtını ertelemek, gecikmenin kritik yol üzerindeki etkisini katlar.","xp":-15}
+        {
+          "key": "A",
+          "text": "Acil durum planını devreye alırım: alternatif tedarikçi seçeneklerini değerlendiririm, geçici workaround geliştiririm, sponsoru ve paydaşları proaktif olarak bilgilendiririm.",
+          "feedback": "Risk yanıtında hız ve proaktiflik kritik. Önceden planlanmış yanıt stratejisi bu aşamada değer gösterir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Tedarikçiyle acil toplantı yaparım ve takvim baskısı uygularım; durumu izlemeye devam ederim.",
+          "feedback": "Tedarikçi baskısı faydalı ama tek başına yeterli değil; paralel planlar gerekiyor.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Sponsoru bilgilendiririm ve çözümü ondan beklerim.",
+          "feedback": "Sponsoru bilgilendirmek doğru ancak çözüm önerisi getirmeden yalnızca sorun aktarmak PM değer katmıyor.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "3 hafta fazla abartılmış olabilir; tedarikçinin bu süreyi kısaltacağını umarak beklerim.",
+          "feedback": "Risk yanıtını ertelemek, gecikmenin kritik yol üzerindeki etkisini katlar.",
+          "xp": -15
+        }
       ]
     },
-
     {
-      "id": 101, "type": "decision", "section": 1,
-      "from": "{{pmo_label}} Direktörü", "fromRole": "PMO Yönetimi",
+      "id": 101,
+      "type": "decision",
+      "section": 1,
+      "from": "{{pmo_label}} Direktörü",
+      "fromRole": "PMO Yönetimi",
       "subject": "Değişiklik Talebi — Onay Süreci Başlatılmalı",
       "body": "{{player_name}},\n\nMüşteriden gelen ek gereksinim için {{pmo_label}} onay sürecini başlatmanız gerekiyor. Standart form doldurularak Değişiklik Kontrol Kurulu'na (CCB) sunulmalı. Ne zaman hazır olursunuz?",
       "time": "10:00",
       "options": [
-        {"key":"A","text":"Etki analizini bugün tamamlarım; resmi CCB başvuru formunu doldurarak yarın sabah sunuma hazır hale getiririm.","feedback":"Değişiklik kontrolünü ciddiye almak ve hızlı hareket etmek PMO ile güven ilişkisi kurar.","xp":30},
-        {"key":"B","text":"Formu dolduracağım ama CCB toplantısı bu ayın sonuna kadar ertelenebilir mi diye sorarım.","feedback":"Erteleme talebi projeye risk katar; değişikliğin beklemesi kritik yolu etkileyebilir.","xp":10},
-        {"key":"C","text":"Değişiklik küçük olduğu için formel süreç gerekmiyor; sözlü onay alırım.","feedback":"Yönlendirici PMO yapılarında formel süreçleri atlatmak ciddi uyum sorunlarına yol açar.","xp":-5},
-        {"key":"D","text":"Müşteri baskısı olduğu için değişikliği PMO'ya bildirmeden hayata geçiririm.","feedback":"PMO onayı almadan uygulama, sorumluluk sorunları ve proje kontrolü kaybıyla sonuçlanır.","xp":-20}
+        {
+          "key": "A",
+          "text": "Etki analizini bugün tamamlarım; resmi CCB başvuru formunu doldurarak yarın sabah sunuma hazır hale getiririm.",
+          "feedback": "Değişiklik kontrolünü ciddiye almak ve hızlı hareket etmek PMO ile güven ilişkisi kurar.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Formu dolduracağım ama CCB toplantısı bu ayın sonuna kadar ertelenebilir mi diye sorarım.",
+          "feedback": "Erteleme talebi projeye risk katar; değişikliğin beklemesi kritik yolu etkileyebilir.",
+          "xp": 10
+        },
+        {
+          "key": "C",
+          "text": "Değişiklik küçük olduğu için formel süreç gerekmiyor; sözlü onay alırım.",
+          "feedback": "Yönlendirici PMO yapılarında formel süreçleri atlatmak ciddi uyum sorunlarına yol açar.",
+          "xp": -5
+        },
+        {
+          "key": "D",
+          "text": "Müşteri baskısı olduğu için değişikliği PMO'ya bildirmeden hayata geçiririm.",
+          "feedback": "PMO onayı almadan uygulama, sorumluluk sorunları ve proje kontrolü kaybıyla sonuçlanır.",
+          "xp": -20
+        }
       ]
     },
-
     {
-      "id": 102, "type": "decision", "section": 2,
-      "from": "{{pmo_label}} Risk Koordinatörü", "fromRole": "PMO Birimi",
+      "id": 102,
+      "type": "decision",
+      "section": 2,
+      "from": "{{pmo_label}} Risk Koordinatörü",
+      "fromRole": "PMO Birimi",
       "subject": "Risk Eskalasyonu — PMO Onayı Gerekiyor",
       "body": "{{player_name}},\n\nRisk kaydınızdaki kritik risk için PMO'ya resmi eskalasyon bildirimi yapmanız ve yanıt planınızı onaylatmanız gerekiyor. Yanıt planınız hazır mı?",
       "time": "11:00",
       "options": [
-        {"key":"A","text":"Risk yanıt planını detaylı biçimde hazırlarım: birincil ve yedek stratejileri, risk sahibini, izleme tetikleyicilerini ve bütçe karşılığını belirtir, PMO'ya sunarım.","feedback":"Kapsamlı risk yanıt planı hem projeyi korur hem PMO ile uyumu gösterir.","xp":30},
-        {"key":"B","text":"Kısa bir özet hazırlarım ve PMO'ya iletirim.","feedback":"Özet yaklaşım bazı durumlarda yeterli olabilir ancak kritik riskler için ayrıntı beklenir.","xp":15},
-        {"key":"C","text":"Risk tanımladım, yanıt planı ekibe bırakılıyor; PMO'yu bilgilendirmek için zaman kaybetmek istemiyorum.","feedback":"PMO bildirimini atlamak direktif yapılarda ciddi uyum sorununa yol açar.","xp":-8},
-        {"key":"D","text":"Risk geçip gitmiş olabilir; bir hafta bekleyerek durumu gözlemlerim.","feedback":"Kritik risklerde bekleme stratejisi yalnızca hasar büyütür.","xp":-15}
+        {
+          "key": "A",
+          "text": "Risk yanıt planını detaylı biçimde hazırlarım: birincil ve yedek stratejileri, risk sahibini, izleme tetikleyicilerini ve bütçe karşılığını belirtir, PMO'ya sunarım.",
+          "feedback": "Kapsamlı risk yanıt planı hem projeyi korur hem PMO ile uyumu gösterir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Kısa bir özet hazırlarım ve PMO'ya iletirim.",
+          "feedback": "Özet yaklaşım bazı durumlarda yeterli olabilir ancak kritik riskler için ayrıntı beklenir.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Risk tanımladım, yanıt planı ekibe bırakılıyor; PMO'yu bilgilendirmek için zaman kaybetmek istemiyorum.",
+          "feedback": "PMO bildirimini atlamak direktif yapılarda ciddi uyum sorununa yol açar.",
+          "xp": -8
+        },
+        {
+          "key": "D",
+          "text": "Risk geçip gitmiş olabilir; bir hafta bekleyerek durumu gözlemlerim.",
+          "feedback": "Kritik risklerde bekleme stratejisi yalnızca hasar büyütür.",
+          "xp": -15
+        }
       ]
     },
-
     {
-      "id": 103, "type": "decision", "section": 2,
-      "from": "Departman Müdürü", "fromRole": "Fonksiyonel Yönetim",
+      "id": 103,
+      "type": "decision",
+      "section": 2,
+      "from": "Departman Müdürü",
+      "fromRole": "Fonksiyonel Yönetim",
       "subject": "Çatışma Şikayeti — Ekip Üyesi Hiyerarşiyi Atlıyor",
       "body": "{{player_name}},\n\nEkibinizden bir geliştirici proje konularında doğrudan Genel Müdür'e ulaşmaya çalışmış. Bu davranış kabul edilemez. Nasıl ele alacaksınız?",
       "time": "15:00",
       "options": [
-        {"key":"A","text":"Önce geliştiricinin neden bu yola başvurduğunu anlamak için bire bir görüşürüm; endişesini dinler, hangi kanaldan ilerlenmesi gerektiğini netleştiririm ve şikâyetini çözümlemek için somut adım atarım.","feedback":"Hiyerarşi ihlalinin nedenini anlamak, semptomla değil asıl sorunla ilgilenmenizi sağlar.","xp":30},
-        {"key":"B","text":"Geliştiriciye resmi uyarı veririm; hiyerarşiyi atlamaması gerektiğini açıkça belirtirim.","feedback":"Uyarı gerekli olabilir ancak nedenini çözümlemeden sadece kural vurgulamak tekrarı önlemez.","xp":10},
-        {"key":"C","text":"Genel Müdürden gelecek olası yönlendirmeye göre hareket ederim.","feedback":"Sorunu üst yönetime devretmek PM'in liderlik kapasitesini sorgulatır.","xp":3},
-        {"key":"D","text":"Bu kez görmezden gelirim; tekrar olursa ele alırım.","feedback":"Sınır ihlallerini erken ele almamak, normların bozulmasına zemin hazırlar.","xp":-10}
+        {
+          "key": "A",
+          "text": "Önce geliştiricinin neden bu yola başvurduğunu anlamak için bire bir görüşürüm; endişesini dinler, hangi kanaldan ilerlenmesi gerektiğini netleştiririm ve şikâyetini çözümlemek için somut adım atarım.",
+          "feedback": "Hiyerarşi ihlalinin nedenini anlamak, semptomla değil asıl sorunla ilgilenmenizi sağlar.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Geliştiriciye resmi uyarı veririm; hiyerarşiyi atlamaması gerektiğini açıkça belirtirim.",
+          "feedback": "Uyarı gerekli olabilir ancak nedenini çözümlemeden sadece kural vurgulamak tekrarı önlemez.",
+          "xp": 10
+        },
+        {
+          "key": "C",
+          "text": "Genel Müdürden gelecek olası yönlendirmeye göre hareket ederim.",
+          "feedback": "Sorunu üst yönetime devretmek PM'in liderlik kapasitesini sorgulatır.",
+          "xp": 3
+        },
+        {
+          "key": "D",
+          "text": "Bu kez görmezden gelirim; tekrar olursa ele alırım.",
+          "feedback": "Sınır ihlallerini erken ele almamak, normların bozulmasına zemin hazırlar.",
+          "xp": -10
+        }
       ]
     },
-
     {
-      "id": 104, "type": "decision", "section": 2,
-      "from": "Satın Alma Departmanı", "fromRole": "Tedarik Yönetimi",
+      "id": 104,
+      "type": "decision",
+      "section": 2,
+      "from": "Satın Alma Departmanı",
+      "fromRole": "Tedarik Yönetimi",
       "subject": "Tedarik Sürecinde PMO Standardı Uygulanmalı",
       "body": "{{player_name}},\n\nSeçmek istediğiniz tedarikçi {{pmo_label}}'nun standart onaylı tedarikçi listesinde yok. Bu durumda ya listeden seçim yapacaksınız ya da istisnai onay sürecini başlatacaksınız.",
       "time": "09:30",
       "options": [
-        {"key":"A","text":"Tedarikçinin neden liste dışında kaldığını araştırır, istisnai onay için gereken teknik gerekçeyi ve karşılaştırmalı analizi hazırlarım; PMO'ya sunarım.","feedback":"Süreci takip ederken projenin ihtiyaçlarını savunmak profesyonel PM davranışıdır.","xp":30},
-        {"key":"B","text":"Onaylı listeden en yakın alternatifi seçerim ve devam ederim.","feedback":"Pratik ama proje için en uygun tedarikçiyi kaçırıyor olabilirsiniz.","xp":15},
-        {"key":"C","text":"PMO'ya haber vermeden tercih ettiğim tedarikçiyle sözleşme sürecini başlatırım.","feedback":"Onay almadan sözleşme başlatmak ciddi uyum ihlali ve mali sorumluluk riski yaratır.","xp":-20},
-        {"key":"D","text":"Tedarikçi seçimini proje gecikmesine neden olmamak için sonraya bırakırım.","feedback":"Tedarik gecikmesi temin süresini uzatır ve genellikle daha büyük proje gecikmesine yol açar.","xp":-8}
+        {
+          "key": "A",
+          "text": "Tedarikçinin neden liste dışında kaldığını araştırır, istisnai onay için gereken teknik gerekçeyi ve karşılaştırmalı analizi hazırlarım; PMO'ya sunarım.",
+          "feedback": "Süreci takip ederken projenin ihtiyaçlarını savunmak profesyonel PM davranışıdır.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Onaylı listeden en yakın alternatifi seçerim ve devam ederim.",
+          "feedback": "Pratik ama proje için en uygun tedarikçiyi kaçırıyor olabilirsiniz.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "PMO'ya haber vermeden tercih ettiğim tedarikçiyle sözleşme sürecini başlatırım.",
+          "feedback": "Onay almadan sözleşme başlatmak ciddi uyum ihlali ve mali sorumluluk riski yaratır.",
+          "xp": -20
+        },
+        {
+          "key": "D",
+          "text": "Tedarikçi seçimini proje gecikmesine neden olmamak için sonraya bırakırım.",
+          "feedback": "Tedarik gecikmesi temin süresini uzatır ve genellikle daha büyük proje gecikmesine yol açar.",
+          "xp": -8
+        }
       ]
     },
-
     {
-      "id": 105, "type": "decision", "section": 3,
-      "from": "{{pmo_label}} Kapanış Sorumlusu", "fromRole": "PMO Birimi",
+      "id": 105,
+      "type": "decision",
+      "section": 3,
+      "from": "{{pmo_label}} Kapanış Sorumlusu",
+      "fromRole": "PMO Birimi",
       "subject": "Proje Kapanışı — PMO Belgesi Teslim Edilmeli",
       "body": "{{player_name}},\n\nProje operasyonel aşamaya geçmeden önce {{pmo_label}}'na kapanış raporu, alınan dersler belgesi ve kaynak serbest bırakma formlarını teslim etmeniz gerekiyor.",
       "time": "16:00",
       "options": [
-        {"key":"A","text":"Tüm kapanış belgelerini sistematik biçimde hazırlarım: kapanış raporu, lessons learned (ekip girdileriyle oluşturulmuş), kaynak serbest bırakma planı ve son durum özeti.","feedback":"Kapsamlı ve kaliteli kapanış belgeleri kurumsal hafızaya katkı sağlar ve gelecekteki projeler için değer yaratır.","xp":30},
-        {"key":"B","text":"Temel belgeleri hazırlarım; alınan dersler kısmını kısa tutarım.","feedback":"Alınan dersler kurumsal hafıza için en değerli belgedir; kısa tutmak bu değeri azaltır.","xp":12},
-        {"key":"C","text":"Kapanış belgelerini teslim ederim ancak ekipten girdi almaya vaktim yok.","feedback":"PM tek başına hazırlanan lessons learned gerçek sorunları ve çözümleri eksik yansıtır.","xp":5},
-        {"key":"D","text":"Proje başarılı geçti; PMO belgelerini sonradan yaparım.","feedback":"Kapanış belgelerinin ertelenmesi genellikle hiç yapılmamasıyla sonuçlanır ve kurumsal bilgi kaybına yol açar.","xp":-10}
+        {
+          "key": "A",
+          "text": "Tüm kapanış belgelerini sistematik biçimde hazırlarım: kapanış raporu, lessons learned (ekip girdileriyle oluşturulmuş), kaynak serbest bırakma planı ve son durum özeti.",
+          "feedback": "Kapsamlı ve kaliteli kapanış belgeleri kurumsal hafızaya katkı sağlar ve gelecekteki projeler için değer yaratır.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Temel belgeleri hazırlarım; alınan dersler kısmını kısa tutarım.",
+          "feedback": "Alınan dersler kurumsal hafıza için en değerli belgedir; kısa tutmak bu değeri azaltır.",
+          "xp": 12
+        },
+        {
+          "key": "C",
+          "text": "Kapanış belgelerini teslim ederim ancak ekipten girdi almaya vaktim yok.",
+          "feedback": "PM tek başına hazırlanan lessons learned gerçek sorunları ve çözümleri eksik yansıtır.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Proje başarılı geçti; PMO belgelerini sonradan yaparım.",
+          "feedback": "Kapanış belgelerinin ertelenmesi genellikle hiç yapılmamasıyla sonuçlanır ve kurumsal bilgi kaybına yol açar.",
+          "xp": -10
+        }
       ]
     },
-
     {
-      "id": 201, "type": "decision", "section": 1,
-      "from": "{{pmo_label}} Uzmanı", "fromRole": "PMO Destek Birimi",
+      "id": 201,
+      "type": "decision",
+      "section": 1,
+      "from": "{{pmo_label}} Uzmanı",
+      "fromRole": "PMO Destek Birimi",
       "subject": "Mentörlük Teklifi — Deneyimli PM Desteği",
       "body": "{{player_name}},\n\nPMO olarak size deneyimli bir PM mentörü atayabiliriz. Mentörümüz benzer projelerde 10 yılı aşkın deneyime sahip. Bu teklifi değerlendirir misiniz?",
       "time": "11:00",
       "options": [
-        {"key":"A","text":"Teklifi memnuniyetle kabul ederim; hangi konularda desteğe ihtiyacım olabileceğini düşünerek ilk toplantıya hazırlıklı giderim.","feedback":"Mentörlükten yararlanmak güçten gelir; öğrenmeye açık olmak kariyer gelişiminin en hızlı yoludur.","xp":30},
-        {"key":"B","text":"Kabul ederim ama takvime göre görüşebiliriz diyerek belirsiz bırakırım.","feedback":"Belirsiz kabul mentörden fayda almanızı güçleştirir.","xp":12},
-        {"key":"C","text":"Şu an çok yoğunum; proje oturumlanınca değerlendiririm.","feedback":"Projenin en kritik başlangıç döneminde mentörlük en değerli zamanda gelir.","xp":5},
-        {"key":"D","text":"Teşekkür ederim ama gerek duymuyorum; yönetebilirim.","feedback":"Destek reddetmek deneyim eksikliğini görmezden gelme riskini artırır.","xp":-5}
+        {
+          "key": "A",
+          "text": "Teklifi memnuniyetle kabul ederim; hangi konularda desteğe ihtiyacım olabileceğini düşünerek ilk toplantıya hazırlıklı giderim.",
+          "feedback": "Mentörlükten yararlanmak güçten gelir; öğrenmeye açık olmak kariyer gelişiminin en hızlı yoludur.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Kabul ederim ama takvime göre görüşebiliriz diyerek belirsiz bırakırım.",
+          "feedback": "Belirsiz kabul mentörden fayda almanızı güçleştirir.",
+          "xp": 12
+        },
+        {
+          "key": "C",
+          "text": "Şu an çok yoğunum; proje oturumlanınca değerlendiririm.",
+          "feedback": "Projenin en kritik başlangıç döneminde mentörlük en değerli zamanda gelir.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Teşekkür ederim ama gerek duymuyorum; yönetebilirim.",
+          "feedback": "Destek reddetmek deneyim eksikliğini görmezden gelme riskini artırır.",
+          "xp": -5
+        }
       ]
     },
-
     {
-      "id": 202, "type": "decision", "section": 2,
-      "from": "{{pmo_label}} Koordinatörü", "fromRole": "PMO Birimi",
+      "id": 202,
+      "type": "decision",
+      "section": 2,
+      "from": "{{pmo_label}} Koordinatörü",
+      "fromRole": "PMO Birimi",
       "subject": "PMO Tavsiyeleri Hazır — Liderlik Stiliniz Hakkında",
       "body": "{{player_name}},\n\nEkip anketinden gelen verilere dayanarak PMO size liderlik stili konusunda önerileri hazırladı. Önerileri almak ve tartışmak ister misiniz?",
       "time": "14:30",
       "options": [
-        {"key":"A","text":"Evet, önerileri alırım; her birini açık fikirle değerlendirir, hangilerini nasıl uygulayacağımı somut bir eylem planına dönüştürürüm.","feedback":"Geri bildirimi eyleme dönüştürmek büyüme odaklı liderliğin göstergesidir.","xp":30},
-        {"key":"B","text":"Önerileri alırım, bazılarını değerlendiririm.","feedback":"Seçici yaklaşım olabilir ama hangi kritere göre seçileceği önemli.","xp":15},
-        {"key":"C","text":"Önerileri alırım ama uygulamak zorunda olmadığımı belirtirim.","feedback":"Savunmacı yaklaşım PMO ile iş birliğini zedeler.","xp":5},
-        {"key":"D","text":"PMO'nun liderlik stilime karışmasını uygun bulmuyorum.","feedback":"Destekleyici PMO yapısında bu tür geri bildirimler kaynağı iyi niyettir; reddetmek fırsatı kaçırmaktır.","xp":-8}
+        {
+          "key": "A",
+          "text": "Evet, önerileri alırım; her birini açık fikirle değerlendirir, hangilerini nasıl uygulayacağımı somut bir eylem planına dönüştürürüm.",
+          "feedback": "Geri bildirimi eyleme dönüştürmek büyüme odaklı liderliğin göstergesidir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Önerileri alırım, bazılarını değerlendiririm.",
+          "feedback": "Seçici yaklaşım olabilir ama hangi kritere göre seçileceği önemli.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Önerileri alırım ama uygulamak zorunda olmadığımı belirtirim.",
+          "feedback": "Savunmacı yaklaşım PMO ile iş birliğini zedeler.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "PMO'nun liderlik stilime karışmasını uygun bulmuyorum.",
+          "feedback": "Destekleyici PMO yapısında bu tür geri bildirimler kaynağı iyi niyettir; reddetmek fırsatı kaçırmaktır.",
+          "xp": -8
+        }
       ]
     },
-
     {
-      "id": 203, "type": "decision", "section": 2,
-      "from": "PMO Takım Gelişimi Uzmanı", "fromRole": "PMO Destek Birimi",
+      "id": 203,
+      "type": "decision",
+      "section": 2,
+      "from": "PMO Takım Gelişimi Uzmanı",
+      "fromRole": "PMO Destek Birimi",
       "subject": "Şablon ve Araçlar — Takım Oluşturma Kaynakları Hazır",
       "body": "{{player_name}},\n\nPMO'muz takım oluşturma için test edilmiş şablonlar ve facilitasyon araçları hazırladı. Bunları kullanmak ister misiniz? Bir oturum düzenleyebiliriz.",
       "time": "10:00",
       "options": [
-        {"key":"A","text":"Kesinlikle. Oturumu organize eder, şablonları ekibimle birlikte projeye uyarlayarak kullanırım.","feedback":"Hazır kaynakları projeye uyarlayarak kullanmak çarkı yeniden icat etmekten çok daha verimlidir.","xp":30},
-        {"key":"B","text":"Şablonlara bakarım; uygunsa kullanırım.","feedback":"Makul yaklaşım ancak uzmanlık oturumunu atlamak uyarlama kalitesini düşürebilir.","xp":15},
-        {"key":"C","text":"Kendi yöntemlerimiz zaten yeterli; ekstra kaynak gerekmez.","feedback":"Mevcut yöntemleri sorgulamamak yenilenme fırsatını kaçırmak demektir.","xp":5},
-        {"key":"D","text":"Bunu proje ekibi değil takım lideri yönetmeli.","feedback":"PM olarak takım gelişimine sahip çıkmamak uzun vadede performans sorunlarına zemin hazırlar.","xp":-8}
+        {
+          "key": "A",
+          "text": "Kesinlikle. Oturumu organize eder, şablonları ekibimle birlikte projeye uyarlayarak kullanırım.",
+          "feedback": "Hazır kaynakları projeye uyarlayarak kullanmak çarkı yeniden icat etmekten çok daha verimlidir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Şablonlara bakarım; uygunsa kullanırım.",
+          "feedback": "Makul yaklaşım ancak uzmanlık oturumunu atlamak uyarlama kalitesini düşürebilir.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Kendi yöntemlerimiz zaten yeterli; ekstra kaynak gerekmez.",
+          "feedback": "Mevcut yöntemleri sorgulamamak yenilenme fırsatını kaçırmak demektir.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Bunu proje ekibi değil takım lideri yönetmeli.",
+          "feedback": "PM olarak takım gelişimine sahip çıkmamak uzun vadede performans sorunlarına zemin hazırlar.",
+          "xp": -8
+        }
       ]
     },
-
     {
-      "id": 204, "type": "decision", "section": 1,
-      "from": "PMO İK Uzmanı", "fromRole": "PMO Destek Birimi",
+      "id": 204,
+      "type": "decision",
+      "section": 1,
+      "from": "PMO İK Uzmanı",
+      "fromRole": "PMO Destek Birimi",
       "subject": "Çatışma Yönetimi — PMO Danışman Desteği Hazır",
       "body": "{{player_name}},\n\nEkibinizde arabuluculuk ihtiyacı doğarsa PMO bünyesinde sertifikalı bir çatışma yönetimi uzmanı var. Hizmetlerinden yararlanmak ister misiniz?",
       "time": "09:15",
       "options": [
-        {"key":"A","text":"Şu an aktif bir çatışma yok ama ileride ihtiyaç duyarsam başvurmak için iletişim bilgilerini alır, bağlantıyı kurarım.","feedback":"Kaynakları önceden tanıyıp hazır tutmak proaktif proje yönetiminin özelliğidir.","xp":25},
-        {"key":"B","text":"Çatışma çıktığında düşünürüm.","feedback":"Kriz anında kaynak aramak çözümü geciktirir.","xp":12},
-        {"key":"C","text":"Çatışma yönetimini kendim hallederim; dışarı çıkarmam.","feedback":"Tüm durumlarda dış destek gerekmiyor ama seçeneği reddetmek kaynak israfıdır.","xp":8},
-        {"key":"D","text":"PMO'nun ekibimizin dinamiklerine müdahalesini uygun bulmuyorum.","feedback":"Destekleyici PMO'nun sunduğu hizmetleri reddetmek değerli kaynakları boşa harcar.","xp":-5}
+        {
+          "key": "A",
+          "text": "Şu an aktif bir çatışma yok ama ileride ihtiyaç duyarsam başvurmak için iletişim bilgilerini alır, bağlantıyı kurarım.",
+          "feedback": "Kaynakları önceden tanıyıp hazır tutmak proaktif proje yönetiminin özelliğidir.",
+          "xp": 25
+        },
+        {
+          "key": "B",
+          "text": "Çatışma çıktığında düşünürüm.",
+          "feedback": "Kriz anında kaynak aramak çözümü geciktirir.",
+          "xp": 12
+        },
+        {
+          "key": "C",
+          "text": "Çatışma yönetimini kendim hallederim; dışarı çıkarmam.",
+          "feedback": "Tüm durumlarda dış destek gerekmiyor ama seçeneği reddetmek kaynak israfıdır.",
+          "xp": 8
+        },
+        {
+          "key": "D",
+          "text": "PMO'nun ekibimizin dinamiklerine müdahalesini uygun bulmuyorum.",
+          "feedback": "Destekleyici PMO'nun sunduğu hizmetleri reddetmek değerli kaynakları boşa harcar.",
+          "xp": -5
+        }
       ]
     },
-
     {
-      "id": 205, "type": "decision", "section": 3,
-      "from": "PMO Tedarik Uzmanı", "fromRole": "PMO Destek Birimi",
+      "id": 205,
+      "type": "decision",
+      "section": 3,
+      "from": "PMO Tedarik Uzmanı",
+      "fromRole": "PMO Destek Birimi",
       "subject": "Tedarikçi Seçimi — PMO Uzman Önerisi",
       "body": "{{player_name}},\n\nTedarikçi değerlendirmenizde PMO'nun daha önce benzer projelerden derlediği puanlama matrisleri ve referans karşılaştırmaları var. Bunları kullanmak ister misiniz?",
       "time": "14:00",
       "options": [
-        {"key":"A","text":"Evet. PMO'nun birikimini kendi değerlendirmemle entegre ederek daha güçlü bir tedarikçi seçim süreci oluştururum.","feedback":"Kurumsal bilgiden yararlanmak tedarikçi riskini düşürür ve karar kalitesini artırır.","xp":30},
-        {"key":"B","text":"Alırım ama kendi değerlendirmemi esas alırım.","feedback":"Dengeli yaklaşım; kurumsal bilgiyi tamamen görmezden gelmemek avantajlı.","xp":15},
-        {"key":"C","text":"Kendi ekibimle değerlendirme yapacağız; PMO matrisine gerek yok.","feedback":"Geçmiş deneyimleri içeren matrisleri kullanmamak gereksiz risk yaratır.","xp":5},
-        {"key":"D","text":"Tedarikçi zaten belirlenmiş; değerlendirme süreci formalite.","feedback":"Seçim önceden kararlaştırılmışsa bile formel değerlendirme şeffaflık ve uyum açısından gereklidir.","xp":-10}
+        {
+          "key": "A",
+          "text": "Evet. PMO'nun birikimini kendi değerlendirmemle entegre ederek daha güçlü bir tedarikçi seçim süreci oluştururum.",
+          "feedback": "Kurumsal bilgiden yararlanmak tedarikçi riskini düşürür ve karar kalitesini artırır.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Alırım ama kendi değerlendirmemi esas alırım.",
+          "feedback": "Dengeli yaklaşım; kurumsal bilgiyi tamamen görmezden gelmemek avantajlı.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Kendi ekibimle değerlendirme yapacağız; PMO matrisine gerek yok.",
+          "feedback": "Geçmiş deneyimleri içeren matrisleri kullanmamak gereksiz risk yaratır.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Tedarikçi zaten belirlenmiş; değerlendirme süreci formalite.",
+          "feedback": "Seçim önceden kararlaştırılmışsa bile formel değerlendirme şeffaflık ve uyum açısından gereklidir.",
+          "xp": -10
+        }
       ]
     },
-
     {
-      "id": 301, "type": "decision", "section": 2,
-      "from": "{{pmo_label}} İzleme Koordinatörü", "fromRole": "PMO Birimi",
+      "id": 301,
+      "type": "decision",
+      "section": 2,
+      "from": "{{pmo_label}} İzleme Koordinatörü",
+      "fromRole": "PMO Birimi",
       "subject": "Aylık Milestone Raporu — Süre Geçiyor",
       "body": "{{player_name}},\n\nBu ayın milestone raporunu henüz PMO sistemine girmediniz. Raporun bu haftaya kadar tamamlanması gerekiyor. Hangi milestone'larda sapma var?",
       "time": "09:00",
       "options": [
-        {"key":"A","text":"Sapmalar dahil tam ve doğru bir milestone raporu hazırlarım; sapmaların nedenlerini ve düzeltici aksiyonları açıkça belirtirim.","feedback":"Denetleyici PMO ile şeffaflık güven ilişkisi kurar; sorunları gizlemek ilerleyen dönemde daha büyük sorunlara yol açar.","xp":30},
-        {"key":"B","text":"Tamamlanan milestone'ları girerim; sapmalar için ek not eklerim.","feedback":"Yeterli ama sapmaların düzeltici aksiyonlarla birlikte sunulması daha değerlidir.","xp":15},
-        {"key":"C","text":"Raporu dolduracağım ama nedenler kısmını boş bırakabilirim.","feedback":"Nedenler olmadan sapma verisi PMO için anlamını yitirir.","xp":5},
-        {"key":"D","text":"Raporlama süreci çok bürokratik; proje takibini kendi araçlarımla yapıyorum.","feedback":"PMO sistemine girmemek görünürlük kaybı ve uyum sorununa yol açar.","xp":-15}
+        {
+          "key": "A",
+          "text": "Sapmalar dahil tam ve doğru bir milestone raporu hazırlarım; sapmaların nedenlerini ve düzeltici aksiyonları açıkça belirtirim.",
+          "feedback": "Denetleyici PMO ile şeffaflık güven ilişkisi kurar; sorunları gizlemek ilerleyen dönemde daha büyük sorunlara yol açar.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Tamamlanan milestone'ları girerim; sapmalar için ek not eklerim.",
+          "feedback": "Yeterli ama sapmaların düzeltici aksiyonlarla birlikte sunulması daha değerlidir.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Raporu dolduracağım ama nedenler kısmını boş bırakabilirim.",
+          "feedback": "Nedenler olmadan sapma verisi PMO için anlamını yitirir.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Raporlama süreci çok bürokratik; proje takibini kendi araçlarımla yapıyorum.",
+          "feedback": "PMO sistemine girmemek görünürlük kaybı ve uyum sorununa yol açar.",
+          "xp": -15
+        }
       ]
     },
-
     {
-      "id": 302, "type": "decision", "section": 2,
-      "from": "{{pmo_label}} Analisti", "fromRole": "PMO Birimi",
+      "id": 302,
+      "type": "decision",
+      "section": 2,
+      "from": "{{pmo_label}} Analisti",
+      "fromRole": "PMO Birimi",
       "subject": "Durum Raporu — Liderlik Performansı Gözlemleniyor",
       "body": "{{player_name}},\n\nPMO aylık liderlik etkinlik değerlendirmesi kapsamında toplantı notlarınızı, karar loglarınızı ve ekip geri bildirimlerini inceleyecek. Belgeleriniz hazır mı?",
       "time": "11:30",
       "options": [
-        {"key":"A","text":"Tüm belgeler düzenli tutuluyor; toplantı notları, karar gerekçeleri ve ekip geri bildirim kayıtlarını PMO'ya açarım.","feedback":"Sürekli belge tutmak hem projeyi korur hem PMO denetimine hazır olmanızı sağlar.","xp":30},
-        {"key":"B","text":"Toplantı notlarım var ama karar gerekçeleri eksik; hızlıca tamamlarım.","feedback":"Eksik belgeleri zamanında tamamlamak gecikme yaratsa da dürüstlük gösterir.","xp":15},
-        {"key":"C","text":"Belgeler dağınık ama PMO'ya toparlanmış görüntü verebilirim.","feedback":"Belge kalitesini gizlemek kısa vadeli rahatlama, uzun vadede güven kaybı yaratır.","xp":-5},
-        {"key":"D","text":"PMO'nun bu düzeyde denetim yapmasını aşırı buluyor; itiraz ederim.","feedback":"Denetleyici PMO yapısında bu incelemeler standarttır; itiraz ilişkiyi zedeler.","xp":-15}
+        {
+          "key": "A",
+          "text": "Tüm belgeler düzenli tutuluyor; toplantı notları, karar gerekçeleri ve ekip geri bildirim kayıtlarını PMO'ya açarım.",
+          "feedback": "Sürekli belge tutmak hem projeyi korur hem PMO denetimine hazır olmanızı sağlar.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Toplantı notlarım var ama karar gerekçeleri eksik; hızlıca tamamlarım.",
+          "feedback": "Eksik belgeleri zamanında tamamlamak gecikme yaratsa da dürüstlük gösterir.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Belgeler dağınık ama PMO'ya toparlanmış görüntü verebilirim.",
+          "feedback": "Belge kalitesini gizlemek kısa vadeli rahatlama, uzun vadede güven kaybı yaratır.",
+          "xp": -5
+        },
+        {
+          "key": "D",
+          "text": "PMO'nun bu düzeyde denetim yapmasını aşırı buluyor; itiraz ederim.",
+          "feedback": "Denetleyici PMO yapısında bu incelemeler standarttır; itiraz ilişkiyi zedeler.",
+          "xp": -15
+        }
       ]
     },
-
     {
-      "id": 303, "type": "decision", "section": 1,
-      "from": "{{pmo_label}} İK Uzmanı", "fromRole": "PMO Birimi",
+      "id": 303,
+      "type": "decision",
+      "section": 1,
+      "from": "{{pmo_label}} İK Uzmanı",
+      "fromRole": "PMO Birimi",
       "subject": "Duygusal Zeka Profili — PMO Takip Sistemi",
       "body": "{{player_name}},\n\nPMO tüm PM'ler için zorunlu EQ profil değerlendirmesi yapıyor. Sonuçlar gelişim planına entegre edilecek. Değerlendirmeyi tamamlamaya hazır mısınız?",
       "time": "10:00",
       "options": [
-        {"key":"A","text":"Değerlendirmeyi dürüstçe tamamlarım; sonuçları inceleyerek güçlü ve gelişime açık alanlarımı anlama fırsatı olarak görürüm.","feedback":"EQ değerlendirmesini fırsata dönüştürmek hem kişisel hem de liderlik gelişimi için değerlidir.","xp":30},
-        {"key":"B","text":"Değerlendirmeyi tamamlarım ama sonuçların proje performansıma yansımamasını isterim.","feedback":"Makul bir çekince; süreci tamamlamak olumlu bir adım.","xp":15},
-        {"key":"C","text":"Değerlendirmeyi yaparım ama sonuçlara katılmayabilirim, bunu belirtirim.","feedback":"Eleştirel yaklaşım sağlıklı; sonuçlara katılım pek çok faktöre bağlıdır.","xp":10},
-        {"key":"D","text":"Zorunlu olduğunu biliyorum ama bunun proje yönetimiyle ilgisini anlamıyorum.","feedback":"EQ, takım yönetimi ve paydaş ilişkileri açısından doğrudan proje başarısını etkiler.","xp":-5}
+        {
+          "key": "A",
+          "text": "Değerlendirmeyi dürüstçe tamamlarım; sonuçları inceleyerek güçlü ve gelişime açık alanlarımı anlama fırsatı olarak görürüm.",
+          "feedback": "EQ değerlendirmesini fırsata dönüştürmek hem kişisel hem de liderlik gelişimi için değerlidir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Değerlendirmeyi tamamlarım ama sonuçların proje performansıma yansımamasını isterim.",
+          "feedback": "Makul bir çekince; süreci tamamlamak olumlu bir adım.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Değerlendirmeyi yaparım ama sonuçlara katılmayabilirim, bunu belirtirim.",
+          "feedback": "Eleştirel yaklaşım sağlıklı; sonuçlara katılım pek çok faktöre bağlıdır.",
+          "xp": 10
+        },
+        {
+          "key": "D",
+          "text": "Zorunlu olduğunu biliyorum ama bunun proje yönetimiyle ilgisini anlamıyorum.",
+          "feedback": "EQ, takım yönetimi ve paydaş ilişkileri açısından doğrudan proje başarısını etkiler.",
+          "xp": -5
+        }
       ]
     },
-
     {
-      "id": 304, "type": "decision", "section": 2,
-      "from": "Mali Kontrol", "fromRole": "Finans Birimi",
+      "id": 304,
+      "type": "decision",
+      "section": 2,
+      "from": "Mali Kontrol",
+      "fromRole": "Finans Birimi",
       "subject": "Bütçe İzleme Raporu — Maliyet Sapması Tespit Edildi",
       "body": "{{player_name}},\n\n{{pmo_label}}'nun aylık bütçe izleme sistemine göre projenizin CPI değeri 0.87'ye düştü. Düzeltici aksiyon planı ve bütçe güncelleme talebi bekleniyor.",
       "time": "14:15",
       "options": [
-        {"key":"A","text":"Maliyet sapmasının kök nedenini analiz ederim; EVM metriklerini güncellerim, düzeltici aksiyonları ve Tahmini Tamamlama Maliyetini (EAC) revize ederek PMO'ya sunarım.","feedback":"EVM analizi ve proaktif raporlama hem bütçe kontrolünü hem PMO güvenini destekler.","xp":30},
-        {"key":"B","text":"Bütçe güncellemesi hazırlarım ama EAC revizyonu yapmam.","feedback":"EAC olmadan bütçe güncellemesi PMO için eksik kalır.","xp":15},
-        {"key":"C","text":"CPI sapmasının geçici olduğunu belirterek beklemelerini isterim.","feedback":"Gerekçesiz bekleme talebi PMO'nun kontrolünü zayıflatır.","xp":3},
-        {"key":"D","text":"Mali kontrolün hesabında hata olabilir; önce bunu sorgularım.","feedback":"Veri doğruluğunu sorgulamak meşru olabilir ama önce kendi kayıtlarınızla karşılaştırmak daha sağlıklıdır.","xp":-5}
+        {
+          "key": "A",
+          "text": "Maliyet sapmasının kök nedenini analiz ederim; EVM metriklerini güncellerim, düzeltici aksiyonları ve Tahmini Tamamlama Maliyetini (EAC) revize ederek PMO'ya sunarım.",
+          "feedback": "EVM analizi ve proaktif raporlama hem bütçe kontrolünü hem PMO güvenini destekler.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Bütçe güncellemesi hazırlarım ama EAC revizyonu yapmam.",
+          "feedback": "EAC olmadan bütçe güncellemesi PMO için eksik kalır.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "CPI sapmasının geçici olduğunu belirterek beklemelerini isterim.",
+          "feedback": "Gerekçesiz bekleme talebi PMO'nun kontrolünü zayıflatır.",
+          "xp": 3
+        },
+        {
+          "key": "D",
+          "text": "Mali kontrolün hesabında hata olabilir; önce bunu sorgularım.",
+          "feedback": "Veri doğruluğunu sorgulamak meşru olabilir ama önce kendi kayıtlarınızla karşılaştırmak daha sağlıklıdır.",
+          "xp": -5
+        }
       ]
     },
-
     {
-      "id": 305, "type": "decision", "section": 3,
-      "from": "Kalite Güvence Ekibi", "fromRole": "{{pmo_label}} Kalite Birimi",
+      "id": 305,
+      "type": "decision",
+      "section": 3,
+      "from": "Kalite Güvence Ekibi",
+      "fromRole": "{{pmo_label}} Kalite Birimi",
       "subject": "Kalite Denetim Bulguları — 3 Kritik Bulgu",
       "body": "{{player_name}},\n\n{{pmo_label}} kalite denetiminde 3 kritik bulgu tespit edildi: belgeleme eksikleri, test kapsamı boşlukları ve süreç uyumsuzlukları. Yanıt planı ve düzeltici aksiyonlar bekleniyor.",
       "time": "09:45",
       "options": [
-        {"key":"A","text":"Her bulgu için kök neden analizi yapar, sorumlu kişileri ve son tarihlerle birlikte düzeltici aksiyon planını 48 saat içinde kalite birimine sunarım.","feedback":"Hızlı ve yapılandırılmış yanıt, kalite denetiminin amacına hizmet eder ve PMO güvenini artırır.","xp":30},
-        {"key":"B","text":"Bulguları ekiple paylaşır ve düzeltme çalışmalarını başlatırım.","feedback":"Başlangıç iyi ama PMO'ya resmi yanıt planı sunmadan aksiyon almak takibi güçleştirir.","xp":15},
-        {"key":"C","text":"Bulguların bir kısmına itiraz ederim; tamamını kabul etmiyorum.","feedback":"İtiraz meşru bir hak ancak itiraz süresi boyunca kabul edilen bulgular için aksiyon almak gerekiyor.","xp":8},
-        {"key":"D","text":"Proje teslimi yakın; kalite bulgularını kapanış sonrasına ertelerim.","feedback":"Teslimat öncesi kalite sorunlarını ertelemek müşteri kabulünü riske atar.","xp":-15}
+        {
+          "key": "A",
+          "text": "Her bulgu için kök neden analizi yapar, sorumlu kişileri ve son tarihlerle birlikte düzeltici aksiyon planını 48 saat içinde kalite birimine sunarım.",
+          "feedback": "Hızlı ve yapılandırılmış yanıt, kalite denetiminin amacına hizmet eder ve PMO güvenini artırır.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Bulguları ekiple paylaşır ve düzeltme çalışmalarını başlatırım.",
+          "feedback": "Başlangıç iyi ama PMO'ya resmi yanıt planı sunmadan aksiyon almak takibi güçleştirir.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Bulguların bir kısmına itiraz ederim; tamamını kabul etmiyorum.",
+          "feedback": "İtiraz meşru bir hak ancak itiraz süresi boyunca kabul edilen bulgular için aksiyon almak gerekiyor.",
+          "xp": 8
+        },
+        {
+          "key": "D",
+          "text": "Proje teslimi yakın; kalite bulgularını kapanış sonrasına ertelerim.",
+          "feedback": "Teslimat öncesi kalite sorunlarını ertelemek müşteri kabulünü riske atar.",
+          "xp": -15
+        }
       ]
     },
-
     {
-      "id": 401, "type": "decision", "section": 2,
-      "from": "Scrum Master", "fromRole": "Agile Kolaylaştırıcı",
+      "id": 401,
+      "type": "decision",
+      "section": 2,
+      "from": "Scrum Master",
+      "fromRole": "Agile Kolaylaştırıcı",
       "subject": "Sprint Velocity Düştü — Ekip Kapasitesi Tartışılmalı",
       "body": "{{player_name}},\n\nSon iki sprint'te velocity %35 düştü. Ekip retrospektifinde teknik borç birikimi ve açıklık eksikliği öne çıktı. {{team_label}} bu durumu nasıl ele alacak?",
       "time": "10:00",
       "options": [
-        {"key":"A","text":"Bir teknik borç sprint'i planlayarak birikimi temizlemeye odaklanır; Scrum Master ile birlikte kapasiteyi yeniden ayarlar ve stakeholder'ları velocity düşüşü konusunda şeffaf biçimde bilgilendiririm.","feedback":"Teknik borcu doğrudan ele almak uzun vadede velocity'yi korur. Şeffaflık stakeholder güvenini artırır.","xp":30},
-        {"key":"B","text":"Ekibe daha hızlı çalışmaları için baskı uygularım.","feedback":"Baskı kısa vadede velocity'yi artırabilir ama kalitenin ve motivasyonun düşmesiyle sonuçlanır.","xp":-5},
-        {"key":"C","text":"Teknik borcun sprint dışında çözülmesini beklerim.","feedback":"'Sprint dışı' zaman nadiren gerçekleşir; borç birikir ve velocity düşüşü sürer.","xp":5},
-        {"key":"D","text":"Velocity hedefini düşürerek plana uyumu sağlarım.","feedback":"Tek başına hedef düşürmek sorunun semptomunu değil nedenini ele almaz.","xp":8}
+        {
+          "key": "A",
+          "text": "Bir teknik borç sprint'i planlayarak birikimi temizlemeye odaklanır; Scrum Master ile birlikte kapasiteyi yeniden ayarlar ve stakeholder'ları velocity düşüşü konusunda şeffaf biçimde bilgilendiririm.",
+          "feedback": "Teknik borcu doğrudan ele almak uzun vadede velocity'yi korur. Şeffaflık stakeholder güvenini artırır.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Ekibe daha hızlı çalışmaları için baskı uygularım.",
+          "feedback": "Baskı kısa vadede velocity'yi artırabilir ama kalitenin ve motivasyonun düşmesiyle sonuçlanır.",
+          "xp": -5
+        },
+        {
+          "key": "C",
+          "text": "Teknik borcun sprint dışında çözülmesini beklerim.",
+          "feedback": "'Sprint dışı' zaman nadiren gerçekleşir; borç birikir ve velocity düşüşü sürer.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Velocity hedefini düşürerek plana uyumu sağlarım.",
+          "feedback": "Tek başına hedef düşürmek sorunun semptomunu değil nedenini ele almaz.",
+          "xp": 8
+        }
       ]
     },
-
     {
-      "id": 402, "type": "decision", "section": 1,
-      "from": "Kalite Mühendisi", "fromRole": "QA Ekibi",
+      "id": 402,
+      "type": "decision",
+      "section": 1,
+      "from": "Kalite Mühendisi",
+      "fromRole": "QA Ekibi",
       "subject": "DoD Tanımı — Takım Fikir Birliğine Varamamış",
       "body": "{{player_name}},\n\nEkip Definition of Done (DoD) konusunda anlaşamıyor: bazıları 'kod tamamlandı' yeterli derken diğerleri 'canlıya alındı, test edildi' diyor. {{team_label}} bu tartışmayı nasıl çözüme kavuşturursunuz?",
       "time": "11:00",
       "options": [
-        {"key":"A","text":"Bir kolaylaştırılmış workshop organize ederim; ekibin tüm üyelerinin katkısıyla ürün kalite standartlarına dayalı, ölçülebilir ve gerçekçi bir DoD oluştururuz.","feedback":"Ekiple birlikte oluşturulan DoD sahiplenmeyi artırır ve kalite standartlarını içselleştirir.","xp":30},
-        {"key":"B","text":"Endüstri standartlarına dayalı bir DoD şablonu alır ve ekibe uygularım.","feedback":"Şablon başlangıç noktası olabilir ama ekip katılımı olmadan sahiplenme zayıf kalır.","xp":15},
-        {"key":"C","text":"Product Owner'a karar vermesini devrederim.","feedback":"PO'nun rolü kapsam, PM'in rolü süreç kalitesidir; DoD kolaylaştırması PM'in sorumluluğundadır.","xp":8},
-        {"key":"D","text":"Herkese kendi anlayışlarına göre çalışmasına izin veririm; esneklik önemli.","feedback":"Tutarsız DoD, kalite boşluklarına ve sprint kabul sorunlarına doğrudan yol açar.","xp":-15}
+        {
+          "key": "A",
+          "text": "Bir kolaylaştırılmış workshop organize ederim; ekibin tüm üyelerinin katkısıyla ürün kalite standartlarına dayalı, ölçülebilir ve gerçekçi bir DoD oluştururuz.",
+          "feedback": "Ekiple birlikte oluşturulan DoD sahiplenmeyi artırır ve kalite standartlarını içselleştirir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Endüstri standartlarına dayalı bir DoD şablonu alır ve ekibe uygularım.",
+          "feedback": "Şablon başlangıç noktası olabilir ama ekip katılımı olmadan sahiplenme zayıf kalır.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Product Owner'a karar vermesini devrederim.",
+          "feedback": "PO'nun rolü kapsam, PM'in rolü süreç kalitesidir; DoD kolaylaştırması PM'in sorumluluğundadır.",
+          "xp": 8
+        },
+        {
+          "key": "D",
+          "text": "Herkese kendi anlayışlarına göre çalışmasına izin veririm; esneklik önemli.",
+          "feedback": "Tutarsız DoD, kalite boşluklarına ve sprint kabul sorunlarına doğrudan yol açar.",
+          "xp": -15
+        }
       ]
     },
-
     {
-      "id": 403, "type": "decision", "section": 2,
-      "from": "Ürün Sahibi", "fromRole": "Product Owner",
+      "id": 403,
+      "type": "decision",
+      "section": 2,
+      "from": "Ürün Sahibi",
+      "fromRole": "Product Owner",
       "subject": "Backlog Önceliklendirme — Paydaş Baskısı Altında",
       "body": "{{player_name}},\n\nÜç farklı departman aynı anda en öncelikli özelliklerinin bir sonraki sprint'e alınmasını istiyor. {{approach_label}} bağlamında bu çatışmayı nasıl yönetirsiniz?",
       "time": "14:00",
       "options": [
-        {"key":"A","text":"Paydaşları birlikte davet ettiğim bir önceliklendirme oturumu düzenlerim; iş değeri, teknik bağımlılıklar ve risk kriterlerine göre backlog'u şeffaf biçimde sıralarım.","feedback":"Şeffaf, kritere dayalı önceliklendirme paydaş baskısını nesnel zemine taşır ve güven inşa eder.","xp":30},
-        {"key":"B","text":"En fazla baskı yapan departmanın talebini öne alırım.","feedback":"Baskıya göre önceliklendirme eşitsizlik algısı ve gelecekte daha fazla baskı yaratır.","xp":-10},
-        {"key":"C","text":"Üç talebi de küçük parçalara bölerek hepsini sprint'e sığdırmaya çalışırım.","feedback":"WIP'i artırmak odaklanmayı ve kaliteyi zedeler; sprint overcommit riski yüksek.","xp":5},
-        {"key":"D","text":"Product Owner'a teslim ederim; bu onun sorumluluğu.","feedback":"PO kapsama sahip olsa da çatışma çözümünde kolaylaştırma PM'e düşer.","xp":8}
+        {
+          "key": "A",
+          "text": "Paydaşları birlikte davet ettiğim bir önceliklendirme oturumu düzenlerim; iş değeri, teknik bağımlılıklar ve risk kriterlerine göre backlog'u şeffaf biçimde sıralarım.",
+          "feedback": "Şeffaf, kritere dayalı önceliklendirme paydaş baskısını nesnel zemine taşır ve güven inşa eder.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "En fazla baskı yapan departmanın talebini öne alırım.",
+          "feedback": "Baskıya göre önceliklendirme eşitsizlik algısı ve gelecekte daha fazla baskı yaratır.",
+          "xp": -10
+        },
+        {
+          "key": "C",
+          "text": "Üç talebi de küçük parçalara bölerek hepsini sprint'e sığdırmaya çalışırım.",
+          "feedback": "WIP'i artırmak odaklanmayı ve kaliteyi zedeler; sprint overcommit riski yüksek.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Product Owner'a teslim ederim; bu onun sorumluluğu.",
+          "feedback": "PO kapsama sahip olsa da çatışma çözümünde kolaylaştırma PM'e düşer.",
+          "xp": 8
+        }
       ]
     },
-
     {
-      "id": 404, "type": "decision", "section": 2,
-      "from": "Geliştirici Ekip", "fromRole": "Yazılım Geliştiriciler",
+      "id": 404,
+      "type": "decision",
+      "section": 2,
+      "from": "Geliştirici Ekip",
+      "fromRole": "Yazılım Geliştiriciler",
       "subject": "Sprint Planning Sorun — Tahminciler Uyuşamıyor",
       "body": "{{player_name}},\n\nSprint planning'de iş paketi tahminlerinde büyük fark var: bir geliştirici 3 puan, diğeri 13 puan biçiyor. {{approach_label}} ile nasıl ilerlersiniz?",
       "time": "09:30",
       "options": [
-        {"key":"A","text":"Planning Poker'ı daha etkin kullanır; büyük fark çıkan kartları tartıştırırım. Her iki tarafın bakış açısını dinleyerek gizli varsayımları ve bağımlılıkları ortaya çıkarırım.","feedback":"Tahmin farklarını konuşmak hem anlayışı netleştirir hem de ekip içi bilgi transferini sağlar.","xp":30},
-        {"key":"B","text":"Ortalamasını alır ve ilerleriz.","feedback":"Ortalama hızlı ama anlayış farklarını çözmez; sprint'te sürprizlere zemin hazırlar.","xp":8},
-        {"key":"C","text":"Kıdemli geliştiricinin tahminini esas alırım.","feedback":"Kıdem her zaman doğru tahmini garanti etmez; farklı bakış açıları değerlidir.","xp":10},
-        {"key":"D","text":"Tahminleri atlayarak direkt sprint'e alırım; zaten görev yapılınca anlayacağız.","feedback":"Tahmin tartışmasını atlamak sprint commitment'ı yok eder ve velocity tahminini imkânsız kılar.","xp":-15}
+        {
+          "key": "A",
+          "text": "Planning Poker'ı daha etkin kullanır; büyük fark çıkan kartları tartıştırırım. Her iki tarafın bakış açısını dinleyerek gizli varsayımları ve bağımlılıkları ortaya çıkarırım.",
+          "feedback": "Tahmin farklarını konuşmak hem anlayışı netleştirir hem de ekip içi bilgi transferini sağlar.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Ortalamasını alır ve ilerleriz.",
+          "feedback": "Ortalama hızlı ama anlayış farklarını çözmez; sprint'te sürprizlere zemin hazırlar.",
+          "xp": 8
+        },
+        {
+          "key": "C",
+          "text": "Kıdemli geliştiricinin tahminini esas alırım.",
+          "feedback": "Kıdem her zaman doğru tahmini garanti etmez; farklı bakış açıları değerlidir.",
+          "xp": 10
+        },
+        {
+          "key": "D",
+          "text": "Tahminleri atlayarak direkt sprint'e alırım; zaten görev yapılınca anlayacağız.",
+          "feedback": "Tahmin tartışmasını atlamak sprint commitment'ı yok eder ve velocity tahminini imkânsız kılar.",
+          "xp": -15
+        }
       ]
     },
-
     {
-      "id": 405, "type": "decision", "section": 3,
-      "from": "Teknik Mimar", "fromRole": "Teknik Ekip",
+      "id": 405,
+      "type": "decision",
+      "section": 3,
+      "from": "Teknik Mimar",
+      "fromRole": "Teknik Ekip",
       "subject": "Teknoloji Değişikliği — Kullanılan Framework EOL Bildirdi",
       "body": "{{player_name}},\n\nKullandığımız framework 18 ay sonra EOL'a giriyor. Yeni framework'e geçiş için backlog'a epic eklenmeli. Bu dış çevre değişikliğine nasıl yanıt verirsiniz?",
       "time": "15:00",
       "options": [
-        {"key":"A","text":"Teknik ekiple geçiş etkisini analiz eder, risk kaydını güncellerim; öncelikli göçüm epic'ini backlog'a ekler, product owner ile iş değeri ve teknik borç perspektifinden önceliklendiririm.","feedback":"Teknik sürdürülebilirliği iş önceliklendirme sürecine entegre etmek stratejik PM davranışıdır.","xp":30},
-        {"key":"B","text":"Risk kaydına not düşer, teknik ekibe göçüm planlaması için alan açmasını söylerim.","feedback":"Başlangıç adımı doğru ama product owner'ı ve paydaşları da sürece dahil etmek gerekiyor.","xp":15},
-        {"key":"C","text":"18 ay uzak; şimdilik gündeme almam.","feedback":"Teknik göçüm gecikmesi maliyeti her ay artırır; erken planlama risk ve maliyet azaltır.","xp":-5},
-        {"key":"D","text":"Bu teknik karar; geliştirme ekibinin kendi çözmesi gerekiyor.","feedback":"Teknik kararların iş öncelikleri üzerindeki etkisini PM'in anlaması ve köprü kurması gerekir.","xp":-10}
+        {
+          "key": "A",
+          "text": "Teknik ekiple geçiş etkisini analiz eder, risk kaydını güncellerim; öncelikli göçüm epic'ini backlog'a ekler, product owner ile iş değeri ve teknik borç perspektifinden önceliklendiririm.",
+          "feedback": "Teknik sürdürülebilirliği iş önceliklendirme sürecine entegre etmek stratejik PM davranışıdır.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Risk kaydına not düşer, teknik ekibe göçüm planlaması için alan açmasını söylerim.",
+          "feedback": "Başlangıç adımı doğru ama product owner'ı ve paydaşları da sürece dahil etmek gerekiyor.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "18 ay uzak; şimdilik gündeme almam.",
+          "feedback": "Teknik göçüm gecikmesi maliyeti her ay artırır; erken planlama risk ve maliyet azaltır.",
+          "xp": -5
+        },
+        {
+          "key": "D",
+          "text": "Bu teknik karar; geliştirme ekibinin kendi çözmesi gerekiyor.",
+          "feedback": "Teknik kararların iş öncelikleri üzerindeki etkisini PM'in anlaması ve köprü kurması gerekir.",
+          "xp": -10
+        }
       ]
     },
-
     {
-      "id": 406, "type": "decision", "section": 3,
-      "from": "Müşteri Başarı Temsilcisi", "fromRole": "Müşteri İlişkileri",
+      "id": 406,
+      "type": "decision",
+      "section": 3,
+      "from": "Müşteri Başarı Temsilcisi",
+      "fromRole": "Müşteri İlişkileri",
       "subject": "Müşteri Geri Bildirimi — Demo Sonrası Yön Değişikliği Talebi",
       "body": "{{player_name}},\n\nDemo sonrası müşteri 'kullanıcı arayüzünü tamamen değiştirmek istiyoruz' dedi. Ekip son sprint'te yoğun çalıştı. {{approach_label}} ile bu talebi nasıl yönetirsiniz?",
       "time": "16:30",
       "options": [
-        {"key":"A","text":"Değişiklik talebini anlayışla karşılar, detaylı analiz için müşteriyle bir discovery oturumu planlarım; backlog'a ekleyerek product owner ile birlikte değerlendirir, mevcut sprint kapsamını korururum.","feedback":"Agile'ın güçlü yönü değişime yanıt vermek ama bunu kontrollü yapmak sürdürülebilirliği sağlar.","xp":30},
-        {"key":"B","text":"Ekibe haber vererek mevcut sprint kapsamını değiştiririm.","feedback":"Sprint içi kapsam değişikliği focus'u bozar ve taahhüt edilen işi tehlikeye atar.","xp":-5},
-        {"key":"C","text":"Müşteriye mevcut tasarımın neden doğru olduğunu açıklarım ve değiştirmeyeceğimizi belirtirim.","feedback":"Müşteri geri bildirimini reddetmek Agile ilkeleriyle çelişir ve ilişkiyi zedeler.","xp":-10},
-        {"key":"D","text":"Değişikliği kabul ederim; müşteri her zaman haklıdır.","feedback":"Müşteriyi dinlemek değerli ama kör onay ekibi tüketir ve sonuç kalitesini düşürür.","xp":5}
+        {
+          "key": "A",
+          "text": "Değişiklik talebini anlayışla karşılar, detaylı analiz için müşteriyle bir discovery oturumu planlarım; backlog'a ekleyerek product owner ile birlikte değerlendirir, mevcut sprint kapsamını korururum.",
+          "feedback": "Agile'ın güçlü yönü değişime yanıt vermek ama bunu kontrollü yapmak sürdürülebilirliği sağlar.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Ekibe haber vererek mevcut sprint kapsamını değiştiririm.",
+          "feedback": "Sprint içi kapsam değişikliği focus'u bozar ve taahhüt edilen işi tehlikeye atar.",
+          "xp": -5
+        },
+        {
+          "key": "C",
+          "text": "Müşteriye mevcut tasarımın neden doğru olduğunu açıklarım ve değiştirmeyeceğimizi belirtirim.",
+          "feedback": "Müşteri geri bildirimini reddetmek Agile ilkeleriyle çelişir ve ilişkiyi zedeler.",
+          "xp": -10
+        },
+        {
+          "key": "D",
+          "text": "Değişikliği kabul ederim; müşteri her zaman haklıdır.",
+          "feedback": "Müşteriyi dinlemek değerli ama kör onay ekibi tüketir ve sonuç kalitesini düşürür.",
+          "xp": 5
+        }
       ]
     },
-
     {
-      "id": 501, "type": "decision", "section": 1,
-      "from": "Proje Kontrolcüsü", "fromRole": "Planlama Birimi",
+      "id": 501,
+      "type": "decision",
+      "section": 1,
+      "from": "Proje Kontrolcüsü",
+      "fromRole": "Planlama Birimi",
       "subject": "Proje Temeli Onaylandı — Baseline Değişiklik Süreci",
       "body": "{{player_name}},\n\n{{approach_label}} kapsamında onaylanan proje temeli (scope, schedule, cost baseline) imzalandı. Bir müşteri talep değişikliği için formal CR süreci başlatılması gerekiyor.",
       "time": "09:00",
       "options": [
-        {"key":"A","text":"CR formunu doldurur, etki analizini (kapsam, maliyet, zaman) tamamlar; paydaşları değişiklikten önceden bilgilendirerek CCB'ye sunma sürecini başlatırım.","feedback":"Formal CR süreci projenin kontrolünü ve hesap verebilirliği korur. Proaktif bilgilendirme güven yaratır.","xp":30},
-        {"key":"B","text":"CR formunu doldururum ama etki analizini sonraya bırakırım.","feedback":"Etki analizi olmadan onaya sunmak CCB'nin sağlıklı karar almasını engeller.","xp":10},
-        {"key":"C","text":"Değişiklik küçük olduğu için CR açmadan sözlü onay alırım.","feedback":"Öngörücü projelerde tüm scope değişikliklerinin kayıt altına alınması kritik kontrol mekanizmasıdır.","xp":-10},
-        {"key":"D","text":"Değişikliği baseline'a yansıtmadan uygularım; dokümantasyon sonra yapılır.","feedback":"Baseline güncellemeden uygulama, proje kontrolünün temelini ortadan kaldırır.","xp":-20}
+        {
+          "key": "A",
+          "text": "CR formunu doldurur, etki analizini (kapsam, maliyet, zaman) tamamlar; paydaşları değişiklikten önceden bilgilendirerek CCB'ye sunma sürecini başlatırım.",
+          "feedback": "Formal CR süreci projenin kontrolünü ve hesap verebilirliği korur. Proaktif bilgilendirme güven yaratır.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "CR formunu doldururum ama etki analizini sonraya bırakırım.",
+          "feedback": "Etki analizi olmadan onaya sunmak CCB'nin sağlıklı karar almasını engeller.",
+          "xp": 10
+        },
+        {
+          "key": "C",
+          "text": "Değişiklik küçük olduğu için CR açmadan sözlü onay alırım.",
+          "feedback": "Öngörücü projelerde tüm scope değişikliklerinin kayıt altına alınması kritik kontrol mekanizmasıdır.",
+          "xp": -10
+        },
+        {
+          "key": "D",
+          "text": "Değişikliği baseline'a yansıtmadan uygularım; dokümantasyon sonra yapılır.",
+          "feedback": "Baseline güncellemeden uygulama, proje kontrolünün temelini ortadan kaldırır.",
+          "xp": -20
+        }
       ]
     },
-
     {
-      "id": 502, "type": "decision", "section": 2,
-      "from": "İş Analisti", "fromRole": "Gereksinim Yönetimi",
+      "id": 502,
+      "type": "decision",
+      "section": 2,
+      "from": "İş Analisti",
+      "fromRole": "Gereksinim Yönetimi",
       "subject": "WBS Revizyonu — Kapsam Değişikliği Kabul Edildi",
       "body": "{{player_name}},\n\nCCB onaylanan değişiklik WBS'de güncelleme gerektiriyor. {{approach_label}} ile bu revizyonu nasıl yönetirsiniz?",
       "time": "13:00",
       "options": [
-        {"key":"A","text":"WBS'i revize ederim; etkilenen work package'ları, sorumluları ve bağımlılıkları güncellerim; ardından schedule ve maliyet tahminlerini de etkileşimli olarak güncellerim.","feedback":"Entegre değişiklik yönetimi: WBS, schedule ve maliyet birlikte güncellenmeli. Bu proje bütünlüğünü korur.","xp":30},
-        {"key":"B","text":"WBS'i güncellerim, schedule ve maliyeti sonra incelerim.","feedback":"Entegrasyon gecikmesi plan tutarsızlığına yol açar.","xp":12},
-        {"key":"C","text":"WBS revizyonunu ekip liderine devederim.","feedback":"WBS güncellemesi koordinasyon gerektiren PM sürecinin parçasıdır; delegasyon mümkün ama takip gerektirir.","xp":8},
-        {"key":"D","text":"WBS'i değiştirmem; mevcut yapıya ek iş olarak eklenir.","feedback":"'Add-on' yaklaşımı WBS bütünlüğünü bozar ve ilerleyen dönemde kapsam yönetimini zorlaştırır.","xp":-10}
+        {
+          "key": "A",
+          "text": "WBS'i revize ederim; etkilenen work package'ları, sorumluları ve bağımlılıkları güncellerim; ardından schedule ve maliyet tahminlerini de etkileşimli olarak güncellerim.",
+          "feedback": "Entegre değişiklik yönetimi: WBS, schedule ve maliyet birlikte güncellenmeli. Bu proje bütünlüğünü korur.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "WBS'i güncellerim, schedule ve maliyeti sonra incelerim.",
+          "feedback": "Entegrasyon gecikmesi plan tutarsızlığına yol açar.",
+          "xp": 12
+        },
+        {
+          "key": "C",
+          "text": "WBS revizyonunu ekip liderine devederim.",
+          "feedback": "WBS güncellemesi koordinasyon gerektiren PM sürecinin parçasıdır; delegasyon mümkün ama takip gerektirir.",
+          "xp": 8
+        },
+        {
+          "key": "D",
+          "text": "WBS'i değiştirmem; mevcut yapıya ek iş olarak eklenir.",
+          "feedback": "'Add-on' yaklaşımı WBS bütünlüğünü bozar ve ilerleyen dönemde kapsam yönetimini zorlaştırır.",
+          "xp": -10
+        }
       ]
     },
-
     {
-      "id": 503, "type": "decision", "section": 2,
-      "from": "Çizelge Yöneticisi", "fromRole": "Planlama Birimi",
+      "id": 503,
+      "type": "decision",
+      "section": 2,
+      "from": "Çizelge Yöneticisi",
+      "fromRole": "Planlama Birimi",
       "subject": "Kritik Yol Gecikmesi — 2 Haftalık Kaymaya Yaklaşıyoruz",
       "body": "{{player_name}},\n\n{{approach_label}} ile yönetilen projenizde kritik yoldaki üç aktivite toplamda 2 haftalık gecikme riski taşıyor. Çizelge analizi ne gösteriyor?",
       "time": "11:00",
       "options": [
-        {"key":"A","text":"Float analizi yaparak hangi aktivitelerin hâlâ esnekliğe sahip olduğunu belirlerim; kaynak yoğunlaştırma (crashing) veya hızlandırma (fast tracking) seçeneklerini maliyet ve riskle birlikte değerlendirir, sponsoru bilgilendiririm.","feedback":"Kritik yol analizini seçeneklerle birlikte sunmak PM'in analitik ve yönetici değerini gösterir.","xp":30},
-        {"key":"B","text":"Gecikmeyi ekibe bildirerim ve daha hızlı çalışmalarını isterim.","feedback":"Hız talebi çizelge sorununu çözmez; kaynak ve bağımlılık analizi gerekir.","xp":5},
-        {"key":"C","text":"Fast tracking uygularım ama risklerini değerlendirmeden.","feedback":"Fast tracking kalite ve bağımlılık risklerini artırabilir; analiz yapılmadan uygulamak tehlikelidir.","xp":8},
-        {"key":"D","text":"Sponsora 2 hafta gecikeceğimizi bildiririm ve beklerim.","feedback":"Haber vermek gerekli ama çözüm önerisi getirmeden escalate etmek PM değer katmıyor.","xp":3}
+        {
+          "key": "A",
+          "text": "Float analizi yaparak hangi aktivitelerin hâlâ esnekliğe sahip olduğunu belirlerim; kaynak yoğunlaştırma (crashing) veya hızlandırma (fast tracking) seçeneklerini maliyet ve riskle birlikte değerlendirir, sponsoru bilgilendiririm.",
+          "feedback": "Kritik yol analizini seçeneklerle birlikte sunmak PM'in analitik ve yönetici değerini gösterir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Gecikmeyi ekibe bildirerim ve daha hızlı çalışmalarını isterim.",
+          "feedback": "Hız talebi çizelge sorununu çözmez; kaynak ve bağımlılık analizi gerekir.",
+          "xp": 5
+        },
+        {
+          "key": "C",
+          "text": "Fast tracking uygularım ama risklerini değerlendirmeden.",
+          "feedback": "Fast tracking kalite ve bağımlılık risklerini artırabilir; analiz yapılmadan uygulamak tehlikelidir.",
+          "xp": 8
+        },
+        {
+          "key": "D",
+          "text": "Sponsora 2 hafta gecikeceğimizi bildiririm ve beklerim.",
+          "feedback": "Haber vermek gerekli ama çözüm önerisi getirmeden escalate etmek PM değer katmıyor.",
+          "xp": 3
+        }
       ]
     },
-
     {
-      "id": 504, "type": "decision", "section": 3,
-      "from": "Mali Analist", "fromRole": "Finans Birimi",
+      "id": 504,
+      "type": "decision",
+      "section": 3,
+      "from": "Mali Analist",
+      "fromRole": "Finans Birimi",
       "subject": "EVM Raporu — CPI 0.82, EAC Revizyon Gerekiyor",
       "body": "{{player_name}},\n\n{{approach_label}} projesinde CPI 0.82 olarak gerçekleşti. Bu performansla Tamamlama Tahmini (EAC) orijinal bütçenin %22 üzerinde. Yönetim kararı bekliyor.",
       "time": "14:30",
       "options": [
-        {"key":"A","text":"EAC hesaplamalarını (EAC = BAC/CPI) doğrular, Tamamlama Varyansını (VAC) belirler; maliyet sapmasının kök nedenlerini analiz eder, azaltma aksiyonlarını ve revize EAC'ı yönetime sunarım.","feedback":"EVM'yi doğru kullanmak ve kök neden analizi yapmak finansal kontrolün kalp atışıdır.","xp":30},
-        {"key":"B","text":"Revize EAC'ı hesaplarım ve yönetime sunarım ama kök neden analizi yapmam.","feedback":"EAC olmadan yanıt vermek finansal kontrolü zayıflatır; kök neden olmadan aksiyon yüzeysel kalır.","xp":12},
-        {"key":"C","text":"CPI'ın iyileşeceğini umarak mevcut bütçeyi savunurum.","feedback":"Umut bir strateji değil. EVM verisi nesnel bir sinyal; görmezden gelmek güven kaybına yol açar.","xp":-5},
-        {"key":"D","text":"Maliyetleri düşürmek için kalite testlerini azaltırım.","feedback":"Kalite kesintisi kısa vadeli maliyet tasarrufu gibi görünse de uzun vadede çok daha pahalıya mal olur.","xp":-20}
+        {
+          "key": "A",
+          "text": "EAC hesaplamalarını (EAC = BAC/CPI) doğrular, Tamamlama Varyansını (VAC) belirler; maliyet sapmasının kök nedenlerini analiz eder, azaltma aksiyonlarını ve revize EAC'ı yönetime sunarım.",
+          "feedback": "EVM'yi doğru kullanmak ve kök neden analizi yapmak finansal kontrolün kalp atışıdır.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Revize EAC'ı hesaplarım ve yönetime sunarım ama kök neden analizi yapmam.",
+          "feedback": "EAC olmadan yanıt vermek finansal kontrolü zayıflatır; kök neden olmadan aksiyon yüzeysel kalır.",
+          "xp": 12
+        },
+        {
+          "key": "C",
+          "text": "CPI'ın iyileşeceğini umarak mevcut bütçeyi savunurum.",
+          "feedback": "Umut bir strateji değil. EVM verisi nesnel bir sinyal; görmezden gelmek güven kaybına yol açar.",
+          "xp": -5
+        },
+        {
+          "key": "D",
+          "text": "Maliyetleri düşürmek için kalite testlerini azaltırım.",
+          "feedback": "Kalite kesintisi kısa vadeli maliyet tasarrufu gibi görünse de uzun vadede çok daha pahalıya mal olur.",
+          "xp": -20
+        }
       ]
     },
-
     {
-      "id": 505, "type": "decision", "section": 2,
-      "from": "Kalite Koordinatörü", "fromRole": "Kalite Güvence",
+      "id": 505,
+      "type": "decision",
+      "section": 2,
+      "from": "Kalite Koordinatörü",
+      "fromRole": "Kalite Güvence",
       "subject": "Kalite Yönetim Planı — Gözden Geçirme Toplantısı",
       "body": "{{player_name}},\n\n{{approach_label}} kapsamındaki kalite yönetim planı yarım kaldı. Bazı kalite ölçütleri müşteriyle netleştirilmedi. Toplantı organize edecek misiniz?",
       "time": "10:30",
       "options": [
-        {"key":"A","text":"Müşteriyle bir kalite gözden geçirme toplantısı organize ederim; kabul kriterlerini, test koşullarını ve kalite metriklerini birlikte netleştiririm.","feedback":"Müşteri kabul kriterleri baştan netleştirilmediğinde proje sonunda kabul riski artar. Erken netleşme değerlidir.","xp":30},
-        {"key":"B","text":"Kalite ölçütlerini kendi belirlediğimiz standartlara göre tamamlarım.","feedback":"Müşteri perspektifi olmadan belirlenen kalite ölçütleri kabul sorunlarına zemin hazırlar.","xp":10},
-        {"key":"C","text":"Kalite planını bugünün koşullarında yeterli görüyorum; toplantı gerekmez.","feedback":"Mevcut planın yeterliliği müşterinin 'yeterli' bulmasına bağlıdır.","xp":5},
-        {"key":"D","text":"Test ekibine bırakırım; kalite onların sorumluluğu.","feedback":"Kalite yönetim planı PM'in koordinasyon sorumluluğundadır; delegasyon mümkün ama sahiplik gerekli.","xp":-8}
+        {
+          "key": "A",
+          "text": "Müşteriyle bir kalite gözden geçirme toplantısı organize ederim; kabul kriterlerini, test koşullarını ve kalite metriklerini birlikte netleştiririm.",
+          "feedback": "Müşteri kabul kriterleri baştan netleştirilmediğinde proje sonunda kabul riski artar. Erken netleşme değerlidir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Kalite ölçütlerini kendi belirlediğimiz standartlara göre tamamlarım.",
+          "feedback": "Müşteri perspektifi olmadan belirlenen kalite ölçütleri kabul sorunlarına zemin hazırlar.",
+          "xp": 10
+        },
+        {
+          "key": "C",
+          "text": "Kalite planını bugünün koşullarında yeterli görüyorum; toplantı gerekmez.",
+          "feedback": "Mevcut planın yeterliliği müşterinin 'yeterli' bulmasına bağlıdır.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Test ekibine bırakırım; kalite onların sorumluluğu.",
+          "feedback": "Kalite yönetim planı PM'in koordinasyon sorumluluğundadır; delegasyon mümkün ama sahiplik gerekli.",
+          "xp": -8
+        }
       ]
     },
-
     {
-      "id": 506, "type": "decision", "section": 3,
-      "from": "Risk Sahibi", "fromRole": "Proje Ekibi",
+      "id": 506,
+      "type": "decision",
+      "section": 3,
+      "from": "Risk Sahibi",
+      "fromRole": "Proje Ekibi",
       "subject": "Risk Yanıt Planı — Yeni Tehdit Tanımlandı",
       "body": "{{player_name}},\n\n{{approach_label}} proje planında tanımlanmayan yeni bir risk ortaya çıktı: kilit kaynak beklenmedik şekilde izin alabilir. Bu riski nasıl ele alırsınız?",
       "time": "09:00",
       "options": [
-        {"key":"A","text":"Riski risk kaydına eklerim; olasılık-etki analizini yapar, yanıt stratejisini (azaltma: yedek kaynak hazırlama, kabul: süre ekleme) belirler ve risk sahibi atarım.","feedback":"Yeni risklere sistematik yaklaşım risk kaydının canlı bir yönetim aracı olarak tutulmasını sağlar.","xp":30},
-        {"key":"B","text":"Ekibe haber veririm; risk kaydına eklemeyi unuturum.","feedback":"Kayıt dışı kalan riskler paydaşların göremediği ve yönetemediği kör noktalara dönüşür.","xp":5},
-        {"key":"C","text":"Küçük bir risk; zaten fark etmez diyerek geçerim.","feedback":"'Küçük' riskler gerçekleştiğinde büyük etkiler yaratabilir. Risk büyüklüğünü tahmin etmek uzmanlık ister.","xp":-5},
-        {"key":"D","text":"Kaynağın izin almamasını talep ederim; proje biter.","feedback":"Kaynak üzerindeki kısıtlamalar morale ve yasal haklara zarar verir; risk azaltma bu şekilde yapılmaz.","xp":-15}
+        {
+          "key": "A",
+          "text": "Riski risk kaydına eklerim; olasılık-etki analizini yapar, yanıt stratejisini (azaltma: yedek kaynak hazırlama, kabul: süre ekleme) belirler ve risk sahibi atarım.",
+          "feedback": "Yeni risklere sistematik yaklaşım risk kaydının canlı bir yönetim aracı olarak tutulmasını sağlar.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Ekibe haber veririm; risk kaydına eklemeyi unuturum.",
+          "feedback": "Kayıt dışı kalan riskler paydaşların göremediği ve yönetemediği kör noktalara dönüşür.",
+          "xp": 5
+        },
+        {
+          "key": "C",
+          "text": "Küçük bir risk; zaten fark etmez diyerek geçerim.",
+          "feedback": "'Küçük' riskler gerçekleştiğinde büyük etkiler yaratabilir. Risk büyüklüğünü tahmin etmek uzmanlık ister.",
+          "xp": -5
+        },
+        {
+          "key": "D",
+          "text": "Kaynağın izin almamasını talep ederim; proje biter.",
+          "feedback": "Kaynak üzerindeki kısıtlamalar morale ve yasal haklara zarar verir; risk azaltma bu şekilde yapılmaz.",
+          "xp": -15
+        }
       ]
     },
-
     {
-      "id": 601, "type": "decision", "section": 3,
-      "from": "Proje Yönetimi Ofisi", "fromRole": "PMO",
+      "id": 601,
+      "type": "decision",
+      "section": 3,
+      "from": "Proje Yönetimi Ofisi",
+      "fromRole": "PMO",
       "subject": "Kapanış Planı — Agile ve Predictive Çıktıların Uzlaştırılması",
       "body": "{{player_name}},\n\n{{approach_label}} projesinin kapanışında hem sprint review çıktılarını hem de formal teslimat belgelerini bütünleştirmeniz gerekiyor. Bu uzlaştırmayı nasıl yaparsınız?",
       "time": "10:00",
       "options": [
-        {"key":"A","text":"Sprint review'lardan gelen tamamlanan kullanıcı hikayelerini, Product Owner kabullerini ve formal teslimat belgelerini tek bir kapanış paketi altında derlerim; iki metodun çıktılarını tutarlı biçimde sunarım.","feedback":"Hibrit kapanışta iki metodolojinin çıktılarını uyumlu hale getirmek titiz bir koordinasyon gerektirir.","xp":30},
-        {"key":"B","text":"Ağırlıklı olarak sprint review çıktılarını esas alırım; formal belgeleri kısaltırım.","feedback":"PMO yapıları formal belgeyi zorunlu tutar; kısaltmak uyum riskine yol açar.","xp":12},
-        {"key":"C","text":"İki metodun çıktılarını ayrı paketler olarak sunarım; PMO uzlaştırsın.","feedback":"Uzlaştırma sorumluluğunu PMO'ya bırakmak PM'in koordinasyon rolünden kaçınmasıdır.","xp":5},
-        {"key":"D","text":"Formal belgeler gereksiz; sprint çıktıları yeterli.","feedback":"PMO yapısında formal kapanış belgelerini atlamak kabul ve uyum sorunlarına yol açar.","xp":-12}
+        {
+          "key": "A",
+          "text": "Sprint review'lardan gelen tamamlanan kullanıcı hikayelerini, Product Owner kabullerini ve formal teslimat belgelerini tek bir kapanış paketi altında derlerim; iki metodun çıktılarını tutarlı biçimde sunarım.",
+          "feedback": "Hibrit kapanışta iki metodolojinin çıktılarını uyumlu hale getirmek titiz bir koordinasyon gerektirir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Ağırlıklı olarak sprint review çıktılarını esas alırım; formal belgeleri kısaltırım.",
+          "feedback": "PMO yapıları formal belgeyi zorunlu tutar; kısaltmak uyum riskine yol açar.",
+          "xp": 12
+        },
+        {
+          "key": "C",
+          "text": "İki metodun çıktılarını ayrı paketler olarak sunarım; PMO uzlaştırsın.",
+          "feedback": "Uzlaştırma sorumluluğunu PMO'ya bırakmak PM'in koordinasyon rolünden kaçınmasıdır.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Formal belgeler gereksiz; sprint çıktıları yeterli.",
+          "feedback": "PMO yapısında formal kapanış belgelerini atlamak kabul ve uyum sorunlarına yol açar.",
+          "xp": -12
+        }
       ]
     },
-
     {
-      "id": 602, "type": "decision", "section": 3,
-      "from": "Proje Koordinatörü", "fromRole": "Proje Ekibi",
+      "id": 602,
+      "type": "decision",
+      "section": 3,
+      "from": "Proje Koordinatörü",
+      "fromRole": "Proje Ekibi",
       "subject": "Alınan Dersler — Hem Agile Hem Klasik Perspektiften",
       "body": "{{player_name}},\n\n{{approach_label}} proje kapanışında retrospektif çıktılarını ve lessons learned belgelerini nasıl bütünleştireceksiniz? İki metodun öğrenimlerini nasıl sentezleyeceksiniz?",
       "time": "14:00",
       "options": [
-        {"key":"A","text":"Sprint retrospektif notlarını ve lessons learned'ı tek bir sentez belgesine dönüştürürüm; her iki metodun perspektifinden öğrenimleri OPA'ya katkı sağlayacak biçimde organize ederim.","feedback":"Hibrit öğrenmelerin sistematik sentezi kurumsal hafızaya en değerli katkıyı sunar.","xp":30},
-        {"key":"B","text":"Retrospektif notlarını lessons learned belgesi olarak kullanırım; ayrıca hazırlamam.","feedback":"Retrospektif ve LL farklı formatlarda ve hedef kitlelere hitap eder; birbirinin yerine kullanılması bilgi kaybına yol açar.","xp":10},
-        {"key":"C","text":"Lessons learned yazmayı ekip liderine bırakırım.","feedback":"LL belgesi PM sorumluluğundadır; delegasyon mümkün ama içeriğin kalitesini PM denetlemelidir.","xp":8},
-        {"key":"D","text":"Proje kapandı; lessons learned şimdi gerekmiyor.","feedback":"Kapanış anı lessons learned için en değerli andır; erteleme çoğunlukla hiç yapılmamasıyla sonuçlanır.","xp":-15}
+        {
+          "key": "A",
+          "text": "Sprint retrospektif notlarını ve lessons learned'ı tek bir sentez belgesine dönüştürürüm; her iki metodun perspektifinden öğrenimleri OPA'ya katkı sağlayacak biçimde organize ederim.",
+          "feedback": "Hibrit öğrenmelerin sistematik sentezi kurumsal hafızaya en değerli katkıyı sunar.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Retrospektif notlarını lessons learned belgesi olarak kullanırım; ayrıca hazırlamam.",
+          "feedback": "Retrospektif ve LL farklı formatlarda ve hedef kitlelere hitap eder; birbirinin yerine kullanılması bilgi kaybına yol açar.",
+          "xp": 10
+        },
+        {
+          "key": "C",
+          "text": "Lessons learned yazmayı ekip liderine bırakırım.",
+          "feedback": "LL belgesi PM sorumluluğundadır; delegasyon mümkün ama içeriğin kalitesini PM denetlemelidir.",
+          "xp": 8
+        },
+        {
+          "key": "D",
+          "text": "Proje kapandı; lessons learned şimdi gerekmiyor.",
+          "feedback": "Kapanış anı lessons learned için en değerli andır; erteleme çoğunlukla hiç yapılmamasıyla sonuçlanır.",
+          "xp": -15
+        }
       ]
     },
-
     {
-      "id": 603, "type": "decision", "section": 2,
-      "from": "İş Geliştirme Direktörü", "fromRole": "Stratejik Planlama",
+      "id": 603,
+      "type": "decision",
+      "section": 2,
+      "from": "İş Geliştirme Direktörü",
+      "fromRole": "Stratejik Planlama",
       "subject": "Fayda Gerçekleşme Planı — Hibrit Roadmap Talebi",
       "body": "{{player_name}},\n\nYönetim, {{approach_label}} projesinin faydalarının gerçekleşme zaman çizelgesini görsel bir roadmap olarak talep ediyor. Hem sprint çıktılarının hem de milestone bazlı faydaların gösterilmesi isteniyor.",
       "time": "11:30",
       "options": [
-        {"key":"A","text":"Sprint review çıktılarını value stream'e dönüştürerek fayda haritası oluştururum; milestone'ları ve sprint teslimatlarını iş değerine bağlı bir hibrit roadmap üzerinde gösteririm.","feedback":"Fayda gerçekleşme planını iki metodoloji perspektifinden oluşturmak stratejik değer sunar.","xp":30},
-        {"key":"B","text":"Milestone bazlı klasik bir roadmap hazırlarım; sprint çıktılarını not olarak eklerim.","feedback":"Sprint çıktılarının değeri görsel olarak gösterilmediğinde paydaşlar agile katkısını anlamayabilir.","xp":15},
-        {"key":"C","text":"Roadmap hazırlamak proje yönetimine ek yük katıyor; sözlü sunum yaparım.","feedback":"Görsel roadmap paydaş uyumu için kritik bir iletişim aracıdır; atlamak değer görünürlüğünü azaltır.","xp":3},
-        {"key":"D","text":"Fayda planı proje sonu için; şimdi erken.","feedback":"Fayda gerçekleşme planlaması proje başında yapılmaz; uyarlanabilir planlama sürekli güncelleme gerektirir.","xp":-8}
+        {
+          "key": "A",
+          "text": "Sprint review çıktılarını value stream'e dönüştürerek fayda haritası oluştururum; milestone'ları ve sprint teslimatlarını iş değerine bağlı bir hibrit roadmap üzerinde gösteririm.",
+          "feedback": "Fayda gerçekleşme planını iki metodoloji perspektifinden oluşturmak stratejik değer sunar.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Milestone bazlı klasik bir roadmap hazırlarım; sprint çıktılarını not olarak eklerim.",
+          "feedback": "Sprint çıktılarının değeri görsel olarak gösterilmediğinde paydaşlar agile katkısını anlamayabilir.",
+          "xp": 15
+        },
+        {
+          "key": "C",
+          "text": "Roadmap hazırlamak proje yönetimine ek yük katıyor; sözlü sunum yaparım.",
+          "feedback": "Görsel roadmap paydaş uyumu için kritik bir iletişim aracıdır; atlamak değer görünürlüğünü azaltır.",
+          "xp": 3
+        },
+        {
+          "key": "D",
+          "text": "Fayda planı proje sonu için; şimdi erken.",
+          "feedback": "Fayda gerçekleşme planlaması proje başında yapılmaz; uyarlanabilir planlama sürekli güncelleme gerektirir.",
+          "xp": -8
+        }
       ]
     },
-
     {
-      "id": 604, "type": "decision", "section": 2,
-      "from": "Kıdemli Geliştirici", "fromRole": "Teknik Ekip",
+      "id": 604,
+      "type": "decision",
+      "section": 2,
+      "from": "Kıdemli Geliştirici",
+      "fromRole": "Teknik Ekip",
       "subject": "Metodoloji Çatışması — Ekipte 'Neden Hem Agile Hem Gantt?' Sorusu",
       "body": "{{player_name}},\n\nEkipten bazı üyeler {{approach_label}} yaklaşımında tutarsızlık gördüklerini söylüyor: 'Sprint planlarken neden Gantt chart da tutuyoruz?' diye soruyorlar.",
       "time": "10:00",
       "options": [
-        {"key":"A","text":"Ekiple net bir sohbet yaparım: hibrit metodun neden bu projeye uygun olduğunu, hangi bileşenlerin hangi amaçla kullanıldığını açıklarım; her iki metodun güçlü yanlarını entegre ettiğimizi gösteririm.","feedback":"Metodoloji arkasındaki 'neden'i ekiple paylaşmak benimsemeyi artırır ve güveni pekiştirir.","xp":30},
-        {"key":"B","text":"Ekibe sadece kendi bölümlerine ait süreci kullanmalarını söylerim.","feedback":"Metodoloji tutarlılığını sağlamadan parçalı çalışmak entegrasyon sorunlarına yol açar.","xp":8},
-        {"key":"C","text":"Agile ekibi Gantt chart kullanmak zorunda değil; siz sprint'lerinize bakın.","feedback":"Entegrasyon noktalarında her iki bileşenin farkında olunması projenin bütünlüğü için gereklidir.","xp":5},
-        {"key":"D","text":"Kurallar böyle; uymaları gerekiyor.","feedback":"Gerekçesiz otorite kullanımı özellikle kolaboratif ekiplerde direniş ve motivasyon kaybı yaratır.","xp":-10}
+        {
+          "key": "A",
+          "text": "Ekiple net bir sohbet yaparım: hibrit metodun neden bu projeye uygun olduğunu, hangi bileşenlerin hangi amaçla kullanıldığını açıklarım; her iki metodun güçlü yanlarını entegre ettiğimizi gösteririm.",
+          "feedback": "Metodoloji arkasındaki 'neden'i ekiple paylaşmak benimsemeyi artırır ve güveni pekiştirir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Ekibe sadece kendi bölümlerine ait süreci kullanmalarını söylerim.",
+          "feedback": "Metodoloji tutarlılığını sağlamadan parçalı çalışmak entegrasyon sorunlarına yol açar.",
+          "xp": 8
+        },
+        {
+          "key": "C",
+          "text": "Agile ekibi Gantt chart kullanmak zorunda değil; siz sprint'lerinize bakın.",
+          "feedback": "Entegrasyon noktalarında her iki bileşenin farkında olunması projenin bütünlüğü için gereklidir.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Kurallar böyle; uymaları gerekiyor.",
+          "feedback": "Gerekçesiz otorite kullanımı özellikle kolaboratif ekiplerde direniş ve motivasyon kaybı yaratır.",
+          "xp": -10
+        }
       ]
     },
-
     {
-      "id": 701, "type": "decision", "section": 2,
-      "from": "Bilgi Güvenliği Uzmanı", "fromRole": "IT Güvenlik Birimi",
+      "id": 701,
+      "type": "decision",
+      "section": 2,
+      "from": "Bilgi Güvenliği Uzmanı",
+      "fromRole": "IT Güvenlik Birimi",
       "subject": "KVKK Uyumluluğu — Veri İşleme Süreçleri Denetleniyor",
       "body": "{{player_name}},\n\nProjenizin veri işleme akışları KVKK uyumluluk denetimine tabi. Kullanıcı verilerinin işlenme biçimi için veri koruma etki değerlendirmesi (DPIA) yapılması gerekiyor.",
       "time": "09:30",
       "options": [
-        {"key":"A","text":"Veri koruma uzmanını sürece dahil eder, DPIA'yı sistematik biçimde tamamlarım; veri akış diyagramını ve risk değerlendirmesini KVKK belgelerine eklerim.","feedback":"Yasal uyumluluk gereksinimlerini projenin ayrılmaz parçası olarak yönetmek uzun vadede şirketi korur.","xp":30},
-        {"key":"B","text":"Hukuk birimiyle görüşürüm; onlar söylediğinde yaparız.","feedback":"Reaktif yaklaşım gecikme riskini artırır; KVKK uyumu proje sürecine entegre edilmeli.","xp":10},
-        {"key":"C","text":"Yazılım ekibi bu konuları zaten biliyor; ek süreç gerekmez.","feedback":"Bireysel bilgi kurumsal uyumu garanti etmez; formal DPIA zorunlu bir belgedir.","xp":-5},
-        {"key":"D","text":"KVKK cezaları küçük; uyum sonraya bırakılabilir.","feedback":"KVKK cezaları ile itibar kaybının maliyeti ihmal kararından çok daha yüksektir.","xp":-20}
+        {
+          "key": "A",
+          "text": "Veri koruma uzmanını sürece dahil eder, DPIA'yı sistematik biçimde tamamlarım; veri akış diyagramını ve risk değerlendirmesini KVKK belgelerine eklerim.",
+          "feedback": "Yasal uyumluluk gereksinimlerini projenin ayrılmaz parçası olarak yönetmek uzun vadede şirketi korur.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Hukuk birimiyle görüşürüm; onlar söylediğinde yaparız.",
+          "feedback": "Reaktif yaklaşım gecikme riskini artırır; KVKK uyumu proje sürecine entegre edilmeli.",
+          "xp": 10
+        },
+        {
+          "key": "C",
+          "text": "Yazılım ekibi bu konuları zaten biliyor; ek süreç gerekmez.",
+          "feedback": "Bireysel bilgi kurumsal uyumu garanti etmez; formal DPIA zorunlu bir belgedir.",
+          "xp": -5
+        },
+        {
+          "key": "D",
+          "text": "KVKK cezaları küçük; uyum sonraya bırakılabilir.",
+          "feedback": "KVKK cezaları ile itibar kaybının maliyeti ihmal kararından çok daha yüksektir.",
+          "xp": -20
+        }
       ]
     },
-
     {
-      "id": 702, "type": "decision", "section": 2,
-      "from": "CTO", "fromRole": "Teknik Direktör",
+      "id": 702,
+      "type": "decision",
+      "section": 2,
+      "from": "CTO",
+      "fromRole": "Teknik Direktör",
       "subject": "Teknik Borç — Yeni Özellik mi, Borç Temizleme mi?",
       "body": "{{player_name}},\n\nYönetim yeni özellik geliştirmek istiyor; teknik ekip birikmiş teknik borcun önce temizlenmesi gerektiğini söylüyor. Bu değer kararını nasıl yönetirsiniz?",
       "time": "14:00",
       "options": [
-        {"key":"A","text":"Her iki tarafın argümanlarını dinler; teknik borcun mevcut ve gelecekteki özelliklere etkisini somutlaştırır, önceliklendirme kararı için yönetime anlaşılır bir seçenek matrisi sunarım.","feedback":"Teknik borcu iş değeriyle ilişkilendirerek sunmak teknik ve yönetim arasındaki köprüyü kurar.","xp":30},
-        {"key":"B","text":"Yönetim yeni özellik istediği için ona göre ilerlerim.","feedback":"Teknik borcun uzun vadeli maliyetini görünür kılmadan yönetim kararını desteklemek hem ekibi hem ürünü riske atar.","xp":5},
-        {"key":"C","text":"Teknik ekip haklı; önce borç temizlenecek.","feedback":"Teknik ekibin onayını almadan iş önceliklerini değiştirmek yönetimle güven ilişkisini zedeler.","xp":8},
-        {"key":"D","text":"İkisini de yapalım; ekip ekstra çalışır.","feedback":"Overcommit hem kaliteyi hem de ekip sağlığını tehdit eder.","xp":-10}
+        {
+          "key": "A",
+          "text": "Her iki tarafın argümanlarını dinler; teknik borcun mevcut ve gelecekteki özelliklere etkisini somutlaştırır, önceliklendirme kararı için yönetime anlaşılır bir seçenek matrisi sunarım.",
+          "feedback": "Teknik borcu iş değeriyle ilişkilendirerek sunmak teknik ve yönetim arasındaki köprüyü kurar.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Yönetim yeni özellik istediği için ona göre ilerlerim.",
+          "feedback": "Teknik borcun uzun vadeli maliyetini görünür kılmadan yönetim kararını desteklemek hem ekibi hem ürünü riske atar.",
+          "xp": 5
+        },
+        {
+          "key": "C",
+          "text": "Teknik ekip haklı; önce borç temizlenecek.",
+          "feedback": "Teknik ekibin onayını almadan iş önceliklerini değiştirmek yönetimle güven ilişkisini zedeler.",
+          "xp": 8
+        },
+        {
+          "key": "D",
+          "text": "İkisini de yapalım; ekip ekstra çalışır.",
+          "feedback": "Overcommit hem kaliteyi hem de ekip sağlığını tehdit eder.",
+          "xp": -10
+        }
       ]
     },
-
     {
-      "id": 703, "type": "decision", "section": 2,
-      "from": "Sistem Mimarı", "fromRole": "Teknik Ekip",
+      "id": 703,
+      "type": "decision",
+      "section": 2,
+      "from": "Sistem Mimarı",
+      "fromRole": "Teknik Ekip",
       "subject": "Legacy Sistem Entegrasyonu — Beklenmedik Karmaşıklık",
       "body": "{{player_name}},\n\nLegacy sistemle entegrasyon planladığımızdan 3 kat daha karmaşık çıktı. Bunu değişiklik talebi olarak mı işleyeceğiz yoksa var olan kapsama mı dahil edeceğiz?",
       "time": "11:00",
       "options": [
-        {"key":"A","text":"Entegrasyon karmaşıklığının kapsam, maliyet ve zaman üzerindeki etkisini analiz ederim; bu fark başlangıçta belirsiz olduğu için formal CR sürecini başlatır, paydaşları bilgilendiririm.","feedback":"Başta bilinemeyen teknik karmaşıklık CR'ı haklı kılar. Şeffaf yönetim güven inşa eder.","xp":30},
-        {"key":"B","text":"Mevcut kapsamda zaman ve kaynak ekleyerek çözerim.","feedback":"Formal süreç izlemeden kapsama eklemek kontrolsüz büyümeye yol açar.","xp":8},
-        {"key":"C","text":"Ekip aşırtarak çalışırsa yetiştirilebilir; CR'a gerek yok.","feedback":"Ekip aşırtmak tükenmişlik ve kalite sorunlarına zemin hazırlar.","xp":-10},
-        {"key":"D","text":"Bu teknik bir problem; çözümünü mimarın bulması lazım.","feedback":"Kapsam ve proje etkileri PM'in yönetim alanındadır; teknik çözümü aramak ekibin işi ama yönetimi PM'e aittir.","xp":-5}
+        {
+          "key": "A",
+          "text": "Entegrasyon karmaşıklığının kapsam, maliyet ve zaman üzerindeki etkisini analiz ederim; bu fark başlangıçta belirsiz olduğu için formal CR sürecini başlatır, paydaşları bilgilendiririm.",
+          "feedback": "Başta bilinemeyen teknik karmaşıklık CR'ı haklı kılar. Şeffaf yönetim güven inşa eder.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Mevcut kapsamda zaman ve kaynak ekleyerek çözerim.",
+          "feedback": "Formal süreç izlemeden kapsama eklemek kontrolsüz büyümeye yol açar.",
+          "xp": 8
+        },
+        {
+          "key": "C",
+          "text": "Ekip aşırtarak çalışırsa yetiştirilebilir; CR'a gerek yok.",
+          "feedback": "Ekip aşırtmak tükenmişlik ve kalite sorunlarına zemin hazırlar.",
+          "xp": -10
+        },
+        {
+          "key": "D",
+          "text": "Bu teknik bir problem; çözümünü mimarın bulması lazım.",
+          "feedback": "Kapsam ve proje etkileri PM'in yönetim alanındadır; teknik çözümü aramak ekibin işi ama yönetimi PM'e aittir.",
+          "xp": -5
+        }
       ]
     },
-
     {
-      "id": 704, "type": "decision", "section": 3,
-      "from": "Teknik Analist", "fromRole": "API Entegrasyon Ekibi",
+      "id": 704,
+      "type": "decision",
+      "section": 3,
+      "from": "Teknik Analist",
+      "fromRole": "API Entegrasyon Ekibi",
       "subject": "Dış API Değişikliği — Tedarikçi Bildirim Yaptı",
       "body": "{{player_name}},\n\nKritik bir dış API sağlayıcısı 6 hafta içinde breaking change yapacağını bildirdi. Ekip adapte olmak için en az 3 hafta tahmin ediyor. Bu dış çevre değişikliğine nasıl yanıt verirsiniz?",
       "time": "09:00",
       "options": [
-        {"key":"A","text":"API değişikliğinin etkisini hızla analiz ederim; adapte işini risk yanıt planına ekler, backlog'a öncelikli epic olarak girer ve paydaşları takvim etkisiyle birlikte proaktif olarak bilgilendiririm.","feedback":"Dış bağımlılıkların erken yönetimi projenin kontrolü kaybetmesini önler.","xp":30},
-        {"key":"B","text":"Teknik ekibe adapte olmak için zaman ayırmasını söylerim; takvime yansıtmam.","feedback":"Takvim güncellemesi yapmadan ek iş almak çizelgeyi görünmez biçimde baskılar.","xp":8},
-        {"key":"C","text":"6 haftam var; şimdi acele etmeme gerek yok.","feedback":"6 hafta hızla geçer; 3 haftalık adapte süresiyle tampon çok dar.","xp":-5},
-        {"key":"D","text":"Tedarikçiden geçişi ertelemesini talep ederim.","feedback":"Dış tedarikçi takvimlerini kontrol etmek mümkün değil; planlama kendi takviminizdeki kontrolden başlar.","xp":-8}
+        {
+          "key": "A",
+          "text": "API değişikliğinin etkisini hızla analiz ederim; adapte işini risk yanıt planına ekler, backlog'a öncelikli epic olarak girer ve paydaşları takvim etkisiyle birlikte proaktif olarak bilgilendiririm.",
+          "feedback": "Dış bağımlılıkların erken yönetimi projenin kontrolü kaybetmesini önler.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Teknik ekibe adapte olmak için zaman ayırmasını söylerim; takvime yansıtmam.",
+          "feedback": "Takvim güncellemesi yapmadan ek iş almak çizelgeyi görünmez biçimde baskılar.",
+          "xp": 8
+        },
+        {
+          "key": "C",
+          "text": "6 haftam var; şimdi acele etmeme gerek yok.",
+          "feedback": "6 hafta hızla geçer; 3 haftalık adapte süresiyle tampon çok dar.",
+          "xp": -5
+        },
+        {
+          "key": "D",
+          "text": "Tedarikçiden geçişi ertelemesini talep ederim.",
+          "feedback": "Dış tedarikçi takvimlerini kontrol etmek mümkün değil; planlama kendi takviminizdeki kontrolden başlar.",
+          "xp": -8
+        }
       ]
     },
-
     {
-      "id": 801, "type": "decision", "section": 2,
-      "from": "Finans Kontrolörü", "fromRole": "Mali Yönetim",
+      "id": 801,
+      "type": "decision",
+      "section": 2,
+      "from": "Finans Kontrolörü",
+      "fromRole": "Mali Yönetim",
       "subject": "Regülasyon Maliyeti — Yeni Yasal Zorunluluk Bütçeyi Etkiliyor",
       "body": "{{player_name}},\n\nBankacılık regülatörü yeni bir raporlama standardı yayımladı. Sisteminizin bu standartla uyumlu hale getirilmesi için ek bütçe ve kaynak gerekiyor. Nasıl ilerlersiniz?",
       "time": "10:00",
       "options": [
-        {"key":"A","text":"Uyum gereksinimlerini detaylı analiz eder; ek maliyeti, zaman etkisini ve teknik kapsamı netleştiririm; sponsora yasal zorunluluk gerekçesiyle CR sunarım.","feedback":"Yasal zorunluluklar için formal CR her zaman haklı gerekçedir. Net analiz hızlı onay alır.","xp":30},
-        {"key":"B","text":"Regülasyon uyumunu mevcut bütçeden karşılamaya çalışırım.","feedback":"Zorunlu uyum için kaynak sıkıştırmak kalite ve takvim riskini artırır.","xp":8},
-        {"key":"C","text":"Hukuk birimi bizi bilgilendirsin; sonra karar alırız.","feedback":"Reaktif yaklaşım uyum takvimini tehlikeye atar.","xp":5},
-        {"key":"D","text":"Bu regülatör değişikliği muğlak; uygulama zorunluluğu yok sayılabilir.","feedback":"Regülatör zorunluluklarını görmezden gelmek kurumu ciddi ceza ve itibar riskine sokar.","xp":-25}
+        {
+          "key": "A",
+          "text": "Uyum gereksinimlerini detaylı analiz eder; ek maliyeti, zaman etkisini ve teknik kapsamı netleştiririm; sponsora yasal zorunluluk gerekçesiyle CR sunarım.",
+          "feedback": "Yasal zorunluluklar için formal CR her zaman haklı gerekçedir. Net analiz hızlı onay alır.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Regülasyon uyumunu mevcut bütçeden karşılamaya çalışırım.",
+          "feedback": "Zorunlu uyum için kaynak sıkıştırmak kalite ve takvim riskini artırır.",
+          "xp": 8
+        },
+        {
+          "key": "C",
+          "text": "Hukuk birimi bizi bilgilendirsin; sonra karar alırız.",
+          "feedback": "Reaktif yaklaşım uyum takvimini tehlikeye atar.",
+          "xp": 5
+        },
+        {
+          "key": "D",
+          "text": "Bu regülatör değişikliği muğlak; uygulama zorunluluğu yok sayılabilir.",
+          "feedback": "Regülatör zorunluluklarını görmezden gelmek kurumu ciddi ceza ve itibar riskine sokar.",
+          "xp": -25
+        }
       ]
     },
-
     {
-      "id": 802, "type": "decision", "section": 2,
-      "from": "Satın Alma Uzmanı", "fromRole": "Tedarik",
+      "id": 802,
+      "type": "decision",
+      "section": 2,
+      "from": "Satın Alma Uzmanı",
+      "fromRole": "Tedarik",
       "subject": "Lisanslı Finansal Yazılım — Tedarik Süreci Başlatılmalı",
       "body": "{{player_name}},\n\nProje kapsamında lisanslı bir finansal veri işleme yazılımı temin edilecek. Tedarik süreci hem teknik hem yasal uyum açısından kritik. Hangi adımları atacaksınız?",
       "time": "13:30",
       "options": [
-        {"key":"A","text":"Teknik gereksinimler, lisans tipi, güvenlik standartları ve yasal uyum kriterlerini içeren kapsamlı bir tedarik spesifikasyonu hazırlarım; şeffaf bir değerlendirme süreci yürütürüm.","feedback":"Finansal yazılım tedariki teknik, hukuki ve uyum boyutları nedeniyle özel dikkat gerektirir. Kapsamlı spec bu riski azaltır.","xp":30},
-        {"key":"B","text":"Teknik özellikleri esas alarak tedarikçi seçerim; lisans detaylarını hukuk birime bırakırım.","feedback":"Lisans ve uyum gereksinimlerini baştan dahil etmemek ilerleyen dönemde sorun yaratabilir.","xp":12},
-        {"key":"C","text":"Mevcut bir tedarikçiyle direkt sözleşme yapabiliriz; rekabetçi süreç gereksiz.","feedback":"Rekabetçi tedarik hem maliyet hem uyum açısından genellikle zorunludur; atlamak denetim sorununa yol açabilir.","xp":-10},
-        {"key":"D","text":"Yazılımın açık kaynak alternatifini araştırırım; lisans maliyetinden kaçınırım.","feedback":"Açık kaynak araştırmak değerli ama finansal regülasyon uyumunu karşılaması ayrıca değerlendirilmeli.","xp":8}
+        {
+          "key": "A",
+          "text": "Teknik gereksinimler, lisans tipi, güvenlik standartları ve yasal uyum kriterlerini içeren kapsamlı bir tedarik spesifikasyonu hazırlarım; şeffaf bir değerlendirme süreci yürütürüm.",
+          "feedback": "Finansal yazılım tedariki teknik, hukuki ve uyum boyutları nedeniyle özel dikkat gerektirir. Kapsamlı spec bu riski azaltır.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Teknik özellikleri esas alarak tedarikçi seçerim; lisans detaylarını hukuk birime bırakırım.",
+          "feedback": "Lisans ve uyum gereksinimlerini baştan dahil etmemek ilerleyen dönemde sorun yaratabilir.",
+          "xp": 12
+        },
+        {
+          "key": "C",
+          "text": "Mevcut bir tedarikçiyle direkt sözleşme yapabiliriz; rekabetçi süreç gereksiz.",
+          "feedback": "Rekabetçi tedarik hem maliyet hem uyum açısından genellikle zorunludur; atlamak denetim sorununa yol açabilir.",
+          "xp": -10
+        },
+        {
+          "key": "D",
+          "text": "Yazılımın açık kaynak alternatifini araştırırım; lisans maliyetinden kaçınırım.",
+          "feedback": "Açık kaynak araştırmak değerli ama finansal regülasyon uyumunu karşılaması ayrıca değerlendirilmeli.",
+          "xp": 8
+        }
       ]
     },
-
     {
-      "id": 803, "type": "decision", "section": 3,
-      "from": "Uyum Yöneticisi", "fromRole": "Uyumluluk ve Risk",
+      "id": 803,
+      "type": "decision",
+      "section": 3,
+      "from": "Uyum Yöneticisi",
+      "fromRole": "Uyumluluk ve Risk",
       "subject": "BDDK Denetimi — Proje Süreçleri İncelenecek",
       "body": "{{player_name}},\n\nBDDK müfettişleri önümüzdeki ay proje süreçlerinizi ve belgelerinizi inceleyecek. Denetim hazırlığınız var mı?",
       "time": "09:00",
       "options": [
-        {"key":"A","text":"Proje belgelerinin eksiksizliğini kontrol ederim; uyum açıklarını tespit edip kapayacak bir ön denetim yapıp, iç kontrol ekibiyle birlikte hazırlık çalışması yürütürüm.","feedback":"Proaktif denetim hazırlığı hem riski azaltır hem kurumsal güvenilirliği pekiştirir.","xp":30},
-        {"key":"B","text":"Mevcut belgeler yeterli; ekstra hazırlık yapmam.","feedback":"Denetimde boşluk tespiti ciddi bulgu ve cezalara yol açabilir; hazırlık hiçbir zaman fazla değil.","xp":5},
-        {"key":"C","text":"Uyum biriminin hazırlamasını beklerim; onların işi bu.","feedback":"PM olarak kendi proje belgelerinin denetim hazırlığından sorumlu olmamanız kabul edilemez bir risktir.","xp":-10},
-        {"key":"D","text":"Denetim zamanı gelince gerekli belgeleri hazırlarız.","feedback":"Denetim öncesi hazırlık zamanı kritik; son dakika çalışması kalite ve eksiklik riskini artırır.","xp":-15}
+        {
+          "key": "A",
+          "text": "Proje belgelerinin eksiksizliğini kontrol ederim; uyum açıklarını tespit edip kapayacak bir ön denetim yapıp, iç kontrol ekibiyle birlikte hazırlık çalışması yürütürüm.",
+          "feedback": "Proaktif denetim hazırlığı hem riski azaltır hem kurumsal güvenilirliği pekiştirir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Mevcut belgeler yeterli; ekstra hazırlık yapmam.",
+          "feedback": "Denetimde boşluk tespiti ciddi bulgu ve cezalara yol açabilir; hazırlık hiçbir zaman fazla değil.",
+          "xp": 5
+        },
+        {
+          "key": "C",
+          "text": "Uyum biriminin hazırlamasını beklerim; onların işi bu.",
+          "feedback": "PM olarak kendi proje belgelerinin denetim hazırlığından sorumlu olmamanız kabul edilemez bir risktir.",
+          "xp": -10
+        },
+        {
+          "key": "D",
+          "text": "Denetim zamanı gelince gerekli belgeleri hazırlarız.",
+          "feedback": "Denetim öncesi hazırlık zamanı kritik; son dakika çalışması kalite ve eksiklik riskini artırır.",
+          "xp": -15
+        }
       ]
     },
-
     {
-      "id": 804, "type": "decision", "section": 3,
-      "from": "Yatırım Analistleri Ekibi", "fromRole": "Strateji ve Planlama",
+      "id": 804,
+      "type": "decision",
+      "section": 3,
+      "from": "Yatırım Analistleri Ekibi",
+      "fromRole": "Strateji ve Planlama",
       "subject": "Dış Çevre — Faiz Oranı Değişikliği Proje Finansallarını Etkiliyor",
       "body": "{{player_name}},\n\nMerkez Bankası faiz artışı proje için kullandığımız kredi maliyetini %15 artırdı. Bu değişikliğin proje mali planına yansıtılması gerekiyor.",
       "time": "14:00",
       "options": [
-        {"key":"A","text":"Mali etkiyi hesaplar, güncellenen nakit akış analizini ve EAC revizyonunu hazırlarım; sponsora ve finans birimine proaktif biçimde sunarım.","feedback":"Dış çevre değişikliklerini mali plana derhal yansıtmak finansal kontrolün temel gereğidir.","xp":30},
-        {"key":"B","text":"Finans birimine bildiririm; onlar güncellesin.","feedback":"Başlangıç olarak doğru ama PM olarak etki analizini bizzat yönlendirmek beklentinin altında kalır.","xp":12},
-        {"key":"C","text":"Faiz oranları dalgalanabilir; bekleyip görürüz.","feedback":"Mali sapmaları bekleme yaklaşımı, olumsuz senaryoda daha büyük sapmalara yol açar.","xp":-5},
-        {"key":"D","text":"Bu bizim kontrolümüzde değil; sorumluluk almam.","feedback":"Kontrolsüz riskler için bile PM yanıt planı geliştirmek ve paydaşları bilgilendirmekle yükümlüdür.","xp":-12}
+        {
+          "key": "A",
+          "text": "Mali etkiyi hesaplar, güncellenen nakit akış analizini ve EAC revizyonunu hazırlarım; sponsora ve finans birimine proaktif biçimde sunarım.",
+          "feedback": "Dış çevre değişikliklerini mali plana derhal yansıtmak finansal kontrolün temel gereğidir.",
+          "xp": 30
+        },
+        {
+          "key": "B",
+          "text": "Finans birimine bildiririm; onlar güncellesin.",
+          "feedback": "Başlangıç olarak doğru ama PM olarak etki analizini bizzat yönlendirmek beklentinin altında kalır.",
+          "xp": 12
+        },
+        {
+          "key": "C",
+          "text": "Faiz oranları dalgalanabilir; bekleyip görürüz.",
+          "feedback": "Mali sapmaları bekleme yaklaşımı, olumsuz senaryoda daha büyük sapmalara yol açar.",
+          "xp": -5
+        },
+        {
+          "key": "D",
+          "text": "Bu bizim kontrolümüzde değil; sorumluluk almam.",
+          "feedback": "Kontrolsüz riskler için bile PM yanıt planı geliştirmek ve paydaşları bilgilendirmekle yükümlüdür.",
+          "xp": -12
+        }
       ]
     }
-
   ]
 }

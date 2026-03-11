@@ -38,22 +38,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, her iki talebi ve temel gerekçelerini anlıyorum. İki seçenek arasındaki maliyet-fayda karşılaştırmasını somut verilerle ortaya koyacağım ve her senaryonun proje hedeflerine etkisini göstereceğim. Ortak bir karar toplantısı düzenleyerek her iki tarafın önceliklere göre bilinçli seçim yapmasını sağlamak istiyorum.",
+          "text_template": "Merhaba {player_name}, her iki talebi ve temel gerekçelerini anlıyorum. İki seçenek arasındaki maliyet-fayda karşılaştırmasını somut verilerle ortaya koyacağım ve her senaryonun proje hedeflerine etkisini göstereceğim.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, durumu anlıyorum. Finans direktörünün daha güçlü bütçe kontrolü olduğunu düşündüğümden onun yönünde ilerliyorum.",
+          "text_template": "Merhaba {player_name}, durumu anlıyorum. Finans direktörünün daha güçlü bütçe kontrolü olduğunu düşündüğümden onun yönünde ilerliyorum. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, her iki talebi de karşılayan karma bir çözüm tasarlayabiliriz; biraz daha süre verin, hazırlayacağım.",
+          "text_template": "Merhaba {player_name}, her iki talebi de karşılayan karma bir çözüm tasarlayabiliriz; biraz daha süre verin, hazırlayacağım. Ekibi bu konuda bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, bu kararı vermek benim görevim değil. Siz ve finans direktörü anlaşınca bana bildirin; o yönde ilerliyorum.",
+          "text_template": "Merhaba {player_name}, bu kararı vermek benim görevim değil. Siz ve finans direktörü anlaşınca bana bildirin; o yönde ilerliyorum. Gerekli görüşmeyi planlıyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -85,22 +85,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, endişenizi duyduk ve ciddiye alıyoruz. Teknik ekiple bugün bu konuyu masaya yatırıyorum; kararın arkasındaki gerekçeleri ve alternatifleri netleştireceğim. Size hem teknik kararın gerekçesini hem de olası uyum çözümlerini sunacak bir toplantı ayarlayacağım.",
+          "text_template": "Merhaba {player_name}, endişenizi duyduk ve ciddiye alıyoruz. Teknik ekiple bugün bu konuyu masaya yatırıyorum; kararın arkasındaki gerekçeleri ve alternatifleri netleştireceğim.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, teknik kararlar ekibin uzmanlık alanı; ben müdahale etmek istemiyorum ama sizi bilgilendireceğim.",
+          "text_template": "Merhaba {player_name}, teknik kararlar ekibin uzmanlık alanı; ben müdahale etmek istemiyorum ama sizi bilgilendireceğim. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, endişenizi teknik ekibe ilettim. Onlar en uygun çözümü bulacak; sizi haberdar edeceğim.",
+          "text_template": "Merhaba {player_name}, endişenizi teknik ekibe ilettim. Onlar en uygun çözümü bulacak; sizi haberdar edeceğim. Gerekirse ek adım değerlendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, teknik ekip doğru karar aldı. Bu alandaki teknik uzmanlıkları benden fazla; karar değişmeyecek.",
+          "text_template": "Merhaba {player_name}, teknik ekip doğru karar aldı. Bu alandaki teknik uzmanlıkları benden fazla; karar değişmeyecek. Durumu izlemeye devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -127,22 +127,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, kaynak çatışmasını anlıyorum. Her iki projenin takvim ve kapsam gereksinimlerini karşılaştıran kısa bir etki analizi hazırlıyorum. Bu analizi PMO'ya sunarak öncelik kararının üst yönetim düzeyinde verilmesini talep edeceğim; çünkü bu karar proje yöneticisi seviyesini aşıyor.",
+          "text_template": "Merhaba {player_name}, kaynak çatışmasını anlıyorum. Her iki projenin takvim ve kapsam gereksinimlerini karşılaştıran kısa bir etki analizi hazırlıyorum. Bu analizi PMO'ya sunarak öncelik kararının üst yönetim düzeyinde.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, kaynağı bırakmayı kabul ediyorum; projemizi daha az kritik kaynaklarla yönetirim.",
+          "text_template": "Merhaba {player_name}, kaynağı bırakmayı kabul ediyorum; projemizi daha az kritik kaynaklarla yönetirim. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, IT departmanıyla doğrudan görüşüp uzlaşmaya çalışacağım; sizin devreye girmenize gerek yok.",
+          "text_template": "Merhaba {player_name}, IT departmanıyla doğrudan görüşüp uzlaşmaya çalışacağım; sizin devreye girmenize gerek yok. Ekibi bu konuda bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, her iki projenin kaynak ihtiyacını karşılamak için çalışma saatlerini genişletebiliriz; ekip fazla mesai yapabilir.",
+          "text_template": "Merhaba {player_name}, her iki projenin kaynak ihtiyacını karşılamak için çalışma saatlerini genişletebiliriz; ekip fazla mesai yapabilir. Gerekli görüşmeyi planlıyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -174,22 +174,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nKullanıcı direncini ciddiye alıyorum; bu değişim yönetiminin yetersiz kaldığının işareti. Pilot kullanıcılarla odak grubu toplantısı yapıp temel şikayetleri dinliyorum, ardından özelleştirilmiş eğitim ve geçiş desteği planı hazırlıyorum. Ayrıca kullanıcı geri bildirimlerini sisteme yansıtmak için ürün ekibiyle görüşeceğim.",
+          "text_template": "Hocam,\n\nKullanıcı direncini ciddiye alıyorum; bu değişim yönetiminin yetersiz kaldığının işareti. Pilot kullanıcılarla odak grubu toplantısı yapıp temel şikayetleri dinliyorum, ardından özelleştirilmiş eğitim ve geçiş desteği planı hazırlıyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nKullanıcılara eğitim materyalleri gönderdim; sistemi öğrenmeleri zaman alacak, sabırlı olmak gerekiyor.",
+          "text_template": "Hocam,\n\nKullanıcılara eğitim materyalleri gönderdim; sistemi öğrenmeleri zaman alacak, sabırlı olmak gerekiyor. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nKullanıcı direnci beklenen bir durum; birkaç hafta içinde alışırlar. Şimdilik baskı yapmayalım.",
+          "text_template": "Hocam,\n\nKullanıcı direnci beklenen bir durum; birkaç hafta içinde alışırlar. Şimdilik baskı yapmayalım. Gerekirse ek adım değerlendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nYöneticilere kullanıcıların yeni sistemi kullanmasını zorunlu kılmalarını söyleyebiliriz; zorunluluk olunca direniş azalır.",
+          "text_template": "Hocam,\n\nYöneticilere kullanıcıların yeni sistemi kullanmasını zorunlu kılmalarını söyleyebiliriz; zorunluluk olunca direniş azalır. Durumu izlemeye devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -220,22 +220,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nEkip üyeleriyle kısa bir durum toplantısı yapıp iletişim kanalını netleştiriyorum: tüm direktifler proje yöneticisi üzerinden geçecek. Sponsor ile saygılı ama net bir görüşme yaparak bu iletişim modelini paylaşacağım ve koordinasyonun neden önemli olduğunu anlatacağım.",
+          "text_template": "Hocam,\n\nEkip üyeleriyle kısa bir durum toplantısı yapıp iletişim kanalını netleştiriyorum: tüm direktifler proje yöneticisi üzerinden geçecek. Sponsor ile saygılı ama net bir görüşme yaparak bu iletişim modelini.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nSponsoru doğrudan düzeltemem; ekibe her iki talebi de karşılamaya çalışmalarını söylüyorum.",
+          "text_template": "Hocam,\n\nSponsoru doğrudan düzeltemem; ekibe her iki talebi de karşılamaya çalışmalarını söylüyorum. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nSponsorun direktiflerini proje planına ekliyorum ve eski öncelikler iptal oluyor.",
+          "text_template": "Hocam,\n\nSponsorun direktiflerini proje planına ekliyorum ve eski öncelikler iptal oluyor. Ekibi bu konuda bilgilendireceğim. Bu yaklaşımda devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nEkip sponsoru dinledi; bu olumlu bir şey. Sponsor isteklerini resmi plan haline getirmeden hayata geçiriyoruz.",
+          "text_template": "Hocam,\n\nEkip sponsoru dinledi; bu olumlu bir şey. Sponsor isteklerini resmi plan haline getirmeden hayata geçiriyoruz. Gerekli görüşmeyi planlıyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -267,22 +267,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, her iki tarafın önceliklerini daha iyi anlamak için ayrı ayrı görüşme yapacağım. Ardından özelliğin iş değerini, maliyetini ve güvenlik etkisini somut verilerle bir analiz belgesine dönüştüreceğim. Ortak bir toplantıda her iki tarafın seçenekleri görmesini ve bilinçli karar vermesini kolaylaştıracağım.",
+          "text_template": "Merhaba {player_name}, her iki tarafın önceliklerini daha iyi anlamak için ayrı ayrı görüşme yapacağım. Ardından özelliğin iş değerini, maliyetini ve güvenlik etkisini somut verilerle bir analiz belgesine dönüştüreceğim.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, kullanıcı temsilcisinin talebi doğru görünüyor; o özelliği scope'a ekliyorum.",
+          "text_template": "Merhaba {player_name}, kullanıcı temsilcisinin talebi doğru görünüyor; o özelliği scope'a ekliyorum. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, iş birimi müdürünün yetkisi daha yüksek; özelliği kapsam dışı bırakıyorum.",
+          "text_template": "Merhaba {player_name}, iş birimi müdürünün yetkisi daha yüksek; özelliği kapsam dışı bırakıyorum. Gerekirse ek adım değerlendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, bu karar beni değil, onları ilgilendiriyor. Onlar anlaşınca bildirir misiniz?",
+          "text_template": "Merhaba {player_name}, bu karar beni değil, onları ilgilendiriyor. Onlar anlaşınca bildirir misiniz? Durumu izlemeye devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -309,22 +309,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, durumu anlıyorum. Projenin gerçek durumunu dürüstçe yansıtan ve aynı zamanda tamamlanan başarıları öne çıkaran bir sunum hazırlıyorum. Tamamlanmamış alanları da kalan takvimle birlikte göstereceğim. Yatırımcılara şeffaf bir tablo sunmak uzun vadeli güveni korumanın en iyi yolu.",
+          "text_template": "Merhaba {player_name}, durumu anlıyorum. Projenin gerçek durumunu dürüstçe yansıtan ve aynı zamanda tamamlanan başarıları öne çıkaran bir sunum hazırlıyorum. Tamamlanmamış alanları da kalan takvimle birlikte göstereceğim.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, yatırımcıları memnun etmek için hazır olmayan bazı özellikleri demo'da 'tamamlandı' olarak gösterebiliriz; sonra tamamlarız.",
+          "text_template": "Merhaba {player_name}, yatırımcıları memnun etmek için hazır olmayan bazı özellikleri demo'da 'tamamlandı' olarak gösterebiliriz; sonra tamamlarız. Takibini yapıp sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, sunum konusunda iletişim departmanıyla çalışmanızı öneririm; bu tür tanıtımlar onların uzmanlık alanı.",
+          "text_template": "Merhaba {player_name}, sunum konusunda iletişim departmanıyla çalışmanızı öneririm; bu tür tanıtımlar onların uzmanlık alanı. Ekibi bu konuda bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, yatırımcıları endişelendirmemek için geride kalan konuları paylaşmayalım; güçlü yönlere odaklanabiliriz.",
+          "text_template": "Merhaba {player_name}, yatırımcıları endişelendirmemek için geride kalan konuları paylaşmayalım; güçlü yönlere odaklanabiliriz. Gerekli görüşmeyi planlıyorum. Ekip bu konuda bilgilendirilecek.",
           "xp": -20,
           "isEthical": false
         }

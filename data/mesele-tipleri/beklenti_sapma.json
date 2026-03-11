@@ -92,7 +92,7 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. Başlangıç beklentisi ile güncel beklenti arasındaki farkı analiz edip değişiklik talebine dönüştüreceğim — CCB onayıyla plana yansıtabiliriz.",
+          "text_template": "Anladım {name_polite}. Başlangıç beklentisi ile güncel beklenti arasındaki farkı analiz edip değişiklik talebine dönüştüreceğim — CCB onayıyla plana yansıtabiliriz. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 10,
           "isEthical": true
         },
@@ -141,7 +141,7 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anlıyorum {name_polite}. Bir kullanıcı araştırması başlatıyorum — hangi özellikler beklentinin altında, hangiler çalışıyor. Bu verilerle öncelikli iyileştirme backlog'u oluşturacağım.",
+          "text_template": "Anlıyorum {name_polite}. Bir kullanıcı araştırması başlatıyorum — hangi özellikler beklentinin altında, hangiler çalışıyor. Bu verilerle öncelikli iyileştirme backlog'u oluşturacağım. Gerekirse ek adım değerlendireceğim.",
           "xp": 10,
           "isEthical": true
         },
@@ -295,7 +295,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Önemli bir gerilimi fark ettin {name_polite}. Kısa vadeli çözüm ile uzun vadeli yol haritası arasındaki farkı paydaşlarla açık konuşalım — farkında olmayan bir maliyet var burada. Sonra bilinçli bir karar verelim.",
+          "text_template": "Önemli bir gerilimi fark ettin {name_polite}. Kısa vadeli çözüm ile uzun vadeli yol haritası arasındaki farkı paydaşlarla açık konuşalım — farkında olmayan bir maliyet var burada.",
           "xp": 30,
           "isEthical": true
         },
@@ -359,7 +359,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Kabul kriterlerimiz sözleşmede yazıyor {name_polite}. Ek kriterler için mutabık kalmamız gerekiyor — kapsamı genişleten beklentiler ek iş anlamına gelir.",
+          "text_template": "Kabul kriterlerimiz sözleşmede yazıyor {name_polite}. Ek kriterler için mutabık kalmamız gerekiyor — kapsamı genişleten beklentiler ek iş anlamına gelir. Durumu izlemeye devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }

@@ -369,7 +369,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, bu durum ciddi bir risk. Mevcut kapasiteyle kapanışın hangi adımlarını tamamlayabileceğimize bakalım — eksik kalan için yöneticiden geçici destek talep edelim. Ben de kapanış sürecine aktif katılacağım.",
+          "text_template": "Anlıyorum {name_polite}, bu durum ciddi bir risk. Mevcut kapasiteyle kapanışın hangi adımlarını tamamlayabileceğimize bakalım — eksik kalan için yöneticiden geçici destek talep edelim.",
           "xp": 30,
           "isEthical": true
         },

@@ -204,7 +204,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. İkincil riski sınırlamak için ne yapabiliriz bakalım — önce oluşan hasarı kontrol edelim. Karar sürecimizi de belgeleyelim.",
+          "text_template": "Tamam {name_polite}. İkincil riski sınırlamak için ne yapabiliriz bakalım — önce oluşan hasarı kontrol edelim. Karar sürecimizi de belgeleyelim. Sürecin gelişimini yakından takip edeceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -253,7 +253,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Şu an için hasar sınırlama önlemlerini alıyoruz. Sonra tetikleyici izleme sistemimizi nasıl güçlendiririz birlikte tasarlayalım.",
+          "text_template": "Tamam {name_polite}. Şu an için hasar sınırlama önlemlerini alıyoruz. Sonra tetikleyici izleme sistemimizi nasıl güçlendiririz birlikte tasarlayalım. Gerekirse ek adım değerlendireceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -302,7 +302,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Kaçan fırsatı sistematik olarak belgeleyelim — neden kaçırdık, ne yapabilirdik. Bu lessons learned kaydı gelecekte değerli olur.",
+          "text_template": "Tamam {name_polite}. Kaçan fırsatı sistematik olarak belgeleyelim — neden kaçırdık, ne yapabilirdik. Bu lessons learned kaydı gelecekte değerli olur. Durumu izlemeye devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
