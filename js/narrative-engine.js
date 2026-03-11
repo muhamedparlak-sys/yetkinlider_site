@@ -239,8 +239,13 @@ const NarrativeEngine = (() => {
   function shouldTriggerOrdeal(S, currentPhase) {
     if (S.ordealFired) return false;
 
-    const poisonCount = Object.values(S.answered || {})
-      .filter(v => v === 'D').length;
+    // isEthical===false olan seçenekleri say (shuffle sonrası D sabit değil)
+    const poisonCount = (S.notifs || [])
+      .filter(n => n.type === 'decision' && S.answered[n.id] && S.answered[n.id] !== 'READ')
+      .filter(n => {
+        const opt = (n.options || []).find(o => o.key === S.answered[n.id]);
+        return opt && opt.isEthical === false;
+      }).length;
 
     const pendingCount = (S.pendingCrises || []).length;
 
