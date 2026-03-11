@@ -15,9 +15,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{alan} konusundaki tüm bilgi {uzman} kişisinde. Yazılı belge yok, süreç aktarımı hiç yapılmadı. Bu kişi {risk} durumuna girdi; proje ciddi risk altında.",
+      "subject_template": "{uzman} ayrılıyor — kritik bilgi hiç belgelenmemiş",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{alan} konusundaki tüm bilgi {uzman} kişisinde. Yazılı belge yok, süreç aktarımı hiç yapılmadı. Bu kişi {risk} durumuna girdi; proje ciddi risk altında.",
       "body_vars": {
         "alan": [
           "legacy sistem entegrasyonu",
@@ -67,9 +67,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{dept_a} ile {dept_b} departmanları birbirinden habersiz çalışıyor. {dept_a}'nın {bilgi} bilgisi, {dept_b}'nin aldığı kararları doğrudan etkiliyor ama bu bilgi paylaşılmıyor. Çakışan çalışmalar ve çelişen çıktılar oluşuyor.",
+      "subject_template": "{dept_a} ile {dept_b} arasında ciddi bilgi kopukluğu var",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{dept_a} ile {dept_b} departmanları birbirinden habersiz çalışıyor. {dept_a}'nın {bilgi} bilgisi, {dept_b}'nin aldığı kararları doğrudan etkiliyor ama bu bilgi paylaşılmıyor. Çakışan çalışmalar ve çelişen çıktılar oluşuyor.",
       "body_vars": {
         "dept_a": [
           "geliştirme ekibi",
@@ -105,7 +105,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nDepertmanlar arasındaki iletişimi email zinciriyle yönetebiliriz. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
+          "text_template": "Hocam,\n\nDepartmanlar arasındaki iletişimi email zinciriyle yönetebiliriz. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -119,9 +119,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nMevcut {karar} kararının neden alındığını kimse bilmiyor. Belge yok, toplantı notu yok. Şimdi bu kararı değiştirip değiştirmeyeceğimizi tartışıyoruz ama geçmişi bilmeden sağlıklı karar veremiyoruz.",
+      "subject_template": "Neden {karar} kararını aldık — kimse bilmiyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nMevcut {karar} kararının neden alındığını kimse bilmiyor. Belge yok, toplantı notu yok. Şimdi bu kararı değiştirip değiştirmeyeceğimizi tartışıyoruz ama geçmişi bilmeden sağlıklı karar veremiyoruz.",
       "body_vars": {
         "karar": [
           "mimari yapı seçimi",
@@ -161,9 +161,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nMüşteriyle {sure} önce {karar} kararı alınmış ama şimdiki ekipte bunu bilen kimse yok. Müşteri bu kararı referans alarak yeni gereksinimler türetiyor; biz ise neden kabul ettiğimizi bilmiyoruz.",
+      "subject_template": "Müşteri {sure} önceki kararı referans alıyor — bizde kayıt yok",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nMüşteriyle {sure} önce {karar} kararı alınmış ama şimdiki ekipte bunu bilen kimse yok. Müşteri bu kararı referans alarak yeni gereksinimler türetiyor; biz ise neden kabul ettiğimizi bilmiyoruz.",
       "body_vars": {
         "sure": [
           "6 ay",
@@ -208,9 +208,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{bileşen} bileşeninin teknik belgeleri yok veya çok eski. Yeni ekip üyeleri bu bileşeni anlamak için çok zaman harcıyor ve hata riski artıyor.",
+      "subject_template": "{bileşen} için teknik belge yok — yeni üyeler takılıyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{bileşen} bileşeninin teknik belgeleri yok veya çok eski. Yeni ekip üyeleri bu bileşeni anlamak için çok zaman harcıyor ve hata riski artıyor.",
       "body_vars": {
         "bileşen": [
           "ödeme entegrasyon katmanı",
@@ -250,9 +250,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nGeçen ay yaşadığımız {sorun} sorunu, daha önce {diger_proje} projesinde de yaşanmış. Ama o deneyim hiç belgelenmemiş; aynı hatayı yeniden yaptık.",
+      "subject_template": "{diger_proje} projesinde aynı {sorun} yaşanmış — ders çıkarmadık",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nGeçen ay yaşadığımız {sorun} sorunu, daha önce {diger_proje} projesinde de yaşanmış. Ama o deneyim hiç belgelenmemiş; aynı hatayı yeniden yaptık.",
       "body_vars": {
         "sorun": [
           "tedarikçi iletişim kopukluğu",

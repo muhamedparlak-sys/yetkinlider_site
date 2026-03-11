@@ -2304,6 +2304,8 @@ var Game; Game = (() => {
     S.hasUnsavedChanges = true;
     refreshItem(id);
     updateContinueBtn();
+    // Story bildirimlerini otomatik ilerlet (700ms sonra) — kullanıcı Space'e basmasın
+    setTimeout(() => { if(S.activeId === id) advance(); }, 700);
   }
 
   function tryChoose(id, key) {

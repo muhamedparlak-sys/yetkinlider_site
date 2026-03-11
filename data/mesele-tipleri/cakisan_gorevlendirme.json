@@ -15,9 +15,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{isim}, aynı anda hem {gorev_a} hem de {gorev_b} görevine %100 atanmış durumda. Bu fiziksel olarak mümkün değil; ikisinden birini seçmek ya da kapasite yeniden düzenlemek gerekiyor.",
+      "subject_template": "{isim} iki göreve birden %100 atanmış — fiziksel imkânsız",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{isim}, aynı anda hem {gorev_a} hem de {gorev_b} görevine %100 atanmış durumda. Bu fiziksel olarak mümkün değil; ikisinden birini seçmek ya da kapasite yeniden düzenlemek gerekiyor.",
       "body_vars": {
         "isim": [
           "Ali Bey",
@@ -67,9 +67,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{isim}, hem proje görevlerimizi hem de {operasyonel_gorev} operasyonel görevini aynı hafta yürütmek zorunda. Takvimde bu durum planlanmamıştı; hangisine odaklanacağını bilmiyor.",
+      "subject_template": "{isim} bu hafta hem proje hem operasyon yüklenmiş",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{isim}, hem proje görevlerimizi hem de {operasyonel_gorev} operasyonel görevini aynı hafta yürütmek zorunda. Takvimde bu durum planlanmamıştı; hangisine odaklanacağını bilmiyor.",
       "body_vars": {
         "isim": [
           "Ali Bey",
@@ -114,9 +114,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{isim}, {tarih} tarihinde hem {egitim} eğitimine katılacak hem de {teslim} teslimattan sorumlu. İkisi aynı hafta çakışıyor.",
+      "subject_template": "{isim}'in {egitim} ile {teslim} teslimi aynı haftaya denk geldi",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{isim}, {tarih} tarihinde hem {egitim} eğitimine katılacak hem de {teslim} teslimattan sorumlu. İkisi aynı hafta çakışıyor.",
       "body_vars": {
         "isim": [
           "Ali Bey",
@@ -171,9 +171,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{proje_a} projesi de {proje_b} projesi de {isim}'i kritik görev için talep ediyor. İkisi de aynı tarihte teslim veriyor. {isim}'in seçim yapması gerekiyor.",
+      "subject_template": "İki proje de {isim}'i aynı tarihte istiyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{proje_a} projesi de {proje_b} projesi de {isim}'i kritik görev için talep ediyor. İkisi de aynı tarihte teslim veriyor. {isim}'in seçim yapması gerekiyor.",
       "body_vars": {
         "proje_a": [
           "dijital dönüşüm",
@@ -223,9 +223,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{karar_vericiler} kişileri bu hafta {tarih} günü hem {toplanti_a} hem de {toplanti_b} toplantısına davetli. Karar alınması gereken {konu} konusu ikisini de kapsıyor; biri kaçırılırsa süreç tıkanacak.",
+      "subject_template": "{tarih} günü kritik iki toplantı çakışıyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{karar_vericiler} kişileri bu hafta {tarih} günü hem {toplanti_a} hem de {toplanti_b} toplantısına davetli. Karar alınması gereken {konu} konusu ikisini de kapsıyor; biri kaçırılırsa süreç tıkanacak.",
       "body_vars": {
         "karar_vericiler": [
           "sponsor ve teknik direktör",
