@@ -33,13 +33,116 @@ const PSG = (() => {
   ];
   // Toplam: 180 karar + 130 lore = 310 bildirim
 
-  // Her fazın mesele_id başına ağırlık çarpanı
+  // Her fazın mesele_id başına ağırlık çarpanı — tüm 36 mesele tipi dahil
+  // Mantık: fazın PM sürecine uygun tipler yüksek ağırlıkla, diğerleri 1 (varsayılan)
   const PHASE_BIAS = {
-    baslangic: { paydas_erisim_sorunu: 5, kaynak_erisilemezligi: 3, yazisiz_scope_degisikligi: 3, gorev_gecikmesi: 1, performans_geriligi: 1 },
-    planlama:  { yazisiz_scope_degisikligi: 5, kaynak_erisilemezligi: 4, paydas_erisim_sorunu: 3, gorev_gecikmesi: 2, performans_geriligi: 1 },
-    yurutme:   { performans_geriligi: 5, gorev_gecikmesi: 4, paydas_erisim_sorunu: 3, yazisiz_scope_degisikligi: 2, kaynak_erisilemezligi: 2 },
-    izleme:    { gorev_gecikmesi: 5, performans_geriligi: 4, yazisiz_scope_degisikligi: 3, paydas_erisim_sorunu: 2, kaynak_erisilemezligi: 1 },
-    kapanis:   { paydas_erisim_sorunu: 4, yazisiz_scope_degisikligi: 3, gorev_gecikmesi: 2, performans_geriligi: 2, kaynak_erisilemezligi: 1 },
+    // ── 1. BAŞLATMA (18 karar) ─────────────────────────────────────────────────
+    // Odak: kapsam netleştirme, paydaş beklenti yönetimi, ilk kaynak & ekip kurulumu
+    baslangic: {
+      kapsam_belirsizligi:       5,
+      paydas_erisim_sorunu:      4,
+      yazisiz_scope_degisikligi: 4,
+      beklenti_sapma:            4,
+      yetkinlik_uyumsuzlugu:     3,
+      kaynak_erisilemezligi:     3,
+      dis_etki_mudahalesi:       3,
+      patron_degisikligi:        3,
+      gizli_bagimlilik:          2,
+      paydas_catismasi:          2,
+      gereksinim_catismasi:      2,
+      uyum_ve_lisans:            2,
+      tedarikci_sorunu:          2,
+      yeni_uye_entegrasyonu:     1,
+      kilit_kisi_bagimlilik:     1,
+    },
+    // ── 2. PLANLAMA (30 karar) ─────────────────────────────────────────────────
+    // Odak: gereksinimleri netleştirme, bağımlılıklar, kaynak planı, risk planı
+    planlama: {
+      gereksinim_catismasi:      5,
+      kapsam_belirsizligi:       5,
+      gizli_bagimlilik:          4,
+      kaynak_erisilemezligi:     4,
+      yazisiz_scope_degisikligi: 3,
+      milestone_baskisi:         3,
+      takvim_degisikligi:        3,
+      uyum_ve_lisans:            3,
+      tedarikci_sorunu:          3,
+      yeni_uye_entegrasyonu:     3,
+      kilit_kisi_bagimlilik:     3,
+      cakisan_gorevlendirme:     3,
+      paydas_catismasi:          2,
+      beklenti_sapma:            2,
+      kayitli_risk_gerceklesti:  2,
+      tanimsiz_risk:             2,
+      paydas_erisim_sorunu:      2,
+      patron_degisikligi:        2,
+    },
+    // ── 3. YÜRÜTME (70 karar) ─────────────────────────────────────────────────
+    // Odak: ekip performansı, kapsam kayması, kalite, teknik borç, bütçe
+    yurutme: {
+      gorev_gecikmesi:           5,
+      performans_geriligi:       5,
+      takim_catismasi:           4,
+      gizli_kapsam_kabulu:       4,
+      paralel_is_birikimi:       4,
+      hata_gec_bildirim:         4,
+      teknik_borc:               4,
+      test_atlamasi_baskisi:     4,
+      maliyet_asimi_riski:       3,
+      kapsam_kiymeti_sorgusu:    3,
+      kayitli_risk_gerceklesti:  3,
+      tanimsiz_risk:             3,
+      onaylanmamis_harcama:      3,
+      bilgi_adasi:               3,
+      yetkinlik_uyumsuzlugu:     3,
+      dis_etki_mudahalesi:       2,
+      tedarikci_sorunu:          2,
+      takvim_degisikligi:        2,
+      kilit_kisi_bagimlilik:     2,
+      cakisan_gorevlendirme:     2,
+      milestone_baskisi:         2,
+      paydas_catismasi:          2,
+      iletisim_kopuklugu:        2,
+    },
+    // ── 4. İZLEME & KONTROL (40 karar) ────────────────────────────────────────
+    // Odak: bütçe takibi, risk gerçekleşmesi, ekip sorunları, kalite değerlendirme
+    izleme: {
+      gorev_gecikmesi:           5,
+      performans_geriligi:       5,
+      maliyet_asimi_riski:       4,
+      butce_kesmesi:             4,
+      kayitli_risk_gerceklesti:  4,
+      teknik_borc:               4,
+      takim_catismasi:           3,
+      iletisim_kopuklugu:        3,
+      kilit_kisi_bagimlilik:     3,
+      tanimsiz_risk:             3,
+      onaylanmamis_harcama:      3,
+      teslimat_sonrasi_kriz:     3,
+      bilgi_adasi:               3,
+      paydas_catismasi:          2,
+      milestone_baskisi:         2,
+      takvim_degisikligi:        2,
+      hata_gec_bildirim:         2,
+      test_atlamasi_baskisi:     2,
+    },
+    // ── 5. KAPANIŞ (22 karar) ─────────────────────────────────────────────────
+    // Odak: proje kapanışı, son teslimat, geç bulgular, ders çıkarma
+    kapanis: {
+      proje_kapatma_sorunu:      5,
+      teslimat_sonrasi_kriz:     5,
+      iletisim_kopuklugu:        4,
+      teknik_borc:               3,
+      gorev_gecikmesi:           3,
+      performans_geriligi:       3,
+      maliyet_asimi_riski:       2,
+      butce_kesmesi:             2,
+      paydas_erisim_sorunu:      2,
+      hata_gec_bildirim:         2,
+      tanimsiz_risk:             2,
+      kayitli_risk_gerceklesti:  2,
+      paydas_catismasi:          2,
+    },
   };
 
   // Seçime göre geribildirim şablonları
@@ -155,30 +258,25 @@ const PSG = (() => {
   }
 
   /**
-   * Mesele tipi verisini çek — Supabase öncelikli, yerel dosya fallback.
-   * window.__sbFetchMeseleTipi(id) varsa Supabase'den çeker (ticari IP koruması).
+   * Mesele tipi verisini çek — yerel dosya öncelikli, Supabase opsiyonel.
+   * Dosyalar artık repo'da olduğu için yerel kaynak her zaman günceldir;
+   * Supabase fallback'i kaldırıldı (senkron sorununu önler).
    * @param {string} id
    * @returns {Promise<object>}
    */
   async function fetchMeseleTipi(id) {
-    if (typeof window !== 'undefined' && typeof window.__sbFetchMeseleTipi === 'function') {
-      const data = await window.__sbFetchMeseleTipi(id);
-      if (data) return data;
-    }
-    // Fallback: yerel dosya (dev ortamı)
     return fetchJson(`data/mesele-tipleri/${id}.json`);
   }
 
   /**
-   * Tüm mesele tipi ID listesini çek — Supabase öncelikli, yerel fallback.
+   * Tüm mesele tipi ID listesini çek — her zaman yerel _index.json kullanılır.
+   * Dosyalar artık repo'da tutulduğu için (gitignore kaldırıldı) hem dev hem
+   * prod ortamında statik servis üzerinden erişilebilir.
    * @returns {Promise<string[]>}
    */
   async function fetchMeseleTipiIds() {
-    if (typeof window !== 'undefined' && typeof window.__sbFetchMeseleTipiIds === 'function') {
-      const ids = await window.__sbFetchMeseleTipiIds();
-      if (ids && ids.length) return ids;
-    }
-    // Fallback: yerel _index.json (dev ortamı)
+    // Yerel _index.json her zaman otoriter kaynak — Supabase'de eksik type olsa bile
+    // tüm 36 tip kullanılabilir.
     return fetchJson('data/mesele-tipleri/_index.json');
   }
 
