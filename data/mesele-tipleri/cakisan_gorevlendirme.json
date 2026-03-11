@@ -38,22 +38,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nÇift atamayı tespit ettim; derhal çözüyorum. Her iki görevin iş değeri ve aciliyetini değerlendirip {isim} ile birlikte gerçekçi bir önceliklendirme yapıyorum. İkinci göreve yedek kaynak belirleyip paydaşları etkilenen teslimattan haberdar ediyorum.",
+          "text_template": "Hocam,\n\nÇift atamayı tespit ettim; derhal çözüyorum. Her iki görevin iş değeri ve aciliyetini değerlendirip {isim} ile birlikte gerçekçi bir önceliklendirme yapıyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\n{isim} ikisini birden yapabilir; sadece daha verimli çalışması gerekiyor.",
+          "text_template": "Hocam,\n\n{isim} ikisini birden yapabilir; sadece daha verimli çalışması gerekiyor. Takibini yapıp sizi bilgilendireceğim. Ekip bu konuda bilgilendirilecek.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nHangisi daha önemliyse onu seçsin; kendisi karar verebilir.",
+          "text_template": "Hocam,\n\nHangisi daha önemliyse onu seçsin; kendisi karar verebilir. Ekibi bu konuda bilgilendireceğim. Durumu raporlayacağım.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nİki görevi de tamamlayana kadar çalışma saatlerini uzatabilir.",
+          "text_template": "Hocam,\n\nİki görevi de tamamlayana kadar çalışma saatlerini uzatabilir. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -85,22 +85,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nProje ve operasyon kapasitesi çakışmasını PMO ve ilgili birimlerle birlikte çözüyorum. {isim}'in bu haftaki proje taahhütlerini revize ediyorum ve operasyonel görevi yürütmesi için gereken zamanı sprint planından çıkarıyorum. Paydaşları etkilenen proje görevinden haberdar ediyorum.",
+          "text_template": "Hocam,\n\nProje ve operasyon kapasitesi çakışmasını PMO ve ilgili birimlerle birlikte çözüyorum. {isim}'in bu haftaki proje taahhütlerini revize ediyorum ve operasyonel görevi yürütmesi için gereken zamanı sprint planından.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nProje önceliği; operasyonel görevi erteleyebilir mi?",
+          "text_template": "Hocam,\n\nProje önceliği; operasyonel görevi erteleyebilir mi? Sürecin gelişimini yakından takip edeceğim. Sürecin gelişimini izliyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nHer ikisini de yarım yapabilir; ikisi de tamamlanır.",
+          "text_template": "Hocam,\n\nHer ikisini de yarım yapabilir; ikisi de tamamlanır. Gerekirse ek adım değerlendireceğim. Gerekli durumda müdahale edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nOperasyonel görev düzenli; proje görevi ertelenebilir.",
+          "text_template": "Hocam,\n\nOperasyonel görev düzenli; proje görevi ertelenebilir. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -147,17 +147,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nEğitim önemli; teslimi biraz erteleyebiliriz.",
+          "text_template": "Hocam,\n\nEğitim önemli; teslimi biraz erteleyebiliriz. Takibini yapıp sizi bilgilendireceğim. Ekip bu konuda bilgilendirilecek.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nTeslim öncelikli; eğitimi atlayabilir.",
+          "text_template": "Hocam,\n\nTeslim öncelikli; eğitimi atlayabilir. Ekibi bu konuda bilgilendireceğim. Durumu raporlayacağım.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\n{isim} iki şeyi birden idare edebilir; problem değil.",
+          "text_template": "Hocam,\n\n{isim} iki şeyi birden idare edebilir; problem değil. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -194,22 +194,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nBu önceliklendirme kararı PMO düzeyinde alınmalı. Her iki projenin iş değeri, teslim riski ve {isim}'in hangi göreve daha kritik katkı sağladığını analiz ediyorum. Bulguları PMO'ya sunuyorum; benim düzeyimi aşan bu kararı kurumsal öncelikler çerçevesinde vermelerini bekliyorum.",
+          "text_template": "Hocam,\n\nBu önceliklendirme kararı PMO düzeyinde alınmalı. Her iki projenin iş değeri, teslim riski ve {isim}'in hangi göreve daha kritik katkı sağladığını analiz ediyorum. Bulguları PMO'ya sunuyorum;",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\n{isim}'i kendi projeme atıyorum; diğer proje başka birini bulur.",
+          "text_template": "Hocam,\n\n{isim}'i kendi projeme atıyorum; diğer proje başka birini bulur. Sürecin gelişimini yakından takip edeceğim. Sürecin gelişimini izliyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\n{isim} iki projeye de yarım kapasite çalışabilir.",
+          "text_template": "Hocam,\n\n{isim} iki projeye de yarım kapasite çalışabilir. Gerekirse ek adım değerlendireceğim. Gerekli durumda müdahale edeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\n{isim}'in kendisi seçim yapsın; baskı yapmak istemiyorum.",
+          "text_template": "Hocam,\n\n{isim}'in kendisi seçim yapsın; baskı yapmak istemiyorum. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -256,22 +256,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nİki toplantının çakıştığını görüyorum. Karar alma sürecini tıkamamak için toplantılardan birini farklı zamana almayı önereceğim; mümkün değilse kritik karar noktaları için asenkron bir gözden geçirme süreci tasarlıyorum. Karar vericilerin her iki toplantıya katılımını optimize eden bir yapı öneriyorum.",
+          "text_template": "Hocam,\n\nİki toplantının çakıştığını görüyorum. Karar alma sürecini tıkamamak için toplantılardan birini farklı zamana almayı önereceğim; mümkün değilse kritik karar noktaları için asenkron bir gözden geçirme süreci tasarlıyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nKarar vericiler ikisine de katılsın; yorucu olur ama gerekli.",
+          "text_template": "Hocam,\n\nKarar vericiler ikisine de katılsın; yorucu olur ama gerekli. Takibini yapıp sizi bilgilendireceğim. Ekip bu konuda bilgilendirilecek.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nDaha az önemli toplantıyı iptal edelim.",
+          "text_template": "Hocam,\n\nDaha az önemli toplantıyı iptal edelim. Ekibi bu konuda bilgilendireceğim. Durumu raporlayacağım.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nKarar toplantısını sonraki haftaya erteleyelim; bu hafta mümkün değil.",
+          "text_template": "Hocam,\n\nKarar toplantısını sonraki haftaya erteleyelim; bu hafta mümkün değil. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım.",
           "xp": -20,
           "isEthical": false
         }

@@ -43,22 +43,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nVelocity düşüşünün kaynağını doğruladım. PMO'ya ekip kapasitesini ve proje önceliklerini gösteren somut bir tablo sunuyorum; odaklanmış görevlendirme için kaynak yeniden dağılımı talep edeceğim. Her projeye asgari odak süresi garantisi istemek için sponsor ile görüşeceğim.",
+          "text_template": "Hocam,\n\nVelocity düşüşünün kaynağını doğruladım. PMO'ya ekip kapasitesini ve proje önceliklerini gösteren somut bir tablo sunuyorum; odaklanmış görevlendirme için kaynak yeniden dağılımı talep edeceğim.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nEkip biraz daha verimli çalışırsa bu yük kaldırılabilir.",
+          "text_template": "Hocam,\n\nEkip biraz daha verimli çalışırsa bu yük kaldırılabilir. Ekibi bu konuda bilgilendireceğim. Bu kararı ekiple paylaşacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nVelocity düşüşünü sprint raporuna not ettim; durumu izlemeye devam edeceğiz.",
+          "text_template": "Hocam,\n\nVelocity düşüşünü sprint raporuna not ettim; durumu izlemeye devam edeceğiz. Gerekli görüşmeyi planlıyorum. Sürecin gelişimini izliyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nÇok proje aynı anda yürütmek firmanın politikası; buna göre planlama yapmamız gerekiyor.",
+          "text_template": "Hocam,\n\nÇok proje aynı anda yürütmek firmanın politikası; buna göre planlama yapmamız gerekiyor. Sürecin gelişimini yakından takip edeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -90,22 +90,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, acil talebi aldım. Bu kapasite çekilmesinin mevcut sprint taahhütlerimize etkisini hızla değerlendiriyorum. Hangi görevleri ertelemek ya da kapsamdan çıkarmak gerektiğini size ve ilgili paydaşlara bildireceğim; sprint hedeflerinin değişmesi için onayınızı alacağım.",
+          "text_template": "Merhaba {player_name}, acil talebi aldım. Bu kapasite çekilmesinin mevcut sprint taahhütlerimize etkisini hızla değerlendiriyorum. Hangi görevleri ertelemek ya da kapsamdan çıkarmak gerektiğini size ve ilgili paydaşlara bildireceğim;",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, ekibi acil işe yönlendiriyorum; sprint taahhütleri de tutulmaya çalışılacak.",
+          "text_template": "Merhaba {player_name}, ekibi acil işe yönlendiriyorum; sprint taahhütleri de tutulmaya çalışılacak. Gerekirse ek adım değerlendireceğim. Gerekli durumda müdahale edeceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, acil iş için gönüllü bir üye bulursam sprint planı etkilenmez.",
+          "text_template": "Merhaba {player_name}, acil iş için gönüllü bir üye bulursam sprint planı etkilenmez. Durumu izlemeye devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, sprint taahhütlerimizi bırakamayız; acil işi başka ekip üstlenmeli.",
+          "text_template": "Merhaba {player_name}, sprint taahhütlerimizi bırakamayız; acil işi başka ekip üstlenmeli. Takibini yapıp sizi bilgilendireceğim. Bu yaklaşımda devam ediyorum.",
           "xp": -20,
           "isEthical": false
         }
@@ -132,22 +132,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nBilgi transferi önemli ama sprint taahhütlerini de etkilememeli. Bilgi transferi seanslarını sprint kapasitesine dahil ediyorum ve bu süre zarfında sprint kapsamını buna göre kısaltıyorum. Sponsor ve PMO'yu revize kapasiteyle bilgilendirip beklenti yönetimi yapıyorum.",
+          "text_template": "Hocam,\n\nBilgi transferi önemli ama sprint taahhütlerini de etkilememeli. Bilgi transferi seanslarını sprint kapasitesine dahil ediyorum ve bu süre zarfında sprint kapsamını buna göre kısaltıyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nKıdemli geliştirici hem bilgi aktarımı hem sprint görevlerini yapabilir; çifte verimli olur.",
+          "text_template": "Hocam,\n\nKıdemli geliştirici hem bilgi aktarımı hem sprint görevlerini yapabilir; çifte verimli olur. Ekibi bu konuda bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nBilgi aktarımını sprint dışında, mesai sonrasında yaparsak sprint etkilenmez.",
+          "text_template": "Hocam,\n\nBilgi aktarımını sprint dışında, mesai sonrasında yaparsak sprint etkilenmez. Gerekli görüşmeyi planlıyorum. Ekip bu konuda bilgilendirilecek.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nBilgi aktarımı öncelikli; sprint taahhütlerini bu ay bırakabiliriz.",
+          "text_template": "Hocam,\n\nBilgi aktarımı öncelikli; sprint taahhütlerini bu ay bırakabiliriz. Sürecin gelişimini yakından takip edeceğim. Durumu raporlayacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -184,22 +184,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nOps-Dev çatışmasını somut verilerle belgeledim. Destek taleplerini yönetmek için ayrı bir 'ops nöbet' rotasyonu oluşturup geliştirme sprint'lerini bu yükten izole etmeyi öneriyorum. Uzun vadeli çözüm için dedicated ops kaynağı talebini yönetimle paylaşacağım.",
+          "text_template": "Hocam,\n\nOps-Dev çatışmasını somut verilerle belgeledim. Destek taleplerini yönetmek için ayrı bir 'ops nöbet' rotasyonu oluşturup geliştirme sprint'lerini bu yükten izole etmeyi öneriyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nDestek ve geliştirme aynı ekip tarafından yürütülebilir; organize olunca yönetilebilir.",
+          "text_template": "Hocam,\n\nDestek ve geliştirme aynı ekip tarafından yürütülebilir; organize olunca yönetilebilir. Gerekirse ek adım değerlendireceğim. Bu kararı ekiple paylaşacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nDestek yükü yoğun olduğu haftalarda sprint kapsamını düşürürüz.",
+          "text_template": "Hocam,\n\nDestek yükü yoğun olduğu haftalarda sprint kapsamını düşürürüz. Durumu izlemeye devam ediyorum. Sürecin gelişimini izliyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nDesteği müşteriye bırakalım; kullanıcılar sistemi öğrenince sorunlar azalır.",
+          "text_template": "Hocam,\n\nDesteği müşteriye bırakalım; kullanıcılar sistemi öğrenince sorunlar azalır. Takibini yapıp sizi bilgilendireceğim. Gerekli durumda müdahale edeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -231,17 +231,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nToplantılar iletişim için gerekli; ekip bunlara uyum sağlar.",
+          "text_template": "Hocam,\n\nToplantılar iletişim için gerekli; ekip bunlara uyum sağlar. Ekibi bu konuda bilgilendireceğim. Bu yaklaşımda devam ediyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nBazı toplantıları atlamayı ekip üyelerine bırakalım.",
+          "text_template": "Hocam,\n\nBazı toplantıları atlamayı ekip üyelerine bırakalım. Gerekli görüşmeyi planlıyorum. Ekip bu konuda bilgilendirilecek.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nToplantıları mesai sonrasına alabiliriz; geliştirme saatlerini koruruz.",
+          "text_template": "Hocam,\n\nToplantıları mesai sonrasına alabiliriz; geliştirme saatlerini koruruz. Sürecin gelişimini yakından takip edeceğim. Durumu raporlayacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -278,22 +278,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\n{isim} ile her iki görevin öncelik ve esnekliğini değerlendiriyorum. Hangisinin ertelenebildiğini veya kısmen devredilebileceğini netleştirip bu hafta için gerçekçi bir plan oluşturacağım. Uzun vadede kilit kişi bağımlılığını azaltmak için yedek karar verici yetiştirmeyi önereceğim.",
+          "text_template": "Hocam,\n\n{isim} ile her iki görevin öncelik ve esnekliğini değerlendiriyorum. Hangisinin ertelenebildiğini veya kısmen devredilebileceğini netleştirip bu hafta için gerçekçi bir plan oluşturacağım.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\n{isim} her ikisini de birden yönetebilir; hafif bir reorganizasyonla.",
+          "text_template": "Hocam,\n\n{isim} her ikisini de birden yönetebilir; hafif bir reorganizasyonla. Gerekirse ek adım değerlendireceğim. Bu kararı ekiple paylaşacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\n{isim}'e bağlı olan görevlerden birini benim onay yetkimle ilerletebiliriz.",
+          "text_template": "Hocam,\n\n{isim}'e bağlı olan görevlerden birini benim onay yetkimle ilerletebiliriz. Durumu izlemeye devam ediyorum. Sürecin gelişimini izliyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nHer iki görevi de erteliyoruz; {isim} uygun olana kadar bekleriz.",
+          "text_template": "Hocam,\n\nHer iki görevi de erteliyoruz; {isim} uygun olana kadar bekleriz. Takibini yapıp sizi bilgilendireceğim. Gerekli durumda müdahale edeceğim.",
           "xp": -20,
           "isEthical": false
         }

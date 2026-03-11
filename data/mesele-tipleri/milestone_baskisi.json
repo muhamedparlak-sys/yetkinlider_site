@@ -38,22 +38,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, teslim tarihinin önemini ve sonuçlarını anlıyorum. Mevcut kapsam, kapasite ve kalite standartları göz önünde bulundurulduğunda bu tarihe yetişmek için gerçekçi seçenekleri analiz ediyorum: kapsam küçültme, kaynak takviyesi veya risk altında devam etme. Bu seçenekleri maliyet-fayda analiziyle size sunup birlikte karar almak istiyorum.",
+          "text_template": "Merhaba {player_name}, teslim tarihinin önemini ve sonuçlarını anlıyorum. Mevcut kapsam, kapasite ve kalite standartları göz önünde bulundurulduğunda bu tarihe yetişmek için gerçekçi seçenekleri analiz ediyorum: kapsam küçültme.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, teslim tarihini tutturmak için ekip fazla mesaiye geçiyor ve test sürecini kısaltıyoruz.",
+          "text_template": "Merhaba {player_name}, teslim tarihini tutturmak için ekip fazla mesaiye geçiyor ve test sürecini kısaltıyoruz. Ekibi bu konuda bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, anlıyorum. Tarih kritikse kapsamı daraltabiliriz; hangi özellikleri çıkarmamı önerirsiniz?",
+          "text_template": "Merhaba {player_name}, anlıyorum. Tarih kritikse kapsamı daraltabiliriz; hangi özellikleri çıkarmamı önerirsiniz? Gerekli görüşmeyi planlıyorum. Ekip bu konuda bilgilendirilecek.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, bu tarihi tutturmak mümkün; ekip baskı altında daha verimli çalışır. Taahhüt ediyorum.",
+          "text_template": "Merhaba {player_name}, bu tarihi tutturmak mümkün; ekip baskı altında daha verimli çalışır. Taahhüt ediyorum. Sürecin gelişimini yakından takip edeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -95,22 +95,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nHatayı ve etkisini netleştirdim. Müşteriyi/sponsoru proaktif olarak bilgilendirip iki seçenek sunuyorum: hatayı gidermek için demo tarihini kısa süreyle ertelemek ya da etkilenmeyen özellikleri kapsayan kısmi bir demo yapmak. Hatayı gizleyerek devam etmek güveni zedeler ve uzun vadede daha büyük sorun yaratır.",
+          "text_template": "Hocam,\n\nHatayı ve etkisini netleştirdim. Müşteriyi/sponsoru proaktif olarak bilgilendirip iki seçenek sunuyorum: hatayı gidermek için demo tarihini kısa süreyle ertelemek ya da etkilenmeyen özellikleri kapsayan kısmi bir demo.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nDemoda sadece çalışan bölümleri gösteririz; hatayı gizlemek zorunda kalmayız.",
+          "text_template": "Hocam,\n\nDemoda sadece çalışan bölümleri gösteririz; hatayı gizlemek zorunda kalmayız. Gerekirse ek adım değerlendireceğim. Durumu raporlayacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nEkip gece çalışırsa hatayı demo öncesinde düzeltebiliriz; risk alıyoruz ama deneyelim.",
+          "text_template": "Hocam,\n\nEkip gece çalışırsa hatayı demo öncesinde düzeltebiliriz; risk alıyoruz ama deneyelim. Durumu izlemeye devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nDemoyu bugün iptal ediyorum ve tüm sebepleri ayrıntısıyla müşteriye açıklıyorum; şeffaflık her şeyden önemli.",
+          "text_template": "Hocam,\n\nDemoyu bugün iptal ediyorum ve tüm sebepleri ayrıntısıyla müşteriye açıklıyorum; şeffaflık her şeyden önemli. Takibini yapıp sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -137,22 +137,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nBu kümülatif eğilimi fark etmek önemli. Kök nedeni analiz etmek için retrospektif yapıyorum: her sprint'te gecikmeye yol açan ortak faktörleri tespit edip gidereceğim. Mevcut açığı kapatmak için kapsam, kaynak veya takvim seçeneklerini sponsorla birlikte değerlendireceğim.",
+          "text_template": "Hocam,\n\nBu kümülatif eğilimi fark etmek önemli. Kök nedeni analiz etmek için retrospektif yapıyorum: her sprint'te gecikmeye yol açan ortak faktörleri tespit edip gidereceğim.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nEkip biraz daha hızlanırsa toplam açığı son iki sprint'te kapatabilir.",
+          "text_template": "Hocam,\n\nEkip biraz daha hızlanırsa toplam açığı son iki sprint'te kapatabilir. Ekibi bu konuda bilgilendireceğim. Bu kararı ekiple paylaşacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nSprintlerdeki küçük gecikmeler normal; son milestone'a yeterli tampon var.",
+          "text_template": "Hocam,\n\nSprintlerdeki küçük gecikmeler normal; son milestone'a yeterli tampon var. Gerekli görüşmeyi planlıyorum. Sürecin gelişimini izliyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nGecikmeyi telafi etmek için bazı test adımlarını atlayabiliriz; hız öncelik olmalı.",
+          "text_template": "Hocam,\n\nGecikmeyi telafi etmek için bazı test adımlarını atlayabiliriz; hız öncelik olmalı. Sürecin gelişimini yakından takip edeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -184,22 +184,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, gecikmeyi anlıyorum. Gecikmenin kapsamını ve kök nedenini netleştirmek için bugün bir görüşme yapalım. Eğer teknik destek gerekiyorsa ekibimden yardım sağlayabilirim; eğer kapsam sorunu ise test önceliklerini birlikte belirleyebiliriz. Revize takvimi paydaşlara bildireceğim.",
+          "text_template": "Merhaba {player_name}, gecikmeyi anlıyorum. Gecikmenin kapsamını ve kök nedenini netleştirmek için bugün bir görüşme yapalım. Eğer teknik destek gerekiyorsa ekibimden yardım sağlayabilirim;",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, kabul testlerini bizim ekip üstlensin; zaten sistemi biz geliştirdik.",
+          "text_template": "Merhaba {player_name}, kabul testlerini bizim ekip üstlensin; zaten sistemi biz geliştirdik. Gerekirse ek adım değerlendireceğim. Gerekli durumda müdahale edeceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, gecikmeyi anlıyorum. Kabul testleri tamamlanmadan sistemi yayına alalım ve test bulgularını sonraki versiyonda gideririz.",
+          "text_template": "Merhaba {player_name}, gecikmeyi anlıyorum. Kabul testleri tamamlanmadan sistemi yayına alalım ve test bulgularını sonraki versiyonda gideririz. Durumu izlemeye devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, gecikme birkaç gün ise sorun yok; ama sürekli uzarsa sözleşme cezası uygulayacağız.",
+          "text_template": "Merhaba {player_name}, gecikme birkaç gün ise sorun yok; ama sürekli uzarsa sözleşme cezası uygulayacağız. Takibini yapıp sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -231,22 +231,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nDurumu anlıyorum. Harici bağımlılığın ne zaman çözüleceğine dair gerçekçi bant tahmini yapıyorum ve paydaşlara şeffaf bir durum raporu sunuyorum. Bu süreçte bağımsız çalışabilecek görevleri hızlandırıyorum. Sponsor ve müşteriyle revize milestone takvimini müzakere edeceğim.",
+          "text_template": "Hocam,\n\nDurumu anlıyorum. Harici bağımlılığın ne zaman çözüleceğine dair gerçekçi bant tahmini yapıyorum ve paydaşlara şeffaf bir durum raporu sunuyorum. Bu süreçte bağımsız çalışabilecek görevleri hızlandırıyorum.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nTedarikçiye/sağlayıcıya baskı yaparak süreci hızlandırmalarını isteyeceğim.",
+          "text_template": "Hocam,\n\nTedarikçiye/sağlayıcıya baskı yaparak süreci hızlandırmalarını isteyeceğim. Ekibi bu konuda bilgilendireceğim. Bu yaklaşımda devam ediyorum.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nMilestone kaçırılacaksa en iyi yol paydaşlara son dakikaya kadar bilgi vermemek; belki sorun kendiliğinden çözülür.",
+          "text_template": "Hocam,\n\nMilestone kaçırılacaksa en iyi yol paydaşlara son dakikaya kadar bilgi vermemek; belki sorun kendiliğinden çözülür. Gerekli görüşmeyi planlıyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nKontrolümüz dışındaki bir durum olduğu için sorumluluk bize ait değil; paydaşlar anlayışla karşılar.",
+          "text_template": "Hocam,\n\nKontrolümüz dışındaki bir durum olduğu için sorumluluk bize ait değil; paydaşlar anlayışla karşılar. Sürecin gelişimini yakından takip edeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -273,22 +273,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, talebi aldım. Bu özelliği mevcut kapsama eklemek için gereken efor ve takvim etkisini bugün değerlendiriyorum. Seçenekleri sizinle paylaşacağım: mevcut milestone'ı kaçırarak ekleme, sonraki versiyona bırakma ya da başka bir özelliğin çıkarılması. Karar sizin.",
+          "text_template": "Merhaba {player_name}, talebi aldım. Bu özelliği mevcut kapsama eklemek için gereken efor ve takvim etkisini bugün değerlendiriyorum. Seçenekleri sizinle paylaşacağım: mevcut milestone'ı kaçırarak ekleme, sonraki versiyona bırakma.",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, müşteri istiyor ise ekleyelim; ekip fazla mesaiyle yetiştirir.",
+          "text_template": "Merhaba {player_name}, müşteri istiyor ise ekleyelim; ekip fazla mesaiyle yetiştirir. Gerekirse ek adım değerlendireceğim. Ekip bu konuda bilgilendirilecek.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, ekliyorum; zaten çok karmaşık bir özellik değil, kısa sürede hazır ederiz.",
+          "text_template": "Merhaba {player_name}, ekliyorum; zaten çok karmaşık bir özellik değil, kısa sürede hazır ederiz. Durumu izlemeye devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, milestone öncesinde kapsam değişikliği kabul etmiyorum; bu prosedüre aykırı.",
+          "text_template": "Merhaba {player_name}, milestone öncesinde kapsam değişikliği kabul etmiyorum; bu prosedüre aykırı. Takibini yapıp sizi bilgilendireceğim. Durumu raporlayacağım.",
           "xp": -20,
           "isEthical": false
         }

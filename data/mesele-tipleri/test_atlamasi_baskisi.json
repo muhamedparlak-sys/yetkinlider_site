@@ -216,7 +216,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu önemli bir tespit {name_polite}. Performans sorununu hemen analiz edelim — canlı ortamda kabul edilemez ise acil mitigasyon adımları atalım. Sonra bir sonraki sürüm için performans testini test kapsamına mutlaka ekleyelim.",
+          "text_template": "Bu önemli bir tespit {name_polite}. Performans sorununu hemen analiz edelim — canlı ortamda kabul edilemez ise acil mitigasyon adımları atalım.",
           "xp": 30,
           "isEthical": true
         },
@@ -351,7 +351,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, bu dürüst bir iletişim. UAT geçilemeden yapılan devreye alma her zaman risk taşır — şimdi kullanıcı geri bildirimlerini sistematik topladım. Kısa bir destek dönemi başlatıp sorunları hızla kapatalım.",
+          "text_template": "Anlıyorum {name_polite}, bu dürüst bir iletişim. UAT geçilemeden yapılan devreye alma her zaman risk taşır — şimdi kullanıcı geri bildirimlerini sistematik topladım.",
           "xp": 30,
           "isEthical": true
         },

@@ -148,7 +148,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu önemli bir tespiti paylaşman iyi oldu {name_polite}. İletişim planımızı hemen gözden geçireceğim — hangi paydaş hangi bilgiyi ne zaman almalı, eksik bağlantıları bulup düzelteyim. Etkilenen paydaşa da ben ulaşayım.",
+          "text_template": "Bu önemli bir tespiti paylaşman iyi oldu {name_polite}. İletişim planımızı hemen gözden geçireceğim — hangi paydaş hangi bilgiyi ne zaman almalı, eksik bağlantıları bulup düzelteyim.",
           "xp": 30,
           "isEthical": true
         },
@@ -197,7 +197,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu durumu görmen iyi oldu {name_polite}. Merkezi bir belge yönetim deposu kuruyoruz — tek bir kaynak, versiyon kontrollü ve tüm ekibin erişebildiği. Eski versiyonları arşivleyip güncel olanı net işaretleyeceğim.",
+          "text_template": "Bu durumu görmen iyi oldu {name_polite}. Merkezi bir belge yönetim deposu kuruyoruz — tek bir kaynak, versiyon kontrollü ve tüm ekibin erişebildiği.",
           "xp": 30,
           "isEthical": true
         },
@@ -344,7 +344,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu önemli bir tespit {name_polite}. İki ekip arasına köprü görevi yapacak düzenli bir senkronizasyon toplantısı koyuyorum — yüz yüze ya da sanal, haftada bir yeterlice. Ortak iletişim kanalı da oluşturacağım.",
+          "text_template": "Bu önemli bir tespit {name_polite}. İki ekip arasına köprü görevi yapacak düzenli bir senkronizasyon toplantısı koyuyorum — yüz yüze ya da sanal, haftada bir yeterlice.",
           "xp": 30,
           "isEthical": true
         },

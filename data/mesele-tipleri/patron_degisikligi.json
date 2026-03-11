@@ -85,7 +85,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Bu hafta bir başlangıç toplantısı yapalım — projeyi tanıyın, ekiple tanışın. Sorularınızı aldıkça kılavuz olabilirim.",
+          "text_template": "Peki {name_polite}. Bu hafta bir başlangıç toplantısı yapalım — projeyi tanıyın, ekiple tanışın. Sorularınızı aldıkça kılavuz olabilirim. Ekibi bu konuda bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -183,7 +183,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Yeni politikayla en uyumlu proje yaklaşımını belirleyelim — mevcut planı politika çerçevesine uyarlayabiliriz. Seçenekleri hazırlıyorum.",
+          "text_template": "Peki {name_polite}. Yeni politikayla en uyumlu proje yaklaşımını belirleyelim — mevcut planı politika çerçevesine uyarlayabiliriz. Seçenekleri hazırlıyorum. Gerekli görüşmeyi planlıyorum.",
           "xp": 5,
           "isEthical": true
         },
@@ -216,7 +216,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu çok zor bir durum {name_polite}. Bu çatışmayı PM olarak çözmek benim görevim değil — iki yöneticiyi bir araya getirip resmi otorite hattını netleştirmeliyiz. Bunu kolaylaştırmak için adım atacağım.",
+          "text_template": "Bu çok zor bir durum {name_polite}. Bu çatışmayı PM olarak çözmek benim görevim değil — iki yöneticiyi bir araya getirip resmi otorite hattını netleştirmeliyiz.",
           "xp": 30,
           "isEthical": true
         },
@@ -231,7 +231,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Çelişkili talimatlar aldığımda hiç birini uygulamıyorum {name_polite}. Talimatlar netleşene kadar proje durdurulur — bu karar belirsizliğini çözmek yönetimin sorumluluğu.",
+          "text_template": "Çelişkili talimatlar aldığımda hiç birini uygulamıyorum {name_polite}. Talimatlar netleşene kadar proje durdurulur — bu karar belirsizliğini çözmek yönetimin sorumluluğu. Sürecin gelişimini yakından takip edeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -275,7 +275,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Bu dönemde proje tarafından vereceğimiz kararları minimuma indirelim — değişim tamamlandıktan sonra yeni yapıyla birlikte yönü netleştirelim.",
+          "text_template": "Peki {name_polite}. Bu dönemde proje tarafından vereceğimiz kararları minimuma indirelim — değişim tamamlandıktan sonra yeni yapıyla birlikte yönü netleştirelim. Gerekirse ek adım değerlendireceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -308,7 +308,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, sizi bilgilendirmekten memnuniyet duyarım. Projenin bugüne kadar sağladığı değeri, tamamlanan çalışmaları ve kalan faydaları somut olarak sunacağım. Karar sizin — ama bilgiye dayalı karar için elimdeki tüm verileri paylaşacağım.",
+          "text_template": "Anlıyorum {name_polite}, sizi bilgilendirmekten memnuniyet duyarım. Projenin bugüne kadar sağladığı değeri, tamamlanan çalışmaları ve kalan faydaları somut olarak sunacağım. Karar sizin — ama bilgiye dayalı karar için.",
           "xp": 30,
           "isEthical": true
         },
@@ -367,7 +367,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Mevcut durumu ve değiştirmenin olası etkilerini analiz edeyim — sizin için bir seçenek karşılaştırması hazırlayayım.",
+          "text_template": "Peki {name_polite}. Mevcut durumu ve değiştirmenin olası etkilerini analiz edeyim — sizin için bir seçenek karşılaştırması hazırlayayım. Durumu izlemeye devam ediyorum.",
           "xp": 5,
           "isEthical": true
         },

@@ -203,7 +203,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, bu gecikme kabul edilemez. Hatanın mevcut durumunu hemen kontrol ediyorum — neden bu kadar uzun sürdüğünü anlayıp size net bir düzeltme tarihi veriyorum. Üzgünüm bu gecikme için.",
+          "text_template": "Anlıyorum {name_polite}, bu gecikme kabul edilemez. Hatanın mevcut durumunu hemen kontrol ediyorum — neden bu kadar uzun sürdüğünü anlayıp size net bir düzeltme tarihi veriyorum.",
           "xp": 30,
           "isEthical": true
         },
@@ -405,7 +405,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu fark ettiğin için iyi yaptın {name_polite}. Hatanın önceliğini hemen yükseltiyorum ve sprint planına alıyorum — etkilenen paydaşlara da durumu bildirmem gerekiyorsa sen de dahil olursun. Hızlı hareket edelim.",
+          "text_template": "Durumu fark ettiğin için iyi yaptın {name_polite}. Hatanın önceliğini hemen yükseltiyorum ve sprint planına alıyorum — etkilenen paydaşlara da durumu bildirmem gerekiyorsa sen de dahil olursun.",
           "xp": 30,
           "isEthical": true
         },
