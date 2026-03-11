@@ -44,7 +44,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Söylediğin için teşekkürler {name_polite}, bunu getirmek cesaret ister. Önce hatanın güncel durumunu anlayalım — etki analizi yapalım, sonra çözüm planı çıkaralım. Geç söylenmiş hiç söylenmemişten her zaman iyidir.",
+          "text_template": "Söylediğin için teşekkürler {name_polite}, bunu getirmek cesaret ister. Önce hatanın güncel durumunu anlayalım — etki analizi yapalım, sonra çözüm planı çıkaralım. Geç söylenmiş hiç",
           "xp": 30,
           "isEthical": true
         },
@@ -99,7 +99,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu durumu getirdiğin için doğru yaptın {name_polite}. Hatanın müşterileri nasıl etkilediğini hemen değerlendirelim — etkilenenlere proaktif bildirim mi yapmalıyız, bunu birlikte karar verelim. Test sürecimizi de gözden geçirelim.",
+          "text_template": "Bu durumu getirdiğin için doğru yaptın {name_polite}. Hatanın müşterileri nasıl etkilediğini hemen değerlendirelim — etkilenenlere proaktif bildirim mi yapmalıyız, bunu birlikte karar verelim. Test",
           "xp": 30,
           "isEthical": true
         },
@@ -148,7 +148,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Geri bildiriminiz için teşekkürler {name_polite}, bu önemli bir sinyal. Test sürecimizi ve hata izleme yaklaşımımızı gözden geçireceğim — bir sonraki görüşmede kalite güvence planımızı birlikte inceleyebiliriz.",
+          "text_template": "Geri bildiriminiz için teşekkürler {name_polite}, bu önemli bir sinyal. Test sürecimizi ve hata izleme yaklaşımımızı gözden geçireceğim — bir sonraki görüşmede kalite güvence planımızı",
           "xp": 30,
           "isEthical": true
         },
@@ -163,7 +163,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Sözleşmemizde kalite güvence standartlarını tanımladık ve bu standartları karşılıyoruz {name_polite}. Ek test talepleriniz varsa bunları ek hizmet olarak fiyatlandırmamız gerekecek.",
+          "text_template": "Sözleşmemizde kalite güvence standartlarını tanımladık ve bu standartları karşılıyoruz {name_polite}. Ek test talepleriniz varsa bunları ek hizmet olarak fiyatlandırmamız gerekecek. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -203,7 +203,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, bu gecikme kabul edilemez. Hatanın mevcut durumunu hemen kontrol ediyorum — neden bu kadar uzun sürdüğünü anlayıp size net bir düzeltme tarihi veriyorum.",
+          "text_template": "Anlıyorum {name_polite}, bu gecikme kabul edilemez. Hatanın mevcut durumunu hemen kontrol ediyorum — neden bu kadar uzun sürdüğünü anlayıp size net bir düzeltme tarihi",
           "xp": 30,
           "isEthical": true
         },
@@ -252,7 +252,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Doğru bir endişe bu {name_polite}. Hata kodu kapanmış olsa da kök neden analizi yapalım — benzer hataların tekrarlanmaması için sistematik bir inceleme gerekiyor. Zaman ayıralım ve retrospektife koyalım.",
+          "text_template": "Doğru bir endişe bu {name_polite}. Hata kodu kapanmış olsa da kök neden analizi yapalım — benzer hataların tekrarlanmaması için sistematik bir inceleme gerekiyor. Zaman",
           "xp": 30,
           "isEthical": true
         },
@@ -301,7 +301,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, aynı sorunun tekrar etmesi kabul edilemez. Bu kez kalıcı çözüme odaklanıyorum — önceki düzeltmenin neden başarısız olduğunu analiz edip kök nedeni tamamen ortadan kaldıracak bir plan hazırlıyorum.",
+          "text_template": "Anlıyorum {name_polite}, aynı sorunun tekrar etmesi kabul edilemez. Bu kez kalıcı çözüme odaklanıyorum — önceki düzeltmenin neden başarısız olduğunu analiz edip kök nedeni tamamen",
           "xp": 30,
           "isEthical": true
         },
@@ -356,7 +356,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu tespiti paylaşman iyi oldu {name_polite}. Çevresel farklılıkları sistematik olarak izleyecek bir mekanizma kuralım — test ve üretim ortamlarını daha sık karşılaştıran otomatik kontroller ekleyelim.",
+          "text_template": "Bu tespiti paylaşman iyi oldu {name_polite}. Çevresel farklılıkları sistematik olarak izleyecek bir mekanizma kuralım — test ve üretim ortamlarını daha sık karşılaştıran otomatik kontroller",
           "xp": 30,
           "isEthical": true
         },
@@ -405,12 +405,12 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu fark ettiğin için iyi yaptın {name_polite}. Hatanın önceliğini hemen yükseltiyorum ve sprint planına alıyorum — etkilenen paydaşlara da durumu bildirmem gerekiyorsa sen de dahil olursun.",
+          "text_template": "Durumu fark ettiğin için iyi yaptın {name_polite}. Hatanın önceliğini hemen yükseltiyorum ve sprint planına alıyorum — etkilenen paydaşlara da durumu bildirmem gerekiyorsa sen de",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anlıyorum {name_polite}. Hatayı kritik olarak yeniden sınıflandırıyorum — acil çözüm için geliştirme ekibini bugün toplantıya çağırıyorum. Etkilenen tarafları da bilgilendireceğim.",
+          "text_template": "Anlıyorum {name_polite}. Hatayı kritik olarak yeniden sınıflandırıyorum — acil çözüm için geliştirme ekibini bugün toplantıya çağırıyorum. Etkilenen tarafları da bilgilendireceğim. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 10,
           "isEthical": true
         },
@@ -454,7 +454,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu bildirmen iyi oldu {name_polite}. Bağımlı sistemin sahipleriyle iletişime geçiyorum — sorunun ne zaman çözüleceğini öğreneceğim. Bu arada bağımsız aktiviteleri sürdürelim ve riski kayıt altına alalım.",
+          "text_template": "Durumu bildirmen iyi oldu {name_polite}. Bağımlı sistemin sahipleriyle iletişime geçiyorum — sorunun ne zaman çözüleceğini öğreneceğim. Bu arada bağımsız aktiviteleri sürdürelim ve riski kayıt",
           "xp": 30,
           "isEthical": true
         },
@@ -464,7 +464,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Bağımlı sistemi mock veya stub ile simüle edip geliştirmeye devam edebilir miyiz bakalım — bağımlılık çözülene kadar ilerlemeyi sürdürelim.",
+          "text_template": "Tamam {name_polite}. Bağımlı sistemi mock veya stub ile simüle edip geliştirmeye devam edebilir miyiz bakalım — bağımlılık çözülene kadar ilerlemeyi sürdürelim. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },
@@ -503,7 +503,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu bağlantıyı görmen çok değerli {name_polite}. Teknik borcu görünür kılıp sponsora aktarmamız gerekiyor — refactoring için zaman ve bütçe ayırmadan bu döngüden çıkmak güçleşecek. Birlikte bir plan çıkaralım.",
+          "text_template": "Bu bağlantıyı görmen çok değerli {name_polite}. Teknik borcu görünür kılıp sponsora aktarmamız gerekiyor — refactoring için zaman ve bütçe ayırmadan bu döngüden çıkmak güçleşecek.",
           "xp": 30,
           "isEthical": true
         },
@@ -518,7 +518,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Teknik borç yönetimi geliştirme liderinin sorumluluğu {name_polite}. Bunu proje yöneticisi olarak benden çözmemi bekleme — ekibin kod kalitesi standartlarını uygulaması gerekiyor.",
+          "text_template": "Teknik borç yönetimi geliştirme liderinin sorumluluğu {name_polite}. Bunu proje yöneticisi olarak benden çözmemi bekleme — ekibin kod kalitesi standartlarını uygulaması gerekiyor. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": -20,
           "isEthical": false
         }

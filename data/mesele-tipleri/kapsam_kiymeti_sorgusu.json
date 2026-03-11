@@ -38,22 +38,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, haklı bir soru. Bu özelliğin iş değerini somut metriklerle (kullanıcı verimliliği, süreç hızı, maliyet tasarrufu) ölçmeye çalışıyorum. Alternatif çözümlerle karşılaştırmalı bir analiz hazırlayıp hem kısa.",
+          "text_template": "Merhaba {player_name}, haklı bir soru. Bu özelliğin iş değerini somut metriklerle (kullanıcı verimliliği, süreç hızı, maliyet tasarrufu) ölçmeye çalışıyorum. Alternatif çözümlerle karşılaştırmalı bir analiz",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, bu özelliğe baştan karar verildi; şimdi sorgulamak verimsiz. Takibini yapıp sizi bilgilendireceğim. Sürecin gelişimini izliyorum.",
+          "text_template": "Merhaba {player_name}, bu özelliğe baştan karar verildi; şimdi sorgulamak verimsiz. Takibini yapıp sizi bilgilendireceğim. Sürecin gelişimini izliyorum. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, kullanıcılar bu özelliği istiyor; kullanıcı memnuniyeti önemli. Ekibi bu konuda bilgilendireceğim. Gerekli durumda müdahale edeceğim.",
+          "text_template": "Merhaba {player_name}, kullanıcılar bu özelliği istiyor; kullanıcı memnuniyeti önemli. Ekibi bu konuda bilgilendireceğim. Gerekli durumda müdahale edeceğim. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, tüm özellikler değerliydi; kapsam revizyonu işleri geri alır. Gerekli görüşmeyi planlıyorum. Bu yaklaşımda devam ediyorum.",
+          "text_template": "Merhaba {player_name}, tüm özellikler değerliydi; kapsam revizyonu işleri geri alır. Gerekli görüşmeyi planlıyorum. Bu yaklaşımda devam ediyorum. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": -20,
           "isEthical": false
         }
@@ -85,22 +85,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, endişenizi anlıyorum. Teknik gereksinimler karşılanmış olsa bile kullanıcı benimsemesi ve gerçek değer üretimi ayrı bir boyut. Kullanıcılarınızla kısa gözlem oturumları yapmamı ve değer üretimini engelleyen.",
+          "text_template": "Merhaba {player_name}, endişenizi anlıyorum. Teknik gereksinimler karşılanmış olsa bile kullanıcı benimsemesi ve gerçek değer üretimi ayrı bir boyut. Kullanıcılarınızla kısa gözlem oturumları yapmamı ve",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, sözleşme kapsamı eksiksiz teslim edildi; ek geliştirme yeni sözleşme gerektirir. Sürecin gelişimini yakından takip edeceğim.",
+          "text_template": "Merhaba {player_name}, sözleşme kapsamı eksiksiz teslim edildi; ek geliştirme yeni sözleşme gerektirir. Sürecin gelişimini yakından takip edeceğim. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, kullanım talimatlarımıza bakarak sistemi doğru kullandığınızı kontrol edelim. Gerekirse ek adım değerlendireceğim. Ekip bu konuda bilgilendirilecek.",
+          "text_template": "Merhaba {player_name}, kullanım talimatlarımıza bakarak sistemi doğru kullandığınızı kontrol edelim. Gerekirse ek adım değerlendireceğim. Ekip bu konuda bilgilendirilecek. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, sistemde teknik sorun yok; kullanıcı eğitimi müşteri sorumluluğunda. Durumu izlemeye devam ediyorum. Durumu raporlayacağım.",
+          "text_template": "Merhaba {player_name}, sistemde teknik sorun yok; kullanıcı eğitimi müşteri sorumluluğunda. Durumu izlemeye devam ediyorum. Durumu raporlayacağım. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -127,22 +127,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, bu soruyu doğrudan ele almak doğru. Tamamlama maliyeti, mevcut piyasa değeri ve durdurma maliyetini (terk edilen yatırım, tasfiye maliyeti) karşılaştıran kısa bir analiz hazırlıyorum.",
+          "text_template": "Merhaba {player_name}, bu soruyu doğrudan ele almak doğru. Tamamlama maliyeti, mevcut piyasa değeri ve durdurma maliyetini (terk edilen yatırım, tasfiye maliyeti) karşılaştıran kısa bir",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, başladık; tamamlamak daha mantıklı. Takibini yapıp sizi bilgilendireceğim. Bu kararı ekiple paylaşacağım.",
+          "text_template": "Merhaba {player_name}, başladık; tamamlamak daha mantıklı. Takibini yapıp sizi bilgilendireceğim. Bu kararı ekiple paylaşacağım. Ekibi bu konuda bilgilendireceğim, endişe etmeyin. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, piyasa koşulları değişti ama proje hedefleri hâlâ geçerli. Ekibi bu konuda bilgilendireceğim. Sürecin gelişimini izliyorum.",
+          "text_template": "Merhaba {player_name}, piyasa koşulları değişti ama proje hedefleri hâlâ geçerli. Ekibi bu konuda bilgilendireceğim. Sürecin gelişimini izliyorum. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, projeyi durdurmak büyük kayıp; devam etmeli ve hızlanmalıyız. Gerekli görüşmeyi planlıyorum. Gerekli durumda müdahale edeceğim.",
+          "text_template": "Merhaba {player_name}, projeyi durdurmak büyük kayıp; devam etmeli ve hızlanmalıyız. Gerekli görüşmeyi planlıyorum. Gerekli durumda müdahale edeceğim. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -189,17 +189,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nÖzellik kapsamdaydı; kullanılmasa da teslim edilmesi önemliydi. Sürecin gelişimini yakından takip edeceğim. Bu yaklaşımda devam ediyorum.",
+          "text_template": "Hocam,\n\nÖzellik kapsamdaydı; kullanılmasa da teslim edilmesi önemliydi. Sürecin gelişimini yakından takip edeceğim. Bu yaklaşımda devam ediyorum. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nKullanıcılar zamanla alışır; şimdilik bir şey yapmayalım. Gerekirse ek adım değerlendireceğim. Ekip bu konuda bilgilendirilecek.",
+          "text_template": "Hocam,\n\nKullanıcılar zamanla alışır; şimdilik bir şey yapmayalım. Gerekirse ek adım değerlendireceğim. Ekip bu konuda bilgilendirilecek. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nDüşük kullanım özelliğin kötü olduğunun kanıtıdır; hemen kaldıralım. Durumu izlemeye devam ediyorum. Durumu raporlayacağım.",
+          "text_template": "Hocam,\n\nDüşük kullanım özelliğin kötü olduğunun kanıtıdır; hemen kaldıralım. Durumu izlemeye devam ediyorum. Durumu raporlayacağım. Süreci yakından izleyeceğim ve sizi bilgilendireceğim. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": -20,
           "isEthical": false
         }
@@ -231,22 +231,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, güzel bir soru. Rakip ürünü hızla analiz edip 'build vs buy' karşılaştırması yapıyorum: lisans maliyeti, özelleştirme esnekliği, entegrasyon kolaylığı ve uzun vadeli bağımlılık riski gibi.",
+          "text_template": "Merhaba {player_name}, güzel bir soru. Rakip ürünü hızla analiz edip 'build vs buy' karşılaştırması yapıyorum: lisans maliyeti, özelleştirme esnekliği, entegrasyon kolaylığı ve uzun vadeli",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, kendi çözümümüz kurumsal ihtiyaçlarımıza özel; satın almak bize uymaz. Takibini yapıp sizi bilgilendireceğim. Bu kararı ekiple paylaşacağım.",
+          "text_template": "Merhaba {player_name}, kendi çözümümüz kurumsal ihtiyaçlarımıza özel; satın almak bize uymaz. Takibini yapıp sizi bilgilendireceğim. Bu kararı ekiple paylaşacağım. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, projeye bu kadar yatırım yaptık; şimdi bırakamayız. Ekibi bu konuda bilgilendireceğim. Sürecin gelişimini izliyorum.",
+          "text_template": "Merhaba {player_name}, projeye bu kadar yatırım yaptık; şimdi bırakamayız. Ekibi bu konuda bilgilendireceğim. Sürecin gelişimini izliyorum. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, rakip ürün küçük bir şirket; güvenilirliği sorgulanabilir. Gerekli görüşmeyi planlıyorum. Gerekli durumda müdahale edeceğim.",
+          "text_template": "Merhaba {player_name}, rakip ürün küçük bir şirket; güvenilirliği sorgulanabilir. Gerekli görüşmeyi planlıyorum. Gerekli durumda müdahale edeceğim. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": -20,
           "isEthical": false
         }

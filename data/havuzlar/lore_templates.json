@@ -1,390 +1,498 @@
 [
   {
     "id": "kickoff_daveti",
-    "phases": ["baslangic"],
+    "phases": [
+      "baslangic"
+    ],
     "weight": 5,
     "sender_type": "sponsor",
-    "subject_template": "{project_name} — Resmi Başlangıç Toplantısı",
+    "subject_template": "Kick-off için uygunsunuz mu?",
     "body_template": "Sayın {player_name},\n\n{project_name} projesinin resmi başlangıç toplantısını bu hafta gerçekleştireceğiz. Tüm paydaşların ve ekip üyelerinin katılımı beklenmektedir. Toplantı gündemi ekte paylaşılmıştır.\n\nKatılımınız için şimdiden teşekkür ederiz."
   },
   {
     "id": "charter_onaylandi",
-    "phases": ["baslangic"],
+    "phases": [
+      "baslangic"
+    ],
     "weight": 5,
     "sender_type": "sponsor",
-    "subject_template": "Proje Şartnamesi Onaylandı",
+    "subject_template": "Şartname son halini aldı — bir göz atar mısınız?",
     "body_template": "Sayın {player_name},\n\n{project_name} projesine ait proje şartnamesi (project charter) üst yönetim tarafından onaylanmıştır. Artık projeyi resmi olarak başlatabilirsiniz. Belirlenen bütçe ve süre dahilinde ilerlemesini bekliyoruz."
   },
   {
     "id": "ekip_tanitim",
-    "phases": ["baslangic"],
+    "phases": [
+      "baslangic"
+    ],
     "weight": 4,
     "sender_type": "team",
-    "subject_template": "Ekip Tanışma Toplantısı Notları",
+    "subject_template": "Bugünkü tanışmadan birkaç not",
     "body_template": "Merhaba {player_name},\n\nBugünkü ekip tanışma toplantısı başarıyla tamamlandı. Ekip üyeleri birbirleriyle tanıştı, roller ve sorumluluklar paylaşıldı. Herkes projeye hazır olduğunu ifade etti. Bir sonraki adım olarak bireysel hedeflerin belirlenmesi planlanmaktadır."
   },
   {
     "id": "butce_tahsis",
-    "phases": ["baslangic"],
+    "phases": [
+      "baslangic"
+    ],
     "weight": 4,
     "sender_type": "sponsor",
-    "subject_template": "Proje Bütçesi Onaylandı",
+    "subject_template": "İyi haber — bütçemiz onaylandı!",
     "body_template": "Sayın {player_name},\n\n{project_name} projesi için talep edilen bütçe finans departmanı tarafından onaylanmış ve hesabınıza tanımlanmıştır. Harcamaların bütçe planına uygun yürütülmesini ve aylık raporların zamanında iletilmesini bekliyoruz."
   },
   {
     "id": "vizyon_paylasim",
-    "phases": ["baslangic"],
+    "phases": [
+      "baslangic"
+    ],
     "weight": 3,
     "sender_type": "sponsor",
-    "subject_template": "{project_name} — Proje Vizyonu",
+    "subject_template": "{project_name} vizyonunu paylaşmak istedim",
     "body_template": "Sayın {player_name},\n\nProjenin stratejik hedefleri ve uzun vadeli vizyonu yönetim kuruluna sunuldu ve onaylandı. {project_name}, kurumsal dönüşüm programımızın kilit bileşenlerinden biridir. Ekibinize bu bağlamı aktarmanızı rica ederim."
   },
   {
     "id": "paydas_analizi_tamamlandi",
-    "phases": ["baslangic"],
+    "phases": [
+      "baslangic"
+    ],
     "weight": 4,
     "sender_type": "team",
-    "subject_template": "Paydaş Analizi Tamamlandı",
+    "subject_template": "Paydaş haritasını seninle paylaşmak istedim",
     "body_template": "Merhaba {player_name},\n\nProje paydaş analizi tamamlandı. Toplamda 14 birincil ve 23 ikincil paydaş tanımlandı. Etki/ilgi matrisi hazırlandı ve iletişim planı taslağına eklenmeye hazır. Belgeyi incelemenizi bekliyoruz."
   },
   {
     "id": "proje_ofisi_kuruldu",
-    "phases": ["baslangic"],
+    "phases": [
+      "baslangic"
+    ],
     "weight": 3,
     "sender_type": "team",
-    "subject_template": "Proje Klasör Yapısı Hazır",
+    "subject_template": "Ortak klasör yapısını ayarladım",
     "body_template": "Merhaba {player_name},\n\nProjeye ait paylaşımlı klasör yapısı ve doküman deposu oluşturuldu. Ekip üyelerinin erişim yetkileri tanımlandı. Bundan böyle tüm proje belgelerinin bu depoya yüklenmesi beklenmektedir."
   },
   {
     "id": "wbs_hazirlandi",
-    "phases": ["planlama"],
+    "phases": [
+      "planlama"
+    ],
     "weight": 5,
     "sender_type": "team",
-    "subject_template": "İş Kırılım Yapısı (WBS) Hazırlandı",
+    "subject_template": "İş kırılım yapısını tamamladım",
     "body_template": "Merhaba {player_name},\n\n{project_name} projesi için İş Kırılım Yapısı (WBS) tamamlandı. Toplamda 4 ana teslimat ve 27 alt iş paketi tanımlandı. Onayınızın ardından proje takvimi oluşturma aşamasına geçeceğiz."
   },
   {
     "id": "takvim_paylasim",
-    "phases": ["planlama"],
+    "phases": [
+      "planlama"
+    ],
     "weight": 5,
     "sender_type": "team",
-    "subject_template": "Proje Takvimi — İlk Versiyon",
+    "subject_template": "Takvim ilk versiyonu hazır — yorumlarınızı bekliyorum",
     "body_template": "Merhaba {player_name},\n\nProje takvimine ait ilk versiyon hazırlandı ve paylaşıma açıldı. Kritik yol analizi tamamlandı; 3 kritik görev zinciri belirlendi. Ekip üyelerinin incelemesi ve varsa önerilerini iletmesi beklenmektedir."
   },
   {
     "id": "risk_kaydi_olusturuldu",
-    "phases": ["planlama"],
+    "phases": [
+      "planlama"
+    ],
     "weight": 4,
     "sender_type": "team",
-    "subject_template": "Risk Kaydı Oluşturuldu",
+    "subject_template": "Risk listesini oluşturduk",
     "body_template": "Merhaba {player_name},\n\nProje risk çalışması tamamlandı. 11 potansiyel risk tanımlandı; bunların 3'ü yüksek, 5'i orta, 3'ü düşük etkili olarak sınıflandırıldı. Her risk için sorumlu, tetikleyici ve yanıt planı belirlendi. Risk kaydını düzenli güncellemenizi öneririz."
   },
   {
     "id": "kaynak_plani_onaylandi",
-    "phases": ["planlama"],
+    "phases": [
+      "planlama"
+    ],
     "weight": 5,
     "sender_type": "sponsor",
-    "subject_template": "Kaynak Planı Onaylandı",
+    "subject_template": "Kaynak planı onaylandı",
     "body_template": "Sayın {player_name},\n\nSunmuş olduğunuz kaynak planı incelendi ve onaylandı. Talep edilen 2 ek uzman için İK departmanı süreci başlatmıştır. Tedarikçi anlaşması taslağı da hukuk birimine iletilmiştir."
   },
   {
     "id": "teknik_gereksinimler_toplantisi",
-    "phases": ["planlama"],
+    "phases": [
+      "planlama"
+    ],
     "weight": 4,
     "sender_type": "team",
-    "subject_template": "Teknik Gereksinimler Toplantısı Notları",
+    "subject_template": "Teknik toplantı notlarını paylaşıyorum",
     "body_template": "Merhaba {player_name},\n\nTeknik gereksinimler toplantısı gerçekleştirildi. Mimari kararlar netleştirildi, entegrasyon noktaları belirlendi ve teknik borç yönetim stratejisi tartışıldı. Toplantı notları ve kararlar EK-1'de sunulmaktadır."
   },
   {
     "id": "teslimat_listesi_onaylandi",
-    "phases": ["planlama"],
+    "phases": [
+      "planlama"
+    ],
     "weight": 4,
     "sender_type": "team",
-    "subject_template": "Teslimat Listesi Onaylandı",
+    "subject_template": "Teslimat listesi tamam",
     "body_template": "Merhaba {player_name},\n\nProjenin teslimat listesi müşteri yetkilisiyle birlikte gözden geçirildi ve her iki tarafça imzalandı. Bu liste, projenin kabul kriterleri için temel referans belgesi olacaktır."
   },
   {
     "id": "kalite_plani_hazirlandi",
-    "phases": ["planlama"],
+    "phases": [
+      "planlama"
+    ],
     "weight": 3,
     "sender_type": "team",
-    "subject_template": "Kalite Yönetim Planı Hazır",
+    "subject_template": "Kalite planını sizinle paylaşmak istedim",
     "body_template": "Merhaba {player_name},\n\nProje kalite yönetim planı tamamlandı. Kabul kriterleri, test stratejisi ve gözden geçirme süreçleri tanımlandı. Plana göre her teslimat tesliminden önce en az iki aşamalı kalite kontrolünden geçirilecektir."
   },
   {
     "id": "tedarikci_sozlesmesi",
-    "phases": ["planlama"],
+    "phases": [
+      "planlama"
+    ],
     "weight": 3,
     "sender_type": "sponsor",
-    "subject_template": "Tedarikçi Sözleşmesi İmzalandı",
+    "subject_template": "Tedarikçi sözleşmesini imzaladık",
     "body_template": "Sayın {player_name},\n\nAlt yüklenici sözleşmesi imzalanmıştır. Tedarikçi, sözleşme kapsamındaki hizmetleri belirlenen takvim ve kalite standartlarına uygun olarak sunacaktır. Sözleşme yönetimini proje kayıtlarına eklemenizi lütfen unutmayın."
   },
   {
     "id": "iletisim_plani_final",
-    "phases": ["planlama"],
+    "phases": [
+      "planlama"
+    ],
     "weight": 3,
     "sender_type": "team",
-    "subject_template": "İletişim Planı — Final Versiyon",
+    "subject_template": "İletişim planı nihayet hazır",
     "body_template": "Merhaba {player_name},\n\nProje iletişim planının final versiyonu onaylandı. Haftalık durum raporları, aylık sponsor güncellemeleri ve müşteri gözden geçirme döngüleri netleştirildi. Plan, tüm ekip üyelerine ve paydaşlara iletildi."
   },
   {
     "id": "haftalik_durum_raporu",
-    "phases": ["yurutme", "izleme"],
+    "phases": [
+      "yurutme",
+      "izleme"
+    ],
     "weight": 8,
     "sender_type": "team",
-    "subject_template": "Haftalık Durum Raporu",
+    "subject_template": "Bu haftanın özeti",
     "body_template": "Merhaba {player_name},\n\nBu haftaki durum özetini paylaşmak istedim. Planlanan görevlerin %{name} tamamlandı. Kritik yolda herhangi bir gecikme bulunmuyor. Önümüzdeki hafta için öne çıkan riskler kayıt altına alındı. Detaylar için EK'i inceleyebilirsiniz."
   },
   {
     "id": "sprint_tamamlandi",
-    "phases": ["yurutme"],
+    "phases": [
+      "yurutme"
+    ],
     "weight": 6,
     "sender_type": "team",
-    "subject_template": "Sprint Tamamlandı — İnceleme Notları",
+    "subject_template": "Sprint bitti — inceleme notları ektedir",
     "body_template": "Merhaba {player_name},\n\nBu iterasyonda planlanan işlerin tamamı başarıyla teslim edildi. Sprint inceleme toplantısında müşteri temsilcisi ve ürün sahibi çıktıları onayladı. Bir sonraki sprint kapsamı için önceliklendirme toplantısını ayarlamamız gerekiyor."
   },
   {
     "id": "yeni_uye_katildi",
-    "phases": ["yurutme"],
+    "phases": [
+      "yurutme"
+    ],
     "weight": 4,
     "sender_type": "hr",
-    "subject_template": "Yeni Ekip Üyesi Başladı",
+    "subject_template": "Yeni arkadaşımız başladı",
     "body_template": "Merhaba {player_name},\n\n{name}, {role} pozisyonunda projeye bugün başlamıştır. Oryantasyon süreci İK tarafından yürütülmektedir. Ekibe teknik oryantasyonu sağlamanızı ve geliştirme ortamına erişimlerini koordine etmenizi rica ederiz."
   },
   {
     "id": "dogum_izni_duyurusu",
-    "phases": ["yurutme", "izleme"],
+    "phases": [
+      "yurutme",
+      "izleme"
+    ],
     "weight": 3,
     "sender_type": "hr",
     "gender": "female",
-    "absence": { "duration_decisions": 30 },
-    "subject_template": "{name} Doğum İznine Çıkıyor",
+    "absence": {
+      "duration_decisions": 30
+    },
+    "subject_template": "{name} bir süre izinde olacak",
     "body_template": "Sayın {player_name},\n\nEkip üyemiz {name}, doğum izni kapsamında yaklaşık 8 hafta boyunca görevinden uzak kalacaktır. İzin süresince görev dağılımını yeniden değerlendirmenizi ve gerekli görev devirlerini tamamlamanızı öneririz. Başarılı bir izin diliyoruz."
   },
   {
     "id": "hastalik_izni_duyurusu",
-    "phases": ["yurutme", "izleme"],
+    "phases": [
+      "yurutme",
+      "izleme"
+    ],
     "weight": 2,
     "sender_type": "hr",
     "gender": "any",
-    "absence": { "duration_decisions": 12 },
-    "subject_template": "{name} Sağlık İzni Kullanıyor",
+    "absence": {
+      "duration_decisions": 12
+    },
+    "subject_template": "{name} bir süreliğine aramızda olmayacak",
     "body_template": "Sayın {player_name},\n\nEkip üyemiz {name}, sağlık durumu nedeniyle yaklaşık 2-3 hafta boyunca görevinden uzakta olacaktır. Görev devri yapılması ve iş yükünün diğer ekip üyeleri arasında paylaştırılması önerilmektedir. Kişisel bilgilerini paylaşmadan sadece proje etkisini takip etmeniz yeterli olacaktır."
   },
   {
     "id": "musteri_ziyareti",
-    "phases": ["yurutme", "izleme"],
+    "phases": [
+      "yurutme",
+      "izleme"
+    ],
     "weight": 4,
     "sender_type": "client",
-    "subject_template": "Yerinde Ziyaret Bildirimi",
+    "subject_template": "Müşteri yarın bizde olacak",
     "body_template": "Merhaba {player_name},\n\nEkibimiz gelecek hafta projenizin mevcut durumunu değerlendirmek üzere yerinde bir ziyaret gerçekleştirmek istemektedir. Görsel çıktılar, demo ortamı ve teknik ekiple kısa bir sunum düzenlemenizi talep ediyoruz. Program önerisini en geç üç gün içinde iletmenizi bekliyoruz."
   },
   {
     "id": "ara_teslimat_onaylandi",
-    "phases": ["yurutme"],
+    "phases": [
+      "yurutme"
+    ],
     "weight": 4,
     "sender_type": "client",
-    "subject_template": "Ara Teslimat Onaylandı",
+    "subject_template": "Ara teslimat tamam — tebrikler!",
     "body_template": "Merhaba {player_name},\n\nSunmuş olduğunuz ara teslimat incelendi ve kabul edildi. Belirlenen kabul kriterleri karşılandığı tespit edilmiştir. Bir sonraki aşama için zamanlama konusunu koordine etmek üzere toplantı talebinde bulunacağız."
   },
   {
     "id": "teknik_kurulum_tamamlandi",
-    "phases": ["yurutme"],
+    "phases": [
+      "yurutme"
+    ],
     "weight": 3,
     "sender_type": "team",
-    "subject_template": "Geliştirme Ortamı Hazır",
+    "subject_template": "Geliştirme ortamı hazır",
     "body_template": "Merhaba {player_name},\n\nGeliştirme, test ve üretim öncesi ortamların kurulumu tamamlandı. CI/CD pipeline'ı aktif hale getirildi. Ekip artık bağımsız olarak kod entegrasyon döngülerini çalıştırabilmektedir."
   },
   {
     "id": "pilot_uygulama_basladi",
-    "phases": ["yurutme"],
+    "phases": [
+      "yurutme"
+    ],
     "weight": 3,
     "sender_type": "team",
-    "subject_template": "Pilot Uygulama Başladı",
+    "subject_template": "Pilot başladı!",
     "body_template": "Merhaba {player_name},\n\nSeçilen pilot kullanıcı grubuyla {project_name} uygulamasının deneme süreci başlatıldı. İlk geri bildirimler bu hafta içinde toplanacak. Kritik hata tespiti durumunda ivediyle bilgilendireceğim."
   },
   {
     "id": "egitim_tamamlandi",
-    "phases": ["yurutme"],
+    "phases": [
+      "yurutme"
+    ],
     "weight": 3,
     "sender_type": "hr",
-    "subject_template": "Ekip Eğitimi Tamamlandı",
+    "subject_template": "Eğitim tamamlandı — notlar ektedir",
     "body_template": "Merhaba {player_name},\n\nProje kapsamında planlanan teknik ve süreç eğitimleri tamamlandı. Katılım oranı %94 olarak gerçekleşti. Katılımcıların eğitim değerlendirme formları inceleniyor; özet rapor hafta sonuna kadar iletilecektir."
   },
   {
     "id": "uzaktan_calisma_duzeni",
-    "phases": ["yurutme", "izleme"],
+    "phases": [
+      "yurutme",
+      "izleme"
+    ],
     "weight": 3,
     "sender_type": "hr",
-    "subject_template": "Uzaktan Çalışma Düzenlemesi",
+    "subject_template": "Uzaktan çalışma düzeni hakkında",
     "body_template": "Sayın {player_name},\n\nBir sonraki dönem için hibrit çalışma takvimi güncellendi. Ekip haftanın 2 günü ofiste, 3 günü uzaktan çalışacaktır. Günlük check-in takvimi ve uzaktan toplantı standartları ekibinizle paylaşılmıştır."
   },
   {
     "id": "takim_etkinligi",
-    "phases": ["yurutme"],
+    "phases": [
+      "yurutme"
+    ],
     "weight": 2,
     "sender_type": "hr",
-    "subject_template": "Ekip Motivasyon Etkinliği",
+    "subject_template": "Bu haftaki ekip etkinliği hakkında",
     "body_template": "Merhaba {player_name},\n\nEkip uyumu ve motivasyonu desteklemek amacıyla bu ay sonunda bir takım etkinliği düzenlenecektir. Katılımcı listesini İK ile koordine etmenizi rica ederiz. Katılım zorunlu olmamakla birlikte ekip bütünlüğü açısından teşvik edilmektedir."
   },
   {
     "id": "sistem_entegrasyonu_test",
-    "phases": ["yurutme"],
+    "phases": [
+      "yurutme"
+    ],
     "weight": 3,
     "sender_type": "team",
-    "subject_template": "Sistem Entegrasyon Testi Tamamlandı",
+    "subject_template": "Entegrasyon testi tamam",
     "body_template": "Merhaba {player_name},\n\nBağımlı sistemlerle entegrasyon testleri tamamlandı. Toplam 43 test senaryosunun 41'i başarıyla geçti. Başarısız 2 senaryo için hata kaydı açıldı ve çözüm süreci başlatıldı."
   },
   {
     "id": "kullanici_kabul_testi_basladi",
-    "phases": ["yurutme", "izleme"],
+    "phases": [
+      "yurutme",
+      "izleme"
+    ],
     "weight": 3,
     "sender_type": "team",
-    "subject_template": "Kullanıcı Kabul Testi (UAT) Başladı",
+    "subject_template": "UAT başladı — ekibinizi hazır edin",
     "body_template": "Merhaba {player_name},\n\nSon kullanıcı kabul testleri bugün başladı. 12 test kullanıcısı belirlenmiş senaryo setlerini uygulamakta. İlk haftalık özet gelecek Cuma iletilecek. Kritik bulgular gerçek zamanlı olarak takip edilmektedir."
   },
   {
     "id": "aylik_performans_raporu",
-    "phases": ["izleme"],
+    "phases": [
+      "izleme"
+    ],
     "weight": 6,
     "sender_type": "team",
-    "subject_template": "Aylık Proje Performans Raporu",
+    "subject_template": "Bu ayın proje özeti",
     "body_template": "Merhaba {player_name},\n\nAylık proje performans raporu tamamlandı. Takvim varyansı (SV) ve maliyet varyansı (CV) değerleri ekte sunulmaktadır. Mevcut eğilime göre proje hedeflerine zamanında ulaşılması beklenmektedir. İyileştirme önerileri de rapora dahil edilmiştir."
   },
   {
     "id": "butce_kullanim_raporu",
-    "phases": ["izleme"],
+    "phases": [
+      "izleme"
+    ],
     "weight": 5,
     "sender_type": "sponsor",
-    "subject_template": "Bütçe Kullanım Durumu",
+    "subject_template": "Bütçe kullanımı hakkında kısa bilgi",
     "body_template": "Sayın {player_name},\n\nBu ayki bütçe kullanım raporu finans departmanı tarafından incelendi. Toplam bütçenin %{name}'i harcandı; bu oran planlananla uyumlu. Kalan bütçenin proje takvimini karşılayacak düzeyde olduğu değerlendirilmektedir."
   },
   {
     "id": "milestone_tamamlandi",
-    "phases": ["izleme", "yurutme"],
+    "phases": [
+      "izleme",
+      "yurutme"
+    ],
     "weight": 5,
     "sender_type": "team",
-    "subject_template": "Önemli Kilometre Taşı Tamamlandı",
+    "subject_template": "Önemli bir aşamayı geçtik!",
     "body_template": "Merhaba {player_name},\n\nPlanlanan kilometre taşına zamanında ulaşıldı. Bu başarı tüm paydaşlara resmi olarak bildirilecek. Bir sonraki aşama için hazırlıkların başlatılmasını ve ekibin motive edilmesini öneririm."
   },
   {
     "id": "risk_guncelleme_raporu",
-    "phases": ["izleme"],
+    "phases": [
+      "izleme"
+    ],
     "weight": 4,
     "sender_type": "team",
-    "subject_template": "Risk Güncellemesi",
+    "subject_template": "Risk listesini güncelledim",
     "body_template": "Merhaba {player_name},\n\nRisk kaydı güncellendi. Mevcut 3 yüksek riskten biri gerçekleşti ve yönetim planı devreye alındı. 2 yeni risk tanımlandı. Haftalık risk değerlendirme döngüsünün sürdürülmesi önerilmektedir."
   },
   {
     "id": "scope_degisiklik_talebi",
-    "phases": ["izleme"],
+    "phases": [
+      "izleme"
+    ],
     "weight": 4,
     "sender_type": "client",
-    "subject_template": "Resmi Kapsam Değişiklik Talebi",
+    "subject_template": "Kapsam değişikliği için onayınızı istiyorum",
     "body_template": "Merhaba {player_name},\n\nMüşteri tarafından resmi bir kapsam değişiklik talebi iletilmiştir. Talep, etki analizi yapılmak üzere değişiklik kontrol kuruluna sunulacaktır. Zaman ve maliyet etkisini en geç üç iş günü içinde raporlayabilirseniz süreç hızlanacaktır."
   },
   {
     "id": "gozden_gecirme_toplantisi",
-    "phases": ["izleme"],
+    "phases": [
+      "izleme"
+    ],
     "weight": 4,
     "sender_type": "team",
-    "subject_template": "Proje Gözden Geçirme Toplantısı Notları",
+    "subject_template": "Gözden geçirme toplantısından notlar",
     "body_template": "Merhaba {player_name},\n\nAylık proje gözden geçirme toplantısı tamamlandı. Kritik bulgular: takvim uyumu hedef dahilinde, ancak teknik borç birikimi izleme gerektiriyor. Sonraki dönem için üç öncelikli eylem maddesi belirlendi ve sorumlular atandı."
   },
   {
     "id": "kalite_denetimi_sonucu",
-    "phases": ["izleme"],
+    "phases": [
+      "izleme"
+    ],
     "weight": 3,
     "sender_type": "team",
-    "subject_template": "İç Kalite Denetimi Tamamlandı",
+    "subject_template": "İç denetim tamamlandı",
     "body_template": "Merhaba {player_name},\n\nBu dönemin iç kalite denetimi tamamlandı. Proses ve çıktılar genel olarak tanımlı standartları karşılamaktadır. Tespit edilen 4 iyileştirme fırsatı için eylem planı taslağı hazırlandı; onayınıza sunulmaktadır."
   },
   {
     "id": "duzeltici_onlem_alindi",
-    "phases": ["izleme"],
+    "phases": [
+      "izleme"
+    ],
     "weight": 3,
     "sender_type": "team",
-    "subject_template": "Düzeltici Önlem Devreye Alındı",
+    "subject_template": "Düzeltici önlem aldık",
     "body_template": "Merhaba {player_name},\n\nGeçen haftaki performans değerlendirmesinde tespit edilen sapmaya yönelik düzeltici önlem planı yürürlüğe girdi. İki haftalık izleme periyodunun ardından etkinlik değerlendirmesi yapılacak ve sizi bilgilendireceğim."
   },
   {
     "id": "kritik_yol_guncelleme",
-    "phases": ["izleme"],
+    "phases": [
+      "izleme"
+    ],
     "weight": 3,
     "sender_type": "team",
-    "subject_template": "Kritik Yol Güncellendi",
+    "subject_template": "Kritik yolda güncelleme var",
     "body_template": "Merhaba {player_name},\n\nProje takvimi yeniden hesaplandı ve kritik yol analizi güncellendi. Mevcut durumda 4 görev kritik yolda yer almakta. Bu görevlerdeki herhangi bir gecikme proje bitiş tarihini doğrudan etkileyecektir. Yakın takip önerilir."
   },
   {
     "id": "son_kullanici_geri_bildirimi",
-    "phases": ["izleme", "yurutme"],
+    "phases": [
+      "izleme",
+      "yurutme"
+    ],
     "weight": 4,
     "sender_type": "end_user",
-    "subject_template": "Kullanıcı Geri Bildirimi — Özet",
+    "subject_template": "Kullanıcılardan geri bildirim geldi",
     "body_template": "Merhaba {player_name},\n\nBu ayki kullanıcı geri bildirim anketi sonuçları elimize ulaştı. Genel memnuniyet skoru 10 üzerinden 7,2 olarak gerçekleşti. Öne çıkan güçlü yönler ve iyileştirme alanları raporumuzda ayrıntılı olarak ele alınmaktadır."
   },
   {
     "id": "final_teslimat_sunumu",
-    "phases": ["kapanis"],
+    "phases": [
+      "kapanis"
+    ],
     "weight": 5,
     "sender_type": "team",
-    "subject_template": "Final Teslimatlar Müşteriye Sunuldu",
+    "subject_template": "Son teslimatları müşteriye sunduk",
     "body_template": "Merhaba {player_name},\n\n{project_name} projesi kapsamındaki tüm final teslimatlar müşteri yetkilisine sunuldu. Sunum başarılı geçti; müşteri ekibi çıktıları olumlu karşıladı. Resmi kabul süreci için gerekli evrakların hazırlanması gerekmektedir."
   },
   {
     "id": "kabul_belgesi_imzalandi",
-    "phases": ["kapanis"],
+    "phases": [
+      "kapanis"
+    ],
     "weight": 5,
     "sender_type": "client",
-    "subject_template": "Proje Kabul Belgesi İmzalandı",
+    "subject_template": "Kabul belgesi imzalandı!",
     "body_template": "Merhaba {player_name},\n\nProje kabul belgesi ekibimiz tarafından incelendi ve imzalandı. {project_name} projesi resmi olarak kapatılmıştır. Olumlu işbirliği için teşekkür eder, ileride yeniden çalışmayı umarız."
   },
   {
     "id": "ekip_takdir_mesaji",
-    "phases": ["kapanis"],
+    "phases": [
+      "kapanis"
+    ],
     "weight": 4,
     "sender_type": "sponsor",
-    "subject_template": "Ekip Takdiri ve Teşekkür",
+    "subject_template": "Ekibinize teşekkür etmek istedim",
     "body_template": "Sayın {player_name},\n\n{project_name} projesini başarıyla tamamladığınız için sizi ve tüm ekibinizi tebrik ederim. Gösterilen azim ve profesyonellik gerçekten takdire şayandır. Ekibinize teşekkürlerimi iletmenizi rica ederim."
   },
   {
     "id": "dersler_cikarildi_toplantisi",
-    "phases": ["kapanis"],
+    "phases": [
+      "kapanis"
+    ],
     "weight": 4,
     "sender_type": "team",
-    "subject_template": "Çıkarılan Dersler Toplantısı Tamamlandı",
+    "subject_template": "Çıkarılan dersleri paylaşmak istedim",
     "body_template": "Merhaba {player_name},\n\nProje kapanış toplantısı gerçekleştirildi. 9 başarı faktörü ve 6 iyileştirme alanı belgelendi. Bu bulgular kurumsal proje yönetim bilgi tabanına eklenecektir. Katılımınız için teşekkürler."
   },
   {
     "id": "proje_arsivi_olusturuldu",
-    "phases": ["kapanis"],
+    "phases": [
+      "kapanis"
+    ],
     "weight": 3,
     "sender_type": "team",
-    "subject_template": "Proje Arşivi Oluşturuldu",
+    "subject_template": "Proje arşivini oluşturdum",
     "body_template": "Merhaba {player_name},\n\n{project_name} projesine ait tüm belgeler, proje planları, kararlar ve öğrenilen dersler arşiv sistemine aktarıldı. Arşive erişim için proje ofisine başvurabilirsiniz. Tüm ekibe başarılı bir proje için teşekkürler."
   },
   {
     "id": "ekip_dagitim_plani",
-    "phases": ["kapanis"],
+    "phases": [
+      "kapanis"
+    ],
     "weight": 3,
     "sender_type": "sponsor",
-    "subject_template": "Ekip Dağıtım Planı",
+    "subject_template": "Ekip dağıtım planını paylaşıyorum",
     "body_template": "Sayın {player_name},\n\nProjenin tamamlanmasıyla birlikte ekip üyelerinin yeni görev atamaları İK departmanı tarafından koordine edilecektir. Ekip üyelerinizin performans değerlendirmelerini 10 iş günü içinde tamamlamanızı rica ederiz."
   },
   {
     "id": "proje_sonuc_raporu",
-    "phases": ["kapanis"],
+    "phases": [
+      "kapanis"
+    ],
     "weight": 4,
     "sender_type": "team",
-    "subject_template": "Proje Sonuç Raporu Paylaşıldı",
+    "subject_template": "Sonuç raporunu sizinle paylaşmak istedim",
     "body_template": "Merhaba {player_name},\n\nProje sonuç raporu tamamlandı ve tüm paydaşlarla paylaşıldı. Hedef-gerçekleşme karşılaştırması, bütçe özeti ve temel çıktılar raporun ana bölümlerini oluşturmaktadır. Raporu kurumsal arşive de ekledim."
   },
   {
     "id": "sponsor_kapalis_mesaji",
-    "phases": ["kapanis"],
+    "phases": [
+      "kapanis"
+    ],
     "weight": 5,
     "sender_type": "sponsor",
-    "subject_template": "{project_name} — Proje Kapanış Mesajı",
+    "subject_template": "{project_name} kapanışında son mesajım",
     "body_template": "Sayın {player_name},\n\n{project_name} projesi kurumsal hedeflerimize önemli katkılar sağlamıştır. Projeyi zamanında ve bütçe dahilinde teslim etmeniz takdire değer bir başarıdır. Deneyimlerinizin ilerideki projelere rehberlik edeceğine inanıyorum. Tekrar tebrikler."
   }
 ]

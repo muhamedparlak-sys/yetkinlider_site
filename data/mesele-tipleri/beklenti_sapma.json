@@ -43,7 +43,7 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anlıyorum {name_polite}. Beklenti farklılığını yazılı olarak belgeleyelim — hangi noktalar eşleşmiyor net görelim. Kalan teslimatlar için kabul kriterlerini birlikte netleştirelim.",
+          "text_template": "Anlıyorum {name_polite}. Beklenti farklılığını yazılı olarak belgeleyelim — hangi noktalar eşleşmiyor net görelim. Kalan teslimatlar için kabul kriterlerini birlikte netleştirelim. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 10,
           "isEthical": true
         },
@@ -97,7 +97,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Bu beklenti değişimini paydaşlarla paylaşıp ortak bir vizyon oluşturalım — herkes aynı yönde olmalı. Sonra gerçekçi hedefler koyalım.",
+          "text_template": "Peki {name_polite}. Bu beklenti değişimini paydaşlarla paylaşıp ortak bir vizyon oluşturalım — herkes aynı yönde olmalı. Sonra gerçekçi hedefler koyalım. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },
@@ -136,7 +136,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu geri bildirimi paylaşmanız önemli {name_polite}. Kullanıcı memnuniyetsizliğinin kökünde ne var anlamak istiyorum — kullanıcılarla birebir görüşme yapabilir miyim? Somut sorunları tespit edip öncelikli iyileştirmeler üretelim.",
+          "text_template": "Bu geri bildirimi paylaşmanız önemli {name_polite}. Kullanıcı memnuniyetsizliğinin kökünde ne var anlamak istiyorum — kullanıcılarla birebir görüşme yapabilir miyim?",
           "xp": 30,
           "isEthical": true
         },
@@ -191,7 +191,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu tespiti zamanında paylaşman çok iyi {name_polite}. Gerçekçi beklenti yönetimi PM'in temel sorumluluğu — paydaşlarla mevcut teknik durumu şeffaf paylaşalım. Ulaşılabilir hedefleri birlikte yeniden tanımlayalım.",
+          "text_template": "Bu tespiti zamanında paylaşman çok iyi {name_polite}. Gerçekçi beklenti yönetimi PM'in temel sorumluluğu — paydaşlarla mevcut teknik durumu şeffaf paylaşalım. Ulaşılabilir hedefleri birlikte yeniden",
           "xp": 30,
           "isEthical": true
         },
@@ -201,7 +201,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Bu konuyu teknik ekip ile derinlemesine tartışalım — hedefi hangi kaynak ve yatırımla karşılayabiliriz. Sonra sponsora seçenekli sunum yapalım.",
+          "text_template": "Tamam {name_polite}. Bu konuyu teknik ekip ile derinlemesine tartışalım — hedefi hangi kaynak ve yatırımla karşılayabiliriz. Sonra sponsora seçenekli sunum yapalım. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },
@@ -246,7 +246,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu çatışmayı açıkça görmen iyi {name_polite}. PM olarak ben çatışmayı çözmem — tarafları aynı masada buluşturmalıyım. Bir uzlaşma toplantısı düzenliyorum, temel anlaşmazlıkları yapılandırılmış şekilde ele alacağız.",
+          "text_template": "Bu çatışmayı açıkça görmen iyi {name_polite}. PM olarak ben çatışmayı çözmem — tarafları aynı masada buluşturmalıyım. Bir uzlaşma toplantısı düzenliyorum, temel anlaşmazlıkları yapılandırılmış şekilde",
           "xp": 30,
           "isEthical": true
         },
@@ -261,7 +261,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Bu anlaşmazlık benim PM'lik alanımın dışında {name_polite}. Tarafların kendi aralarında anlaşmasını bekleyeceğim — karar geldiğinde uygularım. Siyasi tartışmalara karışmam doğru olmaz.",
+          "text_template": "Bu anlaşmazlık benim PM'lik alanımın dışında {name_polite}. Tarafların kendi aralarında anlaşmasını bekleyeceğim — karar geldiğinde uygularım. Siyasi tartışmalara karışmam doğru olmaz. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": -20,
           "isEthical": false
         }
@@ -295,7 +295,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Önemli bir gerilimi fark ettin {name_polite}. Kısa vadeli çözüm ile uzun vadeli yol haritası arasındaki farkı paydaşlarla açık konuşalım — farkında olmayan bir maliyet var burada.",
+          "text_template": "Önemli bir gerilimi fark ettin {name_polite}. Kısa vadeli çözüm ile uzun vadeli yol haritası arasındaki farkı paydaşlarla açık konuşalım — farkında olmayan bir maliyet",
           "xp": 30,
           "isEthical": true
         },
@@ -344,7 +344,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}. Bu konuşmayı geç yaptık ama yapmak doğru. Şimdi de olsa ortak başarı kriterlerini tanımlayabiliriz — ikimizin de kabul edebileceği ölçülebilir göstergeleri birlikte belirleyelim.",
+          "text_template": "Anlıyorum {name_polite}. Bu konuşmayı geç yaptık ama yapmak doğru. Şimdi de olsa ortak başarı kriterlerini tanımlayabiliriz — ikimizin de kabul edebileceği ölçülebilir göstergeleri birlikte",
           "xp": 30,
           "isEthical": true
         },
@@ -393,7 +393,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu geri bildirim için teşekkürler {name_polite}. İletişim planımızı sizin ihtiyaçlarınıza göre uyarlamamız gerekiyor — size en yararlı format, sıklık ve içerik ne olurdu? Bunu birlikte belirleyelim.",
+          "text_template": "Bu geri bildirim için teşekkürler {name_polite}. İletişim planımızı sizin ihtiyaçlarınıza göre uyarlamamız gerekiyor — size en yararlı format, sıklık ve içerik ne olurdu?",
           "xp": 30,
           "isEthical": true
         },

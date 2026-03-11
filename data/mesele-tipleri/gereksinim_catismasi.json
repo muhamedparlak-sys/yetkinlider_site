@@ -43,7 +43,7 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, güvenlik her zaman önce gelir; IT güvenlik ekibinin gereksinimi esas alıyorum. Durumu izlemeye devam ediyorum.",
+          "text_template": "Merhaba {player_name}, güvenlik her zaman önce gelir; IT güvenlik ekibinin gereksinimi esas alıyorum. Durumu izlemeye devam ediyorum. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 10,
           "isEthical": true
         },
@@ -53,7 +53,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, her iki gereksinimi de karşılayan teknik bir çözüm bulabiliriz; deneyelim. Ekibi bu konuda bilgilendireceğim.",
+          "text_template": "Merhaba {player_name}, her iki gereksinimi de karşılayan teknik bir çözüm bulabiliriz; deneyelim. Ekibi bu konuda bilgilendireceğim. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": -20,
           "isEthical": false
         }
@@ -90,22 +90,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nBu trade-off'u sponsor ve güvenlik ekibiyle paylaşmam gerekiyor. Her iki gereksinimin iş riskini sayısal olarak ortaya koyuyorum: performans kaybının kullanıcı deneyimine etkisi ve güvenlik açığının maliyet riski.",
+          "text_template": "Hocam, Bu trade-off'u sponsor ve güvenlik ekibiyle paylaşmam gerekiyor. Her iki gereksinimin iş riskini sayısal olarak ortaya koyuyorum: performans kaybının kullanıcı deneyimine etkisi ve",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nPerformans öncelikli; güvenlik standartlarını sonraki versiyonda karşılarız. Gerekli görüşmeyi planlıyorum. Gerekli durumda müdahale edeceğim.",
+          "text_template": "Hocam,\n\nPerformans öncelikli; güvenlik standartlarını sonraki versiyonda karşılarız. Gerekli görüşmeyi planlıyorum. Gerekli durumda müdahale edeceğim. Süreci yakından izleyeceğim ve sizi bilgilendireceğim. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nGüvenlik öncelikli; performans kabul edilebilir bir trade-off. Sürecin gelişimini yakından takip edeceğim. Bu yaklaşımda devam ediyorum.",
+          "text_template": "Hocam,\n\nGüvenlik öncelikli; performans kabul edilebilir bir trade-off. Sürecin gelişimini yakından takip edeceğim. Bu yaklaşımda devam ediyorum. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nHer ikisini de karşılayan bir çözüm teknik olarak mümkün; ekip yol bulacak. Gerekirse ek adım değerlendireceğim.",
+          "text_template": "Hocam,\n\nHer ikisini de karşılayan bir çözüm teknik olarak mümkün; ekip yol bulacak. Gerekirse ek adım değerlendireceğim. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -142,22 +142,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nHukuk ve teknik ekibi birlikte bir değerlendirme toplantısına davet ediyorum. Mevzuat zorunluluklarını karşılamanın farklı yollarını (mimari değişiklik, süreç güncelleme, geçici çözüm) ve her birinin maliyetini analiz edeceğiz.",
+          "text_template": "Hocam, Hukuk ve teknik ekibi birlikte bir değerlendirme toplantısına davet ediyorum. Mevzuat zorunluluklarını karşılamanın farklı yollarını (mimari değişiklik, süreç güncelleme, geçici çözüm) ve her",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nMevzuat zorunlu; iş sürecini mevzuata uygun olarak revize etmeliyiz. Durumu izlemeye devam ediyorum. Ekip bu konuda bilgilendirilecek.",
+          "text_template": "Hocam,\n\nMevzuat zorunlu; iş sürecini mevzuata uygun olarak revize etmeliyiz. Durumu izlemeye devam ediyorum. Ekip bu konuda bilgilendirilecek. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nMevzuat yoruma açık; hukuk ekibinden daha esnek bir yorum talep edelim. Takibini yapıp sizi bilgilendireceğim.",
+          "text_template": "Hocam,\n\nMevzuat yoruma açık; hukuk ekibinden daha esnek bir yorum talep edelim. Takibini yapıp sizi bilgilendireceğim. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nYurt içi depolama maliyetli; mevcut bulut yapıyı kullanmaya devam edip denetim geldiğinde çözüm üretiriz. Ekibi bu konuda bilgilendireceğim.",
+          "text_template": "Hocam,\n\nYurt içi depolama maliyetli; mevcut bulut yapıyı kullanmaya devam edip denetim geldiğinde çözüm üretiriz. Ekibi bu konuda bilgilendireceğim. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -199,17 +199,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nEn son tarihli belge geçerlidir; ekibe v2.0'ı kullanmalarını söylüyorum. Gerekli görüşmeyi planlıyorum. Durumu raporlayacağım.",
+          "text_template": "Hocam,\n\nEn son tarihli belge geçerlidir; ekibe v2.0'ı kullanmalarını söylüyorum. Gerekli görüşmeyi planlıyorum. Durumu raporlayacağım. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nHer iki belgedeki gereksinimler arasında birini seçip devam edeceğiz. Sürecin gelişimini yakından takip edeceğim. Bu kararı ekiple paylaşacağım.",
+          "text_template": "Hocam,\n\nHer iki belgedeki gereksinimler arasında birini seçip devam edeceğiz. Sürecin gelişimini yakından takip edeceğim. Bu kararı ekiple paylaşacağım. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nEkip kendi yargısıyla hangi sürümün daha mantıklı olduğunu seçebilir. Gerekirse ek adım değerlendireceğim. Sürecin gelişimini izliyorum.",
+          "text_template": "Hocam,\n\nEkip kendi yargısıyla hangi sürümün daha mantıklı olduğunu seçebilir. Gerekirse ek adım değerlendireceğim. Sürecin gelişimini izliyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -251,22 +251,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nBu teknik dengelemi sponsor ve ürün sahibiyle paylaşmam gerekiyor. Hangi gereksinimin iş değerinin daha yüksek olduğunu analiz edip somut seçenekler sunacağım: kısmi fonksiyonellik, performans iyileştirme yatırımı veya.",
+          "text_template": "Hocam, Bu teknik dengelemi sponsor ve ürün sahibiyle paylaşmam gerekiyor. Hangi gereksinimin iş değerinin daha yüksek olduğunu analiz edip somut seçenekler sunacağım: kısmi fonksiyonellik,",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nFonksiyonel gereksinim önceliklidir; performans iyileştirmesini sonra hallederiz. Durumu izlemeye devam ediyorum. Gerekli durumda müdahale edeceğim.",
+          "text_template": "Hocam,\n\nFonksiyonel gereksinim önceliklidir; performans iyileştirmesini sonra hallederiz. Durumu izlemeye devam ediyorum. Gerekli durumda müdahale edeceğim. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nTeknik ekip en iyi trade-off'u kendisi bilir; onlara bırakıyorum. Takibini yapıp sizi bilgilendireceğim. Bu yaklaşımda devam ediyorum.",
+          "text_template": "Hocam,\n\nTeknik ekip en iyi trade-off'u kendisi bilir; onlara bırakıyorum. Takibini yapıp sizi bilgilendireceğim. Bu yaklaşımda devam ediyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nPerformans gereksinimini biraz gevşetirsek her ikisini de karşılayabiliriz. Ekibi bu konuda bilgilendireceğim. Ekip bu konuda bilgilendirilecek.",
+          "text_template": "Hocam,\n\nPerformans gereksinimini biraz gevşetirsek her ikisini de karşılayabiliriz. Ekibi bu konuda bilgilendireceğim. Ekip bu konuda bilgilendirilecek. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": -20,
           "isEthical": false
         }
@@ -298,22 +298,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nRegresyon riskini teyit ettim. Yeni özelliğin mevcut sisteme etkisini analiz eden kapsamlı bir regresyon test planı hazırlıyorum. Bunu müşteri ve ürün sahibiyle paylaşarak ya geçiş planı oluşturacağız.",
+          "text_template": "Hocam, Regresyon riskini teyit ettim. Yeni özelliğin mevcut sisteme etkisini analiz eden kapsamlı bir regresyon test planı hazırlıyorum. Bunu müşteri ve ürün sahibiyle paylaşarak",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nYeni özelliği ekleyelim; mevcut kullanıcıları etkiliyorsa onları yönlendiririz. Gerekli görüşmeyi planlıyorum. Durumu raporlayacağım.",
+          "text_template": "Hocam,\n\nYeni özelliği ekleyelim; mevcut kullanıcıları etkiliyorsa onları yönlendiririz. Gerekli görüşmeyi planlıyorum. Durumu raporlayacağım. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nEski özelliği koruyalım; yeni özellik kapsam dışı kalabilir. Sürecin gelişimini yakından takip edeceğim. Bu kararı ekiple paylaşacağım.",
+          "text_template": "Hocam,\n\nEski özelliği koruyalım; yeni özellik kapsam dışı kalabilir. Sürecin gelişimini yakından takip edeceğim. Bu kararı ekiple paylaşacağım. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nHer ikisini bir arada destekleyen geçici bir yama geliştirebiliriz. Gerekirse ek adım değerlendireceğim. Sürecin gelişimini izliyorum.",
+          "text_template": "Hocam,\n\nHer ikisini bir arada destekleyen geçici bir yama geliştirebiliriz. Gerekirse ek adım değerlendireceğim. Sürecin gelişimini izliyorum. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": -20,
           "isEthical": false
         }

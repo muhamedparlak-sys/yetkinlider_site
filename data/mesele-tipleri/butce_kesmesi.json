@@ -118,7 +118,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}. Tasarruf kararının projemize net etkisini analiz edip yarın sunuyorum — hangi teslimatlarda kapsam daralması gerekir, hangilerinde takvim uzatılabilir, bunu netleştirelim. Takım bunu bilmeli.",
+          "text_template": "Anlıyorum {name_polite}. Tasarruf kararının projemize net etkisini analiz edip yarın sunuyorum — hangi teslimatlarda kapsam daralması gerekir, hangilerinde takvim uzatılabilir, bunu netleştirelim. Takım bunu",
           "xp": 30,
           "isEthical": true
         },
@@ -161,7 +161,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Erken uyarın için teşekkürler. Döviz kaynaklı maliyet artışını risk kaydımıza ekliyoruz — contingency rezervinin yeterliliğini kontrol edeyim. Sponsorla görüşüp seçenekleri birlikte değerlendireceğiz, seni de sürece dahil edeceğim.",
+          "text_template": "Erken uyarın için teşekkürler. Döviz kaynaklı maliyet artışını risk kaydımıza ekliyoruz — contingency rezervinin yeterliliğini kontrol edeyim. Sponsorla görüşüp seçenekleri birlikte değerlendireceğiz, seni de",
           "xp": 30,
           "isEthical": true
         },
@@ -247,7 +247,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, bilgi için teşekkürler. Ekibimle açık konuşacağım — bu süreçte kritik aktiviteleri sürdürmek için bir köprü plan hazırlayalım. Gecikmenin tahmini süresi belli olunca birlikte değerlendiririz.",
+          "text_template": "Anlıyorum {name_polite}, bilgi için teşekkürler. Ekibimle açık konuşacağım — bu süreçte kritik aktiviteleri sürdürmek için bir köprü plan hazırlayalım. Gecikmenin tahmini süresi belli olunca",
           "xp": 30,
           "isEthical": true
         },
@@ -290,7 +290,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, teşekkürler. Projenin mevcut durumunu, tamamlanan teslimatlardaki değeri ve geri kalanlar için seçenekleri hazırlıyorum — askıya alma, kapsam daralması ve faz planı üçünü de masaya getireyim.",
+          "text_template": "Anlıyorum {name_polite}, teşekkürler. Projenin mevcut durumunu, tamamlanan teslimatlardaki değeri ve geri kalanlar için seçenekleri hazırlıyorum — askıya alma, kapsam daralması ve faz planı üçünü",
           "xp": 30,
           "isEthical": true
         },
@@ -333,7 +333,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, erken uyarı için teşekkürler. Bu süreçte hangi aktiviteler ilerleyebilir, hangiler fona bağlı, bunu ayırt edeyim. Fonun gelmesini beklerken kritik yolu kaybetmeyecek şekilde bir geçiş planı hazırlıyorum.",
+          "text_template": "Anlıyorum {name_polite}, erken uyarı için teşekkürler. Bu süreçte hangi aktiviteler ilerleyebilir, hangiler fona bağlı, bunu ayırt edeyim. Fonun gelmesini beklerken kritik yolu kaybetmeyecek şekilde",
           "xp": 30,
           "isEthical": true
         },
@@ -343,7 +343,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Şimdilik fon gerektirmeyen görevlere odaklanabiliriz — dokümantasyon, eğitim, test planlaması gibi işleri fon olmadan sürdürebiliriz. Bu süreyi boşa harcamamalıyız.",
+          "text_template": "Tamam {name_polite}. Şimdilik fon gerektirmeyen görevlere odaklanabiliriz — dokümantasyon, eğitim, test planlaması gibi işleri fon olmadan sürdürebiliriz. Bu süreyi boşa harcamamalıyız. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },
@@ -376,7 +376,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, kurumun durumunu kavradım. Bu aktarımın projemi nasıl etkileyeceğini analiz edip belgeliyorum — takvim ve teslimatlarda oluşacak kaymayı şimdiden kaydedelim, iade edilince planı güncelliyorum.",
+          "text_template": "Anlıyorum {name_polite}, kurumun durumunu kavradım. Bu aktarımın projemi nasıl etkileyeceğini analiz edip belgeliyorum — takvim ve teslimatlarda oluşacak kaymayı şimdiden kaydedelim, iade edilince planı",
           "xp": 30,
           "isEthical": true
         },
@@ -425,7 +425,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bilgi için teşekkürler. Tedarikçinin sözleşme maddelerini inceliyorum önce — hangi koşullarda fiyat revizyonu mümkün, talep ne kadar meşru. Sözleşme desteklemiyorsa müzakereye giriyoruz, destekliyorsa alternatiflere bakıyoruz.",
+          "text_template": "Bilgi için teşekkürler. Tedarikçinin sözleşme maddelerini inceliyorum önce — hangi koşullarda fiyat revizyonu mümkün, talep ne kadar meşru. Sözleşme desteklemiyorsa müzakereye giriyoruz, destekliyorsa alternatiflere",
           "xp": 30,
           "isEthical": true
         },
@@ -435,7 +435,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam. Önce müzakere edeyim tedarikçiyle — fiyatı düşüremiyorsak kapsam azaltmak veya ödeme takvimini yeniden yapılandırmak seçeneklerine bakabiliriz. Hemen iletişime geçiyorum.",
+          "text_template": "Tamam. Önce müzakere edeyim tedarikçiyle — fiyatı düşüremiyorsak kapsam azaltmak veya ödeme takvimini yeniden yapılandırmak seçeneklerine bakabiliriz. Hemen iletişime geçiyorum. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },

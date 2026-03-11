@@ -44,12 +44,12 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu takip etmen iyi oldu {name_polite}. Tedarikçiyle acil bir durum toplantısı ayarlamak istiyorum — gerçek durumu ve yeni taahhüdü anlayalım. Sözleşmedeki gecikme yaptırım maddelerini de inceliyorum.",
+          "text_template": "Durumu takip etmen iyi oldu {name_polite}. Tedarikçiyle acil bir durum toplantısı ayarlamak istiyorum — gerçek durumu ve yeni taahhüdü anlayalım. Sözleşmedeki gecikme yaptırım maddelerini",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anlıyorum {name_polite}. Tedarikçiye resmi yazılı bildirim gönderiyorum — sözleşmede belirlenen teslim tarihini, gecikmenin projemize etkisini ve beklediğimiz düzeltici eylemi açıkça belirtiyorum.",
+          "text_template": "Anlıyorum {name_polite}. Tedarikçiye resmi yazılı bildirim gönderiyorum — sözleşmede belirlenen teslim tarihini, gecikmenin projemize etkisini ve beklediğimiz düzeltici eylemi açıkça belirtiyorum. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 10,
           "isEthical": true
         },
@@ -59,7 +59,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Bu tedarikçi güvenilmez çıktı {name_polite}. Sözleşmeyi feshedip tüm yatırımımızı geri isteriz — hukuki süreç başlatıyorum ve yönetimi bilgilendiriyorum. Gerekli görüşmeyi planlıyorum.",
+          "text_template": "Bu tedarikçi güvenilmez çıktı {name_polite}. Sözleşmeyi feshedip tüm yatırımımızı geri isteriz — hukuki süreç başlatıyorum ve yönetimi bilgilendiriyorum. Gerekli görüşmeyi planlıyorum. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -93,7 +93,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu fark edip bildirmen önemli {name_polite}. Kalite sorununu belgeleyelim ve tedarikçiye resmi geri bildirim verelim — sözleşmedeki kalite gereksinimleri referans alarak düzeltme talebi yapıyorum ve süre belirtiyorum.",
+          "text_template": "Durumu fark edip bildirmen önemli {name_polite}. Kalite sorununu belgeleyelim ve tedarikçiye resmi geri bildirim verelim — sözleşmedeki kalite gereksinimleri referans alarak düzeltme talebi yapıyorum",
           "xp": 30,
           "isEthical": true
         },
@@ -103,7 +103,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Tedarikçiyle birlikte kalite sorunlarını gözden geçirelim — bazı sorunlar yanlış anlama kaynaklı olabilir. Teknik toplantı yapıp her birini netleştirelim.",
+          "text_template": "Tamam {name_polite}. Tedarikçiyle birlikte kalite sorunlarını gözden geçirelim — bazı sorunlar yanlış anlama kaynaklı olabilir. Teknik toplantı yapıp her birini netleştirelim. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },
@@ -142,7 +142,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu bağımlılık riskini artık kayıt altına alıyoruz {name_polite}. Kısa vadede tedarikçiyle müzakere kapasitemizi güçlendirirken, orta vadede ikinci tedarikçi geliştirme sürecini başlatıyorum. Acil geçici planı da oluşturalım.",
+          "text_template": "Bu bağımlılık riskini artık kayıt altına alıyoruz {name_polite}. Kısa vadede tedarikçiyle müzakere kapasitemizi güçlendirirken, orta vadede ikinci tedarikçi geliştirme sürecini başlatıyorum. Acil geçici planı",
           "xp": 30,
           "isEthical": true
         },
@@ -152,7 +152,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Kısa vadede mevcut tedarikçiyle krizi yönetelim. Uzun vadede tedarikçi portföyünü çeşitlendirme planını sponsora önereceğim — bu stratejik bir karar.",
+          "text_template": "Tamam {name_polite}. Kısa vadede mevcut tedarikçiyle krizi yönetelim. Uzun vadede tedarikçi portföyünü çeşitlendirme planını sponsora önereceğim — bu stratejik bir karar. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },
@@ -240,7 +240,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu çok ciddi bir durum {name_polite}. Hukuk ekibini hemen bilgilendiriyorum — gizlilik ihlalini belgeleyelim, kanıtları koruyalım. Tedarikçiye resmi ihlal bildirimi göndereceğiz ve sözleşmedeki yaptırımları değerlendireceğiz.",
+          "text_template": "Bu çok ciddi bir durum {name_polite}. Hukuk ekibini hemen bilgilendiriyorum — gizlilik ihlalini belgeleyelim, kanıtları koruyalım. Tedarikçiye resmi ihlal bildirimi göndereceğiz ve sözleşmedeki yaptırımları",
           "xp": 30,
           "isEthical": true
         },
@@ -350,7 +350,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu doğru tespit ettin {name_polite}. Sözleşmede kilit personel onayı maddesi var mı kontrol edeyim — varsa bu değişikliği onaylamamak hakkımız. Tedarikçiyle görüşeceğim, gerekirse sözleşme haklarımızı kullanacağım.",
+          "text_template": "Durumu doğru tespit ettin {name_polite}. Sözleşmede kilit personel onayı maddesi var mı kontrol edeyim — varsa bu değişikliği onaylamamak hakkımız. Tedarikçiyle görüşeceğim, gerekirse sözleşme",
           "xp": 30,
           "isEthical": true
         },
@@ -454,7 +454,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu koordinasyon sorunu ciddi {name_polite}. Tüm tedarikçileri bir araya getiren bir entegrasyon yönetim toplantısı düzenliyorum — sorumluluk sınırları, arayüz gereksinimleri ve iletişim protokolünü birlikte netleştirelim.",
+          "text_template": "Bu koordinasyon sorunu ciddi {name_polite}. Tüm tedarikçileri bir araya getiren bir entegrasyon yönetim toplantısı düzenliyorum — sorumluluk sınırları, arayüz gereksinimleri ve iletişim protokolünü birlikte",
           "xp": 30,
           "isEthical": true
         },
@@ -464,7 +464,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Her tedarikçi için birincil iletişim noktası belirleyelim ve haftada bir entegrasyon toplantısı koyalım — sorunları bu forumda tartışıp çözelim.",
+          "text_template": "Tamam {name_polite}. Her tedarikçi için birincil iletişim noktası belirleyelim ve haftada bir entegrasyon toplantısı koyalım — sorunları bu forumda tartışıp çözelim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },

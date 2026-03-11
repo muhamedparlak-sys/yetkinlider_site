@@ -38,7 +38,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, bilgi için teşekkürler. Kesin hakediş için eksik olan belgeleri ve onay adımlarını netleştirelim — her ikimizin de yapması gerekenleri bir checklist haline getirip takibini yapalım.",
+          "text_template": "Anlıyorum {name_polite}, bilgi için teşekkürler. Kesin hakediş için eksik olan belgeleri ve onay adımlarını netleştirelim — her ikimizin de yapması gerekenleri bir checklist haline",
           "xp": 30,
           "isEthical": true
         },
@@ -48,7 +48,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Bu gecikmede tarafımızdaki eksiklikleri tamamlıyorum — listemi paylaşıyorum. Sizin taraftaki adımlar için de belirli bir tarih verebilir misiniz?",
+          "text_template": "Peki {name_polite}. Bu gecikmede tarafımızdaki eksiklikleri tamamlıyorum — listemi paylaşıyorum. Sizin taraftaki adımlar için de belirli bir tarih verebilir misiniz? Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },
@@ -87,7 +87,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Geri bildiriminiz için teşekkürler {name_polite}. Önce bu sorunun geçici kabul kriterleriyle ilişkisini inceleyelim — garanti kapsamında mı, kapsam dışı mı net belirleyelim. Hukuken ne yapmamız gerektiğini birlikte değerlendirelim.",
+          "text_template": "Geri bildiriminiz için teşekkürler {name_polite}. Önce bu sorunun geçici kabul kriterleriyle ilişkisini inceleyelim — garanti kapsamında mı, kapsam dışı mı net belirleyelim. Hukuken ne",
           "xp": 30,
           "isEthical": true
         },
@@ -151,7 +151,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Sözleşme kapsamımızın net tanımladığı teslimatlar konusunda ek yükümlülük kabul edemeyiz {name_polite}. Sözleşme dışı talepler ayrı fiyatlandırılmak zorunda — hukuki danışmanımızla değerlendireceğiz.",
+          "text_template": "Sözleşme kapsamımızın net tanımladığı teslimatlar konusunda ek yükümlülük kabul edemeyiz {name_polite}. Sözleşme dışı talepler ayrı fiyatlandırılmak zorunda — hukuki danışmanımızla değerlendireceğiz. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": -20,
           "isEthical": false
         }
@@ -185,7 +185,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, bu önemli bir tespit. Eksik belgeleri tamamlamak için sorumluluk atayalım — kim neyi ne zamana kadar bitirecek bunu netleştirelim. Kapanış belgelerini bir checklist haline getiriyorum.",
+          "text_template": "Anlıyorum {name_polite}, bu önemli bir tespit. Eksik belgeleri tamamlamak için sorumluluk atayalım — kim neyi ne zamana kadar bitirecek bunu netleştirelim. Kapanış belgelerini bir",
           "xp": 30,
           "isEthical": true
         },
@@ -244,7 +244,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Benzer projelerde garanti için standart koşullarımızı paylaşayım — bunu temel alarak sizin beklentilerinizi de ekleyelim. Anlaşmak istiyorum, uzlaşı buluruz.",
+          "text_template": "Peki {name_polite}. Benzer projelerde garanti için standart koşullarımızı paylaşayım — bunu temel alarak sizin beklentilerinizi de ekleyelim. Anlaşmak istiyorum, uzlaşı buluruz. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 5,
           "isEthical": true
         },
@@ -326,7 +326,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}. Lessons learned toplantısını hemen planlıyorum — ekip henüz dağılmadan bir araya gelelim. Kısa bir yapılandırılmış format hazırlıyorum: ne iyi gitti, ne geliştirilmeli, ne yapmalıydık.",
+          "text_template": "Anlıyorum {name_polite}. Lessons learned toplantısını hemen planlıyorum — ekip henüz dağılmadan bir araya gelelim. Kısa bir yapılandırılmış format hazırlıyorum: ne iyi gitti, ne geliştirilmeli,",
           "xp": 30,
           "isEthical": true
         },
@@ -422,7 +422,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Hangi kaynaklar kritik, hangiler bekleyebilir bunu belirleyelim — en ivedi iade için adımları hemen atıyorum. Bitiş tarihi vereyim mi?",
+          "text_template": "Peki {name_polite}. Hangi kaynaklar kritik, hangiler bekleyebilir bunu belirleyelim — en ivedi iade için adımları hemen atıyorum. Bitiş tarihi vereyim mi? İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 5,
           "isEthical": true
         },
@@ -455,7 +455,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, çekincelerinizi duymak istiyorum. Hangi konular net değil, bunları açıkça listeleyelim — her birini ele alıp yanıt vereceğim. Amaç her iki tarafın rahat olduğu bir kapanış.",
+          "text_template": "Anlıyorum {name_polite}, çekincelerinizi duymak istiyorum. Hangi konular net değil, bunları açıkça listeleyelim — her birini ele alıp yanıt vereceğim. Amaç her iki tarafın rahat",
           "xp": 30,
           "isEthical": true
         },
@@ -470,7 +470,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Sözleşmede tanımlı kabul kriterleri karşılandı {name_polite}. Kapatma belgelerini imzalamamak sözleşmesel yükümlülüklerinizi ihlal eder — hukuki danışmanımız bu konuyu takip edecek.",
+          "text_template": "Sözleşmede tanımlı kabul kriterleri karşılandı {name_polite}. Kapatma belgelerini imzalamamak sözleşmesel yükümlülüklerinizi ihlal eder — hukuki danışmanımız bu konuyu takip edecek. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": -20,
           "isEthical": false
         }

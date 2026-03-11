@@ -43,12 +43,12 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nBağımlılığı not aldım. Değişikliklerimizi dikkatli yaparsak sorun olmaz; devam edelim. Durumu izlemeye devam ediyorum. Gerekli durumda müdahale edeceğim.",
+          "text_template": "Hocam,\n\nBağımlılığı not aldım. Değişikliklerimizi dikkatli yaparsak sorun olmaz; devam edelim. Durumu izlemeye devam ediyorum. Gerekli durumda müdahale edeceğim. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nBağımlılık riskini risk kaydına ekledim; sprint sonunda tekrar değerlendiririz. Takibini yapıp sizi bilgilendireceğim. Bu yaklaşımda devam ediyorum.",
+          "text_template": "Hocam,\n\nBağımlılık riskini risk kaydına ekledim; sprint sonunda tekrar değerlendiririz. Takibini yapıp sizi bilgilendireceğim. Bu yaklaşımda devam ediyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 5,
           "isEthical": true
         },
@@ -90,7 +90,7 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\n{kaynak_sistem} ekibine e-posta attım; yanıt beklemedeyim. Sonraki sprint'e planlayabiliriz. Gerekli görüşmeyi planlıyorum. Ekip bu konuda bilgilendirilecek.",
+          "text_template": "Hocam,\n\n{kaynak_sistem} ekibine e-posta attım; yanıt beklemedeyim. Sonraki sprint'e planlayabiliriz. Gerekli görüşmeyi planlıyorum. Ekip bu konuda bilgilendirilecek. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 10,
           "isEthical": true
         },
@@ -100,7 +100,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nŞimdilik {kaynak_sistem} verisi olmadan test verileriyle ilerleyelim; entegrasyon sorunu üretimde çözeriz. Gerekirse ek adım değerlendireceğim.",
+          "text_template": "Hocam,\n\nŞimdilik {kaynak_sistem} verisi olmadan test verileriyle ilerleyelim; entegrasyon sorunu üretimde çözeriz. Gerekirse ek adım değerlendireceğim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": -20,
           "isEthical": false
         }
@@ -142,12 +142,12 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nŞimdilik {uzman_isim} mevcut; bu konuyu proje sonunda ele alabiliriz. Durumu izlemeye devam ediyorum. Durumu raporlayacağım.",
+          "text_template": "Hocam,\n\nŞimdilik {uzman_isim} mevcut; bu konuyu proje sonunda ele alabiliriz. Durumu izlemeye devam ediyorum. Durumu raporlayacağım. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nRiski risk kaydına ekledim. Kritik oldu mu müdahale ederiz. Takibini yapıp sizi bilgilendireceğim. Bu kararı ekiple paylaşacağım.",
+          "text_template": "Hocam,\n\nRiski risk kaydına ekledim. Kritik oldu mu müdahale ederiz. Takibini yapıp sizi bilgilendireceğim. Bu kararı ekiple paylaşacağım. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 5,
           "isEthical": true
         },
@@ -194,17 +194,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nEkip bir geçici çözüm (workaround) geliştiriyor; şimdilik bu yeterli olur. Gerekli görüşmeyi planlıyorum. Sürecin gelişimini izliyorum.",
+          "text_template": "Hocam,\n\nEkip bir geçici çözüm (workaround) geliştiriyor; şimdilik bu yeterli olur. Gerekli görüşmeyi planlıyorum. Sürecin gelişimini izliyorum. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nAltyapı kısıtını risk kaydına ekledim; bir sonraki milestone yaklaşınca çözüme odaklanırız. Sürecin gelişimini yakından takip edeceğim.",
+          "text_template": "Hocam,\n\nAltyapı kısıtını risk kaydına ekledim; bir sonraki milestone yaklaşınca çözüme odaklanırız. Sürecin gelişimini yakından takip edeceğim. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nMevcut altyapıyla çalışan bir özellik sürümü yayınlayabiliriz; tam işlevselliği sonraki versiyona bırakalım. Gerekirse ek adım değerlendireceğim.",
+          "text_template": "Hocam,\n\nMevcut altyapıyla çalışan bir özellik sürümü yayınlayabiliriz; tam işlevselliği sonraki versiyona bırakalım. Gerekirse ek adım değerlendireceğim. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": -20,
           "isEthical": false
         }
@@ -246,17 +246,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\n{departman} departmanıyla görüşeceğim; belki süreci hızlandırabiliriz. Durumu izlemeye devam ediyorum. Gerekli durumda müdahale edeceğim.",
+          "text_template": "Hocam,\n\n{departman} departmanıyla görüşeceğim; belki süreci hızlandırabiliriz. Durumu izlemeye devam ediyorum. Gerekli durumda müdahale edeceğim. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nOnay süreci uzunsa yayın tarihini biraz öne çekebiliriz; önceki versiyonu biraz daha uzatabiliriz. Takibini yapıp sizi bilgilendireceğim.",
+          "text_template": "Hocam,\n\nOnay süreci uzunsa yayın tarihini biraz öne çekebiliriz; önceki versiyonu biraz daha uzatabiliriz. Takibini yapıp sizi bilgilendireceğim. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\n{departman} onayı gerekli ama zorunlu değil gibi görünüyor; önce yayınlayıp ardından onay alalım. Ekibi bu konuda bilgilendireceğim.",
+          "text_template": "Hocam,\n\n{departman} onayı gerekli ama zorunlu değil gibi görünüyor; önce yayınlayıp ardından onay alalım. Ekibi bu konuda bilgilendireceğim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": -20,
           "isEthical": false
         }
@@ -293,22 +293,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nHukuk ekibinin tespiti kritik. Hemen uyumlu alternatif kütüphaneleri araştırıyorum ve teknik ekiple geçiş planı oluşturuyorum. Kısa vadede etkilenen modülleri izole edip riski sınırlarken, uzun vadeli geçiş için.",
+          "text_template": "Hocam, Hukuk ekibinin tespiti kritik. Hemen uyumlu alternatif kütüphaneleri araştırıyorum ve teknik ekiple geçiş planı oluşturuyorum. Kısa vadede etkilenen modülleri izole edip riski sınırlarken,",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nHukuk ekibi muhtemelen aşırı temkinli; bu tür lisans sorunları genellikle sorun çıkarmaz. Devam ediyoruz. Gerekli görüşmeyi planlıyorum.",
+          "text_template": "Hocam,\n\nHukuk ekibi muhtemelen aşırı temkinli; bu tür lisans sorunları genellikle sorun çıkarmaz. Devam ediyoruz. Gerekli görüşmeyi planlıyorum. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nLisans sorununu kayıt altına aldım; bir sonraki büyük sürümde kütüphaneyi değiştiririz. Sürecin gelişimini yakından takip edeceğim.",
+          "text_template": "Hocam,\n\nLisans sorununu kayıt altına aldım; bir sonraki büyük sürümde kütüphaneyi değiştiririz. Sürecin gelişimini yakından takip edeceğim. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nLisans belgelerini güncellersek sorun ortadan kalkabilir; hukuk ekibiyle tekrar konuşabilirim. Gerekirse ek adım değerlendireceğim. Bu yaklaşımda devam ediyorum.",
+          "text_template": "Hocam,\n\nLisans belgelerini güncellersek sorun ortadan kalkabilir; hukuk ekibiyle tekrar konuşabilirim. Gerekirse ek adım değerlendireceğim. Bu yaklaşımda devam ediyorum. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -355,12 +355,12 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nDönüşüm katmanı küçük bir geliştirme; ek çalışma olmadan halledeceğiz. Durumu izlemeye devam ediyorum. Ekip bu konuda bilgilendirilecek.",
+          "text_template": "Hocam,\n\nDönüşüm katmanı küçük bir geliştirme; ek çalışma olmadan halledeceğiz. Durumu izlemeye devam ediyorum. Ekip bu konuda bilgilendirilecek. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nVeri haritalama belgesini güncelledim; ekip ilgilenecek. Takibini yapıp sizi bilgilendireceğim. Durumu raporlayacağım.",
+          "text_template": "Hocam,\n\nVeri haritalama belgesini güncelledim; ekip ilgilenecek. Takibini yapıp sizi bilgilendireceğim. Durumu raporlayacağım. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },

@@ -93,7 +93,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu durumu doğrudan paylaştığın için teşekkürler {name_polite}. Risk izleme sürecimizde bir açık var — şimdi önce mevcut durumu yönetelim, sonra risk takip sürecimizi nasıl iyileştiririz birlikte düşünelim.",
+          "text_template": "Bu durumu doğrudan paylaştığın için teşekkürler {name_polite}. Risk izleme sürecimizde bir açık var — şimdi önce mevcut durumu yönetelim, sonra risk takip sürecimizi nasıl",
           "xp": 30,
           "isEthical": true
         },
@@ -103,12 +103,12 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Acil yanıt için mevcut seçeneklere bakıyorum — contingency rezervi var mı, alternatif plan ne olabilir, bunları hızlıca değerlendireceğim.",
+          "text_template": "Tamam {name_polite}. Acil yanıt için mevcut seçeneklere bakıyorum — contingency rezervi var mı, alternatif plan ne olabilir, bunları hızlıca değerlendireceğim. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Risk kaydına almak yeterliydi {name_polite}, takip eksikliği kabul edilemez. Risk reviewları yapmak senin sorumluluğundaydı — bu ihmal sonuçlarından hesap sormak zorundayım.",
+          "text_template": "Risk kaydına almak yeterliydi {name_polite}, takip eksikliği kabul edilemez. Risk reviewları yapmak senin sorumluluğundaydı — bu ihmal sonuçlarından hesap sormak zorundayım. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -142,7 +142,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu şeffaf paylaşman iyi oldu {name_polite}. Şimdi ek yanıt seçeneklerine bakıyoruz — yönetim yedeği, kapsam daralması veya takvim uzatması arasında en mantıklısını paydaşlarla birlikte değerlendirelim.",
+          "text_template": "Durumu şeffaf paylaşman iyi oldu {name_polite}. Şimdi ek yanıt seçeneklerine bakıyoruz — yönetim yedeği, kapsam daralması veya takvim uzatması arasında en mantıklısını paydaşlarla birlikte",
           "xp": 30,
           "isEthical": true
         },
@@ -194,7 +194,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu tespiti erken paylaşman çok değerli {name_polite}. İkincil riski hemen risk kaydına alalım ve bu yeni durumu yönetmek için bir yanıt planı oluşturalım. Sponsoru da bilgilendirmemiz gerekecek.",
+          "text_template": "Bu tespiti erken paylaşman çok değerli {name_polite}. İkincil riski hemen risk kaydına alalım ve bu yeni durumu yönetmek için bir yanıt planı oluşturalım. Sponsoru",
           "xp": 30,
           "isEthical": true
         },
@@ -243,7 +243,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu dürüstlük için teşekkürler {name_polite}. Risk izleme mekanizmamızı güçlendirmemiz gerekiyor — belki göstergeler çok geniş tanımlandı. Tetikleyicileri somut, ölçülebilir hale getirelim ve kim izleyecek netleştirelim.",
+          "text_template": "Bu dürüstlük için teşekkürler {name_polite}. Risk izleme mekanizmamızı güçlendirmemiz gerekiyor — belki göstergeler çok geniş tanımlandı. Tetikleyicileri somut, ölçülebilir hale getirelim ve kim izleyecek",
           "xp": 30,
           "isEthical": true
         },
@@ -253,7 +253,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Şu an için hasar sınırlama önlemlerini alıyoruz. Sonra tetikleyici izleme sistemimizi nasıl güçlendiririz birlikte tasarlayalım. Gerekirse ek adım değerlendireceğim.",
+          "text_template": "Tamam {name_polite}. Şu an için hasar sınırlama önlemlerini alıyoruz. Sonra tetikleyici izleme sistemimizi nasıl güçlendiririz birlikte tasarlayalım. Gerekirse ek adım değerlendireceğim. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },
@@ -341,7 +341,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu açıkça paylaşman önemli {name_polite}. Risk iletişim planımızda bir eksik var — kritik risklerin durumunu düzenli raporlara dahil etmemiz gerekiyordu. Paydaşları şimdi bilgilendirip güveni yeniden inşa edelim.",
+          "text_template": "Durumu açıkça paylaşman önemli {name_polite}. Risk iletişim planımızda bir eksik var — kritik risklerin durumunu düzenli raporlara dahil etmemiz gerekiyordu. Paydaşları şimdi bilgilendirip güveni",
           "xp": 30,
           "isEthical": true
         },
@@ -390,7 +390,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu şeffaf paylaşman kritik {name_polite}. Rezervsiz kalan projeyi yönetmek daha dikkatli risk takibi gerektirir — kalan riskler listesini yeniden değerlendirelim, hangilerini azaltabiliriz. Sponsora da durumu bildirmeliyiz.",
+          "text_template": "Durumu şeffaf paylaşman kritik {name_polite}. Rezervsiz kalan projeyi yönetmek daha dikkatli risk takibi gerektirir — kalan riskler listesini yeniden değerlendirelim, hangilerini azaltabiliriz. Sponsora da",
           "xp": 30,
           "isEthical": true
         },

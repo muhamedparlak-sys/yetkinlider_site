@@ -43,7 +43,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, mesajını aldım. Bu engeli ben üstleniyorum — bugün farklı bir kanal deneyeceğim, asistan üzerinden doğrudan randevu talep edeceğim. Bu süreçte bağımsız ilerleyebileceğin görevler var mı, birlikte bakalım.",
+          "text_template": "{name_polite}, mesajını aldım. Bu engeli ben üstleniyorum — bugün farklı bir kanal deneyeceğim, asistan üzerinden doğrudan randevu talep edeceğim. Bu süreçte bağımsız ilerleyebileceğin görevler",
           "xp": 30,
           "isEthical": true
         },
@@ -53,7 +53,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "{name_polite}, bu kararı beklerken başka ne ilerleyebilir, oraya odaklanalım. Karar alıcı müsait olduğunda haber veririm — şimdilik karar gerektirmeyen görevlere gir.",
+          "text_template": "{name_polite}, bu kararı beklerken başka ne ilerleyebilir, oraya odaklanalım. Karar alıcı müsait olduğunda haber veririm — şimdilik karar gerektirmeyen görevlere gir. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 5,
           "isEthical": true
         },
@@ -103,7 +103,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu belirsizliği ben çözeceğim — senin uğraşman gerekmiyor. Bugün doğru paydaşı tespit edip iletişim matrisini güncelleyeceğim. Bu hafta sana net bir 'kime git' listesi vereceğim, o zamana kadar bekle.",
+          "text_template": "{name_polite}, bu belirsizliği ben çözeceğim — senin uğraşman gerekmiyor. Bugün doğru paydaşı tespit edip iletişim matrisini güncelleyeceğim. Bu hafta sana net bir 'kime git'",
           "xp": 30,
           "isEthical": true
         },
@@ -155,12 +155,12 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, anladım. Önce şunu netleştirelim: bu onay gerçekten tatil bitene kadar bekleyemez mi? Bekleyemiyorsa vekilini veya alternatif karar alıcıyı bulmaya çalışacağım — kararı bugün veririm, sana döneceğim.",
+          "text_template": "{name_polite}, anladım. Önce şunu netleştirelim: bu onay gerçekten tatil bitene kadar bekleyemez mi? Bekleyemiyorsa vekilini veya alternatif karar alıcıyı bulmaya çalışacağım — kararı bugün",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "{name_polite}, bir e-posta bırakalım — döndüğünde baksın. Ben de CC'deyim; dönmeden önce ulaşırsa hızlıca hallederiz. Takvime bir arabellek ekleyeyim, plana işleyeyim.",
+          "text_template": "{name_polite}, bir e-posta bırakalım — döndüğünde baksın. Ben de CC'deyim; dönmeden önce ulaşırsa hızlıca hallederiz. Takvime bir arabellek ekleyeyim, plana işleyeyim. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 10,
           "isEthical": true
         },
@@ -202,7 +202,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu boşluk bende kalmamalı. Bugün üst tarafa yazıp resmi vekil ataması talep edeceğim — iletişim planına da işleyeceğim. Netleşene kadar bekle, çözümü ben takip ediyorum.",
+          "text_template": "{name_polite}, bu boşluk bende kalmamalı. Bugün üst tarafa yazıp resmi vekil ataması talep edeceğim — iletişim planına da işleyeceğim. Netleşene kadar bekle, çözümü ben",
           "xp": 30,
           "isEthical": true
         },
@@ -256,7 +256,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu durumu ben üstleniyorum. Bugün öğleden sonra ilgiliyi telefonla arıyorum — e-posta tıkandıysa farklı kanaldan açarız. Bu gecikmeleri kayıt altına alıyorum; karar çıktığında sana hemen dönüyorum.",
+          "text_template": "{name_polite}, bu durumu ben üstleniyorum. Bugün öğleden sonra ilgiliyi telefonla arıyorum — e-posta tıkandıysa farklı kanaldan açarız. Bu gecikmeleri kayıt altına alıyorum; karar çıktığında",
           "xp": 30,
           "isEthical": true
         },
@@ -304,7 +304,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, anladım. Sponsor kanalından aciliyeti ileteceğim, zaman dilimi talep edeceğim. Aynı zamanda asenkron bir karar mekanizması işe yarar mı değerlendirelim — toplantı olmadan da kararlar alınabilir.",
+          "text_template": "{name_polite}, anladım. Sponsor kanalından aciliyeti ileteceğim, zaman dilimi talep edeceğim. Aynı zamanda asenkron bir karar mekanizması işe yarar mı değerlendirelim — toplantı olmadan da",
           "xp": 30,
           "isEthical": true
         },
@@ -356,7 +356,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, yeni paydaşa bağlam aktarmak bizim sorumluluğumuz. Proje özeti ve geçmiş kararlar belgesi hazırlıyorum, kısa bir oryantasyon toplantısı ayarlayacağım. Bu süreçte hangi kararların bekleyebileceğine birlikte karar verelim.",
+          "text_template": "{name_polite}, yeni paydaşa bağlam aktarmak bizim sorumluluğumuz. Proje özeti ve geçmiş kararlar belgesi hazırlıyorum, kısa bir oryantasyon toplantısı ayarlayacağım. Bu süreçte hangi kararların bekleyebileceğine",
           "xp": 30,
           "isEthical": true
         },
@@ -371,7 +371,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, bu onların sorunu. İç rotasyon bizi etkilememeli — onayı zorla al, öğrensin diye biz bekleyemeyiz. Sözleşmemiz var, proje devam eder.",
+          "text_template": "{name_polite}, bu onların sorunu. İç rotasyon bizi etkilememeli — onayı zorla al, öğrensin diye biz bekleyemeyiz. Sözleşmemiz var, proje devam eder. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -403,7 +403,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, fark etmişsin, iyi ki paylaştın. İlgi kaybı erken bir uyarı sinyali — görmezden gelmek riskli. Ben paydaşla gayriresmi bir konuşma açacağım, neyin değiştiğini anlamak istiyorum. Sana döneceğim.",
+          "text_template": "{name_polite}, fark etmişsin, iyi ki paylaştın. İlgi kaybı erken bir uyarı sinyali — görmezden gelmek riskli. Ben paydaşla gayriresmi bir konuşma açacağım, neyin değiştiğini",
           "xp": 30,
           "isEthical": true
         },
@@ -455,17 +455,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "{name_polite}, bu kişinin desteğini kazanmak için bir toplantı ayarlayalım. Projenin faydalarını sunarız — bir kez iyi anlarsa tutumu değişebilir, şans verelim.",
+          "text_template": "{name_polite}, bu kişinin desteğini kazanmak için bir toplantı ayarlayalım. Projenin faydalarını sunarız — bir kez iyi anlarsa tutumu değişebilir, şans verelim. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "{name_polite}, şimdilik bu kişiyi devre dışı bırakarak ilerleyelim. Katkısı olmadan devam edebiliyorsak, enerjimizi başka paydaşlara yönlendirelim — zorlama işe yaramıyor.",
+          "text_template": "{name_polite}, şimdilik bu kişiyi devre dışı bırakarak ilerleyelim. Katkısı olmadan devam edebiliyorsak, enerjimizi başka paydaşlara yönlendirelim — zorlama işe yaramıyor. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, katılmak istemiyorsa projenin üstümüze düşmesi. Devam et — zorunlu değil, istemeyene zorlamak anlamsız. Proje onun desteğine bağlı olmak zorunda değil.",
+          "text_template": "{name_polite}, katılmak istemiyorsa projenin üstümüze düşmesi. Devam et — zorunlu değil, istemeyene zorlamak anlamsız. Proje onun desteğine bağlı olmak zorunda değil. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -492,7 +492,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, kritik bir gelişme. Müşteri tarafındaki yeni yapıyı hızla öğrenmem ve iletişim matrisimi güncellemem gerekiyor. Taahhütlerin değişip değişmediğini de netleştireceğim — bugün müşteri PM'iyle konuşuyorum.",
+          "text_template": "{name_polite}, kritik bir gelişme. Müşteri tarafındaki yeni yapıyı hızla öğrenmem ve iletişim matrisimi güncellemem gerekiyor. Taahhütlerin değişip değişmediğini de netleştireceğim — bugün müşteri PM'iyle",
           "xp": 30,
           "isEthical": true
         },
@@ -502,7 +502,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "{name_polite}, şimdilik tüm yazışmaları eski kişiye yönlendir — o yönlendirir büyük ihtimalle. Resmi yapı netleşene kadar bu geçici çözüm işe yarar.",
+          "text_template": "{name_polite}, şimdilik tüm yazışmaları eski kişiye yönlendir — o yönlendirir büyük ihtimalle. Resmi yapı netleşene kadar bu geçici çözüm işe yarar. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },
@@ -540,12 +540,12 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu tam bir RACI sorunu. İki tarafı aynı masaya oturtmam ve kimin ne konuda yetkili olduğunu belgelemem gerekiyor. Bu belirsizlik projeyi sürekli yavaşlatır — bu hafta çözüyorum, bende.",
+          "text_template": "{name_polite}, bu tam bir RACI sorunu. İki tarafı aynı masaya oturtmam ve kimin ne konuda yetkili olduğunu belgelemem gerekiyor. Bu belirsizlik projeyi sürekli yavaşlatır",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "{name_polite}, her ikisini de dahil ederek kısa bir toplantı ayarlayalım. Aynı ortamda sorumluluk netleşir — biri sonunda sahiplenecektir, toplantıda çözebiliriz.",
+          "text_template": "{name_polite}, her ikisini de dahil ederek kısa bir toplantı ayarlayalım. Aynı ortamda sorumluluk netleşir — biri sonunda sahiplenecektir, toplantıda çözebiliriz. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
@@ -555,7 +555,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, kimin onayladığı önemli değil — biri 'evet' dediyse devam et. Resmi sorumluluk tartışması sonraya kalabilir; şu an ilerlemek önemli, bekleme.",
+          "text_template": "{name_polite}, kimin onayladığı önemli değil — biri 'evet' dediyse devam et. Resmi sorumluluk tartışması sonraya kalabilir; şu an ilerlemek önemli, bekleme. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -588,7 +588,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu engeli aşmak için ben devreye giriyorum. Sponsor seviyesinde bir iletişim başlatacağım. Aynı zamanda bu kanalın neden bu kadar zor olduğunu da ele alalım — yapısal çözüm üretelim.",
+          "text_template": "{name_polite}, bu engeli aşmak için ben devreye giriyorum. Sponsor seviyesinde bir iletişim başlatacağım. Aynı zamanda bu kanalın neden bu kadar zor olduğunu da ele",
           "xp": 30,
           "isEthical": true
         },
@@ -636,7 +636,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu iletişim boşluğunu kapatmam gerekiyor. Müşteri PM'iyle konuşacağım — teknik temas noktasının resmi olarak belirlenmesini talep edeceğim. Bunu iletişim matrisine de ekleyeceğim, haber vereceğim.",
+          "text_template": "{name_polite}, bu iletişim boşluğunu kapatmam gerekiyor. Müşteri PM'iyle konuşacağım — teknik temas noktasının resmi olarak belirlenmesini talep edeceğim. Bunu iletişim matrisine de ekleyeceğim, haber",
           "xp": 30,
           "isEthical": true
         },
@@ -683,12 +683,12 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, anlıyorum. Bu geçici mi kalıcı mı öğrenmem gerekiyor — acil gündem bitince ne zaman müsait olacaklarını bugün soruyorum. Gecikmenin takvime etkisini değerlendirip gerekirse paydaşları bilgilendireceğim.",
+          "text_template": "{name_polite}, anlıyorum. Bu geçici mi kalıcı mı öğrenmem gerekiyor — acil gündem bitince ne zaman müsait olacaklarını bugün soruyorum. Gecikmenin takvime etkisini değerlendirip gerekirse",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "{name_polite}, birkaç hafta daha bekleyelim — acil geçer. Bu tür dönemlerde sabır en iyi strateji; zorlama ilişkiyi zedeler. Döndüklerinde hızlıca toparlarız.",
+          "text_template": "{name_polite}, birkaç hafta daha bekleyelim — acil geçer. Bu tür dönemlerde sabır en iyi strateji; zorlama ilişkiyi zedeler. Döndüklerinde hızlıca toparlarız. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 10,
           "isEthical": true
         },
@@ -698,7 +698,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, meşgul olması bizim sorunumuz değil. Onay beklemeden devam et — bu riskin sorumluluğu bizde değil, biz elimizden geleni yapıyoruz, ilerleyebiliriz.",
+          "text_template": "{name_polite}, meşgul olması bizim sorunumuz değil. Onay beklemeden devam et — bu riskin sorumluluğu bizde değil, biz elimizden geleni yapıyoruz, ilerleyebiliriz. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -730,7 +730,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu yapısal bir sorun — tek seferlik çözüm yetmez. Saat dilimini göz önüne alarak asenkron onay mekanizmaları, sabit yanıt süreleri ve acil kanal tanımlayan bir protokol oluşturacağım.",
+          "text_template": "{name_polite}, bu yapısal bir sorun — tek seferlik çözüm yetmez. Saat dilimini göz önüne alarak asenkron onay mekanizmaları, sabit yanıt süreleri ve acil kanal",
           "xp": 30,
           "isEthical": true
         },
@@ -777,7 +777,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu bir işaret. Toplantı reddetme örüntüsünün arkasında bir şey olabilir. Ben paydaşla farklı bir kanaldan, kısa ve gayriresmi iletişim kurmayı deneyeceğim — neyin engellediğini anlamadan çözüm bulmak zor.",
+          "text_template": "{name_polite}, bu bir işaret. Toplantı reddetme örüntüsünün arkasında bir şey olabilir. Ben paydaşla farklı bir kanaldan, kısa ve gayriresmi iletişim kurmayı deneyeceğim — neyin",
           "xp": 30,
           "isEthical": true
         },
@@ -824,7 +824,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu önemli bir sinyal — bu paydaşın desteğini kaybetmek ne anlama geliyor, risk olarak değerlendiriyorum. Sponsorla konuşacağım; alternatifleri ve etki azaltma yollarını birlikte düşüneceğim. Sana döneceğim.",
+          "text_template": "{name_polite}, bu önemli bir sinyal — bu paydaşın desteğini kaybetmek ne anlama geliyor, risk olarak değerlendiriyorum.",
           "xp": 30,
           "isEthical": true
         },
@@ -881,12 +881,12 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "{name_polite}, proje özetini hazırlayıp yeni sahibe gönderelim. Okuyunca soru soracaktır — o aşamada toplantı yaparız, daha verimli bir oryantasyon olur.",
+          "text_template": "{name_polite}, proje özetini hazırlayıp yeni sahibe gönderelim. Okuyunca soru soracaktır — o aşamada toplantı yaparız, daha verimli bir oryantasyon olur. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "{name_polite}, yeni sahip hazır olana kadar mevcut kararlarla devam edelim. Geçiş tamamlanana kadar bir şeyi değiştirmeyelim — stabilite önemli şu an.",
+          "text_template": "{name_polite}, yeni sahip hazır olana kadar mevcut kararlarla devam edelim. Geçiş tamamlanana kadar bir şeyi değiştirmeyelim — stabilite önemli şu an. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },

@@ -99,7 +99,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu durumun altını çizdiğin için teşekkürler {name_polite}. Bundan sonra her toplantının sonunda beş dakika ayırıp kararları sesli olarak özetleyip katılımcılara onaylattıracağım — ve yazılı form göndereceğim.",
+          "text_template": "Bu durumun altını çizdiğin için teşekkürler {name_polite}. Bundan sonra her toplantının sonunda beş dakika ayırıp kararları sesli olarak özetleyip katılımcılara onaylattıracağım — ve yazılı",
           "xp": 30,
           "isEthical": true
         },
@@ -148,7 +148,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu önemli bir tespiti paylaşman iyi oldu {name_polite}. İletişim planımızı hemen gözden geçireceğim — hangi paydaş hangi bilgiyi ne zaman almalı, eksik bağlantıları bulup düzelteyim.",
+          "text_template": "Bu önemli bir tespiti paylaşman iyi oldu {name_polite}. İletişim planımızı hemen gözden geçireceğim — hangi paydaş hangi bilgiyi ne zaman almalı, eksik bağlantıları bulup",
           "xp": 30,
           "isEthical": true
         },
@@ -158,7 +158,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Önce bu paydaşa geçmiş kararları özetleyen bir özet paket hazırlayıp gönderelim — sonra düzenli iletişim döngüsüne dahil edilmesini sağlayalım.",
+          "text_template": "Tamam {name_polite}. Önce bu paydaşa geçmiş kararları özetleyen bir özet paket hazırlayıp gönderelim — sonra düzenli iletişim döngüsüne dahil edilmesini sağlayalım. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },
@@ -344,7 +344,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu önemli bir tespit {name_polite}. İki ekip arasına köprü görevi yapacak düzenli bir senkronizasyon toplantısı koyuyorum — yüz yüze ya da sanal, haftada bir yeterlice.",
+          "text_template": "Bu önemli bir tespit {name_polite}. İki ekip arasına köprü görevi yapacak düzenli bir senkronizasyon toplantısı koyuyorum — yüz yüze ya da sanal, haftada bir",
           "xp": 30,
           "isEthical": true
         },
@@ -399,7 +399,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Dürüstlüğün için teşekkürler {name_polite}, bu zor bir kabul. Şimdi sponsoru tam bilgiyle düzgünce bilgilendirelim — gecikmenin nedenini de açıklayıp eskalasyon sürecimizi birlikte gözden geçirelim. Bir daha olmaması için.",
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}, bu zor bir kabul. Şimdi sponsoru tam bilgiyle düzgünce bilgilendirelim — gecikmenin nedenini de açıklayıp eskalasyon sürecimizi birlikte gözden geçirelim.",
           "xp": 30,
           "isEthical": true
         },
@@ -503,7 +503,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Dürüstlüğün için gerçekten teşekkürler {name_polite}, bu söylemek için cesaret ister. Şimdi önemli olan nerede olduğumuzu anlamak — riski birlikte değerlendirelim ve erken uyarı kültürü oluşturmak için ne yapabileceğimizi konuşalım.",
+          "text_template": "Dürüstlüğün için gerçekten teşekkürler {name_polite}, bu söylemek için cesaret ister. Şimdi önemli olan nerede olduğumuzu anlamak — riski birlikte değerlendirelim ve erken uyarı kültürü",
           "xp": 30,
           "isEthical": true
         },

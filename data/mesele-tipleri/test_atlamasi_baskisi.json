@@ -38,7 +38,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum baskıyı {name_polite}. Test atlamak takvim kazandırır ama canlıda hata riski yaratır — müşteriyle birlikte riski değerlendirmek istiyorum. Risk bazlı bir test planı yaparsam hangi senaryolar kesinlikle kapsamalı onu netleştirelim.",
+          "text_template": "Anlıyorum baskıyı {name_polite}. Test atlamak takvim kazandırır ama canlıda hata riski yaratır — müşteriyle birlikte riski değerlendirmek istiyorum. Risk bazlı bir test planı yaparsam",
           "xp": 30,
           "isEthical": true
         },
@@ -81,7 +81,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum aciliyeti {name_polite}. Test sürecini kısaltmanın yerine riski birlikte değerlendirip önceliklendirelim — en kritik iş senaryolarını test edip kalan testleri canlı izleme ile tamamlayabiliriz. Tradeoff'u belgeleyelim.",
+          "text_template": "Anlıyorum aciliyeti {name_polite}. Test sürecini kısaltmanın yerine riski birlikte değerlendirip önceliklendirelim — en kritik iş senaryolarını test edip kalan testleri canlı izleme ile tamamlayabiliriz.",
           "xp": 30,
           "isEthical": true
         },
@@ -173,7 +173,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu durumda hızlı hareket etmek gerekiyordu anlıyorum {name_polite}. Şimdi değişikliğin etkisini izleyelim — herhangi bir beklenmedik davranış var mı. Sonra bu tür durumlar için ön onaylı hotfix sürecimizi gözden geçirelim.",
+          "text_template": "Bu durumda hızlı hareket etmek gerekiyordu anlıyorum {name_polite}. Şimdi değişikliğin etkisini izleyelim — herhangi bir beklenmedik davranış var mı. Sonra bu tür durumlar için",
           "xp": 30,
           "isEthical": true
         },
@@ -259,7 +259,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Güvenlik açığını hemen değerlendirmeliyiz — etki alanını anlayıp acil önlem alalım. Bunu hukuk ve güvenlik birimlerine de bildirmemiz gerekebilir. Şimdi hızlı hareket.",
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Güvenlik açığını hemen değerlendirmeliyiz — etki alanını anlayıp acil önlem alalım. Bunu hukuk ve güvenlik birimlerine de bildirmemiz gerekebilir. Şimdi",
           "xp": 30,
           "isEthical": true
         },
@@ -302,7 +302,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu açıkça paylaşman iyi oldu {name_polite}. Hatayı hemen düzeltelim — sonra bu deneyimle 'kabul edilebilir minimum regresyon seti'ni birlikte tanımlayalım. Hangi senaryolar asla atlanmamalı bunu belgeleyelim.",
+          "text_template": "Durumu açıkça paylaşman iyi oldu {name_polite}. Hatayı hemen düzeltelim — sonra bu deneyimle 'kabul edilebilir minimum regresyon seti'ni birlikte tanımlayalım. Hangi senaryolar asla atlanmamalı",
           "xp": 30,
           "isEthical": true
         },

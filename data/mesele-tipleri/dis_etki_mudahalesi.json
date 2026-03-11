@@ -33,12 +33,12 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, mesajınızı aldım. Bu değişiklik proje kapsamını etkiliyor; mevcut iş paketlerini, takvimi ve bütçeyi revize etmem gerekiyor. Değişiklik talep formunu hazırlayıp onayınıza sunacağım ve paydaşlara yazılı bildirim yapacağım.",
+          "text_template": "Merhaba {player_name}, mesajınızı aldım. Bu değişiklik proje kapsamını etkiliyor; mevcut iş paketlerini, takvimi ve bütçeyi revize etmem gerekiyor. Değişiklik talep formunu hazırlayıp onayınıza sunacağım",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, talimatı aldım. Etkilenen görevleri bugün ekipten kaldırıyorum ve sprint board'u güncelliyorum. Resmi değişiklik kaydı için proje yöneticisini bilgilendireceğim.",
+          "text_template": "Merhaba {player_name}, talimatı aldım. Etkilenen görevleri bugün ekipten kaldırıyorum ve sprint board'u güncelliyorum. Resmi değişiklik kaydı için proje yöneticisini bilgilendireceğim. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 10,
           "isEthical": true
         },
@@ -48,7 +48,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, anlıyorum. Üst yönetimin bu kararını ekibe zaten ilettim; eski kapsamla ilgili dokümantasyonu da arşivden siliyoruz ki karışıklık olmasın.",
+          "text_template": "Merhaba {player_name}, anlıyorum. Üst yönetimin bu kararını ekibe zaten ilettim; eski kapsamla ilgili dokümantasyonu da arşivden siliyoruz ki karışıklık olmasın. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": -20,
           "isEthical": false
         }
@@ -80,17 +80,17 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, denetim tarihini not aldım. Talep edilen belgeleri derleyip denetim öncesi sizinle paylaşacağım. Ekip üyelerine denetçilerle iletişim protokolünü yazılı olarak bildireceğim ve hazırlık toplantısı için müsaitliğinizi sormak istiyorum.",
+          "text_template": "Merhaba {player_name}, denetim tarihini not aldım. Talep edilen belgeleri derleyip denetim öncesi sizinle paylaşacağım. Ekip üyelerine denetçilerle iletişim protokolünü yazılı olarak bildireceğim ve hazırlık",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, belgeleri hazırlamaya başladım. Tamamlanınca e-posta ile ileteceğim; ekip de yönlendirme talimatlarını biliyor. Gerekirse ek adım değerlendireceğim.",
+          "text_template": "Merhaba {player_name}, belgeleri hazırlamaya başladım. Tamamlanınca e-posta ile ileteceğim; ekip de yönlendirme talimatlarını biliyor. Gerekirse ek adım değerlendireceğim. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, denetim takvimine göre belge kontrol listesi oluşturuyorum. Eksik belgeler için gerekirse sizi arayacağım. Durumu izlemeye devam ediyorum.",
+          "text_template": "Merhaba {player_name}, denetim takvimine göre belge kontrol listesi oluşturuyorum. Eksik belgeler için gerekirse sizi arayacağım. Durumu izlemeye devam ediyorum. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -132,7 +132,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, kararı aldım. Mevcut proje takvimimizin ve taahhütlerimizin bu kaynak transferiyle nasıl etkileneceğini analiz edip yazılı olarak sunacağım. Hangi teslimatlarda gecikme bekleneceğini ve riski azaltmak için.",
+          "text_template": "Merhaba {player_name}, kararı aldım. Mevcut proje takvimimizin ve taahhütlerimizin bu kaynak transferiyle nasıl etkileneceğini analiz edip yazılı olarak sunacağım. Hangi teslimatlarda gecikme bekleneceğini ve",
           "xp": 30,
           "isEthical": true
         },
@@ -142,12 +142,12 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, kaynak transferi talebini not aldım. Etkilenen sprint'leri yeniden planlayıp size özet sunacağım. Gerekli görüşmeyi planlıyorum.",
+          "text_template": "Merhaba {player_name}, kaynak transferi talebini not aldım. Etkilenen sprint'leri yeniden planlayıp size özet sunacağım. Gerekli görüşmeyi planlıyorum. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, yönetim kurulu kararına saygı duyuyorum. Projeyi durduruyorum ve ekibi tamamen yeni projeye yönlendiriyorum; mevcut proje son durumunda kalacak.",
+          "text_template": "Merhaba {player_name}, yönetim kurulu kararına saygı duyuyorum. Projeyi durduruyorum ve ekibi tamamen yeni projeye yönlendiriyorum; mevcut proje son durumunda kalacak. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": -20,
           "isEthical": false
         }
@@ -184,7 +184,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nMevzuat gereksinimini anladım. Mevcut tasarımımızdaki boşlukları tespit etmek için teknik ekiple bugün bir analiz toplantısı yapıyorum. Gerekli değişikliklerin kapsamını, maliyetini ve takvim etkisini netleştirip size yazılı bir.",
+          "text_template": "Hocam, Mevzuat gereksinimini anladım. Mevcut tasarımımızdaki boşlukları tespit etmek için teknik ekiple bugün bir analiz toplantısı yapıyorum. Gerekli değişikliklerin kapsamını, maliyetini ve takvim etkisini",
           "xp": 30,
           "isEthical": true
         },
@@ -194,12 +194,12 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nYasal zorunlulukları risk kaydına ekledim ve bir sonraki sprint'e dahil etmeyi planlıyorum. Ayrıntılar netleşince sizi bilgilendireceğim. Gerekirse ek adım değerlendireceğim.",
+          "text_template": "Hocam,\n\nYasal zorunlulukları risk kaydına ekledim ve bir sonraki sprint'e dahil etmeyi planlıyorum. Ayrıntılar netleşince sizi bilgilendireceğim. Gerekirse ek adım değerlendireceğim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nMevzuata uyum sağlamak zaman alıyor; şimdilik mevcut tasarımla devam ediyoruz, uyum çalışmasını sonraki versiyona bırakabiliriz. Durumu izlemeye devam ediyorum.",
+          "text_template": "Hocam,\n\nMevzuata uyum sağlamak zaman alıyor; şimdilik mevcut tasarımla devam ediyoruz, uyum çalışmasını sonraki versiyona bırakabiliriz. Durumu izlemeye devam ediyorum. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": -20,
           "isEthical": false
         }
@@ -236,22 +236,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, durumu değerlendirdim. Tedarikçiyle acil görüşme planlayarak etkilenecek teslimatları tespit ediyorum. Kritik bileşenler için yedek tedarikçi seçeneklerini araştırıyorum ve risk azaltma planını bu hafta içinde sizinle paylaşacağım.",
+          "text_template": "Merhaba {player_name}, durumu değerlendirdim. Tedarikçiyle acil görüşme planlayarak etkilenecek teslimatları tespit ediyorum. Kritik bileşenler için yedek tedarikçi seçeneklerini araştırıyorum ve risk azaltma planını bu",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, tedarikçi sorununu fark ettim. Onlara e-posta attım ve yanıt bekliyorum. Sizi bilgilendireceğim. Takibini yapıp sizi bilgilendireceğim.",
+          "text_template": "Merhaba {player_name}, tedarikçi sorununu fark ettim. Onlara e-posta attım ve yanıt bekliyorum. Sizi bilgilendireceğim. Takibini yapıp sizi bilgilendireceğim. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, süreci takip ediyorum. İnceleme sonuçlanana kadar bekleyip o zaman karar vereceğim. Ekibi bu konuda bilgilendireceğim.",
+          "text_template": "Merhaba {player_name}, süreci takip ediyorum. İnceleme sonuçlanana kadar bekleyip o zaman karar vereceğim. Ekibi bu konuda bilgilendireceğim. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, tedarikçi güvenilir değilse ilişkiyi hemen sonlandırıp işi iç kaynaklarla yürütelim; dış bağımlılık zaten riskti. Gerekli görüşmeyi planlıyorum.",
+          "text_template": "Merhaba {player_name}, tedarikçi güvenilir değilse ilişkiyi hemen sonlandırıp işi iç kaynaklarla yürütelim; dış bağımlılık zaten riskti. Gerekli görüşmeyi planlıyorum. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -283,7 +283,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, haberi gördüm. Önce iletişim/hukuk departmanıyla koordinasyon sağlıyorum; medya yanıtlarını onların onayı olmadan vermeyeceğim. Size doğru bilgi akışını sağlamak için proje durum özetini bugün hazırlıyorum ve.",
+          "text_template": "Merhaba {player_name}, haberi gördüm. Önce iletişim/hukuk departmanıyla koordinasyon sağlıyorum; medya yanıtlarını onların onayı olmadan vermeyeceğim. Size doğru bilgi akışını sağlamak için proje durum özetini",
           "xp": 30,
           "isEthical": true
         },
@@ -293,7 +293,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, haber abartılı; proje gerçekte iyi gidiyor. Kamuoyuna bir açıklama yayınlarsak algı düzelir diye düşünüyorum. Gerekirse ek adım değerlendireceğim.",
+          "text_template": "Merhaba {player_name}, haber abartılı; proje gerçekte iyi gidiyor. Kamuoyuna bir açıklama yayınlarsak algı düzelir diye düşünüyorum. Gerekirse ek adım değerlendireceğim. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 5,
           "isEthical": true
         },

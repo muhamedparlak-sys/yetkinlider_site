@@ -28,22 +28,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nDurumu derhal değerlendiriyorum. Geliştirici ile müşteri arasındaki iletişimi kayıt altına alıyorum ve özelliğin mevcut teslimata etkisini analiz ediyorum. Müşteriyle bu özelliğin kabul sürecini resmi hale getireceğiz;",
+          "text_template": "Hocam, Durumu derhal değerlendiriyorum. Geliştirici ile müşteri arasındaki iletişimi kayıt altına alıyorum ve özelliğin mevcut teslimata etkisini analiz ediyorum. Müşteriyle bu özelliğin kabul sürecini",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nÖzellik geliştirildi; müşteriyi mutlu etmek önemli, teslim edelim. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım.",
+          "text_template": "Hocam,\n\nÖzellik geliştirildi; müşteriyi mutlu etmek önemli, teslim edelim. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nGeliştiriciye müşteriyle görüşmemesini söylerim; bu kez gözden kaçtı. Sürecin gelişimini yakından takip edeceğim. Sürecin gelişimini izliyorum.",
+          "text_template": "Hocam,\n\nGeliştiriciye müşteriyle görüşmemesini söylerim; bu kez gözden kaçtı. Sürecin gelişimini yakından takip edeceğim. Sürecin gelişimini izliyorum. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nMüşteriyle anlaşıldıysa sorun yok; ek çalışma ekibi geliştiriyor. Gerekirse ek adım değerlendireceğim. Gerekli durumda müdahale edeceğim.",
+          "text_template": "Hocam,\n\nMüşteriyle anlaşıldıysa sorun yok; ek çalışma ekibi geliştiriyor. Gerekirse ek adım değerlendireceğim. Gerekli durumda müdahale edeceğim. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": -20,
           "isEthical": false
         }
@@ -70,22 +70,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, telefon görüşmemizi hatırlıyorum. Bu özelliğin kapsamı ve etkisini değerlendirmek için resmi bir değişiklik talebi açmamız gerekiyor; böylece efor, takvim ve bütçe etkisini netleştirip onaylayabiliriz.",
+          "text_template": "Merhaba {player_name}, telefon görüşmemizi hatırlıyorum. Bu özelliğin kapsamı ve etkisini değerlendirmek için resmi bir değişiklik talebi açmamız gerekiyor; böylece efor, takvim ve bütçe etkisini",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, telefon görüşmemiz yeterliydi; ekibe görevi atıyorum. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum.",
+          "text_template": "Merhaba {player_name}, telefon görüşmemiz yeterliydi; ekibe görevi atıyorum. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, küçük bir özellik; sprint backlog'una ekleyip yapabiliriz. Takibini yapıp sizi bilgilendireceğim. Ekip bu konuda bilgilendirilecek.",
+          "text_template": "Merhaba {player_name}, küçük bir özellik; sprint backlog'una ekleyip yapabiliriz. Takibini yapıp sizi bilgilendireceğim. Ekip bu konuda bilgilendirilecek. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, sözlü talimatla çalışmayı tercih etmiyorum; yazılı onay olmadan ekleyemem. Ekibi bu konuda bilgilendireceğim. Durumu raporlayacağım.",
+          "text_template": "Merhaba {player_name}, sözlü talimatla çalışmayı tercih etmiyorum; yazılı onay olmadan ekleyemem. Ekibi bu konuda bilgilendireceğim. Durumu raporlayacağım. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": -20,
           "isEthical": false
         }
@@ -117,22 +117,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Merhaba {player_name}, fikriniz ilginç ve değerlendirmeye değer. Bu özelliğin efor, takvim ve maliyet etkisini analiz edip size iki seçenek sunacağım: mevcut proje kapsamına dahil etmek (takvim ve.",
+          "text_template": "Merhaba {player_name}, fikriniz ilginç ve değerlendirmeye değer. Bu özelliğin efor, takvim ve maliyet etkisini analiz edip size iki seçenek sunacağım: mevcut proje kapsamına dahil",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, güzel fikir; ekle ve sürpriz yapalım kullanıcılara. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım.",
+          "text_template": "Merhaba {player_name}, güzel fikir; ekle ve sürpriz yapalım kullanıcılara. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, şimdi eklemek zor; bir sonraki versiyona alırız, sizi haberdar ederim. Sürecin gelişimini yakından takip edeceğim.",
+          "text_template": "Merhaba {player_name}, şimdi eklemek zor; bir sonraki versiyona alırız, sizi haberdar ederim. Sürecin gelişimini yakından takip edeceğim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Merhaba {player_name}, demo sırasında gelen fikirler çok değerli; hepsini not ediyorum ve scope'a dahil ediyorum. Gerekirse ek adım değerlendireceğim.",
+          "text_template": "Merhaba {player_name}, demo sırasında gelen fikirler çok değerli; hepsini not ediyorum ve scope'a dahil ediyorum. Gerekirse ek adım değerlendireceğim. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": -20,
           "isEthical": false
         }
@@ -169,17 +169,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nÖzellik iyi görünüyor; ekleyelim ve müşteriye söyleyelim. Durumu izlemeye devam ediyorum. Sürecin gelişimini izliyorum.",
+          "text_template": "Hocam,\n\nÖzellik iyi görünüyor; ekleyelim ve müşteriye söyleyelim. Durumu izlemeye devam ediyorum. Sürecin gelişimini izliyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nGeliştiriciye bundan sonra bunu yapmaması gerektiğini söylüyorum. Takibini yapıp sizi bilgilendireceğim. Gerekli durumda müdahale edeceğim.",
+          "text_template": "Hocam,\n\nGeliştiriciye bundan sonra bunu yapmaması gerektiğini söylüyorum. Takibini yapıp sizi bilgilendireceğim. Gerekli durumda müdahale edeceğim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nGeliştiricinin inisiyatifini kırmak istemiyorum; eklediği şeyi kabul edelim. Ekibi bu konuda bilgilendireceğim. Bu yaklaşımda devam ediyorum.",
+          "text_template": "Hocam,\n\nGeliştiricinin inisiyatifini kırmak istemiyorum; eklediği şeyi kabul edelim. Ekibi bu konuda bilgilendireceğim. Bu yaklaşımda devam ediyorum. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": -20,
           "isEthical": false
         }
@@ -211,12 +211,12 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Merhaba {player_name}, müşteriyi memnun etmek için ekliyoruz; kapsam tartışmalarına girmeyeceğiz. Gerekli görüşmeyi planlıyorum. Ekip bu konuda bilgilendirilecek.",
+          "text_template": "Merhaba {player_name}, müşteriyi memnun etmek için ekliyoruz; kapsam tartışmalarına girmeyeceğiz. Gerekli görüşmeyi planlıyorum. Ekip bu konuda bilgilendirilecek. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Merhaba {player_name}, bu gereksinimi karşılamadan kabul etmezseniz projeyi tamamlayamayız. Sürecin gelişimini yakından takip edeceğim. Durumu raporlayacağım.",
+          "text_template": "Merhaba {player_name}, bu gereksinimi karşılamadan kabul etmezseniz projeyi tamamlayamayız. Sürecin gelişimini yakından takip edeceğim. Durumu raporlayacağım. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },
@@ -263,17 +263,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nİç departmanlar müşteri gibi değerlendirilemez; taleplerini karşılamak doğru. Durumu izlemeye devam ediyorum. Bu kararı ekiple paylaşacağım.",
+          "text_template": "Hocam,\n\nİç departmanlar müşteri gibi değerlendirilemez; taleplerini karşılamak doğru. Durumu izlemeye devam ediyorum. Bu kararı ekiple paylaşacağım. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nKüçük talepler olduğu için sorun yaratmaz; devam edelim. Takibini yapıp sizi bilgilendireceğim. Sürecin gelişimini izliyorum.",
+          "text_template": "Hocam,\n\nKüçük talepler olduğu için sorun yaratmaz; devam edelim. Takibini yapıp sizi bilgilendireceğim. Sürecin gelişimini izliyorum. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nİç departman taleplerini reddederek çatışma yaratmak istemiyorum. Ekibi bu konuda bilgilendireceğim. Gerekli durumda müdahale edeceğim.",
+          "text_template": "Hocam,\n\nİç departman taleplerini reddederek çatışma yaratmak istemiyorum. Ekibi bu konuda bilgilendireceğim. Gerekli durumda müdahale edeceğim. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": -20,
           "isEthical": false
         }

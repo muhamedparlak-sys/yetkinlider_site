@@ -38,7 +38,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}. Risk kaydında olmasa da yönetilebilir — hemen etki analizi yapalım. Seçenekler neler, hangisi en az zarar verir, bunu birlikte değerlendirelim. Paydaşlara bildirim zamanlamasını da kararlaştıralım.",
+          "text_template": "Anlıyorum {name_polite}. Risk kaydında olmasa da yönetilebilir — hemen etki analizi yapalım. Seçenekler neler, hangisi en az zarar verir, bunu birlikte değerlendirelim. Paydaşlara bildirim",
           "xp": 30,
           "isEthical": true
         },
@@ -179,7 +179,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, bunu paylaştığınız için teşekkürler. Piyasa değişiminin projeyi nasıl etkilediğini analiz edeyim — kapsam veya yaklaşım revizyonu gerekebilir. Hızlı bir etki değerlendirmesi yapıp seçenekler sunacağım.",
+          "text_template": "Anlıyorum {name_polite}, bunu paylaştığınız için teşekkürler. Piyasa değişiminin projeyi nasıl etkilediğini analiz edeyim — kapsam veya yaklaşım revizyonu gerekebilir. Hızlı bir etki değerlendirmesi yapıp",
           "xp": 30,
           "isEthical": true
         },
@@ -189,7 +189,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Değişen piyasa koşullarına hızlı uyum için çevik yaklaşım benimseyebiliriz — MVP ile erken çıkıp geri bildirimle ilerlemek riski azaltır.",
+          "text_template": "Peki {name_polite}. Değişen piyasa koşullarına hızlı uyum için çevik yaklaşım benimseyebiliriz — MVP ile erken çıkıp geri bildirimle ilerlemek riski azaltır. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -228,7 +228,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}. Bu değişikliğin projeye etkisini kapsamlı analiz edeyim — hangi bileşenler etkileniyor, ne zaman ve nasıl uyumlu hale gelebiliriz. Hukuk ve uyum ekibini de döngüye alacağım.",
+          "text_template": "Anlıyorum {name_polite}. Bu değişikliğin projeye etkisini kapsamlı analiz edeyim — hangi bileşenler etkileniyor, ne zaman ve nasıl uyumlu hale gelebiliriz. Hukuk ve uyum ekibini",
           "xp": 30,
           "isEthical": true
         },
@@ -238,7 +238,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Uyum gereksinimi için minimum değişiklik setini belirleyelim — en az etki ile en hızlı uyumu sağlayan yolu bulalım.",
+          "text_template": "Peki {name_polite}. Uyum gereksinimi için minimum değişiklik setini belirleyelim — en az etki ile en hızlı uyumu sağlayan yolu bulalım. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },
@@ -277,7 +277,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Zor bir durum ama zamanında bildirdin {name_polite}. Önce ayrılan kişinin kritik aktivitelerini ve erişimlerini tespit edelim — acil bilgi geri kazanımı ve görev devir planı hazırlıyorum.",
+          "text_template": "Zor bir durum ama zamanında bildirdin {name_polite}. Önce ayrılan kişinin kritik aktivitelerini ve erişimlerini tespit edelim — acil bilgi geri kazanımı ve görev devir",
           "xp": 30,
           "isEthical": true
         },
@@ -326,17 +326,17 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}. Bu süreçte önce ekibin güvenliğini ve sağlığını öncelikliyorum. Sonra iş sürekliliği planımızı devreye alacağız — uzaktan çalışma, kritik faaliyetlerin önceliklendirilmesi ve paydaş iletişimini organize ediyorum.",
+          "text_template": "Anlıyorum {name_polite}. Bu süreçte önce ekibin güvenliğini ve sağlığını öncelikliyorum. Sonra iş sürekliliği planımızı devreye alacağız — uzaktan çalışma, kritik faaliyetlerin önceliklendirilmesi ve paydaş",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. Olağanüstü durum protokolünü aktive ediyorum — hangi aktiviteler asıl hangileri ertelenebilir değerlendireyim. Müşteriyle Force Majeure koşullarını da gözden geçirelim.",
+          "text_template": "Anladım {name_polite}. Olağanüstü durum protokolünü aktive ediyorum — hangi aktiviteler asıl hangileri ertelenebilir değerlendireyim. Müşteriyle Force Majeure koşullarını da gözden geçirelim. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Hemen kriz iletişim planını devreye alıyorum — tüm paydaşları bilgilendirip sürecin nasıl yönetileceğini açıklıyorum. Ekiple irtibat protokolünü etkinleştiriyorum.",
+          "text_template": "Peki {name_polite}. Hemen kriz iletişim planını devreye alıyorum — tüm paydaşları bilgilendirip sürecin nasıl yönetileceğini açıklıyorum. Ekiple irtibat protokolünü etkinleştiriyorum. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },
@@ -385,7 +385,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Güvenlik uzmanı desteği alıyorum — bu süreçte paydaşlara ne söyleyeceğimizi birlikte kararlaştıralım. Özellikle müşteri iletişiminde dikkatli olmamız gerekiyor.",
+          "text_template": "Peki {name_polite}. Güvenlik uzmanı desteği alıyorum — bu süreçte paydaşlara ne söyleyeceğimizi birlikte kararlaştıralım. Özellikle müşteri iletişiminde dikkatli olmamız gerekiyor. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 5,
           "isEthical": true
         },

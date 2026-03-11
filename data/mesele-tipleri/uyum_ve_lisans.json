@@ -38,7 +38,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Fark edip bildirmen önemli {name_polite}. Önce durumun tam kapsamını anlayalım — hukuk ve lisans ekibine danışacağım. Alternatif çözüm (lisanslı sürüm satın alma veya bileşen değiştirme) seçeneklerini hızlıca değerlendireceğim.",
+          "text_template": "Fark edip bildirmen önemli {name_polite}. Önce durumun tam kapsamını anlayalım — hukuk ve lisans ekibine danışacağım. Alternatif çözüm (lisanslı sürüm satın alma veya bileşen",
           "xp": 30,
           "isEthical": true
         },
@@ -87,7 +87,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu tespiti zamanında yaptın {name_polite}. Uyum eksikliği hukuki risk oluşturabilir — hukuk ve veri güvenliği ekibini döngüye alıyorum. Hangi gereksinimlerin karşılanmadığını netleştirelim, sonra düzeltme planı yapalım.",
+          "text_template": "Bu tespiti zamanında yaptın {name_polite}. Uyum eksikliği hukuki risk oluşturabilir — hukuk ve veri güvenliği ekibini döngüye alıyorum. Hangi gereksinimlerin karşılanmadığını netleştirelim, sonra düzeltme",
           "xp": 30,
           "isEthical": true
         },
@@ -191,7 +191,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Bu durumu kayıt altına almamız gerekiyor — prosedür dışı eylem uyum riski yaratır. Retroaktif onay mümkün mü ve sonuçları nasıl minimize ederiz birlikte değerlendirelim.",
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Bu durumu kayıt altına almamız gerekiyor — prosedür dışı eylem uyum riski yaratır. Retroaktif onay mümkün mü ve sonuçları nasıl",
           "xp": 30,
           "isEthical": true
         },
@@ -240,7 +240,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu konuyu gündeme getirmen iyi oldu {name_polite}. Sözleşmede fikri mülkiyet maddelerine bakalım — hukuk ekibi bu konuda bizi yönlendirecek. Müşteriyle de bu tartışmayı şeffaf yürütmek gerekiyor.",
+          "text_template": "Bu konuyu gündeme getirmen iyi oldu {name_polite}. Sözleşmede fikri mülkiyet maddelerine bakalım — hukuk ekibi bu konuda bizi yönlendirecek. Müşteriyle de bu tartışmayı şeffaf",
           "xp": 30,
           "isEthical": true
         },
@@ -344,7 +344,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}. Denetim bulgusunu ciddiye alıyoruz — hemen kök neden analizi yapıyorum. Düzeltici eylem planını süre içinde hazırlayıp onayınıza sunacağım. Süreç baştan sona şeffaf yürütülecek.",
+          "text_template": "Anlıyorum {name_polite}. Denetim bulgusunu ciddiye alıyoruz — hemen kök neden analizi yapıyorum. Düzeltici eylem planını süre içinde hazırlayıp onayınıza sunacağım. Süreç baştan sona şeffaf",
           "xp": 30,
           "isEthical": true
         },

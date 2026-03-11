@@ -38,7 +38,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu gözlemi paylaşman çok değerli {name_polite}. Teknik borcu görünür kılmalıyız — etkilenen alanları listeleyelim ve sponsora somut iş etkisini gösterelim. Refactoring için sprint kapasitesi ayıralım.",
+          "text_template": "Bu gözlemi paylaşman çok değerli {name_polite}. Teknik borcu görünür kılmalıyız — etkilenen alanları listeleyelim ve sponsora somut iş etkisini gösterelim. Refactoring için sprint kapasitesi",
           "xp": 30,
           "isEthical": true
         },
@@ -136,7 +136,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu tespiti paylaşman çok değerli {name_polite}. Test otomasyonu bir yatırım gerektirir ama uzun vadede geri dönüşü yüksektir — hangi testleri önce otomatize etmemiz gerektiği için bir önceliklendirme toplantısı yapalım.",
+          "text_template": "Bu tespiti paylaşman çok değerli {name_polite}. Test otomasyonu bir yatırım gerektirir ama uzun vadede geri dönüşü yüksektir — hangi testleri önce otomatize etmemiz gerektiği",
           "xp": 30,
           "isEthical": true
         },
@@ -191,7 +191,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu teknik değerlendirme için teşekkürler {name_polite}. Sponsora bu durumu somut seçeneklerle sunmamız gerekiyor — mimariyi yenilemek, gereksinimi uyarlamak ya da kısmi çözüm üretmek arasındaki tradeoff'u birlikte değerlendirelim.",
+          "text_template": "Bu teknik değerlendirme için teşekkürler {name_polite}. Sponsora bu durumu somut seçeneklerle sunmamız gerekiyor — mimariyi yenilemek, gereksinimi uyarlamak ya da kısmi çözüm üretmek arasındaki",
           "xp": 30,
           "isEthical": true
         },
@@ -234,7 +234,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu gözlem önemli {name_polite}. Kalite süreçlerini otomatize edebiliriz — linting, statik analiz araçları standartları otomatik uygular. Code review kültürünü de destekleyecek bir teşvik sistemi oluşturalım.",
+          "text_template": "Bu gözlem önemli {name_polite}. Kalite süreçlerini otomatize edebiliriz — linting, statik analiz araçları standartları otomatik uygular. Code review kültürünü de destekleyecek bir teşvik sistemi",
           "xp": 30,
           "isEthical": true
         },
@@ -293,7 +293,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Güncellemeleri kademeli yapabiliriz — önce güvenlik açığı olanlar, sonra desteksiz kütüphaneler. Tam güncelleme yerine yamalı güncelleme ile başlayalım.",
+          "text_template": "Tamam {name_polite}. Güncellemeleri kademeli yapabiliriz — önce güvenlik açığı olanlar, sonra desteksiz kütüphaneler. Tam güncelleme yerine yamalı güncelleme ile başlayalım. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },

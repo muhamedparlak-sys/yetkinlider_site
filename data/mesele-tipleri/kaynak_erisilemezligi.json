@@ -34,7 +34,7 @@
       "body_template": "Merhaba ekip,\n\n{name} ({role}) güzel haberini sizinle paylaşmak istedi. {name} bebek bekliyor! Kendisini tebrik edelim.\n\n{name} yaklaşık {duration} içinde doğum iznine ayrılacak.",
       "options": {
         "medicine": {
-          "text_template": "{name_polite}'e ayrıca yazıyorum: 'Tebrikler {name_polite}, harika haber! Bir ihtiyacın olursa her zaman buradayım.' Onun dışında planlama sürecini sessizce başlatıyorum — {name_polite}'e henüz bir şey söylemiyorum.",
+          "text_template": "{name_polite}'e ayrıca yazıyorum: 'Tebrikler {name_polite}, harika haber! Bir ihtiyacın olursa her zaman buradayım.' Onun dışında planlama sürecini sessizce başlatıyorum — {name_polite}'e henüz bir şey",
           "xp": 30,
           "isEthical": true
         },
@@ -44,12 +44,12 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "İK'ya yazıyorum: '{name_polite}'in planlanan izin tarihlerini alabilir miyim, takvimimize işleyeyim ve kaynak planlamasını başlatayım.'. Ekibi bu konuda bilgilendireceğim.",
+          "text_template": "İK'ya yazıyorum: '{name_polite}'in planlanan izin tarihlerini alabilir miyim, takvimimize işleyeyim ve kaynak planlamasını başlatayım.'. Ekibi bu konuda bilgilendireceğim. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}'e yazıyorum: 'Tebrikler! İzne ayrılmadan önce kritik konuları devretmen gerekecek, bir devir teslim planı yapalım bu hafta.'. Gerekli görüşmeyi planlıyorum.",
+          "text_template": "{name_polite}'e yazıyorum: 'Tebrikler! İzne ayrılmadan önce kritik konuları devretmen gerekecek, bir devir teslim planı yapalım bu hafta.'. Gerekli görüşmeyi planlıyorum. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -86,7 +86,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tebrikler {name_polite}. {duration}lık izni İK ile birlikte netleştirelim — resmi süreci başlatalım, planlama tarafını ben hallederim. Gerekirse ek adım değerlendireceğim.",
+          "text_template": "Tebrikler {name_polite}. {duration}lık izni İK ile birlikte netleştirelim — resmi süreci başlatalım, planlama tarafını ben hallederim. Gerekirse ek adım değerlendireceğim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },
@@ -129,7 +129,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hayırlı olsun {name_polite}. Erteleme imkânı gerçekten kalmadı mı, proje açısından çok kritik bir dönem — bir araştırdın mı? Gerekli görüşmeyi planlıyorum.",
+          "text_template": "Hayırlı olsun {name_polite}. Erteleme imkânı gerçekten kalmadı mı, proje açısından çok kritik bir dönem — bir araştırdın mı? Gerekli görüşmeyi planlıyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -161,7 +161,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "Geçmiş olsun {name_polite}! Hiç merak etme, işleri hallettim. Tam anlamıyla dinlen — sana işle ilgili bir şey sormayacağım bu hafta. Bir ihtiyacın olursa haberdar et.",
+          "text_template": "Geçmiş olsun {name_polite}! Hiç merak etme, işleri hallettim. Tam anlamıyla dinlen — sana işle ilgili bir şey sormayacağım bu hafta. Bir ihtiyacın olursa haberdar",
           "xp": 30,
           "isEthical": true
         },
@@ -171,7 +171,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Geçmiş olsun {name_polite}. Ekibe ilettim, merak etme — bu haftalık görevleri düzenledim. Dön döne iyileş. Sürecin gelişimini yakından takip edeceğim.",
+          "text_template": "Geçmiş olsun {name_polite}. Ekibe ilettim, merak etme — bu haftalık görevleri düzenledim. Dön döne iyileş. Sürecin gelişimini yakından takip edeceğim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },
@@ -317,7 +317,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Geçmiş olsun {name_polite}. İK ile koordine edelim, izin sürecini birlikte başlatalım — resmi prosedürü takip edelim. Durumu izlemeye devam ediyorum.",
+          "text_template": "Geçmiş olsun {name_polite}. İK ile koordine edelim, izin sürecini birlikte başlatalım — resmi prosedürü takip edelim. Durumu izlemeye devam ediyorum. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },
@@ -356,7 +356,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "Söylediğin için gerçekten teşekkür ederim {name_polite}, cesaret isteyen bir şey bu. Kesinlikle izni al, hiç düşünme. Ne zaman ve nasıl döneceğini sen belirlersin — biz buradayız.",
+          "text_template": "Söylediğin için gerçekten teşekkür ederim {name_polite}, cesaret isteyen bir şey bu. Kesinlikle izni al, hiç düşünme. Ne zaman ve nasıl döneceğini sen belirlersin —",
           "xp": 30,
           "isEthical": true
         },
@@ -366,7 +366,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Anlıyorum {name_polite}. İK ile izin sürecini hemen başlatayım — resmi prosedürü takip edelim, sen sadece iyileşmeye odaklan. Ekibi bu konuda bilgilendireceğim.",
+          "text_template": "Anlıyorum {name_polite}. İK ile izin sürecini hemen başlatayım — resmi prosedürü takip edelim, sen sadece iyileşmeye odaklan. Ekibi bu konuda bilgilendireceğim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },
@@ -472,7 +472,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}, programa işleyeyim. İK'ya da bildireyim, gideceğin tarihler netleşince bana dön. Durumu izlemeye devam ediyorum.",
+          "text_template": "Tamam {name_polite}, programa işleyeyim. İK'ya da bildireyim, gideceğin tarihler netleşince bana dön. Durumu izlemeye devam ediyorum. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -521,12 +521,12 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Güzel ama projeye etkisini değerlendirmem gerekiyor {name_polite} — birkaç gün içinde sana dönerim. Karar vermeden biraz bekle. Ekibi bu konuda bilgilendireceğim.",
+          "text_template": "Güzel ama projeye etkisini değerlendirmem gerekiyor {name_polite} — birkaç gün içinde sana dönerim. Karar vermeden biraz bekle. Ekibi bu konuda bilgilendireceğim. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Projenin bu aşamasında bırakmak çok zor olur {name_polite}, bir sonraki yıla erteleyemez misin? Kapsamlı bir geçiş olmadan böyle bir süreç başlatamayız.",
+          "text_template": "Projenin bu aşamasında bırakmak çok zor olur {name_polite}, bir sonraki yıla erteleyemez misin? Kapsamlı bir geçiş olmadan böyle bir süreç başlatamayız. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": -20,
           "isEthical": false
         }
@@ -558,12 +558,12 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Tamam, {name_polite}'in mevcut görevlerini kimin üstleneceğine bakalım. Bir devir süreci planlayalım — geçişi düzenli yapalım. Gerekli görüşmeyi planlıyorum.",
+          "text_template": "Tamam, {name_polite}'in mevcut görevlerini kimin üstleneceğine bakalım. Bir devir süreci planlayalım — geçişi düzenli yapalım. Gerekli görüşmeyi planlıyorum. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Anladım. {name_polite}'e bilgi vereyim, ona göre hazırlık yapalım. Ne zaman ayrılması gerekiyor, tarihi netleştirelim. Sürecin gelişimini yakından takip edeceğim.",
+          "text_template": "Anladım. {name_polite}'e bilgi vereyim, ona göre hazırlık yapalım. Ne zaman ayrılması gerekiyor, tarihi netleştirelim. Sürecin gelişimini yakından takip edeceğim. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 5,
           "isEthical": true
         },
@@ -595,17 +595,17 @@
       "body_template": "Hocam, zor bir karar verdim. Başka bir teklif aldım ve kabul etmeye karar verdim. {duration} içinde ayrılmam gerekiyor. Bu süreci sizinle birlikte doğru yönetmek istiyorum.",
       "options": {
         "medicine": {
-          "text_template": "Çok memnun oldum senin için {name_polite}, hayırlı olsun! Bu kararın ne kadar zor olduğunu biliyorum. Birlikte iyi bir çıkış süreci yapalım — referans için de her zaman buradayım.",
+          "text_template": "Çok memnun oldum senin için {name_polite}, hayırlı olsun! Bu kararın ne kadar zor olduğunu biliyorum. Birlikte iyi bir çıkış süreci yapalım — referans için",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "İyi şanslar {name_polite}. Birlikte iyi bir devir teslim planı yapalım — bilgi transferini düzenli halledelim, ekibe de iyi geçiş olsun.",
+          "text_template": "İyi şanslar {name_polite}. Birlikte iyi bir devir teslim planı yapalım — bilgi transferini düzenli halledelim, ekibe de iyi geçiş olsun. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "İyi şanslar {name_polite}. Son ayrılış tarihin netleştirelim — programa işleyeyim, ona göre hazırlık yapalım. Durumu izlemeye devam ediyorum.",
+          "text_template": "İyi şanslar {name_polite}. Son ayrılış tarihin netleştirelim — programa işleyeyim, ona göre hazırlık yapalım. Durumu izlemeye devam ediyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 5,
           "isEthical": true
         },

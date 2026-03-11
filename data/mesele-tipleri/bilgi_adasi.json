@@ -38,22 +38,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nBu riski hemen aciliyetle ele alıyorum. {uzman} ile bu hafta acil bilgi transferi seansları başlatıyorum; süreçleri, karar geçmişini ve kritik bilgileri yazılı olarak belgeleyeceğiz.",
+          "text_template": "Hocam, Bu riski hemen aciliyetle ele alıyorum. {uzman} ile bu hafta acil bilgi transferi seansları başlatıyorum; süreçleri, karar geçmişini ve kritik bilgileri yazılı olarak",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\n{uzman} bu bilgiyi uzun yıllardır taşıyor; şimdi devredebilir mi emin değilim. Takibini yapıp sizi bilgilendireceğim.",
+          "text_template": "Hocam,\n\n{uzman} bu bilgiyi uzun yıllardır taşıyor; şimdi devredebilir mi emin değilim. Takibini yapıp sizi bilgilendireceğim. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\n{uzman} ayrılana kadar devam edelim; sonra hallederiz. Ekibi bu konuda bilgilendireceğim. Bu kararı ekiple paylaşacağım.",
+          "text_template": "Hocam,\n\n{uzman} ayrılana kadar devam edelim; sonra hallederiz. Ekibi bu konuda bilgilendireceğim. Bu kararı ekiple paylaşacağım. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nBilgi transferi çok zaman alır; {uzman} olmadan işi donduruyoruz. Gerekli görüşmeyi planlıyorum. Sürecin gelişimini izliyorum.",
+          "text_template": "Hocam,\n\nBilgi transferi çok zaman alır; {uzman} olmadan işi donduruyoruz. Gerekli görüşmeyi planlıyorum. Sürecin gelişimini izliyorum. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -95,7 +95,7 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nHer departman kendi işine odaklanmalı; fazla paylaşım karmaşaya yol açar. Sürecin gelişimini yakından takip edeceğim.",
+          "text_template": "Hocam,\n\nHer departman kendi işine odaklanmalı; fazla paylaşım karmaşaya yol açar. Sürecin gelişimini yakından takip edeceğim. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
@@ -105,7 +105,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nDepertmanlar arasındaki iletişimi email zinciriyle yönetebiliriz. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum.",
+          "text_template": "Hocam,\n\nDepertmanlar arasındaki iletişimi email zinciriyle yönetebiliriz. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": -20,
           "isEthical": false
         }
@@ -132,22 +132,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nGeçmişi belgeleme konusunda eksiğiz; bunu kabul edip çözüme odaklanıyorum. Mevcut karar için eldeki tüm bilgileri (e-postalar, slack geçmişi, proje kayıtları) bir araya toplayarak en iyi bilgi ile.",
+          "text_template": "Hocam, Geçmişi belgeleme konusunda eksiğiz; bunu kabul edip çözüme odaklanıyorum. Mevcut karar için eldeki tüm bilgileri (e-postalar, slack geçmişi, proje kayıtları) bir araya toplayarak",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nGeçmiş kararı değiştirmeyelim; nedenini bilmesek de bu şekilde çalışıyor. Takibini yapıp sizi bilgilendireceğim. Ekip bu konuda bilgilendirilecek.",
+          "text_template": "Hocam,\n\nGeçmiş kararı değiştirmeyelim; nedenini bilmesek de bu şekilde çalışıyor. Takibini yapıp sizi bilgilendireceğim. Ekip bu konuda bilgilendirilecek. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nSorumluluk alan kişiyi bulup neden bu kararı aldığını soralım. Ekibi bu konuda bilgilendireceğim. Durumu raporlayacağım.",
+          "text_template": "Hocam,\n\nSorumluluk alan kişiyi bulup neden bu kararı aldığını soralım. Ekibi bu konuda bilgilendireceğim. Durumu raporlayacağım. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nGeçmiş kararlar tartışılmaz; devam ediyoruz. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım.",
+          "text_template": "Hocam,\n\nGeçmiş kararlar tartışılmaz; devam ediyoruz. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": -20,
           "isEthical": false
         }
@@ -184,17 +184,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nMüşteriye kararı neden aldığımızı bilmediğimizi açık söyleyelim; şeffaflık iyidir. Sürecin gelişimini yakından takip edeceğim. Sürecin gelişimini izliyorum.",
+          "text_template": "Hocam,\n\nMüşteriye kararı neden aldığımızı bilmediğimizi açık söyleyelim; şeffaflık iyidir. Sürecin gelişimini yakından takip edeceğim. Sürecin gelişimini izliyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nMevcut gereksinimle devam ediyoruz; geçmiş karar nasıl olsa bağlayıcı değil. Gerekirse ek adım değerlendireceğim. Gerekli durumda müdahale edeceğim.",
+          "text_template": "Hocam,\n\nMevcut gereksinimle devam ediyoruz; geçmiş karar nasıl olsa bağlayıcı değil. Gerekirse ek adım değerlendireceğim. Gerekli durumda müdahale edeceğim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nMüşteri arşivini kendisi paylaşsın; bu bizim sorunumuz değil. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum.",
+          "text_template": "Hocam,\n\nMüşteri arşivini kendisi paylaşsın; bu bizim sorunumuz değil. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": -20,
           "isEthical": false
         }
@@ -221,22 +221,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nDokümantasyon borcunu kabul ediyorum; hemen çözüme geçiyorum. Bu bileşeni en iyi bilen ekip üyesiyle bir 'documentation sprint' planlıyorum; temel teknik belgeler, API referansı ve mimari kararlar bu.",
+          "text_template": "Hocam, Dokümantasyon borcunu kabul ediyorum; hemen çözüme geçiyorum. Bu bileşeni en iyi bilen ekip üyesiyle bir 'documentation sprint' planlıyorum; temel teknik belgeler, API referansı",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nEkip zaten bileşeni çalıştırıyor; belgeye gerek var mı? Takibini yapıp sizi bilgilendireceğim. Ekip bu konuda bilgilendirilecek.",
+          "text_template": "Hocam,\n\nEkip zaten bileşeni çalıştırıyor; belgeye gerek var mı? Takibini yapıp sizi bilgilendireceğim. Ekip bu konuda bilgilendirilecek. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nBelgeleme sonraki büyük versiyona bırakılabilir; şimdi özellik geliştirmek öncelikli. Ekibi bu konuda bilgilendireceğim. Durumu raporlayacağım.",
+          "text_template": "Hocam,\n\nBelgeleme sonraki büyük versiyona bırakılabilir; şimdi özellik geliştirmek öncelikli. Ekibi bu konuda bilgilendireceğim. Durumu raporlayacağım. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nYeni üyeler kodu okuyarak öğrenebilir; bu en iyi öğrenme yöntemi. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım.",
+          "text_template": "Hocam,\n\nYeni üyeler kodu okuyarak öğrenebilir; bu en iyi öğrenme yöntemi. Gerekli görüşmeyi planlıyorum. Bu kararı ekiple paylaşacağım. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": -20,
           "isEthical": false
         }
@@ -268,22 +268,22 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hocam,\n\nAynı hatayı tekrarlamak maliyetli. Sprint retrospektif sürecimizi güçlendirerek öğrenilen dersleri merkezi bir havuzda (lessons learned registry) belgelemeye başlıyorum. Her proje kapanışında bu havuzu güncelleyeceğiz ve yeni projelerin.",
+          "text_template": "Hocam, Aynı hatayı tekrarlamak maliyetli. Sprint retrospektif sürecimizi güçlendirerek öğrenilen dersleri merkezi bir havuzda (lessons learned registry) belgelemeye başlıyorum. Her proje kapanışında bu havuzu",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Hocam,\n\nHer proje farklı; öğrenilen dersler genellikle diğer projelere uygulanamaz. Sürecin gelişimini yakından takip edeceğim. Sürecin gelişimini izliyorum.",
+          "text_template": "Hocam,\n\nHer proje farklı; öğrenilen dersler genellikle diğer projelere uygulanamaz. Sürecin gelişimini yakından takip edeceğim. Sürecin gelişimini izliyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Hocam,\n\nRetrospectiflerde zaten bu konuşuluyor; yeterli. Gerekirse ek adım değerlendireceğim. Gerekli durumda müdahale edeceğim.",
+          "text_template": "Hocam,\n\nRetrospectiflerde zaten bu konuşuluyor; yeterli. Gerekirse ek adım değerlendireceğim. Gerekli durumda müdahale edeceğim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Hocam,\n\nAynı hatayı yaptık; ekibi daha dikkatli olmaya davet ederim. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum.",
+          "text_template": "Hocam,\n\nAynı hatayı yaptık; ekibi daha dikkatli olmaya davet ederim. Durumu izlemeye devam ediyorum. Bu yaklaşımda devam ediyorum. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": -20,
           "isEthical": false
         }

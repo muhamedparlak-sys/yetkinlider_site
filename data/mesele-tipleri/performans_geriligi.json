@@ -40,7 +40,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, mesajını şimdi okudum. Bu kadar zor bir şeyi paylaşmak gerçekten cesaret ister. Saat 14:00'de 30 dakikalığına müsait misin? Başka gündem yok — sadece seni dinlemek istiyorum.",
+          "text_template": "{name_polite}, mesajını şimdi okudum. Bu kadar zor bir şeyi paylaşmak gerçekten cesaret ister. Saat 14:00'de 30 dakikalığına müsait misin?",
           "xp": 30,
           "isEthical": true
         },
@@ -137,7 +137,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu güveni gösterdiğin için gerçekten teşekkür ederim. Sağlık her şeyden önce gelir. Bu hafta içinde 15-20 dakika oturalım — esnek çalışma saati, geçici yük düzenlemesi, ne.",
+          "text_template": "{name_polite}, bu güveni gösterdiğin için gerçekten teşekkür ederim. Sağlık her şeyden önce gelir. Bu hafta içinde 15-20 dakika oturalım — esnek çalışma saati, geçici",
           "xp": 30,
           "isEthical": true
         },
@@ -199,7 +199,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu farkındalığı benimle paylaşman değerli — kolay bir şey değildi. Bu hafta 20 dakikan var mı? Güçlü olduğun yerler neler, nereye hevesle koşuyorsun — birlikte konuşalım.",
+          "text_template": "{name_polite}, bu farkındalığı benimle paylaşman değerli — kolay bir şey değildi. Bu hafta 20 dakikan var mı?",
           "xp": 30,
           "isEthical": true
         },
@@ -247,7 +247,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, erkenden haber verdiğin için iyi ki söyledin. Yeni bir teknolojide tıkanmak çok normal — bu senin başarısızlığın değil. Sana bir mentor veya dış kaynak ayarlayabilir miyim bakıyorum.",
+          "text_template": "{name_polite}, erkenden haber verdiğin için iyi ki söyledin. Yeni bir teknolojide tıkanmak çok normal — bu senin başarısızlığın değil. Sana bir mentor veya dış",
           "xp": 30,
           "isEthical": true
         },
@@ -337,7 +337,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu mesaj için teşekkür ederim — ve özür dilerim. Bu belirsizliği yaratmak benim hatam. Bu hafta içinde seni çağıracağım; yaptıklarına birlikte bakacağız, net bir geri bildirim vereceğim.",
+          "text_template": "{name_polite}, bu mesaj için teşekkür ederim — ve özür dilerim. Bu belirsizliği yaratmak benim hatam. Bu hafta içinde seni çağıracağım; yaptıklarına birlikte bakacağız, net",
           "xp": 30,
           "isEthical": true
         },
@@ -352,7 +352,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, bir sorun olsaydı sana söylerdim. Soru oluştuğunda sen de sorabilirsin — beklemek zorunda değilsin. Şu an iyi gidiyorsun, merak etme.",
+          "text_template": "{name_polite}, bir sorun olsaydı sana söylerdim. Soru oluştuğunda sen de sorabilirsin — beklemek zorunda değilsin. Şu an iyi gidiyorsun, merak etme. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": -20,
           "isEthical": false
         }
@@ -384,7 +384,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu mesaj benim için önemli bir uyarı — teşekkür ederim. Yarın ya da öbür gün 30 dakikan var mı? Net hedefler ve başarı kriterleri belirleme konuşması yapalım.",
+          "text_template": "{name_polite}, bu mesaj benim için önemli bir uyarı — teşekkür ederim. Yarın ya da öbür gün 30 dakikan var mı?",
           "xp": 30,
           "isEthical": true
         },
@@ -438,7 +438,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu tablo gerçekten karmaşık — çözmek benim işim. Bugün yarım saatin var mı? Görevleri birlikte sıralayalım: ne şimdi, ne bu sprint sonunda, ne ertelenebilir.",
+          "text_template": "{name_polite}, bu tablo gerçekten karmaşık — çözmek benim işim. Bugün yarım saatin var mı? Görevleri birlikte sıralayalım: ne şimdi, ne bu sprint sonunda, ne",
           "xp": 30,
           "isEthical": true
         },
@@ -453,7 +453,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, hepsi önemli. Zamanı doğru yönetmek bu rolün temel sorumluluğu — önceliklendirmeyi kendin yapman gerekiyor. Karar veremiyorsan paydaşlardan bilgi al.",
+          "text_template": "{name_polite}, hepsi önemli. Zamanı doğru yönetmek bu rolün temel sorumluluğu — önceliklendirmeyi kendin yapman gerekiyor. Karar veremiyorsan paydaşlardan bilgi al. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": -20,
           "isEthical": false
         }
@@ -522,17 +522,17 @@
       },
       "options": {
         "medicine": {
-          "text_template": "Bildirdiğin için teşekkürler. Bu bilginin senden geldiğini {name_polite}'e söylemeyeceğim — bu aramızda kalsın. Ben onunla ayrıca birebir konuşacağım. Aynı zamanda onboarding sürecimizi gözden geçireyim, belki eksikler bende.",
+          "text_template": "Bildirdiğin için teşekkürler. Bu bilginin senden geldiğini {name_polite}'e söylemeyeceğim — bu aramızda kalsın. Ben onunla ayrıca birebir konuşacağım. Aynı zamanda onboarding sürecimizi gözden geçireyim,",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anlıyorum. {name_polite}'e doğrudan hangi konularda zorlandığını sorayım — bağlamı netleştirmek lazım. Durumu birlikte anladıktan sonra nasıl destek olacağımıza karar veririz.",
+          "text_template": "Anlıyorum. {name_polite}'e doğrudan hangi konularda zorlandığını sorayım — bağlamı netleştirmek lazım. Durumu birlikte anladıktan sonra nasıl destek olacağımıza karar veririz. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Teşekkürler. {name_polite} için hızlandırılmış bir onboarding toplantısı ayarlasam ve yanına bir mentor koysam yardımcı olur mu? Ekipten uygun birini düşünüyor musun?",
+          "text_template": "Teşekkürler. {name_polite} için hızlandırılmış bir onboarding toplantısı ayarlasam ve yanına bir mentor koysam yardımcı olur mu? Ekipten uygun birini düşünüyor musun? Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },
@@ -564,7 +564,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, açıkça söylemen cesaret istiyor — teşekkürler. Bu hafta seninle oturalım: çalışma tarzım ve beklentilerim hakkında açıkça konuşalım. Neyi daha net yapabilirim, senden duymak istiyorum.",
+          "text_template": "{name_polite}, açıkça söylemen cesaret istiyor — teşekkürler. Bu hafta seninle oturalım: çalışma tarzım ve beklentilerim hakkında açıkça konuşalım. Neyi daha net yapabilirim, senden duymak",
           "xp": 30,
           "isEthical": true
         },
@@ -574,7 +574,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "{name_polite}, anlıyorum. Neler değişmiş, hangisine alışmak en zor geliyor — bana söyle. Oradan başlayalım, adım adım üstesinden geliriz. Gerekli görüşmeyi planlıyorum.",
+          "text_template": "{name_polite}, anlıyorum. Neler değişmiş, hangisine alışmak en zor geliyor — bana söyle. Oradan başlayalım, adım adım üstesinden geliriz. Gerekli görüşmeyi planlıyorum. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": 5,
           "isEthical": true
         },
@@ -606,7 +606,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, çok önemli bir şeyi paylaştın. Birden fazla öncelik arasında bölünmek kaliteyi ve morali düşürüyor. Hemen bakalım — neleri düşürebiliriz, ne başkasına taşınabilir. Bu karışıklığı çözme sorumluluğu bende.",
+          "text_template": "{name_polite}, çok önemli bir şeyi paylaştın. Birden fazla öncelik arasında bölünmek kaliteyi ve morali düşürüyor. Hemen bakalım — neleri düşürebiliriz, ne başkasına taşınabilir. Bu",
           "xp": 30,
           "isEthical": true
         },
@@ -616,7 +616,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "{name_polite}, anlıyorum. Zaman blokları oluşturmak yardımcı olabilir — sabah derin çalışma, öğleden sonra toplantılar gibi. Ajanda görüşelim, birlikte bir yapı kuralım.",
+          "text_template": "{name_polite}, anlıyorum. Zaman blokları oluşturmak yardımcı olabilir — sabah derin çalışma, öğleden sonra toplantılar gibi. Ajanda görüşelim, birlikte bir yapı kuralım. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },
@@ -648,17 +648,17 @@
       },
       "options": {
         "medicine": {
-          "text_template": "Bildirdiğin için teşekkürler. {name_polite} kaliteli iş çıkarıyor, bu değerli — ama 'iyi'nin 'mükemmel'in düşmanı olmadığını konuşmam gerekiyor. Bunu 1:1'de açık ve yapıcı bir şekilde ele alacağım;",
+          "text_template": "Bildirdiğin için teşekkürler. {name_polite} kaliteli iş çıkarıyor, bu değerli — ama 'iyi'nin 'mükemmel'in düşmanı olmadığını konuşmam gerekiyor. Bunu 1:1'de açık ve yapıcı bir şekilde",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anlıyorum. {name_polite}'e doğrudan neden geciktiğini sorayım — kendi ağzından duymak daha net bir tablo verir. Sonra ona göre adım atarız.",
+          "text_template": "Anlıyorum. {name_polite}'e doğrudan neden geciktiğini sorayım — kendi ağzından duymak daha net bir tablo verir. Sonra ona göre adım atarız. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam. Kabul kriterleri (definition of done) daha net yazılırsa bu tür gecikmeler azalır mı sence? Bir deneme yapalım, önümüzdeki sprint'te netleştirelim.",
+          "text_template": "Tamam. Kabul kriterleri (definition of done) daha net yazılırsa bu tür gecikmeler azalır mı sence? Bir deneme yapalım, önümüzdeki sprint'te netleştirelim. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 5,
           "isEthical": true
         },
@@ -690,7 +690,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "Bilgilendirdiğiniz için teşekkürler. {name_polite} ile ayrıca konuşacağım — önce ihtiyaçlarını anlamak istiyorum. Dil desteği, yapılandırılmış iletişim kanalları veya farklı format işe yarayabilir. Birlikte ne gerektiğine bakacağız.",
+          "text_template": "Bilgilendirdiğiniz için teşekkürler. {name_polite} ile ayrıca konuşacağım — önce ihtiyaçlarını anlamak istiyorum. Dil desteği, yapılandırılmış iletişim kanalları veya farklı format işe yarayabilir. Birlikte ne",
           "xp": 30,
           "isEthical": true
         },
@@ -732,7 +732,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, erken söylemen çok doğru bir karar. Taahhütlere birlikte bakalım — neleri yeniden müzakere edebiliriz, ne başkasına taşınabilir? Bunu da birlikte çözeriz. 'Hayır' demek de bir yetkinliktir.",
+          "text_template": "{name_polite}, erken söylemen çok doğru bir karar. Taahhütlere birlikte bakalım — neleri yeniden müzakere edebiliriz, ne başkasına taşınabilir?",
           "xp": 30,
           "isEthical": true
         },
@@ -774,7 +774,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, paylaşman cesaret istiyor — teşekkürler. Bu hayal kırıklığı çok anlaşılır. Seninle dürüstçe konuşalım — şu an ne durumda olduğumuzu açıkça paylaşayım, kariyer ilerleme yolunu birlikte değerlendirelim.",
+          "text_template": "{name_polite}, paylaşman cesaret istiyor — teşekkürler. Bu hayal kırıklığı çok anlaşılır. Seninle dürüstçe konuşalım — şu an ne durumda olduğumuzu açıkça paylaşayım, kariyer ilerleme",
           "xp": 30,
           "isEthical": true
         },
@@ -816,7 +816,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, bu konuyu açmak cesaret ister — teşekkürler. Haklı bir beklenti bu. HR ile konuşacağım ve savunuculuğunu yapacağım. Söz veremem ama süreç boyunca şeffaf olacağım.",
+          "text_template": "{name_polite}, bu konuyu açmak cesaret ister — teşekkürler. Haklı bir beklenti bu. HR ile konuşacağım ve savunuculuğunu yapacağım. Söz veremem ama süreç boyunca şeffaf",
           "xp": 30,
           "isEthical": true
         },
@@ -826,7 +826,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "{name_polite}, anlıyorum. HR ile konuşmak istersen toplantı ayarlayabilirim — doğrudan süreci onlarla yürütebilirsin. Konuşmak istediğinde söyle. Gerekli görüşmeyi planlıyorum.",
+          "text_template": "{name_polite}, anlıyorum. HR ile konuşmak istersen toplantı ayarlayabilirim — doğrudan süreci onlarla yürütebilirsin. Konuşmak istediğinde söyle. Gerekli görüşmeyi planlıyorum. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -863,17 +863,17 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "{name_polite}, anlıyorum. İş tanımı dokümanına birlikte bakalım — orada netlik var mı kontrol edelim. Gerekliyse güncelleme talep ederiz HR üzerinden.",
+          "text_template": "{name_polite}, anlıyorum. İş tanımı dokümanına birlikte bakalım — orada netlik var mı kontrol edelim. Gerekliyse güncelleme talep ederiz HR üzerinden. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "{name_polite}, anlıyorum. Hangi konular en çok karışıyor — bana söyle, oradan başlayalım. En kritik belirsizliği çözelim önce, geri kalanı zamanla netleşir.",
+          "text_template": "{name_polite}, anlıyorum. Hangi konular en çok karışıyor — bana söyle, oradan başlayalım. En kritik belirsizliği çözelim önce, geri kalanı zamanla netleşir. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "{name_polite}, rolün yeterince açık. Emin olmadığın bir şey olunca sor — beklemek zorunda değilsin. Proaktif olmak bu pozisyonun temel beklentisi.",
+          "text_template": "{name_polite}, rolün yeterince açık. Emin olmadığın bir şey olunca sor — beklemek zorunda değilsin. Proaktif olmak bu pozisyonun temel beklentisi. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": -20,
           "isEthical": false
         }
@@ -900,7 +900,7 @@
       },
       "options": {
         "medicine": {
-          "text_template": "{name_polite}, çok haklı bir uyarı bu. Toplantı yükünü birlikte gözden geçirelim — hangileri zorunlu, hangilerine asenkron katılabilirsin, hangilerini iptal edelim. Odaklanma bloklarını birlikte koruyalım; bu hafta içinde bakalım.",
+          "text_template": "{name_polite}, çok haklı bir uyarı bu. Toplantı yükünü birlikte gözden geçirelim — hangileri zorunlu, hangilerine asenkron katılabilirsin, hangilerini iptal edelim. Odaklanma bloklarını birlikte koruyalım;",
           "xp": 30,
           "isEthical": true
         },

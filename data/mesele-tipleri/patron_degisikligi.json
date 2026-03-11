@@ -75,7 +75,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Hoş geldiniz {name_polite}. Projenin mevcut durumunu kapsamlı şekilde aktarmaktan memnuniyet duyarım — başlangıç noktanızdan buradaki yolculuğu, kararları ve taahhütleri paylaşayım. Nasıl çalışmak istediğinizi de dinlemek isterim.",
+          "text_template": "Hoş geldiniz {name_polite}. Projenin mevcut durumunu kapsamlı şekilde aktarmaktan memnuniyet duyarım — başlangıç noktanızdan buradaki yolculuğu, kararları ve taahhütleri paylaşayım. Nasıl çalışmak istediğinizi de",
           "xp": 30,
           "isEthical": true
         },
@@ -85,7 +85,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Bu hafta bir başlangıç toplantısı yapalım — projeyi tanıyın, ekiple tanışın. Sorularınızı aldıkça kılavuz olabilirim. Ekibi bu konuda bilgilendireceğim.",
+          "text_template": "Peki {name_polite}. Bu hafta bir başlangıç toplantısı yapalım — projeyi tanıyın, ekiple tanışın. Sorularınızı aldıkça kılavuz olabilirim. Ekibi bu konuda bilgilendireceğim. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 5,
           "isEthical": true
         },
@@ -139,7 +139,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Organizasyonel değişim PM kontrolü dışında {name_polite}. Yeni yapı netleşene kadar bekliyoruz — belirsizlik ortamında büyük kararlar almak doğru değil. Durumu izliyorum.",
+          "text_template": "Organizasyonel değişim PM kontrolü dışında {name_polite}. Yeni yapı netleşene kadar bekliyoruz — belirsizlik ortamında büyük kararlar almak doğru değil. Durumu izliyorum. Ekibi bu konuda bilgilendireceğim, endişe etmeyin.",
           "xp": -20,
           "isEthical": false
         }
@@ -183,12 +183,12 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Yeni politikayla en uyumlu proje yaklaşımını belirleyelim — mevcut planı politika çerçevesine uyarlayabiliriz. Seçenekleri hazırlıyorum. Gerekli görüşmeyi planlıyorum.",
+          "text_template": "Peki {name_polite}. Yeni politikayla en uyumlu proje yaklaşımını belirleyelim — mevcut planı politika çerçevesine uyarlayabiliriz. Seçenekleri hazırlıyorum. Gerekli görüşmeyi planlıyorum. Gelişmeleri takip edip gerekirse sizinle tekrar görüşeceğim.",
           "xp": 5,
           "isEthical": true
         },
         "poison": {
-          "text_template": "Bu politika değişikliği proje başarısını riske atıyor {name_polite}. Projenin başarısız olması durumunda sorumluluğun kurumsal politika kararında olduğunu kayıt altına alıyorum.",
+          "text_template": "Bu politika değişikliği proje başarısını riske atıyor {name_polite}. Projenin başarısız olması durumunda sorumluluğun kurumsal politika kararında olduğunu kayıt altına alıyorum. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -265,7 +265,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, büyük bir değişim sürecinden geçiyorsunuz. Bu dönemde sizi en iyi nasıl destekleyebileceğimi düşüneyim — proje devam edecekse ne gerekiyor, ertelenecekse neye ihtiyaç var netleştirelim.",
+          "text_template": "Anlıyorum {name_polite}, büyük bir değişim sürecinden geçiyorsunuz. Bu dönemde sizi en iyi nasıl destekleyebileceğimi düşüneyim — proje devam edecekse ne gerekiyor, ertelenecekse neye ihtiyaç",
           "xp": 30,
           "isEthical": true
         },
@@ -308,7 +308,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, sizi bilgilendirmekten memnuniyet duyarım. Projenin bugüne kadar sağladığı değeri, tamamlanan çalışmaları ve kalan faydaları somut olarak sunacağım. Karar sizin — ama bilgiye dayalı karar için.",
+          "text_template": "Anlıyorum {name_polite}, sizi bilgilendirmekten memnuniyet duyarım. Projenin bugüne kadar sağladığı değeri, tamamlanan çalışmaları ve kalan faydaları somut olarak sunacağım. Karar sizin — ama bilgiye",
           "xp": 30,
           "isEthical": true
         },
@@ -362,12 +362,12 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anladım {name_polite}. Kararın geçmişini belgeleme kayıtlarıyla paylaşıyorum — bağlı taahhütler, sözleşme durumu ve değiştirmenin maliyetini net gösterelim. Sonra birlikte değerlendiririz.",
+          "text_template": "Anladım {name_polite}. Kararın geçmişini belgeleme kayıtlarıyla paylaşıyorum — bağlı taahhütler, sözleşme durumu ve değiştirmenin maliyetini net gösterelim. Sonra birlikte değerlendiririz. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Mevcut durumu ve değiştirmenin olası etkilerini analiz edeyim — sizin için bir seçenek karşılaştırması hazırlayayım. Durumu izlemeye devam ediyorum.",
+          "text_template": "Peki {name_polite}. Mevcut durumu ve değiştirmenin olası etkilerini analiz edeyim — sizin için bir seçenek karşılaştırması hazırlayayım. Durumu izlemeye devam ediyorum. Sonuçları değerlendirip gerekirse ek önlem alacağım.",
           "xp": 5,
           "isEthical": true
         },

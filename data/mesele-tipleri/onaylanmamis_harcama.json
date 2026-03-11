@@ -38,7 +38,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Dürüstlüğün için teşekkürler {name_polite}, bunu söylemek cesaret ister. Şimdi yapılan işi ve ödemeyi kayıt altına almamız gerekiyor — usulsüzlük olduğu için bunu ihale birimime bildirip düzeltici süreç başlatıyorum.",
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}, bunu söylemek cesaret ister. Şimdi yapılan işi ve ödemeyi kayıt altına almamız gerekiyor — usulsüzlük olduğu için bunu ihale birimime",
           "xp": 30,
           "isEthical": true
         },
@@ -91,7 +91,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Aşımın büyüklüğüne göre onay mercii farklı olabilir — muhasebe birimiyle konuşup gerekli adımları atacağım. Endişelenme, düzeltilebilir bir durum bu.",
+          "text_template": "Tamam {name_polite}. Aşımın büyüklüğüne göre onay mercii farklı olabilir — muhasebe birimiyle konuşup gerekli adımları atacağım. Endişelenme, düzeltilebilir bir durum bu. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 5,
           "isEthical": true
         },
@@ -197,7 +197,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}, durumu kavradım. Önce bu hizmetin ne zaman kararlaştırıldığını ve kimin onayladığını belgeleyelim — geriye dönük fatura için muhasebe ve tedarik birimini dahil etmeliyiz. Prosedürel süreç başlatıyorum.",
+          "text_template": "Anlıyorum {name_polite}, durumu kavradım. Önce bu hizmetin ne zaman kararlaştırıldığını ve kimin onayladığını belgeleyelim — geriye dönük fatura için muhasebe ve tedarik birimini dahil",
           "xp": 30,
           "isEthical": true
         },
@@ -240,7 +240,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu anlattığın için teşekkürler {name_polite}. Bu ek iş için değişiklik talebi açmamız ve tedarikçiyle ek sözleşme imzalamamız gerekiyor — müşteriye de ne kadar ek ücret yansıyacağını netleştirmeliyiz.",
+          "text_template": "Durumu anlattığın için teşekkürler {name_polite}. Bu ek iş için değişiklik talebi açmamız ve tedarikçiyle ek sözleşme imzalamamız gerekiyor — müşteriye de ne kadar ek",
           "xp": 30,
           "isEthical": true
         },
@@ -338,7 +338,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Fark edip bildirdiğin için teşekkürler {name_polite}. Muhasebe birimi yanlış sınıflandırmaları düzeltebilir — doğru kaleme aktarım için bir düzeltme fişi açmamız gerekiyor. Bütçe kodlarını da birlikte gözden geçirelim.",
+          "text_template": "Fark edip bildirdiğin için teşekkürler {name_polite}. Muhasebe birimi yanlış sınıflandırmaları düzeltebilir — doğru kaleme aktarım için bir düzeltme fişi açmamız gerekiyor. Bütçe kodlarını da",
           "xp": 30,
           "isEthical": true
         },
@@ -387,7 +387,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Anlıyorum {name_polite}. Dönemler arası harcama sorunları için muhasebe birimi standart prosedürler uygulayabilir — hizmetin gerçekleşme tarihini belgeleyelim ve düzeltici kayıt açalım. Tedarikçiden resmi doğrulama alalım.",
+          "text_template": "Anlıyorum {name_polite}. Dönemler arası harcama sorunları için muhasebe birimi standart prosedürler uygulayabilir — hizmetin gerçekleşme tarihini belgeleyelim ve düzeltici kayıt açalım. Tedarikçiden resmi doğrulama",
           "xp": 30,
           "isEthical": true
         },
@@ -436,7 +436,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu konuyu gündeme getirdiğin için teşekkürler {name_polite}. Söz konusu harcamanın ne kadar, hangi onay sürecinden geçtiğini inceliyorum — kapsam dışıysa tedarik ve muhasebe birimlerini döngüye alarak düzeltici işlem yapacağız.",
+          "text_template": "Bu konuyu gündeme getirdiğin için teşekkürler {name_polite}. Söz konusu harcamanın ne kadar, hangi onay sürecinden geçtiğini inceliyorum — kapsam dışıysa tedarik ve muhasebe birimlerini",
           "xp": 30,
           "isEthical": true
         },
@@ -446,7 +446,7 @@
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Tamam {name_polite}. Önce bu kişinin proje kapsamında görev yapıp yapmadığını netleştirelim — belgelenmiş bir onay varsa harcama meşrulaşabilir. Araştırıp döneceğim, bekle.",
+          "text_template": "Tamam {name_polite}. Önce bu kişinin proje kapsamında görev yapıp yapmadığını netleştirelim — belgelenmiş bir onay varsa harcama meşrulaşabilir. Araştırıp döneceğim, bekle. Gerekli adımları atmak için hazır olduğumu belirtmek istedim.",
           "xp": 5,
           "isEthical": true
         },

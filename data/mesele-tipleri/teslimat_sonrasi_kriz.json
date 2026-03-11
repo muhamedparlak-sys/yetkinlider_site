@@ -32,7 +32,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu durumun ciddiyetinin farkındayım {name_polite}. Şu an önceliğim sistemi en kısa sürede çalışır hale getirmek — teknik ekip üzerinde çalışıyor. Saatte bir durum güncellemesi göndereceğim.",
+          "text_template": "Bu durumun ciddiyetinin farkındayım {name_polite}. Şu an önceliğim sistemi en kısa sürede çalışır hale getirmek — teknik ekip üzerinde çalışıyor. Saatte bir durum güncellemesi",
           "xp": 30,
           "isEthical": true
         },
@@ -47,7 +47,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Bu bizim sorumluluğumuzda değil {name_polite}. Sistem testlerimizi geçti, müşteri ortamı bu yükü kaldıracak altyapıya sahip değildi. Altyapı hazırlığı konusunda sizi uyarmıştık.",
+          "text_template": "Bu bizim sorumluluğumuzda değil {name_polite}. Sistem testlerimizi geçti, müşteri ortamı bu yükü kaldıracak altyapıya sahip değildi. Altyapı hazırlığı konusunda sizi uyarmıştık. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": -20,
           "isEthical": false
         }
@@ -124,7 +124,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu durumun ciddiyetini kabul ediyorum {name_polite}. Veri bütünlüğü acil öncelik — etkilenen kayıtların kapsamını belirliyoruz. Kaynak sisteme erişim hâlâ var mı, varsa karşılaştırmalı analiz başlatıyorum.",
+          "text_template": "Bu durumun ciddiyetini kabul ediyorum {name_polite}. Veri bütünlüğü acil öncelik — etkilenen kayıtların kapsamını belirliyoruz. Kaynak sisteme erişim hâlâ var mı, varsa karşılaştırmalı analiz",
           "xp": 30,
           "isEthical": true
         },
@@ -167,7 +167,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu geri bildirimi paylaşmanız çok değerli {name_polite}. Eğitim içeriğini gözden geçirip gerçek iş senaryolarına dayalı pratik alıştırmalar ekleyelim — kısa süreli yüz yüze veya online seanslar planlıyorum.",
+          "text_template": "Bu geri bildirimi paylaşmanız çok değerli {name_polite}. Eğitim içeriğini gözden geçirip gerçek iş senaryolarına dayalı pratik alıştırmalar ekleyelim — kısa süreli yüz yüze veya",
           "xp": 30,
           "isEthical": true
         },
@@ -182,7 +182,7 @@
           "isEthical": true
         },
         "poison": {
-          "text_template": "Sözleşmede belirtilen eğitim verildik {name_polite}. Ek eğitim talebi ek hizmet kapsamına giriyor — bu konuyu değerlendirip fiyatlandırabiliriz. Gerekirse ek adım değerlendireceğim.",
+          "text_template": "Sözleşmede belirtilen eğitim verildik {name_polite}. Ek eğitim talebi ek hizmet kapsamına giriyor — bu konuyu değerlendirip fiyatlandırabiliriz. Gerekirse ek adım değerlendireceğim. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": -20,
           "isEthical": false
         }
@@ -210,17 +210,17 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu durumu bildirdiğiniz için teşekkürler {name_polite}. Sistem üzerinde derhal performans analizi başlatıyorum — darboğazları tespit edip kısa vadeli iyileştirme ve uzun vadeli çözüm seçenekleri sunacağım.",
+          "text_template": "Bu durumu bildirdiğiniz için teşekkürler {name_polite}. Sistem üzerinde derhal performans analizi başlatıyorum — darboğazları tespit edip kısa vadeli iyileştirme ve uzun vadeli çözüm seçenekleri",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anlıyorum {name_polite}. Performans analizi ve yük testi yapıyorum — gerçek kullanım profilini anlamak kritik. Darboğazları bulduktan sonra optimizasyon planı hazırlayacağım.",
+          "text_template": "Anlıyorum {name_polite}. Performans analizi ve yük testi yapıyorum — gerçek kullanım profilini anlamak kritik. Darboğazları bulduktan sonra optimizasyon planı hazırlayacağım. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
         "distractor_2": {
-          "text_template": "Peki {name_polite}. Geçici çözüm olarak yoğun saatleri yayacak bir kullanım planı önerebilir miyim — darboğaz zamanlarında yükü dağıtmak kısa vadede rahatlatabilir.",
+          "text_template": "Peki {name_polite}. Geçici çözüm olarak yoğun saatleri yayacak bir kullanım planı önerebilir miyim — darboğaz zamanlarında yükü dağıtmak kısa vadede rahatlatabilir. İhtiyaç duyarsanız bu konuyu yeniden ele alabiliriz.",
           "xp": 5,
           "isEthical": true
         },
@@ -253,7 +253,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Bu durumun sizin için yarattığı zorluğu anlıyorum {name_polite}. Devreye alım sonrası destek kapasitemi artırıyorum — öncelikli bir hattı kuyruğunuza açıyorum ve açık talepleri bugün içinde değerlendiriyorum.",
+          "text_template": "Bu durumun sizin için yarattığı zorluğu anlıyorum {name_polite}. Devreye alım sonrası destek kapasitemi artırıyorum — öncelikli bir hattı kuyruğunuza açıyorum ve açık talepleri bugün",
           "xp": 30,
           "isEthical": true
         },

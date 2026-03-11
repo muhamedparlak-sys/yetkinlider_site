@@ -130,7 +130,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu belgeledin iyi oldu {name_polite}. Maliyet artışının ne kadar süreceğini analiz edip sponsora raporluyorum — kalan süre için revize bütçe tahmini yapıp kapsam veya kaynak seçeneklerini sunacağız.",
+          "text_template": "Durumu belgeledin iyi oldu {name_polite}. Maliyet artışının ne kadar süreceğini analiz edip sponsora raporluyorum — kalan süre için revize bütçe tahmini yapıp kapsam veya",
           "xp": 30,
           "isEthical": true
         },
@@ -179,7 +179,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu anlıyorum {name_polite}. Sözleşmeyi hukuk ekibiyle birlikte inceliyorum — ek talebin hangi maddelerden beslendiğini, geçerli savunmanın ne olduğunu netleştirelim. Taşeronla müzakere öncesinde hukuki konumumuzu belirliyorum.",
+          "text_template": "Durumu anlıyorum {name_polite}. Sözleşmeyi hukuk ekibiyle birlikte inceliyorum — ek talebin hangi maddelerden beslendiğini, geçerli savunmanın ne olduğunu netleştirelim. Taşeronla müzakere öncesinde hukuki konumumuzu",
           "xp": 30,
           "isEthical": true
         },
@@ -228,7 +228,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Şu anda elimizdeki verilerle bottom-up tahmin yaparak gerçekçi EAC oluşturalım — farkı ve etkisini sponsorla açık paylaşmamız gerekiyor. Bu sürece ben de katılacağım.",
+          "text_template": "Dürüstlüğün için teşekkürler {name_polite}. Şu anda elimizdeki verilerle bottom-up tahmin yaparak gerçekçi EAC oluşturalım — farkı ve etkisini sponsorla açık paylaşmamız gerekiyor. Bu sürece",
           "xp": 30,
           "isEthical": true
         },
@@ -277,7 +277,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu belgeledin iyi oldu {name_polite}. Bu beklenmedik riski risk kaydına alıyoruz ve contingency rezervinden karşılanıp karşılanamayacağını analiz ediyorum. Sponsora bilinçli karar vermesi için seçenekleri sunacağım.",
+          "text_template": "Durumu belgeledin iyi oldu {name_polite}. Bu beklenmedik riski risk kaydına alıyoruz ve contingency rezervinden karşılanıp karşılanamayacağını analiz ediyorum. Sponsora bilinçli karar vermesi için seçenekleri",
           "xp": 30,
           "isEthical": true
         },
@@ -326,7 +326,7 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Durumu aktarman iyi oldu {name_polite}. Ekip rotasyonu maliyetini risk kaydına alıyorum — işe alım ve oryantasyon giderlerini maliyet tabanına yansıtmamız ve contingency rezervini gözden geçirmemiz gerekiyor.",
+          "text_template": "Durumu aktarman iyi oldu {name_polite}. Ekip rotasyonu maliyetini risk kaydına alıyorum — işe alım ve oryantasyon giderlerini maliyet tabanına yansıtmamız ve contingency rezervini gözden",
           "xp": 30,
           "isEthical": true
         },
@@ -380,7 +380,7 @@
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anlıyorum {name_polite}. Entegrasyon sapmasını contingency bütçesiyle karşılamak mümkün mü hesap edeyim — karşılanamıyorsa kapsam kısıtlaması veya bütçe revizyonu için CCB'ye gideceğiz.",
+          "text_template": "Anlıyorum {name_polite}. Entegrasyon sapmasını contingency bütçesiyle karşılamak mümkün mü hesap edeyim — karşılanamıyorsa kapsam kısıtlaması veya bütçe revizyonu için CCB'ye gideceğiz. Süreci yakından izleyeceğim ve sizi bilgilendireceğim.",
           "xp": 10,
           "isEthical": true
         },
@@ -430,12 +430,12 @@
       "sector_vars": {},
       "options": {
         "medicine": {
-          "text_template": "Erken uyarın için teşekkürler {name_polite}. Kalan riskleri ve olası maliyetlerini yeniden değerlendiriyorum — yönetim yedek rezervinden ek contingency talebi için sponsorla acil görüşme ayarlamamız gerekiyor.",
+          "text_template": "Erken uyarın için teşekkürler {name_polite}. Kalan riskleri ve olası maliyetlerini yeniden değerlendiriyorum — yönetim yedek rezervinden ek contingency talebi için sponsorla acil görüşme ayarlamamız",
           "xp": 30,
           "isEthical": true
         },
         "distractor_1": {
-          "text_template": "Anlıyorum {name_polite}. Kalan risk exposür'ünü analiz edip hangilerini azaltabileceğimize bakıyorum — gerçekleşme ihtimali düşük risklerin contingency paylarını küçültebiliriz. Sponsora sunacağım.",
+          "text_template": "Anlıyorum {name_polite}. Kalan risk exposür'ünü analiz edip hangilerini azaltabileceğimize bakıyorum — gerçekleşme ihtimali düşük risklerin contingency paylarını küçültebiliriz. Sponsora sunacağım. Bu konuda ek bilgi gerekirse doğrudan ulaşabilirsiniz.",
           "xp": 10,
           "isEthical": true
         },
