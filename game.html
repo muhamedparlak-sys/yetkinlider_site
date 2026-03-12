@@ -492,23 +492,48 @@ a{color:inherit;text-decoration:none}
 .compose-locked-hint{background:#fff3cd;border-top:1px solid #fde68a;padding:8px 14px;font-size:12px;color:#92400e;display:flex;align-items:center;gap:7px;flex-shrink:0}
 
 @media(max-width:900px){:root{--nav-w:0px;--list-w:260px}.fm-nav{overflow:hidden}}
+/* ── MOBİL: çöken sol kenar çubuğu ── */
+.mob-list-toggle{display:none}
+.mob-close-btn{display:none}
 @media(max-width:640px){
-  /* Dikey yığma: liste üstte, detay altta */
-  :root{--list-w:100%}
-  .fm-layout{display:flex!important;flex-direction:column}
-  /* Bildirim listesi daha kısa — cevap bölümüne daha fazla yer */
-  .fm-list{flex:0 0 auto;height:clamp(90px,22vh,170px);border-right:none;border-bottom:1px solid var(--list-border)}
-  .fm-list-body{height:100%;overflow-y:auto}
-  .fm-detail{flex:1;min-height:0;display:flex!important;flex-direction:column;overflow:hidden}
-  /* Email metni kısa tutulur — cevap seçeneklerine yer açmak için */
-  .fm-email-pane{flex:0 0 auto;max-height:30%;overflow-y:auto;padding:10px 12px 8px}
-  /* Cevap bölümü ekranın geri kalanını alır */
+  /* Yatay düzen: sol dar şerit + sağ geniş detay */
+  .fm-layout{display:flex!important;flex-direction:row!important}
+  /* Kapalı durum: 44px — sadece toggle ikonu görünür */
+  .fm-list{
+    flex:0 0 44px;width:44px;height:100%;overflow:hidden;
+    transition:width .22s cubic-bezier(.4,0,.2,1), flex .22s cubic-bezier(.4,0,.2,1);
+    border-right:1px solid var(--list-border);border-bottom:none;
+  }
+  /* Açık durum: 240px — tam liste görünür */
+  .fm-list.mob-open{flex:0 0 240px;width:240px}
+  /* Header ve list body: kapalıyken gizli */
+  .fm-list-header{display:none}
+  .fm-list.mob-open .fm-list-header{display:block;padding:10px 12px 8px}
+  .fm-list-body{height:calc(100% - 48px);overflow-y:auto}
+  .fm-list:not(.mob-open) .fm-list-body{display:none}
+  /* Toggle butonu: kapalıyken görünür, açıkken gizli */
+  .mob-list-toggle{
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+    padding:14px 0 0;gap:8px;width:44px;height:100%;cursor:pointer;
+    background:none;border:none;color:rgba(255,255,255,.5);
+  }
+  .fm-list.mob-open .mob-list-toggle{display:none}
+  .mob-close-btn{display:block!important}
+  .mob-tog-icon{font-size:17px;line-height:1}
+  .mob-tog-badge{
+    font-size:10px;font-weight:700;background:var(--accent);color:#fff;
+    border-radius:10px;padding:2px 5px;min-width:18px;text-align:center;line-height:1.4;
+  }
+  /* Detay: kalan genişliği al, dikey düzen */
+  .fm-detail{flex:1;min-width:0;height:100%;display:flex!important;flex-direction:column;overflow:hidden}
+  /* Email bölümü: max %38, scroll'lanabilir */
+  .fm-email-pane{flex:0 0 auto;max-height:38%;overflow-y:auto;padding:10px 12px 8px}
+  /* Cevap bölümü: geri kalan tüm yükseklik */
   .fm-compose-pane{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
   .compose-opts{flex:1;overflow-y:auto;padding:6px 10px}
   .nd-subject{font-size:14px;margin-bottom:3px}
   .nd-body{font-size:13px;line-height:1.6}
   .nd-from{font-size:12px}
-  /* Cevap şıkları — mobilde okunabilir boyut */
   .cmp-opt-text{font-size:13px;line-height:1.55}
   .cmp-opt{padding:9px 10px;gap:7px}
   .btn-compose-send{font-size:13px;padding:10px 16px}
@@ -519,7 +544,6 @@ a{color:inherit;text-decoration:none}
   .compose-header{padding:6px 10px}
   .compose-footer{padding:6px 10px}
   .compose-feedback-bar{font-size:12px;padding:8px 10px}
-  /* Email detay başlık alanı küçültüldü */
   .compose-title{padding-bottom:4px;margin-bottom:4px}
   .compose-row{padding:2px 0;font-size:13px}
 }
@@ -733,10 +757,20 @@ a{color:inherit;text-decoration:none}
 <!-- INBOX/PLAY -->
 <div id="screen-inbox" class="screen hidden">
   <div class="fm-layout">
-    <div class="fm-list">
+    <div class="fm-list" id="mob-fm-list">
+      <!-- Mobil toggle butonu (kapalıyken görünür) -->
+      <button class="mob-list-toggle" id="mob-list-toggle" onclick="Game.toggleMobList()" aria-label="Listeyi aç">
+        <span class="mob-tog-icon">📋</span>
+        <span class="mob-tog-badge" id="mob-tog-badge">—</span>
+      </button>
       <div class="fm-list-header">
-        <h2 id="list-title">Bildirimler</h2>
-        <p id="list-sub"></p>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <h2 id="list-title">Bildirimler</h2>
+            <p id="list-sub"></p>
+          </div>
+          <button style="background:none;border:none;color:rgba(255,255,255,.4);font-size:18px;cursor:pointer;padding:4px 6px;line-height:1" onclick="Game.toggleMobList()" class="mob-close-btn" aria-label="Kapat">‹</button>
+        </div>
       </div>
       <div class="fm-list-body" id="notif-list"></div>
     </div>
@@ -2130,6 +2164,12 @@ var Game; Game = (() => {
         </div>
       </div>`;
     }).join('');
+    // Badge güncelle (mobil toggle)
+    const badge = document.getElementById('mob-tog-badge');
+    if (badge) {
+      const unread = notifs.filter(n => !S.answered[n.id]).length;
+      badge.textContent = unread > 0 ? unread : notifs.length;
+    }
     document.getElementById('notif-list').querySelectorAll('.notif-item').forEach(el=>{
       el.addEventListener('click',()=>{
         const id = parseInt(el.dataset.id);
@@ -2138,7 +2178,14 @@ var Game; Game = (() => {
         // Block if currently on an unanswered decision
         if(hasUnansweredActiveDecision()) { flashComposePane(); return; }
         const n=S.notifs.find(x=>x.id===id);
-        if(n) selectNotif(n);
+        if(n) {
+          selectNotif(n);
+          // Mobilde listeyi otomatik kapat
+          if(window.innerWidth <= 640) {
+            const list = document.getElementById('mob-fm-list');
+            if(list) list.classList.remove('mob-open');
+          }
+        }
       });
     });
   }
@@ -2656,6 +2703,11 @@ var Game; Game = (() => {
     closeUnsaved, leaveWithoutSave, saveAndLeave,
     // Menu
     toggleMenu, closeMenu,
+    // Mobil sidebar
+    toggleMobList() {
+      const list = document.getElementById('mob-fm-list');
+      if (list) list.classList.toggle('mob-open');
+    },
     // Result
     showResult,
     // Supabase senkronizasyon sonrası welcome screen'i yenile
