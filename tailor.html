@@ -55,9 +55,6 @@ body.light-mode .adv-chevron{color:rgba(0,0,0,.3)}
 body.light-mode .adv-lock-row{color:rgba(0,0,0,.55)}
 body.light-mode .adv-ark-label{color:rgba(0,0,0,.4)}
 body.light-mode .adv-ark-sel{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.12);color:#1e293b}
-body.light-mode .adv-tab{border-color:rgba(0,0,0,.12);background:rgba(0,0,0,.04);color:rgba(0,0,0,.4)}
-body.light-mode .adv-tab:hover{background:rgba(0,0,0,.08);color:rgba(0,0,0,.7)}
-body.light-mode .adv-tab.active{background:rgba(139,92,246,.12);border-color:#8b5cf6;color:#6d28d9}
 body.light-mode .notch-val-lbl{opacity:.85}
 body.light-mode #topbar{background:#fff!important;border-bottom-color:rgba(0,0,0,.1)!important}
 body.light-mode .brand{color:#1e293b}
@@ -195,7 +192,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 .phase-label:first-child{transform:translateX(0)}
 .phase-label:last-child{transform:translateX(-100%)}
 .phase-label.in-range{color:#c4b5fd;font-weight:600}
-.phase-range-badge{font-size:12px;color:rgba(255,255,255,.5);text-align:center;margin-top:2px}
+.phase-range-badge{font-size:12px;color:rgba(255,255,255,.5);text-align:center;margin-top:2px;display:flex;flex-wrap:wrap;justify-content:center;gap:4px}
 .phase-range-badge b{color:#c4b5fd}
 /* ── SEGMENTED BAR (PMO & Takım) ── */
 .seg-bar{display:flex;border-radius:8px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);height:var(--bar-h)}
@@ -341,13 +338,21 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 .adv-ark-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,.35)}
 .adv-ark-sel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:7px 10px;color:rgba(255,255,255,.7);font-size:12px;font-weight:500;outline:none;cursor:pointer;width:100%;-webkit-appearance:none}
 .adv-ark-sel:disabled{opacity:.4;cursor:not-allowed}
-/* ── Gelişmiş Ayarlar Sekmeleri ── */
-.adv-tabs{display:flex;gap:4px;margin-bottom:12px}
-.adv-tab{flex:1;padding:7px 6px;font-size:11px;font-weight:700;border-radius:6px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:rgba(255,255,255,.4);cursor:pointer;transition:all .15s;text-align:center;font-family:inherit}
-.adv-tab:hover{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
-.adv-tab.active{background:rgba(139,92,246,.2);border-color:#8b5cf6;color:#c4b5fd}
-.adv-tab-pane{display:none}
-.adv-tab-pane.active{display:block}
+/* Advanced Accordion */
+.adv-accordion{display:flex;flex-direction:column;gap:0}
+.adv-acc-row{border:1px solid rgba(255,255,255,.06);border-radius:8px;overflow:hidden;margin-bottom:6px}
+.adv-acc-head{width:100%;display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(255,255,255,.03);cursor:pointer;text-align:left;transition:background .15s}
+.adv-acc-head:hover{background:rgba(255,255,255,.06)}
+.adv-acc-icon{color:var(--dim);flex-shrink:0;display:flex;align-items:center}
+.adv-acc-label{flex:1;font-size:12px;font-weight:600;color:var(--dim);letter-spacing:.02em}
+.adv-acc-chevron{color:var(--muted);display:flex;align-items:center;transition:transform .2s}
+.adv-acc-chevron.open{transform:rotate(180deg)}
+.adv-acc-body{max-height:0;overflow:hidden;transition:max-height .25s ease,padding .25s ease;padding:0 12px}
+.adv-acc-body.open{max-height:400px;padding:10px 12px}
+/* light mode accordion */
+body.light-mode .adv-acc-row{border-color:rgba(0,0,0,.08)}
+body.light-mode .adv-acc-head{background:rgba(0,0,0,.02)}
+body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
 .adv-char-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04)}
 .adv-char-row:last-child{border-bottom:none}
 /* ── NAV BUTTONS ── */
@@ -380,6 +385,13 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
   .sprint-grid{grid-template-columns:repeat(3,1fr)}
   .setup-row{grid-template-columns:1fr;gap:6px}
   .sum-key{width:100px}
+}
+@media(max-width:480px){
+  .phase-label{font-size:9px;max-width:44px;text-align:center;word-break:keep-all;hyphens:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .phase-labels{gap:0;justify-content:space-between}
+  .phase-track{margin-bottom:32px}
+  .setup-row{flex-wrap:wrap;gap:6px}
+  .setup-row-label{min-width:80px;font-size:11px}
 }
 </style>
 <style>
@@ -663,37 +675,63 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
           <span style="display:flex;align-items:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           <span>Bu ayarlar yalnızca üyeler için aktif. Üye olun ve her boyutu tam kontrol edin.</span>
         </div>
-        <div class="adv-tabs">
-          <button class="adv-tab active" onclick="switchAdvTab('people',this)" style="display:flex;align-items:center;justify-content:center;gap:5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Ekip</button>
-          <button class="adv-tab" onclick="switchAdvTab('process',this)" style="display:flex;align-items:center;justify-content:center;gap:5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg> Süreç</button>
-          <button class="adv-tab" onclick="switchAdvTab('env',this)" style="display:flex;align-items:center;justify-content:center;gap:5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Çevre</button>
-        </div>
-        <!-- People tab: per-member archetype selects (filled by JS) -->
-        <div class="adv-tab-pane active" id="adv-pane-people">
-          <div id="adv-people-rows"><p style="font-size:12px;color:rgba(255,255,255,.3);padding:6px 0">Ekibi oluşturduktan sonra burada görünür.</p></div>
-        </div>
-        <!-- Process tab -->
-        <div class="adv-tab-pane" id="adv-pane-process">
-          <div class="adv-ark-row" style="margin-top:4px">
-            <span class="adv-ark-label">Süreç Arketipi</span>
-            <select class="adv-ark-sel" id="adv-proc-ark" disabled onchange="updateAdvArk('proc',this.value)">
-              <option value="">— Rastgele —</option>
-              <option value="structured">Yapılandırılmış</option>
-              <option value="flexible">Esnek</option>
-              <option value="chaotic">Kaotik</option>
-            </select>
+        <div class="adv-accordion">
+          <!-- ROW 1: Kişiler -->
+          <div class="adv-acc-row" id="acc-people">
+            <button class="adv-acc-head" onclick="toggleAcc('people')">
+              <span class="adv-acc-icon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <span class="adv-acc-label">Kişiler</span>
+              <span class="adv-acc-chevron" id="acc-chev-people">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="adv-acc-body" id="acc-body-people">
+              <div id="adv-people-rows"><!-- filled by renderAdvancedPeople() --></div>
+            </div>
           </div>
-        </div>
-        <!-- Environment tab -->
-        <div class="adv-tab-pane" id="adv-pane-env">
-          <div class="adv-ark-row" style="margin-top:4px">
-            <span class="adv-ark-label">İş Çevresi Arketipi</span>
-            <select class="adv-ark-sel" id="adv-biz-ark" disabled onchange="updateAdvArk('biz',this.value)">
-              <option value="">— Rastgele —</option>
-              <option value="stable">Stabil</option>
-              <option value="volatile">Değişken</option>
-              <option value="competitive">Rekabetçi</option>
-            </select>
+
+          <!-- ROW 2: Süreç -->
+          <div class="adv-acc-row" id="acc-process">
+            <button class="adv-acc-head" onclick="toggleAcc('process')">
+              <span class="adv-acc-icon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+              </span>
+              <span class="adv-acc-label">Süreç</span>
+              <span class="adv-acc-chevron" id="acc-chev-process">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="adv-acc-body" id="acc-body-process">
+              <select class="adv-ark-sel" id="adv-proc-ark" disabled onchange="S.career._advArk=S.career._advArk||{}; S.career._advArk.process=this.value">
+                <option value="">— Süreç Arketipi Seçin —</option>
+                <option value="structured">Yapılandırılmış</option>
+                <option value="flexible">Esnek</option>
+                <option value="chaotic">Kaotik</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ROW 3: Çevre -->
+          <div class="adv-acc-row" id="acc-env">
+            <button class="adv-acc-head" onclick="toggleAcc('env')">
+              <span class="adv-acc-icon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </span>
+              <span class="adv-acc-label">Çevre</span>
+              <span class="adv-acc-chevron" id="acc-chev-env">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="adv-acc-body" id="acc-body-env">
+              <select class="adv-ark-sel" id="adv-biz-ark" disabled onchange="S.career._advArk=S.career._advArk||{}; S.career._advArk.biz=this.value">
+                <option value="">— Çevre Arketipi Seçin —</option>
+                <option value="stable">Stabil</option>
+                <option value="volatile">Değişken</option>
+                <option value="competitive">Rekabetçi</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
@@ -1708,12 +1746,12 @@ function toggleAdvanced() {
   body.classList.toggle('open');
 }
 
-function switchAdvTab(tab, btn) {
-  document.querySelectorAll('.adv-tab').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.adv-tab-pane').forEach(p => p.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  const pane = document.getElementById('adv-pane-' + tab);
-  if (pane) pane.classList.add('active');
+function toggleAcc(key) {
+  const body = document.getElementById('acc-body-' + key);
+  const chev = document.getElementById('acc-chev-' + key);
+  if (!body) return;
+  const isOpen = body.classList.toggle('open');
+  if (chev) chev.classList.toggle('open', isOpen);
 }
 
 function renderAdvancedPeople() {
