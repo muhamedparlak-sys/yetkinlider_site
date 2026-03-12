@@ -485,61 +485,9 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 
 
 <!-- ═══════════════════════════════════════════
-     PAGE 0 — MOD SEÇİMİ
-═══════════════════════════════════════════ -->
-<div class="page active" id="page-mode">
-  <div class="mode-wrap">
-    <div class="mode-logo">
-      <!-- scissors / tailor icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
-        <path d="M20 4L8.12 15.88"/><path d="M14.47 14.48L20 20"/><path d="M8.12 8.12L12 12"/>
-      </svg>
-    </div>
-    <h1>Senaryo Terzisi</h1>
-    <p>Maceranda nasıl bir yönetici olacaksın?<br>Modunu seç, kalanını biz hallederiz.</p>
-
-    <div class="mode-grid">
-      <button class="mode-btn career-btn" onclick="selectMode('career')">
-        <div class="m-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-          </svg>
-        </div>
-        <div class="m-title">Kariyer Senaryosu</div>
-        <div class="m-desc">365 gün yaşayan bir proje. Olaylar kronolojik akar, her kararın kümülatif ağırlığı var.</div>
-        <div class="m-pills">
-          <span class="m-pill">365 Gün</span>
-          <span class="m-pill">300 Olay</span>
-          <span class="m-pill">Başlatma → Kapanış</span>
-          <span class="m-pill">Hikaye Tabanlı</span>
-        </div>
-      </button>
-      <button class="mode-btn" onclick="selectMode('competency')">
-        <div class="m-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
-          </svg>
-        </div>
-        <div class="m-title">Yetkinlik Antrenmanı</div>
-        <div class="m-desc">Sprint bazlı, odaklı çalışma. Zayıf yönünü seç ve yoğun pratik yap.</div>
-        <div class="m-pills">
-          <span class="m-pill">Sprint Bazlı</span>
-          <span class="m-pill">Odaklı Pratik</span>
-          <span class="m-pill">Nokta Atışı</span>
-          <span class="m-pill">Tekrar Edilebilir</span>
-        </div>
-      </button>
-    </div>
-    <p class="mode-hint">Modu seçince otomatik ilerler</p>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════
      CAREER — STEP 1: KURULUM
 ═══════════════════════════════════════════ -->
-<div class="page flex-start wiz-page" id="page-c1">
+<div class="page active flex-start wiz-page" id="page-c1">
   <div class="wiz-inner">
     <div class="wizard-steps" id="steps-c1"></div>
 
@@ -679,7 +627,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 
   </div>
   <div class="wiz-nav">
-    <button class="wiz-back" onclick="goPage('page-mode')">← Geri</button>
+    <button class="wiz-back" onclick="window.location.href='index.html'">← Geri</button>
     <button class="wiz-next career-next" id="btn-c1-next" onclick="nextCareer(1)">
       Ekibi Oluştur
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
@@ -995,7 +943,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 <script>
 // ── STATE ────────────────────────────────────────────────────────────────────
 const S = {
-  mode: null,
+  mode: 'career',
   career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, dev_approach:null, team_archetype:null, characters: [] },
   comp:   { dev_approach:null, org_structure:null, role:null, difficulty:null, eco_filters:[], sprint_length:null }
 };
@@ -1596,59 +1544,36 @@ function buildPayload() {
   const now = new Date().toISOString();
   const sectorLabel = S.career.sector === 'other' ? S.career.sector_custom : (SECTOR_LABEL_MAP[S.career.sector] || S.career.sector);
 
-  if (S.mode === 'career') {
-    return {
-      schema_version: '2.1', session_id: uid, created_at: now, mode: 'career',
-      player: { name: S.career.pm_name, project_name: S.career.project_name, avatar_seed: S.career.pm_name.toLowerCase().replace(/\s+/g,'_') },
-      career_config: { sector: S.career.sector, sector_label: sectorLabel, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, dev_approach: S.career.dev_approach, difficulty_people: S.career.difficulty_people || 5, difficulty_process: S.career.difficulty_process || 5, difficulty_biz: S.career.difficulty_biz || 5, start_phase: S.career.start_phase || 'baslangic', end_phase: S.career.end_phase || 'kapanis' },
-      competency_config: null,
-      game_state: {
-        current_day: 0, current_phase: 'initiating',
-        phase_sequence: ['initiating','planning','executing','monitoring_controlling','closing'],
-        notifications_total: 300, notifications_sent: 0, lore_count: 0, crisis_count: 0,
-        decisions_made: 0, correct_decisions: 0, score: 0, streak: 0, tension_level: 1,
-        health: { budget:100, schedule:100, scope:100, team_morale:100, stakeholder_satisfaction:100 },
-        metrics: { bac:0, pv:0, ev:0, ac:0, cpi:1.0, spi:1.0, eac:0, etc:0, vac:0, cv:0, sv:0 },
-        kanban_wip: { backlog:0, in_progress:0, review:0, done:0, wip_limit:5, wip_exceeded:false },
-        risk_register: { open_risks:0, critical_risks:0, materialized_risks:0 },
-        change_log: { pending_approvals:0, approved:0, rejected:0 }
-      },
-      knowledge_base: {
-        source: 'data/glossary.json',
-        filter_active: { process_group: 'initiating', development_approach: ['predictive','hybrid'] },
-        used_decisions: [], target_term: null, decoy_pool: [],
-        active_characters: buildCharacters(S.career.sector)
-      },
-      drama_engine: {
-        arc_stage: 'ordinary_world',
-        arc_stages_sequence: ['ordinary_world','call_to_adventure','threshold_guardians','ordeal','reward','road_back','resurrection','return'],
-        tension_level: 1, tension_max: 5, pending_events: [],
-        tuckman_stage: 'forming', scope_creep_count: 0, sponsor_pressure: false, last_event_tone: 'neutral'
-      },
-      session_settings: { language:'tr', response_format:'narrative_decision', hallucination_guard:true, term_source_required:true }
-    };
-  } else {
-    return {
-      schema_version: '2.1', session_id: uid, created_at: now, mode: 'competency',
-      player: { name:'PM', project_name:'Antrenman Sprinti' },
-      career_config: null,
-      competency_config: { development_approach: S.comp.dev_approach, org_structure: S.comp.org_structure, role: S.comp.role, difficulty: S.comp.difficulty, eco_filters: S.comp.eco_filters, sprint_length: parseInt(S.comp.sprint_length, 10) },
-      game_state: {
-        current_day: 0, current_phase: 'sprint',
-        notifications_total: parseInt(S.comp.sprint_length, 10),
-        notifications_sent: 0, decisions_made: 0, correct_decisions: 0, score: 0, streak: 0, tension_level: 1,
-        health: { budget:100, schedule:100, scope:100, team_morale:100, stakeholder_satisfaction:100 },
-        metrics: { cpi:1.0, spi:1.0 }
-      },
-      knowledge_base: {
-        source: 'data/glossary.json',
-        filter_active: { development_approach: [S.comp.dev_approach], eco_domains: S.comp.eco_filters },
-        used_decisions: [], target_term: null, decoy_pool: []
-      },
-      drama_engine: { arc_stage:'sprint', tension_level:1 },
-      session_settings: { language:'tr', response_format:'narrative_decision', hallucination_guard:true, term_source_required:true }
-    };
-  }
+  return {
+    schema_version: '2.1', session_id: uid, created_at: now, mode: 'career',
+    player: { name: S.career.pm_name, project_name: S.career.project_name, avatar_seed: S.career.pm_name.toLowerCase().replace(/\s+/g,'_') },
+    career_config: { sector: S.career.sector, sector_label: sectorLabel, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, dev_approach: S.career.dev_approach, difficulty_people: S.career.difficulty_people || 5, difficulty_process: S.career.difficulty_process || 5, difficulty_biz: S.career.difficulty_biz || 5, start_phase: S.career.start_phase || 'baslangic', end_phase: S.career.end_phase || 'kapanis' },
+    competency_config: null,
+    game_state: {
+      current_day: 0, current_phase: 'initiating',
+      phase_sequence: ['initiating','planning','executing','monitoring_controlling','closing'],
+      notifications_total: 300, notifications_sent: 0, lore_count: 0, crisis_count: 0,
+      decisions_made: 0, correct_decisions: 0, score: 0, streak: 0, tension_level: 1,
+      health: { budget:100, schedule:100, scope:100, team_morale:100, stakeholder_satisfaction:100 },
+      metrics: { bac:0, pv:0, ev:0, ac:0, cpi:1.0, spi:1.0, eac:0, etc:0, vac:0, cv:0, sv:0 },
+      kanban_wip: { backlog:0, in_progress:0, review:0, done:0, wip_limit:5, wip_exceeded:false },
+      risk_register: { open_risks:0, critical_risks:0, materialized_risks:0 },
+      change_log: { pending_approvals:0, approved:0, rejected:0 }
+    },
+    knowledge_base: {
+      source: 'data/glossary.json',
+      filter_active: { process_group: 'initiating', development_approach: ['predictive','hybrid'] },
+      used_decisions: [], target_term: null, decoy_pool: [],
+      active_characters: buildCharacters(S.career.sector)
+    },
+    drama_engine: {
+      arc_stage: 'ordinary_world',
+      arc_stages_sequence: ['ordinary_world','call_to_adventure','threshold_guardians','ordeal','reward','road_back','resurrection','return'],
+      tension_level: 1, tension_max: 5, pending_events: [],
+      tuckman_stage: 'forming', scope_creep_count: 0, sponsor_pressure: false, last_event_tone: 'neutral'
+    },
+    session_settings: { language:'tr', response_format:'narrative_decision', hallucination_guard:true, term_source_required:true }
+  };
 }
 
 function buildCharacters(sector) {
@@ -1943,11 +1868,10 @@ function applyDefaults() {
   if (sprintEl && !sprintEl.classList.contains('selected')) selectSprint(sprintEl);
 }
 
-// Run defaults on load; support ?mode=competency URL param
+// Run defaults on load
 document.addEventListener('DOMContentLoaded', () => {
   applyDefaults();
-  const p = new URLSearchParams(location.search).get('mode');
-  if (p === 'competency' || p === 'career') selectMode(p);
+  buildSteppers();
 });
 
 // ── START GAME ────────────────────────────────────────────────────────────────

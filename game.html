@@ -547,6 +547,44 @@ a{color:inherit;text-decoration:none}
   .compose-title{padding-bottom:4px;margin-bottom:4px}
   .compose-row{padding:2px 0;font-size:13px}
 }
+
+/* PMO Badge */
+.pmo-badge { display:inline-flex; align-items:center; gap:5px; font-size:11px; padding:3px 8px; border-radius:12px; background:rgba(139,92,246,.15); border:1px solid rgba(139,92,246,.25); color:#c4b5fd; margin-left:8px; }
+.pmo-badge.pmo-warn { background:rgba(245,158,11,.15); border-color:rgba(245,158,11,.3); color:#fbbf24; }
+.pmo-badge.pmo-danger { background:rgba(239,68,68,.15); border-color:rgba(239,68,68,.4); color:#fca5a5; animation: pulse-danger 1s ease infinite; }
+@keyframes pulse-danger { 0%,100%{opacity:1} 50%{opacity:.6} }
+.pmo-eth-count { font-weight:700; }
+
+/* Game Over Overlay */
+.pmo-gameover-overlay { position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.85); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .4s; pointer-events:none; }
+.pmo-gameover-overlay.visible { opacity:1; pointer-events:all; }
+.pmo-gameover-card { background:#141d2e; border:1px solid rgba(239,68,68,.3); border-radius:16px; max-width:480px; width:90%; padding:0; overflow:hidden; box-shadow:0 0 60px rgba(239,68,68,.2); }
+.pmo-go-tag { background:rgba(239,68,68,.15); color:#fca5a5; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:8px 20px; border-bottom:1px solid rgba(239,68,68,.15); }
+.pmo-go-header { display:flex; align-items:center; gap:12px; padding:16px 20px; border-bottom:1px solid rgba(255,255,255,.06); }
+.pmo-go-av { width:40px; height:40px; border-radius:50%; background:rgba(239,68,68,.2); color:#fca5a5; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; flex-shrink:0; }
+.pmo-go-subj { font-size:13px; font-weight:600; color:#f1f5f9; }
+.pmo-go-from { font-size:11px; color:#94a3b8; margin-top:2px; }
+.pmo-go-body { padding:20px; font-size:13px; line-height:1.7; color:#cbd5e1; }
+.pmo-go-body p { margin:0 0 10px; }
+.pmo-go-footer { padding:16px 20px; border-top:1px solid rgba(255,255,255,.06); display:flex; justify-content:flex-end; gap:8px; }
+.pmo-go-btn { background:linear-gradient(135deg,#8b5cf6,#6d28d9); color:#fff; border:none; padding:10px 20px; border-radius:8px; cursor:pointer; font-size:13px; font-weight:600; }
+.pmo-go-btn-sec { background:rgba(255,255,255,.06); color:#94a3b8; border:1px solid rgba(255,255,255,.1); padding:10px 16px; border-radius:8px; cursor:pointer; font-size:13px; }
+
+/* PMO Directive Warning */
+.pmo-warn-overlay { position:fixed; inset:0; z-index:9990; background:rgba(0,0,0,.7); display:flex; align-items:center; justify-content:center; }
+.pmo-warn-overlay.hidden { display:none; }
+.pmo-warn-card { background:#1a2540; border:1px solid rgba(245,158,11,.3); border-radius:12px; max-width:380px; width:90%; padding:24px; box-shadow:0 0 40px rgba(245,158,11,.15); }
+.pmo-warn-icon { font-size:32px; margin-bottom:12px; }
+.pmo-warn-title { font-size:15px; font-weight:700; color:#fbbf24; margin-bottom:8px; }
+.pmo-warn-body { font-size:13px; color:#cbd5e1; line-height:1.6; margin-bottom:20px; }
+.pmo-warn-btns { display:flex; gap:8px; justify-content:flex-end; }
+.pmo-warn-btn-proceed { background:rgba(239,68,68,.2); color:#fca5a5; border:1px solid rgba(239,68,68,.3); padding:8px 16px; border-radius:7px; cursor:pointer; font-size:12px; }
+.pmo-warn-btn-back { background:rgba(34,197,94,.15); color:#86efac; border:1px solid rgba(34,197,94,.25); padding:8px 16px; border-radius:7px; cursor:pointer; font-size:12px; font-weight:600; }
+
+/* PMO Hint Toast (special style) */
+.pmo-hint-toast { position:fixed; bottom:80px; left:50%; transform:translateX(-50%); background:#1a2540; border:1px solid rgba(139,92,246,.35); border-radius:10px; padding:12px 18px; max-width:340px; font-size:12px; color:#c4b5fd; z-index:9000; box-shadow:0 8px 32px rgba(0,0,0,.4); opacity:0; transition:opacity .3s; pointer-events:none; }
+.pmo-hint-toast.visible { opacity:1; }
+.pmo-hint-toast .pmo-ht-label { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#8b5cf6; margin-bottom:4px; }
 </style>
 </head>
 <body>
@@ -561,6 +599,7 @@ a{color:inherit;text-decoration:none}
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       <span id="game-time">-</span>
     </div>
+    <span id="pmo-badge" style="display:none"></span>
     <button id="btn-continue-top" class="btn-continue-top hidden" disabled>
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
       Devam Et
@@ -915,10 +954,134 @@ var Game; Game = (() => {
     revealedIds: new Set(), dayBatches: [], dayIndex: 0, gameDate: null,
     hasUnsavedChanges: false,
     // Narrative Engine — Hero Journey × Karma Kuyruğu
-    pendingCrises: [], ordealFired: false, charState: {}
+    pendingCrises: [], ordealFired: false, charState: {},
+    // PMO Effects
+    pmoHintCount: 0,
+    _pmoHintTimer: null,
   };
   let _pendingChoose = null;
   let _pendingLeave = null;
+
+  // ── PMO EFFECTS ───────────────────────────────────────────────────────────
+  const PMO_LABELS = {
+    supportive:  'Destekleyici PMO',
+    controlling: 'Denetleyici PMO',
+    directive:   'Yönlendirici PMO',
+    analytic:    'Analitik PMO',
+  };
+
+  function updatePMOBadge() {
+    const el = document.getElementById('pmo-badge');
+    if (!el) return;
+    const pmo = S.setup?.pmo_type;
+    if (!pmo) { el.style.display = 'none'; return; }
+    el.style.display = '';
+    const label = PMO_LABELS[pmo] || pmo;
+    if (pmo === 'controlling') {
+      const remaining = 3 - S.dCount;
+      const cls = S.dCount === 0 ? '' : S.dCount === 1 ? ' pmo-warn' : ' pmo-danger';
+      el.className = 'pmo-badge' + cls;
+      el.innerHTML = `⚖️ ${label} <span class="pmo-eth-count" title="Kalan etik ihlal hakkı">${remaining > 0 ? '·' + remaining + ' hak' : '· ❌'}</span>`;
+    } else {
+      el.className = 'pmo-badge';
+      el.innerHTML = `💼 ${label}`;
+    }
+  }
+
+  function triggerPMOGameOver() {
+    const pmName = S.setup?.player_name || S.name || 'PM';
+    const overlay = document.createElement('div');
+    overlay.className = 'pmo-gameover-overlay';
+    overlay.innerHTML = `
+      <div class="pmo-gameover-card">
+        <div class="pmo-go-tag">📋 PMO Birimi · Gizli</div>
+        <div class="pmo-go-header">
+          <div class="pmo-go-av">İK</div>
+          <div>
+            <div class="pmo-go-subj">Proje Yönetim Görevinizin Sona Erdirilmesi</div>
+            <div class="pmo-go-from">Kimden: İnsan Kaynakları &amp; Denetleyici PMO Birimi</div>
+          </div>
+        </div>
+        <div class="pmo-go-body">
+          <p>Sayın ${pmName},</p>
+          <p>Proje sürecinizde gerçekleştirilen <strong>üç ayrı etik ihlal</strong>, denetim ekibimizin dikkatini çekmiş ve kapsamlı bir değerlendirme sürecine neden olmuştur.</p>
+          <p>PMO standartlarımız, proje yöneticilerinin yüksek etik çerçevede hareket etmesini zorunlu kılmaktadır. Sergilenen çalışma anlayışının bu standartlarla bağdaşmadığı tespit edilmiş; ekibinizle yollarımızı ayırma kararı alınmıştır.</p>
+          <p>Bu güne kadar gösterdiğiniz emek ve çaba için teşekkür eder, ilerleyen kariyer yolculuğunuzda başarılar dileriz.</p>
+          <p><em>Saygılarımızla,<br>İnsan Kaynakları &amp; Denetleyici PMO Birimi</em></p>
+        </div>
+        <div class="pmo-go-footer">
+          <button class="pmo-go-btn-sec" onclick="document.querySelector('.pmo-gameover-overlay').remove()">Mesajı Oku</button>
+          <button class="pmo-go-btn" onclick="typeof showKarne !== 'undefined' ? showKarne() : null; document.querySelector('.pmo-gameover-overlay').style.display='none'">Karnenizi Görün →</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => overlay.classList.add('visible'));
+  }
+
+  function showPMOHint(notifId) {
+    const n = S.notifs?.find(x => x.id === notifId);
+    if (!n || S.answered[notifId]) return;
+
+    let ht = document.getElementById('pmo-hint-toast');
+    if (!ht) {
+      ht = document.createElement('div');
+      ht.id = 'pmo-hint-toast';
+      ht.className = 'pmo-hint-toast';
+      document.body.appendChild(ht);
+    }
+    const hints = [
+      'Ekibinizle uzun vadeli ilişkinizi düşünün. Güven ve saygı, en değerli kaynaklarınız.',
+      'Paydaşlarınızı aktif tutun. Şeffaf iletişim, çoğu krizi önler.',
+      'Kısa vadeli çözümler uzun vadeli sorunlara yol açabilir. İyi niyetli yaklaşım tercih edin.',
+      'Bu tür kararlar iz bırakır. Ekibiniz gözlemliyor.',
+    ];
+    const hint = hints[S.pmoHintCount % hints.length];
+    ht.innerHTML = `<div class="pmo-ht-label">💼 Destekleyici PMO</div>${hint}`;
+    ht.classList.add('visible');
+    setTimeout(() => ht.classList.remove('visible'), 6000);
+
+    S.pmoHintCount++;
+
+    if (S.pmoHintCount >= 2) {
+      const poison = (n.options || []).find(o => o.xp < 0 || o.isEthical === false);
+      if (poison && !poison.unavailable) {
+        poison.unavailable = true;
+        if (S.activeId === notifId) renderComposePane(n);
+      }
+    }
+  }
+
+  function startPMOTimer(notifId) {
+    if (S.setup?.pmo_type !== 'supportive') return;
+    clearTimeout(S._pmoHintTimer);
+    if (S.answered?.[notifId]) return;
+    S._pmoHintTimer = setTimeout(() => showPMOHint(notifId), 22000);
+  }
+
+  function showPMODirectiveWarning(notifId, key, proceedFn) {
+    let el = document.getElementById('pmo-warn-overlay');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'pmo-warn-overlay';
+      el.className = 'pmo-warn-overlay';
+      document.body.appendChild(el);
+    }
+    el.innerHTML = `
+      <div class="pmo-warn-card">
+        <div class="pmo-warn-icon">⚠️</div>
+        <div class="pmo-warn-title">Yönlendirici PMO — Uyarı</div>
+        <div class="pmo-warn-body">Bu seçim etik çerçevemiz dışında değerlendiriliyor ve raporlanacak. Devam etmek istediğinizden emin misiniz?</div>
+        <div class="pmo-warn-btns">
+          <button class="pmo-warn-btn-proceed" onclick="document.getElementById('pmo-warn-overlay').classList.add('hidden'); window._pmoWarnProceed && window._pmoWarnProceed()">Devam Et</button>
+          <button class="pmo-warn-btn-back" onclick="document.getElementById('pmo-warn-overlay').classList.add('hidden')">← Geri Dön</button>
+        </div>
+      </div>
+    `;
+    window._pmoWarnProceed = proceedFn;
+    el.classList.remove('hidden');
+  }
+  // ── /PMO EFFECTS ──────────────────────────────────────────────────────────
   const SCREENS = ['screen-welcome','screen-mode','screen-career','screen-perf','screen-inbox','screen-result','screen-intro'];
   const show = id => {
     SCREENS.forEach(s => {
@@ -1879,10 +2042,12 @@ var Game; Game = (() => {
     S.skipConfirm = false; S.shuffles = {}; S.pendingKey = {};
     S.revealedIds = new Set(); S.dayBatches = []; S.dayIndex = 0;
     S.hasUnsavedChanges = false;
+    S.pmoHintCount = 0; S._pmoHintTimer = null;
     S.gameDate = new Date(2025, 0, 6); // Mon Jan 6 2025
     document.title = (S.scenario.title||'Simülasyon') + ' — YetkinLider';
     document.getElementById('game-clock').classList.remove('hidden');
     updateXP();
+    updatePMOBadge();
     loadSection((S.scenario.sections||[{id:1}])[0].id);
     showIntro();
   }
@@ -2194,6 +2359,7 @@ var Game; Game = (() => {
     S.activeId = n.id;
     document.querySelectorAll('.notif-item').forEach(el=>el.classList.toggle('active',parseInt(el.dataset.id)===n.id));
     renderDetail(n);
+    startPMOTimer(n.id);
     // Clock shows the latest visible notification's time + 30 min, regardless of which is selected
     const visibleIds = Array.from(document.querySelectorAll('.notif-item')).map(el => parseInt(el.dataset.id));
     const visibleTimes = S.notifs.filter(x => visibleIds.includes(x.id)).map(x => x.time).filter(Boolean);
@@ -2361,6 +2527,14 @@ var Game; Game = (() => {
     if(!n) return;
     const opt = (n.options||[]).find(o=>o.key===key);
     if(!opt || opt.unavailable) return;
+    // Yönlendirici PMO: warn before poison
+    if (S.setup?.pmo_type === 'directive' && (opt.isEthical === false || (opt.xp || 0) < 0)) {
+      showPMODirectiveWarning(id, key, () => {
+        _pendingChoose = {id, key};
+        choose(id, key);
+      });
+      return;
+    }
     if(S.skipConfirm) { choose(id, key); return; }
     _pendingChoose = {id, key};
     document.getElementById('confirm-text').textContent = opt.text;
@@ -2386,7 +2560,13 @@ var Game; Game = (() => {
     const n=S.notifs.find(x=>x.id===id);
     if(!n) return;
     const opt=(n.options||[]).find(o=>o.key===key);
-    if(opt){ S.xp+=(opt.xp||0); if(opt.isEthical===false) S.dCount++; updateXP(); }
+    if(opt){ S.xp+=(opt.xp||0); if(opt.isEthical===false) S.dCount++; updateXP();
+      updatePMOBadge();
+      // Denetleyici PMO: 3 violations = game over
+      if (S.setup?.pmo_type === 'controlling' && S.dCount >= 3) {
+        setTimeout(triggerPMOGameOver, 800);
+      }
+    }
     // Narrative Engine: triggers'ı işle (Karma/Borç Kuyruğu)
     if(typeof NarrativeEngine !== 'undefined') NarrativeEngine.processTriggers(n, key, S);
     renderDetail(n); refreshItem(id);
