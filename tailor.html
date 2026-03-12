@@ -218,6 +218,15 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 .info-box{background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.2);border-radius:10px;padding:12px 16px;font-size:12px;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
 .info-box-icon{flex-shrink:0;opacity:.65;margin-top:1px}
 
+/* ── SECTOR DROPDOWN ── */
+.sector-select-wrap{position:relative}
+.sector-select{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:10px 38px 10px 14px;color:var(--text-inv);font-size:13px;font-weight:500;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;transition:border .15s}
+.sector-select:focus{border-color:var(--accent)}
+.sector-select option{background:#16122b;color:#fff}
+.sector-chevron{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;color:rgba(255,255,255,.4)}
+.sector-profile-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,.38);margin-top:5px}
+.sector-profile-badge b{color:#c4b5fd;font-weight:600}
+
 /* ── NAV BUTTONS ── */
 .wiz-nav{position:fixed;bottom:0;left:0;right:0;display:flex;align-items:center;gap:12px;background:rgba(12,17,26,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.07);padding:14px max(20px,calc(50% - 290px));box-sizing:border-box;z-index:200}
 .wiz-back{background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);font-size:12px;font-weight:600;padding:9px 18px;border-radius:7px;cursor:pointer;transition:all .15s}
@@ -421,57 +430,34 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
         <input class="setup-text-input" id="project_name" type="text" placeholder="Ör: Proje Pegasus" maxlength="50" data-user-edited="false" oninput="this.dataset.userEdited='true'">
       </div>
       <div class="setup-row" style="align-items:start">
-        <span class="setup-row-label" style="padding-top:4px">Sektör</span>
-        <div>
-          <div class="opt-group cols-3">
-
-            <!-- IT -->
-            <div class="opt-cell career-sel sect-cell" data-group="sector" data-val="it" onclick="selectOpt(this,'sector')">
-              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              IT / Yazılım
-            </div>
-
-            <!-- İnşaat -->
-            <div class="opt-cell career-sel sect-cell" data-group="sector" data-val="construction" onclick="selectOpt(this,'sector')">
-              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              İnşaat
-            </div>
-
-            <!-- Sağlık -->
-            <div class="opt-cell career-sel sect-cell" data-group="sector" data-val="health" onclick="selectOpt(this,'sector')">
-              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              Sağlık
-            </div>
-
-            <!-- Finans -->
-            <div class="opt-cell career-sel sect-cell" data-group="sector" data-val="finance" onclick="selectOpt(this,'sector')">
-              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              Finans
-            </div>
-
-            <!-- Savunma -->
-            <div class="opt-cell career-sel sect-cell" data-group="sector" data-val="defense" onclick="selectOpt(this,'sector')">
-              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Savunma
-            </div>
-
-            <!-- Eğitim -->
-            <div class="opt-cell career-sel sect-cell" data-group="sector" data-val="education" onclick="selectOpt(this,'sector')">
-              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              Eğitim
-            </div>
-
-            <!-- Diğer — full width -->
-            <div class="opt-cell career-sel sect-cell sect-other" data-group="sector" data-val="other" onclick="selectOpt(this,'sector')">
-              <svg class="oc-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
-              Diğer — kendi sektörünü yaz
-            </div>
+        <span class="setup-row-label" style="padding-top:10px">Sektör</span>
+        <div style="flex:1">
+          <div class="sector-select-wrap">
+            <select class="sector-select" id="sector-select" onchange="onSectorChange(this.value)">
+              <option value="">— Sektör seçin —</option>
+              <option value="it">IT / Yazılım</option>
+              <option value="finance">Finans / Bankacılık</option>
+              <option value="health">Sağlık</option>
+              <option value="construction">İnşaat / Mühendislik</option>
+              <option value="defense">Savunma</option>
+              <option value="education">Eğitim</option>
+              <option value="retail">Perakende / E-Ticaret</option>
+              <option value="energy">Enerji</option>
+              <option value="telecom">Telekomünikasyon</option>
+              <option value="other">Diğer — kendim yazarım</option>
+            </select>
+            <svg class="sector-chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div id="sector-profile-hint" class="sector-profile-badge" style="display:none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            Profilinden otomatik seçildi: <b id="sector-profile-lbl"></b>
           </div>
 
           <div id="sector-custom-wrap">
-            <input class="setup-text-input" id="sector_custom" type="text" placeholder="Sektörünüzü yazın... (Ör: Perakende, Lojistik)" maxlength="50">
+            <input class="setup-text-input" id="sector_custom" type="text"
+                   placeholder="Sektörünüzü yazın... (Ör: Lojistik, Tarım)" maxlength="50"
+                   style="margin-top:8px">
           </div>
-
           <p class="val-hint" id="hint-c1">Bir sektör seçmelisin.</p>
         </div>
       </div>
@@ -1130,12 +1116,49 @@ function _initPhaseSlider() {
 }
 
 // page-c2 açıldığında slider'ı başlat
-document.addEventListener('DOMContentLoaded', _initPhaseSlider);
+document.addEventListener('DOMContentLoaded', () => {
+  _initPhaseSlider();
+  _autoFillSectorFromProfile();
+});
+
+// ── SEKTÖR OTOMATİK DOLDURMA (profilden) ─────────────────────────────────────
+const SECTOR_LABEL_MAP = {
+  it:'IT / Yazılım', finance:'Finans / Bankacılık', health:'Sağlık',
+  construction:'İnşaat / Mühendislik', defense:'Savunma', education:'Eğitim',
+  retail:'Perakende / E-Ticaret', energy:'Enerji', telecom:'Telekomünikasyon', other:'Diğer',
+};
+function _autoFillSectorFromProfile() {
+  try {
+    const meta = JSON.parse(localStorage.getItem('pmSim_work_meta') || '{}');
+    if (!meta.sector) return;
+    const sel = document.getElementById('sector-select');
+    if (sel && [...sel.options].some(o => o.value === meta.sector)) {
+      sel.value = meta.sector;
+      onSectorChange(meta.sector);
+      // Profil badge göster
+      const badge = document.getElementById('sector-profile-hint');
+      const lbl   = document.getElementById('sector-profile-lbl');
+      if (badge && lbl) { lbl.textContent = SECTOR_LABEL_MAP[meta.sector] || meta.sector; badge.style.display = 'flex'; }
+    }
+  } catch(e) {}
+}
+function onSectorChange(val) {
+  // Custom input göster/gizle
+  const cw = document.getElementById('sector-custom-wrap');
+  if (cw) cw.classList.toggle('show', val === 'other');
+  // Proje adı önerisi
+  const proj = document.getElementById('project_name');
+  if (proj && proj.dataset.userEdited !== 'true' && val && val !== 'other')
+    proj.value = PROJECT_NAME_DEFAULTS[val] || PROJECT_NAME_DEFAULTS[val === 'construction' ? 'construction' : val] || '';
+  // Profil badge gizle (kullanıcı değiştirdiyse)
+  const badge = document.getElementById('sector-profile-hint');
+  if (badge) badge.style.display = 'none';
+}
 
 // ── CAREER FLOW ───────────────────────────────────────────────────────────────
 function nextCareer(step) {
   if (step === 1) {
-    S.career.sector = getOpt('sector');
+    S.career.sector = (document.getElementById('sector-select')?.value || '').trim();
     if (!S.career.sector) { hint('hint-c1', true); return; }
     if (S.career.sector === 'other') {
       const custom = (document.getElementById('sector_custom')?.value || '').trim();
@@ -1202,7 +1225,7 @@ function tags(arr, map) {
 
 function renderCareerSummary() {
   const c = S.career;
-  const sLbl = c.sector === 'other' ? (c.sector_custom || 'Diğer') : (LBL.sector[c.sector] || c.sector);
+  const sLbl = c.sector === 'other' ? (c.sector_custom || 'Diğer') : (SECTOR_LABEL_MAP[c.sector] || c.sector);
   document.getElementById('career-summary').innerHTML =
     row(IC.user,     'PM Adı',         c.pm_name) +
     row(IC.folder,   'Proje Adı',      c.project_name) +
@@ -1235,7 +1258,7 @@ function renderCompSummary() {
 function buildPayload() {
   const uid = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2);
   const now = new Date().toISOString();
-  const sectorLabel = S.career.sector === 'other' ? S.career.sector_custom : LBL.sector[S.career.sector];
+  const sectorLabel = S.career.sector === 'other' ? S.career.sector_custom : (SECTOR_LABEL_MAP[S.career.sector] || S.career.sector);
 
   if (S.mode === 'career') {
     return {

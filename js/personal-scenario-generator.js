@@ -226,6 +226,9 @@ const PSG = (() => {
     egitim:       'egitim',
     uretim:       'uretim',
     perakende:    'perakende',
+    retail:       'perakende',   // profile.html değeri
+    energy:       'yazilim',     // fallback (enerji rolü henüz yok)
+    telecom:      'yazilim',     // fallback
   };
 
   // ── Seeded LCG PRNG ──────────────────────────────────────────────────────────
