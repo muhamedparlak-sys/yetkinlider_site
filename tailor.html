@@ -131,6 +131,19 @@ input{font-family:inherit}
 input[type=range].ds-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;outline:none;cursor:pointer;background:linear-gradient(to right,var(--track-color,#8b5cf6) var(--fill,50%),rgba(255,255,255,.12) var(--fill,50%))}
 input[type=range].ds-range::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.5);cursor:pointer}
 input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.5);cursor:pointer;border:none}
+/* ── DUAL-HANDLE PHASE RANGE SLIDER ── */
+.phase-range-wrap{padding:4px 0 0}
+.phase-track{position:relative;height:6px;border-radius:3px;background:rgba(255,255,255,.1);margin:18px 0 28px;cursor:pointer}
+.phase-fill{position:absolute;height:100%;border-radius:3px;background:linear-gradient(to right,#8b5cf6,#3b82f6);pointer-events:none}
+.phase-handle{position:absolute;top:50%;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.45);transform:translate(-50%,-50%);cursor:grab;z-index:2;transition:box-shadow .15s;touch-action:none}
+.phase-handle:hover,.phase-handle.dragging{box-shadow:0 0 0 4px rgba(139,92,246,.35),0 1px 6px rgba(0,0,0,.4);cursor:grabbing}
+.phase-labels{position:absolute;top:12px;left:0;right:0;display:flex;justify-content:space-between;pointer-events:none}
+.phase-label{font-size:11px;color:rgba(255,255,255,.35);text-align:center;white-space:nowrap;transform:translateX(-50%);transition:color .15s}
+.phase-label:first-child{transform:translateX(0)}
+.phase-label:last-child{transform:translateX(-100%)}
+.phase-label.in-range{color:#c4b5fd;font-weight:600}
+.phase-range-badge{font-size:12px;color:rgba(255,255,255,.5);text-align:center;margin-top:2px}
+.phase-range-badge b{color:#c4b5fd}
 /* ── SEGMENTED BAR (PMO & Takım) ── */
 .seg-bar{display:flex;border-radius:8px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
 .seg-item{flex:1;padding:10px 8px;text-align:center;font-size:12px;font-weight:600;cursor:pointer;color:rgba(255,255,255,.38);transition:all .15s;position:relative;user-select:none}
@@ -533,25 +546,17 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
         </div>
       </div>
 
-      <!-- ── GİRİŞ FAZI (default: Başlatma) ── -->
+      <!-- ── FAZ ARALIĞI — dual-handle slider ── -->
       <div class="setup-row">
-        <span class="setup-row-label">Giriş Fazı</span>
-        <div class="opt-group cols-4">
-          <div class="opt-cell career-sel selected" data-group="start_phase" data-val="baslangic" onclick="selectPhase(this,'start_phase')">Başlatma</div>
-          <div class="opt-cell career-sel"          data-group="start_phase" data-val="planlama"  onclick="selectPhase(this,'start_phase')">Planlama</div>
-          <div class="opt-cell career-sel"          data-group="start_phase" data-val="yurutme"   onclick="selectPhase(this,'start_phase')">Yürütme</div>
-          <div class="opt-cell career-sel"          data-group="start_phase" data-val="izleme"    onclick="selectPhase(this,'start_phase')">İzleme</div>
-        </div>
-      </div>
-
-      <!-- ── ÇIKIŞ FAZI (default: Kapanış) ── -->
-      <div class="setup-row">
-        <span class="setup-row-label">Çıkış Fazı</span>
-        <div class="opt-group cols-4">
-          <div class="opt-cell career-sel"          data-group="end_phase" data-val="planlama" onclick="selectPhase(this,'end_phase')">Planlama</div>
-          <div class="opt-cell career-sel"          data-group="end_phase" data-val="yurutme"  onclick="selectPhase(this,'end_phase')">Yürütme</div>
-          <div class="opt-cell career-sel"          data-group="end_phase" data-val="izleme"   onclick="selectPhase(this,'end_phase')">İzleme</div>
-          <div class="opt-cell career-sel selected" data-group="end_phase" data-val="kapanis"  onclick="selectPhase(this,'end_phase')">Kapanış</div>
+        <span class="setup-row-label">Faz Aralığı</span>
+        <div class="phase-range-wrap">
+          <div class="phase-track" id="phase-track">
+            <div class="phase-fill"   id="phase-fill"></div>
+            <div class="phase-handle" id="phase-hS" title="Giriş fazı"></div>
+            <div class="phase-handle" id="phase-hE" title="Çıkış fazı"></div>
+            <div class="phase-labels" id="phase-labels"></div>
+          </div>
+          <div class="phase-range-badge" id="phase-badge"></div>
         </div>
       </div>
     </div>
@@ -903,6 +908,8 @@ function goPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Faz slider'ı sayfa c2'ye gelindiğinde render et
+  if (id === 'page-c2') _renderPhaseSlider();
 }
 
 // ── MODE SELECT ───────────────────────────────────────────────────────────────
@@ -1026,49 +1033,104 @@ function selectSeg(el, group) {
   el.classList.add('selected');
 }
 
-// ── PHASE SELECTOR ───────────────────────────────────────────────────────────
-const PHASE_ORDER_ARR = ['baslangic', 'planlama', 'yurutme', 'izleme', 'kapanis'];
+// ── DUAL-HANDLE PHASE RANGE SLIDER ───────────────────────────────────────────
+const PHASE_IDS    = ['baslangic', 'planlama', 'yurutme', 'izleme', 'kapanis'];
+const PHASE_LBLS   = ['Başlatma',  'Planlama',  'Yürütme',  'İzleme',  'Kapanış'];
+let   phaseStartIdx = 0;   // default: Başlatma
+let   phaseEndIdx   = 4;   // default: Kapanış
 
-function selectPhase(el, group) {
-  document.querySelectorAll(`.opt-cell[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
-  el.classList.add('selected');
+function _phasePos(idx) { return (idx / (PHASE_IDS.length - 1) * 100).toFixed(2) + '%'; }
 
-  const myVal = el.dataset.val;
-  const myIdx = PHASE_ORDER_ARR.indexOf(myVal);
+function _renderPhaseSlider() {
+  const fill   = document.getElementById('phase-fill');
+  const hS     = document.getElementById('phase-hS');
+  const hE     = document.getElementById('phase-hE');
+  const badge  = document.getElementById('phase-badge');
+  const labWrap = document.getElementById('phase-labels');
+  if (!fill) return;
 
-  if (group === 'start_phase') {
-    // If end_phase is at or before new start_phase → auto-advance end_phase
-    const endEl = document.querySelector('.opt-cell[data-group="end_phase"].selected');
-    if (endEl) {
-      const endIdx = PHASE_ORDER_ARR.indexOf(endEl.dataset.val);
-      if (endIdx <= myIdx) {
-        // Pick next valid end phase (must come after start in the end options)
-        const endOpts = ['planlama', 'yurutme', 'izleme', 'kapanis'];
-        const nextEnd = endOpts.find(v => PHASE_ORDER_ARR.indexOf(v) > myIdx);
-        document.querySelectorAll('.opt-cell[data-group="end_phase"]').forEach(c => c.classList.remove('selected'));
-        if (nextEnd) {
-          const newEndEl = document.querySelector(`.opt-cell[data-group="end_phase"][data-val="${nextEnd}"]`);
-          if (newEndEl) newEndEl.classList.add('selected');
-        }
-      }
-    }
-  } else {
-    // end_phase selected → if start_phase is at or after new end_phase, move start back
-    const startEl = document.querySelector('.opt-cell[data-group="start_phase"].selected');
-    if (startEl) {
-      const startIdx = PHASE_ORDER_ARR.indexOf(startEl.dataset.val);
-      if (startIdx >= myIdx) {
-        const startOpts = ['baslangic', 'planlama', 'yurutme', 'izleme'];
-        const prevStart = [...startOpts].reverse().find(v => PHASE_ORDER_ARR.indexOf(v) < myIdx);
-        document.querySelectorAll('.opt-cell[data-group="start_phase"]').forEach(c => c.classList.remove('selected'));
-        if (prevStart) {
-          const newStartEl = document.querySelector(`.opt-cell[data-group="start_phase"][data-val="${prevStart}"]`);
-          if (newStartEl) newStartEl.classList.add('selected');
-        }
-      }
-    }
+  hS.style.left  = _phasePos(phaseStartIdx);
+  hE.style.left  = _phasePos(phaseEndIdx);
+  fill.style.left  = _phasePos(phaseStartIdx);
+  fill.style.width = ((phaseEndIdx - phaseStartIdx) / (PHASE_IDS.length - 1) * 100).toFixed(2) + '%';
+
+  if (labWrap && !labWrap.dataset.built) {
+    labWrap.dataset.built = '1';
+    PHASE_LBLS.forEach((lbl, i) => {
+      const sp = document.createElement('span');
+      sp.className = 'phase-label';
+      sp.textContent = lbl;
+      sp.style.left = _phasePos(i);
+      labWrap.appendChild(sp);
+    });
   }
+  if (labWrap) {
+    [...labWrap.children].forEach((sp, i) =>
+      sp.classList.toggle('in-range', i >= phaseStartIdx && i <= phaseEndIdx)
+    );
+  }
+  if (badge) badge.innerHTML =
+    `<b>${PHASE_LBLS[phaseStartIdx]}</b> → <b>${PHASE_LBLS[phaseEndIdx]}</b>`;
 }
+
+function _initPhaseSlider() {
+  const track = document.getElementById('phase-track');
+  const hS    = document.getElementById('phase-hS');
+  const hE    = document.getElementById('phase-hE');
+  if (!track) return;
+  _renderPhaseSlider();
+
+  function xToIdx(clientX) {
+    const r = track.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+    return Math.round(ratio * (PHASE_IDS.length - 1));
+  }
+
+  function makeDrag(isStart) {
+    return function(e) {
+      e.preventDefault();
+      const h = isStart ? hS : hE;
+      h.classList.add('dragging');
+      function onMove(ev) {
+        const cx = ev.touches ? ev.touches[0].clientX : ev.clientX;
+        const idx = xToIdx(cx);
+        if (isStart) phaseStartIdx = Math.min(idx, phaseEndIdx - 1);
+        else          phaseEndIdx   = Math.max(idx, phaseStartIdx + 1);
+        _renderPhaseSlider();
+      }
+      function onUp() {
+        h.classList.remove('dragging');
+        window.removeEventListener('mousemove', onMove);
+        window.removeEventListener('mouseup',   onUp);
+        window.removeEventListener('touchmove', onMove);
+        window.removeEventListener('touchend',  onUp);
+      }
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup',   onUp);
+      window.addEventListener('touchmove', onMove, { passive: false });
+      window.addEventListener('touchend',  onUp);
+    };
+  }
+
+  hS.addEventListener('mousedown',  makeDrag(true));
+  hS.addEventListener('touchstart', makeDrag(true),  { passive: false });
+  hE.addEventListener('mousedown',  makeDrag(false));
+  hE.addEventListener('touchstart', makeDrag(false), { passive: false });
+
+  // Track tıklaması: en yakın handle'a snap
+  track.addEventListener('click', function(e) {
+    if (e.target === hS || e.target === hE) return;
+    const idx = xToIdx(e.clientX);
+    const dS = Math.abs(idx - phaseStartIdx);
+    const dE = Math.abs(idx - phaseEndIdx);
+    if (dS <= dE) phaseStartIdx = Math.min(idx, phaseEndIdx - 1);
+    else           phaseEndIdx   = Math.max(idx, phaseStartIdx + 1);
+    _renderPhaseSlider();
+  });
+}
+
+// page-c2 açıldığında slider'ı başlat
+document.addEventListener('DOMContentLoaded', _initPhaseSlider);
 
 // ── CAREER FLOW ───────────────────────────────────────────────────────────────
 function nextCareer(step) {
@@ -1088,27 +1150,21 @@ function nextCareer(step) {
     S.career.project_name = (document.getElementById('project_name').value.trim()) || PROJECT_NAME_DEFAULTS[S.career.sector] || 'Proje';
     goPage('page-c2');
   } else if (step === 2) {
-    const pmo        = getOpt('pmo_type');
-    const team       = getOpt('team_culture');
-    const startPhase = getOpt('start_phase');
-    const endPhase   = getOpt('end_phase');
-    const hintEl     = document.getElementById('hint-c2');
-    if (!pmo || !team || !startPhase || !endPhase) {
-      if (hintEl) hintEl.textContent = 'Lütfen tüm seçenekleri seçin.';
-      hint('hint-c2', true); return;
-    }
-    if (PHASE_ORDER_ARR.indexOf(endPhase) <= PHASE_ORDER_ARR.indexOf(startPhase)) {
-      if (hintEl) hintEl.textContent = 'Çıkış fazı, giriş fazından sonra olmalı.';
+    const pmo  = getOpt('pmo_type');
+    const team = getOpt('team_culture');
+    const hintEl = document.getElementById('hint-c2');
+    if (!pmo || !team) {
+      if (hintEl) hintEl.textContent = 'Lütfen PMO ve Takım seçeneklerini seçin.';
       hint('hint-c2', true); return;
     }
     hint('hint-c2', false);
-    S.career.pmo_type          = pmo;
-    S.career.team_culture      = team;
-    S.career.difficulty_people  = parseInt(document.getElementById('diff-people')?.value  || '5', 10);
-    S.career.difficulty_process = parseInt(document.getElementById('diff-process')?.value || '5', 10);
-    S.career.difficulty_biz     = parseInt(document.getElementById('diff-biz')?.value     || '5', 10);
-    S.career.start_phase       = startPhase;
-    S.career.end_phase         = endPhase;
+    S.career.pmo_type           = pmo;
+    S.career.team_culture       = team;
+    S.career.difficulty_people  = parseInt(document.getElementById('diff-people')?.value  || '2', 10);
+    S.career.difficulty_process = parseInt(document.getElementById('diff-process')?.value || '2', 10);
+    S.career.difficulty_biz     = parseInt(document.getElementById('diff-biz')?.value     || '2', 10);
+    S.career.start_phase        = PHASE_IDS[phaseStartIdx] || 'baslangic';
+    S.career.end_phase          = PHASE_IDS[phaseEndIdx]   || 'kapanis';
     goPage('page-c3');
   } else if (step === 3) {
     hint('hint-c3', false);
