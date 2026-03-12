@@ -228,6 +228,46 @@ export async function fetchMeseleTipi(id) {
   return data?.data || null;
 }
 
+// ── profiles ──────────────────────────────────────────────────────────────────
+
+/**
+ * Kullanıcı profilini Supabase'e kaydet/güncelle (UPSERT).
+ * Sadece verilen alanları günceller; diğerlerine dokunmaz.
+ * @param {object} params
+ *   id           – kullanıcı UUID (zorunlu)
+ *   display_name – görünen isim (opsiyonel)
+ *   email        – e-posta (opsiyonel)
+ *   role         – 'user' | 'editor' | 'admin' (opsiyonel)
+ *   sector       – sektör kodu (opsiyonel)
+ *   gender       – 'erkek' | 'kadın' | 'belirtmek_istemiyorum' (opsiyonel)
+ *   birth_year   – doğum yılı (opsiyonel)
+ */
+export async function upsertProfile({ id, display_name, email, role, sector, gender, birth_year }) {
+  const update = { id, updated_at: new Date().toISOString() };
+  if (display_name !== undefined) update.display_name = display_name;
+  if (email       !== undefined) update.email        = email;
+  if (role        !== undefined) update.role         = role;
+  if (sector      !== undefined) update.sector       = sector;
+  if (gender      !== undefined) update.gender       = gender;
+  if (birth_year  !== undefined) update.birth_year   = birth_year;
+
+  return supabase.from('profiles').upsert(update, { onConflict: 'id' });
+}
+
+/**
+ * Belirli bir kullanıcının profil verisini Supabase'den çeker.
+ * @param {string} userId
+ * @returns {Promise<object|null>}
+ */
+export async function fetchProfile(userId) {
+  const { data } = await supabase
+    .from('profiles')
+    .select('id, display_name, email, role, sector, gender, birth_year, created_at, updated_at')
+    .eq('id', userId)
+    .single();
+  return data || null;
+}
+
 // ── admin: kullanıcı yönetimi ─────────────────────────────────────────────────
 
 /**

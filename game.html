@@ -952,7 +952,7 @@ var Game; Game = (() => {
     notifs:[], answered:{}, xp:0, dCount:0, activeId:null, sectionId:1,
     skipConfirm: false, shuffles:{}, pendingKey:{},
     revealedIds: new Set(), dayBatches: [], dayIndex: 0, gameDate: null,
-    hasUnsavedChanges: false,
+    hasUnsavedChanges: false, completed: false,
     // Narrative Engine — Hero Journey × Karma Kuyruğu
     pendingCrises: [], ordealFired: false, charState: {},
     // PMO Effects
@@ -1220,6 +1220,7 @@ var Game; Game = (() => {
       gameDate: S.gameDate?.toISOString(),
       revealedIds: [...S.revealedIds], activeId: S.activeId,
       setup: S.setup, name: S.name,
+      completed: S.completed || false,
       savedAt: new Date().toISOString()
     };
     localStorage.setItem(key, JSON.stringify(data));
@@ -2750,6 +2751,27 @@ var Game; Game = (() => {
   }
 
   function showResult(){
+    // Persist completed game state
+    S.completed = true;
+    saveGame();
+    // Also save to exam_results if the function exists
+    if (typeof window.__sbInsertExamResult === 'function') {
+      const decAnswered = Object.values(S.answered || {}).filter(v => v !== 'READ');
+      const total = decAnswered.length;
+      const correct = decAnswered.filter(key => {
+        const n = (S.notifs || []).find(x => S.answered[x.id] === key);
+        // count A (medicine, xp>=25) as correct
+        return key === 'A';
+      }).length;
+      window.__sbInsertExamResult({
+        score: Math.round((S.xp / Math.max(total * 30, 1)) * 100),
+        correct,
+        total,
+        time_used: null,
+        scenario_id: S.scenario?.id || null,
+      }).catch(e => console.warn('[ExamResult]', e.message));
+    }
+
     const gameOver=S.dCount>=(S.scenario.dChoiceLimit||3);
     S.hasUnsavedChanges = false;
     const comps = S.scenario.competencies || [];
@@ -2906,7 +2928,7 @@ window.Game = Game;
 <!-- ── Supabase entegrasyonu (Storage + DB) ────────────────────────────── -->
 <script type="module">
 import { fetchScenario, manifestUrl } from '/js/storage.js';
-import { upsertGameSave, fetchUserSaves, fetchPersonalScenario } from '/js/db.js';
+import { upsertGameSave, fetchUserSaves, fetchPersonalScenario, insertExamResult } from '/js/db.js';
 
 // ── Storage bağlantıları ─────────────────────────────────────────────────
 window.__sbFetchScenario = fetchScenario;
@@ -2915,6 +2937,7 @@ window.__sbManifestUrl   = manifestUrl();
 // ── DB bağlantıları ──────────────────────────────────────────────────────
 window.__sbUpsertSave            = upsertGameSave;
 window.__sbFetchPersonalScenario = fetchPersonalScenario;
+window.__sbInsertExamResult      = insertExamResult;
 
 // ── Cross-device senkronizasyon ──────────────────────────────────────────
 // Supabase'deki kayıtları localStorage ile birleştir, welcome screen'i güncelle
@@ -2940,8 +2963,8 @@ window.__sbFetchPersonalScenario = fetchPersonalScenario;
       }
     });
 
-    // Kayıt varsa welcome screen'i taze verilerle yenile
-    if (synced > 0 && typeof window.Game?.refreshWelcome === 'function') {
+    // Welcome screen'i taze verilerle yenile (synced === 0 olsa bile — race condition fix)
+    if (typeof window.Game?.refreshWelcome === 'function') {
       window.Game.refreshWelcome();
     }
   } catch (e) {
