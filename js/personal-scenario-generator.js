@@ -613,6 +613,8 @@ const PSG = (() => {
       totalDecisions     = 180,
       start_phase        = 'baslangic',
       end_phase          = 'kapanis',
+      customKadro        = null,
+      customDisKisiler   = null,
     } = config;
 
     // Domain difficulty multipliers — 1=hafif(0.4×), 2=orta(1.0×), 3=sert(2.5×)
@@ -690,6 +692,11 @@ const PSG = (() => {
       role: randChoice(sektorRoller, rng),
     }));
 
+    // Kullanıcı önceden düzenlemişse kendi kadrosunu kullan
+    const finalKadro = customKadro && customKadro.length
+      ? customKadro.map(c => ({ fullName: c.fullName, firstName: c.fullName.split(' ')[0], gender: c.gender || 'any', role: c.role }))
+      : kadro;
+
     // Dış kişiler (müşteri, sponsor, son kullanıcı)
     const disKisiler = [
       { ...pickFullName('female'), role: 'Müşteri Yetkilisi',         kind: 'client'   },
@@ -697,14 +704,24 @@ const PSG = (() => {
       { ...pickFullName('any'),    role: 'Son Kullanıcı Temsilcisi',  kind: 'end_user' },
     ];
 
+    const finalDisKisiler = customDisKisiler && customDisKisiler.length === 3
+      ? customDisKisiler.map((c, i) => ({
+          fullName: c.fullName,
+          firstName: c.fullName.split(' ')[0],
+          gender: c.gender || 'any',
+          role: c.role,
+          kind: ['client','sponsor','end_user'][i]
+        }))
+      : disKisiler;
+
     const absenceMap      = new Map();
     const reasonUseCounts = {};
     const baseVars        = { player_name, project_name, mappedSector };
 
     // ── Hoşgeldiniz bildirimleri (her senaryo bunlarla başlar) ──────────────
-    const hrPool   = kadro.filter(k => k.gender === 'female');
-    const hrPerson = hrPool.length ? randChoice(hrPool, rng) : kadro[0];
-    const sponsor  = disKisiler[1];
+    const hrPool   = finalKadro.filter(k => k.gender === 'female');
+    const hrPerson = hrPool.length ? randChoice(hrPool, rng) : finalKadro[0];
+    const sponsor  = finalDisKisiler[1];
 
     const _firstPhase = activePhases[0] || PHASES[0];
     const allNotifications = [
@@ -748,7 +765,7 @@ const PSG = (() => {
         if (lorePositions.has(slot) && loreDone < phaseLoreCount && phaseLoreTpls.length > 0) {
           // ── Lore bildirimi ──
           const tpl  = weightedChoice(phaseLoreTpls, phaseLoreTpls.map(t => t.weight ?? 1), rng);
-          const lore = renderLore(globalIdx, tpl, phase, kadro, disKisiler, absenceMap, rng, baseVars, sectionNum);
+          const lore = renderLore(globalIdx, tpl, phase, finalKadro, finalDisKisiler, absenceMap, rng, baseVars, sectionNum);
           allNotifications.push(lore);
           loreDone++;
           globalIdx++;
@@ -760,14 +777,14 @@ const PSG = (() => {
           if (!reason) { globalIdx++; continue; }
 
           reasonUseCounts[reason.reason_id] = (reasonUseCounts[reason.reason_id] || 0) + 1;
-          const dec = renderDecision(globalIdx, mesele, reason, phase, kadro, disKisiler, absenceMap, rng, baseVars, sectionNum);
+          const dec = renderDecision(globalIdx, mesele, reason, phase, finalKadro, finalDisKisiler, absenceMap, rng, baseVars, sectionNum);
           allNotifications.push(dec);
           decisionsDone++;
           globalIdx++;
         } else if (loreDone < phaseLoreCount && phaseLoreTpls.length > 0) {
           // Karar bitti ama hâlâ lore slotu var
           const tpl  = weightedChoice(phaseLoreTpls, phaseLoreTpls.map(t => t.weight ?? 1), rng);
-          const lore = renderLore(globalIdx, tpl, phase, kadro, disKisiler, absenceMap, rng, baseVars, sectionNum);
+          const lore = renderLore(globalIdx, tpl, phase, finalKadro, finalDisKisiler, absenceMap, rng, baseVars, sectionNum);
           allNotifications.push(lore);
           loreDone++;
           globalIdx++;
@@ -797,8 +814,8 @@ const PSG = (() => {
       project_name,
       start_phase,
       end_phase,
-      kadro,
-      dis_kisiler: disKisiler,
+      kadro: finalKadro,
+      dis_kisiler: finalDisKisiler,
       // game.html'in section-tabanlı batch sistemini doğru besle (sadece aktif fazlar)
       sections: activePhases.map((p, i) => ({
         id:        i + 1,
@@ -809,5 +826,36 @@ const PSG = (() => {
     };
   }
 
-  return { generate };
+  async function previewTeam(sector) {
+    const SECTOR_MAP_PT = { it:'yazilim', finance:'finans', health:'saglik', construction:'insaat', defense:'savunma', education:'egitim', retail:'perakende', energy:'yazilim', telecom:'yazilim', other:'yazilim' };
+    const [isimler, roller] = await Promise.all([
+      fetch('data/havuzlar/isimler.json').then(r => r.json()),
+      fetch('data/havuzlar/roller.json').then(r => r.json()),
+    ]);
+    const mappedSec  = SECTOR_MAP_PT[sector] || 'yazilim';
+    const sRoller    = roller[mappedSec] || roller['yazilim'] || ['Geliştirici', 'Test Uzmanı', 'Analist'];
+    const soyadlar   = isimler.soyadlar || [];
+    const used       = new Set();
+    const rng2       = makeRng(Date.now() ^ 0xdeadbeef);
+    const GENDERS    = ['female','male','female','male','female','male','female','male'];
+
+    function pick(gender) {
+      let pool = gender === 'female' ? isimler.female : gender === 'male' ? isimler.male : [...isimler.female, ...isimler.male];
+      pool = pool.filter(n => !used.has(n));
+      if (!pool.length) pool = gender === 'female' ? isimler.female : isimler.male;
+      const fn = randChoice(pool, rng2); used.add(fn);
+      const sn = soyadlar.length ? randChoice(soyadlar, rng2) : '';
+      return { fullName: `${fn} ${sn}`.trim(), gender };
+    }
+
+    const kadro = GENDERS.map(g => ({ ...pick(g), role: randChoice(sRoller, rng2) }));
+    const disKisiler = [
+      { ...pick('female'), role: 'Müşteri Yetkilisi',        kind: 'client'   },
+      { ...pick('male'),   role: 'Sponsor',                  kind: 'sponsor'  },
+      { ...pick('any'),    role: 'Son Kullanıcı Temsilcisi', kind: 'end_user' },
+    ];
+    return { kadro, disKisiler };
+  }
+
+  return { generate, previewTeam };
 })();

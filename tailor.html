@@ -247,6 +247,28 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 .ark-arrow-mid{color:#475569;font-weight:700;font-size:14px;line-height:1}
 .ark-arrow-dn{color:#ef4444;font-weight:800;font-size:14px;line-height:1}
 
+/* ── CHARACTER ROWS (Özet'teki düzenlenebilir karakter satırları) ── */
+.char-section-head{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.35);padding:16px 26px 8px;display:flex;align-items:center;gap:8px}
+.char-rows{display:flex;flex-direction:column;gap:0}
+.char-row{display:grid;grid-template-columns:32px 1fr 1fr 140px;align-items:center;gap:8px;padding:8px 26px;border-bottom:1px solid rgba(255,255,255,.04)}
+.char-row:last-child{border-bottom:none}
+.char-row.ext{background:rgba(255,255,255,.02)}
+.char-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0}
+.char-avatar.f{background:linear-gradient(135deg,#7c3aed,#a855f7)}
+.char-avatar.m{background:linear-gradient(135deg,#1d4ed8,#3b82f6)}
+.char-input{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:5px 9px;color:var(--text-inv);font-size:12px;font-weight:500;outline:none;transition:border .15s;width:100%;min-width:0}
+.char-input:focus{border-color:rgba(139,92,246,.6);background:rgba(255,255,255,.09)}
+.char-ark-sel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:5px 8px;color:rgba(255,255,255,.7);font-size:11px;font-weight:500;outline:none;cursor:pointer;width:100%;-webkit-appearance:none;appearance:none}
+.char-ark-sel:focus{border-color:rgba(139,92,246,.6)}
+.char-sep{border:none;border-top:1px solid rgba(255,255,255,.08);margin:4px 26px}
+@media(max-width:580px){.char-row{grid-template-columns:28px 1fr 1fr;}.char-ark-sel{grid-column:2/-1}}
+/* loading overlay */
+.gen-overlay{position:fixed;inset:0;background:rgba(10,12,20,.75);backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9000;gap:14px}
+.gen-overlay.hidden{display:none}
+.gen-spinner{width:36px;height:36px;border:3px solid rgba(139,92,246,.3);border-top-color:#8b5cf6;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.gen-overlay p{color:rgba(255,255,255,.65);font-size:13px;font-weight:600}
+
 /* ── NAV BUTTONS ── */
 .wiz-nav{position:fixed;bottom:0;left:0;right:0;display:flex;align-items:center;gap:12px;background:rgba(12,17,26,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.07);padding:14px max(20px,calc(50% - 290px));box-sizing:border-box;z-index:200}
 .wiz-back{background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);font-size:12px;font-weight:600;padding:9px 18px;border-radius:7px;cursor:pointer;transition:all .15s}
@@ -433,7 +455,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 
 
 <!-- ═══════════════════════════════════════════
-     CAREER — STEP 1: KİMLİK & SEKTÖR
+     CAREER — STEP 1: KURULUM
 ═══════════════════════════════════════════ -->
 <div class="page flex-start wiz-page" id="page-c1">
   <div class="wiz-inner">
@@ -441,14 +463,16 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 
     <div class="setup-card">
       <div class="setup-card-head">
-        <h2>Karakterini yarat</h2>
-        <p>Proje adı oyun boyunca kullanılır. Sektörüne göre bir öneri hazırladık, istersen değiştirebilirsin.</p>
+        <h2>Senaryonu kurgula</h2>
+        <p>Proje ortamını, zorluğunu ve yaklaşımını belirle. Özet ekranında ekibini düzenleyebilirsin.</p>
       </div>
 
+      <!-- Proje & Sektör -->
       <div class="setup-row">
         <span class="setup-row-label">Proje Adı</span>
         <input class="setup-text-input" id="project_name" type="text" placeholder="Ör: Proje Pegasus" maxlength="50" data-user-edited="false" oninput="this.dataset.userEdited='true'">
       </div>
+
       <div class="setup-row" style="align-items:start">
         <span class="setup-row-label" style="padding-top:10px">Sektör</span>
         <div style="flex:1">
@@ -472,7 +496,6 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
             Profilinden otomatik seçildi: <b id="sector-profile-lbl"></b>
           </div>
-
           <div id="sector-custom-wrap">
             <input class="setup-text-input" id="sector_custom" type="text"
                    placeholder="Sektörünüzü yazın... (Ör: Lojistik, Tarım)" maxlength="50"
@@ -481,33 +504,10 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
           <p class="val-hint" id="hint-c1">Bir sektör seçmelisin.</p>
         </div>
       </div>
-    </div>
 
-  </div>
-  <div class="wiz-nav">
-    <button class="wiz-back" onclick="goPage('page-mode')">← Geri</button>
-    <button class="wiz-next career-next" onclick="nextCareer(1)">
-      İleri
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-</div>
+      <hr class="row-div" style="margin:0">
 
-
-<!-- ═══════════════════════════════════════════
-     CAREER — STEP 2: ZORLUK & PMO & TAKIM
-═══════════════════════════════════════════ -->
-<div class="page flex-start wiz-page" id="page-c2">
-  <div class="wiz-inner">
-    <div class="wizard-steps" id="steps-c2"></div>
-
-    <div class="setup-card">
-      <div class="setup-card-head">
-        <h2>Ortam, zorluk ve faz</h2>
-        <p>Proje dinamiklerini ve başlangıç noktanı belirle.</p>
-      </div>
-
-      <!-- ── DOMAIN DIFFICULTY SLIDERS (1=hafif · 2=orta · 3=sert) ── -->
+      <!-- Zorluk sliders -->
       <div class="setup-row">
         <span class="setup-row-label">Zorluk</span>
         <div class="domain-sliders">
@@ -532,7 +532,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
         </div>
       </div>
 
-      <!-- ── PMO ── -->
+      <!-- PMO -->
       <div class="setup-row">
         <span class="setup-row-label">PMO</span>
         <div class="seg-bar">
@@ -542,7 +542,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
         </div>
       </div>
 
-      <!-- ── TAKIM ── -->
+      <!-- Takım -->
       <div class="setup-row">
         <span class="setup-row-label">Takım</span>
         <div class="seg-bar">
@@ -552,7 +552,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
         </div>
       </div>
 
-      <!-- ── FAZ ARALIĞI — dual-handle slider ── -->
+      <!-- Faz Aralığı -->
       <div class="setup-row">
         <span class="setup-row-label">Faz Aralığı</span>
         <div class="phase-range-wrap">
@@ -565,32 +565,10 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
           <div class="phase-range-badge" id="phase-badge"></div>
         </div>
       </div>
-    </div>
 
-    <p class="val-hint" id="hint-c2">Lütfen tüm seçenekleri seçin.</p>
-  </div>
-  <div class="wiz-nav">
-    <button class="wiz-back" onclick="goPage('page-c1')">← Geri</button>
-    <button class="wiz-next career-next" onclick="nextCareer(2)">
-      İleri
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-</div>
+      <hr class="row-div" style="margin:0">
 
-
-<!-- ═══════════════════════════════════════════
-     CAREER — STEP 3: YAKLAŞIM DAĞILIMI
-═══════════════════════════════════════════ -->
-<div class="page flex-start wiz-page" id="page-c3">
-  <div class="wiz-inner">
-    <div class="wizard-steps" id="steps-c3"></div>
-
-    <div class="setup-card">
-      <div class="setup-card-head">
-        <h2>Metodoloji Yaklaşımı</h2>
-        <p>Öngörücü ve Çevik arasındaki dengeyi belirle. Ortadaki bölge Hibrit yaklaşımı temsil eder.</p>
-      </div>
+      <!-- Yaklaşım -->
       <div class="setup-row" style="display:block;padding:18px 26px 24px">
         <div class="approach2-zone">
           <span class="approach2-zone-badge hybrid" id="approach2-badge">Hibrit</span>
@@ -610,14 +588,14 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
           <button class="approach2-preset-btn" onclick="setApproach2Preset(85)">Çevik Ağırlıklı</button>
         </div>
       </div>
+
     </div>
 
-    <p class="val-hint" id="hint-c3">Toplam %100 olmalı.</p>
   </div>
   <div class="wiz-nav">
-    <button class="wiz-back" onclick="goPage('page-c2')">← Geri</button>
-    <button class="wiz-next career-next" onclick="nextCareer(3)">
-      Özete Git
+    <button class="wiz-back" onclick="goPage('page-mode')">← Geri</button>
+    <button class="wiz-next career-next" id="btn-c1-next" onclick="nextCareer(1)">
+      Ekibi Oluştur
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
     </button>
   </div>
@@ -625,42 +603,11 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 
 
 <!-- ═══════════════════════════════════════════
-     CAREER — STEP 4: EKİP ARKETİPLERİ
+     CAREER — STEP 2: ÖZET
 ═══════════════════════════════════════════ -->
-<div class="page flex-start wiz-page" id="page-c4">
+<div class="page flex-start wiz-page" id="page-c2">
   <div class="wiz-inner">
-    <div class="wizard-steps" id="steps-c4"></div>
-
-    <div class="setup-card">
-      <div class="setup-card-head">
-        <h2>Ekip karakterleri</h2>
-        <p>Takımında hangi profil baskın? Senaryo boyunca hangi mesele tipiyle karşılaşacağın buna göre şekillenir.</p>
-      </div>
-      <div class="setup-row" style="display:block;padding:18px 26px 24px">
-        <div class="arketip-grid" id="arketip-grid">
-          <!-- JS ile doldurulur -->
-        </div>
-      </div>
-    </div>
-
-    <p class="val-hint" id="hint-c4">Bir ekip arketipi seçmelisin.</p>
-  </div>
-  <div class="wiz-nav">
-    <button class="wiz-back" onclick="goPage('page-c3')">← Geri</button>
-    <button class="wiz-next career-next" onclick="nextCareer(4)">
-      Özete Git
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════
-     CAREER — STEP 5: ÖZET
-═══════════════════════════════════════════ -->
-<div class="page flex-start wiz-page" id="page-c5">
-  <div class="wiz-inner">
-    <div class="wizard-steps" id="steps-c5"></div>
+    <div class="wizard-steps" id="steps-c2"></div>
 
     <div class="summary-card">
       <div class="summary-head">
@@ -670,6 +617,17 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
       <div class="summary-body" id="career-summary"></div>
     </div>
 
+    <!-- Karakter Kadrosu -->
+    <div class="setup-card" id="char-card" style="margin-bottom:16px">
+      <div class="summary-head">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Ekip Kadrosu — İsim, Unvan ve Arketip Düzenlenebilir
+      </div>
+      <div class="char-rows" id="char-rows">
+        <!-- JS ile doldurulur -->
+      </div>
+    </div>
+
     <div class="info-box">
       <svg class="info-box-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       <span>AI, <strong>glossary.json</strong>'daki 284 terimden yalnızca henüz öğretilmemiş olanları hedef seçer. Daha önce doğru seçtiğin kararlar tekrar İlaç olarak çıkmaz; ama Çeldirici olarak karşına gelebilir.</span>
@@ -677,7 +635,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 
   </div>
   <div class="wiz-nav">
-    <button class="wiz-back" onclick="goPage('page-c4')">← Düzenle</button>
+    <button class="wiz-back" onclick="goPage('page-c1')">← Düzenle</button>
     <button class="wiz-next start-btn" id="btn-start-career" onclick="startGame()">
       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       Maceraya Başla
@@ -906,7 +864,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 // ── STATE ────────────────────────────────────────────────────────────────────
 const S = {
   mode: null,
-  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, dev_approach:null, team_archetype:null },
+  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, dev_approach:null, team_archetype:null, characters: [] },
   comp:   { dev_approach:null, org_structure:null, role:null, difficulty:null, eco_filters:[], sprint_length:null }
 };
 
@@ -945,10 +903,7 @@ function goPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // Faz slider'ı sayfa c2'ye gelindiğinde render et
-  if (id === 'page-c2') _renderPhaseSlider();
-  // Arketip grid'i sayfa c4'e gelindiğinde render et
-  if (id === 'page-c4') renderArketipGrid();
+  if (id === 'page-c1') _renderPhaseSlider();
 }
 
 // ── MODE SELECT ───────────────────────────────────────────────────────────────
@@ -959,11 +914,11 @@ function selectMode(mode) {
 }
 
 // ── STEPPER BUILD ─────────────────────────────────────────────────────────────
-const CAREER_STEPS = ['Kimlik', 'Ortam', 'Yaklaşım', 'Ekip', 'Özet'];
+const CAREER_STEPS = ['Kurulum', 'Özet'];
 const COMP_STEPS   = ['Yaklaşım & Rol', 'Odak & Sprint', 'Özet'];
 
 function buildSteppers() {
-  [1,2,3,4,5].forEach(cur => {
+  [1,2].forEach(cur => {
     const el = document.getElementById('steps-c' + cur);
     if (!el) return;
     el.innerHTML = CAREER_STEPS.map((lbl, i) => {
@@ -1168,7 +1123,7 @@ function _initPhaseSlider() {
   });
 }
 
-// page-c2 açıldığında slider'ı başlat
+// Sayfa yüklendiğinde slider'ı başlat (page-c1 üzerinde)
 document.addEventListener('DOMContentLoaded', () => {
   _initPhaseSlider();
   _autoFillSectorFromProfile();
@@ -1274,6 +1229,7 @@ function selectArketip(el, id) {
 // ── CAREER FLOW ───────────────────────────────────────────────────────────────
 function nextCareer(step) {
   if (step === 1) {
+    // Validate sektör
     S.career.sector = (document.getElementById('sector-select')?.value || '').trim();
     if (!S.career.sector) { hint('hint-c1', true); return; }
     if (S.career.sector === 'other') {
@@ -1284,37 +1240,50 @@ function nextCareer(step) {
       S.career.sector_custom = null;
     }
     hint('hint-c1', false);
+
+    // PM ismi
     const _s = (() => { try { return JSON.parse(localStorage.getItem('pmSim_session') || 'null'); } catch { return null; } })();
     S.career.pm_name = _s?.displayName || _s?.username || 'PM';
     S.career.project_name = (document.getElementById('project_name').value.trim()) || PROJECT_NAME_DEFAULTS[S.career.sector] || 'Proje';
-    goPage('page-c2');
-  } else if (step === 2) {
-    const pmo  = getOpt('pmo_type');
-    const team = getOpt('team_culture');
-    const hintEl = document.getElementById('hint-c2');
-    if (!pmo || !team) {
-      if (hintEl) hintEl.textContent = 'Lütfen PMO ve Takım seçeneklerini seçin.';
-      hint('hint-c2', true); return;
-    }
-    hint('hint-c2', false);
-    S.career.pmo_type           = pmo;
-    S.career.team_culture       = team;
+
+    // Ortam
+    S.career.pmo_type           = getOpt('pmo_type');
+    S.career.team_culture       = getOpt('team_culture');
     S.career.difficulty_people  = parseInt(document.getElementById('diff-people')?.value  || '2', 10);
     S.career.difficulty_process = parseInt(document.getElementById('diff-process')?.value || '2', 10);
     S.career.difficulty_biz     = parseInt(document.getElementById('diff-biz')?.value     || '2', 10);
     S.career.start_phase        = PHASE_IDS[phaseStartIdx] || 'baslangic';
     S.career.end_phase          = PHASE_IDS[phaseEndIdx]   || 'kapanis';
-    goPage('page-c3');
-  } else if (step === 3) {
-    hint('hint-c3', false);
+
+    // Yaklaşım
     S.career.dev_approach = getApproachFromRatio();
-    renderArketipGrid();
-    goPage('page-c4');
-  } else if (step === 4) {
-    if (!S.career.team_archetype) { hint('hint-c4', true); return; }
-    hint('hint-c4', false);
-    renderCareerSummary();
-    goPage('page-c5');
+
+    // Loading overlay göster
+    const overlay = document.getElementById('gen-overlay');
+    if (overlay) overlay.classList.remove('hidden');
+    const nextBtn = document.getElementById('btn-c1-next');
+    if (nextBtn) { nextBtn.disabled = true; nextBtn.textContent = '…'; }
+
+    // PSG preview team oluştur
+    (async () => {
+      try {
+        if (typeof PSG !== 'undefined' && PSG.previewTeam) {
+          const { kadro, disKisiler } = await PSG.previewTeam(S.career.sector);
+          S.career.characters = [
+            ...kadro.map(c => ({ ...c, archetype: 'guvenilir_orta', kind: 'team' })),
+            ...disKisiler.map(c => ({ ...c, archetype: null })),
+          ];
+        }
+      } catch(e) {
+        console.warn('[tailor] previewTeam hatası:', e);
+        S.career.characters = [];
+      }
+      if (overlay) overlay.classList.add('hidden');
+      if (nextBtn) { nextBtn.disabled = false; nextBtn.textContent = 'Ekibi Oluştur'; }
+      renderCareerSummary();
+      renderCharacterRows();
+      goPage('page-c2');
+    })();
   }
 }
 
@@ -1336,6 +1305,64 @@ function nextComp(step) {
   }
 }
 
+// ── CHARACTER ROWS RENDER ─────────────────────────────────────────────────────
+function renderCharacterRows() {
+  const container = document.getElementById('char-rows');
+  if (!container) return;
+
+  const arkOptions = ARKETIP.map(a => `<option value="${a.id}">${a.title}</option>`).join('');
+
+  function charRowHtml(c, idx) {
+    const ini  = (c.fullName || '?')[0].toUpperCase();
+    const avCls = c.gender === 'female' ? 'f' : 'm';
+    const isExt = c.kind !== 'team';
+    const arkSel = isExt
+      ? `<span style="font-size:11px;color:rgba(255,255,255,.3);padding:0 4px">${c.role}</span>`
+      : `<select class="char-ark-sel" onchange="updateCharArk(${idx},this.value)">
+           ${ARKETIP.map(a => `<option value="${a.id}"${c.archetype===a.id?' selected':''}>${a.title}</option>`).join('')}
+         </select>`;
+
+    return `<div class="char-row${isExt?' ext':''}" data-char-idx="${idx}">
+      <div class="char-avatar ${avCls}">${ini}</div>
+      <input class="char-input" value="${c.fullName||''}" placeholder="Ad Soyad"
+             oninput="updateCharField(${idx},'fullName',this.value)">
+      <input class="char-input" value="${c.role||''}" placeholder="Unvan"
+             oninput="updateCharField(${idx},'role',this.value)">
+      ${arkSel}
+    </div>`;
+  }
+
+  const teamChars = S.career.characters.filter(c => c.kind === 'team');
+  const extChars  = S.career.characters.filter(c => c.kind !== 'team');
+
+  let html = '';
+  if (teamChars.length) {
+    html += `<div class="char-section-head">
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+      Ekip Üyeleri
+    </div>`;
+    html += teamChars.map((c) => charRowHtml(c, S.career.characters.indexOf(c))).join('');
+  }
+  if (extChars.length) {
+    html += `<hr class="char-sep">`;
+    html += `<div class="char-section-head">
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Dış Paydaşlar
+    </div>`;
+    html += extChars.map(c => charRowHtml(c, S.career.characters.indexOf(c))).join('');
+  }
+
+  container.innerHTML = html || '<p style="padding:16px 26px;font-size:13px;color:rgba(255,255,255,.3)">Karakterler yükleniyor…</p>';
+}
+
+function updateCharField(idx, field, val) {
+  if (S.career.characters[idx]) S.career.characters[idx][field] = val;
+}
+
+function updateCharArk(idx, val) {
+  if (S.career.characters[idx]) S.career.characters[idx].archetype = val;
+}
+
 // ── SUMMARY RENDER ────────────────────────────────────────────────────────────
 function row(icon, key, val) {
   return `<div class="sum-row"><span class="sum-icon">${icon}</span><span class="sum-key">${key}</span><span class="sum-val">${val}</span></div>`;
@@ -1351,9 +1378,9 @@ function renderCareerSummary() {
     row(IC.user,     'PM Adı',         c.pm_name) +
     row(IC.folder,   'Proje Adı',      c.project_name) +
     row(IC.globe,    'Sektör',         sLbl) +
-    row(IC.zap,      'People & Ekip',  `${c.difficulty_people || 5}/10`) +
-    row(IC.zap,      'Süreç & Kapsam', `${c.difficulty_process || 5}/10`) +
-    row(IC.zap,      'İş Çevresi',     `${c.difficulty_biz || 5}/10`) +
+    row(IC.zap, 'People & Ekip',  `${'●'.repeat(c.difficulty_people||2)}${'○'.repeat(3-(c.difficulty_people||2))}`) +
+    row(IC.zap, 'Süreç & Kapsam', `${'●'.repeat(c.difficulty_process||2)}${'○'.repeat(3-(c.difficulty_process||2))}`) +
+    row(IC.zap, 'İş Çevresi',     `${'●'.repeat(c.difficulty_biz||2)}${'○'.repeat(3-(c.difficulty_biz||2))}`) +
     row(IC.building, 'PMO',            LBL.pmo_type[c.pmo_type] || c.pmo_type) +
     row(IC.users,    'Takım',          LBL.team_culture[c.team_culture] || c.team_culture) +
     row(IC.layers,   'Faz Aralığı',   `${LBL.phase[c.start_phase] || c.start_phase} → ${LBL.phase[c.end_phase] || c.end_phase}`) +
@@ -1700,6 +1727,8 @@ async function startGame() {
         totalDecisions:     180,
         start_phase:        cc.start_phase || 'baslangic',
         end_phase:          cc.end_phase   || 'kapanis',
+        customKadro:      S.career.characters.filter(c => c.kind === 'team').map(c => ({ fullName: c.fullName, role: c.role, gender: c.gender || 'any' })),
+        customDisKisiler: S.career.characters.filter(c => c.kind !== 'team').map(c => ({ fullName: c.fullName, role: c.role, gender: c.gender || 'any' })),
       });
       localStorage.setItem('pmSim_personal_scenario', JSON.stringify(scenario));
       // Supabase'e yedekle (fire-and-forget — cross-device / refresh koruma)
@@ -1868,5 +1897,11 @@ function launchGame() {
   window.location.href = 'game.html';
 }
 </script>
+<!-- Loading overlay -->
+<div class="gen-overlay hidden" id="gen-overlay">
+  <div class="gen-spinner"></div>
+  <p>Ekip kadrosu oluşturuluyor…</p>
+</div>
+
 </body>
 </html>
