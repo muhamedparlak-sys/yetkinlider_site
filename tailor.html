@@ -704,11 +704,15 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
               </span>
             </button>
             <div class="adv-acc-body" id="acc-body-process">
-              <select class="adv-ark-sel" id="adv-proc-ark" disabled onchange="S.career._advArk=S.career._advArk||{}; S.career._advArk.process=this.value">
-                <option value="">— Süreç Arketipi Seçin —</option>
-                <option value="structured">Yapılandırılmış</option>
-                <option value="flexible">Esnek</option>
-                <option value="chaotic">Kaotik</option>
+              <select class="adv-ark-sel" id="adv-proc-ark" onchange="updateAdvArk('process', this.value)">
+                <option value="">— Süreç Profili Seçin —</option>
+                <option value="net_yol">Net Yol — İyi tanımlı, katı kısıtlar</option>
+                <option value="dinamik_ortam">Dinamik Ortam — Karmaşık, uyarlanabilir</option>
+                <option value="yapilandirilmis_donus">Yapılandırılmış Dönüşüm — Aşamalı, hibrit</option>
+                <option value="uyumluluk_kafesi">Uyumluluk Kafesi — Denetim ağırlıklı</option>
+                <option value="acil_mod">Acil Mod — Kaotik, baskı altında</option>
+                <option value="bilinmez_zemin">Bilinmez Zemin — AR-GE, belirsiz</option>
+                <option value="buyutulmus_kapsam">Büyütülmüş Kapsam — Aşırı mühendislik</option>
               </select>
             </div>
           </div>
@@ -725,11 +729,15 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
               </span>
             </button>
             <div class="adv-acc-body" id="acc-body-env">
-              <select class="adv-ark-sel" id="adv-biz-ark" disabled onchange="S.career._advArk=S.career._advArk||{}; S.career._advArk.biz=this.value">
-                <option value="">— Çevre Arketipi Seçin —</option>
-                <option value="stable">Stabil</option>
-                <option value="volatile">Değişken</option>
-                <option value="competitive">Rekabetçi</option>
+              <select class="adv-ark-sel" id="adv-biz-ark" onchange="updateAdvArk('env', this.value)">
+                <option value="">— Çevre Profili Seçin —</option>
+                <option value="duzenlenmis_liman">Düzenlenmiş Liman — Bankacılık, sağlık, kamu</option>
+                <option value="girisimci_saha">Girişimci Saha — Startup, yüksek hız</option>
+                <option value="koklu_kurum">Köklü Kurum — Büyük, yerleşik organizasyon</option>
+                <option value="fintech_firtinasi">FinTech Fırtınası — Düzenli ama disrupted</option>
+                <option value="inovasyon_merkezi">İnovasyon Merkezi — AR-GE odaklı</option>
+                <option value="rekabetci_arena">Rekabetçi Arena — Yüksek rekabetle piyasa</option>
+                <option value="gecis_ekonomisi">Geçiş Ekonomisi — Belirsiz, dönüşüm halinde</option>
               </select>
             </div>
           </div>
@@ -1587,7 +1595,7 @@ function buildPayload() {
   return {
     schema_version: '2.1', session_id: uid, created_at: now, mode: 'career',
     player: { name: S.career.pm_name, project_name: S.career.project_name, avatar_seed: S.career.pm_name.toLowerCase().replace(/\s+/g,'_') },
-    career_config: { sector: S.career.sector, sector_label: sectorLabel, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, dev_approach: S.career.dev_approach, difficulty_people: S.career.difficulty_people || 5, difficulty_process: S.career.difficulty_process || 5, difficulty_biz: S.career.difficulty_biz || 5, start_phase: S.career.start_phase || 'baslangic', end_phase: S.career.end_phase || 'kapanis' },
+    career_config: { sector: S.career.sector, sector_label: sectorLabel, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, dev_approach: S.career.dev_approach, difficulty_people: S.career.difficulty_people || 5, difficulty_process: S.career.difficulty_process || 5, difficulty_biz: S.career.difficulty_biz || 5, start_phase: S.career.start_phase || 'baslangic', end_phase: S.career.end_phase || 'kapanis', process_archetype: (S.career._advArk && S.career._advArk.process) || null, env_archetype: (S.career._advArk && S.career._advArk.env) || null },
     competency_config: null,
     game_state: {
       current_day: 0, current_phase: 'initiating',
@@ -1789,10 +1797,9 @@ function renderAdvancedPeople() {
   }).join('');
 }
 
-function updateAdvArk(type, val) {
-  // Sadece üyelerde aktif olacak — şimdilik sadece state'e kaydet
+function updateAdvArk(key, val) {
   if (!S.career._advArk) S.career._advArk = {};
-  S.career._advArk[type] = val || null;
+  S.career._advArk[key] = val;
 }
 
 // ── APPROACH 2-SEGMENT BAR ────────────────────────────────────────────────────
@@ -1947,8 +1954,10 @@ async function startGame() {
         totalDecisions:     180,
         start_phase:        cc.start_phase || 'baslangic',
         end_phase:          cc.end_phase   || 'kapanis',
-        customKadro:      S.career.characters.filter(c => c.kind === 'team').map(c => ({ fullName: c.fullName, role: c.role, gender: c.gender || 'any' })),
-        customDisKisiler: S.career.characters.filter(c => c.kind !== 'team').map(c => ({ fullName: c.fullName, role: c.role, gender: c.gender || 'any' })),
+        process_archetype:  cc.process_archetype || null,
+        env_archetype:      cc.env_archetype     || null,
+        customKadro:      S.career.characters.filter(c => c.kind === 'team').map(c => ({ fullName: c.fullName, role: c.role, gender: c.gender || 'any', archetype: c.archetype || null })),
+        customDisKisiler: S.career.characters.filter(c => c.kind !== 'team').map(c => ({ fullName: c.fullName, role: c.role, gender: c.gender || 'any', archetype: c.archetype || null })),
       });
       localStorage.setItem('pmSim_personal_scenario', JSON.stringify(scenario));
       // Supabase'e yedekle (fire-and-forget — cross-device / refresh koruma)
