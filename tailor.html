@@ -16,27 +16,59 @@
   --success:#10b981;--warning:#f59e0b;--error:#ef4444;
   --green:#22c55e;--amber:#f59e0b;--purple:#8b5cf6;
   --dim:#94a3b8;--muted:#64748b;
-  --topbar-h:52px;
+  --bar-h:36px;--topbar-h:52px;
 }
 /* ── LIGHT MODE ── */
-body.light-mode{--bg:#f1f5f9;--surface:#ffffff;--surface2:#e2e8f0;--nav-bg:#ffffff;--border:rgba(0,0,0,.1);--nav-border:rgba(0,0,0,.1);--text-inv:#1e293b;--dim:#64748b;--muted:#94a3b8}
-body.light-mode .setup-card{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.1)}
+body.light-mode{--bg:#f0f4f8;--surface:#ffffff;--surface2:#e2e8f0;--nav-bg:#ffffff;--border:rgba(0,0,0,.1);--nav-border:rgba(0,0,0,.1);--text-inv:#1e293b;--dim:#64748b;--muted:#94a3b8}
+body.light-mode,body.light-mode .page,body.light-mode .wiz-page{background:linear-gradient(135deg,#f0f4f8,#e8eef4)!important}
+body.light-mode #page-mode{background:linear-gradient(135deg,#f0f4f8,#e8eef4)!important}
+body.light-mode .setup-card{background:#fff!important;border-color:rgba(0,0,0,.1)}
 body.light-mode .setup-row-label{color:rgba(0,0,0,.5)}
-body.light-mode .seg-item{color:rgba(0,0,0,.45)}
+body.light-mode .seg-bar{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12)}
+body.light-mode .seg-item{color:rgba(0,0,0,.45);border-left-color:rgba(0,0,0,.08)!important}
 body.light-mode .seg-item.selected{background:rgba(139,92,246,.18);color:#6d28d9}
 body.light-mode .notch-seg{background:rgba(0,0,0,.1)}
 body.light-mode .setup-text-input{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.15);color:#1e293b}
 body.light-mode .sector-select{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.15);color:#1e293b}
 body.light-mode .phase-track{background:rgba(0,0,0,.1)}
 body.light-mode .phase-label{color:rgba(0,0,0,.3)}
-body.light-mode .phase-label.in-range{color:#6d28d9}
-body.light-mode .summary-card,.body.light-mode .char-card{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.1)}
+body.light-mode .phase-label.in-range{color:#6d28d9;font-weight:700}
+body.light-mode .phase-fill{background:linear-gradient(to right,#7c3aed,#2563eb)}
+body.light-mode .summary-card,body.light-mode .setup-card{background:#fff!important;border-color:rgba(0,0,0,.1)}
 body.light-mode .char-input{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.1);color:#1e293b}
-body.light-mode .char-ark-sel{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.1);color:#1e293b}
-body.light-mode .wiz-nav{background:rgba(241,245,249,.96)}
+body.light-mode .wiz-nav{background:rgba(240,244,248,.97)!important;border-top-color:rgba(0,0,0,.1)}
+body.light-mode .wiz-back{border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.5)}
 body.light-mode .mode-btn{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.1)}
+body.light-mode .mode-btn:hover{background:rgba(0,0,0,.06);border-color:var(--accent)}
 body.light-mode .sum-key{color:rgba(0,0,0,.4)}
 body.light-mode .sum-val{color:rgba(0,0,0,.8)}
+body.light-mode .summary-head{color:rgba(0,0,0,.4)}
+body.light-mode .sum-row{border-bottom-color:rgba(0,0,0,.04)}
+body.light-mode .char-section-head{color:rgba(0,0,0,.35)}
+body.light-mode .char-row{border-bottom-color:rgba(0,0,0,.04)}
+body.light-mode .char-row.ext{background:rgba(0,0,0,.015)}
+body.light-mode .info-box{background:rgba(59,130,246,.05);border-color:rgba(59,130,246,.2)}
+body.light-mode .adv-toggle{border-top-color:rgba(0,0,0,.07)}
+body.light-mode .adv-toggle:hover{background:rgba(0,0,0,.03)}
+body.light-mode .adv-toggle-label{color:rgba(0,0,0,.45)}
+body.light-mode .adv-chevron{color:rgba(0,0,0,.3)}
+body.light-mode .adv-lock-row{color:rgba(0,0,0,.55)}
+body.light-mode .adv-ark-label{color:rgba(0,0,0,.4)}
+body.light-mode .adv-ark-sel{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.12);color:#1e293b}
+body.light-mode .adv-tab{border-color:rgba(0,0,0,.12);background:rgba(0,0,0,.04);color:rgba(0,0,0,.4)}
+body.light-mode .adv-tab:hover{background:rgba(0,0,0,.08);color:rgba(0,0,0,.7)}
+body.light-mode .adv-tab.active{background:rgba(139,92,246,.12);border-color:#8b5cf6;color:#6d28d9}
+body.light-mode .notch-val-lbl{opacity:.85}
+body.light-mode #topbar{background:#fff!important;border-bottom-color:rgba(0,0,0,.1)!important}
+body.light-mode .brand{color:#1e293b}
+body.light-mode .btn-hub{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.12);color:#1e293b}
+body.light-mode .theme-toggle{border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.55)}
+body.light-mode .theme-toggle:hover{background:rgba(0,0,0,.08);color:#000}
+body.light-mode .wizard-step{background:rgba(0,0,0,.06);color:rgba(0,0,0,.35)}
+body.light-mode .wizard-step.done{background:rgba(16,185,129,.12);color:#065f46}
+body.light-mode .wizard-sep{color:rgba(0,0,0,.2)}
+body.light-mode .m-title{color:#1e293b}
+body.light-mode .m-desc{color:#475569}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text-inv);min-height:100vh}
 button{border:none;cursor:pointer;font-family:inherit;background:none;color:inherit}
 a{color:inherit;text-decoration:none}
@@ -52,8 +84,6 @@ input{font-family:inherit}
 .btn-hub:hover{background:rgba(255,255,255,.14)}
 .theme-toggle{background:none;border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:5px 8px;cursor:pointer;color:rgba(255,255,255,.55);font-size:14px;transition:all .15s;line-height:1}
 .theme-toggle:hover{background:rgba(255,255,255,.1);color:#fff}
-body.light-mode .theme-toggle{border-color:rgba(0,0,0,.15);color:rgba(0,0,0,.55)}
-body.light-mode .theme-toggle:hover{background:rgba(0,0,0,.08);color:#000}
 
 /* ── PAGES ── */
 .page{min-height:calc(100vh - var(--topbar-h));margin-top:var(--topbar-h);display:none;align-items:center;justify-content:center;padding:28px 20px 90px}
@@ -156,9 +186,9 @@ input[type=range].ds-range::-webkit-slider-thumb{-webkit-appearance:none;width:1
 input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.5);cursor:pointer;border:none}
 /* ── DUAL-HANDLE PHASE RANGE SLIDER ── */
 .phase-range-wrap{padding:4px 0 0}
-.phase-track{position:relative;height:6px;border-radius:3px;background:rgba(255,255,255,.1);margin:18px 0 28px;cursor:pointer}
-.phase-fill{position:absolute;height:100%;border-radius:3px;background:linear-gradient(to right,#8b5cf6,#3b82f6);pointer-events:none}
-.phase-handle{position:absolute;top:50%;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.45);transform:translate(-50%,-50%);cursor:grab;z-index:2;transition:box-shadow .15s;touch-action:none}
+.phase-track{position:relative;height:var(--bar-h);border-radius:8px;background:rgba(255,255,255,.1);margin:4px 0 28px;cursor:pointer}
+.phase-fill{position:absolute;height:100%;border-radius:8px;background:linear-gradient(to right,#8b5cf6,#3b82f6);pointer-events:none}
+.phase-handle{position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.45);transform:translate(-50%,-50%);cursor:grab;z-index:2;transition:box-shadow .15s;touch-action:none}
 .phase-handle:hover,.phase-handle.dragging{box-shadow:0 0 0 4px rgba(139,92,246,.35),0 1px 6px rgba(0,0,0,.4);cursor:grabbing}
 .phase-labels{position:absolute;top:12px;left:0;right:0;display:flex;justify-content:space-between;pointer-events:none}
 .phase-label{font-size:11px;color:rgba(255,255,255,.35);text-align:center;white-space:nowrap;transform:translateX(-50%);transition:color .15s}
@@ -168,13 +198,13 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 .phase-range-badge{font-size:12px;color:rgba(255,255,255,.5);text-align:center;margin-top:2px}
 .phase-range-badge b{color:#c4b5fd}
 /* ── SEGMENTED BAR (PMO & Takım) ── */
-.seg-bar{display:flex;border-radius:8px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
-.seg-item{flex:1;padding:10px 8px;text-align:center;font-size:12px;font-weight:600;cursor:pointer;color:rgba(255,255,255,.38);transition:all .15s;position:relative;user-select:none}
+.seg-bar{display:flex;border-radius:8px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);height:var(--bar-h)}
+.seg-item{flex:1;padding:0 8px;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;font-weight:600;cursor:pointer;color:rgba(255,255,255,.38);transition:all .15s;position:relative;user-select:none}
 .seg-item+.seg-item{border-left:1px solid rgba(255,255,255,.08)}
 .seg-item:hover{color:rgba(255,255,255,.75);background:rgba(255,255,255,.06)}
 .seg-item.selected{background:rgba(139,92,246,.22);color:#c4b5fd;font-weight:700}
 /* ── APPROACH 2-SEGMENT BAR ── */
-.approach-bar{position:relative;height:50px;border-radius:10px;overflow:hidden;display:flex;cursor:col-resize;user-select:none;touch-action:none}
+.approach-bar{position:relative;height:var(--bar-h);border-radius:8px;overflow:hidden;display:flex;cursor:col-resize;user-select:none;touch-action:none}
 .approach-seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,.9);position:relative;transition:flex .05s linear;min-width:0}
 .approach-seg.ap2-predictive{background:linear-gradient(135deg,#4338ca,#6d28d9)}
 .approach-seg.ap2-agile{background:linear-gradient(135deg,#0891b2,#2563eb)}
@@ -184,15 +214,16 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 .approach2-zone-badge.hybrid{background:rgba(139,92,246,.12);color:#c4b5fd;border:1px solid rgba(139,92,246,.25)}
 .approach2-zone-badge.agile{background:rgba(6,182,212,.12);color:#67e8f9;border:1px solid rgba(6,182,212,.25)}
 /* ── NOTCH BAR (zorluk: 3 tıklanabilir segment) ── */
-.notch-bar{display:flex;align-items:center;gap:5px;padding:2px 0;cursor:pointer;width:100%}
-.notch-seg{flex:1;height:10px;border-radius:5px;background:rgba(255,255,255,.1);transition:background .15s,box-shadow .15s}
+.notch-bar{display:flex;align-items:center;gap:4px;height:var(--bar-h);cursor:pointer;width:100%}
+.notch-seg{flex:1;height:100%;border-radius:6px;background:rgba(255,255,255,.1);transition:background .15s,box-shadow .15s;cursor:pointer}
 .notch-seg:hover{background:rgba(255,255,255,.2)}
+.notch-val-lbl{font-size:11px;font-weight:700;min-width:32px;text-align:right;flex-shrink:0;transition:color .15s}
 .approach2-side-labels{display:flex;justify-content:space-between;margin-top:10px;font-size:12px;font-weight:600}
 .approach2-presets{display:flex;gap:8px;margin-top:14px}
 .approach2-preset-btn{flex:1;padding:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.5);font-size:12px;font-weight:600;border-radius:7px;cursor:pointer;transition:all .14s}
 .approach2-preset-btn:hover{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)}
-.approach2-handle{position:absolute;top:5px;bottom:5px;width:8px;background:rgba(255,255,255,.95);border-radius:4px;box-shadow:0 1px 6px rgba(0,0,0,.5);transform:translateX(-50%);pointer-events:none;z-index:3;transition:width .1s}
-.approach2-handle::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:2px;height:60%;background:rgba(0,0,0,.25);border-radius:1px;box-shadow:3px 0 0 rgba(0,0,0,.25),-3px 0 0 rgba(0,0,0,.25)}
+.approach2-handle{position:absolute;top:4px;bottom:4px;width:5px;background:rgba(255,255,255,.95);border-radius:3px;box-shadow:0 1px 6px rgba(0,0,0,.5);transform:translateX(-50%);pointer-events:none;z-index:3}
+.approach2-handle::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1px;height:55%;background:rgba(0,0,0,.25);border-radius:1px;box-shadow:2px 0 0 rgba(0,0,0,.25),-2px 0 0 rgba(0,0,0,.25)}
 
 /* ── BLOCKED OPTION CELLS ── */
 .opt-cell.blocked{opacity:.25;pointer-events:none;text-decoration:line-through;cursor:not-allowed}
@@ -277,7 +308,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 /* ── CHARACTER ROWS (Özet'teki düzenlenebilir karakter satırları) ── */
 .char-section-head{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.35);padding:16px 26px 8px;display:flex;align-items:center;gap:8px}
 .char-rows{display:flex;flex-direction:column;gap:0}
-.char-row{display:grid;grid-template-columns:32px 1fr 1fr 140px;align-items:center;gap:8px;padding:8px 26px;border-bottom:1px solid rgba(255,255,255,.04)}
+.char-row{display:grid;grid-template-columns:32px 1fr 1fr;align-items:center;gap:8px;padding:8px 26px;border-bottom:1px solid rgba(255,255,255,.04)}
 .char-row:last-child{border-bottom:none}
 .char-row.ext{background:rgba(255,255,255,.02)}
 .char-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0}
@@ -288,7 +319,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 .char-ark-sel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:5px 8px;color:rgba(255,255,255,.7);font-size:11px;font-weight:500;outline:none;cursor:pointer;width:100%;-webkit-appearance:none;appearance:none}
 .char-ark-sel:focus{border-color:rgba(139,92,246,.6)}
 .char-sep{border:none;border-top:1px solid rgba(255,255,255,.08);margin:4px 26px}
-@media(max-width:580px){.char-row{grid-template-columns:28px 1fr 1fr;}.char-ark-sel{grid-column:2/-1}}
+@media(max-width:580px){.char-row{grid-template-columns:28px 1fr 1fr;}}
 /* loading overlay */
 .gen-overlay{position:fixed;inset:0;background:rgba(10,12,20,.75);backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9000;gap:14px}
 .gen-overlay.hidden{display:none}
@@ -299,24 +330,26 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 /* ── ADVANCED OPTIONS (özet sayfası) ── */
 .adv-toggle{display:flex;align-items:center;gap:8px;padding:12px 26px;cursor:pointer;user-select:none;border-top:1px solid rgba(255,255,255,.06)}
 .adv-toggle:hover{background:rgba(255,255,255,.03)}
-body.light-mode .adv-toggle{border-top-color:rgba(0,0,0,.07)}
-body.light-mode .adv-toggle:hover{background:rgba(0,0,0,.03)}
 .adv-toggle-label{font-size:12px;font-weight:600;color:rgba(255,255,255,.45);flex:1}
-body.light-mode .adv-toggle-label{color:rgba(0,0,0,.45)}
 .adv-chevron{transition:transform .2s;color:rgba(255,255,255,.3)}
-body.light-mode .adv-chevron{color:rgba(0,0,0,.3)}
 .adv-toggle.open .adv-chevron{transform:rotate(90deg)}
 .adv-body{display:none;padding:0 26px 16px}
 .adv-body.open{display:block}
 .adv-lock-row{display:flex;align-items:center;gap:8px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:12px;color:rgba(255,255,255,.55)}
-body.light-mode .adv-lock-row{color:rgba(0,0,0,.55)}
 .adv-ark-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .adv-ark-row{display:flex;flex-direction:column;gap:5px}
 .adv-ark-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,.35)}
-body.light-mode .adv-ark-label{color:rgba(0,0,0,.4)}
 .adv-ark-sel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:7px 10px;color:rgba(255,255,255,.7);font-size:12px;font-weight:500;outline:none;cursor:pointer;width:100%;-webkit-appearance:none}
-body.light-mode .adv-ark-sel{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.12);color:#1e293b}
 .adv-ark-sel:disabled{opacity:.4;cursor:not-allowed}
+/* ── Gelişmiş Ayarlar Sekmeleri ── */
+.adv-tabs{display:flex;gap:4px;margin-bottom:12px}
+.adv-tab{flex:1;padding:7px 6px;font-size:11px;font-weight:700;border-radius:6px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:rgba(255,255,255,.4);cursor:pointer;transition:all .15s;text-align:center;font-family:inherit}
+.adv-tab:hover{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
+.adv-tab.active{background:rgba(139,92,246,.2);border-color:#8b5cf6;color:#c4b5fd}
+.adv-tab-pane{display:none}
+.adv-tab-pane.active{display:block}
+.adv-char-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.adv-char-row:last-child{border-bottom:none}
 /* ── NAV BUTTONS ── */
 .wiz-nav{position:fixed;bottom:0;left:0;right:0;display:flex;align-items:center;gap:12px;background:rgba(12,17,26,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.07);padding:14px max(20px,calc(50% - 290px));box-sizing:border-box;z-index:200}
 .wiz-back{background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);font-size:12px;font-weight:600;padding:9px 18px;border-radius:7px;cursor:pointer;transition:all .15s}
@@ -559,26 +592,35 @@ body.light-mode .adv-ark-sel{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,
       <!-- Zorluk — 3 notch bar (1=yeşil kolay, 2=turuncu orta, 3=parlak kırmızı zor) -->
       <div class="setup-row" style="align-items:center">
         <span class="setup-row-label">People &amp; Ekip</span>
-        <div class="notch-bar" id="notch-people" data-val="2">
-          <div class="notch-seg" onclick="setNotch('notch-people',1)"></div>
-          <div class="notch-seg" onclick="setNotch('notch-people',2)"></div>
-          <div class="notch-seg" onclick="setNotch('notch-people',3)"></div>
+        <div style="display:flex;align-items:center;gap:10px;flex:1">
+          <div class="notch-bar" id="notch-people" data-val="2" style="flex:1">
+            <div class="notch-seg" onclick="setNotch('notch-people',1)"></div>
+            <div class="notch-seg" onclick="setNotch('notch-people',2)"></div>
+            <div class="notch-seg" onclick="setNotch('notch-people',3)"></div>
+          </div>
+          <span class="notch-val-lbl" id="nval-people" style="color:#f59e0b">Orta</span>
         </div>
       </div>
       <div class="setup-row" style="align-items:center">
         <span class="setup-row-label">Süreç &amp; Kapsam</span>
-        <div class="notch-bar" id="notch-process" data-val="2">
-          <div class="notch-seg" onclick="setNotch('notch-process',1)"></div>
-          <div class="notch-seg" onclick="setNotch('notch-process',2)"></div>
-          <div class="notch-seg" onclick="setNotch('notch-process',3)"></div>
+        <div style="display:flex;align-items:center;gap:10px;flex:1">
+          <div class="notch-bar" id="notch-process" data-val="2" style="flex:1">
+            <div class="notch-seg" onclick="setNotch('notch-process',1)"></div>
+            <div class="notch-seg" onclick="setNotch('notch-process',2)"></div>
+            <div class="notch-seg" onclick="setNotch('notch-process',3)"></div>
+          </div>
+          <span class="notch-val-lbl" id="nval-process" style="color:#f59e0b">Orta</span>
         </div>
       </div>
       <div class="setup-row" style="align-items:center">
         <span class="setup-row-label">İş Çevresi</span>
-        <div class="notch-bar" id="notch-biz" data-val="2">
-          <div class="notch-seg" onclick="setNotch('notch-biz',1)"></div>
-          <div class="notch-seg" onclick="setNotch('notch-biz',2)"></div>
-          <div class="notch-seg" onclick="setNotch('notch-biz',3)"></div>
+        <div style="display:flex;align-items:center;gap:10px;flex:1">
+          <div class="notch-bar" id="notch-biz" data-val="2" style="flex:1">
+            <div class="notch-seg" onclick="setNotch('notch-biz',1)"></div>
+            <div class="notch-seg" onclick="setNotch('notch-biz',2)"></div>
+            <div class="notch-seg" onclick="setNotch('notch-biz',3)"></div>
+          </div>
+          <span class="notch-val-lbl" id="nval-biz" style="color:#f59e0b">Orta</span>
         </div>
       </div>
 
@@ -680,33 +722,20 @@ body.light-mode .adv-ark-sel{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,
       <div class="adv-body" id="adv-body">
         <div class="adv-lock-row" id="adv-lock-msg">
           <span>🔒</span>
-          <span>Bu ayarlar yalnızca üyeler için aktif. Üye olun ve arketipleri tam kontrol edin.</span>
+          <span>Bu ayarlar yalnızca üyeler için aktif. Üye olun ve her boyutu tam kontrol edin.</span>
         </div>
-        <div class="adv-ark-grid" id="adv-ark-grid">
-          <div class="adv-ark-row">
-            <span class="adv-ark-label">Ekip Arketipi</span>
-            <select class="adv-ark-sel" id="adv-team-ark" disabled onchange="updateAdvArk('team',this.value)">
-              <option value="">— Rastgele —</option>
-              <option value="takim_dinamosu">Takımın Dinamosu</option>
-              <option value="tukenme">Tükenmişlik</option>
-              <option value="sakat_yildiz">Sakat Yıldız</option>
-              <option value="kriz_kahramani">Kriz Kahramanı</option>
-              <option value="sessiz_usta">Sessiz Usta</option>
-              <option value="iyi_niyetli_toy">İyi Niyetli Toy</option>
-              <option value="guvenilir_orta">Güvenilir Orta</option>
-              <option value="torpilli">Torpilli</option>
-            </select>
-          </div>
-          <div class="adv-ark-row">
-            <span class="adv-ark-label">Dış Paydaş Arketipi</span>
-            <select class="adv-ark-sel" id="adv-ext-ark" disabled onchange="updateAdvArk('ext',this.value)">
-              <option value="">— Rastgele —</option>
-              <option value="destekci">Destekçi</option>
-              <option value="mudahaleci">Müdahaleci</option>
-              <option value="hayalet">Hayalet</option>
-            </select>
-          </div>
-          <div class="adv-ark-row">
+        <div class="adv-tabs">
+          <button class="adv-tab active" onclick="switchAdvTab('people',this)">👥 Ekip</button>
+          <button class="adv-tab" onclick="switchAdvTab('process',this)">⚙️ Süreç</button>
+          <button class="adv-tab" onclick="switchAdvTab('env',this)">🌐 Çevre</button>
+        </div>
+        <!-- People tab: per-member archetype selects (filled by JS) -->
+        <div class="adv-tab-pane active" id="adv-pane-people">
+          <div id="adv-people-rows"><p style="font-size:12px;color:rgba(255,255,255,.3);padding:6px 0">Ekibi oluşturduktan sonra burada görünür.</p></div>
+        </div>
+        <!-- Process tab -->
+        <div class="adv-tab-pane" id="adv-pane-process">
+          <div class="adv-ark-row" style="margin-top:4px">
             <span class="adv-ark-label">Süreç Arketipi</span>
             <select class="adv-ark-sel" id="adv-proc-ark" disabled onchange="updateAdvArk('proc',this.value)">
               <option value="">— Rastgele —</option>
@@ -715,7 +744,10 @@ body.light-mode .adv-ark-sel{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,
               <option value="chaotic">Kaotik</option>
             </select>
           </div>
-          <div class="adv-ark-row">
+        </div>
+        <!-- Environment tab -->
+        <div class="adv-tab-pane" id="adv-pane-env">
+          <div class="adv-ark-row" style="margin-top:4px">
             <span class="adv-ark-label">İş Çevresi Arketipi</span>
             <select class="adv-ark-sel" id="adv-biz-ark" disabled onchange="updateAdvArk('biz',this.value)">
               <option value="">— Rastgele —</option>
@@ -1136,17 +1168,22 @@ function _randomArchetype(avgDiff) {
 }
 
 // ── NOTCH BAR (zorluk) ───────────────────────────────────────────────────────
-const NOTCH_FILL = { 1:'#22c55e', 2:'#f59e0b', 3:'#ff3b3b' };
+const NOTCH_FILL   = { 1:'#22c55e', 2:'#f59e0b', 3:'#ff3b3b' };
+const NOTCH_LABELS = { 1:'Kolay', 2:'Orta', 3:'Zor' };
 function setNotch(id, v) {
   const bar = document.getElementById(id);
   if (!bar) return;
   v = Math.max(1, Math.min(3, parseInt(v, 10)));
   bar.dataset.val = v;
   const c = NOTCH_FILL[v];
+  const isDark = document.body.classList.contains('light-mode') ? 'rgba(0,0,0,.1)' : 'rgba(255,255,255,.1)';
   bar.querySelectorAll('.notch-seg').forEach((s, i) => {
-    s.style.background = i < v ? c : 'rgba(255,255,255,.1)';
+    s.style.background = i < v ? c : isDark;
     s.style.boxShadow  = (i < v && v === 3) ? `0 0 7px ${c}99` : 'none';
   });
+  // Etiket güncelle
+  const lbl = document.getElementById(id.replace('notch-', 'nval-'));
+  if (lbl) { lbl.textContent = NOTCH_LABELS[v]; lbl.style.color = c; }
 }
 
 // ── SEGMENTED BAR (PMO & Takım) ──────────────────────────────────────────────
@@ -1457,17 +1494,6 @@ function renderCharacterRows() {
     const ini  = (c.fullName || '?')[0].toUpperCase();
     const avCls = c.gender === 'female' ? 'f' : 'm';
     const isExt = c.kind !== 'team';
-    const a0 = ARKETIP.find(a => a.id === c.archetype) || ARKETIP[6];
-    const traitHtml = isExt ? '' : `<span class="ark-trait-mini" id="ark-trait-${idx}" style="display:inline-flex;gap:3px;align-items:center;font-size:10px;margin-top:3px">
-  ${_arkArrow(a0.rol)}<span style="font-size:9px;color:rgba(255,255,255,.3)">Rol</span>
-  ${_arkArrow(a0.sureklilik)}<span style="font-size:9px;color:rgba(255,255,255,.3)">Sür</span>
-  ${_arkArrow(a0.motivasyon)}<span style="font-size:9px;color:rgba(255,255,255,.3)">Mot</span>
-</span>`;
-    const arkSel = isExt
-      ? `<span style="font-size:11px;color:rgba(255,255,255,.3);padding:0 4px">${c.role}</span>`
-      : `<div style="display:flex;flex-direction:column;gap:0"><select class="char-ark-sel" onchange="updateCharArk(${idx},this.value);_updateTraitMini(${idx},this.value)">
-           ${ARKETIP.map(a => `<option value="${a.id}"${c.archetype===a.id?' selected':''}>${a.title}</option>`).join('')}
-         </select>${traitHtml}</div>`;
 
     return `<div class="char-row${isExt?' ext':''}" data-char-idx="${idx}">
       <div class="char-avatar ${avCls}">${ini}</div>
@@ -1475,7 +1501,6 @@ function renderCharacterRows() {
              oninput="updateCharField(${idx},'fullName',this.value)">
       <input class="char-input" value="${c.role||''}" placeholder="Unvan"
              oninput="updateCharField(${idx},'role',this.value)">
-      ${arkSel}
     </div>`;
   }
 
@@ -1500,6 +1525,8 @@ function renderCharacterRows() {
   }
 
   container.innerHTML = html || '<p style="padding:16px 26px;font-size:13px;color:rgba(255,255,255,.3)">Karakterler yükleniyor…</p>';
+  // Advanced people tab'ını da güncelle
+  renderAdvancedPeople();
 }
 
 function updateCharField(idx, field, val) {
@@ -1746,6 +1773,49 @@ function toggleAdvanced() {
   if (!toggle || !body) return;
   toggle.classList.toggle('open');
   body.classList.toggle('open');
+}
+
+function switchAdvTab(tab, btn) {
+  document.querySelectorAll('.adv-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.adv-tab-pane').forEach(p => p.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const pane = document.getElementById('adv-pane-' + tab);
+  if (pane) pane.classList.add('active');
+}
+
+function renderAdvancedPeople() {
+  const container = document.getElementById('adv-people-rows');
+  if (!container) return;
+  const chars = S.career.characters;
+  if (!chars || !chars.length) {
+    container.innerHTML = '<p style="font-size:12px;color:rgba(255,255,255,.3);padding:6px 0">Ekibi oluşturduktan sonra burada görünür.</p>';
+    return;
+  }
+  const teamChars = chars.filter(c => c.kind === 'team');
+  if (!teamChars.length) {
+    container.innerHTML = '<p style="font-size:12px;color:rgba(255,255,255,.3);padding:6px 0">Ekip üyesi yok.</p>';
+    return;
+  }
+  container.innerHTML = teamChars.map(c => {
+    const idx = chars.indexOf(c);
+    const ini = (c.fullName||'?')[0].toUpperCase();
+    const avCls = c.gender === 'female' ? 'f' : 'm';
+    const a0 = ARKETIP.find(a => a.id === c.archetype) || ARKETIP[6];
+    return `<div class="adv-char-row">
+      <div class="char-avatar ${avCls}" style="width:24px;height:24px;font-size:10px;flex-shrink:0">${ini}</div>
+      <span style="font-size:12px;color:rgba(255,255,255,.7);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.fullName||''}</span>
+      <div style="display:flex;flex-direction:column;gap:2px;min-width:130px">
+        <select class="adv-ark-sel" style="max-width:140px" disabled onchange="updateCharArk(${idx},this.value);_updateTraitMini(${idx},this.value)">
+          ${ARKETIP.map(a => `<option value="${a.id}"${c.archetype===a.id?' selected':''}>${a.title}</option>`).join('')}
+        </select>
+        <span class="ark-trait-mini" id="ark-trait-${idx}" style="display:inline-flex;gap:3px;align-items:center;font-size:10px;padding-left:2px">
+          ${_arkArrow(a0.rol)}<span style="font-size:9px;color:rgba(255,255,255,.3)">Rol</span>
+          ${_arkArrow(a0.sureklilik)}<span style="font-size:9px;color:rgba(255,255,255,.3)">Sür</span>
+          ${_arkArrow(a0.motivasyon)}<span style="font-size:9px;color:rgba(255,255,255,.3)">Mot</span>
+        </span>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 function updateAdvArk(type, val) {
