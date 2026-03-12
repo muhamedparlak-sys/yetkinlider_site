@@ -406,6 +406,11 @@ body.light-mode .help-btn:hover{border-color:var(--accent);color:var(--accent);b
 body.light-mode .help-popover{background:#fff;border-color:rgba(59,130,246,.2);box-shadow:0 8px 32px rgba(0,0,0,.15)}
 body.light-mode .help-popover-title{color:#2563eb}
 body.light-mode .help-popover-body{color:#475569}
+.setup-date-input{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 12px;color:var(--text-inv);font-size:13px;cursor:pointer;font-family:inherit;transition:border-color .15s}
+.setup-date-input:focus{outline:none;border-color:var(--accent)}
+.setup-date-input::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.5;cursor:pointer}
+body.light-mode .setup-date-input{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12);color:#1e293b}
+body.light-mode .setup-date-input::-webkit-calendar-picker-indicator{filter:none;opacity:.5}
 .team-size-ctrl{display:flex;align-items:center;gap:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden}
 .ts-btn{width:36px;height:var(--bar-h);background:none;border:none;color:var(--dim);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;font-weight:300}
 .ts-btn:hover:not(:disabled){background:rgba(255,255,255,.1);color:var(--text-inv)}
@@ -673,6 +678,16 @@ body.light-mode .ts-val{color:#1e293b}
         </div>
       </div>
 
+      <!-- Başlangıç Tarihi -->
+      <div class="setup-row" style="align-items:center">
+        <span class="setup-row-label">Başlangıç Tarihi <button class="help-btn" onclick="showHelp('baslangic-tarihi',this);event.stopPropagation()" title="Yardım">?</button></span>
+        <div style="flex:1">
+          <input type="date" class="setup-date-input" id="inp-start-date"
+            oninput="S.career.start_date=this.value"
+            style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 12px;color:var(--text-inv);font-size:13px;width:100%;max-width:200px;cursor:pointer">
+        </div>
+      </div>
+
       <!-- Ekip Büyüklüğü -->
       <div class="setup-row" style="align-items:center">
         <span class="setup-row-label">Ekip Büyüklüğü <button class="help-btn" onclick="showHelp('ekip-buyuklugu',this);event.stopPropagation()" title="Yardım">?</button></span>
@@ -788,6 +803,50 @@ body.light-mode .ts-val{color:#1e293b}
                 <option value="rekabetci_arena">Rekabetçi Arena — Yüksek rekabetle piyasa</option>
                 <option value="gecis_ekonomisi">Geçiş Ekonomisi — Belirsiz, dönüşüm halinde</option>
               </select>
+            </div>
+          </div>
+
+          <!-- ROW 4: Bağlam -->
+          <div class="adv-acc-row" id="acc-context">
+            <button class="adv-acc-head" onclick="toggleAcc('context')">
+              <span class="adv-acc-icon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </span>
+              <span class="adv-acc-label">Bağlam <button class="help-btn" onclick="showHelp('adv-baglam',this);event.stopPropagation()" title="Yardım">?</button></span>
+              <span class="adv-acc-chevron" id="acc-chev-context">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="adv-acc-body" id="acc-body-context">
+              <!-- Çalışma Ortamı -->
+              <div style="margin-bottom:14px">
+                <div class="adv-ark-label" style="margin-bottom:6px">Çalışma Ortamı</div>
+                <div class="seg-bar" id="work-env-bar" style="font-size:12px">
+                  <div class="seg-item" data-val="remote"  onclick="setWorkEnv('remote',this)">Uzaktan</div>
+                  <div class="seg-item selected" data-val="hybrid"  onclick="setWorkEnv('hybrid',this)">Hibrit</div>
+                  <div class="seg-item" data-val="office"  onclick="setWorkEnv('office',this)">Ofis</div>
+                </div>
+              </div>
+              <!-- Ülke -->
+              <div>
+                <div class="adv-ark-label" style="margin-bottom:6px">Ülke / Saat Dilimi</div>
+                <select class="adv-ark-sel" id="adv-country" onchange="S.career.country=this.value;updateCountryInfo(this.value)">
+                  <option value="">— Ülke seçin —</option>
+                  <option value="TR">Türkiye (UTC+3)</option>
+                  <option value="US-ET">ABD – Doğu (UTC-5)</option>
+                  <option value="US-PT">ABD – Batı (UTC-8)</option>
+                  <option value="GB">Birleşik Krallık (UTC+0)</option>
+                  <option value="DE">Almanya (UTC+1)</option>
+                  <option value="NL">Hollanda (UTC+1)</option>
+                  <option value="AE">BAE – Dubai (UTC+4)</option>
+                  <option value="SG">Singapur (UTC+8)</option>
+                  <option value="AU">Avustralya – Sidney (UTC+11)</option>
+                  <option value="JP">Japonya (UTC+9)</option>
+                  <option value="IN">Hindistan (UTC+5:30)</option>
+                  <option value="BR">Brezilya (UTC-3)</option>
+                </select>
+                <div class="ts-info" id="country-info" style="margin-top:6px;font-size:11px"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -1033,7 +1092,7 @@ body.light-mode .ts-val{color:#1e293b}
 // ── STATE ────────────────────────────────────────────────────────────────────
 const S = {
   mode: 'career',
-  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, dev_approach:null, team_archetype:null, characters: [], duration_months: 12, team_size: 5 },
+  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, dev_approach:null, team_archetype:null, characters: [], duration_months: 12, team_size: 5, start_date: null, work_env: 'hybrid', country: '' },
   comp:   { dev_approach:null, org_structure:null, role:null, difficulty:null, eco_filters:[], sprint_length:null }
 };
 
@@ -1433,6 +1492,14 @@ const HELP_TEXTS = {
     title: 'Ekip Büyüklüğü',
     body: 'Seçilen metodolojiye göre zorunlu roller sabittir. Bunların üzerine seçimlik üyeler ekleyebilirsin. Büyük ekiplerde koordinasyon meseleleri, küçük ekiplerde kaynak kıtlığı daha baskın olur.',
   },
+  'baslangic-tarihi': {
+    title: 'Başlangıç Tarihi',
+    body: 'Projenin başladığı tarihi seçer. Simülasyondaki takvim bu tarihten itibaren ilerler. Gerçek projenin başlangıç tarihini girersen deneyim daha kişisel hissettiriyor.',
+  },
+  'adv-baglam': {
+    title: 'Bağlam',
+    body: 'Çalışma ortamı ve ülke/saat dilimi seçimi. Uzaktan ekiplerde iletişim kopuklukları daha sık görülür. Farklı saat dilimlerinde çalışmak asenkron gecikme ve paydaş erişim sorunlarını artırır.',
+  },
 };
 
 let _activePopover = null;
@@ -1493,6 +1560,13 @@ document.addEventListener('DOMContentLoaded', () => {
   _autoFillSectorFromProfile();
   // Notch barları başlat (default: 2)
   ['notch-people', 'notch-process', 'notch-biz'].forEach(id => setNotch(id, 2));
+  // Başlangıç tarihi varsayılanı: bugün
+  const dateInp = document.getElementById('inp-start-date');
+  if (dateInp) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInp.value = today;
+    S.career.start_date = today;
+  }
   // Dark mode: localStorage'dan oku
   if (localStorage.getItem('pmSim_theme') === 'light') {
     document.body.classList.add('light-mode');
@@ -1806,7 +1880,7 @@ function buildPayload() {
   return {
     schema_version: '2.1', session_id: uid, created_at: now, mode: 'career',
     player: { name: S.career.pm_name, project_name: S.career.project_name, avatar_seed: S.career.pm_name.toLowerCase().replace(/\s+/g,'_') },
-    career_config: { sector: S.career.sector, sector_label: sectorLabel, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, dev_approach: S.career.dev_approach, difficulty_people: S.career.difficulty_people || 5, difficulty_process: S.career.difficulty_process || 5, difficulty_biz: S.career.difficulty_biz || 5, start_phase: S.career.start_phase || 'baslangic', end_phase: S.career.end_phase || 'kapanis', process_archetype: (S.career._advArk && S.career._advArk.process) || null, env_archetype: (S.career._advArk && S.career._advArk.env) || null, duration_months: S.career.duration_months || 12, team_size: S.career.team_size || 5 },
+    career_config: { sector: S.career.sector, sector_label: sectorLabel, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, dev_approach: S.career.dev_approach, difficulty_people: S.career.difficulty_people || 5, difficulty_process: S.career.difficulty_process || 5, difficulty_biz: S.career.difficulty_biz || 5, start_phase: S.career.start_phase || 'baslangic', end_phase: S.career.end_phase || 'kapanis', process_archetype: (S.career._advArk && S.career._advArk.process) || null, env_archetype: (S.career._advArk && S.career._advArk.env) || null, duration_months: S.career.duration_months || 12, team_size: S.career.team_size || 5, start_date: S.career.start_date || null, work_env: S.career.work_env || 'hybrid', country: S.career.country || '' },
     competency_config: null,
     game_state: {
       current_day: 0, current_phase: 'initiating',
@@ -2013,6 +2087,32 @@ function updateAdvArk(key, val) {
   S.career._advArk[key] = val;
 }
 
+function setWorkEnv(val, el) {
+  S.career.work_env = val;
+  document.querySelectorAll('#work-env-bar .seg-item').forEach(s => s.classList.remove('selected'));
+  if (el) el.classList.add('selected');
+}
+
+function updateCountryInfo(countryCode) {
+  const info = document.getElementById('country-info');
+  if (!info) return;
+  const msgs = {
+    'TR':    'Ekip aynı saat diliminde — iletişim kolaylaşır.',
+    'US-ET': 'UTC-5: Türkiye ile 8 saat fark — asenkron çalışma gerektirir.',
+    'US-PT': 'UTC-8: Türkiye ile 11 saat fark — örtüşen çalışma saati çok kısıtlı.',
+    'GB':    'UTC+0: 3 saat fark — sabah sync çalışır.',
+    'DE':    'UTC+1: 2 saat fark — çakışma az.',
+    'NL':    'UTC+1: 2 saat fark — çakışma az.',
+    'AE':    'UTC+4: 1 saat fark — neredeyse senkron.',
+    'SG':    'UTC+8: 5 saat fark — sabah/akşam çakışması.',
+    'AU':    'UTC+11: 8 saat fark — neredeyse ters takvim.',
+    'JP':    'UTC+9: 6 saat fark — sınırlı çakışma.',
+    'IN':    'UTC+5:30: 2.5 saat fark — çakışma makul.',
+    'BR':    'UTC-3: 6 saat fark — sınırlı çakışma.',
+  };
+  info.textContent = msgs[countryCode] || '';
+}
+
 // ── APPROACH 2-SEGMENT BAR ────────────────────────────────────────────────────
 let approach2Ratio = 60; // 0 = pure Öngörücü, 100 = pure Çevik
 
@@ -2172,6 +2272,9 @@ async function startGame() {
         env_archetype:      cc.env_archetype     || null,
         duration_months:    cc.duration_months   || 12,
         team_size:          cc.team_size         || 5,
+        start_date:         cc.start_date        || null,
+        work_env:           cc.work_env          || 'hybrid',
+        country:            cc.country           || '',
         customKadro:      S.career.characters.filter(c => c.kind === 'team').map(c => ({ fullName: c.fullName, role: c.role, gender: c.gender || 'any', archetype: c.archetype || null })),
         customDisKisiler: S.career.characters.filter(c => c.kind !== 'team').map(c => ({ fullName: c.fullName, role: c.role, gender: c.gender || 'any', archetype: c.archetype || null })),
       });

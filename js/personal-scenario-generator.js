@@ -258,6 +258,21 @@ const PSG = (() => {
     gecis_ekonomisi:       ['patron_degisikligi', 'kaynak_erisilemezligi'],
   };
 
+  // ── Çalışma Ortamı Bağlam Kilitleri ─────────────────────────────────────────
+  // Çalışma ortamına göre garantili mesele tipleri
+  const WORK_CONTEXT_LOCKS = {
+    remote: ['iletisim_kopuklugu', 'paydas_erisim_sorunu', 'bilgi_adasi'],
+    hybrid: ['iletisim_kopuklugu', 'cakisan_gorevlendirme'],
+    office: [],
+  };
+
+  // Saat dilimi farkına göre ek mesele kilidi
+  // Yüksek fark (>= 5 saat) → asenkron iletişim sorunları
+  const TIMEZONE_OFFSETS = {
+    'TR': 3, 'US-ET': -5, 'US-PT': -8, 'GB': 0, 'DE': 1, 'NL': 1,
+    'AE': 4, 'SG': 8, 'AU': 11, 'JP': 9, 'IN': 5.5, 'BR': -3,
+  };
+
   // ── Mesele → Zorunlu Arketip ─────────────────────────────────────────────────
   // Bu mesele tipi yalnızca listede en az 1 arketip senaryoda varsa havuzda kalır.
   // Boş/tanımsız = evrensel, her zaman erişilebilir.
@@ -465,8 +480,8 @@ const PSG = (() => {
     return positions;
   }
 
-  // ── Mesele seçimi (faz biased + domain multiplier + duration multiplier) ─────
-  function pickMesele(meseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult, lockedQueue, lockedPlaced, durationMults) {
+  // ── Mesele seçimi (faz biased + domain multiplier) ───────────────────────────
+  function pickMesele(meseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult) {
     const available = meseleTipiIds.filter(id => {
       const m = meseleTipleri[id];
       return m && m.reasons && m.reasons.some(r => (reasonUseCounts[r.reason_id] || 0) < (r.max_per_scenario ?? 1));
@@ -474,15 +489,14 @@ const PSG = (() => {
     if (!available.length) return null;
 
     const weights = available.map(id => {
-      const bias     = phaseBias[id] ?? 1;
-      const domain   = MESELE_PMP_ALAN[id] || 'process';
-      const mult     = domainMult ? (domainMult[domain] ?? 1) : 1;
-      const durMult  = durationMults ? (durationMults[id] ?? 1) : 1;
-      const m        = meseleTipleri[id];
-      const avW      = m.reasons
+      const bias   = phaseBias[id] ?? 1;
+      const domain = MESELE_PMP_ALAN[id] || 'process';
+      const mult   = domainMult ? (domainMult[domain] ?? 1) : 1;
+      const m      = meseleTipleri[id];
+      const avW    = m.reasons
         .filter(r => (reasonUseCounts[r.reason_id] || 0) < (r.max_per_scenario ?? 1))
         .reduce((s, r) => s + (r.weight ?? 1), 0);
-      return bias * avW * mult * durMult;
+      return bias * avW * mult;
     });
 
     return meseleTipleri[weightedChoice(available, weights, rng)];
@@ -731,6 +745,9 @@ const PSG = (() => {
       env_archetype      = null,   // Çevre arketipi (duzenlenmis_liman, girisimci_saha, vb.)
       duration_months    = 12,
       team_size          = 6,
+      start_date         = null,
+      work_env           = 'hybrid',
+      country            = '',
     } = config;
 
     // Domain difficulty multipliers — 1=hafif(0.4×), 2=orta(1.0×), 3=sert(2.5×)
@@ -740,35 +757,6 @@ const PSG = (() => {
       process:   _dm[(difficulty_process - 1)] ?? 1,
       biz_cevre: _dm[(difficulty_biz     - 1)] ?? 1,
     };
-
-    // Proje süresi bazlı aciliyet çarpanı
-    // Kısa proje = takvim baskısı artar; uzun proje = tükenmişlik/insan sorunları artar
-    const durationUrgencyMult = duration_months <= 4  ? 2.2
-                              : duration_months <= 7  ? 1.5
-                              : duration_months <= 13 ? 1.0
-                              : duration_months <= 19 ? 0.7
-                              :                         0.5;
-
-    const durationPeopleMult  = duration_months <= 4  ? 0.6
-                              : duration_months <= 7  ? 0.8
-                              : duration_months <= 13 ? 1.0
-                              : duration_months <= 19 ? 1.3
-                              :                         1.6;
-
-    // Mesele tipi başına süre çarpanı
-    const URGENCY_MESELE_IDS = new Set([
-      'milestone_baskisi', 'takvim_degisikligi', 'gorev_gecikmesi',
-      'paralel_is_birikimi', 'test_atlamasi_baskisi', 'hata_gec_bildirim',
-    ]);
-    const LONGTERM_MESELE_IDS = new Set([
-      'performans_geriligi', 'takim_catismasi', 'bilgi_adasi',
-      'kilit_kisi_bagimlilik', 'teknik_borc', 'iletisim_kopuklugu',
-    ]);
-
-    // Süre bazlı mesele ağırlık haritası
-    const durationMults = {};
-    URGENCY_MESELE_IDS.forEach(id => { durationMults[id] = durationUrgencyMult; });
-    LONGTERM_MESELE_IDS.forEach(id => { durationMults[id] = durationPeopleMult; });
 
     // ── Aktif arketipler ────────────────────────────────────────────────────────
     const presentArchetypes = new Set();
@@ -798,6 +786,19 @@ const PSG = (() => {
     presentArchetypes.forEach(ark => {
       (ARCHETYPE_LOCKS[ark] || []).forEach(m => lockedMeseleSet.add(m));
     });
+
+    // Çalışma ortamı kilitlerini ekle
+    const workLocks = WORK_CONTEXT_LOCKS[work_env] || [];
+    workLocks.forEach(m => lockedMeseleSet.add(m));
+
+    // Saat dilimi farkı büyükse ek iletişim kilitleri
+    const baseOffset = TIMEZONE_OFFSETS['TR'] || 3; // Referans TR
+    const teamOffset = TIMEZONE_OFFSETS[country] || baseOffset;
+    const tzDiff     = Math.abs(teamOffset - baseOffset);
+    if (tzDiff >= 5) {
+      lockedMeseleSet.add('iletisim_kopuklugu');
+      lockedMeseleSet.add('paydas_erisim_sorunu');
+    }
 
     // ── Metodoloji rol kısıtları ─────────────────────────────────────────────────
     // dev_approach'u metodoloji anahtarına eşle
@@ -1043,10 +1044,10 @@ const PSG = (() => {
               mesele = meseleTipleri[gId];
               guaranteedPlaced++;
             } else {
-              mesele = pickMesele(baseMeseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult, null, null, durationMults);
+              mesele = pickMesele(baseMeseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult);
             }
           } else {
-            mesele = pickMesele(baseMeseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult, null, null, durationMults);
+            mesele = pickMesele(baseMeseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult);
           }
           totalDecisionsDone++;
 
@@ -1109,6 +1110,9 @@ const PSG = (() => {
       methodology: methKey,
       duration_months,
       team_size: effectiveTeamSize,
+      work_env,
+      country,
+      start_date: start_date || null,
     };
   }
 
