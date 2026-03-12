@@ -465,8 +465,8 @@ const PSG = (() => {
     return positions;
   }
 
-  // ── Mesele seçimi (faz biased + domain multiplier) ───────────────────────────
-  function pickMesele(meseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult) {
+  // ── Mesele seçimi (faz biased + domain multiplier + duration multiplier) ─────
+  function pickMesele(meseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult, lockedQueue, lockedPlaced, durationMults) {
     const available = meseleTipiIds.filter(id => {
       const m = meseleTipleri[id];
       return m && m.reasons && m.reasons.some(r => (reasonUseCounts[r.reason_id] || 0) < (r.max_per_scenario ?? 1));
@@ -474,14 +474,15 @@ const PSG = (() => {
     if (!available.length) return null;
 
     const weights = available.map(id => {
-      const bias   = phaseBias[id] ?? 1;
-      const domain = MESELE_PMP_ALAN[id] || 'process';
-      const mult   = domainMult ? (domainMult[domain] ?? 1) : 1;
-      const m      = meseleTipleri[id];
-      const avW    = m.reasons
+      const bias     = phaseBias[id] ?? 1;
+      const domain   = MESELE_PMP_ALAN[id] || 'process';
+      const mult     = domainMult ? (domainMult[domain] ?? 1) : 1;
+      const durMult  = durationMults ? (durationMults[id] ?? 1) : 1;
+      const m        = meseleTipleri[id];
+      const avW      = m.reasons
         .filter(r => (reasonUseCounts[r.reason_id] || 0) < (r.max_per_scenario ?? 1))
         .reduce((s, r) => s + (r.weight ?? 1), 0);
-      return bias * avW * mult;
+      return bias * avW * mult * durMult;
     });
 
     return meseleTipleri[weightedChoice(available, weights, rng)];
@@ -728,6 +729,8 @@ const PSG = (() => {
       customDisKisiler   = null,
       process_archetype  = null,   // Süreç arketipi (net_yol, dinamik_ortam, vb.)
       env_archetype      = null,   // Çevre arketipi (duzenlenmis_liman, girisimci_saha, vb.)
+      duration_months    = 12,
+      team_size          = 6,
     } = config;
 
     // Domain difficulty multipliers — 1=hafif(0.4×), 2=orta(1.0×), 3=sert(2.5×)
@@ -737,6 +740,35 @@ const PSG = (() => {
       process:   _dm[(difficulty_process - 1)] ?? 1,
       biz_cevre: _dm[(difficulty_biz     - 1)] ?? 1,
     };
+
+    // Proje süresi bazlı aciliyet çarpanı
+    // Kısa proje = takvim baskısı artar; uzun proje = tükenmişlik/insan sorunları artar
+    const durationUrgencyMult = duration_months <= 4  ? 2.2
+                              : duration_months <= 7  ? 1.5
+                              : duration_months <= 13 ? 1.0
+                              : duration_months <= 19 ? 0.7
+                              :                         0.5;
+
+    const durationPeopleMult  = duration_months <= 4  ? 0.6
+                              : duration_months <= 7  ? 0.8
+                              : duration_months <= 13 ? 1.0
+                              : duration_months <= 19 ? 1.3
+                              :                         1.6;
+
+    // Mesele tipi başına süre çarpanı
+    const URGENCY_MESELE_IDS = new Set([
+      'milestone_baskisi', 'takvim_degisikligi', 'gorev_gecikmesi',
+      'paralel_is_birikimi', 'test_atlamasi_baskisi', 'hata_gec_bildirim',
+    ]);
+    const LONGTERM_MESELE_IDS = new Set([
+      'performans_geriligi', 'takim_catismasi', 'bilgi_adasi',
+      'kilit_kisi_bagimlilik', 'teknik_borc', 'iletisim_kopuklugu',
+    ]);
+
+    // Süre bazlı mesele ağırlık haritası
+    const durationMults = {};
+    URGENCY_MESELE_IDS.forEach(id => { durationMults[id] = durationUrgencyMult; });
+    LONGTERM_MESELE_IDS.forEach(id => { durationMults[id] = durationPeopleMult; });
 
     // ── Aktif arketipler ────────────────────────────────────────────────────────
     const presentArchetypes = new Set();
@@ -832,8 +864,10 @@ const PSG = (() => {
       return { fullName: `${firstName} ${soyad}`.trim(), firstName, gender };
     }
 
-    // Kadro (8 kişi)
-    const KADRO_GENDERS = ['female', 'male', 'female', 'male', 'female', 'male', 'female', 'male'];
+    // team_size kadar kadro oluştur
+    const effectiveTeamSize = Math.max(2, Math.min(9, team_size || 6));
+    const genderPool = ['female', 'male', 'female', 'male', 'female', 'male', 'female', 'male', 'male'];
+    const KADRO_GENDERS = genderPool.slice(0, effectiveTeamSize);
     const mappedSector  = SECTOR_MAP[sector] || 'yazilim';
     const sektorRoller  = roller[mappedSector] || roller['yazilim'] || ['Geliştirici', 'Test Uzmanı', 'Analist'];
     const kadro = KADRO_GENDERS.map(g => ({
@@ -1009,10 +1043,10 @@ const PSG = (() => {
               mesele = meseleTipleri[gId];
               guaranteedPlaced++;
             } else {
-              mesele = pickMesele(baseMeseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult);
+              mesele = pickMesele(baseMeseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult, null, null, durationMults);
             }
           } else {
-            mesele = pickMesele(baseMeseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult);
+            mesele = pickMesele(baseMeseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult, null, null, durationMults);
           }
           totalDecisionsDone++;
 
@@ -1073,6 +1107,8 @@ const PSG = (() => {
         placed_locked: guaranteedPlaced,
       },
       methodology: methKey,
+      duration_months,
+      team_size: effectiveTeamSize,
     };
   }
 

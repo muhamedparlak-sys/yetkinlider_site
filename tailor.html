@@ -406,6 +406,15 @@ body.light-mode .help-btn:hover{border-color:var(--accent);color:var(--accent);b
 body.light-mode .help-popover{background:#fff;border-color:rgba(59,130,246,.2);box-shadow:0 8px 32px rgba(0,0,0,.15)}
 body.light-mode .help-popover-title{color:#2563eb}
 body.light-mode .help-popover-body{color:#475569}
+.team-size-ctrl{display:flex;align-items:center;gap:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden}
+.ts-btn{width:36px;height:var(--bar-h);background:none;border:none;color:var(--dim);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;font-weight:300}
+.ts-btn:hover:not(:disabled){background:rgba(255,255,255,.1);color:var(--text-inv)}
+.ts-btn:disabled{opacity:.3;cursor:default}
+.ts-val{min-width:42px;text-align:center;font-size:18px;font-weight:700;color:var(--text-inv);line-height:var(--bar-h)}
+.ts-info{font-size:12px;color:var(--dim)}
+body.light-mode .team-size-ctrl{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12)}
+body.light-mode .ts-btn:hover:not(:disabled){background:rgba(0,0,0,.08);color:#1e293b}
+body.light-mode .ts-val{color:#1e293b}
 </style>
 <style>
 /* ── SENARYO PREVIEW OVERLAY ─────────────────────────────── */
@@ -647,6 +656,33 @@ body.light-mode .help-popover-body{color:#475569}
             <span id="ap2-left-label" style="color:#a5b4fc">Öngörücü · 50%</span>
             <span id="ap2-right-label" style="color:#67e8f9">50% · Çevik</span>
           </div>
+        </div>
+      </div>
+
+      <!-- Proje Süresi -->
+      <div class="setup-row" style="align-items:center">
+        <span class="setup-row-label">Proje Süresi <button class="help-btn" onclick="showHelp('proje-suresi',this);event.stopPropagation()" title="Yardım">?</button></span>
+        <div style="flex:1">
+          <div class="seg-bar" id="duration-bar">
+            <div class="seg-item" data-val="3"  onclick="setDuration(3,this)">3 ay</div>
+            <div class="seg-item" data-val="6"  onclick="setDuration(6,this)">6 ay</div>
+            <div class="seg-item selected" data-val="12" onclick="setDuration(12,this)">12 ay</div>
+            <div class="seg-item" data-val="18" onclick="setDuration(18,this)">18 ay</div>
+            <div class="seg-item" data-val="24" onclick="setDuration(24,this)">24 ay</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ekip Büyüklüğü -->
+      <div class="setup-row" style="align-items:center">
+        <span class="setup-row-label">Ekip Büyüklüğü <button class="help-btn" onclick="showHelp('ekip-buyuklugu',this);event.stopPropagation()" title="Yardım">?</button></span>
+        <div style="flex:1;display:flex;align-items:center;gap:12px">
+          <div class="team-size-ctrl">
+            <button class="ts-btn" onclick="changeTeamSize(-1)" id="ts-minus">−</button>
+            <span class="ts-val" id="ts-val">5</span>
+            <button class="ts-btn" onclick="changeTeamSize(1)" id="ts-plus">+</button>
+          </div>
+          <span class="ts-info" id="ts-info">kişi</span>
         </div>
       </div>
 
@@ -997,7 +1033,7 @@ body.light-mode .help-popover-body{color:#475569}
 // ── STATE ────────────────────────────────────────────────────────────────────
 const S = {
   mode: 'career',
-  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, dev_approach:null, team_archetype:null, characters: [] },
+  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, dev_approach:null, team_archetype:null, characters: [], duration_months: 12, team_size: 5 },
   comp:   { dev_approach:null, org_structure:null, role:null, difficulty:null, eco_filters:[], sprint_length:null }
 };
 
@@ -1193,6 +1229,56 @@ function selectSeg(el, group) {
   el.classList.add('selected');
 }
 
+// ── PROJE SÜRESİ ─────────────────────────────────────────────────────────────
+function setDuration(months, el) {
+  S.career.duration_months = months;
+  document.querySelectorAll('#duration-bar .seg-item').forEach(s => s.classList.remove('selected'));
+  if (el) el.classList.add('selected');
+}
+
+// ── EKİP BÜYÜKLÜĞÜ ───────────────────────────────────────────────────────────
+// Metodoloji anahtarını S.career.dev_approach'dan türet
+function _getMethKey() {
+  const approach = S.career.dev_approach || getApproachFromRatio() || 'hybrid';
+  if (approach === 'agile') return 'agile';
+  if (approach === 'waterfall' || approach === 'predictive') return 'predictive';
+  return 'hybrid';
+}
+
+// Team size: min depends on methodology (required roles), max = 9
+function _getTeamSizeLimits() {
+  const methKey = _getMethKey();
+  const rules = { agile: 3, predictive: 3, hybrid: 2 }; // required role counts
+  const minSize = rules[methKey] || 2;
+  return { min: minSize, max: 9 };
+}
+
+function changeTeamSize(delta) {
+  const { min, max } = _getTeamSizeLimits();
+  const next = Math.max(min, Math.min(max, S.career.team_size + delta));
+  S.career.team_size = next;
+  updateTeamSizeUI();
+}
+
+function updateTeamSizeUI() {
+  const { min, max } = _getTeamSizeLimits();
+  // Clamp current value to new limits
+  S.career.team_size = Math.max(min, Math.min(max, S.career.team_size));
+  const sz = S.career.team_size;
+  const el    = document.getElementById('ts-val');
+  const info  = document.getElementById('ts-info');
+  const minus = document.getElementById('ts-minus');
+  const plus  = document.getElementById('ts-plus');
+  if (el)    el.textContent = sz;
+  if (minus) minus.disabled = sz <= min;
+  if (plus)  plus.disabled  = sz >= max;
+
+  const methKey = _getMethKey();
+  const reqCount = { agile: 3, predictive: 3, hybrid: 2 }[methKey] || 2;
+  const optional = sz - reqCount;
+  if (info) info.textContent = `kişi  ·  Zorunlu: ${reqCount}  ·  Seçimlik: ${optional}`;
+}
+
 // ── DUAL-HANDLE PHASE RANGE SLIDER ───────────────────────────────────────────
 const PHASE_IDS    = ['baslangic', 'planlama', 'yurutme', 'izleme', 'kapanis'];
 const PHASE_LBLS   = ['Başlatma',  'Planlama',  'Yürütme',  'İzleme',  'Kapanış'];
@@ -1338,6 +1424,14 @@ const HELP_TEXTS = {
   'adv-cevre': {
     title: 'Çevre Profili (Gelişmiş)',
     body: 'Projenin nefes aldığı iş ortamını tanımlar. Seçilen profil organizasyonel kültür, piyasa volatilitesi ve uyum baskısına göre iş çevresi meselelerini şekillendirir. Örneğin "Girişimci Saha"da kaynak kıtlığı ve tanımsız riskler öne çıkar.',
+  },
+  'proje-suresi': {
+    title: 'Proje Süresi',
+    body: 'Projenin kaç ayda tamamlanacağını belirler. Kısa sürelerde takvim baskısı artar ve milestone/gecikme meseleleri daha sık karşına çıkar. Uzun projelerde ise tükenmişlik ve ekip dinamiği meseleleri ağırlaşır.',
+  },
+  'ekip-buyuklugu': {
+    title: 'Ekip Büyüklüğü',
+    body: 'Seçilen metodolojiye göre zorunlu roller sabittir. Bunların üzerine seçimlik üyeler ekleyebilirsin. Büyük ekiplerde koordinasyon meseleleri, küçük ekiplerde kaynak kıtlığı daha baskın olur.',
   },
 };
 
@@ -1712,7 +1806,7 @@ function buildPayload() {
   return {
     schema_version: '2.1', session_id: uid, created_at: now, mode: 'career',
     player: { name: S.career.pm_name, project_name: S.career.project_name, avatar_seed: S.career.pm_name.toLowerCase().replace(/\s+/g,'_') },
-    career_config: { sector: S.career.sector, sector_label: sectorLabel, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, dev_approach: S.career.dev_approach, difficulty_people: S.career.difficulty_people || 5, difficulty_process: S.career.difficulty_process || 5, difficulty_biz: S.career.difficulty_biz || 5, start_phase: S.career.start_phase || 'baslangic', end_phase: S.career.end_phase || 'kapanis', process_archetype: (S.career._advArk && S.career._advArk.process) || null, env_archetype: (S.career._advArk && S.career._advArk.env) || null },
+    career_config: { sector: S.career.sector, sector_label: sectorLabel, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, dev_approach: S.career.dev_approach, difficulty_people: S.career.difficulty_people || 5, difficulty_process: S.career.difficulty_process || 5, difficulty_biz: S.career.difficulty_biz || 5, start_phase: S.career.start_phase || 'baslangic', end_phase: S.career.end_phase || 'kapanis', process_archetype: (S.career._advArk && S.career._advArk.process) || null, env_archetype: (S.career._advArk && S.career._advArk.env) || null, duration_months: S.career.duration_months || 12, team_size: S.career.team_size || 5 },
     competency_config: null,
     game_state: {
       current_day: 0, current_phase: 'initiating',
@@ -1944,6 +2038,8 @@ function renderApproach2(ratio) {
     badge.textContent = label;
     badge.className = 'approach2-zone-badge ' + cls;
   }
+  // Metodoloji değişince ekip büyüklüğü sınırlarını güncelle
+  updateTeamSizeUI();
 }
 
 function getApproachFromRatio() {
@@ -2042,6 +2138,7 @@ function applyDefaults() {
 document.addEventListener('DOMContentLoaded', () => {
   applyDefaults();
   buildSteppers();
+  updateTeamSizeUI();
 });
 
 // ── START GAME ────────────────────────────────────────────────────────────────
@@ -2073,6 +2170,8 @@ async function startGame() {
         end_phase:          cc.end_phase   || 'kapanis',
         process_archetype:  cc.process_archetype || null,
         env_archetype:      cc.env_archetype     || null,
+        duration_months:    cc.duration_months   || 12,
+        team_size:          cc.team_size         || 5,
         customKadro:      S.career.characters.filter(c => c.kind === 'team').map(c => ({ fullName: c.fullName, role: c.role, gender: c.gender || 'any', archetype: c.archetype || null })),
         customDisKisiler: S.career.characters.filter(c => c.kind !== 'team').map(c => ({ fullName: c.fullName, role: c.role, gender: c.gender || 'any', archetype: c.archetype || null })),
       });
