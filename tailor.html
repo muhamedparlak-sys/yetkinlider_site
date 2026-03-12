@@ -393,6 +393,19 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
   .setup-row{flex-wrap:wrap;gap:6px}
   .setup-row-label{min-width:80px;font-size:11px}
 }
+
+/* ── Tooltip / Help System ── */
+.help-btn{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.35);font-size:10px;font-weight:700;cursor:pointer;background:none;line-height:1;margin-left:6px;flex-shrink:0;transition:all .15s;vertical-align:middle}
+.help-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,130,246,.1)}
+.help-popover{position:fixed;z-index:9500;max-width:280px;background:#1e2d45;border:1px solid rgba(59,130,246,.25);border-radius:10px;padding:12px 14px;box-shadow:0 8px 32px rgba(0,0,0,.5);font-size:12px;line-height:1.6;color:#cbd5e1;opacity:0;transform:translateY(4px);transition:opacity .15s,transform .15s;pointer-events:none}
+.help-popover.visible{opacity:1;transform:translateY(0);pointer-events:all}
+.help-popover-title{font-size:11px;font-weight:700;color:#93c5fd;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.help-popover-body{color:#cbd5e1}
+body.light-mode .help-btn{border-color:rgba(0,0,0,.2);color:rgba(0,0,0,.35)}
+body.light-mode .help-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,130,246,.08)}
+body.light-mode .help-popover{background:#fff;border-color:rgba(59,130,246,.2);box-shadow:0 8px 32px rgba(0,0,0,.15)}
+body.light-mode .help-popover-title{color:#2563eb}
+body.light-mode .help-popover-body{color:#475569}
 </style>
 <style>
 /* ── SENARYO PREVIEW OVERLAY ─────────────────────────────── */
@@ -513,12 +526,12 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
 
       <!-- Proje & Sektör -->
       <div class="setup-row">
-        <span class="setup-row-label">Proje Adı</span>
+        <span class="setup-row-label">Proje Adı <button class="help-btn" onclick="showHelp('proje-adi',this);event.stopPropagation()" title="Yardım">?</button></span>
         <input class="setup-text-input" id="project_name" type="text" placeholder="Ör: Proje Pegasus" maxlength="50" data-user-edited="false" oninput="this.dataset.userEdited='true'">
       </div>
 
       <div class="setup-row" style="align-items:start">
-        <span class="setup-row-label" style="padding-top:10px">Sektör</span>
+        <span class="setup-row-label" style="padding-top:10px">Sektör <button class="help-btn" onclick="showHelp('sektor',this);event.stopPropagation()" title="Yardım">?</button></span>
         <div style="flex:1">
           <div class="sector-select-wrap">
             <select class="sector-select" id="sector-select" onchange="onSectorChange(this.value)">
@@ -553,7 +566,7 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
 
       <!-- Zorluk — 3 notch bar (1=yeşil kolay, 2=turuncu orta, 3=parlak kırmızı zor) -->
       <div class="setup-row" style="align-items:center">
-        <span class="setup-row-label">People &amp; Ekip</span>
+        <span class="setup-row-label">People &amp; Ekip <button class="help-btn" onclick="showHelp('people-diff',this);event.stopPropagation()" title="Yardım">?</button></span>
         <div style="display:flex;align-items:center;gap:10px;flex:1">
           <div class="notch-bar" id="notch-people" data-val="2" style="flex:1">
             <div class="notch-seg" onclick="setNotch('notch-people',1)"></div>
@@ -564,7 +577,7 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
         </div>
       </div>
       <div class="setup-row" style="align-items:center">
-        <span class="setup-row-label">Süreç &amp; Kapsam</span>
+        <span class="setup-row-label">Süreç &amp; Kapsam <button class="help-btn" onclick="showHelp('process-diff',this);event.stopPropagation()" title="Yardım">?</button></span>
         <div style="display:flex;align-items:center;gap:10px;flex:1">
           <div class="notch-bar" id="notch-process" data-val="2" style="flex:1">
             <div class="notch-seg" onclick="setNotch('notch-process',1)"></div>
@@ -575,7 +588,7 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
         </div>
       </div>
       <div class="setup-row" style="align-items:center">
-        <span class="setup-row-label">İş Çevresi</span>
+        <span class="setup-row-label">İş Çevresi <button class="help-btn" onclick="showHelp('biz-diff',this);event.stopPropagation()" title="Yardım">?</button></span>
         <div style="display:flex;align-items:center;gap:10px;flex:1">
           <div class="notch-bar" id="notch-biz" data-val="2" style="flex:1">
             <div class="notch-seg" onclick="setNotch('notch-biz',1)"></div>
@@ -588,7 +601,7 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
 
       <!-- PMO -->
       <div class="setup-row">
-        <span class="setup-row-label">PMO</span>
+        <span class="setup-row-label">PMO <button class="help-btn" onclick="showHelp('pmo-tipi',this);event.stopPropagation()" title="Yardım">?</button></span>
         <div class="seg-bar">
           <div class="seg-item selected" data-group="pmo_type" data-val="supportive"  onclick="selectSeg(this,'pmo_type')">Destekleyici</div>
           <div class="seg-item"         data-group="pmo_type" data-val="controlling" onclick="selectSeg(this,'pmo_type')">Denetleyici</div>
@@ -608,7 +621,7 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
 
       <!-- Faz Aralığı -->
       <div class="setup-row">
-        <span class="setup-row-label">Faz Aralığı</span>
+        <span class="setup-row-label">Faz Aralığı <button class="help-btn" onclick="showHelp('phase-range',this);event.stopPropagation()" title="Yardım">?</button></span>
         <div class="phase-range-wrap">
           <div class="phase-track" id="phase-track">
             <div class="phase-fill"   id="phase-fill"></div>
@@ -623,7 +636,7 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
 
       <!-- Metodoloji -->
       <div class="setup-row" style="align-items:start">
-        <span class="setup-row-label" style="padding-top:10px">Metodoloji</span>
+        <span class="setup-row-label" style="padding-top:10px">Metodoloji <button class="help-btn" onclick="showHelp('metodoloji',this);event.stopPropagation()" title="Yardım">?</button></span>
         <div style="flex:1">
           <div class="approach-bar" id="approach-bar">
             <div class="approach-seg ap2-predictive" id="ap2-left"></div>
@@ -682,7 +695,7 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
               <span class="adv-acc-icon">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </span>
-              <span class="adv-acc-label">Kişiler</span>
+              <span class="adv-acc-label">Kişiler <button class="help-btn" onclick="showHelp('adv-kisiler',this);event.stopPropagation()" title="Yardım">?</button></span>
               <span class="adv-acc-chevron" id="acc-chev-people">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               </span>
@@ -698,7 +711,7 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
               <span class="adv-acc-icon">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
               </span>
-              <span class="adv-acc-label">Süreç</span>
+              <span class="adv-acc-label">Süreç <button class="help-btn" onclick="showHelp('adv-surec',this);event.stopPropagation()" title="Yardım">?</button></span>
               <span class="adv-acc-chevron" id="acc-chev-process">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               </span>
@@ -723,7 +736,7 @@ body.light-mode .adv-acc-head:hover{background:rgba(0,0,0,.05)}
               <span class="adv-acc-icon">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
               </span>
-              <span class="adv-acc-label">Çevre</span>
+              <span class="adv-acc-label">Çevre <button class="help-btn" onclick="showHelp('adv-cevre',this);event.stopPropagation()" title="Yardım">?</button></span>
               <span class="adv-acc-chevron" id="acc-chev-env">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               </span>
@@ -1275,6 +1288,110 @@ function _initPhaseSlider() {
     _renderPhaseSlider();
   });
 }
+
+// ── Tooltip / Help System ──────────────────────────────────────────────────
+const HELP_TEXTS = {
+  'people-diff': {
+    title: 'People & Ekip Zorluğu',
+    body: 'Ekip dinamiklerinin ne kadar zorlayıcı olduğunu belirler. Yüksek zorlukta performans sorunları, bilgi adaları ve takım çatışmaları daha sık karşına çıkar.',
+  },
+  'process-diff': {
+    title: 'Süreç & Kapsam Zorluğu',
+    body: 'Proje süreçlerinin belirsizlik ve değişkenlik düzeyini ayarlar. Yüksek zorlukta kapsam kaymaları, görev gecikmeleri ve metodoloji uyumsuzlukları ağırlık kazanır.',
+  },
+  'biz-diff': {
+    title: 'İş Çevresi Zorluğu',
+    body: 'Dış paydaşların, piyasanın ve kurumsal bağlamın baskısını tanımlar. Yüksek zorlukta bütçe kısıntıları, sponsor değişiklikleri ve uyum gereksinimleri ön plana çıkar.',
+  },
+  'phase-range': {
+    title: 'Faz Aralığı',
+    body: 'Projenin hangi aşamasından başlayıp nerede biteceğini seçer. Tüm 5 faz: Başlatma → Planlama → Yürütme → İzleme & Kontrol → Kapanış. Kısa oturumlar için yalnızca belirli fazları seçebilirsin.',
+  },
+  'metodoloji': {
+    title: 'Metodoloji Oranı',
+    body: 'Projenin ne kadar Agile (esnek, iteratif) ya da Predictive (planlı, şelale) yönetildiğini gösterir. %100 Agile\'de sprint döngüleri ve backlog önceliklendirilmesi ön planda; %100 Predictive\'de baştan sona plan takibi kritik hale gelir.',
+  },
+  'pmo-tipi': {
+    title: 'PMO Tipi',
+    body: 'Proje Yönetim Ofisi\'nin senaryodaki rolünü belirler.\n• Destekleyici: Kararsız kaldığında ipucu verir, zorlu seçimlerden önce rehberlik eder.\n• Yönlendirici: Etik dışı seçimleri öncesinde uyarır.\n• Denetleyici: 3 etik ihlalde görevinize son verir.',
+  },
+  'sektor': {
+    title: 'Sektör',
+    body: 'Çalıştığın sektör ekibin rollerini ve meselelerinin bağlamını şekillendirir. Her sektörün kendine özgü paydaş yapısı, teknik terminolojisi ve risk profili vardır.',
+  },
+  'pm-adi': {
+    title: 'PM Adı',
+    body: 'Senaryodaki proje yöneticisinin adı. E-postalarda ve bildirimlerde bu isim kullanılır.',
+  },
+  'proje-adi': {
+    title: 'Proje Adı',
+    body: 'Yönettiğin projeye verilen isim. Tüm senaryoda bu projeyi yönetiyorsun.',
+  },
+  'adv-kisiler': {
+    title: 'Kişiler (Gelişmiş)',
+    body: 'Ekip üyelerinin arketiplerini belirler. Arketip, bir kişinin iş tarzını ve yarattığı mesele profilini tanımlar. Örneğin "Tükenmişlik" arketipi performans sorunlarını; "Torpilli" siyasi çatışmaları tetikler.',
+  },
+  'adv-surec': {
+    title: 'Süreç Profili (Gelişmiş)',
+    body: 'Projenin gereksinim netliği ve kısıt katılığı profilini belirler. Seçilen profil, hangi süreç meselelerinin senaryoya girebileceğini filtreler. Örneğin "Uyumluluk Kafesi" denetim ve audit meselelerini ağırlaştırır.',
+  },
+  'adv-cevre': {
+    title: 'Çevre Profili (Gelişmiş)',
+    body: 'Projenin nefes aldığı iş ortamını tanımlar. Seçilen profil organizasyonel kültür, piyasa volatilitesi ve uyum baskısına göre iş çevresi meselelerini şekillendirir. Örneğin "Girişimci Saha"da kaynak kıtlığı ve tanımsız riskler öne çıkar.',
+  },
+};
+
+let _activePopover = null;
+
+function showHelp(key, btnEl) {
+  const info = HELP_TEXTS[key];
+  if (!info) return;
+
+  // Aynı butona tekrar tıklanırsa kapat
+  if (_activePopover && _activePopover._key === key) {
+    closeHelp();
+    return;
+  }
+  closeHelp();
+
+  const pop = document.createElement('div');
+  pop.className = 'help-popover';
+  pop._key = key;
+  pop.innerHTML = `<div class="help-popover-title">${info.title}</div><div class="help-popover-body">${info.body.replace(/\n/g,'<br>')}</div>`;
+  document.body.appendChild(pop);
+
+  // Pozisyon hesapla
+  const rect = btnEl.getBoundingClientRect();
+  const popW = 280;
+  let left = rect.left + rect.width / 2 - popW / 2;
+  let top  = rect.bottom + 8;
+
+  // Ekran sınırları
+  if (left < 8) left = 8;
+  if (left + popW > window.innerWidth - 8) left = window.innerWidth - 8 - popW;
+  if (top + 120 > window.innerHeight) top = rect.top - 8 - 120;
+
+  pop.style.left = left + 'px';
+  pop.style.top  = top + 'px';
+  pop.style.width = popW + 'px';
+
+  _activePopover = pop;
+  requestAnimationFrame(() => pop.classList.add('visible'));
+}
+
+function closeHelp() {
+  if (_activePopover) {
+    _activePopover.remove();
+    _activePopover = null;
+  }
+}
+
+// Dışarı tıklanınca kapat
+document.addEventListener('click', e => {
+  if (_activePopover && !e.target.closest('.help-btn') && !e.target.closest('.help-popover')) {
+    closeHelp();
+  }
+});
 
 // Sayfa yüklendiğinde slider'ı başlat (page-c1 üzerinde)
 document.addEventListener('DOMContentLoaded', () => {
