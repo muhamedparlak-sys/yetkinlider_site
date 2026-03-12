@@ -188,6 +188,117 @@ const PSG = (() => {
     butce_kesmesi:             'biz_cevre',
   };
 
+  // ── Metodoloji × Rol Kısıtları ───────────────────────────────────────────────
+  // Her metodoloji için zorunlu ve yasak roller
+  const METHODOLOGY_ROLES = {
+    agile: {
+      required: ['Scrum Master', 'Ürün Sahibi'],
+      forbidden: ['Proje Koordinatörü', 'Değişim Yöneticisi'],
+    },
+    predictive: {
+      required: ['Proje Koordinatörü', 'Teknik Lider'],
+      forbidden: ['Scrum Master', 'Ürün Sahibi'],
+    },
+    hybrid: {
+      required: ['Teknik Lider'],
+      forbidden: [],
+    },
+  };
+
+  // Rol üst limitleri (aynı rolden kaç kişi olabilir)
+  const ROLE_CAPS = {
+    'Scrum Master':        1,
+    'Ürün Sahibi':         1,
+    'Proje Koordinatörü':  1,
+    'Teknik Lider':        1,
+    'Kıdemli Geliştirici': 2,
+    'Geliştirici':         5,
+    'QA Mühendisi':        2,
+    'UX/UI Tasarımcı':     1,
+    'Veri Analisti':       1,
+    'Değişim Yöneticisi':  1,
+  };
+
+  // ── Arketip → Garantili Mesele Tipleri ────────────────────────────────────────
+  // Bu arketip senaryoda varsa, listedeki mesele tiplerinden EN AZ 1 tane çıkar
+  const ARCHETYPE_LOCKS = {
+    // Ekip arketipleri
+    tukenme:               ['performans_geriligi'],
+    sakat_yildiz:          ['performans_geriligi', 'cakisan_gorevlendirme'],
+    sessiz_usta:           ['bilgi_adasi', 'kilit_kisi_bagimlilik'],
+    kriz_kahramani:        ['kayitli_risk_gerceklesti', 'paralel_is_birikimi'],
+    torpilli:              ['onaylanmamis_harcama', 'paydas_catismasi'],
+    iyi_niyetli_toy:       ['yetkinlik_uyumsuzlugu', 'yeni_uye_entegrasyonu'],
+    // takim_dinamosu, guvenilir_orta → nötr, lock yok
+
+    // Paydaş arketipleri
+    firsatci:              ['yazisiz_scope_degisikligi', 'gizli_kapsam_kabulu'],
+    burokratik_veto:       ['gereksinim_catismasi', 'milestone_baskisi'],
+    uyuyan_dev:            ['paydas_erisim_sorunu', 'patron_degisikligi'],
+    gurultulu_muhalif:     ['iletisim_kopuklugu', 'takim_catismasi'],
+    musteri_arketip:       ['beklenti_sapma', 'kapsam_kiymeti_sorgusu'],
+    savunmasiz_paydas:     ['teslimat_sonrasi_kriz'],
+
+    // Süreç arketipleri (yeni isimler — metodoloji değil, proje profili)
+    net_yol:               ['takvim_degisikligi', 'gereksinim_catismasi'],
+    dinamik_ortam:         ['kapsam_belirsizligi', 'yazisiz_scope_degisikligi'],
+    yapilandirilmis_donus: ['gizli_bagimlilik', 'cakisan_gorevlendirme'],
+    uyumluluk_kafesi:      ['uyum_ve_lisans', 'hata_gec_bildirim'],
+    acil_mod:              ['kayitli_risk_gerceklesti', 'tanimsiz_risk'],
+    bilinmez_zemin:        ['kapsam_belirsizligi', 'teknik_borc'],
+    buyutulmus_kapsam:     ['teknik_borc', 'cakisan_gorevlendirme'],
+
+    // Çevre arketipleri
+    duzenlenmis_liman:     ['uyum_ve_lisans', 'butce_kesmesi'],
+    girisimci_saha:        ['kaynak_erisilemezligi', 'tanimsiz_risk'],
+    koklu_kurum:           ['patron_degisikligi', 'dis_etki_mudahalesi'],
+    fintech_firtinasi:     ['uyum_ve_lisans', 'maliyet_asimi_riski'],
+    inovasyon_merkezi:     ['tanimsiz_risk', 'teknik_borc'],
+    rekabetci_arena:       ['takvim_degisikligi', 'maliyet_asimi_riski'],
+    gecis_ekonomisi:       ['patron_degisikligi', 'kaynak_erisilemezligi'],
+  };
+
+  // ── Mesele → Zorunlu Arketip ─────────────────────────────────────────────────
+  // Bu mesele tipi yalnızca listede en az 1 arketip senaryoda varsa havuzda kalır.
+  // Boş/tanımsız = evrensel, her zaman erişilebilir.
+  const MESELE_REQUIRED_ARCHETYPES = {
+    bilgi_adasi:               ['sessiz_usta'],
+    kilit_kisi_bagimlilik:     ['sessiz_usta', 'kriz_kahramani'],
+    performans_geriligi:       ['tukenme', 'sakat_yildiz'],
+    yetkinlik_uyumsuzlugu:     ['iyi_niyetli_toy'],
+    yeni_uye_entegrasyonu:     ['iyi_niyetli_toy'],
+    onaylanmamis_harcama:      ['torpilli', 'firsatci'],
+    proje_kapatma_sorunu:      ['torpilli'],
+    paydas_catismasi:          ['torpilli', 'burokratik_veto', 'gurultulu_muhalif'],
+    takim_catismasi:           ['tukenme', 'torpilli', 'gurultulu_muhalif'],
+    yazisiz_scope_degisikligi: ['firsatci', 'dinamik_ortam'],
+    gizli_kapsam_kabulu:       ['firsatci', 'dinamik_ortam'],
+    gereksinim_catismasi:      ['burokratik_veto', 'net_yol'],
+    milestone_baskisi:         ['burokratik_veto', 'acil_mod'],
+    paydas_erisim_sorunu:      ['uyuyan_dev'],
+    patron_degisikligi:        ['uyuyan_dev', 'koklu_kurum', 'gecis_ekonomisi'],
+    dis_etki_mudahalesi:       ['uyuyan_dev', 'koklu_kurum', 'fintech_firtinasi'],
+    iletisim_kopuklugu:        ['gurultulu_muhalif', 'uyuyan_dev'],
+    beklenti_sapma:            ['musteri_arketip', 'savunmasiz_paydas'],
+    kapsam_kiymeti_sorgusu:    ['musteri_arketip'],
+    teslimat_sonrasi_kriz:     ['musteri_arketip', 'savunmasiz_paydas'],
+    uyum_ve_lisans:            ['burokratik_veto', 'uyumluluk_kafesi', 'duzenlenmis_liman', 'fintech_firtinasi'],
+    butce_kesmesi:             ['burokratik_veto', 'duzenlenmis_liman'],
+    kapsam_belirsizligi:       ['dinamik_ortam', 'bilinmez_zemin'],
+    teknik_borc:               ['bilinmez_zemin', 'buyutulmus_kapsam'],
+    tanimsiz_risk:             ['bilinmez_zemin', 'acil_mod', 'girisimci_saha', 'inovasyon_merkezi'],
+    kayitli_risk_gerceklesti:  ['kriz_kahramani', 'acil_mod'],
+    test_atlamasi_baskisi:     ['acil_mod', 'uyumluluk_kafesi'],
+    hata_gec_bildirim:         ['iyi_niyetli_toy', 'uyumluluk_kafesi'],
+    takvim_degisikligi:        ['net_yol', 'rekabetci_arena'],
+    cakisan_gorevlendirme:     ['buyutulmus_kapsam', 'yapilandirilmis_donus', 'sakat_yildiz'],
+    maliyet_asimi_riski:       ['rekabetci_arena', 'fintech_firtinasi'],
+    tedarikci_sorunu:          ['rekabetci_arena'],
+    kaynak_erisilemezligi:     ['girisimci_saha', 'gecis_ekonomisi'],
+    // Evrensel (required arketip yok):
+    // gorev_gecikmesi, gizli_bagimlilik, paralel_is_birikimi
+  };
+
   // Seçime göre geribildirim şablonları
   const CONSEQUENCE_TPLS = {
     medicine: [
@@ -615,6 +726,8 @@ const PSG = (() => {
       end_phase          = 'kapanis',
       customKadro        = null,
       customDisKisiler   = null,
+      process_archetype  = null,   // Süreç arketipi (net_yol, dinamik_ortam, vb.)
+      env_archetype      = null,   // Çevre arketipi (duzenlenmis_liman, girisimci_saha, vb.)
     } = config;
 
     // Domain difficulty multipliers — 1=hafif(0.4×), 2=orta(1.0×), 3=sert(2.5×)
@@ -624,6 +737,42 @@ const PSG = (() => {
       process:   _dm[(difficulty_process - 1)] ?? 1,
       biz_cevre: _dm[(difficulty_biz     - 1)] ?? 1,
     };
+
+    // ── Aktif arketipler ────────────────────────────────────────────────────────
+    const presentArchetypes = new Set();
+
+    // Ekip karakterlerinin arketipleri (customKadro'dan)
+    if (customKadro && customKadro.length) {
+      customKadro.forEach(c => { if (c.archetype) presentArchetypes.add(c.archetype); });
+    }
+    // Dış paydaşların arketipleri (customDisKisiler'dan)
+    if (customDisKisiler && customDisKisiler.length) {
+      customDisKisiler.forEach(c => { if (c.archetype) presentArchetypes.add(c.archetype); });
+    }
+    // Süreç ve çevre arketipleri config'den
+    if (process_archetype) presentArchetypes.add(process_archetype);
+    if (env_archetype)     presentArchetypes.add(env_archetype);
+
+    // Fallback: arketip tanımlanmamışsa dev_approach'dan varsayılan
+    const hasProcessArk = process_archetype || (customKadro || []).some(c => c.archetype && ARCHETYPE_LOCKS[c.archetype]);
+    if (!hasProcessArk) {
+      if (dev_approach === 'agile')                                                         presentArchetypes.add('dinamik_ortam');
+      else if (dev_approach === 'waterfall' || dev_approach === 'predictive')               presentArchetypes.add('net_yol');
+      else                                                                                   presentArchetypes.add('yapilandirilmis_donus');
+    }
+
+    // ── Garantili mesele havuzu (archetype lock'larından) ───────────────────────
+    const lockedMeseleSet = new Set();
+    presentArchetypes.forEach(ark => {
+      (ARCHETYPE_LOCKS[ark] || []).forEach(m => lockedMeseleSet.add(m));
+    });
+
+    // ── Metodoloji rol kısıtları ─────────────────────────────────────────────────
+    // dev_approach'u metodoloji anahtarına eşle
+    const methKey = dev_approach === 'agile' ? 'agile'
+                  : (dev_approach === 'waterfall' || dev_approach === 'predictive') ? 'predictive'
+                  : 'hybrid';
+    const methRules = METHODOLOGY_ROLES[methKey] || { required: [], forbidden: [] };
 
     // Active phase slice based on start_phase / end_phase
     const PHASE_IDX    = { baslangic: 0, planlama: 1, yurutme: 2, izleme: 3, kapanis: 4 };
@@ -697,6 +846,49 @@ const PSG = (() => {
       ? customKadro.map(c => ({ fullName: c.fullName, firstName: c.fullName.split(' ')[0], gender: c.gender || 'any', role: c.role }))
       : kadro;
 
+    // Metodoloji kısıtlarını uygula (sadece otomatik oluşturulmuş kadro için değil, custom için de kontrol et)
+    // 1. Rol üst limitleri
+    const roleCounts = {};
+    const methodologyFinalKadro = finalKadro.map(c => {
+      const cap = ROLE_CAPS[c.role];
+      if (cap !== undefined) {
+        roleCounts[c.role] = (roleCounts[c.role] || 0) + 1;
+        if (roleCounts[c.role] > cap) {
+          // Cap aşıldı — alternatif rol ver
+          return { ...c, role: 'Geliştirici' };
+        }
+      } else {
+        roleCounts[c.role] = (roleCounts[c.role] || 0) + 1;
+      }
+      return c;
+    });
+
+    // 2. Yasak rolleri temizle
+    const cleanedKadro = methodologyFinalKadro.map(c => {
+      if (methRules.forbidden.includes(c.role)) {
+        return { ...c, role: 'Geliştirici' }; // Yasak rol → geliştirici
+      }
+      return c;
+    });
+
+    // 3. Zorunlu rolleri kontrol et ve ekle (mevcut değilse)
+    const kadroWithRequired = [...cleanedKadro];
+    methRules.required.forEach(reqRole => {
+      const alreadyHas = kadroWithRequired.some(c => c.role === reqRole);
+      if (!alreadyHas && kadroWithRequired.length > 0) {
+        // Son kişiyi değiştir (sadece auto-generated kadro'da yapılır, customKadro'yu zorla değiştirme)
+        if (!customKadro || !customKadro.length) {
+          kadroWithRequired[kadroWithRequired.length - 1] = {
+            ...kadroWithRequired[kadroWithRequired.length - 1],
+            role: reqRole,
+          };
+        }
+      }
+    });
+
+    // Temizlenmiş kadroyu kullan
+    const effectiveFinalKadro = (customKadro && customKadro.length) ? cleanedKadro : kadroWithRequired;
+
     // Dış kişiler (müşteri, sponsor, son kullanıcı)
     const disKisiler = [
       { ...pickFullName('female'), role: 'Müşteri Yetkilisi',         kind: 'client'   },
@@ -719,8 +911,8 @@ const PSG = (() => {
     const baseVars        = { player_name, project_name, mappedSector };
 
     // ── Hoşgeldiniz bildirimleri (her senaryo bunlarla başlar) ──────────────
-    const hrPool   = finalKadro.filter(k => k.gender === 'female');
-    const hrPerson = hrPool.length ? randChoice(hrPool, rng) : finalKadro[0];
+    const hrPool   = effectiveFinalKadro.filter(k => k.gender === 'female');
+    const hrPerson = hrPool.length ? randChoice(hrPool, rng) : effectiveFinalKadro[0];
     const sponsor  = finalDisKisiler[1];
 
     const _firstPhase = activePhases[0] || PHASES[0];
@@ -744,6 +936,34 @@ const PSG = (() => {
     const planTotal = activePhases.reduce((s, p) => s + p.decisions, 0);
     const scale     = totalDecisions / Math.max(planTotal, 1);
 
+    // ── Arketip bazlı mesele filtresi ─────────────────────────────────────────
+    // Zorunlu arketipi olmayan mesele tiplerini havuzdan çıkar
+    const baseMeseleTipiIds = meseleTipiIds.filter(id => {
+      const required = MESELE_REQUIRED_ARCHETYPES[id];
+      if (!required || required.length === 0) return true; // Evrensel
+      return required.some(ark => presentArchetypes.has(ark));
+    });
+
+    // Garantili mesele listesi — bunlar senaryo boyunca EN AZ 1 kez çıkacak
+    // Sadece filtrelenmiş havuzda olan locked mesele'leri al
+    const guaranteedMesele = [...lockedMeseleSet].filter(id =>
+      meseleTipleri[id] &&
+      meseleTipleri[id].reasons &&
+      meseleTipleri[id].reasons.length > 0
+    );
+
+    // Guaranteed injection: toplam kararları guaranteedMesele sayısına böl
+    // Her N karardan birinde bir guaranteed mesele zorla yerleştir
+    const totalDecisionSlots = activePhases.reduce((s, p) => s + Math.round(p.decisions * (totalDecisions / Math.max(activePhases.reduce((ss, pp) => ss + pp.decisions, 0), 1))), 0);
+    const guaranteedInterval = guaranteedMesele.length > 0
+      ? Math.floor(totalDecisionSlots / (guaranteedMesele.length + 1))
+      : Infinity;
+
+    // Guaranteed kuyruğu — sırayla yerleştirilecek
+    const guaranteedQueue = [...guaranteedMesele];
+    let guaranteedPlaced = 0;
+    let totalDecisionsDone = 0; // Tüm fazlar boyunca sayaç
+
     for (let phaseIdx = 0; phaseIdx < activePhases.length; phaseIdx++) {
       const phase       = activePhases[phaseIdx];
       const sectionNum  = phaseIdx + 1;  // 1-indexed section for this scenario
@@ -765,26 +985,50 @@ const PSG = (() => {
         if (lorePositions.has(slot) && loreDone < phaseLoreCount && phaseLoreTpls.length > 0) {
           // ── Lore bildirimi ──
           const tpl  = weightedChoice(phaseLoreTpls, phaseLoreTpls.map(t => t.weight ?? 1), rng);
-          const lore = renderLore(globalIdx, tpl, phase, finalKadro, finalDisKisiler, absenceMap, rng, baseVars, sectionNum);
+          const lore = renderLore(globalIdx, tpl, phase, effectiveFinalKadro, finalDisKisiler, absenceMap, rng, baseVars, sectionNum);
           allNotifications.push(lore);
           loreDone++;
           globalIdx++;
         } else if (decisionsDone < phaseDecCount) {
           // ── Karar bildirimi ──
-          const mesele = pickMesele(meseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult);
+          // Guaranteed mesele injection: her N karardan birinde zorla ekle
+          let mesele;
+          const shouldInjectGuaranteed =
+            guaranteedQueue.length > 0 &&
+            totalDecisionsDone > 0 &&
+            totalDecisionsDone % Math.max(guaranteedInterval, 10) === 0;
+
+          if (shouldInjectGuaranteed) {
+            // Guaranteed kuyruğundan uygun bir mesele seç (reason'ı bitmemiş olmalı)
+            const gIdx = guaranteedQueue.findIndex(id => {
+              const m = meseleTipleri[id];
+              return m && m.reasons && m.reasons.some(r => (reasonUseCounts[r.reason_id] || 0) < (r.max_per_scenario ?? 1));
+            });
+            if (gIdx >= 0) {
+              const gId = guaranteedQueue.splice(gIdx, 1)[0];
+              mesele = meseleTipleri[gId];
+              guaranteedPlaced++;
+            } else {
+              mesele = pickMesele(baseMeseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult);
+            }
+          } else {
+            mesele = pickMesele(baseMeseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult);
+          }
+          totalDecisionsDone++;
+
           if (!mesele) { globalIdx++; continue; }
           const reason = pickReason(mesele, reasonUseCounts, rng);
           if (!reason) { globalIdx++; continue; }
 
           reasonUseCounts[reason.reason_id] = (reasonUseCounts[reason.reason_id] || 0) + 1;
-          const dec = renderDecision(globalIdx, mesele, reason, phase, finalKadro, finalDisKisiler, absenceMap, rng, baseVars, sectionNum);
+          const dec = renderDecision(globalIdx, mesele, reason, phase, effectiveFinalKadro, finalDisKisiler, absenceMap, rng, baseVars, sectionNum);
           allNotifications.push(dec);
           decisionsDone++;
           globalIdx++;
         } else if (loreDone < phaseLoreCount && phaseLoreTpls.length > 0) {
           // Karar bitti ama hâlâ lore slotu var
           const tpl  = weightedChoice(phaseLoreTpls, phaseLoreTpls.map(t => t.weight ?? 1), rng);
-          const lore = renderLore(globalIdx, tpl, phase, finalKadro, finalDisKisiler, absenceMap, rng, baseVars, sectionNum);
+          const lore = renderLore(globalIdx, tpl, phase, effectiveFinalKadro, finalDisKisiler, absenceMap, rng, baseVars, sectionNum);
           allNotifications.push(lore);
           loreDone++;
           globalIdx++;
@@ -814,7 +1058,7 @@ const PSG = (() => {
       project_name,
       start_phase,
       end_phase,
-      kadro: finalKadro,
+      kadro: effectiveFinalKadro,
       dis_kisiler: finalDisKisiler,
       // game.html'in section-tabanlı batch sistemini doğru besle (sadece aktif fazlar)
       sections: activePhases.map((p, i) => ({
@@ -823,6 +1067,12 @@ const PSG = (() => {
         iteration: p.label,
       })),
       notifications: allNotifications,
+      archetypes: {
+        present:      [...presentArchetypes],
+        locked_mesele: guaranteedMesele,
+        placed_locked: guaranteedPlaced,
+      },
+      methodology: methKey,
     };
   }
 
