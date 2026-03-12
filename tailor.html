@@ -227,6 +227,26 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 .sector-profile-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,.38);margin-top:5px}
 .sector-profile-badge b{color:#c4b5fd;font-weight:600}
 
+/* ── ARKETİP CARDS ── */
+.arketip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:580px){.arketip-grid{grid-template-columns:repeat(2,1fr)}}
+.ark-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.09);border-radius:12px;padding:14px 12px 12px;cursor:pointer;transition:all .15s;position:relative}
+.ark-card:hover{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);transform:translateY(-1px)}
+.ark-card.selected{border-color:#8b5cf6;background:rgba(139,92,246,.12)}
+.ark-header{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:9px}
+.ark-name{font-size:12px;font-weight:700;color:rgba(255,255,255,.9);line-height:1.35;flex:1}
+/* ── Tooltip trigger (?) ── */
+.ark-tip{position:relative;width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:rgba(255,255,255,.45);cursor:help;flex-shrink:0;margin-top:1px;outline:none}
+.ark-tip:hover .ark-tt,.ark-tip:focus .ark-tt{opacity:1;visibility:visible;transform:translateY(0)}
+.ark-tt{position:absolute;bottom:calc(100% + 8px);right:-4px;width:200px;background:#1e293b;border:1px solid rgba(255,255,255,.15);border-radius:9px;padding:10px 12px;font-size:11px;font-weight:400;color:rgba(255,255,255,.75);line-height:1.55;z-index:999;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s,transform .18s,visibility .18s;pointer-events:none;white-space:normal;text-align:left}
+.ark-tt::after{content:'';position:absolute;bottom:-5px;right:7px;width:9px;height:9px;background:#1e293b;border-right:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15);transform:rotate(45deg)}
+/* ── Trait rows ── */
+.ark-traits{display:flex;flex-direction:column;gap:4px}
+.ark-trait{display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,.4);white-space:nowrap}
+.ark-arrow-up{color:#22c55e;font-weight:800;font-size:14px;line-height:1}
+.ark-arrow-mid{color:#475569;font-weight:700;font-size:14px;line-height:1}
+.ark-arrow-dn{color:#ef4444;font-weight:800;font-size:14px;line-height:1}
+
 /* ── NAV BUTTONS ── */
 .wiz-nav{position:fixed;bottom:0;left:0;right:0;display:flex;align-items:center;gap:12px;background:rgba(12,17,26,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.07);padding:14px max(20px,calc(50% - 290px));box-sizing:border-box;z-index:200}
 .wiz-back{background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);font-size:12px;font-weight:600;padding:9px 18px;border-radius:7px;cursor:pointer;transition:all .15s}
@@ -605,11 +625,42 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 
 
 <!-- ═══════════════════════════════════════════
-     CAREER — STEP 4: ÖZET
+     CAREER — STEP 4: EKİP ARKETİPLERİ
 ═══════════════════════════════════════════ -->
 <div class="page flex-start wiz-page" id="page-c4">
   <div class="wiz-inner">
     <div class="wizard-steps" id="steps-c4"></div>
+
+    <div class="setup-card">
+      <div class="setup-card-head">
+        <h2>Ekip karakterleri</h2>
+        <p>Takımında hangi profil baskın? Senaryo boyunca hangi mesele tipiyle karşılaşacağın buna göre şekillenir.</p>
+      </div>
+      <div class="setup-row" style="display:block;padding:18px 26px 24px">
+        <div class="arketip-grid" id="arketip-grid">
+          <!-- JS ile doldurulur -->
+        </div>
+      </div>
+    </div>
+
+    <p class="val-hint" id="hint-c4">Bir ekip arketipi seçmelisin.</p>
+  </div>
+  <div class="wiz-nav">
+    <button class="wiz-back" onclick="goPage('page-c3')">← Geri</button>
+    <button class="wiz-next career-next" onclick="nextCareer(4)">
+      Özete Git
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     CAREER — STEP 5: ÖZET
+═══════════════════════════════════════════ -->
+<div class="page flex-start wiz-page" id="page-c5">
+  <div class="wiz-inner">
+    <div class="wizard-steps" id="steps-c5"></div>
 
     <div class="summary-card">
       <div class="summary-head">
@@ -626,7 +677,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 
   </div>
   <div class="wiz-nav">
-    <button class="wiz-back" onclick="goPage('page-c3')">← Düzenle</button>
+    <button class="wiz-back" onclick="goPage('page-c4')">← Düzenle</button>
     <button class="wiz-next start-btn" id="btn-start-career" onclick="startGame()">
       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       Maceraya Başla
@@ -855,7 +906,7 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
 // ── STATE ────────────────────────────────────────────────────────────────────
 const S = {
   mode: null,
-  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, dev_approach:null },
+  career: { pm_name:'', project_name:'', sector:null, sector_custom:null, difficulty:null, pmo_type:null, team_culture:null, dev_approach:null, team_archetype:null },
   comp:   { dev_approach:null, org_structure:null, role:null, difficulty:null, eco_filters:[], sprint_length:null }
 };
 
@@ -896,6 +947,8 @@ function goPage(id) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   // Faz slider'ı sayfa c2'ye gelindiğinde render et
   if (id === 'page-c2') _renderPhaseSlider();
+  // Arketip grid'i sayfa c4'e gelindiğinde render et
+  if (id === 'page-c4') renderArketipGrid();
 }
 
 // ── MODE SELECT ───────────────────────────────────────────────────────────────
@@ -906,11 +959,11 @@ function selectMode(mode) {
 }
 
 // ── STEPPER BUILD ─────────────────────────────────────────────────────────────
-const CAREER_STEPS = ['Kimlik', 'Ortam', 'Yaklaşım', 'Özet'];
+const CAREER_STEPS = ['Kimlik', 'Ortam', 'Yaklaşım', 'Ekip', 'Özet'];
 const COMP_STEPS   = ['Yaklaşım & Rol', 'Odak & Sprint', 'Özet'];
 
 function buildSteppers() {
-  [1,2,3,4].forEach(cur => {
+  [1,2,3,4,5].forEach(cur => {
     const el = document.getElementById('steps-c' + cur);
     if (!el) return;
     el.innerHTML = CAREER_STEPS.map((lbl, i) => {
@@ -1155,6 +1208,69 @@ function onSectorChange(val) {
   if (badge) badge.style.display = 'none';
 }
 
+// ── ARKETİP SİSTEMİ ──────────────────────────────────────────────────────────
+const ARKETIP = [
+  { id:'takim_dinamosu',  rol:3, sureklilik:3, motivasyon:3,
+    title:'Takımın Dinamosu',
+    desc:'Yetkin, güvenilir ve motive. Neredeyse sıfır baş ağrısı çıkarır — tam bir proje hediyeliği.' },
+  { id:'tukenme',         rol:3, sureklilik:3, motivasyon:1,
+    title:'Tükenmişlik',
+    desc:'Yıllar içinde yıpranmış uzman. Her şeyi biliyor, hiçbir şeyi umursamıyor. Dahil ama içten yanmış.' },
+  { id:'sakat_yildiz',    rol:3, sureklilik:1, motivasyon:3,
+    title:'Sakat Yıldız',
+    desc:'Harika yetenekli ve hevesli, ama asla ulaşamazsınız. Müzmin sakat bir futbolcu gibi: varsa bulunmaz nimet, ama toplantıda mı? Bilinmez.' },
+  { id:'kriz_kahramani',  rol:3, sureklilik:1, motivasyon:1,
+    title:'Kriz Kahramanı',
+    desc:'Yangın söndürmek için var. Ancak yangın başladığında belirir; normal süreçlerde ortalıkta yoktur.' },
+  { id:'sessiz_usta',     rol:3, sureklilik:2, motivasyon:2,
+    title:'Sessiz Usta',
+    desc:'Biliyor, yapıyor; ama paylaşmıyor. Köşede çalışır, nadiren konuşur — bilgi adası riski yüksek.' },
+  { id:'iyi_niyetli_toy', rol:1, sureklilik:3, motivasyon:3,
+    title:'İyi Niyetli Toy',
+    desc:'Her işe el kaldırır, her toplantıya gelir. İsteği var ama yetkinliği yok — en iyi ihtimalle iş gecikmesi.' },
+  { id:'guvenilir_orta',  rol:2, sureklilik:2, motivasyon:2,
+    title:'Güvenilir Orta',
+    desc:'Sürpriz yapmaz, hayal kırıklığı da yaratmaz. Makul, stabil, tahmin edilebilir — projenin sessiz sigortası.' },
+  { id:'torpilli',        rol:1, sureklilik:1, motivasyon:1,
+    title:'Torpilli',
+    desc:'Nasıl ekibe girdi? Sormayın. Becerisi yok, gelmiyor, takmıyor. Kaynakların en sessiz tüketimi.' },
+];
+
+function _arkArrow(val) {
+  if (val === 3) return '<span class="ark-arrow-up">↑</span>';
+  if (val === 1) return '<span class="ark-arrow-dn">↓</span>';
+  return '<span class="ark-arrow-mid">—</span>';
+}
+
+function renderArketipGrid() {
+  const grid = document.getElementById('arketip-grid');
+  if (!grid) return;
+  grid.innerHTML = ARKETIP.map(a => `
+    <div class="ark-card" data-id="${a.id}" onclick="selectArketip(this,'${a.id}')">
+      <div class="ark-header">
+        <span class="ark-name">${a.title}</span>
+        <span class="ark-tip" tabindex="0">?<span class="ark-tt">${a.desc}</span></span>
+      </div>
+      <div class="ark-traits">
+        <span class="ark-trait">${_arkArrow(a.rol)}<span>Rol Uyumu</span></span>
+        <span class="ark-trait">${_arkArrow(a.sureklilik)}<span>Süreklilik</span></span>
+        <span class="ark-trait">${_arkArrow(a.motivasyon)}<span>Motivasyon</span></span>
+      </div>
+    </div>
+  `).join('');
+  // Önceden seçili arketip varsa işaretle
+  if (S.career.team_archetype) {
+    const prev = grid.querySelector(`[data-id="${S.career.team_archetype}"]`);
+    if (prev) prev.classList.add('selected');
+  }
+}
+
+function selectArketip(el, id) {
+  document.querySelectorAll('.ark-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  S.career.team_archetype = id;
+}
+
 // ── CAREER FLOW ───────────────────────────────────────────────────────────────
 function nextCareer(step) {
   if (step === 1) {
@@ -1192,8 +1308,13 @@ function nextCareer(step) {
   } else if (step === 3) {
     hint('hint-c3', false);
     S.career.dev_approach = getApproachFromRatio();
-    renderCareerSummary();
+    renderArketipGrid();
     goPage('page-c4');
+  } else if (step === 4) {
+    if (!S.career.team_archetype) { hint('hint-c4', true); return; }
+    hint('hint-c4', false);
+    renderCareerSummary();
+    goPage('page-c5');
   }
 }
 
@@ -1240,7 +1361,11 @@ function renderCareerSummary() {
       const lbl = LBL.dev_approach[c.dev_approach] || c.dev_approach || '—';
       const pred = 100 - approach2Ratio, agile = approach2Ratio;
       return `<span style="display:inline-flex;align-items:center;gap:8px">${lbl}<span style="display:inline-flex;width:64px;height:8px;border-radius:4px;overflow:hidden;flex-shrink:0"><span style="flex:${pred};background:linear-gradient(135deg,#4338ca,#6d28d9)"></span><span style="flex:${agile};background:linear-gradient(135deg,#0891b2,#2563eb)"></span></span></span>`;
-    })());
+    })()) +
+    (() => {
+      const a = ARKETIP.find(x => x.id === c.team_archetype);
+      return a ? row(IC.users, 'Ekip Profili', `<span style="color:#c4b5fd;font-weight:700">${a.title}</span>`) : '';
+    })();
 }
 
 function renderCompSummary() {
