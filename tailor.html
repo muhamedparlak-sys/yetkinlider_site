@@ -122,6 +122,21 @@ input{font-family:inherit}
 .diff-name{font-size:14px;font-weight:700;color:var(--text-inv);margin-bottom:4px}
 .diff-sub{font-size:11px;color:var(--dim);line-height:1.45}
 
+/* ── DOMAIN SLIDERS ── */
+.domain-sliders{display:flex;flex-direction:column;gap:14px;padding:2px 0}
+.domain-slider-row{display:grid;grid-template-columns:130px 1fr 28px;align-items:center;gap:10px}
+.ds-label{font-size:12px;font-weight:600;display:flex;align-items:center;gap:5px}
+.ds-val{font-size:14px;font-weight:700;text-align:right;min-width:18px}
+.ds-val.v-people{color:#c4b5fd}.ds-val.v-process{color:#93c5fd}.ds-val.v-biz{color:#6ee7b7}
+input[type=range].ds-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;outline:none;cursor:pointer}
+input[type=range].ds-range.r-people{background:linear-gradient(to right,#8b5cf6 var(--fill,44%),rgba(255,255,255,.15) var(--fill,44%))}
+input[type=range].ds-range.r-process{background:linear-gradient(to right,#3b82f6 var(--fill,44%),rgba(255,255,255,.15) var(--fill,44%))}
+input[type=range].ds-range.r-biz{background:linear-gradient(to right,#10b981 var(--fill,44%),rgba(255,255,255,.15) var(--fill,44%))}
+input[type=range].ds-range::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer}
+input[type=range].ds-range::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.4);cursor:pointer;border:none}
+/* ── 4-col opt grid ── */
+.opt-group.cols-4{grid-template-columns:repeat(4,1fr)}
+
 /* ── APPROACH 2-SEGMENT BAR ── */
 .approach-bar{position:relative;height:50px;border-radius:10px;overflow:hidden;display:flex;cursor:col-resize;user-select:none;touch-action:none}
 .approach-seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:rgba(255,255,255,.9);position:relative;transition:flex .05s linear;min-width:0}
@@ -469,52 +484,36 @@ input{font-family:inherit}
 
     <div class="setup-card">
       <div class="setup-card-head">
-        <h2>Ortam ve zorluk</h2>
-        <p>Ne kadar baskı altında çalışmak istiyorsun?</p>
+        <h2>Ortam, zorluk ve faz</h2>
+        <p>Proje dinamiklerini ve başlangıç noktanı belirle.</p>
       </div>
 
+      <!-- ── DOMAIN DIFFICULTY SLIDERS ── -->
       <div class="setup-row">
         <span class="setup-row-label">Zorluk</span>
-        <div class="diff-cards">
-          <!-- 1 bar — green -->
-          <div class="diff-card career-sel" data-group="difficulty" data-val="beginner" onclick="selectDiff(this,'difficulty')">
-            <div class="diff-icon">
-              <svg width="26" height="22" viewBox="0 0 26 22" xmlns="http://www.w3.org/2000/svg">
-                <rect x="0" y="14" width="6" height="8" rx="1.5" fill="#22c55e"/>
-                <rect x="10" y="8" width="6" height="14" rx="1.5" fill="#22c55e" opacity="0.18"/>
-                <rect x="20" y="2" width="6" height="20" rx="1.5" fill="#22c55e" opacity="0.18"/>
-              </svg>
-            </div>
-            <div class="diff-name">Giriş</div>
-            <div class="diff-sub">Az çeldirici, net krizler</div>
+        <div class="domain-sliders">
+          <div class="domain-slider-row">
+            <span class="ds-label" style="color:#c4b5fd">👥 People &amp; Ekip</span>
+            <input type="range" class="ds-range r-people" id="diff-people" min="1" max="10" value="5"
+                   style="--fill:44%" oninput="updateDomainSlider('people',this.value)">
+            <span class="ds-val v-people" id="dval-people">5</span>
           </div>
-          <!-- 2 bars — amber -->
-          <div class="diff-card career-sel" data-group="difficulty" data-val="intermediate" onclick="selectDiff(this,'difficulty')">
-            <div class="diff-icon">
-              <svg width="26" height="22" viewBox="0 0 26 22" xmlns="http://www.w3.org/2000/svg">
-                <rect x="0" y="14" width="6" height="8" rx="1.5" fill="#f59e0b"/>
-                <rect x="10" y="8" width="6" height="14" rx="1.5" fill="#f59e0b"/>
-                <rect x="20" y="2" width="6" height="20" rx="1.5" fill="#f59e0b" opacity="0.18"/>
-              </svg>
-            </div>
-            <div class="diff-name">Orta</div>
-            <div class="diff-sub">Standart proje zorluğu</div>
+          <div class="domain-slider-row">
+            <span class="ds-label" style="color:#93c5fd">⚙️ Süreç &amp; Kapsam</span>
+            <input type="range" class="ds-range r-process" id="diff-process" min="1" max="10" value="5"
+                   style="--fill:44%" oninput="updateDomainSlider('process',this.value)">
+            <span class="ds-val v-process" id="dval-process">5</span>
           </div>
-          <!-- 3 bars — red -->
-          <div class="diff-card career-sel" data-group="difficulty" data-val="advanced" onclick="selectDiff(this,'difficulty')">
-            <div class="diff-icon">
-              <svg width="26" height="22" viewBox="0 0 26 22" xmlns="http://www.w3.org/2000/svg">
-                <rect x="0" y="14" width="6" height="8" rx="1.5" fill="#ef4444"/>
-                <rect x="10" y="8" width="6" height="14" rx="1.5" fill="#ef4444"/>
-                <rect x="20" y="2" width="6" height="20" rx="1.5" fill="#ef4444"/>
-              </svg>
-            </div>
-            <div class="diff-name">İleri</div>
-            <div class="diff-sub">Zehir yoğun, anlık baskı</div>
+          <div class="domain-slider-row">
+            <span class="ds-label" style="color:#6ee7b7">🌐 İş Çevresi</span>
+            <input type="range" class="ds-range r-biz" id="diff-biz" min="1" max="10" value="5"
+                   style="--fill:44%" oninput="updateDomainSlider('biz',this.value)">
+            <span class="ds-val v-biz" id="dval-biz">5</span>
           </div>
         </div>
       </div>
 
+      <!-- ── PMO ── -->
       <div class="setup-row">
         <span class="setup-row-label">PMO</span>
         <div class="opt-group cols-3">
@@ -524,12 +523,35 @@ input{font-family:inherit}
         </div>
       </div>
 
+      <!-- ── TAKIM ── -->
       <div class="setup-row">
         <span class="setup-row-label">Takım</span>
         <div class="opt-group cols-3">
           <div class="opt-cell career-sel" data-group="team_culture" data-val="collaborative" onclick="selectOpt(this,'team_culture')">Kolaboratif</div>
           <div class="opt-cell career-sel" data-group="team_culture" data-val="hierarchical" onclick="selectOpt(this,'team_culture')">Hiyerarşik</div>
           <div class="opt-cell career-sel" data-group="team_culture" data-val="autonomous" onclick="selectOpt(this,'team_culture')">Bağımsız</div>
+        </div>
+      </div>
+
+      <!-- ── GİRİŞ FAZI ── -->
+      <div class="setup-row">
+        <span class="setup-row-label">Giriş Fazı</span>
+        <div class="opt-group cols-4">
+          <div class="opt-cell career-sel" data-group="start_phase" data-val="baslangic" onclick="selectPhase(this,'start_phase')">Başlatma</div>
+          <div class="opt-cell career-sel" data-group="start_phase" data-val="planlama"  onclick="selectPhase(this,'start_phase')">Planlama</div>
+          <div class="opt-cell career-sel" data-group="start_phase" data-val="yurutme"   onclick="selectPhase(this,'start_phase')">Yürütme</div>
+          <div class="opt-cell career-sel" data-group="start_phase" data-val="izleme"    onclick="selectPhase(this,'start_phase')">İzleme</div>
+        </div>
+      </div>
+
+      <!-- ── ÇIKIŞ FAZI ── -->
+      <div class="setup-row">
+        <span class="setup-row-label">Çıkış Fazı</span>
+        <div class="opt-group cols-4">
+          <div class="opt-cell career-sel" data-group="end_phase" data-val="planlama" onclick="selectPhase(this,'end_phase')">Planlama</div>
+          <div class="opt-cell career-sel" data-group="end_phase" data-val="yurutme"  onclick="selectPhase(this,'end_phase')">Yürütme</div>
+          <div class="opt-cell career-sel" data-group="end_phase" data-val="izleme"   onclick="selectPhase(this,'end_phase')">İzleme</div>
+          <div class="opt-cell career-sel" data-group="end_phase" data-val="kapanis"  onclick="selectPhase(this,'end_phase')">Kapanış</div>
         </div>
       </div>
     </div>
@@ -857,7 +879,8 @@ const LBL = {
   org_structure:{ functional:'Fonksiyonel', matrix_weak:'Zayıf Matris', matrix_balanced:'Dengeli Matris', matrix_strong:'Güçlü Matris', projectized:'Proje Odaklı' },
   role:         { PM:'Proje Yöneticisi', Scrum_Master:'Scrum Master', Product_Owner:'Ürün Sahibi' },
   eco:          { people:'İnsan', process:'Süreç', business:'İş Ortamı', all:'Karma' },
-  sprint:       { '5':'Hızlı — 5 karar', '15':'Normal — 15 karar', '30':'Derin — 30 karar' }
+  sprint:       { '5':'Hızlı — 5 karar', '15':'Normal — 15 karar', '30':'Derin — 30 karar' },
+  phase:        { baslangic:'Başlatma', planlama:'Planlama', yurutme:'Yürütme', izleme:'İzleme', kapanis:'Kapanış' },
 };
 
 // ── SUMMARY ICONS (inline SVG) ────────────────────────────────────────────────
@@ -978,6 +1001,59 @@ function hint(id, show) {
   if (el) el.classList.toggle('show', show);
 }
 
+// ── DOMAIN SLIDER ────────────────────────────────────────────────────────────
+function updateDomainSlider(domain, val) {
+  const pct = ((parseInt(val, 10) - 1) / 9 * 100).toFixed(1) + '%';
+  const el  = document.getElementById('diff-' + domain);
+  if (el) el.style.setProperty('--fill', pct);
+  const valEl = document.getElementById('dval-' + domain);
+  if (valEl) valEl.textContent = val;
+}
+
+// ── PHASE SELECTOR ───────────────────────────────────────────────────────────
+const PHASE_ORDER_ARR = ['baslangic', 'planlama', 'yurutme', 'izleme', 'kapanis'];
+
+function selectPhase(el, group) {
+  document.querySelectorAll(`.opt-cell[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+
+  const myVal = el.dataset.val;
+  const myIdx = PHASE_ORDER_ARR.indexOf(myVal);
+
+  if (group === 'start_phase') {
+    // If end_phase is at or before new start_phase → auto-advance end_phase
+    const endEl = document.querySelector('.opt-cell[data-group="end_phase"].selected');
+    if (endEl) {
+      const endIdx = PHASE_ORDER_ARR.indexOf(endEl.dataset.val);
+      if (endIdx <= myIdx) {
+        // Pick next valid end phase (must come after start in the end options)
+        const endOpts = ['planlama', 'yurutme', 'izleme', 'kapanis'];
+        const nextEnd = endOpts.find(v => PHASE_ORDER_ARR.indexOf(v) > myIdx);
+        document.querySelectorAll('.opt-cell[data-group="end_phase"]').forEach(c => c.classList.remove('selected'));
+        if (nextEnd) {
+          const newEndEl = document.querySelector(`.opt-cell[data-group="end_phase"][data-val="${nextEnd}"]`);
+          if (newEndEl) newEndEl.classList.add('selected');
+        }
+      }
+    }
+  } else {
+    // end_phase selected → if start_phase is at or after new end_phase, move start back
+    const startEl = document.querySelector('.opt-cell[data-group="start_phase"].selected');
+    if (startEl) {
+      const startIdx = PHASE_ORDER_ARR.indexOf(startEl.dataset.val);
+      if (startIdx >= myIdx) {
+        const startOpts = ['baslangic', 'planlama', 'yurutme', 'izleme'];
+        const prevStart = [...startOpts].reverse().find(v => PHASE_ORDER_ARR.indexOf(v) < myIdx);
+        document.querySelectorAll('.opt-cell[data-group="start_phase"]').forEach(c => c.classList.remove('selected'));
+        if (prevStart) {
+          const newStartEl = document.querySelector(`.opt-cell[data-group="start_phase"][data-val="${prevStart}"]`);
+          if (newStartEl) newStartEl.classList.add('selected');
+        }
+      }
+    }
+  }
+}
+
 // ── CAREER FLOW ───────────────────────────────────────────────────────────────
 function nextCareer(step) {
   if (step === 1) {
@@ -996,10 +1072,27 @@ function nextCareer(step) {
     S.career.project_name = (document.getElementById('project_name').value.trim()) || PROJECT_NAME_DEFAULTS[S.career.sector] || 'Proje';
     goPage('page-c2');
   } else if (step === 2) {
-    const diff = getDiff('difficulty'), pmo = getOpt('pmo_type'), team = getOpt('team_culture');
-    if (!diff || !pmo || !team) { hint('hint-c2', true); return; }
+    const pmo        = getOpt('pmo_type');
+    const team       = getOpt('team_culture');
+    const startPhase = getOpt('start_phase');
+    const endPhase   = getOpt('end_phase');
+    const hintEl     = document.getElementById('hint-c2');
+    if (!pmo || !team || !startPhase || !endPhase) {
+      if (hintEl) hintEl.textContent = 'Lütfen tüm seçenekleri seçin.';
+      hint('hint-c2', true); return;
+    }
+    if (PHASE_ORDER_ARR.indexOf(endPhase) <= PHASE_ORDER_ARR.indexOf(startPhase)) {
+      if (hintEl) hintEl.textContent = 'Çıkış fazı, giriş fazından sonra olmalı.';
+      hint('hint-c2', true); return;
+    }
     hint('hint-c2', false);
-    S.career.difficulty = diff; S.career.pmo_type = pmo; S.career.team_culture = team;
+    S.career.pmo_type          = pmo;
+    S.career.team_culture      = team;
+    S.career.difficulty_people  = parseInt(document.getElementById('diff-people')?.value  || '5', 10);
+    S.career.difficulty_process = parseInt(document.getElementById('diff-process')?.value || '5', 10);
+    S.career.difficulty_biz     = parseInt(document.getElementById('diff-biz')?.value     || '5', 10);
+    S.career.start_phase       = startPhase;
+    S.career.end_phase         = endPhase;
     goPage('page-c3');
   } else if (step === 3) {
     hint('hint-c3', false);
@@ -1039,12 +1132,15 @@ function renderCareerSummary() {
   const c = S.career;
   const sLbl = c.sector === 'other' ? (c.sector_custom || 'Diğer') : (LBL.sector[c.sector] || c.sector);
   document.getElementById('career-summary').innerHTML =
-    row(IC.user,     'PM Adı',    c.pm_name) +
-    row(IC.folder,   'Proje Adı', c.project_name) +
-    row(IC.globe,    'Sektör',    sLbl) +
-    row(IC.zap,      'Zorluk',    LBL.difficulty[c.difficulty] || c.difficulty) +
-    row(IC.building, 'PMO',       LBL.pmo_type[c.pmo_type] || c.pmo_type) +
-    row(IC.users,    'Takım',     LBL.team_culture[c.team_culture] || c.team_culture) +
+    row(IC.user,     'PM Adı',         c.pm_name) +
+    row(IC.folder,   'Proje Adı',      c.project_name) +
+    row(IC.globe,    'Sektör',         sLbl) +
+    row(IC.zap,      'People & Ekip',  `${c.difficulty_people || 5}/10`) +
+    row(IC.zap,      'Süreç & Kapsam', `${c.difficulty_process || 5}/10`) +
+    row(IC.zap,      'İş Çevresi',     `${c.difficulty_biz || 5}/10`) +
+    row(IC.building, 'PMO',            LBL.pmo_type[c.pmo_type] || c.pmo_type) +
+    row(IC.users,    'Takım',          LBL.team_culture[c.team_culture] || c.team_culture) +
+    row(IC.layers,   'Faz Aralığı',   `${LBL.phase[c.start_phase] || c.start_phase} → ${LBL.phase[c.end_phase] || c.end_phase}`) +
     row(IC.route, 'Yaklaşım', (() => {
       const lbl = LBL.dev_approach[c.dev_approach] || c.dev_approach || '—';
       const pred = 100 - approach2Ratio, agile = approach2Ratio;
@@ -1073,7 +1169,7 @@ function buildPayload() {
     return {
       schema_version: '2.1', session_id: uid, created_at: now, mode: 'career',
       player: { name: S.career.pm_name, project_name: S.career.project_name, avatar_seed: S.career.pm_name.toLowerCase().replace(/\s+/g,'_') },
-      career_config: { sector: S.career.sector, sector_label: sectorLabel, difficulty: S.career.difficulty, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, dev_approach: S.career.dev_approach },
+      career_config: { sector: S.career.sector, sector_label: sectorLabel, pmo_type: S.career.pmo_type, team_culture: S.career.team_culture, dev_approach: S.career.dev_approach, difficulty_people: S.career.difficulty_people || 5, difficulty_process: S.career.difficulty_process || 5, difficulty_biz: S.career.difficulty_biz || 5, start_phase: S.career.start_phase || 'baslangic', end_phase: S.career.end_phase || 'kapanis' },
       competency_config: null,
       game_state: {
         current_day: 0, current_phase: 'initiating',
@@ -1370,16 +1466,20 @@ async function startGame() {
     try {
       const cc = payload.career_config || {};
       const scenario = await PSG.generate({
-        sector:         cc.sector         || 'yazilim',
-        sector_label:   cc.sector_label   || null,
-        dev_approach:   cc.dev_approach   || 'hybrid',
-        difficulty:     cc.difficulty     || 'medium',
-        pmo_type:       cc.pmo_type       || null,
-        team_culture:   cc.team_culture   || null,
-        player_name:    payload.player?.name        || 'PM',
-        project_name:   payload.player?.project_name || 'Stratejik Proje',
-        session_id:     payload.session_id || Date.now().toString(36),
-        totalDecisions: 180,
+        sector:             cc.sector             || 'yazilim',
+        sector_label:       cc.sector_label       || null,
+        dev_approach:       cc.dev_approach       || 'hybrid',
+        difficulty_people:  cc.difficulty_people  || 5,
+        difficulty_process: cc.difficulty_process || 5,
+        difficulty_biz:     cc.difficulty_biz     || 5,
+        pmo_type:           cc.pmo_type           || null,
+        team_culture:       cc.team_culture       || null,
+        player_name:        payload.player?.name        || 'PM',
+        project_name:       payload.player?.project_name || 'Stratejik Proje',
+        session_id:         payload.session_id || Date.now().toString(36),
+        totalDecisions:     180,
+        start_phase:        cc.start_phase || 'baslangic',
+        end_phase:          cc.end_phase   || 'kapanis',
       });
       localStorage.setItem('pmSim_personal_scenario', JSON.stringify(scenario));
       // Supabase'e yedekle (fire-and-forget — cross-device / refresh koruma)

@@ -145,6 +145,49 @@ const PSG = (() => {
     },
   };
 
+  // Mesele tiplerinin PMP domain sınıflandırması (domain multiplier için)
+  const MESELE_PMP_ALAN = {
+    // ── People & Ekip (11) ──────────────────────────────────────────────────
+    kaynak_erisilemezligi:     'people',
+    performans_geriligi:       'people',
+    paydas_erisim_sorunu:      'people',
+    yetkinlik_uyumsuzlugu:     'people',
+    bilgi_adasi:               'people',
+    takim_catismasi:           'people',
+    yeni_uye_entegrasyonu:     'people',
+    kilit_kisi_bagimlilik:     'people',
+    beklenti_sapma:            'people',
+    paydas_catismasi:          'people',
+    iletisim_kopuklugu:        'people',
+    // ── Süreç & Kapsam (17) ─────────────────────────────────────────────────
+    yazisiz_scope_degisikligi: 'process',
+    gorev_gecikmesi:           'process',
+    cakisan_gorevlendirme:     'process',
+    kapsam_belirsizligi:       'process',
+    gereksinim_catismasi:      'process',
+    kapsam_kiymeti_sorgusu:    'process',
+    gizli_kapsam_kabulu:       'process',
+    gizli_bagimlilik:          'process',
+    milestone_baskisi:         'process',
+    takvim_degisikligi:        'process',
+    paralel_is_birikimi:       'process',
+    kayitli_risk_gerceklesti:  'process',
+    tanimsiz_risk:             'process',
+    hata_gec_bildirim:         'process',
+    test_atlamasi_baskisi:     'process',
+    teknik_borc:               'process',
+    proje_kapatma_sorunu:      'process',
+    // ── İş Çevresi (8) ──────────────────────────────────────────────────────
+    patron_degisikligi:        'biz_cevre',
+    dis_etki_mudahalesi:       'biz_cevre',
+    tedarikci_sorunu:          'biz_cevre',
+    uyum_ve_lisans:            'biz_cevre',
+    teslimat_sonrasi_kriz:     'biz_cevre',
+    maliyet_asimi_riski:       'biz_cevre',
+    onaylanmamis_harcama:      'biz_cevre',
+    butce_kesmesi:             'biz_cevre',
+  };
+
   // Seçime göre geribildirim şablonları
   const CONSEQUENCE_TPLS = {
     medicine: [
@@ -308,8 +351,8 @@ const PSG = (() => {
     return positions;
   }
 
-  // ── Mesele seçimi (faz biased) ───────────────────────────────────────────────
-  function pickMesele(meseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng) {
+  // ── Mesele seçimi (faz biased + domain multiplier) ───────────────────────────
+  function pickMesele(meseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult) {
     const available = meseleTipiIds.filter(id => {
       const m = meseleTipleri[id];
       return m && m.reasons && m.reasons.some(r => (reasonUseCounts[r.reason_id] || 0) < (r.max_per_scenario ?? 1));
@@ -317,12 +360,14 @@ const PSG = (() => {
     if (!available.length) return null;
 
     const weights = available.map(id => {
-      const bias = phaseBias[id] ?? 1;
-      const m    = meseleTipleri[id];
-      const avW  = m.reasons
+      const bias   = phaseBias[id] ?? 1;
+      const domain = MESELE_PMP_ALAN[id] || 'process';
+      const mult   = domainMult ? (domainMult[domain] ?? 1) : 1;
+      const m      = meseleTipleri[id];
+      const avW    = m.reasons
         .filter(r => (reasonUseCounts[r.reason_id] || 0) < (r.max_per_scenario ?? 1))
         .reduce((s, r) => s + (r.weight ?? 1), 0);
-      return bias * avW;
+      return bias * avW * mult;
     });
 
     return meseleTipleri[weightedChoice(available, weights, rng)];
@@ -367,7 +412,7 @@ const PSG = (() => {
   }
 
   // ── Karar bildirimi render ───────────────────────────────────────────────────
-  function renderDecision(globalIdx, mesele, reason, phase, kadro, disKisiler, absenceMap, rng, baseVars) {
+  function renderDecision(globalIdx, mesele, reason, phase, kadro, disKisiler, absenceMap, rng, baseVars, sectionNum) {
     // body_vars doldur — sector_vars varsa sektöre özgü değerleri üzerine yaz
     const mergedBodyVars = Object.assign({}, reason.body_vars || {}, (reason.sector_vars || {})[baseVars.mappedSector] || {});
     const bodyVars = {};
@@ -466,7 +511,7 @@ const PSG = (() => {
       type:       'decision',
       phase:      phase.id,
       phaseLabel: phase.label,
-      section:    PHASES.findIndex(p => p.id === phase.id) + 1,
+      section:    sectionNum,
       time:       toTime(globalIdx),
       mesele_id:  mesele.mesele_id,
       reason_id:  reason.reason_id,
@@ -479,7 +524,7 @@ const PSG = (() => {
   }
 
   // ── Lore bildirimi render ────────────────────────────────────────────────────
-  function renderLore(globalIdx, tpl, phase, kadro, disKisiler, absenceMap, rng, baseVars) {
+  function renderLore(globalIdx, tpl, phase, kadro, disKisiler, absenceMap, rng, baseVars, sectionNum) {
     let fromName, fromRole;
     const st  = tpl.sender_type || 'team';
     const act = activeKadro(kadro, globalIdx, absenceMap);
@@ -505,7 +550,7 @@ const PSG = (() => {
           type:       'story',
           phase:      phase.id,
           phaseLabel: phase.label,
-          section:    PHASES.findIndex(p => p.id === phase.id) + 1,
+          section:    sectionNum,
           time:       toTime(globalIdx),
           from:       fromName,
           fromRole,
@@ -538,7 +583,7 @@ const PSG = (() => {
       type:       'story',
       phase:      phase.id,
       phaseLabel: phase.label,
-      section:    PHASES.findIndex(p => p.id === phase.id) + 1,
+      section:    sectionNum,
       time:       toTime(globalIdx),
       from:       fromName,
       fromRole,
@@ -550,17 +595,35 @@ const PSG = (() => {
   // ── Ana üretim fonksiyonu ────────────────────────────────────────────────────
   async function generate(config = {}) {
     const {
-      sector         = 'yazilim',
-      sector_label   = null,
-      dev_approach   = 'hybrid',
-      difficulty     = 'medium',
-      pmo_type       = null,
-      team_culture   = null,
-      player_name    = 'PM',
-      project_name   = 'Stratejik Proje',
-      session_id     = Date.now().toString(36),
-      totalDecisions = 180,
+      sector             = 'yazilim',
+      sector_label       = null,
+      dev_approach       = 'hybrid',
+      difficulty         = 'medium',   // backward compat
+      difficulty_people  = 5,
+      difficulty_process = 5,
+      difficulty_biz     = 5,
+      pmo_type           = null,
+      team_culture       = null,
+      player_name        = 'PM',
+      project_name       = 'Stratejik Proje',
+      session_id         = Date.now().toString(36),
+      totalDecisions     = 180,
+      start_phase        = 'baslangic',
+      end_phase          = 'kapanis',
     } = config;
+
+    // Domain difficulty multipliers — 1→0.2x, 5→1.0x, 10→2.0x
+    const domainMult = {
+      people:    difficulty_people  / 5,
+      process:   difficulty_process / 5,
+      biz_cevre: difficulty_biz     / 5,
+    };
+
+    // Active phase slice based on start_phase / end_phase
+    const PHASE_IDX    = { baslangic: 0, planlama: 1, yurutme: 2, izleme: 3, kapanis: 4 };
+    const startIdx     = PHASE_IDX[start_phase] ?? 0;
+    const endIdx       = PHASE_IDX[end_phase]   ?? 4;
+    const activePhases = PHASES.slice(startIdx, endIdx + 1);
 
     // Cinsiyete göre kibarca hitap (Hanım / Bey) — tam ad kullanılır
     const _pgGender = (() => { try { return JSON.parse(localStorage.getItem('pmSim_work_meta') || '{}').gender || ''; } catch { return ''; } })();
@@ -639,15 +702,16 @@ const PSG = (() => {
     const hrPerson = hrPool.length ? randChoice(hrPool, rng) : kadro[0];
     const sponsor  = disKisiler[1];
 
+    const _firstPhase = activePhases[0] || PHASES[0];
     const allNotifications = [
       {
-        type: 'story', phase: 'baslangic', phaseLabel: 'Başlatma', section: 1,
+        type: 'story', phase: _firstPhase.id, phaseLabel: _firstPhase.label, section: 1,
         from: hrPerson.fullName, fromRole: 'İK Uzmanı',
         subject: `${project_name} — Hoş Geldiniz`,
         body: `Sayın ${_playerPolite},\n\n${project_name} projesinde Proje Yöneticisi olarak görevlendirildiniz. Ekibinize ve proje belgelerine bugün itibarıyla erişiminiz tanımlanmıştır.\n\nEkip tanışma toplantısı ve oryantasyon programı önümüzdeki günlerde düzenlenecektir. Herhangi bir sorunuz olursa benimle iletişime geçebilirsiniz.\n\nBaşarılar dileriz.`,
       },
       {
-        type: 'story', phase: 'baslangic', phaseLabel: 'Başlatma', section: 1,
+        type: 'story', phase: _firstPhase.id, phaseLabel: _firstPhase.label, section: 1,
         from: sponsor.fullName, fromRole: sponsor.role,
         subject: `${project_name} — İlk Mesajım`,
         body: `Sayın ${_playerPolite},\n\n${project_name} için sizi tercih ettiğimizden son derece memnunum. Bu proje kurumumuz açısından stratejik öneme sahip; ekibimizin doğru liderle yola çıktığına inanıyorum.\n\nHer türlü destek ve kaynağa erişiminiz mevcut. Önceliklerinizi ve ihtiyaçlarınızı doğrudan benimle paylaşmaktan çekinmeyin.\n\nBaşarılar.`,
@@ -655,11 +719,13 @@ const PSG = (() => {
     ];
     let globalIdx = allNotifications.length; // 2'den başla
 
-    // Faz başına karar sayısını totalDecisions'a oranla ölçekle
-    const planTotal = PHASES.reduce((s, p) => s + p.decisions, 0); // 180
-    const scale     = totalDecisions / planTotal;
+    // Faz başına karar sayısını totalDecisions'a oranla ölçekle (sadece aktif fazlar)
+    const planTotal = activePhases.reduce((s, p) => s + p.decisions, 0);
+    const scale     = totalDecisions / Math.max(planTotal, 1);
 
-    for (const phase of PHASES) {
+    for (let phaseIdx = 0; phaseIdx < activePhases.length; phaseIdx++) {
+      const phase       = activePhases[phaseIdx];
+      const sectionNum  = phaseIdx + 1;  // 1-indexed section for this scenario
       const phaseDecCount  = Math.round(phase.decisions * scale);
       const phaseLoreCount = phase.loreCount;
       const totalSlots     = phaseDecCount + phaseLoreCount;
@@ -678,26 +744,26 @@ const PSG = (() => {
         if (lorePositions.has(slot) && loreDone < phaseLoreCount && phaseLoreTpls.length > 0) {
           // ── Lore bildirimi ──
           const tpl  = weightedChoice(phaseLoreTpls, phaseLoreTpls.map(t => t.weight ?? 1), rng);
-          const lore = renderLore(globalIdx, tpl, phase, kadro, disKisiler, absenceMap, rng, baseVars);
+          const lore = renderLore(globalIdx, tpl, phase, kadro, disKisiler, absenceMap, rng, baseVars, sectionNum);
           allNotifications.push(lore);
           loreDone++;
           globalIdx++;
         } else if (decisionsDone < phaseDecCount) {
           // ── Karar bildirimi ──
-          const mesele = pickMesele(meseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng);
+          const mesele = pickMesele(meseleTipiIds, meseleTipleri, phaseBias, reasonUseCounts, rng, domainMult);
           if (!mesele) { globalIdx++; continue; }
           const reason = pickReason(mesele, reasonUseCounts, rng);
           if (!reason) { globalIdx++; continue; }
 
           reasonUseCounts[reason.reason_id] = (reasonUseCounts[reason.reason_id] || 0) + 1;
-          const dec = renderDecision(globalIdx, mesele, reason, phase, kadro, disKisiler, absenceMap, rng, baseVars);
+          const dec = renderDecision(globalIdx, mesele, reason, phase, kadro, disKisiler, absenceMap, rng, baseVars, sectionNum);
           allNotifications.push(dec);
           decisionsDone++;
           globalIdx++;
         } else if (loreDone < phaseLoreCount && phaseLoreTpls.length > 0) {
           // Karar bitti ama hâlâ lore slotu var
           const tpl  = weightedChoice(phaseLoreTpls, phaseLoreTpls.map(t => t.weight ?? 1), rng);
-          const lore = renderLore(globalIdx, tpl, phase, kadro, disKisiler, absenceMap, rng, baseVars);
+          const lore = renderLore(globalIdx, tpl, phase, kadro, disKisiler, absenceMap, rng, baseVars, sectionNum);
           allNotifications.push(lore);
           loreDone++;
           globalIdx++;
@@ -718,15 +784,19 @@ const PSG = (() => {
       sector,
       sector_label: sector_label || sector,
       dev_approach,
-      difficulty,
+      difficulty_people,
+      difficulty_process,
+      difficulty_biz,
       pmo_type,
       team_culture,
       player_name,
       project_name,
+      start_phase,
+      end_phase,
       kadro,
       dis_kisiler: disKisiler,
-      // game.html'in section-tabanlı batch sistemini doğru besle
-      sections: PHASES.map((p, i) => ({
+      // game.html'in section-tabanlı batch sistemini doğru besle (sadece aktif fazlar)
+      sections: activePhases.map((p, i) => ({
         id:        i + 1,
         title:     `${i + 1}. Faz: ${p.label}`,
         iteration: p.label,
