@@ -599,9 +599,9 @@ const PSG = (() => {
       sector_label       = null,
       dev_approach       = 'hybrid',
       difficulty         = 'medium',   // backward compat
-      difficulty_people  = 5,
-      difficulty_process = 5,
-      difficulty_biz     = 5,
+      difficulty_people  = 2,
+      difficulty_process = 2,
+      difficulty_biz     = 2,
       pmo_type           = null,
       team_culture       = null,
       player_name        = 'PM',
@@ -612,11 +612,12 @@ const PSG = (() => {
       end_phase          = 'kapanis',
     } = config;
 
-    // Domain difficulty multipliers — 1→0.2x, 5→1.0x, 10→2.0x
+    // Domain difficulty multipliers — 1=hafif(0.4×), 2=orta(1.0×), 3=sert(2.5×)
+    const _dm = [0.4, 1.0, 2.5];
     const domainMult = {
-      people:    difficulty_people  / 5,
-      process:   difficulty_process / 5,
-      biz_cevre: difficulty_biz     / 5,
+      people:    _dm[(difficulty_people  - 1)] ?? 1,
+      process:   _dm[(difficulty_process - 1)] ?? 1,
+      biz_cevre: _dm[(difficulty_biz     - 1)] ?? 1,
     };
 
     // Active phase slice based on start_phase / end_phase
