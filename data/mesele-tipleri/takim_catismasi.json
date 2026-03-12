@@ -15,9 +15,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{uye_a} ile {uye_b} arasında {konu} konusunda ciddi teknik görüş ayrılığı var. İkisi de kendi yaklaşımının doğru olduğunu savunuyor ve iletişim gerginleşiyor. Sprint tıkandı.",
+      "subject_template": "{uye_a} ile {uye_b} arasında {konu} konusunda ciddi teknik görüş ayrılığı var",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{uye_a} ile {uye_b} arasında {konu} konusunda ciddi teknik görüş ayrılığı var. İkisi de kendi yaklaşımının doğru olduğunu savunuyor ve iletişim gerginleşiyor. Sprint tıkandı.",
       "body_vars": {
         "uye_a": [
           "Ali Bey",
@@ -67,9 +67,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{uye} son {sure} içinde taahhüt ettiği görevleri tamamlayamıyor. Ekip bu durumdan etkileniyor; diğerleri fazladan yük taşıyor. Ne yapmalıyım?",
+      "subject_template": "{uye} son {sure} içinde taahhüt ettiği görevleri tamamlayamıyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{uye} son {sure} içinde taahhüt ettiği görevleri tamamlayamıyor. Ekip bu durumdan etkileniyor; diğerleri fazladan yük taşıyor. Ne yapmalıyım?",
       "body_vars": {
         "uye": [
           "Ali Bey",
@@ -114,9 +114,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nYüz yüze ve uzak çalışan ekip üyeleri arasında {sorun} sorunu yaşanıyor. Uzak çalışanlar dışlandıklarını hissediyor; yüz yüze ekip ise bilgi paylaşımının yavaşladığını söylüyor.",
+      "subject_template": "Yüz yüze ve uzak çalışan ekip üyeleri arasında {sorun} sorunu yaşanıyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nYüz yüze ve uzak çalışan ekip üyeleri arasında {sorun} sorunu yaşanıyor. Uzak çalışanlar dışlandıklarını hissediyor; yüz yüze ekip ise bilgi paylaşımının yavaşladığını söylüyor.",
       "body_vars": {
         "sorun": [
           "bilgi paylaşım eşitsizliği",
@@ -156,9 +156,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{gorev} görevinin kimin sorumluluğunda olduğu konusunda {ekip_a} ile {ekip_b} arasında çatışma var. İkisi de bu görevi 'bize ait değil' diyor; görev sahipsiz kalıyor.",
+      "subject_template": "{gorev} görevi: {ekip_a} ile {ekip_b} arasında sorumluluk çatışması",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{gorev} görevinin kimin sorumluluğunda olduğu konusunda {ekip_a} ile {ekip_b} arasında çatışma var. İkisi de bu görevi 'bize ait değil' diyor; görev sahipsiz kalıyor.",
       "body_vars": {
         "gorev": [
           "test ortamı kurulumu",
@@ -208,9 +208,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nEkip üyeleri {konu} konusunda birbirini yeterince bilgilendirmiyor. Bu durum {sonuc} sorununa yol açıyor.",
+      "subject_template": "Ekip üyeleri {konu} konusunda birbirini yeterince bilgilendirmiyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nEkip üyeleri {konu} konusunda birbirini yeterince bilgilendirmiyor. Bu durum {sonuc} sorununa yol açıyor.",
       "body_vars": {
         "konu": [
           "kod değişiklikleri",
@@ -255,9 +255,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{uye_a} ile {uye_b} arasındaki kişisel gerilim iş ortamına yansıyor. Diğer ekip üyeleri de bu durumdan rahatsız; atmosfer bozuldu.",
+      "subject_template": "{uye_a} ile {uye_b} arasındaki kişisel gerilim iş ortamına yansıyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{uye_a} ile {uye_b} arasındaki kişisel gerilim iş ortamına yansıyor. Diğer ekip üyeleri de bu durumdan rahatsız; atmosfer bozuldu.",
       "body_vars": {
         "uye_a": [
           "Ali Bey",

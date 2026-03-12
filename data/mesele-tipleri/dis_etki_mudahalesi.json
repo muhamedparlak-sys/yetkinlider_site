@@ -161,9 +161,9 @@
       "max_per_scenario": 1,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nYeni yayımlanan {mevzuat} nedeniyle {bileşen} bileşenimizin {konu} gereksinimini karşılaması zorunlu hale geldi. Bu durum mevcut tasarımımızla çelişiyor ve ek iş yükü oluşturuyor.",
+      "subject_template": "Yeni {mevzuat} nedeniyle {bileşen} bileşeninin {konu} değişmesi gerekiyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nYeni yayımlanan {mevzuat} nedeniyle {bileşen} bileşenimizin {konu} gereksinimini karşılaması zorunlu hale geldi. Bu durum mevcut tasarımımızla çelişiyor ve ek iş yükü oluşturuyor.",
       "body_vars": {
         "mevzuat": [
           "kişisel veri koruma yönetmeliği",

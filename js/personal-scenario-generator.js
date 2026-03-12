@@ -237,7 +237,8 @@ const PSG = (() => {
   }
 
   function fill(tpl, vars) {
-    if (typeof tpl !== 'string') return tpl;
+    // {} veya diğer non-string şablonlar (body_template hatalı tanımlanmışsa) → boş string
+    if (typeof tpl !== 'string') return (tpl !== null && typeof tpl === 'object') ? '' : tpl;
     let s = tpl;
     for (const [k, v] of Object.entries(vars)) s = s.split('{' + k + '}').join(String(v ?? ''));
     return s;

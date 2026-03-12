@@ -119,9 +119,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{teslim} teslimatının kabul kriterleri hiç belgelenmemiş. Müşteri 'iyi çalışıyor' diyene kadar teslim edilmiş sayılmayacağını söylüyor. Bu belirsizlik test sürecimizi ve teslim tarihimizi tehdit ediyor.",
+      "subject_template": "{teslim} teslimatının kabul kriterleri hiç belgelenmemiş",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{teslim} teslimatının kabul kriterleri hiç belgelenmemiş. Müşteri 'iyi çalışıyor' diyene kadar teslim edilmiş sayılmayacağını söylüyor. Bu belirsizlik test sürecimizi ve teslim tarihimizi tehdit ediyor.",
       "body_vars": {
         "teslim": [
           "kullanıcı arayüzü",
@@ -161,9 +161,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nİş birimi {is_gereksinim} istiyor ancak teknik ekip bunu {teknik_kisit} nedeniyle gerçekleştiremeyeceğini söylüyor. İkisi arasında köprü kurmam gerekiyor.",
+      "subject_template": "İş birimi {is_gereksinim} istiyor ama teknik ekip bunu {teknik_kisit} görüyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nİş birimi {is_gereksinim} istiyor ancak teknik ekip bunu {teknik_kisit} nedeniyle gerçekleştiremeyeceğini söylüyor. İkisi arasında köprü kurmam gerekiyor.",
       "body_vars": {
         "is_gereksinim": [
           "anlık rapor üretimi",
@@ -359,9 +359,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nEkibimizde {ozellik} özelliğinin kapsamda olup olmadığı konusunda farklı görüşler var. {kisim_a} bunu kapsam içinde görürken {kisim_b} kapsam dışında. Bu belirsizlik sprint planlamasını engelliyor.",
+      "subject_template": "Ekibimizde {ozellik} özelliğinin kapsamda olup olmadığı konusunda farklı görüşler var",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nEkibimizde {ozellik} özelliğinin kapsamda olup olmadığı konusunda farklı görüşler var. {kisim_a} bunu kapsam içinde görürken {kisim_b} kapsam dışında. Bu belirsizlik sprint planlamasını engelliyor.",
       "body_vars": {
         "ozellik": [
           "otomatik bildirim sistemi",

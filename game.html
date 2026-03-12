@@ -2118,7 +2118,7 @@ var Game; Game = (() => {
     document.getElementById('notif-list').innerHTML = display.map(n=>{
       const isDec = n.type==='decision';
       const done = !!S.answered[n.id];
-      const snippet = (n.body||'').replace(/\n/g,' ').trim();
+      const snippet = (typeof n.body === 'string' ? n.body : '').replace(/\n/g,' ').trim();
       const snipText = snippet.length > 72 ? snippet.slice(0,72)+'…' : snippet;
       return `<div class="notif-item ${isDec?'decision-item':''} ${done?'read':'unread'}" data-id="${n.id}">
         <div class="ni-from">${esc(n.from)}</div>
@@ -2174,7 +2174,7 @@ var Game; Game = (() => {
         ${n.time?`<div class="nd-from" style="color:#94a3b8;font-size:11px">🕐 ${n.time}</div>`:''}
       </div>
     </div>
-    <div class="nd-body">${highlightGlossary(n.body||'')}</div>`;
+    <div class="nd-body">${highlightGlossary(typeof n.body === 'string' ? n.body : '')}</div>`;
     // Sender signature
     h += `<div class="nd-sig">
       <div class="sig-name">${esc(n.from)}</div>

@@ -67,9 +67,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{konu} demosu {tarih} tarihinde. Bugün {hata} hatasını keşfettik; düzeltme en az {sure} sürecek. Demo iptal edilsin mi, ertelensin mi yoksa hatayı gizleyerek devam mı edelim?",
+      "subject_template": "{konu} demosu {tarih} tarihinde",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{konu} demosu {tarih} tarihinde. Bugün {hata} hatasını keşfettik; düzeltme en az {sure} sürecek. Demo iptal edilsin mi, ertelensin mi yoksa hatayı gizleyerek devam mı edelim?",
       "body_vars": {
         "konu": [
           "müşteri kabul",
@@ -124,9 +124,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nSon üç sprint'te toplam {gun_sayi} günlük gecikme birikiyor. Her sprint küçük bir gecikmeyle kapandı ama toplamda büyük bir açık oluştu. Projenin son milestoneına yetişmek giderek zorlaşıyor.",
+      "subject_template": "Son üç sprint'te toplam {gun_sayi} günlük gecikme birikiyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nSon üç sprint'te toplam {gun_sayi} günlük gecikme birikiyor. Her sprint küçük bir gecikmeyle kapandı ama toplamda büyük bir açık oluştu. Projenin son milestoneına yetişmek giderek zorlaşıyor.",
       "body_vars": {
         "gun_sayi": [
           "9",
@@ -213,9 +213,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{harici_unsur} nedeniyle {milestone} milestone'umuz tehlikede. Kontrolümüz dışındaki bu durum için paydaşlara nasıl açıklamalıyım?",
+      "subject_template": "{harici_unsur} nedeniyle {milestone} milestone'umuz tehlikede",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{harici_unsur} nedeniyle {milestone} milestone'umuz tehlikede. Kontrolümüz dışındaki bu durum için paydaşlara nasıl açıklamalıyım?",
       "body_vars": {
         "harici_unsur": [
           "tedarikçi gecikmesi",

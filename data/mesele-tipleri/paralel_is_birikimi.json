@@ -15,9 +15,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nEkibimizdeki {rol} rolündeki üyeler aynı anda {proje_sayisi} projede görevlendirilmiş. Sprint hızımız son {sure} içinde %{dusus} düştü; multitasking başarım üzerinde belirgin etki yaratıyor.",
+      "subject_template": "Ekibimizdeki {rol} rolündeki üyeler aynı anda {proje_sayisi} projede görevlendirilmiş",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nEkibimizdeki {rol} rolündeki üyeler aynı anda {proje_sayisi} projede görevlendirilmiş. Sprint hızımız son {sure} içinde %{dusus} düştü; multitasking başarım üzerinde belirgin etki yaratıyor.",
       "body_vars": {
         "rol": [
           "kıdemli geliştiriciler",
@@ -119,9 +119,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nYeni proje başladığı için kıdemli geliştiriciler {sure} boyunca yeni ekip üyelerine bilgi aktarımı yapıyor. Bu süreçte asıl sprint görevleri aksıyor.",
+      "subject_template": "Yeni proje başlayınca kıdemli geliştiriciler {sure} boyunca mentörlükle meşgul",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nYeni proje başladığı için kıdemli geliştiriciler {sure} boyunca yeni ekip üyelerine bilgi aktarımı yapıyor. Bu süreçte asıl sprint görevleri aksıyor.",
       "body_vars": {
         "sure": [
           "bu sprint boyunca",
@@ -161,9 +161,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nEkibimiz aynı anda {sistem} sisteminin operasyonel desteğini üstleniyor. {sorun_sayisi} destek talebi geliyor ve geliştirme işi %{oran} yavaşlıyor.",
+      "subject_template": "Ekibimiz aynı anda {sistem} sisteminin operasyonel desteğini üstleniyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nEkibimiz aynı anda {sistem} sisteminin operasyonel desteğini üstleniyor. {sorun_sayisi} destek talebi geliyor ve geliştirme işi %{oran} yavaşlıyor.",
       "body_vars": {
         "sistem": [
           "canlı üretim sistemi",
@@ -213,9 +213,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nEkip üyeleri haftada ortalama {saat} saatini toplantılarda geçiriyor. Odaklanmış geliştirme süresi çok azaldı; sprint hızı düşüyor.",
+      "subject_template": "Ekip üyeleri haftada ortalama {saat} saatini toplantılarda geçiriyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nEkip üyeleri haftada ortalama {saat} saatini toplantılarda geçiriyor. Odaklanmış geliştirme süresi çok azaldı; sprint hızı düşüyor.",
       "body_vars": {
         "saat": [
           "15",
@@ -255,9 +255,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{isim}, hem {gorev_a} hem de {gorev_b} görevlerinde kritik karar verici konumunda. İkisi aynı hafta yoğunlaştı; biri mutlaka ertelenecek.",
+      "subject_template": "{isim}, hem {gorev_a} hem de {gorev_b} görevlerinde kritik karar verici konumunda",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{isim}, hem {gorev_a} hem de {gorev_b} görevlerinde kritik karar verici konumunda. İkisi aynı hafta yoğunlaştı; biri mutlaka ertelenecek.",
       "body_vars": {
         "isim": [
           "Ali Bey",

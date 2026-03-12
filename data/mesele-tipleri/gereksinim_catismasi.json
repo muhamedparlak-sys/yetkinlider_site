@@ -67,9 +67,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{bileşen} bileşeninde performans ve güvenlik gereksinimleri birbiriyle çelişiyor. {performans_talebi} yaparsak güvenlik standartlarını karşılayamıyoruz; {guvenlik_talebi} yaparsak performans hedeflerimizi kaçırıyoruz.",
+      "subject_template": "{bileşen} bileşeninde performans ve güvenlik gereksinimleri birbiriyle çelişiyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{bileşen} bileşeninde performans ve güvenlik gereksinimleri birbiriyle çelişiyor. {performans_talebi} yaparsak güvenlik standartlarını karşılayamıyoruz; {guvenlik_talebi} yaparsak performans hedeflerimizi kaçırıyoruz.",
       "body_vars": {
         "bileşen": [
           "API katmanı",
@@ -119,9 +119,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nYeni {mevzuat} gereğince {zorunluluk} yapmamız gerekiyor. Ama bu durum mevcut {is_sureci} iş sürecimizle çelişiyor. İkisini aynı anda karşılamak teknik olarak çok zor.",
+      "subject_template": "Yeni {mevzuat} gereğince {zorunluluk} yapmamız gerekiyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nYeni {mevzuat} gereğince {zorunluluk} yapmamız gerekiyor. Ama bu durum mevcut {is_sureci} iş sürecimizle çelişiyor. İkisini aynı anda karşılamak teknik olarak çok zor.",
       "body_vars": {
         "mevzuat": [
           "KVKK güncelleme",
@@ -171,9 +171,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{belge_v1} ile {belge_v2} sürümleri arasında {alan} konusunda tutarsızlık var. Ekip hangi sürümü esas alacağını bilmiyor; yanlış sürüme göre geliştirme riski var.",
+      "subject_template": "{belge_v1} ile {belge_v2} sürümleri arasında {alan} konusunda tutarsızlık var",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{belge_v1} ile {belge_v2} sürümleri arasında {alan} konusunda tutarsızlık var. Ekip hangi sürümü esas alacağını bilmiyor; yanlış sürüme göre geliştirme riski var.",
       "body_vars": {
         "belge_v1": [
           "v1.2 gereksinim belgesi",
@@ -223,9 +223,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{ozellik} özelliği için {fonk_ger} gereksinimini karşılamak istersek {fon_dis_ger} gereksinimini ihlal ediyoruz. Özellikle {etki} konusunda ciddi bir denge problemi var.",
+      "subject_template": "{ozellik} özelliği için {fonk_ger} ile performans gereksinimleri çelişiyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{ozellik} özelliği için {fonk_ger} gereksinimini karşılamak istersek {fon_dis_ger} gereksinimini ihlal ediyoruz. Özellikle {etki} konusunda ciddi bir denge problemi var.",
       "body_vars": {
         "ozellik": [
           "arama motoru",
@@ -280,9 +280,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nMüşterinin yeni talep ettiği {yeni_ozellik} özelliği, mevcut {eski_ozellik} özelliğimizle doğrudan çakışıyor. Birini eklemek diğerini bozuyor; regresyon riski yüksek.",
+      "subject_template": "Müşterinin yeni talep ettiği {yeni_ozellik} özelliği kapsamda yok",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nMüşterinin yeni talep ettiği {yeni_ozellik} özelliği, mevcut {eski_ozellik} özelliğimizle doğrudan çakışıyor. Birini eklemek diğerini bozuyor; regresyon riski yüksek.",
       "body_vars": {
         "yeni_ozellik": [
           "çok kiracılı veri izolasyonu",

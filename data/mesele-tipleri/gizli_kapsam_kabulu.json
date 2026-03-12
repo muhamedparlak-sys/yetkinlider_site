@@ -15,9 +15,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nGeliştiricimiz müşteriyle doğrudan iletişim kurarak {ozellik} özelliğini geliştirdi. Bu kapsam dışı ve hiçbir onay süreci işletilmedi. Şimdi müşteri bu özelliği teslimatta bekliyor.",
+      "subject_template": "Geliştiricimiz müşteriyle doğrudan iletişim kurarak {ozellik} özelliğini geliştirdi",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nGeliştiricimiz müşteriyle doğrudan iletişim kurarak {ozellik} özelliğini geliştirdi. Bu kapsam dışı ve hiçbir onay süreci işletilmedi. Şimdi müşteri bu özelliği teslimatta bekliyor.",
       "body_vars": {
         "ozellik": [
           "özel raporlama şablonu",
@@ -146,9 +146,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{geliştirici} kendi inisiyatifiyle {ozellik} özelliğini ekledi. 'Kullanıcılara faydalı olacak' dedi. Ama bu özellik kapsam dışı ve sprint planında yok; ekibin zamanını aldı.",
+      "subject_template": "{geliştirici} kendi inisiyatifiyle {ozellik} özelliğini ekledi",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{geliştirici} kendi inisiyatifiyle {ozellik} özelliğini ekledi. 'Kullanıcılara faydalı olacak' dedi. Ama bu özellik kapsam dışı ve sprint planında yok; ekibin zamanını aldı.",
       "body_vars": {
         "geliştirici": [
           "kıdemli geliştirici",
@@ -235,9 +235,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{departman} departmanından gelen {talep} talepleri birikiyor. Her biri küçük görünse de toplamda {gun} işgününlük ek efor oluştu. Bunlar hiçbir onay sürecinden geçmedi.",
+      "subject_template": "{departman} departmanından gelen {talep} talepleri birikiyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{departman} departmanından gelen {talep} talepleri birikiyor. Her biri küçük görünse de toplamda {gun} işgününlük ek efor oluştu. Bunlar hiçbir onay sürecinden geçmedi.",
       "body_vars": {
         "departman": [
           "finans",

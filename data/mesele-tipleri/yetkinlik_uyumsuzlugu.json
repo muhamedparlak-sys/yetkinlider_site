@@ -15,9 +15,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{gorev} görevi için {yetkinlik} yetkinliğine ihtiyacımız var. Mevcut ekibimizde bu yetkinlik {durum}. Takvimimiz baskılı; eğitim için zaman yok gibi görünüyor.",
+      "subject_template": "{gorev} görevi için {yetkinlik} yetkinliğine ihtiyacımız var",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{gorev} görevi için {yetkinlik} yetkinliğine ihtiyacımız var. Mevcut ekibimizde bu yetkinlik {durum}. Takvimimiz baskılı; eğitim için zaman yok gibi görünüyor.",
       "body_vars": {
         "gorev": [
           "API güvenlik testi",
@@ -67,9 +67,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nEkibe yeni katılan {rol} için {seviye} düzeyinde deneyim öngörmüştük. Ama gerçekte çok daha {gercek_seviye} görünüyor. Bu durum {gorev} görevinde ciddi yavaşlamaya neden oluyor.",
+      "subject_template": "Ekibe yeni katılan {rol} için {seviye} düzeyinde deneyim öngörmüştük",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nEkibe yeni katılan {rol} için {seviye} düzeyinde deneyim öngörmüştük. Ama gerçekte çok daha {gercek_seviye} görünüyor. Bu durum {gorev} görevinde ciddi yavaşlamaya neden oluyor.",
       "body_vars": {
         "rol": [
           "backend geliştirici",
@@ -124,9 +124,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{alan} konusunda domain uzmanlığı gerektiren gereksinimler var. Ekibimiz teknik açıdan güçlü ama {alan} sektörünü yeterince bilmiyor. Bu durum {etki} etkisi yaratıyor.",
+      "subject_template": "{alan} konusunda domain uzmanlığı gerektiren gereksinimler var",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{alan} konusunda domain uzmanlığı gerektiren gereksinimler var. Ekibimiz teknik açıdan güçlü ama {alan} sektörünü yeterince bilmiyor. Bu durum {etki} etkisi yaratıyor.",
       "body_vars": {
         "alan": [
           "sağlık bilişimi",
@@ -171,9 +171,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nProje {yeni_teknoloji} teknolojisine geçiş yapılmasını gerektiriyor. Ekibimizin %{oran}'i bu teknolojiyle daha önce çalışmamış. Sprint hızımız geçişle birlikte %{dusus} düştü.",
+      "subject_template": "Proje {yeni_teknoloji} teknolojisine geçiş yapılmasını gerektiriyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nProje {yeni_teknoloji} teknolojisine geçiş yapılmasını gerektiriyor. Ekibimizin %{oran}'i bu teknolojiyle daha önce çalışmamış. Sprint hızımız geçişle birlikte %{dusus} düştü.",
       "body_vars": {
         "yeni_teknoloji": [
           "Kubernetes",
@@ -223,9 +223,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nEkibimizde {pm_pratik} konusunda ciddi boşluklar var. Bu eksiklik {sorun} sorununu doğrudan yaratıyor.",
+      "subject_template": "Ekibimizde {pm_pratik} konusunda ciddi boşluklar var",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nEkibimizde {pm_pratik} konusunda ciddi boşluklar var. Bu eksiklik {sorun} sorununu doğrudan yaratıyor.",
       "body_vars": {
         "pm_pratik": [
           "toplantı yönetimi",
@@ -270,9 +270,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nEkip üyelerimizin hazırladığı {belge_turu} belgeleri müşteri tarafından sürekli geri dönüş alıyor. Açıklık ve yapı eksikliği, paydaş güvenini olumsuz etkiliyor.",
+      "subject_template": "Ekip üyelerimizin hazırladığı {belge_turu} belgeleri müşteri tarafından…",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nEkip üyelerimizin hazırladığı {belge_turu} belgeleri müşteri tarafından sürekli geri dönüş alıyor. Açıklık ve yapı eksikliği, paydaş güvenini olumsuz etkiliyor.",
       "body_vars": {
         "belge_turu": [
           "durum raporları",

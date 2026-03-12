@@ -15,9 +15,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{isim}, projemizin {alan} alanındaki tek uzmanı. Bu kişi {sure} içinde şirketten ayrılacak. Bilgi transferi yapılmadan bu proje ciddi risk altına giriyor.",
+      "subject_template": "{isim}, projemizin {alan} alanındaki tek uzmanı",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{isim}, projemizin {alan} alanındaki tek uzmanı. Bu kişi {sure} içinde şirketten ayrılacak. Bilgi transferi yapılmadan bu proje ciddi risk altına giriyor.",
       "body_vars": {
         "isim": [
           "Ali Bey",
@@ -67,9 +67,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{isim}, {alan} alanındaki en kritik kaynağımız. Beklenmedik bir sağlık durumu nedeniyle en az {sure} çalışamayacak. Bu alanda yedek kapasitemiz yok.",
+      "subject_template": "{isim}, {alan} alanındaki en kritik kaynağımız",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{isim}, {alan} alanındaki en kritik kaynağımız. Beklenmedik bir sağlık durumu nedeniyle en az {sure} çalışamayacak. Bu alanda yedek kapasitemiz yok.",
       "body_vars": {
         "isim": [
           "Merve Hanım",
@@ -119,9 +119,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nMüşteriyle tüm iletişim {isim} üzerinden yürüyor. Bu kişi {durum} durumunda. Müşteri ilişkisini kim yönetecek?",
+      "subject_template": "Müşteriyle tüm iletişim {isim} üzerinden yürüyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nMüşteriyle tüm iletişim {isim} üzerinden yürüyor. Bu kişi {durum} durumunda. Müşteri ilişkisini kim yönetecek?",
       "body_vars": {
         "isim": [
           "Ali Bey",
@@ -166,9 +166,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nTüm kritik kararlar {isim} üzerinden geçiyor. Bu kişi çok yoğun; cevaplar günlerce gecikmekte, ekip beklemek zorunda kalıyor. Sprint hızımız bu darboğaz nedeniyle düşüyor.",
+      "subject_template": "Tüm kritik kararlar {isim} üzerinden geçiyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nTüm kritik kararlar {isim} üzerinden geçiyor. Bu kişi çok yoğun; cevaplar günlerce gecikmekte, ekip beklemek zorunda kalıyor. Sprint hızımız bu darboğaz nedeniyle düşüyor.",
       "body_vars": {
         "isim": [
           "Ali Bey",
@@ -208,9 +208,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{isim}, birden fazla kritik görevde %{oran} kapasitede çalışıyor. Tükenmişlik belirtileri görünüyor; hem üretkenliği düşüyor hem de ayrılma riski artıyor.",
+      "subject_template": "{isim}, birden fazla kritik görevde %{oran} kapasitede çalışıyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{isim}, birden fazla kritik görevde %{oran} kapasitede çalışıyor. Tükenmişlik belirtileri görünüyor; hem üretkenliği düşüyor hem de ayrılma riski artıyor.",
       "body_vars": {
         "isim": [
           "Ali Bey",

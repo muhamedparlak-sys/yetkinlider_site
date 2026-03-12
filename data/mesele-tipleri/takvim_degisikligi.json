@@ -67,9 +67,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{ortam} ortamı {tarih} tarihinde hazır olmayacak. Ekibimizin bu ortama ihtiyacı var; gecikmede kalırsak sprint planımız bozulacak.",
+      "subject_template": "{ortam} ortamı {tarih} tarihinde hazır olmayacak",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{ortam} ortamı {tarih} tarihinde hazır olmayacak. Ekibimizin bu ortama ihtiyacı var; gecikmede kalırsak sprint planımız bozulacak.",
       "body_vars": {
         "ortam": [
           "test sunucusu",
@@ -114,9 +114,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nBirden fazla projenin teslim tarihi {tarih} haftasına denk geldi. Ekibimizin kaynakları bu yoğunluğu kaldırmıyor; önceliklendirme yapmadan ilerleyemeyiz.",
+      "subject_template": "Birden fazla projenin teslim tarihi {tarih} haftasına denk geldi",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nBirden fazla projenin teslim tarihi {tarih} haftasına denk geldi. Ekibimizin kaynakları bu yoğunluğu kaldırmıyor; önceliklendirme yapmadan ilerleyemeyiz.",
       "body_vars": {
         "tarih": [
           "Mart sonu",
@@ -156,9 +156,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{uzman_rol} rolündeki {isim}, {sure} süreyle {neden} nedeniyle müsait değil. Bu kişi olmadan {gorev} görevi ilerleyemez; takvimde ciddi açık oluşacak.",
+      "subject_template": "{uzman_rol} rolündeki {isim}, {sure} süreyle {neden} nedeniyle müsait değil",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{uzman_rol} rolündeki {isim}, {sure} süreyle {neden} nedeniyle müsait değil. Bu kişi olmadan {gorev} görevi ilerleyemez; takvimde ciddi açık oluşacak.",
       "body_vars": {
         "uzman_rol": [
           "baş geliştirici",
@@ -265,9 +265,9 @@
       "max_per_scenario": 1,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{olay} nedeniyle {sure} boyunca ekip uzaktan çalışmak zorunda kalacak veya çalışamayacak. Bu durum {etki} etkisi yaratacak.",
+      "subject_template": "{olay} nedeniyle {sure} boyunca ekip uzaktan çalışmak zorunda kalacak veya çalışamayacak",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{olay} nedeniyle {sure} boyunca ekip uzaktan çalışmak zorunda kalacak veya çalışamayacak. Bu durum {etki} etkisi yaratacak.",
       "body_vars": {
         "olay": [
           "kötü hava koşulları",

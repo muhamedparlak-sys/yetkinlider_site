@@ -156,9 +156,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nKullanıcılar {modul} modülündeki değişikliklere direnç gösteriyor. {gerekce} gerekçesiyle yeni sistemi kullanmayı reddediyorlar. Değişim yönetimi planımız yetersiz kalıyor.",
+      "subject_template": "Kullanıcılar {modul} modülündeki değişikliklere direnç gösteriyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nKullanıcılar {modul} modülündeki değişikliklere direnç gösteriyor. {gerekce} gerekçesiyle yeni sistemi kullanmayı reddediyorlar. Değişim yönetimi planımız yetersiz kalıyor.",
       "body_vars": {
         "modul": [
           "raporlama",
@@ -203,9 +203,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nSponsor {isim_bey/hanim}, ekibimizle benim bilgim olmadan toplantı yapıp {direktif} direktifini verdi. Ekip şimdi ne yapacağını bilmiyor; iki farklı yönlendirme var.",
+      "subject_template": "Sponsor {isim_bey/hanim} ekibe farklı direktif verdi — çelişki var",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nSponsor {isim_bey/hanim}, ekibimizle benim bilgim olmadan toplantı yapıp {direktif} direktifini verdi. Ekip şimdi ne yapacağını bilmiyor; iki farklı yönlendirme var.",
       "body_vars": {
         "isim_bey/hanim": [
           "Bey",

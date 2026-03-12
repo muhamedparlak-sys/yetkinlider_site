@@ -156,9 +156,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nAnalitik verilere göre {ozellik} özelliği son {sure} içinde %{oran} oranında kullanılmış. Geliştirme maliyeti {efor} işgünüydü. Bu özelliği geliştirmek doğru bir karar mıydı?",
+      "subject_template": "Analitik verilere göre {ozellik} özelliği son {sure} içinde %{oran} oranında kullanılmış",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nAnalitik verilere göre {ozellik} özelliği son {sure} içinde %{oran} oranında kullanılmış. Geliştirme maliyeti {efor} işgünüydü. Bu özelliği geliştirmek doğru bir karar mıydı?",
       "body_vars": {
         "ozellik": [
           "gelişmiş filtreleme",

@@ -15,9 +15,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{isim} projeye {sure} önce katıldı ama hâlâ {sorun} sorunuyla mücadele ediyor. Sprint taahhütleri aksıyor ve diğer ekip üyeleri etkileniyor.",
+      "subject_template": "{isim} projeye {sure} önce katıldı ama hâlâ {sorun} sorunuyla mücadele ediyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{isim} projeye {sure} önce katıldı ama hâlâ {sorun} sorunuyla mücadele ediyor. Sprint taahhütleri aksıyor ve diğer ekip üyeleri etkileniyor.",
       "body_vars": {
         "isim": [
           "Ali Bey",
@@ -67,9 +67,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{isim} onboarding belgelerini kullanarak kurulum yapmaya çalıştı ama belgeler {durum}. {isim} kendi başına ilerleyemiyor; her adımda birinden yardım istemek zorunda kalıyor.",
+      "subject_template": "{isim} onboarding belgelerini kullanarak kurulum yapmaya çalıştı ama belgeler {durum}",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{isim} onboarding belgelerini kullanarak kurulum yapmaya çalıştı ama belgeler {durum}. {isim} kendi başına ilerleyemiyor; her adımda birinden yardım istemek zorunda kalıyor.",
       "body_vars": {
         "isim": [
           "Ali Bey",
@@ -114,9 +114,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{isim} teknik açıdan yeterli ama ekibimizin {kultur} kültürüyle ciddi uyumsuzluk yaşıyor. Diğer ekip üyeleriyle gerilim artıyor.",
+      "subject_template": "{isim} teknik açıdan yeterli ama ekibimizin {kultur} kültürüyle ciddi uyumsuzluk yaşıyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{isim} teknik açıdan yeterli ama ekibimizin {kultur} kültürüyle ciddi uyumsuzluk yaşıyor. Diğer ekip üyeleriyle gerilim artıyor.",
       "body_vars": {
         "isim": [
           "Ali Bey",
@@ -161,9 +161,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{mentor} kıdemli üyemiz yeni katılan {yeni_uye}'e mentorluk yapıyor ama bu süreç kendi sprint görevlerini ciddi biçimde aksatıyor. İkisi de verimli çalışamıyor.",
+      "subject_template": "{mentor} mentorluk yapıyor ama bu durum kendi görevlerini aksatıyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{mentor} kıdemli üyemiz yeni katılan {yeni_uye}'e mentorluk yapıyor ama bu süreç kendi sprint görevlerini ciddi biçimde aksatıyor. İkisi de verimli çalışamıyor.",
       "body_vars": {
         "mentor": [
           "Ali Bey",
@@ -208,9 +208,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\nBu ay {sayi} yeni üye aynı anda projeye katıldı. Onboarding yükü mevcut ekibi aşıyor; sprint hızımız belirgin şekilde düştü.",
+      "subject_template": "Bu ay {sayi} yeni üye aynı anda projeye katıldı",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nBu ay {sayi} yeni üye aynı anda projeye katıldı. Onboarding yükü mevcut ekibi aşıyor; sprint hızımız belirgin şekilde düştü.",
       "body_vars": {
         "sayi": [
           "3",

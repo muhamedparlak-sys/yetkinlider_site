@@ -15,9 +15,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{modul} modülü üzerinde çalışırken {sistem} sisteminin onunla doğrudan bağlantılı olduğunu fark ettim. Bu bağımlılık hiçbir dokümanda kayıtlı değil ve değişikliklerimiz {etki} riskini doğuruyor.",
+      "subject_template": "{modul} modülü {sistem} sistemiyle gizli bağımlılık taşıyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{modul} modülü üzerinde çalışırken {sistem} sisteminin onunla doğrudan bağlantılı olduğunu fark ettim. Bu bağımlılık hiçbir dokümanda kayıtlı değil ve değişikliklerimiz {etki} riskini doğuruyor.",
       "body_vars": {
         "modul": [
           "ödeme işleme",
@@ -67,9 +67,9 @@
       "max_per_scenario": 2,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{hedef_sistem} için veri akışını incelerken {kaynak_sistem} verisi olmadan çalışamayacağını gördüm. Ancak {kaynak_sistem} ekibi bu entegrasyondan haberdar değil ve kendi sprint planlarında yer almıyor.",
+      "subject_template": "{hedef_sistem} için {kaynak_sistem} verisi olmadan ilerleme mümkün değil",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{hedef_sistem} için veri akışını incelerken {kaynak_sistem} verisi olmadan çalışamayacağını gördüm. Ancak {kaynak_sistem} ekibi bu entegrasyondan haberdar değil ve kendi sprint planlarında yer almıyor.",
       "body_vars": {
         "hedef_sistem": [
           "analitik platform",
@@ -114,9 +114,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{alan} konusundaki tüm kritik kararlar {uzman_isim} üzerinden geçiyor. Bu kişi {durum} durumunda projemiz ciddi risk altına giriyor. Alternatif bilgi kaynağımız yok.",
+      "subject_template": "{alan} konusundaki tüm kritik kararlar {uzman_isim} üzerinden geçiyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{alan} konusundaki tüm kritik kararlar {uzman_isim} üzerinden geçiyor. Bu kişi {durum} durumunda projemiz ciddi risk altına giriyor. Alternatif bilgi kaynağımız yok.",
       "body_vars": {
         "alan": [
           "veritabanı optimizasyonu",
@@ -166,9 +166,9 @@
       "max_per_scenario": 1,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{servis} servisinin {islem} işlemimizi desteklemediğini geçen hafta keşfettik. {bileşen} bileşenimiz bu servise doğrudan bağımlı; alternatif servis kullanmak için mimari değişiklik gerekiyor.",
+      "subject_template": "{servis} servisinin {islem} işlemimizi desteklemediğini geçen hafta keşfettik",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{servis} servisinin {islem} işlemimizi desteklemediğini geçen hafta keşfettik. {bileşen} bileşenimiz bu servise doğrudan bağımlı; alternatif servis kullanmak için mimari değişiklik gerekiyor.",
       "body_vars": {
         "servis": [
           "mevcut load balancer",
@@ -218,9 +218,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{teslim} teslimatımızı yayına almak için {departman} departmanının onayı gerekiyor. Bunu proje başında bilmiyorduk; onay süreci {sure} sürebilir ve planladığımız tarih kaçacak.",
+      "subject_template": "{teslim} teslimatımızı yayına almak için {departman} departmanının onayı gerekiyor",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{teslim} teslimatımızı yayına almak için {departman} departmanının onayı gerekiyor. Bunu proje başında bilmiyorduk; onay süreci {sure} sürebilir ve planladığımız tarih kaçacak.",
       "body_vars": {
         "teslim": [
           "üretim dağıtımı",
@@ -270,9 +270,9 @@
       "max_per_scenario": 1,
       "gender": "female",
       "sender": "self",
-      "subject_template": "Hocam,\n\nKullandığımız {kutüphane} kütüphanesinin lisansı {lisans_tur} ile uyumsuz olduğunu hukuk ekibi tespit etti. Kod tabanımızın {oran}'i bu kütüphaneyi kullanıyor; değiştirme süreci zaman alacak.",
+      "subject_template": "{kütüphane} kütüphanesinin lisansı {lisans_tur} ile uyumsuz",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\nKullandığımız {kutüphane} kütüphanesinin lisansı {lisans_tur} ile uyumsuz olduğunu hukuk ekibi tespit etti. Kod tabanımızın {oran}'i bu kütüphaneyi kullanıyor; değiştirme süreci zaman alacak.",
       "body_vars": {
         "kutüphane": [
           "açık kaynaklı şifreleme modülü",
@@ -322,9 +322,9 @@
       "max_per_scenario": 2,
       "gender": "male",
       "sender": "self",
-      "subject_template": "Hocam,\n\n{sistem_a} ile {sistem_b} entegrasyonunda veri modellerinin farklı olduğunu keşfettik. {alan} alanı {fark} farklılığa sahip; dönüşüm katmanı yazmak ek efor gerektiriyor.",
+      "subject_template": "{sistem_a} ile {sistem_b} entegrasyonunda veri modellerinin farklı olduğunu keşfettik",
       "from_role_template": "{role}",
-      "body_template": {},
+      "body_template": "Hocam,\n\n{sistem_a} ile {sistem_b} entegrasyonunda veri modellerinin farklı olduğunu keşfettik. {alan} alanı {fark} farklılığa sahip; dönüşüm katmanı yazmak ek efor gerektiriyor.",
       "body_vars": {
         "sistem_a": [
           "CRM",
