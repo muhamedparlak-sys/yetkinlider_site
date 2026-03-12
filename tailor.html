@@ -471,7 +471,9 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
     YetkinLider<sup>™</sup>
   </a>
   <div class="topbar-right">
-    <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" title="Gece/Gündüz">🌙</button>
+    <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" title="Gece/Gündüz">
+      <svg id="theme-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
     <button class="btn-hub" onclick="window.location.href='profile.html'" id="topbar-profile-btn" style="display:none">
       <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
       <span id="topbar-profile-name"></span>
@@ -649,33 +651,22 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
         Kariyer Senaryosu — Özet
       </div>
       <div class="summary-body" id="career-summary"></div>
-    </div>
-
-    <!-- Karakter Kadrosu -->
-    <div class="setup-card" id="char-card" style="margin-bottom:16px">
-      <div class="summary-head">
-        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Ekip Kadrosu — İsim, Unvan ve Arketip Düzenlenebilir
-      </div>
-      <div class="char-rows" id="char-rows">
-        <!-- JS ile doldurulur -->
-      </div>
 
       <!-- Gelişmiş Ayarlar — üye kilit -->
       <div class="adv-toggle" id="adv-toggle" onclick="toggleAdvanced()">
         <svg class="adv-chevron" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        <span class="adv-toggle-label">Gelişmiş Arketip Ayarları</span>
-        <span id="adv-lock-icon" style="font-size:13px">🔒</span>
+        <span class="adv-toggle-label">Gelişmiş Ayarlar</span>
+        <span id="adv-lock-icon" style="display:flex;align-items:center;opacity:.55"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
       </div>
       <div class="adv-body" id="adv-body">
         <div class="adv-lock-row" id="adv-lock-msg">
-          <span>🔒</span>
+          <span style="display:flex;align-items:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
           <span>Bu ayarlar yalnızca üyeler için aktif. Üye olun ve her boyutu tam kontrol edin.</span>
         </div>
         <div class="adv-tabs">
-          <button class="adv-tab active" onclick="switchAdvTab('people',this)">👥 Ekip</button>
-          <button class="adv-tab" onclick="switchAdvTab('process',this)">⚙️ Süreç</button>
-          <button class="adv-tab" onclick="switchAdvTab('env',this)">🌐 Çevre</button>
+          <button class="adv-tab active" onclick="switchAdvTab('people',this)" style="display:flex;align-items:center;justify-content:center;gap:5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Ekip</button>
+          <button class="adv-tab" onclick="switchAdvTab('process',this)" style="display:flex;align-items:center;justify-content:center;gap:5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg> Süreç</button>
+          <button class="adv-tab" onclick="switchAdvTab('env',this)" style="display:flex;align-items:center;justify-content:center;gap:5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Çevre</button>
         </div>
         <!-- People tab: per-member archetype selects (filled by JS) -->
         <div class="adv-tab-pane active" id="adv-pane-people">
@@ -707,6 +698,9 @@ input[type=range].ds-range::-moz-range-thumb{width:16px;height:16px;border-radiu
         </div>
       </div>
     </div>
+
+    <!-- Hidden container for char-rows (JS still populates it for PSG customKadro) -->
+    <div id="char-rows" style="display:none"></div>
 
     <div class="info-box">
       <svg class="info-box-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -1245,8 +1239,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Dark mode: localStorage'dan oku
   if (localStorage.getItem('pmSim_theme') === 'light') {
     document.body.classList.add('light-mode');
-    const btn = document.getElementById('theme-toggle-btn');
-    if (btn) btn.textContent = '☀️';
+    const icon = document.getElementById('theme-icon');
+    if (icon) icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
   }
 });
 
@@ -1506,25 +1500,33 @@ function tags(arr, map) {
 function renderCareerSummary() {
   const c = S.career;
   const sLbl = c.sector === 'other' ? (c.sector_custom || 'Diğer') : (SECTOR_LABEL_MAP[c.sector] || c.sector);
+  const DIFF_COLORS = { 1: '#22c55e', 2: '#f59e0b', 3: '#ff3b3b' };
+  const DIFF_LBLS   = { 1: 'Kolay', 2: 'Orta', 3: 'Zor' };
+  function diffDot(v) {
+    const c2 = DIFF_COLORS[v] || '#f59e0b';
+    return `<span style="display:inline-flex;align-items:center;gap:3px;font-size:12px;font-weight:600;color:${c2}">${DIFF_LBLS[v]||'Orta'}</span>`;
+  }
+  const diffSummary =
+    `<span style="display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap">` +
+    `<span style="font-size:11px;color:rgba(255,255,255,.35)">People</span>${diffDot(c.difficulty_people||2)}` +
+    `<span style="font-size:11px;color:rgba(255,255,255,.18)">·</span>` +
+    `<span style="font-size:11px;color:rgba(255,255,255,.35)">Süreç</span>${diffDot(c.difficulty_process||2)}` +
+    `<span style="font-size:11px;color:rgba(255,255,255,.18)">·</span>` +
+    `<span style="font-size:11px;color:rgba(255,255,255,.35)">Çevre</span>${diffDot(c.difficulty_biz||2)}` +
+    `</span>`;
+
   document.getElementById('career-summary').innerHTML =
-    row(IC.user,     'PM Adı',         c.pm_name) +
-    row(IC.folder,   'Proje Adı',      c.project_name) +
-    row(IC.globe,    'Sektör',         sLbl) +
-    row(IC.zap, 'People & Ekip',  `${'●'.repeat(c.difficulty_people||2)}${'○'.repeat(3-(c.difficulty_people||2))}`) +
-    row(IC.zap, 'Süreç & Kapsam', `${'●'.repeat(c.difficulty_process||2)}${'○'.repeat(3-(c.difficulty_process||2))}`) +
-    row(IC.zap, 'İş Çevresi',     `${'●'.repeat(c.difficulty_biz||2)}${'○'.repeat(3-(c.difficulty_biz||2))}`) +
-    row(IC.building, 'PMO',            LBL.pmo_type[c.pmo_type] || c.pmo_type) +
-    row(IC.users,    'Takım',          LBL.team_culture[c.team_culture] || c.team_culture) +
-    row(IC.layers,   'Faz Aralığı',   `${LBL.phase[c.start_phase] || c.start_phase} → ${LBL.phase[c.end_phase] || c.end_phase}`) +
-    row(IC.route, 'Yaklaşım', (() => {
+    row(IC.user,     'PM Adı',       c.pm_name) +
+    row(IC.folder,   'Proje Adı',    c.project_name) +
+    row(IC.globe,    'Sektör',       sLbl) +
+    row(IC.zap,      'Zorluk',       diffSummary) +
+    row(IC.building, 'PMO Tipi',     LBL.pmo_type[c.pmo_type] || c.pmo_type) +
+    row(IC.layers,   'Faz Aralığı', `${LBL.phase[c.start_phase] || c.start_phase} → ${LBL.phase[c.end_phase] || c.end_phase}`) +
+    row(IC.route, 'Metodoloji', (() => {
       const lbl = LBL.dev_approach[c.dev_approach] || c.dev_approach || '—';
       const pred = 100 - approach2Ratio, agile = approach2Ratio;
       return `<span style="display:inline-flex;align-items:center;gap:8px">${lbl}<span style="display:inline-flex;width:64px;height:8px;border-radius:4px;overflow:hidden;flex-shrink:0"><span style="flex:${pred};background:linear-gradient(135deg,#4338ca,#6d28d9)"></span><span style="flex:${agile};background:linear-gradient(135deg,#0891b2,#2563eb)"></span></span></span>`;
-    })()) +
-    (() => {
-      const a = ARKETIP.find(x => x.id === c.team_archetype);
-      return a ? row(IC.users, 'Ekip Profili', `<span style="color:#c4b5fd;font-weight:700">${a.title}</span>`) : '';
-    })();
+    })());
 }
 
 function renderCompSummary() {
@@ -1687,8 +1689,14 @@ function getWeakestEcoDomain() {
 function toggleTheme() {
   const isLight = document.body.classList.toggle('light-mode');
   localStorage.setItem('pmSim_theme', isLight ? 'light' : 'dark');
-  const btn = document.getElementById('theme-toggle-btn');
-  if (btn) btn.textContent = isLight ? '☀️' : '🌙';
+  const icon = document.getElementById('theme-icon');
+  if (icon) {
+    if (isLight) {
+      icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+    } else {
+      icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    }
+  }
 }
 
 // ── ADVANCED OPTIONS (özet sayfası) ──────────────────────────────────────────
